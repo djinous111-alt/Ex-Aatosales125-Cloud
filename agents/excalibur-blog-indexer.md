@@ -22,10 +22,14 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 ## Твои задачи
 
-1. `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir <dir> --site-base ${PUBLIC_SITE_URL}`
-2. `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base ${PUBLIC_SITE_URL} --blog-path / --out-dir memory/blog`
-3. `promotion-checklist.md` из template.
+1. `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir <dir> --site-base ""`
+2. `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "" --out-dir memory/blog`
+3. `promotion-checklist.md` из template (Live URL paths relative `/blog/<slug>/` only).
 4. Handoff `=== EXCALIBUR BLOG INDEXER ===`.
+
+**Commit-safe:** `--site-base ""` → relative `/blog/<slug>/` in `llms.txt` / `llms-full.txt` / interlink report. Do **not** pass `${PUBLIC_SITE_URL}` into committed artifacts (secret-scan blocks absolute host). Absolute base only for live deploy outside git.
+
+CLI has `--blog-dir` / `--out-dir` only — **no** `--blog-path`.
 
 ## Не твоя зона
 

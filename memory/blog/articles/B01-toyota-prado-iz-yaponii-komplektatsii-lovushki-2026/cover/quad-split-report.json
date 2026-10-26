@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-toyota-prado-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 769
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1309
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у Prado / LC250 в порту Владивостока с аукционным листом и плашкой «до ставки»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1309,
+          "top": 8,
+          "right": 2560,
+          "bottom": 712
+        },
+        "raw_box_px": {
+          "left": 1309,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора сценария Prado до поиска лотов: семья, бездорожье или трасса",
+        "h2_anchor": "Зафиксируйте сценарий до поиска лотов"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 44,
+          "top": 769,
+          "right": 1237,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 769,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнение Prado 150 и Land Cruiser 250: коды кузова и как искать на аукционе",
+        "h2_anchor": "Как не перепутать Prado 150 и Land Cruiser 250"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1338,
+          "top": 769,
+          "right": 2531,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1309,
+          "top": 769,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика моторов Prado: бензин 2.7 и дизель 2.8 без иллюзии льготного утиля",
+        "h2_anchor": "Сравните моторы без иллюзии льготного утиля"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте сценарий до поиска лотов",
+    "injected inline_2 after H2 — Как не перепутать Prado 150 и Land Cruiser 250",
+    "injected inline_3 after H2 — Сравните моторы без иллюзии льготного утиля"
+  ]
+}

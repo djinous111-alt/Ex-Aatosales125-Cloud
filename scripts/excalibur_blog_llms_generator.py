@@ -61,8 +61,22 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
+def normalize_site_base(site_base: str) -> str:
+    """Committed llms artifacts use relative /blog/<slug>/ paths (secret-scan safe)."""
+    base = (site_base or "").strip().rstrip("/")
+    if not base or base.upper() in {"[REDACTED]", "REDACTED"}:
+        return ""
+    return base
+
+
+def article_blog_url(site_base: str, slug: str) -> str:
+    base = normalize_site_base(site_base)
+    if not base:
+        return f"/blog/{slug}/"
+    return f"{base}/blog/{slug}/"
+
+
 def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -71,14 +85,13 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
         ""
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_blog_url(site_base, a["slug"])
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
 def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -88,7 +101,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_blog_url(site_base, a["slug"])
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -108,7 +121,12 @@ def main() -> int:
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="",
+        help="Absolute site origin for live deploy only. Default empty → relative /blog/<slug>/ (commit-safe).",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 

@@ -38,6 +38,8 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- `reference_url_hosted` для Kie i2i должен быть **HTTPS**. Plain `http://` (даже с 301→https) часто даёт failCode=500; скрипты нормализуют http→https до createTask.
+- Prompt builder режет `scene_hint` по границам токенов; не полагайся на mid-phrase truncate. Outfit — по `outfit_rule`/погоде сцены, не hard-lock white hoodie.
 
 ## Scout
 
@@ -46,3 +48,22 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` / `--out-dir` (не `--blog-path`). Doctor проверяет актуальные флаги.
+- Для commit: `--site-base ""` → relative `/blog/<slug>/`. Не пиши `${PUBLIC_SITE_URL}` в `llms.txt` / `interlink-suggestions.json` — secret-scan блокирует commit.
+
+## Research notes gate
+
+- `technical_topic` использует token-boundary TECH_MARKERS (не substring). `ai` в `reader_pain` / `ии` в `японии` больше не включают GitHub-квоту для auto-тем.
+
+## Utility / GEO QA
+
+- `editorial-policy.json` обязан держать непустые `pain_markers_ru` / `outcome_markers_ru`, если заданы `min_*`. Utility gate пропускает pain/outcome enforce только при пустых списках; doctor ловит рассинхрон.
+
+## Git / secret names
+
+- Перед `git commit`: `source scripts/excalibur_blog_sanitize_secret_names.sh` — выкидывает URL/`[REDACTED]` из `CLOUD_AGENT_*_SECRET_NAMES`, иначе pre-commit даёт `invalid variable name`.
+- `--no-verify` только как last resort после явной проверки staged files.
+
+## Publish deps
+
+- Cloud install должен ставить `requirements.txt` (включая `paramiko`). `--env-check` и doctor проверяют import paramiko.

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивое фото Prado — уже ставка?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Prado / LC250 в порту Владивостока с аукционным листом и плашкой «до ставки»",
+      "scene_hint": "Владивосток порт, туман/морякская сырость, рамный современный Toyota Land Cruiser Prado / LC250 на фоне ролкера; герой Авто-Сейлс — EXACT face+glasses from reference, outfit: непромокаемая тёмная куртка (rain/fog port, НЕ майка с reference), в руках бумажный аукционный лист с оценкой и схемой кузова; плашка Cyrillic «до ставки»; fake UI: карточка лота аукциона + чеклист 10 пунктов на рваной бумаге со скотчем; стикер «лист важнее фото»; shocked meme cutout; угол обложки мелкий avto-sales125.ru; без Wordstat/Метрики/Telegram",
+      "meme_caption_ru": "Сначала лист — потом ставка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте сценарий до поиска лотов",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Чистая схема без лица героя: 3 сценария Prado (семья / бездорожье / трасса) → места 5/7 → потолок под ключ → одна ветка лотов; стрелки и sticky note «не прыгай между 150 и 250»; tape corner; кириллица",
+      "alt": "Схема выбора сценария Prado до поиска лотов: семья, бездорожье или трасса"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как не перепутать Prado 150 и Land Cruiser 250",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица без героя: Prado 150 (GDJ150/TRJ150) vs Land Cruiser 250 (GDJ250W/TRJ250W); колонки поиск на аукционе, дизель/бензин, грейды TX/ZX; маркер «в Японии ищите LC250»; mini sticky «не только Prado»",
+      "alt": "Сравнение Prado 150 и Land Cruiser 250: коды кузова и как искать на аукционе"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните моторы без иллюзии льготного утиля",
+      "visual_type": "infographic_card",
+      "scene_hint": "Инфографика без героя: 2TR-FE ~120 кВт и 1GD-FTV ~150 кВт — оба выше порога льготы 117,68 кВт; красный крест на мифе «бензин пройдёт по льготе»; карточка «считайте в каталоге»; без сумм денег крупно; tape + sticker «не чужие таблицы»",
+      "alt": "Инфографика моторов Prado: бензин 2.7 и дизель 2.8 без иллюзии льготного утиля"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B01-toyota-prado-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "перепутать Prado 150 и Land Cruiser 250 С апреля 2024 в Японии новое поколение продаётся как Land Cruise",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2020",
+      "kind": "date_or_year",
+      "context": "250W / TRJ250W Дизель (JP) 1GD-FTV: 177 PS до Aug 2020, затем 204 PS 1GD-FTV 2.8: 150 кВт / 204 PS, 8AT",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ощности – с открытыми разъяснениями по утильсбору 2026. Актуальные расчёты \"под ключ\" – только в каталог",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "тся к ставке. Типичная боль: перепутать поколение 150 и 250, не прочитать аукционный лист и решить, что",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "250",
+      "kind": "large_number",
+      "context": "истом. Как не перепутать Prado 150 и Land Cruiser 250 С апреля 2024 в Японии новое поколение продаётся к",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "177",
+      "kind": "large_number",
+      "context": "iser 250 / GDJ250W / TRJ250W Дизель (JP) 1GD-FTV: 177 PS до Aug 2020, затем 204 PS 1GD-FTV 2.8: 150 кВт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "204",
+      "kind": "large_number",
+      "context": "0W Дизель (JP) 1GD-FTV: 177 PS до Aug 2020, затем 204 PS 1GD-FTV 2.8: 150 кВт / 204 PS, 8AT Бензин (JP)",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "120",
+      "kind": "large_number",
+      "context": "зин (JP) 2TR-FE 2.7 (типично TRJ150W) 2TR-FE 2.7: 120 кВт / 163 PS, 6AT Грейды (ориентир) TX, TX L, TZ-G",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "163",
+      "kind": "large_number",
+      "context": "TR-FE 2.7 (типично TRJ150W) 2TR-FE 2.7: 120 кВт / 163 PS, 6AT Грейды (ориентир) TX, TX L, TZ-G и др. ZX,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

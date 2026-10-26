@@ -1,0 +1,651 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-26",
+    "today_ru": "26.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-28",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-prado-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Чек-лист Toyota Land Cruiser Prado из Японии: комплектации и ловушки до ставки в 2026",
+    "primary_query": "тойота прадо из японии",
+    "secondary_queries": [
+      "прадо из японии",
+      "прадо владивосток",
+      "тойота прадо 250",
+      "ленд крузер прадо из японии"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "тойота прадо из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: поколения, цены под ключ и нюансы ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-lc-prado-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: почему «японец» до сих пор в цене ...",
+          "url": "https://jckauto.ru/blog/toyota-land-cruiser-prado-import-japan",
+          "snippet": "Toyota Land Cruiser Prado из Японии в 2026: поколения J150 и J250, аукционные цены USS/JAA, стоимость под ключ в Сибири, утильсбор по коммерческой ставке и что нужно знать до покупки."
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 технические характеристики. Toyota Land ...",
+          "url": "https://www.drom.ru/catalog/toyota/land_cruiser_prado/2026/",
+          "snippet": "Но реальность 2026 года такова: официально Toyota в России нет, а значит, единственный путь к живому «Прадо» — импорт. И здесь японское направление дает покупателю то, чего не могут дать другие рынки: предсказуемое качество сборки, богатые комплектации и понятную историю обслуживания."
+        },
+        {
+          "title": "Параллельный импорт Prado из Японии после 2022: схемы, риски, реальные ...",
+          "url": "https://prado-club.ru/article/prado-parallelnyj-import-yaponiya-2026/",
+          "snippet": "Подробно расписан модельный ряд Toyota Land Cruiser Prado 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить Toyota Land Cruiser Prado 2026 — импорт из Японии, 8.4 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/toyota-land-cruiser-prado-japan-2026-6/",
+          "snippet": "Параллельный импорт Prado из Японии в 2025-2026: схемы, риски, реальные цены и сроки. Как отличить честного посредника от \"серого\"."
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 цены модели, комплектации, фото, новый ...",
+          "url": "https://cenyavto.com/toyota-land-cruiser-prado-2026/",
+          "snippet": "Полная комплектация Toyota Land Cruiser Prado в премиум-комплектации, типичной для лотов из Японии. Реальная комплектация конкретной машины подтверждается аукционным листом и прилагается к договору."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "тойота прадо из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: поколения, цены под ключ и нюансы ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-lc-prado-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт Prado из Японии после 2022: схемы, риски, реальные ...",
+          "url": "https://prado-club.ru/article/prado-parallelnyj-import-yaponiya-2026/",
+          "snippet": "Toyota Land Cruiser Prado из Японии в 2026: поколения J150 и J250, аукционные цены USS/JAA, стоимость под ключ в Сибири, утильсбор по коммерческой ставке и что нужно знать до покупки."
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: почему «японец» до сих пор в цене ...",
+          "url": "https://jckauto.ru/blog/toyota-land-cruiser-prado-import-japan",
+          "snippet": "Параллельный импорт Prado из Японии в 2025-2026: схемы, риски, реальные цены и сроки. Как отличить честного посредника от \"серого\"."
+        },
+        {
+          "title": "Растаможка Prado из Японии в 2026: пошаговый расчёт и подводные камни",
+          "url": "https://prado-club.ru/article/rastamozhka-prado-iz-yaponii-raschet/",
+          "snippet": "Но реальность 2026 года такова: официально Toyota в России нет, а значит, единственный путь к живому «Прадо» — импорт. И здесь японское направление дает покупателю то, чего не могут дать другие рынки: предсказуемое качество сборки, богатые комплектации и понятную историю обслуживания."
+        },
+        {
+          "title": "Купить Toyota Land Cruiser Prado 2026 — импорт из Японии, 8.4 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/toyota-land-cruiser-prado-japan-2026-6/",
+          "snippet": "Пошаговый расчет растаможки Prado из Японии в 2026 году: аукционы, фрахт, таможня, утильсбор. Подводные камни правого руля и скрытых дефектов."
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: цена и растаможка — калькулятор 2026",
+          "url": "https://auto-rul.ru/calculate-rastamogka-japan/Toyota-Land-Cruiser-Prado-rastamogka",
+          "snippet": "Полная комплектация Toyota Land Cruiser Prado в премиум-комплектации, типичной для лотов из Японии. Реальная комплектация конкретной машины подтверждается аукционным листом и прилагается к договору."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "тойота прадо из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: почему «японец» до сих пор в цене ...",
+          "url": "https://jckauto.ru/blog/toyota-land-cruiser-prado-import-japan",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: поколения, цены под ключ и нюансы ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-lc-prado-iz-yaponii",
+          "snippet": "Но реальность 2026 года такова: официально Toyota в России нет, а значит, единственный путь к живому «Прадо» — импорт. И здесь японское направление дает покупателю то, чего не могут дать другие рынки: предсказуемое качество сборки, богатые комплектации и понятную историю обслуживания."
+        },
+        {
+          "title": "Параллельный импорт Prado из Японии после 2022: схемы, риски, реальные ...",
+          "url": "https://prado-club.ru/article/prado-parallelnyj-import-yaponiya-2026/",
+          "snippet": "Toyota Land Cruiser Prado из Японии в 2026: поколения J150 и J250, аукционные цены USS/JAA, стоимость под ключ в Сибири, утильсбор по коммерческой ставке и что нужно знать до покупки."
+        },
+        {
+          "title": "Новый Тойота Прадо 2026-2026: характеристики, цены и комплектации",
+          "url": "https://toyotabase.vercel.app/articles/n/no/novyj-tojota-prado.html",
+          "snippet": "Параллельный импорт Prado из Японии в 2025-2026: схемы, риски, реальные цены и сроки. Как отличить честного посредника от \"серого\"."
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 новый кузов, цены, комплектации, фото ...",
+          "url": "https://naavtotrasse.ru/toyota/toyota-land-cruiser-prado-2026.html",
+          "snippet": "Автомобильный мир замер в ожидании, когда японский гигант Toyota наконец-то приоткрыл завесу тайны над своим самым ожидаемым проектом. Новый Тойота Прадо перестал быть просто слухом и превратился в реальность, шокировавшую публику смелым дизайном и технологическим скачком."
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 цены модели, комплектации, фото, новый ...",
+          "url": "https://cenyavto.com/toyota-land-cruiser-prado-2026/",
+          "snippet": "Тойота Ленд Крузер Прадо 2026 в новом поколении вернулся к «квадратной» внедорожной эстетике и впервые для модели получил полноценный гибрид HEV, делая ставку на тягу и контроль на бездорожье."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com тойота прадо из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "croptails/icon.svg at main · EdmondWang/croptails · GitHub",
+          "url": "https://github.com/EdmondWang/croptails/blob/main/icon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "Bow/icon.svg at main · mhgolkar/Bow · GitHub",
+          "url": "https://github.com/mhgolkar/Bow/blob/main/icon.svg",
+          "snippet": "Contribute to EdmondWang/croptails development by creating an account on GitHub."
+        },
+        {
+          "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+          "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+          "snippet": "Contribute to mhgolkar/Bow development by creating an account on GitHub."
+        },
+        {
+          "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+          "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+          "snippet": "Полный разбор: почему Steam стал медленнее, как падает пинг в CS2, Dota 2, PUBG, и что делать чтобы пятничный вечер не превращался в борьбу с лагами. Если хочется коротко: Дальше — детальный разбор почему так, как проверить лично, и как настроить решение за 5 минут. 2022-2024: Steam работал нормально."
+        },
+        {
+          "title": "jsx-tsx-logos/jsx-logo.svg at master · KewinDousse/jsx-tsx-logos",
+          "url": "https://github.com/KewinDousse/jsx-tsx-logos/blob/master/jsx-logo.svg",
+          "snippet": "При попытке зайти на chat.openai.com или chatgpt.com из российского IP вы получите одну из ошибок: We are not able to provide services to your area at this time."
+        },
+        {
+          "title": "PyPortfolioOpt/media/corrplot_white.png at main · PyPortfolio ...",
+          "url": "https://github.com/PyPortfolio/PyPortfolioOpt/blob/master/media/corrplot_white.png?raw=true",
+          "snippet": "Some unofficial JSX and TSX logos. Contribute to KewinDousse/jsx-tsx-logos development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "тойота прадо из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 технические характеристики. Toyota Land ...",
+          "url": "https://www.drom.ru/catalog/toyota/land_cruiser_prado/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "PDF Toyota Land Cruiser Prado",
+          "url": "https://www.toyota.ru/media/download/docs/brochure/KgG5ee__lcprado.pdf",
+          "snippet": "Подробно расписан модельный ряд Toyota Land Cruiser Prado 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: почему «японец» до сих пор в цене ...",
+          "url": "https://jckauto.ru/blog/toyota-land-cruiser-prado-import-japan",
+          "snippet": "Узнать больше о модели Toyota Land Cruiser Prado вы можете в салоне ближайшего Дилера Тойота, на сайте toyota.ru или в официальных группах Toyota Russia в социальных сетях."
+        },
+        {
+          "title": "2026 Toyota Land Cruiser Prado PDF Owner's Manuals",
+          "url": "https://ownersmanuals2.com/make/toyota/land-cruiser-prado/2026",
+          "snippet": "Но реальность 2026 года такова: официально Toyota в России нет, а значит, единственный путь к живому «Прадо» — импорт."
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: поколения, цены под ключ и нюансы ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-lc-prado-iz-yaponii",
+          "snippet": "Free 2026 Toyota Land Cruiser Prado PDF owner's manuals. 1 manual in English. Browse online or download."
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 цены модели, комплектации, фото, новый ...",
+          "url": "https://cenyavto.com/toyota-land-cruiser-prado-2026/",
+          "snippet": "Toyota Land Cruiser Prado из Японии в 2026: поколения J150 и J250, аукционные цены USS/JAA, стоимость под ключ в Сибири, утильсбор по коммерческой ставке и что нужно знать до покупки."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "тойота прадо из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 отзывы владельцев - поломки",
+          "url": "https://www.drom.ru/reviews/toyota/land_cruiser_prado/5kopeek/breakages/?year2=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 отзывы владельцев: все минусы, недостатки ...",
+          "url": "https://www.drom.ru/reviews/toyota/land_cruiser_prado/5kopeek/?year2=2026",
+          "snippet": "Отзывы владельцев Тойота Ленд Крузер Прадо 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Тойота Ленд Крузер Прадо: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Первые болячки Prado 250: что вылезло у ранних владельцев к 2026",
+          "url": "https://prado-club.ru/article/prado-250-pervye-bolyachki-otzyvy/",
+          "snippet": "Отзывы владельцев Тойота Ленд Крузер Прадо 2026: все минусы и плюсы, недостатки, поломки. Опыт эксплуатации реальных владельцев автомобилей Тойота Ленд Крузер Прадо: плюсы и минусы."
+        },
+        {
+          "title": "Отзывы Toyota Land Cruiser Prado 2026: плюсы и минусы владельцев",
+          "url": "https://toyotabase.vercel.app/articles/o/ot/otzyvy-tojota-lend-kruzer-prado.html",
+          "snippet": "Первые проблемы Toyota Prado 250 к 2026 году: глюки электроники, скрипы салона, нюансы серого импорта и что смотреть при покупке."
+        },
+        {
+          "title": "Prado с правым рулём из Японии: что не сказали продавцы",
+          "url": "https://prado-club.ru/article/prado-pravyj-rul-yaponiya-2026/",
+          "snippet": "Реальные отзывы о Toyota Land Cruiser Prado: надежность, расход топлива, проходимость и типичные проблемы. Сравнение поколений 150 и 250, советы по выбору."
+        },
+        {
+          "title": "Форум Тойота Прадо: отзывы, тюнинг и ремонт Prado 120, 150, 250",
+          "url": "https://toyotabase.vercel.app/articles/f/fo/forum-tojota-prado.html",
+          "snippet": "Стоит ли покупать праворульный Prado из Японии? Разбираем плюсы и минусы, подводные камни и реальную экономию с точки зрения подборщика."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "прадо из японии 2026",
+      "purpose": "вторичный запрос: прадо из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: поколения, цены под ключ и нюансы ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-lc-prado-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка Prado из Японии в 2026: пошаговый расчёт и подводные камни",
+          "url": "https://prado-club.ru/article/rastamozhka-prado-iz-yaponii-raschet/",
+          "snippet": "Toyota Land Cruiser Prado из Японии в 2026: поколения J150 и J250, аукционные цены USS/JAA, стоимость под ключ в Сибири, утильсбор по коммерческой ставке и что нужно знать до покупки."
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: почему «японец» до сих пор в цене ...",
+          "url": "https://jckauto.ru/blog/toyota-land-cruiser-prado-import-japan",
+          "snippet": "Сейчас, в 2026 году, прямой импорт автомобилей из Японии остается одним из основных каналов для тех, кто ищет Prado. При этом сразу стоит оговориться: «пригон» — это не просто купить и привезти."
+        },
+        {
+          "title": "Параллельный импорт Prado из Японии после 2022: схемы, риски, реальные ...",
+          "url": "https://prado-club.ru/article/prado-parallelnyj-import-yaponiya-2026/",
+          "snippet": "Теперь к главному: сколько стоит привезти Prado из Японии в 2026 году. Мы взяли реальный автомобиль из нашего каталога — Toyota Land Cruiser Prado 2022 года выпуска с бензиновым двигателем — и провели полный ..."
+        },
+        {
+          "title": "Land Cruiser и Prado из Японии: растаможка, утильсбор и срок 2026",
+          "url": "https://aa-dv.ru/rastamozhka-land-cruiser.html",
+          "snippet": "Параллельный импорт Prado из Японии в 2025-2026: схемы, риски, реальные цены и сроки. Как отличить честного посредника от \"серого\"."
+        },
+        {
+          "title": "Купить Toyota Land cruiser prado из Японии — ⚡ Цены в РФ, каталог ...",
+          "url": "https://jplife.ru/statistic/toyota/land%20cruiser%20prado/",
+          "snippet": "Land Cruiser 300, 250, 70 и Prado из Японии в 2026 году: срок в среднем два месяца, двигатели по данным Toyota, утильсбор по полной шкале и пример расчёта растаможки Prado по строкам."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "прадо владивосток 2026",
+      "purpose": "вторичный запрос: прадо владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 во Владивостоке, Сэкономь от 500.000 ...",
+          "url": "https://auto.drom.ru/vladivostok/toyota/land_cruiser_prado/102148676.html",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Тойота Ленд Крузер Прадо 2026 во Владивостоке, Утилизационный ...",
+          "url": "https://auto.drom.ru/vladivostok/toyota/land_cruiser_prado/168499328.html",
+          "snippet": "Новые автомобили, с пробегом и без - широкий выбор для того, чтобы купить Тойота Ленд Крузер Прадо во Владивостоке."
+        },
+        {
+          "title": "Новый авто Тойота Ленд Крузер Прадо 2026 в автосалоне Владивостоке",
+          "url": "https://vladivostok.autovsalone.ru/cars/toyota/land-cruiser-prado",
+          "snippet": "Продажа авто Тойота Ленд Крузер Прадо 2026 во Владивостоке, пробег 3 км, Утилизационный сбор полностью оплачен, 2.7 литра, бензин, стоимость 7.6млн.р., джип/suv 5 дв., Япония, 2.7 VX 4WD, коричневый, 4 ..."
+        },
+        {
+          "title": "Купить Toyota Land Cruiser Prado 2026 года по цене от 8 990 000 рублей ...",
+          "url": "https://auto.ru/vladivostok/cars/toyota/land_cruiser_prado/2026-year/all/",
+          "snippet": "Новый авто Тойота Ленд Крузер Прадо 2026 можно купить в автосалонах Владивостока. Сравни и выбери свою машину!"
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 технические характеристики. Toyota Land ...",
+          "url": "https://www.drom.ru/catalog/toyota/land_cruiser_prado/2026/",
+          "snippet": "Полный модельный ряд Toyota Land Cruiser Prado 2026 года по цене от 8 990 000 рублей во Владивостоке - много Тойота Ленд Крузер Прадо, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 цены модели, комплектации, фото, новый ...",
+          "url": "https://cenyavto.com/toyota-land-cruiser-prado-2026/",
+          "snippet": "Подробно расписан модельный ряд Toyota Land Cruiser Prado 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Ленд Крузер Прадо 2026 между собой."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "тойота прадо 250 2026",
+      "purpose": "вторичный запрос: тойота прадо 250",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 технические характеристики. Toyota Land ...",
+          "url": "https://www.drom.ru/catalog/toyota/land_cruiser_prado/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Land Cruiser Prado 250 2026 — обзор и цена под ключ",
+          "url": "https://carto-auto.ru/blog/toyota-land-cruiser-prado-250-2026-obzor-tsena/",
+          "snippet": "Подробно расписан модельный ряд Toyota Land Cruiser Prado 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Ленд Крузер Прадо 2026 между собой."
+        },
+        {
+          "title": "Купить Toyota Land Cruiser Prado 250 Series 2026 года по цене от 6 850 ...",
+          "url": "https://auto.ru/cars/toyota/land_cruiser_prado/2026-year/23669252/all/",
+          "snippet": "Toyota Land Cruiser Prado 250 — новое поколение легендарного рамного внедорожника, представленное в 2023 году. У официалов в РФ его нет, а через параллельный импорт Prado 250 доступен под ключ за 7,2-9,5 млн ₽. Разбираем платформу TNGA-F, моторы, комплектации и откуда выгоднее везти."
+        },
+        {
+          "title": "2026'Toyota Land Cruiser 250 Prado: фото, минусы ... - IronHorse",
+          "url": "https://ironhorse.ru/toyota/land-cruiser-prado/j250/",
+          "snippet": "Полный модельный ряд Toyota Land Cruiser Prado 250 Series 2026 года по цене от 6 850 000 рублей - более 105 Тойота Ленд Крузер Прадо 250 Series, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Технические характеристики Тойота Ленд Крузер Прадо 250 серии 2025-2026",
+          "url": "https://www.saloncentr.ru/catalog/toyota/land-cruiser-prado/tth",
+          "snippet": "Подробно об особенностях, достоинствах и недостатках Toyota Land Cruiser 250 Prado, его технические характеристики, фотографии, стоимость и оснащение."
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 цены модели, комплектации, фото, новый ...",
+          "url": "https://cenyavto.com/toyota-land-cruiser-prado-2026/",
+          "snippet": "ТТХ Тойота Ленд Крузер Прадо 250 серии 2025-2026: габариты, размеры кузова, объём двигателя автомобиля, расход бензина и другие технические характеристики Toyota Land Cruiser Prado 250 Series."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "ленд крузер прадо из японии 2026",
+      "purpose": "вторичный запрос: ленд крузер прадо из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: поколения, цены под ключ и нюансы ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-lc-prado-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 технические характеристики. Toyota Land ...",
+          "url": "https://www.drom.ru/catalog/toyota/land_cruiser_prado/2026/",
+          "snippet": "Toyota Land Cruiser Prado из Японии в 2026: поколения J150 и J250, аукционные цены USS/JAA, стоимость под ключ в Сибири, утильсбор по коммерческой ставке и что нужно знать до покупки."
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: почему «японец» до сих пор в цене ...",
+          "url": "https://jckauto.ru/blog/toyota-land-cruiser-prado-import-japan",
+          "snippet": "Подробно расписан модельный ряд Toyota Land Cruiser Prado 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Тойота Ленд Крузер Прадо 2026 цены модели, комплектации, фото, новый ...",
+          "url": "https://cenyavto.com/toyota-land-cruiser-prado-2026/",
+          "snippet": "Теперь к главному: сколько стоит привезти Prado из Японии в 2026 году. Мы взяли реальный автомобиль из нашего каталога — Toyota Land Cruiser Prado 2022 года выпуска с бензиновым двигателем — и провели полный ..."
+        },
+        {
+          "title": "Купить Toyota Land Cruiser Prado 2026 — импорт из Японии, 8.4 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/toyota-land-cruiser-prado-japan-2026-6/",
+          "snippet": "Тойота Ленд Крузер Прадо 2026 в новом поколении сохранил образ классического рамного внедорожника, но получил современную гибридную технику и заметно более богатое оснащение."
+        },
+        {
+          "title": "Параллельный импорт Prado из Японии после 2022: схемы, риски, реальные ...",
+          "url": "https://prado-club.ru/article/prado-parallelnyj-import-yaponiya-2026/",
+          "snippet": "Полная комплектация Toyota Land Cruiser Prado в премиум-комплектации, типичной для лотов из Японии. Реальная комплектация конкретной машины подтверждается аукционным листом и прилагается к договору."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Чек-лист Toyota Land Cruiser Prado из Японии: комплектации и ловушки до ставки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Гид покупателя Toyota Land Cruiser Prado: J90, J120, J150 и J250 на экспорт",
+          "url": "https://www.auto-x.jp/ru/blog/toyota-land-cruiser-prado-buyers-guide",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: поколения, цены под ключ и нюансы ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-lc-prado-iz-yaponii",
+          "snippet": "Гид экспортёра по Toyota Land Cruiser Prado: сравнение поколений J90, J120, J150 и J250, дизель или бензин по рынкам, чек-лист покупателя и цены FOB из Японии."
+        },
+        {
+          "title": "Toyota Land Cruiser Prado: комплектации 2026, цены и сравнение",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-land-cruiser-prado-komplektatsii.html",
+          "snippet": "Toyota Land Cruiser Prado из Японии в 2026: поколения J150 и J250, аукционные цены USS/JAA, стоимость под ключ в Сибири, утильсбор по коммерческой ставке и что нужно знать до покупки. Toyota Land Cruiser Prado — один из самых узнаваемых японских внедорожников в России."
+        },
+        {
+          "title": "Комплектации Toyota Land Cruiser Prado 2026: сравнение и выбор",
+          "url": "https://toyotabase.vercel.app/articles/k/ko/komplektatsii-tojota-lend-kruzer-prado.html",
+          "snippet": "Подробный обзор всех комплектаций Toyota Land Cruiser Prado 2026: технические характеристики, цены, отличия и что выбрать. Сравнение с конкурентами."
+        },
+        {
+          "title": "Растаможка Prado из Японии в 2026: пошаговый расчёт и подводные камни",
+          "url": "https://prado-club.ru/article/rastamozhka-prado-iz-yaponii-raschet/",
+          "snippet": "Этот легендарный внедорожник предлагается в нескольких модификациях, каждая из которых ориентирована на разные нужды: от комфортных городских поездок до экстремального бездорожья."
+        },
+        {
+          "title": "Toyota Land Cruiser Prado из Японии: почему «японец» до сих пор в цене ...",
+          "url": "https://jckauto.ru/blog/toyota-land-cruiser-prado-import-japan",
+          "snippet": "Основные площадки, где можно найти Toyota Land Cruiser Prado или Lexus GX/LX, это USS, JU, TAA, ARAI. Они отличаются объёмом предложений, системой торгов и региональным расположением, но принцип один: вы выбираете лот, ваш брокер делает ставку, и если она выигрывает, машина ваша."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://onlyjpcars.ru/blog/toyota-lc-prado-iz-yaponii",
+      "title": "Toyota Land Cruiser Prado из Японии: поколения, цены под ключ и нюансы ...",
+      "from_query": "тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/toyota-land-cruiser-prado-import-japan",
+      "title": "Toyota Land Cruiser Prado из Японии: почему «японец» до сих пор в цене ...",
+      "from_query": "тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/land_cruiser_prado/2026/",
+      "title": "Тойота Ленд Крузер Прадо 2026 технические характеристики. Toyota Land ...",
+      "from_query": "тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://prado-club.ru/article/prado-parallelnyj-import-yaponiya-2026/",
+      "title": "Параллельный импорт Prado из Японии после 2022: схемы, риски, реальные ...",
+      "from_query": "тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/catalog/toyota-land-cruiser-prado-japan-2026-6/",
+      "title": "Купить Toyota Land Cruiser Prado 2026 — импорт из Японии, 8.4 млн ₽ | CARTO",
+      "from_query": "тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-land-cruiser-prado-2026/",
+      "title": "Тойота Ленд Крузер Прадо 2026 цены модели, комплектации, фото, новый ...",
+      "from_query": "тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://prado-club.ru/article/rastamozhka-prado-iz-yaponii-raschet/",
+      "title": "Растаможка Prado из Японии в 2026: пошаговый расчёт и подводные камни",
+      "from_query": "тойота прадо из японии октябрь 2026"
+    },
+    {
+      "url": "https://auto-rul.ru/calculate-rastamogka-japan/Toyota-Land-Cruiser-Prado-rastamogka",
+      "title": "Toyota Land Cruiser Prado из Японии: цена и растаможка — калькулятор 2026",
+      "from_query": "тойота прадо из японии октябрь 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/n/no/novyj-tojota-prado.html",
+      "title": "Новый Тойота Прадо 2026-2026: характеристики, цены и комплектации",
+      "from_query": "тойота прадо из японии новости 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/toyota/toyota-land-cruiser-prado-2026.html",
+      "title": "Тойота Ленд Крузер Прадо 2026 новый кузов, цены, комплектации, фото ...",
+      "from_query": "тойота прадо из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/EdmondWang/croptails/blob/main/icon.svg",
+      "title": "croptails/icon.svg at main · EdmondWang/croptails · GitHub",
+      "from_query": "site:github.com тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://github.com/mhgolkar/Bow/blob/main/icon.svg",
+      "title": "Bow/icon.svg at main · mhgolkar/Bow · GitHub",
+      "from_query": "site:github.com тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+      "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+      "from_query": "site:github.com тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+      "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+      "from_query": "site:github.com тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://github.com/KewinDousse/jsx-tsx-logos/blob/master/jsx-logo.svg",
+      "title": "jsx-tsx-logos/jsx-logo.svg at master · KewinDousse/jsx-tsx-logos",
+      "from_query": "site:github.com тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://github.com/PyPortfolio/PyPortfolioOpt/blob/master/media/corrplot_white.png?raw=true",
+      "title": "PyPortfolioOpt/media/corrplot_white.png at main · PyPortfolio ...",
+      "from_query": "site:github.com тойота прадо из японии 2026"
+    },
+    {
+      "url": "https://www.toyota.ru/media/download/docs/brochure/KgG5ee__lcprado.pdf",
+      "title": "PDF Toyota Land Cruiser Prado",
+      "from_query": "тойота прадо из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://ownersmanuals2.com/make/toyota/land-cruiser-prado/2026",
+      "title": "2026 Toyota Land Cruiser Prado PDF Owner's Manuals",
+      "from_query": "тойота прадо из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/land_cruiser_prado/5kopeek/breakages/?year2=2026",
+      "title": "Тойота Ленд Крузер Прадо 2026 отзывы владельцев - поломки",
+      "from_query": "тойота прадо из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/land_cruiser_prado/5kopeek/?year2=2026",
+      "title": "Тойота Ленд Крузер Прадо 2026 отзывы владельцев: все минусы, недостатки ...",
+      "from_query": "тойота прадо из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://prado-club.ru/article/prado-250-pervye-bolyachki-otzyvy/",
+      "title": "Первые болячки Prado 250: что вылезло у ранних владельцев к 2026",
+      "from_query": "тойота прадо из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/o/ot/otzyvy-tojota-lend-kruzer-prado.html",
+      "title": "Отзывы Toyota Land Cruiser Prado 2026: плюсы и минусы владельцев",
+      "from_query": "тойота прадо из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://prado-club.ru/article/prado-pravyj-rul-yaponiya-2026/",
+      "title": "Prado с правым рулём из Японии: что не сказали продавцы",
+      "from_query": "тойота прадо из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/f/fo/forum-tojota-prado.html",
+      "title": "Форум Тойота Прадо: отзывы, тюнинг и ремонт Prado 120, 150, 250",
+      "from_query": "тойота прадо из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://aa-dv.ru/rastamozhka-land-cruiser.html",
+      "title": "Land Cruiser и Prado из Японии: растаможка, утильсбор и срок 2026",
+      "from_query": "прадо из японии 2026"
+    },
+    {
+      "url": "https://jplife.ru/statistic/toyota/land%20cruiser%20prado/",
+      "title": "Купить Toyota Land cruiser prado из Японии — ⚡ Цены в РФ, каталог ...",
+      "from_query": "прадо из японии 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/land_cruiser_prado/102148676.html",
+      "title": "Тойота Ленд Крузер Прадо 2026 во Владивостоке, Сэкономь от 500.000 ...",
+      "from_query": "прадо владивосток 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/land_cruiser_prado/168499328.html",
+      "title": "Купить Тойота Ленд Крузер Прадо 2026 во Владивостоке, Утилизационный ...",
+      "from_query": "прадо владивосток 2026"
+    },
+    {
+      "url": "https://vladivostok.autovsalone.ru/cars/toyota/land-cruiser-prado",
+      "title": "Новый авто Тойота Ленд Крузер Прадо 2026 в автосалоне Владивостоке",
+      "from_query": "прадо владивосток 2026"
+    },
+    {
+      "url": "https://auto.ru/vladivostok/cars/toyota/land_cruiser_prado/2026-year/all/",
+      "title": "Купить Toyota Land Cruiser Prado 2026 года по цене от 8 990 000 рублей ...",
+      "from_query": "прадо владивосток 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/toyota-land-cruiser-prado-250-2026-obzor-tsena/",
+      "title": "Land Cruiser Prado 250 2026 — обзор и цена под ключ",
+      "from_query": "тойота прадо 250 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/toyota/land_cruiser_prado/2026-year/23669252/all/",
+      "title": "Купить Toyota Land Cruiser Prado 250 Series 2026 года по цене от 6 850 ...",
+      "from_query": "тойота прадо 250 2026"
+    },
+    {
+      "url": "https://ironhorse.ru/toyota/land-cruiser-prado/j250/",
+      "title": "2026'Toyota Land Cruiser 250 Prado: фото, минусы ... - IronHorse",
+      "from_query": "тойота прадо 250 2026"
+    },
+    {
+      "url": "https://www.saloncentr.ru/catalog/toyota/land-cruiser-prado/tth",
+      "title": "Технические характеристики Тойота Ленд Крузер Прадо 250 серии 2025-2026",
+      "from_query": "тойота прадо 250 2026"
+    },
+    {
+      "url": "https://www.auto-x.jp/ru/blog/toyota-land-cruiser-prado-buyers-guide",
+      "title": "Гид покупателя Toyota Land Cruiser Prado: J90, J120, J150 и J250 на экспорт",
+      "from_query": "Чек-лист Toyota Land Cruiser Prado из Японии: комплектации и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-land-cruiser-prado-komplektatsii.html",
+      "title": "Toyota Land Cruiser Prado: комплектации 2026, цены и сравнение",
+      "from_query": "Чек-лист Toyota Land Cruiser Prado из Японии: комплектации и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/ko/komplektatsii-tojota-lend-kruzer-prado.html",
+      "title": "Комплектации Toyota Land Cruiser Prado 2026: сравнение и выбор",
+      "from_query": "Чек-лист Toyota Land Cruiser Prado из Японии: комплектации и ловушки до ставки в 2026 2026"
+    }
+  ]
+}

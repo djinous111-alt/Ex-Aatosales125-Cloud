@@ -94,6 +94,55 @@ def count_markers(text: str, markers: list[str]) -> int:
     return sum(hay.count(marker.lower()) for marker in markers)
 
 
+# Keep in sync with excalibur_blog_human_voice_gate.PAIN_MARKERS / OUTCOME_MARKERS.
+FALLBACK_PAIN_MARKERS_RU = [
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно",
+]
+FALLBACK_OUTCOME_MARKERS_RU = [
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите",
+]
+
+
+def resolve_marker_lists(policy: dict[str, Any]) -> tuple[list[str], list[str], list[str]]:
+    """Return (pain, outcome, warnings). Empty policy lists → hardcoded fallbacks (policy defect)."""
+    warnings: list[str] = []
+    pain = policy.get("pain_markers_ru")
+    outcome = policy.get("outcome_markers_ru")
+    if not isinstance(pain, list) or not pain:
+        warnings.append(
+            "pain_markers_ru пуст/отсутствует в editorial-policy.json — "
+            "использую FALLBACK (policy defect, не рерайт статьи)"
+        )
+        pain = list(FALLBACK_PAIN_MARKERS_RU)
+    if not isinstance(outcome, list) or not outcome:
+        warnings.append(
+            "outcome_markers_ru пуст/отсутствует в editorial-policy.json — "
+            "использую FALLBACK (policy defect, не рерайт статьи)"
+        )
+        outcome = list(FALLBACK_OUTCOME_MARKERS_RU)
+    return list(pain), list(outcome), warnings
+
+
 def gate_topic(topic: dict[str, str], policy: dict[str, Any]) -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -185,8 +234,8 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers, outcome_markers, marker_warns = resolve_marker_lists(policy)
+    warnings.extend(marker_warns)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

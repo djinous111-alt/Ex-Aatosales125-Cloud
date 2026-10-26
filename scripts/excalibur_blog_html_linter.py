@@ -35,6 +35,34 @@ def detect_anchor_toc(html: str) -> list[str]:
     return errors
 
 
+def detect_bad_cta_hrefs(html: str) -> list[str]:
+    """Fail if CTA/anchor hrefs are placeholders or non-https marketing links."""
+    errors: list[str] = []
+    hrefs = re.findall(r"""<a\s+[^>]*href=["']([^"']+)["']""", html, flags=re.IGNORECASE)
+    for href in hrefs:
+        value = href.strip()
+        lower = value.lower()
+        if "[redacted]" in lower or value in {"...", "URL", "url", "TODO", "TBD"}:
+            errors.append(
+                f'Forbidden CTA placeholder href="{value}". '
+                "Use absolute https:// URLs from env CATALOG_URL / TELEGRAM_URL "
+                "(never copy [REDACTED] from conversion-map)."
+            )
+            continue
+        if value.startswith("#"):
+            continue
+        if value.startswith(("mailto:", "tel:")):
+            continue
+        if value.startswith("/") or value.startswith("./") or value.startswith("../"):
+            # Relative paths OK for internal blog links; catalog/Telegram CTAs must be absolute.
+            continue
+        if not lower.startswith("https://"):
+            errors.append(
+                f'Non-https href="{value}". External CTA links must start with https://.'
+            )
+    return errors
+
+
 def detect_duplicate_faq_sections(html: str) -> list[str]:
     """Fail if article has more than one FAQ heading block."""
     errors: list[str] = []
@@ -122,6 +150,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_bad_cta_hrefs(html_content))
 
     return {
         "file": str(html_path.name),

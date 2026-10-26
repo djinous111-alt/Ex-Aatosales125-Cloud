@@ -1,0 +1,696 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-26",
+    "today_ru": "26.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-28",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Mitsubishi Delica D:5 из Японии: как выбрать комплектацию и не попасть в ловушку до ставки",
+    "primary_query": "делика из японии",
+    "secondary_queries": [
+      "мицубиси делика д5",
+      "делика владивосток",
+      "мицубиси делика дизель",
+      "делика д5 из японии"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "делика из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Delica D:2 из Японии: обзор, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-delica-d2-iz-yaponii-2026",
+          "snippet": "Какой Mitsubishi привезти из Японии в 2026: Delica D:2 и D:5, Eclipse Cross и Outlander, реальные лоты с годом и пробегом, полный привод и сроки доставки."
+        },
+        {
+          "title": "Растаможка Mitsubishi Delica из Японии в 2026 году",
+          "url": "https://aa-dv.ru/rastamozhka-mitsubishi-delica.html",
+          "snippet": "Delica D:2 — это не тот брутальный рамный внедорожник Delica, который многие себе представляют. Это компактный семейный минивэн, по сути переименованный Suzuki Solio, которого Mitsubishi продаёт под своим именем по соглашению с Suzuki."
+        },
+        {
+          "title": "Аукционы Японии: Mitsubishi Delica D5 Онлайн - Jpstar",
+          "url": "https://jpstar.ru/auktsiony/mitsubishi/delica-d5/",
+          "snippet": "Продаётся эта модель с 29 октября 2025 года, поэтому в 2026 году такие машины младше трёх лет: единая ставка у них — процент от стоимости, а утильсбор при ввозе для себя льготный — 3 400 ₽."
+        },
+        {
+          "title": "Mitsubishi Delica 2026 — японский дизельный минивэн для бездорожья ...",
+          "url": "https://ks-auto.ru/news/mitsubishi-delica-2026-chestnyy-obzor-yaponskogo-avtobusa-s-dizelem-i-polnym-privodom/",
+          "snippet": "Свежие лоты MITSUBISHI DELICA D5 в реальном времени: карточки на русском, оценки, перевод листа. Калькулятор полной стоимости и сопровождение сделки."
+        },
+        {
+          "title": "Легенда путешествий: сколько стоит привезти в Россию культовую ...",
+          "url": "https://www.avtovzglyad.ru/avto/used-cars/75248-2026-10-12-legenda-puteshestviy-skolko-stoit-privezti-vrossiyu-kultovuyu-mitsubishi-delica-izyaponii/",
+          "snippet": "Mitsubishi Delica 2026 — леворульный японский минивэн-внедорожник с турбодизелем 2.3 л, полным приводом, стальной многорычажной подвеской и роскошным плюшевым салоном."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "делика из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ТОРГИ В ЯПОНИИ МИНИ АВТО | ОКТЯБРЬ 2026",
+          "url": "https://vkvideo.ru/video-224217384_456239423",
+          "snippet": ""
+        },
+        {
+          "title": "Японские Торги Октябрь 2026 / Toyota ... - Дзен",
+          "url": "https://dzen.ru/video/watch/6adc5faa1796c105c2eb3ab0",
+          "snippet": "Видео от 7 октября 2026 в хорошем качестве, без регистрации в бесплатном видеокаталоге ВКонтакте! 2056 — просмотрели. 33 — оценили."
+        },
+        {
+          "title": "Растаможка Mitsubishi Delica из Японии в 2026 году",
+          "url": "https://aa-dv.ru/rastamozhka-mitsubishi-delica.html",
+          "snippet": "ЯПОНСКИЕ ТОРГИ ОКТЯБРЬ 2026 / TOYOTA YARIS CROSS SIENTA SUZUKI JIMNY NOMADE HONDA INSIGHT EV"
+        },
+        {
+          "title": "Легенда путешествий: сколько стоит привезти в Россию культовую ...",
+          "url": "https://www.avtovzglyad.ru/avto/used-cars/75248-2026-10-12-legenda-puteshestviy-skolko-stoit-privezti-vrossiyu-kultovuyu-mitsubishi-delica-izyaponii/",
+          "snippet": "Продаётся эта модель с 29 октября 2025 года, поэтому в 2026 году такие машины младше трёх лет: единая ставка у них — процент от стоимости, а утильсбор при ввозе для себя льготный — 3 400 ₽."
+        },
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены под ключ в 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": "Вариантов в Стране восходящего солнца разработали и произвели немало, однако есть один, который стал самым известным и, буквально, законодателем этого класса — Mitsubishi Delica."
+        },
+        {
+          "title": "Аукционы Японии: Mitsubishi Delica D5 Онлайн - Jpstar",
+          "url": "https://jpstar.ru/auktsiony/mitsubishi/delica-d5/",
+          "snippet": "Какой Mitsubishi привезти из Японии в 2026: Delica D:2 и D:5, Eclipse Cross и Outlander, реальные лоты с годом и пробегом, полный привод и сроки доставки."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "делика из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mitsubishi Delica 2026 — японский дизельный минивэн для бездорожья ...",
+          "url": "https://ks-auto.ru/news/mitsubishi-delica-2026-chestnyy-obzor-yaponskogo-avtobusa-s-dizelem-i-polnym-privodom/",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Delica D:5 обновили в 2026 году - и снова успех",
+          "url": "https://allroader.ru/mitsubishi-delica-d5-2026-140089/",
+          "snippet": "Новая Delica 2026 — это леворульная версия, которую ещё практически никто не видел вживую на российском рынке. Она сохранила всё, за что её любили: полный привод, дизельный двигатель и огромное пространство для людей и вещей — и при этом прибавила в комфорте и технологичности."
+        },
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены под ключ в 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": "Mitsubishi снова обновила Delica D:5 спустя 19 лет после дебюта. Дизель, полный привод, новые опции - и тысячи предзаказов в Японии."
+        },
+        {
+          "title": "Новая Mitsubishi Delica D:6 будет крупнее, технологичнее и дороже ...",
+          "url": "https://daily-motor.ru/autonews/178279",
+          "snippet": "Какой Mitsubishi привезти из Японии в 2026: Delica D:2 и D:5, Eclipse Cross и Outlander, реальные лоты с годом и пробегом, полный привод и сроки доставки."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 бьет рекорды продаж перед выходом нового поколения",
+          "url": "https://daily-motor.ru/autonews/179997",
+          "snippet": "Новое поколение Mitsubishi Delica D:6 может дебютировать в конце 2026 года, сменив модель D:5, которая остается ключевым минивэном марки. Как пишут инсайдеры из Японии, автомобиль получит полностью новый дизайн, более современный салон и комплекс MI-PILOT с функциями помощи водителю 2-го уровня."
+        },
+        {
+          "title": "Делика-братья на、東京オートサロン2026: от брутального монстра до уютного кемпера",
+          "url": "https://vizator.ru/news/delika-bratia-na-dong-jing-otosaron2026-ot-brutalnogo-monstra-do-uiutnogo-kempera-21eab2fc",
+          "snippet": "Mitsubishi Delica D:5 установила рекорд продаж в Японии, показав рост на 24% Mitsubishi готовит к премьере новое поколение минивэна Delica. На фоне слухов, как машина может измениться ..."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com делика из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "clawdcursor/docs/favicon.svg at main · AmrDab/clawdcursor",
+          "url": "https://github.com/AmrDab/clawdcursor/blob/main/docs/favicon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "EtiCat/icon.svg at main · georghinkel/EtiCat · GitHub",
+          "url": "https://github.com/georghinkel/EtiCat/blob/main/icon.svg",
+          "snippet": "Local MCP server that gives any AI agent safe desktop control on Windows, macOS and Linux. Reads the screen as text and structure (accessibility + OCR) and acts by element name, with screenshots as the last resort. Multi-monitor aware, verifies every action, one safety gate. - clawdcursor/docs/favicon.svg at main · AmrDab/clawdcursor."
+        },
+        {
+          "title": "Иероглифы похожие на русские и английские буквы · GitHub",
+          "url": "https://gist.github.com/crashmax-dev/e4357674c01503e9c5a2a9f2dbb33f3c",
+          "snippet": "A tool to label and tag code in a monorepository. Contribute to georghinkel/EtiCat development by creating an account on GitHub."
+        },
+        {
+          "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+          "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+          "snippet": "Иероглифы похожие на русские и английские буквы. GitHub Gist: instantly share code, notes, and snippets."
+        },
+        {
+          "title": "mintlify-docs/favicon.svg at main · feljor/mintlify-docs · GitHub",
+          "url": "https://github.com/feljor/mintlify-docs/blob/main/favicon.svg",
+          "snippet": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд по VPN - chatgpt-dostup-iz-rossii-2026.md"
+        },
+        {
+          "title": "xTerminal/media/banner.png at main · 0x78654C/xTerminal · GitHub",
+          "url": "https://github.com/0x78654C/xTerminal/blob/main/media/banner.png",
+          "snippet": "Contribute to feljor/mintlify-docs development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "делика из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Official Document System - Search",
+          "url": "https://documents.un.org/",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Delica 2026 — японский дизельный минивэн для бездорожья ...",
+          "url": "https://ks-auto.ru/news/mitsubishi-delica-2026-chestnyy-obzor-yaponskogo-avtobusa-s-dizelem-i-polnym-privodom/",
+          "snippet": "The Official Document System (ODS) is an online database of UN documents that was first launched in 1993 and updated in 2016. ODS has full-text, born-digital UN documents published from 1993 onward, including documents of the Security Council, the General Assembly, the Economic and Social Council and their subsidiaries, as well as ..."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 обновили в 2026 году - и снова успех",
+          "url": "https://allroader.ru/mitsubishi-delica-d5-2026-140089/",
+          "snippet": "Mitsubishi Delica 2026 — леворульный японский минивэн-внедорожник с турбодизелем 2.3 л, полным приводом, стальной многорычажной подвеской и роскошным плюшевым салоном."
+        },
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": "Mitsubishi снова обновила Delica D:5 спустя 19 лет после дебюта. Дизель, полный привод, новые опции - и тысячи предзаказов в Японии."
+        },
+        {
+          "title": "Мицубиси Делика Д5 2026 технические характеристики. Mitsubishi Delica D ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_5/2026/",
+          "snippet": "Какой Mitsubishi привезти из Японии в 2026: Delica D:2 и D:5, Eclipse Cross и Outlander, реальные лоты с годом и пробегом, полный привод и сроки доставки."
+        },
+        {
+          "title": "Мицубиси Делика Мини 2026 технические характеристики. Mitsubishi Delica ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/delica_mini/2026/",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Delica D:5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "делика из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Клуб владельцев Mitsubishi DELICA............DelicaClub.ru",
+          "url": "https://www.delicaclub.ru/forum/",
+          "snippet": ""
+        },
+        {
+          "title": "Delica D:5 из Японии: цена и болячки",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-delica-d5-iz-yaponii-2026",
+          "snippet": "Технические проблемы, Диагностика и Ремонт. Сильно стучит ЗИМОЙ на холодную, секунд 40. Улучшения, Тюнинг, Медиа и др. Долгая дорога к качественному звуку. Лифт, модинг, Off-road подготовка и др. Различные мероприятия, где мы и наши машины учавствуют. Все что связано с охотой на зверя, рыбу, грибы и рыбалкой. Курцхаар или английский пойнтер?"
+        },
+        {
+          "title": "Двигатель - Клуб Delica D:5",
+          "url": "https://delicad5.ru/viewforum.php?f=14",
+          "snippet": "Mitsubishi Delica D:5 выпускается с 2007 года, и в январе 2026 японцы снова выстроились за ней в очередь: свежий рестайлинг девятнадцатилетней модели собрал больше пяти тысяч предзаказов."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 2026 вопросы, ответы и ... - Дром",
+          "url": "https://www.drom.ru/faq/mitsubishi/delica_d_5/?year=2026",
+          "snippet": "Какие движки бывают? Есть ли отличия двигателей 4b12 2wd от 4wd?"
+        },
+        {
+          "title": "Обзор Мицубиси Делика Д2 1200сс — из Японии в Москву .mp4 — Видео от ...",
+          "url": "https://vkvideo.ru/video-241942524_456240367",
+          "snippet": "Обсуждение проблем и дефектов, о которых сообщили владельцы Delica D:5. Всё о ремонте и эксплуатации автомобиля Mitsubishi Delica D:5."
+        },
+        {
+          "title": "Мицубиси Делика Д5 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/mitsubishi/delica_d_5/5kopeek/breakages/",
+          "snippet": "Смотрите онлайн Обзор Мицубиси Делика Д2 1200сс — из Японии.. . Видео от 25 октября 2026 в хорошем качестве, без регистрации в бесплатном видеокаталоге ВКонтакте!"
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "мицубиси делика д5 2026",
+      "purpose": "вторичный запрос: мицубиси делика д5",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мицубиси Делика Д5 2026 технические характеристики. Mitsubishi Delica D ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Delica D:5 обновили в 2026 году - и снова успех",
+          "url": "https://allroader.ru/mitsubishi-delica-d5-2026-140089/",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Delica D:5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 2-й рестайлинг 2025, 2026 ... - Дром",
+          "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_5/g_2025_23521/",
+          "snippet": "Mitsubishi снова обновила Delica D:5 спустя 19 лет после дебюта. Дизель, полный привод, новые опции - и тысячи предзаказов в Японии."
+        },
+        {
+          "title": "Купить Mitsubishi Delica D5 2026 года выпуска",
+          "url": "https://www.avito.ru/all/avtomobili/mitsubishi/delica_d5/2026-ASgBAgECAkTgtg3ymCjitg2~8jIBRfqMFBd7ImZyb20iOjIwMjYsInRvIjoyMDI2fQ",
+          "snippet": "Подробно расписаны модификации автомобилей Mitsubishi Delica D:5 2-й рестайлинг 2025: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "Купить Мицубиси Делика Д5 2026 в России: продажа Mitsubishi Delica D:5 ...",
+          "url": "https://auto.drom.ru/mitsubishi/delica_d_5/year-2026/",
+          "snippet": "4 объявления о продаже Митсубиси Делика Д5 2026 года выпуска от 3 700 000 ₽. Большой выбор Mitsubishi от частных продавцов и официальных дилеров во всех регионах."
+        },
+        {
+          "title": "Купить Mitsubishi Delica D:5 минивэн 2026 года выпуска",
+          "url": "https://auto.ru/cars/mitsubishi/delica_d_5/2026-year/all/body-minivan/",
+          "snippet": "Объявления о продаже Мицубиси Делика Д5 2026 б/у и новых в России - частные объявления. Узнать стоимость Mitsubishi Delica D:5 2026 года и купить с пробегом на Дроме."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "делика владивосток 2026",
+      "purpose": "вторичный запрос: делика владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Продажа Mitsubishi Delica D:5, 2026 год во Владивостоке",
+          "url": "https://auto.drom.ru/vladivostok/mitsubishi/delica_d_5/627631817.html",
+          "snippet": ""
+        },
+        {
+          "title": "Продажа Mitsubishi Delica D:5, 2026 год во Владивостоке",
+          "url": "https://auto.drom.ru/vladivostok/mitsubishi/delica_d_5/801145573.html",
+          "snippet": "Привезём под заказ Mitsubishi Delica D:5 2026 года — легендарный полноприводный минивэн с внедорожным характером и максимальной практичностью. 📞 Пишите / звоните — привезём автомобиль под ключ быстро и безопасно!"
+        },
+        {
+          "title": "Сколько стоит Мицубиси Делика 2026 года, цена в Владивостоке",
+          "url": "https://cenamashin.ru/cena/mitsubishi/delica/2026/vladivostok",
+          "snippet": "Представленный автомобиль выпущен в феврале 2026 года и имеет небольшой пробег — всего 1 156 км. Delica оснащена дизельным двигателем объемом 2, 2 литра, автоматической коробкой передач и системой полного привода 4WD. По информации продавца, автомобиль не имеет истории кузовных ремонтов."
+        },
+        {
+          "title": "Mitsubishi Delica D5 2.3 AT, 2026, 11 км - Авито",
+          "url": "https://www.avito.ru/vladivostok/avtomobili/mitsubishi_delica_d5_2.3_at_2026_11_km_8127144185",
+          "snippet": "Средняя цена (стоимость) Мицубиси Делика 2026 года в Владивостоке, статистика цены и продаж, ликвидность в городе, сколько стоил новый в 2026 году и еще много полезной информации."
+        },
+        {
+          "title": "Mitsubishi Delica D5 2.3 AT, 2026, 11 км - Авито",
+          "url": "https://www.avito.ru/vladivostok/avtomobili/mitsubishi_delica_d5_2.3_at_2026_11_km_8063444736",
+          "snippet": "Mitsubishi Delica D5 2.3 AT, 2026, 11 км: объявление о продаже авто 2026 года во Владивостоке на Авито. 🚗ДАHHЫЙ ABТOМОБИЛЬ ПОД ЗАКAЗ!!!🚗 💴ЦЕНА УКАЗАНА ПОЛНОСТЬЮ ПОД КЛЮЧ ДО ВЛАДИВОСТОКА💴 Компания AkibaAuto — это команда профессионалов с более чем 5-летним опытом работы на рынке автопоставок из Кореи, Японии и Китая."
+        },
+        {
+          "title": "Купить Mitsubishi Delica D:5 2026 года выпуска во Владивостоке",
+          "url": "https://auto.ru/vladivostok/cars/mitsubishi/delica_d_5/2026-year/all/",
+          "snippet": "Mitsubishi Delica D5 2.3 AT, 2026, 11 км: объявление о продаже авто 2026 года во Владивостоке на Авито. Авто под заказ из Японии! Гарантируем прозрачную историю авто."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "мицубиси делика дизель 2026",
+      "purpose": "вторичный запрос: мицубиси делика дизель",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мицубиси Делика Д5 2026 технические характеристики. Mitsubishi Delica D ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Delica D:5 обновили в 2026 году - и снова успех",
+          "url": "https://allroader.ru/mitsubishi-delica-d5-2026-140089/",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Delica D:5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Mitsubishi Delica 2026 — японский дизельный минивэн для бездорожья ...",
+          "url": "https://ks-auto.ru/news/mitsubishi-delica-2026-chestnyy-obzor-yaponskogo-avtobusa-s-dizelem-i-polnym-privodom/",
+          "snippet": "Mitsubishi снова обновила Delica D:5 спустя 19 лет после дебюта. Дизель, полный привод, новые опции - и тысячи предзаказов в Японии."
+        },
+        {
+          "title": "Мицубиси Делика Д2 2026 технические характеристики. Mitsubishi Delica D ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_2/2026/",
+          "snippet": "Mitsubishi Delica 2026 — леворульный японский минивэн-внедорожник с турбодизелем 2.3 л, полным приводом, стальной многорычажной подвеской и роскошным плюшевым салоном."
+        },
+        {
+          "title": "Mitsubishi Delica D5 G Power Package (Diesel) (2026) — технические ...",
+          "url": "https://sferacar.ru/catalog-komplektatsii/mitsubishi/delica-d5/g_2026_3431888/",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Delica D:2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить Mitsubishi Delica D5 2026 года выпуска",
+          "url": "https://www.avito.ru/all/avtomobili/mitsubishi/delica_d5/2026-ASgBAgECAkTgtg3ymCjitg2~8jIBRfqMFBd7ImZyb20iOjIwMjYsInRvIjoyMDI2fQ",
+          "snippet": "Подробные характеристики комплектации Mitsubishi Delica D5 G Power Package (Diesel) (2026): тип двигателя, расход топлива, трансмиссия, привод, оснащение и актуальные цены."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "делика д5 из японии 2026",
+      "purpose": "вторичный запрос: делика д5 из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мицубиси Делика Д5 2026 технические характеристики. Mitsubishi Delica D ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены под ключ в 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Delica D:5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Мицубиси Делика Д5 2026 между собой."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 (Митсубиси Делика D5) Минивэн 2025г с Японии ...",
+          "url": "https://silacar.ru/catalog/mitsubishi/delica-d-5/2025-2026-1-restyling-miniven-25203.html",
+          "snippet": "Delica D:5 — минивэн-вседорожник на платформе Outlander: клиренс 185 мм, постоянный полный привод с режимами, дизель на 145 сил и восемь мест. Модель выпускается с 2007 года, и свежий рестайлинг 2026 года собрал в Японии больше пяти тысяч предзаказов — потому что альтернатив ей не делает никто."
+        },
+        {
+          "title": "Delica D:5 из Японии: цена и болячки",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-delica-d5-iz-yaponii-2026",
+          "snippet": "Цены на Mitsubishi Delica D:5 с аукционов Японии напрямую зависят от состояния авто (аукционная оценка, пробег) и комплектации (объем двигателя, тип топлива, привод, тюнинг и т.д.)."
+        },
+        {
+          "title": "Mitsubishi обновила Delica D:5 для Японии - ddn.kz",
+          "url": "https://www.ddn.kz/mitsubishi-obnovila-delica-d5-dlya-yaponii-start-prodazh-9-yanvarya-2026-uzhe-bolee-5000-predzakazov/",
+          "snippet": "Mitsubishi Delica D:5 выпускается с 2007 года, и в январе 2026 японцы снова выстроились за ней в очередь: свежий рестайлинг девятнадцатилетней модели собрал больше пяти тысяч предзаказов."
+        },
+        {
+          "title": "MITSUBISHI DELICA D:5 CV1W, 2026 - autosender.ru",
+          "url": "https://autosender.ru/japan-auto/mitsubishi/delica-d:5/979501980",
+          "snippet": "Mitsubishi Motors представила рестайлинговую версию культового минивэна Delica D:5 для японского рынка."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Mitsubishi Delica D:5 из Японии: как выбрать комплектацию и не попасть в ловушку до ставки 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Комплектации Mitsubishi Delica D:5 2025-2026 1 поколение — цены и ...",
+          "url": "https://jpstar.ru/catalog/mitsubishi/delica-d-5/2025-2026-1-restyling-miniven-25203.html",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Delica D:5 2-й рестайлинг 2025, 2026 ... - Дром",
+          "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_5/g_2025_23521/",
+          "snippet": "Цены на Mitsubishi Delica D:5 с аукционов Японии напрямую зависят от состояния авто (аукционная оценка, пробег) и комплектации (объем двигателя, тип топлива, привод, тюнинг и т.д.)."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 из Японии: культовый полноприводный минивэн под ...",
+          "url": "https://onlyjpcars.ru/blog/mitsubishi-delica-d5-iz-yaponii",
+          "snippet": "Подробно расписаны модификации автомобилей Mitsubishi Delica D:5 2-й рестайлинг 2025: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 1 поколение рестайлинг из Японии — характеристики ...",
+          "url": "https://tempa-cars.ru/catalog/mitsubishi/delica-d-5/2025-2026-1-restyling-miniven-25203.html",
+          "snippet": "Среди всех автомобилей, которые мы привозим из Японии, Mitsubishi Delica D:5 занимает особое место. Это единственный в мире серийный минивэн с настоящим полным приводом и дорожным просветом, достаточным для грунтовых дорог."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 обновили в 2026 году - и снова успех",
+          "url": "https://allroader.ru/mitsubishi-delica-d5-2026-140089/",
+          "snippet": "Цены на Mitsubishi Delica D:5 с аукционов Японии напрямую зависят от состояния авто (аукционная оценка, пробег) и комплектации (объем двигателя, тип топлива, привод, тюнинг и т.д.)."
+        },
+        {
+          "title": "Mitsubishi Delica D:5 из Японии — характеристики, комплектации и цены ...",
+          "url": "https://tempa-cars.ru/catalog/mitsubishi/delica-d-5/",
+          "snippet": "Mitsubishi снова обновила Delica D:5 спустя 19 лет после дебюта. Дизель, полный привод, новые опции - и тысячи предзаказов в Японии."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+      "title": "Mitsubishi из Японии: модельный ряд и цены",
+      "from_query": "делика из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-delica-d2-iz-yaponii-2026",
+      "title": "Mitsubishi Delica D:2 из Японии: обзор, цена",
+      "from_query": "делика из японии 2026"
+    },
+    {
+      "url": "https://aa-dv.ru/rastamozhka-mitsubishi-delica.html",
+      "title": "Растаможка Mitsubishi Delica из Японии в 2026 году",
+      "from_query": "делика из японии 2026"
+    },
+    {
+      "url": "https://jpstar.ru/auktsiony/mitsubishi/delica-d5/",
+      "title": "Аукционы Японии: Mitsubishi Delica D5 Онлайн - Jpstar",
+      "from_query": "делика из японии 2026"
+    },
+    {
+      "url": "https://ks-auto.ru/news/mitsubishi-delica-2026-chestnyy-obzor-yaponskogo-avtobusa-s-dizelem-i-polnym-privodom/",
+      "title": "Mitsubishi Delica 2026 — японский дизельный минивэн для бездорожья ...",
+      "from_query": "делика из японии 2026"
+    },
+    {
+      "url": "https://www.avtovzglyad.ru/avto/used-cars/75248-2026-10-12-legenda-puteshestviy-skolko-stoit-privezti-vrossiyu-kultovuyu-mitsubishi-delica-izyaponii/",
+      "title": "Легенда путешествий: сколько стоит привезти в Россию культовую ...",
+      "from_query": "делика из японии 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/video-224217384_456239423",
+      "title": "ТОРГИ В ЯПОНИИ МИНИ АВТО | ОКТЯБРЬ 2026",
+      "from_query": "делика из японии октябрь 2026"
+    },
+    {
+      "url": "https://dzen.ru/video/watch/6adc5faa1796c105c2eb3ab0",
+      "title": "Японские Торги Октябрь 2026 / Toyota ... - Дзен",
+      "from_query": "делика из японии октябрь 2026"
+    },
+    {
+      "url": "https://allroader.ru/mitsubishi-delica-d5-2026-140089/",
+      "title": "Mitsubishi Delica D:5 обновили в 2026 году - и снова успех",
+      "from_query": "делика из японии новости 2026"
+    },
+    {
+      "url": "https://daily-motor.ru/autonews/178279",
+      "title": "Новая Mitsubishi Delica D:6 будет крупнее, технологичнее и дороже ...",
+      "from_query": "делика из японии новости 2026"
+    },
+    {
+      "url": "https://daily-motor.ru/autonews/179997",
+      "title": "Mitsubishi Delica D:5 бьет рекорды продаж перед выходом нового поколения",
+      "from_query": "делика из японии новости 2026"
+    },
+    {
+      "url": "https://vizator.ru/news/delika-bratia-na-dong-jing-otosaron2026-ot-brutalnogo-monstra-do-uiutnogo-kempera-21eab2fc",
+      "title": "Делика-братья на、東京オートサロン2026: от брутального монстра до уютного кемпера",
+      "from_query": "делика из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/AmrDab/clawdcursor/blob/main/docs/favicon.svg",
+      "title": "clawdcursor/docs/favicon.svg at main · AmrDab/clawdcursor",
+      "from_query": "site:github.com делика из японии 2026"
+    },
+    {
+      "url": "https://github.com/georghinkel/EtiCat/blob/main/icon.svg",
+      "title": "EtiCat/icon.svg at main · georghinkel/EtiCat · GitHub",
+      "from_query": "site:github.com делика из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/crashmax-dev/e4357674c01503e9c5a2a9f2dbb33f3c",
+      "title": "Иероглифы похожие на русские и английские буквы · GitHub",
+      "from_query": "site:github.com делика из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+      "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+      "from_query": "site:github.com делика из японии 2026"
+    },
+    {
+      "url": "https://github.com/feljor/mintlify-docs/blob/main/favicon.svg",
+      "title": "mintlify-docs/favicon.svg at main · feljor/mintlify-docs · GitHub",
+      "from_query": "site:github.com делика из японии 2026"
+    },
+    {
+      "url": "https://github.com/0x78654C/xTerminal/blob/main/media/banner.png",
+      "title": "xTerminal/media/banner.png at main · 0x78654C/xTerminal · GitHub",
+      "from_query": "site:github.com делика из японии 2026"
+    },
+    {
+      "url": "https://documents.un.org/",
+      "title": "Official Document System - Search",
+      "from_query": "делика из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_5/2026/",
+      "title": "Мицубиси Делика Д5 2026 технические характеристики. Mitsubishi Delica D ...",
+      "from_query": "делика из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/mitsubishi/delica_mini/2026/",
+      "title": "Мицубиси Делика Мини 2026 технические характеристики. Mitsubishi Delica ...",
+      "from_query": "делика из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.delicaclub.ru/forum/",
+      "title": "Клуб владельцев Mitsubishi DELICA............DelicaClub.ru",
+      "from_query": "делика из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-delica-d5-iz-yaponii-2026",
+      "title": "Delica D:5 из Японии: цена и болячки",
+      "from_query": "делика из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://delicad5.ru/viewforum.php?f=14",
+      "title": "Двигатель - Клуб Delica D:5",
+      "from_query": "делика из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/faq/mitsubishi/delica_d_5/?year=2026",
+      "title": "Mitsubishi Delica D:5 2026 вопросы, ответы и ... - Дром",
+      "from_query": "делика из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/video-241942524_456240367",
+      "title": "Обзор Мицубиси Делика Д2 1200сс — из Японии в Москву .mp4 — Видео от ...",
+      "from_query": "делика из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/mitsubishi/delica_d_5/5kopeek/breakages/",
+      "title": "Мицубиси Делика Д5 отзывы владельцев - поломки и проблемы",
+      "from_query": "делика из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_5/g_2025_23521/",
+      "title": "Mitsubishi Delica D:5 2-й рестайлинг 2025, 2026 ... - Дром",
+      "from_query": "мицубиси делика д5 2026"
+    },
+    {
+      "url": "https://www.avito.ru/all/avtomobili/mitsubishi/delica_d5/2026-ASgBAgECAkTgtg3ymCjitg2~8jIBRfqMFBd7ImZyb20iOjIwMjYsInRvIjoyMDI2fQ",
+      "title": "Купить Mitsubishi Delica D5 2026 года выпуска",
+      "from_query": "мицубиси делика д5 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/mitsubishi/delica_d_5/year-2026/",
+      "title": "Купить Мицубиси Делика Д5 2026 в России: продажа Mitsubishi Delica D:5 ...",
+      "from_query": "мицубиси делика д5 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/mitsubishi/delica_d_5/2026-year/all/body-minivan/",
+      "title": "Купить Mitsubishi Delica D:5 минивэн 2026 года выпуска",
+      "from_query": "мицубиси делика д5 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/mitsubishi/delica_d_5/627631817.html",
+      "title": "Продажа Mitsubishi Delica D:5, 2026 год во Владивостоке",
+      "from_query": "делика владивосток 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/mitsubishi/delica_d_5/801145573.html",
+      "title": "Продажа Mitsubishi Delica D:5, 2026 год во Владивостоке",
+      "from_query": "делика владивосток 2026"
+    },
+    {
+      "url": "https://cenamashin.ru/cena/mitsubishi/delica/2026/vladivostok",
+      "title": "Сколько стоит Мицубиси Делика 2026 года, цена в Владивостоке",
+      "from_query": "делика владивосток 2026"
+    },
+    {
+      "url": "https://www.avito.ru/vladivostok/avtomobili/mitsubishi_delica_d5_2.3_at_2026_11_km_8127144185",
+      "title": "Mitsubishi Delica D5 2.3 AT, 2026, 11 км - Авито",
+      "from_query": "делика владивосток 2026"
+    },
+    {
+      "url": "https://www.avito.ru/vladivostok/avtomobili/mitsubishi_delica_d5_2.3_at_2026_11_km_8063444736",
+      "title": "Mitsubishi Delica D5 2.3 AT, 2026, 11 км - Авито",
+      "from_query": "делика владивосток 2026"
+    },
+    {
+      "url": "https://auto.ru/vladivostok/cars/mitsubishi/delica_d_5/2026-year/all/",
+      "title": "Купить Mitsubishi Delica D:5 2026 года выпуска во Владивостоке",
+      "from_query": "делика владивосток 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/mitsubishi/delica_d_2/2026/",
+      "title": "Мицубиси Делика Д2 2026 технические характеристики. Mitsubishi Delica D ...",
+      "from_query": "мицубиси делика дизель 2026"
+    },
+    {
+      "url": "https://sferacar.ru/catalog-komplektatsii/mitsubishi/delica-d5/g_2026_3431888/",
+      "title": "Mitsubishi Delica D5 G Power Package (Diesel) (2026) — технические ...",
+      "from_query": "мицубиси делика дизель 2026"
+    },
+    {
+      "url": "https://silacar.ru/catalog/mitsubishi/delica-d-5/2025-2026-1-restyling-miniven-25203.html",
+      "title": "Mitsubishi Delica D:5 (Митсубиси Делика D5) Минивэн 2025г с Японии ...",
+      "from_query": "делика д5 из японии 2026"
+    },
+    {
+      "url": "https://www.ddn.kz/mitsubishi-obnovila-delica-d5-dlya-yaponii-start-prodazh-9-yanvarya-2026-uzhe-bolee-5000-predzakazov/",
+      "title": "Mitsubishi обновила Delica D:5 для Японии - ddn.kz",
+      "from_query": "делика д5 из японии 2026"
+    },
+    {
+      "url": "https://autosender.ru/japan-auto/mitsubishi/delica-d:5/979501980",
+      "title": "MITSUBISHI DELICA D:5 CV1W, 2026 - autosender.ru",
+      "from_query": "делика д5 из японии 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/mitsubishi/delica-d-5/2025-2026-1-restyling-miniven-25203.html",
+      "title": "Комплектации Mitsubishi Delica D:5 2025-2026 1 поколение — цены и ...",
+      "from_query": "Mitsubishi Delica D:5 из Японии: как выбрать комплектацию и не попасть в ловушку до ставки 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/mitsubishi-delica-d5-iz-yaponii",
+      "title": "Mitsubishi Delica D:5 из Японии: культовый полноприводный минивэн под ...",
+      "from_query": "Mitsubishi Delica D:5 из Японии: как выбрать комплектацию и не попасть в ловушку до ставки 2026"
+    },
+    {
+      "url": "https://tempa-cars.ru/catalog/mitsubishi/delica-d-5/2025-2026-1-restyling-miniven-25203.html",
+      "title": "Mitsubishi Delica D:5 1 поколение рестайлинг из Японии — характеристики ...",
+      "from_query": "Mitsubishi Delica D:5 из Японии: как выбрать комплектацию и не попасть в ловушку до ставки 2026"
+    },
+    {
+      "url": "https://tempa-cars.ru/catalog/mitsubishi/delica-d-5/",
+      "title": "Mitsubishi Delica D:5 из Японии — характеристики, комплектации и цены ...",
+      "from_query": "Mitsubishi Delica D:5 из Японии: как выбрать комплектацию и не попасть в ловушку до ставки 2026"
+    }
+  ]
+}

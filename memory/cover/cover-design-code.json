@@ -23,7 +23,7 @@
     "grunge paper texture or dark navy auto vibe",
     "black bold condensed Cyrillic headlines",
     "modern cars Japan/Korea/China, Vladivostok port hints",
-    "small corner brand text: avto-sales125.ru"
+    "REQUIRED small corner brand text bottom-right of cover panel: avto-sales125.ru (missing brand = fail; NOT Telegram)"
   ],
   "color_palette": {
     "background": "#F5F5F0",

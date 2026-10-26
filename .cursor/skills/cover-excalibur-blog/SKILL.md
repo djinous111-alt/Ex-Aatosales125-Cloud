@@ -59,7 +59,7 @@ inject <figure> after H2 in article.html
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
 **Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
 **Запрет:** кепка, капюшон.  
-**Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
+**Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram). Prompt builder требует corner brand (`validate_corner_brand`); если модель пропустила текст — **один** PIL overlay на cover + matching quadrant canvas, без второго image job.  
 **Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
 
 ---

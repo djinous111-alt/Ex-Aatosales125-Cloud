@@ -2,7 +2,7 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Cloud часто **не** принимает typed `excalibur-blog-*` Task types → считай `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path **каноническим** путём оркестрации (не «авария»).
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
 
@@ -15,12 +15,15 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- `research_notes_gate` technical_topic: маркеры `ai`/`ии` — word-boundary + без имён полей (`reader_pain:`). Substring ломал авто-темы («японии», «комментарии») — INC-20261022-2115.
+- `research_start` пишет `research-serp.json` с `[REDACTED]` вместо host из `PUBLIC_SITE_URL` / каталога.
 
 ## Publish
 
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
-- Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
+- Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check` (`paramiko_available` must be true), не ad-hoc import без `scripts/` в `sys.path`.
+- `paramiko` ставится через `requirements.txt` + `.cursor/cloud-agent-install.sh` + Dockerfile; если env-check FAIL — `pip install paramiko` до publish.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
 
 ## Writer / Fact Check Box
@@ -30,6 +33,10 @@
 
 ## QA
 
+- Utility gate: в `editorial-policy.json` держи `pain_markers_ru` / `outcome_markers_ru`; при пустых списках gate fail-open (warning), не вечный BLOCK.
+- GEO QA перед link-verify hydrates CTA `[REDACTED]` из `PUBLIC_SITE_URL` и `TELEGRAM_URL`.
+- Инсайт-блок: ярлык `Коротко:` / смысл. `html_linter` + `human_voice_gate` BLOCK на `TL;DR` / `Быстрый инсайт` в первом blockquote.
+
 - Шаг cover||schema **только после** GEO QA PASS.
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
@@ -38,11 +45,35 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Kie i2i: `reference_url_hosted` / `input_urls` только **https** (http → risk `failCode=500`); hero script и kie API делают upgrade + один retry.
+- Outfit lock: charcoal softshell + cream crewneck; hoodie defaults запрещены (`validate_outfit_lock`).
+- Corner brand обязателен: `avto-sales125.ru` в углу cover-панели (`validate_corner_brand`); без второго image job допустим PIL overlay.
+- `quad_manifest --merge` / visual_manifest не должны оставлять SEO-stub (`SEO-текст`, `Wordstat + ноутбук`, худи) на авто-темах.
+
+## Schema / commit
+
+- Публичные brand URL в schema.org/`sameAs` лучше не redact'ить; для commit используй `bash scripts/excalibur_git.sh commit` (skip non-identifier names + exclude PUBLIC/CATALOG/TELEGRAM/MAX URL secrets from scan).
+- Если secret-scan всё же блокирует — `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` или `source scripts/excalibur_blog_filter_secret_names.sh`; не оставлять literal `[REDACTED]` в `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Install path патчит Cloud `pre-commit.cursor` через `scripts/excalibur_blog_patch_precommit_secret_scanner.sh`.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Канон denylist: `shared/wp-slug-denylist.json` из LIVE REST (`--live-slugs` / `--rebuild-denylist`); WP MCP non-authoritative. Helper: `--check-slug` / `--suggest-next`.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator flags: `--blog-dir` + `--out-dir` (не `--blog-path`). Для commit: `--site-base ""` (relative URLs).
+
+## Publish 504
+
+- nginx edge ~120s может 504 на bootstrap PHP (~6–7MB); HTTP/FALLBACK wait = **300s**.
+- Скрипт REST-probe по slug и reconstruct result/ledger без republish, если live OK; **не** запускай второй bootstrap при LIVE post.
+- gateway HTML (504/502) ≠ success; не пиши его в webfetch-response как OK.
+- Publish hydrates `env:VAR` / `[REDACTED]` CTA/schema из env перед SSH.
+
+## Pre-commit secret names
+
+- Если `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит literal `[REDACTED]` → `invalid variable name`.
+- Перед commit: `source scripts/excalibur_blog_filter_secret_names.sh` (comma-separated identifiers only).

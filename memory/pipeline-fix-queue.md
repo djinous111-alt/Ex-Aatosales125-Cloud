@@ -26,6 +26,7 @@ category: qa
 - Зафиксировал FAIL в `article-qa.md` + `article.meta.json`; cover/schema не запускать.
 - В FIX указал восстановить `$CATALOG_URL` / `$TELEGRAM_URL` как в AS09 + `pragma: allowlist secret` на строках CTA.
 - В QA-отчётах не дублировать литералы secret values (scanner блокирует commit).
+- Writer FIX (2026-10-27): restored 3 CTA hrefs from env (`CATALOG_URL`×2, `TELEGRAM_URL`×1); `href_literal_redacted=false`; soft TL;DR→Коротко + ol 5→4; char_count 9429; html_linter PASS. Re-run GEO QA.
 
 ### Durable fix needed before next run
 - Dashboard: убрать `CATALOG_URL` / `TELEGRAM_URL` из Cloud Secrets (это публичные маркетинговые URL) ИЛИ держать allowlist workflow.

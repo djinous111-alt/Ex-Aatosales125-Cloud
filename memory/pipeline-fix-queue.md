@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-0020-research-tech-marker-false-positive
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-jolion-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks topic as `technical_topic=true` when any TECH_MARKERS substring appears in topic fields or first 2000 chars of notes.
+- Substring `"ai"` matches inside required field name `reader_pain`; substring `"ии"` matches ordinary Russian words like `гарантии`.
+- Auto niche article B01 (Haval Jolion checklist) was forced into GitHub-evidence requirements and got warning about missing `/docs` developer URL despite being a beginner car-import checklist.
+
+### How the agent recovered this run
+- Added three real GitHub evidence rows (OBDb/Haval-Jolion, itvv/haval-debug, vin-decoder-au) plus community Drive2 signal so gate stayed PASS.
+- Did not invent Wordstat volumes; MCP-KV Wordstat OK.
+
+### Durable fix needed before next run
+- Match TECH_MARKERS with word boundaries / tokenized checks, not raw substring `in`.
+- Exclude known field names (`reader_pain`, etc.) or drop ultra-short markers like `ai` / `ии` that collide with Russian morphology and English field ids.
+- Optionally classify technical_topic from topic card tags / search_intent, not from incidental note text.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-2103-scout-live-slugs-cli-missing
 status: open
 run_date: 2026-10-26

@@ -1,0 +1,656 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-27",
+    "today_ru": "27.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-29",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-27 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "haval-jolion-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита в 2026",
+    "primary_query": "хавал джолион из китая",
+    "secondary_queries": [
+      "хавал джолион комплектации",
+      "комплектации хавал джолион 2026",
+      "хавал джолион премиум комплектация",
+      "хавал джолион комфорт комплектация"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хавал джолион из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Обзор Хавейл Джолион 2026: цены, комплектации и отзывы",
+          "url": "https://ezzhev.ru/chinese-cars/obzor-haval-jolion/",
+          "snippet": ""
+        },
+        {
+          "title": "Вся правда о Хавейл Джолион (Haval Jolion) 2025/2026/2027 или, сколько ...",
+          "url": "https://autbar.ru/alltruehavaljolion.html",
+          "snippet": "Полный обзор Хавейл Джолион 2026 года. Сравнение комплектаций, характеристики двигателя, реальные цены и инструкция по заказу авто из Китая с выгодой."
+        },
+        {
+          "title": "Продажа Haval Jolion из Китая | Цены на Хавейл Джолион в Китае",
+          "url": "https://www.drom.ru/world/china/haval/jolion/",
+          "snippet": "В статье рассмотрена вся правда о ценах и комплектациях самого популярного китайского кроссовера в России - Хавал/Хавейл Джолион (Haval Jolion) 2025/2026/2027 модельных годов."
+        },
+        {
+          "title": "Haval Jolion из Китая: цена под ключ, комплектации и отличия от ...",
+          "url": "https://jckauto.ru/blog/haval-jolion-iz-kitaya",
+          "snippet": "Объявления о продаже Haval Jolion под заказ из Китая с фото авто и ценами. Стоимость и характеристики Хавейл Джолион на аукционе в Китае."
+        },
+        {
+          "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+          "snippet": "Полный разбор Haval Jolion с внутреннего рынка Китая: комплектации, цены, отличия от версии для РФ, расчёт стоимости под ключ в 2026 году."
+        },
+        {
+          "title": "Обзор Хавейл Джолион 2026: комплектации, цены и заказ из Китая",
+          "url": "https://ok.ru/group/70000051912434/topic/158736306585074",
+          "snippet": "Всё о новом Джолион 2026 года: фото после рестайлинга, цены и комплектации, технические характеристики, двигатели и трансмиссии, преимущества и недостатки."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хавал джолион из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Новый Haval Jolion 2026 года в Октябрьском - купить Хавейл Джолион 2026 ...",
+          "url": "https://oktyabrski.autospot.ru/selection/novyy-haval-jolion-2026-goda/",
+          "snippet": ""
+        },
+        {
+          "title": "Обзор Хавейл Джолион 2026: цены, комплектации и отзывы",
+          "url": "https://ezzhev.ru/chinese-cars/obzor-haval-jolion/",
+          "snippet": "Купить новый Haval Jolion 2026 года в Октябрьском на Autospot: актуальные комплектации Джолион 2026, цены от дилеров, спецпредложения и удобная онлайн-покупка."
+        },
+        {
+          "title": "Вся правда о Хавейл Джолион (Haval Jolion) 2025/2026/2027 или, сколько ...",
+          "url": "https://autbar.ru/alltruehavaljolion.html",
+          "snippet": "Полный обзор Хавейл Джолион 2026 года. Сравнение комплектаций, характеристики двигателя, реальные цены и инструкция по заказу авто из Китая с выгодой."
+        },
+        {
+          "title": "Haval Jolion 2026: новый мотор и другой ... - Rutube",
+          "url": "https://rutube.ru/video/6d27558fc5aca02b30e1514af9736a71/",
+          "snippet": "В статье рассмотрена вся правда о ценах и комплектациях самого популярного китайского кроссовера в России - Хавал/Хавейл Джолион (Haval Jolion) 2025/2026/2027 модельных годов."
+        },
+        {
+          "title": "Хавал Джолион 2026 - фото, цена, комплектации нового Haval Jolion ...",
+          "url": "https://www.allcarz.ru/haval-jolion-upd/",
+          "snippet": "Что из себя представляет обновленный Haval Jolion 2026 модельного года, какие плюсы дал этому кроссоверу новый мотор от Хавала H3, каким получился переделанный салон, и стоит ли рассматривать такой Джолион к покупке?"
+        },
+        {
+          "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+          "snippet": "Обзор нового Хавал Джулиан 2026 года. Технические характеристики, фото в новом кузове, комплектации и цены Haval Jolion после рестайлинга."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хавал джолион из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Обзор Хавейл Джолион 2026: цены, комплектации и отзывы",
+          "url": "https://ezzhev.ru/chinese-cars/obzor-haval-jolion/",
+          "snippet": ""
+        },
+        {
+          "title": "Вся правда о Хавейл Джолион (Haval Jolion) 2025/2026/2027 или, сколько ...",
+          "url": "https://autbar.ru/alltruehavaljolion.html",
+          "snippet": "Полный обзор Хавейл Джолион 2026 года. Сравнение комплектаций, характеристики двигателя, реальные цены и инструкция по заказу авто из Китая с выгодой."
+        },
+        {
+          "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+          "snippet": "В статье рассмотрена вся правда о ценах и комплектациях самого популярного китайского кроссовера в России - Хавал/Хавейл Джолион (Haval Jolion) 2025/2026/2027 модельных годов."
+        },
+        {
+          "title": "Хавал Джолион: технические характеристики и особенности 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/kh/kharakteristiki-khaval-dzholion.html",
+          "snippet": "Новый Хавал Джолион 2026 получил ряд улучшений в комплектациях, сохраняя привлекательный уровень цен, характерный для лучших представителей китайского автопрома. Несмотря на рестайлинг, технические характеристики остались неизменными, предлагая разнообразие двигателей и трансмиссий."
+        },
+        {
+          "title": "Хавал Джолион: полные характеристики 2026 и отзывы владельцев",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-dzholion-kharakteristiki.html",
+          "snippet": "Полный обзор характеристик Haval Jolion: двигатели, трансмиссия, габариты, оснащение и сравнение с конкурентами. Актуальные данные 2026 года."
+        },
+        {
+          "title": "Haval Jolion из Китая: цена под ключ, комплектации и отличия от ...",
+          "url": "https://jckauto.ru/blog/haval-jolion-iz-kitaya",
+          "snippet": "Особое внимание уделим изменениям 2026 модельного года — какие обновления получил кроссовер, стоит ли ждать рестайлинг, и как он конкурирует с Geely Coolray, Changan CS35 Plus и Hyundai Creta."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хавал джолион из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "woodex/favicon.svg at main · eng-mido-dev/woodex · GitHub",
+          "url": "https://github.com/eng-mido-dev/woodex/blob/main/favicon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "LLCinfo/vers. 2 vanguard insurance.png at main · Corptech02/LLCinfo",
+          "url": "https://github.com/Corptech02/LLCinfo/blob/main/vers.%202%20vanguard%20insurance.png",
+          "snippet": "Contribute to eng-mido-dev/woodex development by creating an account on GitHub."
+        },
+        {
+          "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+          "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+          "snippet": "Contribute to Corptech02/LLCinfo development by creating an account on GitHub."
+        },
+        {
+          "title": "agent_exploration/fig/5levels.png at main · banyikun/agent_exploration ...",
+          "url": "https://github.com/banyikun/agent_exploration/blob/main/fig/5levels.png",
+          "snippet": "При попытке зайти на chat.openai.com или chatgpt.com из российского IP вы получите одну из ошибок: We are not able to provide services to your area at this time."
+        },
+        {
+          "title": "Art-stuff/locket-pookie.svg at main · jane-doe-69/Art-stuff",
+          "url": "https://github.com/jane-doe-69/Art-stuff/blob/main/locket-pookie.svg",
+          "snippet": "Agent Exploration Toward Artificial General Intelligence: A Survey - banyikun/agent_exploration"
+        },
+        {
+          "title": "FMCW_Radar_Ake/polar_fft.png at master · ake1999/FMCW_Radar_Ake · GitHub",
+          "url": "https://github.com/ake1999/FMCW_Radar_Ake/blob/master/polar_fft.png",
+          "snippet": "Contribute to jane-doe-69/Art-stuff development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хавал джолион из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Инструкции Для Владельцев Haval - Руководства По Эксплуатации",
+          "url": "https://haval.ru/owners/instructions/",
+          "snippet": ""
+        },
+        {
+          "title": "Обзор Хавейл Джолион 2026: комплектации, цены и заказ из Китая",
+          "url": "https://ok.ru/group/70000051912434/topic/158736306585074",
+          "snippet": "Скачайте инструкции и руководства по эксплуатации автомобилей HAVAL. Подробные рекомендации, советы и информация для правильного ухода за авто."
+        },
+        {
+          "title": "Вся правда о Хавейл Джолион (Haval Jolion) 2025/2026/2027 или, сколько ...",
+          "url": "https://autbar.ru/alltruehavaljolion.html",
+          "snippet": "Обзор хавейл джолион — это детальный разбор технических характеристик, доступных комплектаций и реальных цен популярного китайского кроссовера."
+        },
+        {
+          "title": "Обзор Хавейл Джолион 2026: комплектации, цены и заказ из Китая Хавейл ...",
+          "url": "https://vk.com/wall-237661237_250",
+          "snippet": "В статье рассмотрена вся правда о ценах и комплектациях самого популярного китайского кроссовера в России - Хавал/Хавейл Джолион (Haval Jolion) 2025/2026/2027 модельных годов."
+        },
+        {
+          "title": "Кроссоверы И Внедорожники Haval (Хавейл) В России - Официальный Сайт",
+          "url": "https://haval.ru/",
+          "snippet": "В: Как безопасно купить машину из Китая? О: Заказ через лицензированного брокера гарантирует безопасность сделки и экономию бюджета."
+        },
+        {
+          "title": "Руководства по эксплуатации и мультимедиа для автомобилей Haval ...",
+          "url": "https://haval-nurlyzhol.kz/ru/owners/instructions/",
+          "snippet": "Предложение ограничено, не является офертой и действует с 17.08.2026 года. Подробности уточняйте в официальных дилерских центрах HAVAL CITY и на сайте haval.ru."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хавал джолион из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавал Джолион минусы и недостатки: реальные отзывы 2026",
+          "url": "https://ezzhev.ru/chinese-cars/haval-jolion-minusy/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Jolion Club - Хавал Клуб Форум | Haval Club (Хавейл)",
+          "url": "https://haval-clubs.ru/forums/forum/402-haval-jolion-club/",
+          "snippet": "Изучая этот компактный кроссовер, который стабильно держится в топе продаж, многие покупатели в первую очередь ищут в сети хавал джолион минусы, чтобы принять взвешенное решение. Данил Рыльцев, автоэксперт Езжев, разобрал основные проблемы модели на основе реального опыта эксплуатации в России."
+        },
+        {
+          "title": "Хавейл Джолион 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/haval/jolion/5kopeek/2026-all/breakages/",
+          "snippet": "Прежде чем создать новую тему, найдите раздел форума или воспользуйтесь поиском с названием модели! Пример: Шины Haval f7"
+        },
+        {
+          "title": "Haval | ChinaAutoForum.ru - форум по китайским автомобилям",
+          "url": "https://chinaautoforum.ru/categories/haval.10/",
+          "snippet": "Отзывы владельцев Хавейл Джолион 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Хавейл Джолион: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Отзывы владельцев | HAVAL Jolion клуб и форум",
+          "url": "https://jolion-haval.ru/forums/otzyvy-vladelcev.3/",
+          "snippet": "Здесь обсуждаются модели Haval Jolion, Dargo, F7, M6 и другие: реальные отзывы владельцев, проблемы эксплуатации, обслуживание, ремонт, расход топлива, выбор комплектаций и сравнение с конкурентами."
+        },
+        {
+          "title": "Хавал Джолион: реальные отзывы владельцев 2026 — плюсы и минусы",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-o-avto-khaval-dzholion.html",
+          "snippet": "Планирую приобрести новый Haval jolion. Что скажете за авто, какие плюсы и минусы? Стоит брать или присмотреться к другим? Рассматриваю так же Changan. Всем Вопрос про прошивку, есть те, кто делал прошивку ДВС И РКППП в Ижевске? У кого делалали? Как результат? Можете прокатить на прошитом авто, что. есть кто поменял на рестайлинг с прошлого кузова?"
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хавал джолион комплектации 2026",
+      "purpose": "вторичный запрос: хавал джолион комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Цены и комплектации Haval Jolion 2026: сравнение версий | Блог ...",
+          "url": "https://www.tts.ru/blog/sovety-avtomobilistam/komplektatsii-haval-jolion-sravnenie-kharakteristiki/",
+          "snippet": "Хавейл Джолион 2026 комплектации и цены, фото. Подробно расписан модельный ряд Haval Jolion 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+          "snippet": "Цены и комплектации Haval Jolion 2026: какие комплектации есть (Comfort, Elite, Premium, Tech Plus), их характеристики, отличия и максимальная версия."
+        },
+        {
+          "title": "Haval Jolion 2026: полный обзор, комплектации и цены",
+          "url": "https://autodix.ru/haval-jolion-2026-polnyj-obzor-komplektaczii-i-czeny/",
+          "snippet": "Всё о новом Джолион 2026 года: фото после рестайлинга, цены и комплектации, технические характеристики, двигатели и трансмиссии, преимущества и недостатки."
+        },
+        {
+          "title": "Haval Jolion (Хавейл Джолион) технические характеристики, комплектации ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/",
+          "snippet": "В этом материале мы детально разберём все актуальные комплектации Haval Jolion 2026, их цены, технические характеристики и ключевые особенности, чтобы помочь вам выбрать оптимальную версию."
+        },
+        {
+          "title": "Haval Jolion 2026: цены, комплектации и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-jolion/",
+          "snippet": "Подробно расписан модельный ряд Haval Jolion: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл Джолион между собой."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "комплектации хавал джолион 2026 2026",
+      "purpose": "вторичный запрос: комплектации хавал джолион 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Цены и комплектации Haval Jolion 2026: сравнение версий | Блог ...",
+          "url": "https://www.tts.ru/blog/sovety-avtomobilistam/komplektatsii-haval-jolion-sravnenie-kharakteristiki/",
+          "snippet": "Хавейл Джолион 2026 комплектации и цены, фото. Подробно расписан модельный ряд Haval Jolion 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "Haval Jolion 2026: полный обзор, комплектации и цены",
+          "url": "https://autodix.ru/haval-jolion-2026-polnyj-obzor-komplektaczii-i-czeny/",
+          "snippet": "Цены и комплектации Haval Jolion 2026: какие комплектации есть (Comfort, Elite, Premium, Tech Plus), их характеристики, отличия и максимальная версия."
+        },
+        {
+          "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+          "snippet": "В этом материале мы детально разберём все актуальные комплектации Haval Jolion 2026, их цены, технические характеристики и ключевые особенности, чтобы помочь вам выбрать оптимальную версию."
+        },
+        {
+          "title": "Haval Jolion 2-й рестайлинг 2026, джип/suv 5 ... - Дром",
+          "url": "https://www.drom.ru/catalog/haval/jolion/g_2026_24678/",
+          "snippet": "Всё о новом Джолион 2026 года: фото после рестайлинга, цены и комплектации, технические характеристики, двигатели и трансмиссии, преимущества и недостатки."
+        },
+        {
+          "title": "Хавал Джолион 2026 - фото, цена, комплектации нового Haval Jolion ...",
+          "url": "https://www.allcarz.ru/haval-jolion-upd/",
+          "snippet": "Подробно расписаны модификации автомобилей Haval Jolion 2-й рестайлинг 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии ..."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "хавал джолион премиум комплектация 2026",
+      "purpose": "вторичный запрос: хавал джолион премиум комплектация",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Цены и комплектации Haval Jolion 2026: сравнение версий | Блог ...",
+          "url": "https://www.tts.ru/blog/sovety-avtomobilistam/komplektatsii-haval-jolion-sravnenie-kharakteristiki/",
+          "snippet": ""
+        },
+        {
+          "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+          "snippet": "Цены и комплектации Haval Jolion 2026: какие комплектации есть (Comfort, Elite, Premium, Tech Plus), их характеристики, отличия и максимальная версия."
+        },
+        {
+          "title": "Haval Jolion 2026: полный обзор, комплектации и цены",
+          "url": "https://autodix.ru/haval-jolion-2026-polnyj-obzor-komplektaczii-i-czeny/",
+          "snippet": "Подробно расписан модельный ряд Haval Jolion 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл Джолион 2026 между собой."
+        },
+        {
+          "title": "Купить Haval Jolion 2026 в комплектации PREMIUM по цене от 1470000 руб ...",
+          "url": "https://carso.ru/haval/jolion/kit/premium",
+          "snippet": "В этом материале мы детально разберём все актуальные комплектации Haval Jolion 2026, их цены, технические характеристики и ключевые особенности, чтобы помочь вам выбрать оптимальную версию."
+        },
+        {
+          "title": "Haval Jolion Premium: комплектация 2026: цена, фото, оборудование и ...",
+          "url": "https://carmaps.ru/haval/jolion/com-premium/",
+          "snippet": "Купить Хавал Джолион PREMIUM по цене от 1470000 руб. Trade-in, рассрочка, экспресс кредит. Haval Jolion в комплектации PREMIUM в автосалоне, Москва."
+        },
+        {
+          "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+          "snippet": "Цена, фото, стандартное и дополнительное оборудование Haval Jolion в комплектации Premium: оборудование, аксессуары, системы безопасности и характеристики."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "хавал джолион комфорт комплектация 2026",
+      "purpose": "вторичный запрос: хавал джолион комфорт комплектация",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Jolion 2026: полный обзор, комплектации и цены",
+          "url": "https://autodix.ru/haval-jolion-2026-polnyj-obzor-komplektaczii-i-czeny/",
+          "snippet": "Подробно расписан модельный ряд Haval Jolion 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Цены и комплектации Haval Jolion 2026: сравнение версий | Блог ...",
+          "url": "https://www.tts.ru/blog/sovety-avtomobilistam/komplektatsii-haval-jolion-sravnenie-kharakteristiki/",
+          "snippet": "В этом материале мы детально разберём все актуальные комплектации Haval Jolion 2026, их цены, технические характеристики и ключевые особенности, чтобы помочь вам выбрать оптимальную версию."
+        },
+        {
+          "title": "Haval Jolion (Хавейл Джолион) технические характеристики, комплектации ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/",
+          "snippet": "Цены и комплектации Haval Jolion 2026: какие комплектации есть (Comfort, Elite, Premium, Tech Plus), их характеристики, отличия и максимальная версия."
+        },
+        {
+          "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд Haval Jolion: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл Джолион между собой."
+        },
+        {
+          "title": "Купить Haval Jolion (Хавейл Джолион New) 2026 В России - Цены ...",
+          "url": "https://haval.ru/models/haval-jolion/",
+          "snippet": "Всё о новом Джолион 2026 года: фото после рестайлинга, цены и комплектации, технические характеристики, двигатели и трансмиссии, преимущества и недостатки."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Обзор Хавейл Джолион 2026: цены, комплектации и отзывы",
+          "url": "https://ezzhev.ru/chinese-cars/obzor-haval-jolion/",
+          "snippet": ""
+        },
+        {
+          "title": "Цены и комплектации Haval Jolion 2026: сравнение версий | Блог ...",
+          "url": "https://www.tts.ru/blog/sovety-avtomobilistam/komplektatsii-haval-jolion-sravnenie-kharakteristiki/",
+          "snippet": "Полный обзор Хавейл Джолион 2026 года. Сравнение комплектаций, характеристики двигателя, реальные цены и инструкция по заказу авто из Китая с выгодой."
+        },
+        {
+          "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+          "snippet": "Цены и комплектации Haval Jolion 2026: какие комплектации есть (Comfort, Elite, Premium, Tech Plus), их характеристики, отличия и максимальная версия."
+        },
+        {
+          "title": "Haval Jolion из Китая: цена под ключ, комплектации и отличия от ...",
+          "url": "https://jckauto.ru/blog/haval-jolion-iz-kitaya",
+          "snippet": "Всё о новом Джолион 2026 года: фото после рестайлинга, цены и комплектации, технические характеристики, двигатели и трансмиссии, преимущества и недостатки."
+        },
+        {
+          "title": "Haval Jolion 2026: обзор, характеристики, комплектации и цены нового ...",
+          "url": "https://journal.carso.ru/articles/haval-jolion-2026-obzor-harakteristiki-komplektatsii-i-tseny-novogo-haveyl-dzholion",
+          "snippet": "Полный разбор Haval Jolion с внутреннего рынка Китая: комплектации, цены, отличия от версии для РФ, расчёт стоимости под ключ в 2026 году."
+        },
+        {
+          "title": "Хавал Джолион 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/haval-jolion-2026/",
+          "snippet": "Подробный обзор Haval Jolion 2026 года: технические характеристики, обновленный дизайн, возможности гибридных версий и актуальные цены. Узнайте, почему Джолион остается лидером рынка SUV."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://ezzhev.ru/chinese-cars/obzor-haval-jolion/",
+      "title": "Обзор Хавейл Джолион 2026: цены, комплектации и отзывы",
+      "from_query": "хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://autbar.ru/alltruehavaljolion.html",
+      "title": "Вся правда о Хавейл Джолион (Haval Jolion) 2025/2026/2027 или, сколько ...",
+      "from_query": "хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/haval/jolion/",
+      "title": "Продажа Haval Jolion из Китая | Цены на Хавейл Джолион в Китае",
+      "from_query": "хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/haval-jolion-iz-kitaya",
+      "title": "Haval Jolion из Китая: цена под ключ, комплектации и отличия от ...",
+      "from_query": "хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+      "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+      "from_query": "хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://ok.ru/group/70000051912434/topic/158736306585074",
+      "title": "Обзор Хавейл Джолион 2026: комплектации, цены и заказ из Китая",
+      "from_query": "хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://oktyabrski.autospot.ru/selection/novyy-haval-jolion-2026-goda/",
+      "title": "Новый Haval Jolion 2026 года в Октябрьском - купить Хавейл Джолион 2026 ...",
+      "from_query": "хавал джолион из китая октябрь 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/6d27558fc5aca02b30e1514af9736a71/",
+      "title": "Haval Jolion 2026: новый мотор и другой ... - Rutube",
+      "from_query": "хавал джолион из китая октябрь 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/haval-jolion-upd/",
+      "title": "Хавал Джолион 2026 - фото, цена, комплектации нового Haval Jolion ...",
+      "from_query": "хавал джолион из китая октябрь 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+      "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+      "from_query": "хавал джолион из китая октябрь 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/kh/kharakteristiki-khaval-dzholion.html",
+      "title": "Хавал Джолион: технические характеристики и особенности 2026",
+      "from_query": "хавал джолион из китая новости 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-dzholion-kharakteristiki.html",
+      "title": "Хавал Джолион: полные характеристики 2026 и отзывы владельцев",
+      "from_query": "хавал джолион из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/eng-mido-dev/woodex/blob/main/favicon.svg",
+      "title": "woodex/favicon.svg at main · eng-mido-dev/woodex · GitHub",
+      "from_query": "site:github.com хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://github.com/Corptech02/LLCinfo/blob/main/vers.%202%20vanguard%20insurance.png",
+      "title": "LLCinfo/vers. 2 vanguard insurance.png at main · Corptech02/LLCinfo",
+      "from_query": "site:github.com хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+      "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+      "from_query": "site:github.com хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://github.com/banyikun/agent_exploration/blob/main/fig/5levels.png",
+      "title": "agent_exploration/fig/5levels.png at main · banyikun/agent_exploration ...",
+      "from_query": "site:github.com хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://github.com/jane-doe-69/Art-stuff/blob/main/locket-pookie.svg",
+      "title": "Art-stuff/locket-pookie.svg at main · jane-doe-69/Art-stuff",
+      "from_query": "site:github.com хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://github.com/ake1999/FMCW_Radar_Ake/blob/master/polar_fft.png",
+      "title": "FMCW_Radar_Ake/polar_fft.png at master · ake1999/FMCW_Radar_Ake · GitHub",
+      "from_query": "site:github.com хавал джолион из китая 2026"
+    },
+    {
+      "url": "https://haval.ru/owners/instructions/",
+      "title": "Инструкции Для Владельцев Haval - Руководства По Эксплуатации",
+      "from_query": "хавал джолион из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://vk.com/wall-237661237_250",
+      "title": "Обзор Хавейл Джолион 2026: комплектации, цены и заказ из Китая Хавейл ...",
+      "from_query": "хавал джолион из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://haval.ru/",
+      "title": "Кроссоверы И Внедорожники Haval (Хавейл) В России - Официальный Сайт",
+      "from_query": "хавал джолион из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://haval-nurlyzhol.kz/ru/owners/instructions/",
+      "title": "Руководства по эксплуатации и мультимедиа для автомобилей Haval ...",
+      "from_query": "хавал джолион из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/chinese-cars/haval-jolion-minusy/",
+      "title": "Хавал Джолион минусы и недостатки: реальные отзывы 2026",
+      "from_query": "хавал джолион из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://haval-clubs.ru/forums/forum/402-haval-jolion-club/",
+      "title": "Haval Jolion Club - Хавал Клуб Форум | Haval Club (Хавейл)",
+      "from_query": "хавал джолион из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/haval/jolion/5kopeek/2026-all/breakages/",
+      "title": "Хавейл Джолион 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "хавал джолион из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://chinaautoforum.ru/categories/haval.10/",
+      "title": "Haval | ChinaAutoForum.ru - форум по китайским автомобилям",
+      "from_query": "хавал джолион из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://jolion-haval.ru/forums/otzyvy-vladelcev.3/",
+      "title": "Отзывы владельцев | HAVAL Jolion клуб и форум",
+      "from_query": "хавал джолион из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-o-avto-khaval-dzholion.html",
+      "title": "Хавал Джолион: реальные отзывы владельцев 2026 — плюсы и минусы",
+      "from_query": "хавал джолион из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.tts.ru/blog/sovety-avtomobilistam/komplektatsii-haval-jolion-sravnenie-kharakteristiki/",
+      "title": "Цены и комплектации Haval Jolion 2026: сравнение версий | Блог ...",
+      "from_query": "хавал джолион комплектации 2026"
+    },
+    {
+      "url": "https://autodix.ru/haval-jolion-2026-polnyj-obzor-komplektaczii-i-czeny/",
+      "title": "Haval Jolion 2026: полный обзор, комплектации и цены",
+      "from_query": "хавал джолион комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/jolion/",
+      "title": "Haval Jolion (Хавейл Джолион) технические характеристики, комплектации ...",
+      "from_query": "хавал джолион комплектации 2026"
+    },
+    {
+      "url": "https://haval-auto.com/models/haval-jolion/",
+      "title": "Haval Jolion 2026: цены, комплектации и характеристики | haval-auto.com",
+      "from_query": "хавал джолион комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/jolion/g_2026_24678/",
+      "title": "Haval Jolion 2-й рестайлинг 2026, джип/suv 5 ... - Дром",
+      "from_query": "комплектации хавал джолион 2026 2026"
+    },
+    {
+      "url": "https://carso.ru/haval/jolion/kit/premium",
+      "title": "Купить Haval Jolion 2026 в комплектации PREMIUM по цене от 1470000 руб ...",
+      "from_query": "хавал джолион премиум комплектация 2026"
+    },
+    {
+      "url": "https://carmaps.ru/haval/jolion/com-premium/",
+      "title": "Haval Jolion Premium: комплектация 2026: цена, фото, оборудование и ...",
+      "from_query": "хавал джолион премиум комплектация 2026"
+    },
+    {
+      "url": "https://haval.ru/models/haval-jolion/",
+      "title": "Купить Haval Jolion (Хавейл Джолион New) 2026 В России - Цены ...",
+      "from_query": "хавал джолион комфорт комплектация 2026"
+    },
+    {
+      "url": "https://journal.carso.ru/articles/haval-jolion-2026-obzor-harakteristiki-komplektatsii-i-tseny-novogo-haveyl-dzholion",
+      "title": "Haval Jolion 2026: обзор, характеристики, комплектации и цены нового ...",
+      "from_query": "Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита в 2026 2026"
+    },
+    {
+      "url": "https://cenyavto.com/haval-jolion-2026/",
+      "title": "Хавал Джолион 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита в 2026 2026"
+    }
+  ]
+}

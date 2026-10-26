@@ -41,9 +41,11 @@ python scripts/excalibur_blog_cannibalization_guard.py \
   --blog-dir memory/blog/articles \
   -o memory/blog/articles/<dir>/cannibalization-report.json
 
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<dir> \
   --output utility-gate-report.json
+# policy: memory/brief/editorial-policy.json must include pain_markers_ru / outcome_markers_ru
+# (aligned with human-voice). Empty lists → script falls back to human-voice markers.
 
 python scripts/excalibur_blog_human_voice_gate.py \
   --article-dir memory/blog/articles/<dir> \

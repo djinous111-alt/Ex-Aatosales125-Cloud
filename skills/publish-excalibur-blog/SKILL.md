@@ -38,10 +38,25 @@ python scripts/excalibur_blog_link_verify.py \
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 
+### 1b. Env / paramiko preflight
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+`paramiko_available` обязан быть `true`. Если нет:
+
+```bash
+python3 -m pip install --break-system-packages -r requirements.txt
+# or: python3 -m pip install --break-system-packages paramiko
+```
+
+`requirements.txt` / `.cursor/cloud-agent-install.sh` / Dockerfile обязаны ставить `paramiko` на каждый Cloud boot.
+
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +66,11 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+# optional: longer HTTP wait (defaults are already 300s)
+export HTTP_TRIGGER_TIMEOUT_SEC=300
+export FALLBACK_POLL_SEC=300
+
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -61,15 +80,16 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + REST reconstruct
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт ждёт до `HTTP_TRIGGER_TIMEOUT_SEC` (default **300**), затем печатает `=== FALLBACK_TRIGGER_URL ===`.
+2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt` (poll до `FALLBACK_POLL_SEC`, default **300**).
+3. Если fallback тоже timed out, скрипт пробует **REST reconstruct** `posts?slug=` — success если LIVE post найден (`OK post=`).
+4. **Запрещено** второй HTTP trigger bootstrap, пока slug уже LIVE (риск `*-1.png` дублей media).
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — используй fallback / REST reconstruct, не повторный trigger.
 
 ### 5. Post-publish артефакты
 

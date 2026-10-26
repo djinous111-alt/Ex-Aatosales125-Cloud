@@ -254,3 +254,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261026-1305-scout-wp-mcp-wrong-site
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV `wordpress_search_posts` / `wordpress_get_posts` returned posts from an unrelated WP host (tamopro), not the AVTO SALES LIVE site from `PUBLIC_SITE_URL`.
+- Blind trust in WP MCP would have produced a false "empty LIVE" signal and risked republishing models already on the real blog (e.g. Prado WP 4561 already LIVE/denylist).
+
+### How the agent recovered this run
+- Deduped against LIVE via direct REST on `PUBLIC_SITE_URL` (`/wp-json/wp/v2/posts` + `search=`), not WP MCP.
+- Cross-checked Director denylist; skipped Prado (now LIVE) and chose free model Mitsubishi Outlander.
+
+### Durable fix needed before next run
+- Point MCP-KV WordPress credentials/base URL at the same host as `PUBLIC_SITE_URL`, or document in scout skill that LIVE dedup MUST use `PUBLIC_SITE_URL` REST and treat WP MCP as non-authoritative for this niche.
+- Optionally add a scout helper flag that fetches LIVE slugs from `PUBLIC_SITE_URL` and fails closed if host mismatch is detected.
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- MCP-KV WordPress connection / Cloud Secrets for WP base URL
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

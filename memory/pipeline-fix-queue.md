@@ -7,6 +7,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261026-0929-cover-kie-http-reference
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-prado-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- First Kie `gpt-image-2-image-to-image` task failed (`failCode=500 Internal Error`) while `input_urls` used `http://avtosales125.ru/...` (301 redirect to HTTPS).
+- HTTPS of the same WordPress media URL returned HTTP 200 and the retry succeeded.
+
+### How the agent recovered this run
+- Patched `cover/quad-mcp-batch.json` and `memory/cover/blog-hero.json` `reference_url_hosted` to HTTPS.
+- Re-ran ONE Kie job → success → split/inject PASS.
+
+### Durable fix needed before next run
+- `excalibur_blog_hero_reference_url.py` (and/or batch writer) must normalize `reference_url_hosted` to HTTPS before Kie/MCP i2i.
+- Prefer refusing plain HTTP hosts that 301-redirect, so cover does not burn a failed createTask.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261026-0929-cover-prompt-truncation-garbled-sticker
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-prado-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: prompt
+
+### What went wrong
+- Cover prompt builder truncates long `scene_hint` mid-phrase (`max_prompt_chars=3500`), leaving glue like `…; host with reference face` in the model prompt.
+- Kie rendered a black sticker with garbled Latin `:::; host` + `Авто-Сейлс` on the cover panel (not toxic, but broken branding).
+
+### How the agent recovered this run
+- PIL retouch of top-right sticker on `cover/cover.png` and matching TL area of `cover/canvas-quad.png` → `avto-sales125.ru`.
+- Inline panels and inject left unchanged.
+
+### Durable fix needed before next run
+- Truncate/summarize per-slot scene hints before global assembly so cuts never land mid-token; reserve chars for cover brand footer `avto-sales125.ru`.
+- Soften hardcoded `Outfit lock: thick heavyweight white hoodie` in prompt script — conflicts with blog-hero weather/outfit_rule (agent already patches per scene).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+
 ## INC-20261026-0920-geo-qa-utility-pain-outcome-markers
 status: open
 run_date: 2026-10-26

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-1737-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent still document `excalibur_blog_llms_generator.py --blog-path /`.
+- Current CLI accepts only `--blog-dir` + `--out-dir` (no `--blog-path`); following the skill verbatim fails.
+- Related: doctor still asserts `--blog-path` (see INC-20261026-1703-director-doctor-blog-path-stale).
+
+### How the agent recovered this run
+- Ran generator with `--blog-dir memory/blog/articles --out-dir memory/blog --site-base ""` (relative `/blog/…` URLs, as in committed llms.txt).
+- Did not pass stale `--blog-path`.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer skill/agent shell examples; document `--blog-dir` + `--out-dir`.
+- Prefer `--site-base ""` for committed llms relative paths (or document when absolute PUBLIC_SITE_URL is required).
+- Align doctor check with the same CLI (cross-link with INC-20261026-1703).
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-1734-cover-brand-corner-missing
 status: open
 run_date: 2026-10-26

@@ -1,7 +1,7 @@
 # Promotion checklist — B01 toyota-prado-iz-yaponii-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-26  
-Live URL: (после publish) /blog/toyota-prado-iz-yaponii-komplektatsii-lovushki-2026/
+Live URL: /2026/10/26/toyota-prado-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

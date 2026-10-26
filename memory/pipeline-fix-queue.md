@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20261026-0936-publish-paramiko-missing
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-prado-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` missing in Cloud image (`ModuleNotFoundError`) before real SSH publish.
+- `--env-check` does not import paramiko, so preflight looked green until publish.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko`
+- Set `SSH_ROOT=.` for this host; publish PASS via SSH + FALLBACK curl after HTTP RemoteDisconnected.
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / environment install installs `paramiko` from `requirements.txt`.
+- Optionally make `--env-check` fail if paramiko cannot be imported.
+- Keep `SSH_ROOT=.` in Cloud Secrets for this host (login cwd).
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-0933-indexer-llms-absolute-site-base-secret-scan
 status: open
 run_date: 2026-10-26

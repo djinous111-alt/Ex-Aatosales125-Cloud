@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у праворульной Delica D:5 у ролкера во Владивостоке, плашка «до ставки», угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-26T17:32:40+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у праворульной Delica D:5 у ролкера во Владивостоке, плашка «до ставки», угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: Delica D:5 vs Noah/Stepwgn vs Outlander — кому нужен минивэн-внедорожник",
+      "h2_anchor": "Сравните Delica с Noah и Stepwgn: кому она реально нужна",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема шагов: как читать грейды G / G-Power / P Delica до ставки",
+      "h2_anchor": "Как читать комплектации G, G-Power Package и P до ставки",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист: дизель 4N14, AdBlue и порог 1.9 л до оплаты Delica",
+      "h2_anchor": "Проверьте дизель 4N14, AdBlue и порог 1.9 л до оплаты",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-1734-cover-brand-corner-missing
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: prompt
+
+### What went wrong
+- ONE Kie HTTPS gpt-image-2 i2i quad succeeded (Delica/ролкер/hook/non-toxic stickers OK), but the cover panel omitted the required corner brand `avto-sales125.ru`.
+- Prompt builder still hardcodes `Outfit lock: thick heavyweight white hoodie`, which fights `blog-hero.json` outfit_rule / scene weather (port jacket). Model mostly followed scene_hint this run, but the lock remains a durable prompt bug.
+
+### How the agent recovered this run
+- Retouched only the cover footer: added subtle `avto-sales125.ru` pill on `cover/cover.png` and synced the top-left quadrant of `cover/canvas-quad.png`.
+- Did not relaunch a second image job.
+- Used preferred Kie async HTTPS (`excalibur_blog_kie_gpt_image2_api.py`) instead of sync MCP to avoid -32001.
+
+### Durable fix needed before next run
+- Strengthen cover prompt / design-code to require visible catalog corner `avto-sales125.ru` (not Telegram) as a non-optional cover element.
+- Remove or rewrite hardcoded white-hoodie outfit lock in `scripts/excalibur_blog_cover_quad_prompt.py` so outfit follows weather/topic scene_hint.
+- Optional post-gen QA: fail/warn if brand string missing from cover panel OCR/heuristic.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/cover-design-code.json`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-1731-schema-precommit-public-url-secrets
 status: open
 run_date: 2026-10-26

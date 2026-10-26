@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 744
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1328
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у праворульной Delica D:5 у ролкера во Владивостоке, плашка «до ставки», угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1328,
+          "top": 14,
+          "right": 2560,
+          "bottom": 707
+        },
+        "raw_box_px": {
+          "left": 1328,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: Delica D:5 vs Noah/Stepwgn vs Outlander — кому нужен минивэн-внедорожник",
+        "h2_anchor": "Сравните Delica с Noah и Stepwgn: кому она реально нужна"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 22,
+          "top": 744,
+          "right": 1259,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 744,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема шагов: как читать грейды G / G-Power / P Delica до ставки",
+        "h2_anchor": "Как читать комплектации G, G-Power Package и P до ставки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1328,
+          "top": 744,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1328,
+          "top": 744,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: дизель 4N14, AdBlue и порог 1.9 л до оплаты Delica",
+        "h2_anchor": "Проверьте дизель 4N14, AdBlue и порог 1.9 л до оплаты"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сравните Delica с Noah и Stepwgn: кому она реально нужна",
+    "injected inline_2 after H2 — Как читать комплектации G, G-Power Package и P до ставки",
+    "injected inline_3 after H2 — Проверьте дизель 4N14, AdBlue и порог 1.9 л до оплаты"
+  ]
+}

@@ -7,6 +7,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261026-0920-geo-qa-utility-pain-outcome-markers
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-prado-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always enforced `min_pain_markers` (default 2) and `min_outcome_markers` (default 3), but `memory/brief/editorial-policy.json` had empty/missing `pain_markers_ru` and `outcome_markers_ru`.
+- Empty marker lists → counts always 0 → every article (including previously PASS AS09) false-BLOCK on utility gate.
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (aligned with human-voice lists), `min_pain_markers` / `min_outcome_markers`, and `чек-лист` to recommendation markers in `editorial-policy.json`.
+- Made utility gate skip pain/outcome enforcement when marker lists are empty.
+- Fixed B01 `article.html` action phrasing (`Сделайте`/`Не делайте`, `проверьте`, `Шаг N`) and removed `TL;DR`/`Быстрый инсайт` insight label; re-ran gates → PASS.
+
+### Durable fix needed before next run
+- Keep policy marker lists in sync with human-voice PAIN/OUTCOME markers; add a doctor or unit check that utility policy lists are non-empty when mins are set.
+- Optionally tighten human-voice `exactly_five_lists` regex (currently matches ol with ≥5 li).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py` (exactly-five false positive)
+- `scripts/excalibur_blog_doctor.py` (policy marker non-empty check)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261026-0918-writer-pre-commit-hook-invalid-var
 status: open
 run_date: 2026-10-26

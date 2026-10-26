@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-1713-research-notes-gate-tech-false-positive
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил авто-тему Delica как `technical_topic=true` из-за подстрок в TECH_MARKERS: латинское `ai` внутри обязательного поля `reader_pain`, кириллическое `ии` внутри обычных русских слов вроде «комплектации».
+- Из-за этого gate требовал `github_urls >= 3` для не-software how-to статьи и сначала вернул BLOCK.
+
+### How the agent recovered this run
+- Добавил ≥5 явных `accessed_at:` и 3 публичных GitHub URL по JP-auction как workaround.
+- Довёл `research-notes-gate.json` до PASS; угол статьи остался beginner auto checklist.
+
+### Durable fix needed before next run
+- В `is_technical_topic()` искать маркеры как целые слова (word-boundary), не подстроки; исключить ложные срабатывания на `pain`/`комплектации` и аналоги.
+- Либо вести allowlist non-tech ниш (auto/japan-import) / опираться на `search_intent`+topic cluster, а не на TECH_MARKERS substring.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md` (кратко зафиксировать ложный technical на RU auto-темах)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 ## INC-20261026-1703-director-doctor-blog-path-stale
 status: open

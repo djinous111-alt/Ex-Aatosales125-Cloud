@@ -5,7 +5,7 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "$TELEGRAM_URL",
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +14,7 @@
       "skipped": false
     },
     {
-      "url": "$CATALOG_URL",
+      "url": "https://avto-sales125.ru/",
       "status": 200,
       "ok": true,
       "method": "HEAD",

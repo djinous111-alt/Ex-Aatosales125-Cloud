@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2145-publish-paramiko-missing
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-jolion-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `excalibur_blog_wp_publish.py` failed immediately with `ModuleNotFoundError: No module named 'paramiko'` after dry-run OK.
+- Recurring across Cloud runs (same class as prior Delica/Monjaro publishes): image/setup does not guarantee paramiko despite docs.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko` (got 5.1.0) then re-ran publish.
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / Dockerfile / environment build always installs `paramiko` from `requirements.txt`.
+- Keep `--env-check` asserting `paramiko_available` (or fail fast with install tip) before SSH upload.
+
+### Suggested files to inspect/change
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json` / Dockerfile
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261027-2146-publish-http-timeout-reconstruct
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-jolion-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: publish
+
+### What went wrong
+- SSH upload of ~7.0MB bootstrap OK; local HTTP trigger raised `TimeoutError` at hardcoded **120s**.
+- Script entered WebFetch fallback and waited only **120s** for `memory/webfetch-response.txt`, then raised RuntimeError — even though patterns document `HTTP_TRIGGER_TIMEOUT_SEC=300` / `FALLBACK_POLL_SEC=300`.
+- Client exit=1 while WP already finished publish for NEW slug (post LIVE).
+
+### How the agent recovered this run
+- Did **not** re-trigger bootstrap (avoids `*-1.png` duplicates).
+- REST `posts?slug=` → post_id **4597**, featured **4598**, inline media **4599/4600/4601**, permalink HEAD 200.
+- SSH one-shot `excalibur-blog-meta-check-once.php` confirmed `OK schema_meta=1` (len 12032; BlogPosting|FAQPage|HowTo) and `skip_theme_faq=1`.
+- Wrote reconstructed `wp-publish-result.json` verdict=pass; updated ledger/log/promotion/handoff.
+
+### Durable fix needed before next run
+- Honor `HTTP_TRIGGER_TIMEOUT_SEC` / `FALLBACK_POLL_SEC` env (default 300) instead of hardcoded 120.
+- After HTTP timeout: auto REST reconstruct by slug before FAIL; success if `OK post=` reconstructable and LIVE.
+- Document: never second HTTP trigger while slug LIVE.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http`, `publish_via_ssh`)
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261027-2141-indexer-llms-blog-path-stale-docs
 status: open
 run_date: 2026-10-27

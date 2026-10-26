@@ -1,7 +1,7 @@
 # Promotion checklist — B01 haval-jolion-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: (pending publish)  
-Live URL: /blog/haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-27  
+Live URL: https://avtosales125.ru/2026/10/27/haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Premium из Китая ≠ Оптимум в РФ — сверь до депо�
 • Зафиксируйте 2WD/4WD, КПП и VIN в договоре до оплаты
 • Без совпадения железа и бумаг — депозит не вносите
 
-Читать: /blog/haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/27/haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

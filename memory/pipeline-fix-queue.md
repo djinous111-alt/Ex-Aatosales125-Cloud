@@ -302,7 +302,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --help` (live-slugs present)
 - `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1308-doctor-llms-blog-path
 status: fixed
@@ -344,7 +344,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir/--out-dir
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1312-research-notes-gate-false-technical
 status: fixed
@@ -393,7 +393,7 @@ files_changed:
 checks_run:
 - B01 research-notes-gate PASS with technical_topic=false, pain_rows=7
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1313-research-precommit-secret-name
 status: fixed
@@ -442,7 +442,7 @@ files_changed:
 checks_run:
 - sanitize filters URL/[REDACTED]/PUBLIC_SITE_URL → identifier-only CSV
 - doctor OK sanitize scripts present
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1318-writer-missing-sanitize-and-policy-markers
 status: fixed
@@ -489,7 +489,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor OK policy markers + sanitize scripts
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1323-geo-qa-fact-check-label-conflict
 status: fixed
@@ -534,7 +534,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg confirms Writer docs use «Достоверность:»
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1329-schema-secret-names-url
 status: fixed
@@ -583,7 +583,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize dry-run drops URL tokens from CLOUD_AGENT_INJECTED_SECRET_NAMES
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1333-cover-mcp-timeout-kie-fallback
 status: fixed
@@ -636,7 +636,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile` hero_reference_url + cover_quad_prompt
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1337-cover-missing-corner-brand
 status: fixed
@@ -681,7 +681,7 @@ files_changed:
 checks_run:
 - ensure_corner_brand on synthetic 1200x675 PNG OK
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1345-publish-paramiko-missing
 status: fixed
@@ -727,7 +727,7 @@ files_changed:
 checks_run:
 - doctor OK paramiko available
 - `--env-check` → paramiko_import_ok true
-commit: pending-parent-commit
+commit: 760673fd
 
 ## INC-20261026-1348-publish-fallback-timeout-reconstruct
 status: fixed
@@ -774,5 +774,5 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `--env-check` JSON OK
-commit: pending-parent-commit
+commit: 760673fd
 

@@ -26,6 +26,7 @@ category: qa
 - Зафиксировал FAIL в `article-qa.md` + `article.meta.json`; cover/schema не запускать.
 - В FIX указал восстановить `$CATALOG_URL` / `$TELEGRAM_URL` как в AS09 + `pragma: allowlist secret` на строках CTA.
 - В QA-отчётах не дублировать литералы secret values (scanner блокирует commit).
+- Writer FIX + GEO re-QA (2026-10-27 cycle 2): CTA live, link-verify PASS 2/2, article-qa PASS 86. Incident остаётся open для durable secret-scan/policy fix.
 - Writer FIX (2026-10-27): restored 3 CTA hrefs from env (`CATALOG_URL`×2, `TELEGRAM_URL`×1); `href_literal_redacted=false`; soft TL;DR→Коротко + ol 5→4; char_count 9429; html_linter PASS. Re-run GEO QA.
 
 ### Durable fix needed before next run

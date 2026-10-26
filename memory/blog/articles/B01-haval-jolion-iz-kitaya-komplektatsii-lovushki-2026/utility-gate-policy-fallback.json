@@ -120,5 +120,5 @@
     "исправьте",
     "выберите"
   ],
-  "_fallback_note": "GEO QA temporary overlay: editorial-policy missing pain_markers_ru/outcome_markers_ru; see INC-20261027-0035"
+  "_fallback_note": "GEO QA FALLBACK overlay; see INC-20261027-0035"
 }

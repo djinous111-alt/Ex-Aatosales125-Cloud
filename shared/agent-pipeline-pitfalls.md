@@ -22,11 +22,14 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- Cloud install должен ставить `requirements.txt` (включая `paramiko`). `--env-check` и doctor проверяют import paramiko.
+- FALLBACK после HTTP timeout: ждать webfetch до ~300s + REST poll по slug. **Не** второй HTTP trigger, пока REST не подтвердил отсутствие post (гонка → duplicate media).
 
 ## Writer / Fact Check Box
 
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
+- Ярлык Fact Check: **«Достоверность:»**. Фраза «Достоверность данных» вместе с «Материал проверен» даёт human-voice WARN.
 
 ## QA
 
@@ -38,11 +41,36 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- `reference_url_hosted` для Kie i2i должен быть **HTTPS**. Plain `http://` (даже с 301→https) часто даёт failCode=500; скрипты нормализуют http→https до createTask.
+- MCP `gpt-image-2` timeout → один Kie async (`excalibur_blog_kie_gpt_image2_api.py`), не 4 панели.
+- Corner brand `avto-sales125.ru`: split overlay на `cover.png` если генерация пропустила; PIL fallback без второго MCP OK.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- LIVE dedup: `PUBLIC_SITE_URL` REST (`excalibur_blog_scout_helper.py --live-slugs`). MCP-KV `wordpress_*` может смотреть на чужой сайт — не авторитетен.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` / `--out-dir` (не `--blog-path`). Doctor проверяет актуальные флаги.
+- Для commit: `--site-base ""` → relative `/blog/<slug>/`. Не пиши `${PUBLIC_SITE_URL}` в `llms.txt` / `interlink-suggestions.json` — secret-scan блокирует commit.
+
+## Research notes gate
+
+- `technical_topic` использует token-boundary TECH_MARKERS (не substring). `ai` в `reader_pain` / `ии` в `японии` больше не включают GitHub-квоту для auto-тем.
+- `pain_solution_map`: предпочтительны префиксы `боль:`/`решение:`/`результат:`; gate также считает table data-rows секции.
+
+## Utility / GEO QA
+
+- `editorial-policy.json` обязан держать непустые `pain_markers_ru` / `outcome_markers_ru`, если заданы `min_*`. Utility gate пропускает pain/outcome enforce только при пустых списках; doctor ловит рассинхрон.
+
+## Git / secret names
+
+- Перед `git commit`: `source scripts/excalibur_blog_sanitize_secret_names.sh` — выкидывает URL/`[REDACTED]` из `CLOUD_AGENT_*_SECRET_NAMES`, иначе pre-commit даёт `invalid variable name`.
+- `--no-verify` только как last resort после явной проверки staged files.
+- В `schema.jsonld` site/CTA/`sameAs` URL — same-line `x-excalibur-pragma: pragma: allowlist secret`; `sameAs` массивы — одна строка с pragma.
+
+## Schema
+
+- Не коммить сырые абсолютные site URL без pragma allowlist; sanitize secret names перед commit.

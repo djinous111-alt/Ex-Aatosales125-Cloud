@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261026-1305-scout-wp-mcp-wrong-site
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-scout
 topic_id: B01
@@ -286,10 +286,26 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Scout skill/agent: LIVE dedup MUST use PUBLIC_SITE_URL REST; MCP-KV wordpress_* is non-authoritative.
+- Added `excalibur_blog_scout_helper.py --live-slugs` (+ optional `--search`) fail-closed helper.
+- Pitfalls note for wrong-site MCP risk.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --help` (live-slugs present)
+- `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
+commit: pending-parent-commit
 
 ## INC-20261026-1308-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-director
 topic_id: B01
@@ -318,10 +334,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Doctor now asserts `--blog-dir` and `--out-dir` in llms `--help` (not stale `--blog-path`).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir/--out-dir
+commit: pending-parent-commit
 
 ## INC-20261026-1312-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-research
 topic_id: B01
@@ -353,10 +379,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- `is_technical_topic` uses token-boundary TECH_MARKERS and strips field labels (no ai∈reader_pain / ии∈японии).
+- `pain_solution_map` counts labeled cells OR table data-rows under the section.
+- Research skill documents боль/решение/результат prefixes.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- B01 research-notes-gate PASS with technical_topic=false, pain_rows=7
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: pending-parent-commit
 
 ## INC-20261026-1313-research-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-research
 topic_id: B01
@@ -386,10 +426,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Durable sanitize helpers kept on branch; research skill documents `source scripts/excalibur_blog_sanitize_secret_names.sh` before commit.
+- Doctor fails if sanitize/filter scripts missing.
+- Platform may still inject URL tokens into CLOUD_AGENT_*_SECRET_NAMES — sanitize drops non-identifiers (Dashboard hygiene recommended).
+files_changed:
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize filters URL/[REDACTED]/PUBLIC_SITE_URL → identifier-only CSV
+- doctor OK sanitize scripts present
+commit: pending-parent-commit
 
 ## INC-20261026-1318-writer-missing-sanitize-and-policy-markers
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-writer
 topic_id: B01
@@ -421,10 +477,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Sanitize + filter scripts present; doctor asserts both.
+- Doctor asserts non-empty `pain_markers_ru` / `outcome_markers_ru` in editorial-policy.json.
+- Policy marker lists already restored on branch (9/8).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `memory/brief/editorial-policy.json` (verified non-empty markers)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK policy markers + sanitize scripts
+commit: pending-parent-commit
 
 ## INC-20261026-1323-geo-qa-fact-check-label-conflict
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -453,10 +521,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Writer agents aligned to contract label «Достоверность:» (warns against «Достоверность данных»).
+- Human-voice still warns on «материал проверен»+«достоверность данных» template.
+- Pitfalls Fact Check section updated.
+files_changed:
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg confirms Writer docs use «Достоверность:»
+commit: pending-parent-commit
 
 ## INC-20261026-1329-schema-secret-names-url
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-schema
 topic_id: B01
@@ -489,10 +570,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Schema skill documents sanitize before commit + same-line x-excalibur-pragma for site/CTA/sameAs URLs.
+- Writing contract schema section notes commit-safe pragma shape.
+- Sanitize helper remains the durable pre-commit guard for non-identifier secret "names".
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize dry-run drops URL tokens from CLOUD_AGENT_INJECTED_SECRET_NAMES
+commit: pending-parent-commit
 
 ## INC-20261026-1333-cover-mcp-timeout-kie-fallback
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-cover
 topic_id: B01
@@ -527,10 +621,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Cover skill: HTTPS-only reference + MCP timeout → one Kie async job (no 4 panels).
+- hero_reference_url + cover_quad_prompt normalize http→https and reject plain HTTP.
+- Quad canvas contract updated.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` hero_reference_url + cover_quad_prompt
+commit: pending-parent-commit
 
 ## INC-20261026-1337-cover-missing-corner-brand
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-cover
 topic_id: B01
@@ -558,10 +667,24 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- `excalibur_blog_cover_quad_split.py` overlays corner brand `avto-sales125.ru` on cover.png after split.
+- Cover prompt reinforces corner brand; skill documents PIL/overlay fallback without second MCP.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- ensure_corner_brand on synthetic 1200x675 PNG OK
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
+commit: pending-parent-commit
 
 ## INC-20261026-1345-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-publish
 topic_id: B01
@@ -588,10 +711,26 @@ recurrence_of: INC-20261026-0936
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Cloud install + Dockerfile install requirements.txt including paramiko; fail-fast import check.
+- `--env-check` and doctor report/fail when paramiko missing.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `requirements.txt`
+checks_run:
+- doctor OK paramiko available
+- `--env-check` → paramiko_import_ok true
+commit: pending-parent-commit
 
 ## INC-20261026-1348-publish-fallback-timeout-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-publish
 topic_id: B01
@@ -621,5 +760,19 @@ recurrence_of: INC-20261026-2134
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- FALLBACK wait extended to 300s with periodic REST slug poll + reconstruct output.
+- Pre-upload REST check skips bootstrap if slug already LIVE; lock warns against parallel second trigger.
+- Publish skill documents no second HTTP trigger until REST confirms absence.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `--env-check` JSON OK
+commit: pending-parent-commit
 

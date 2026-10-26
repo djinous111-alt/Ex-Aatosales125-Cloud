@@ -489,3 +489,72 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261026-1333-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV `gpt-image-2` timed out (`-32001`) on ONE quad i2i call (16:9 / 2K + input_urls).
+- First Kie createTask with `http://avtosales125.ru/...` reference failed: failCode=500 Internal Error.
+- catbox upload of local face PNG failed (412); 0x0 timed out; WP media upload MCP returned 401.
+
+### How the agent recovered this run
+- Switched reference_url_hosted to HTTPS WordPress media URL (required by `excalibur_blog_cover_quad_prompt.py` host lock).
+- Generated via `scripts/excalibur_blog_kie_gpt_image2_api.py` (async create+poll); task success; then `excalibur_blog_quad_apply.py --inject-html`.
+- Kept ONE-job batch / ONE generation (no 4 separate MCP calls).
+
+### Durable fix needed before next run
+- Document cover runbook: prefer Kie async when MCP-KV gpt-image-2 times out; always use HTTPS for `reference_url_hosted`.
+- Enforce HTTPS rewrite in `excalibur_blog_hero_reference_url.py` / prompt host check.
+- Optional: raise MCP timeout or default cover path to Kie script.
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261026-1337-cover-missing-corner-brand
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: prompt
+
+### What went wrong
+- Quad cover panel after Kie gen missed corner catalog brand `avto-sales125.ru` despite prompt/scene_hint.
+
+### How the agent recovered this run
+- PIL overlay of semi-transparent plate + white text `avto-sales125.ru` on `cover/cover.png` (no second MCP).
+
+### Durable fix needed before next run
+- Add optional post-split step in `excalibur_blog_quad_apply.py` / split script: ensure corner brand overlay when OCR/heuristic detects missing `avto-sales125.ru`.
+- Strengthen cover prompt weight for corner brand; keep PIL as documented fallback in skill.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `memory/cover/cover-design-code.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

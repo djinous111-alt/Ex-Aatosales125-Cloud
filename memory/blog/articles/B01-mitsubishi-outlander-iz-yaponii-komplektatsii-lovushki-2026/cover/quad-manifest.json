@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый лот Outlander — а вывоз в 2026?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в smart casual у Outlander на фоне порта Владивостока, плашка «до ставки»",
+      "scene_hint": "EXACT face + stylish glasses from reference i2i; CHANGE outfit to smart casual for cool Primorye port weather: navy/grey light jacket or softshell over knit sweater, jeans, NO cap NO hood NO tank top from reference; action selfie next to modern Mitsubishi Outlander crossover; background Vladivostok port / Ro-Ro ship / cool overcast sea air; Cyrillic plaque «до ставки» with yellow highlight on ключевом слове; fake catalog card scrap + auction sheet scrap with scotch tape; shocked meme cutout + sticky note «стоп по вывозу»; corner brand avto-sales125.ru; NO insulting toxic stickers; NO SEO analytics screenshots; NO Telegram",
+      "meme_caption_ru": "До ставки — стоп?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу и бюджет под ключ до лотов",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean Russian comparison table UI: колонки «задача семьи / город выдачи / рамка до ключей / лот на фото»; rows with check vs cross; sticky note «сначала фильтр»; scotch tape corner; NO host face; NO toxic labels",
+      "alt": "Таблица: задача и бюджет под ключ до лотов Outlander"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите поколение и код кузова: XL, GF, GG или GN",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram numbered steps: XL(CW) → GF7W/GF8W бензин → GG2W/GG3W PHEV → GN0W PHEV-only; arrows and body-code chips; torn-paper strip; marker «один код — одна корзина»; NO host face",
+      "alt": "Схема кодов кузова Outlander XL GF GG GN"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте японский экспортный контроль до ставки",
+      "visual_type": "checklist_board",
+      "scene_hint": "Clipboard checklist board Cyrillic: гибрид/PHEV/EV стоп; ДВС >1900 cc стоп; бензин маршрут?; ответ брокера; дата 2026; red pen marks; mini sticky «нет маршрута — нет ставки»; NO host face; NO Wordstat",
+      "alt": "Чеклист экспортного контроля Японии до ставки"
+    }
+  }
+}

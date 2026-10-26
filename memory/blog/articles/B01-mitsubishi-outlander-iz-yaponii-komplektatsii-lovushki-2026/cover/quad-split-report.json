@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1372,
+      771
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 771,
+        "end": 793
+      },
+      "v_gutter_px": {
+        "start": 1372,
+        "end": 1396
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1372,
+          "bottom": 771
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1372,
+          "bottom": 771
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в smart casual у Outlander на фоне порта Владивостока, плашка «до ставки»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1396,
+          "top": 8,
+          "right": 2736,
+          "bottom": 762
+        },
+        "raw_box_px": {
+          "left": 1396,
+          "top": 0,
+          "right": 2736,
+          "bottom": 771
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: задача и бюджет под ключ до лотов Outlander",
+        "h2_anchor": "Зафиксируйте задачу и бюджет под ключ до лотов"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 25,
+          "top": 793,
+          "right": 1346,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 793,
+          "right": 1372,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема кодов кузова Outlander XL GF GG GN",
+        "h2_anchor": "Выберите поколение и код кузова: XL, GF, GG или GN"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1405,
+          "top": 793,
+          "right": 2726,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1396,
+          "top": 793,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист экспортного контроля Японии до ставки",
+        "h2_anchor": "Проверьте японский экспортный контроль до ставки"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу и бюджет под ключ до лотов",
+    "injected inline_2 after H2 — Выберите поколение и код кузова: XL, GF, GG или GN",
+    "injected inline_3 after H2 — Проверьте японский экспортный контроль до ставки"
+  ]
+}

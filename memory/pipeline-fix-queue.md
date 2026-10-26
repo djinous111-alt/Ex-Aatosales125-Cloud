@@ -6,6 +6,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-1740-publish-paramiko-missing
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: deps
+
+### What went wrong
+- `paramiko` missing in Cloud image (`ModuleNotFoundError`); `.cursor/cloud-agent-install.sh` often skips it.
+- `excalibur_blog_wp_publish.py --env-check` does not import paramiko, so env-check can pass while real publish would fail.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko` before publish.
+
+### Durable fix needed before next run
+- Ensure `paramiko` in install/requirements path used by Cloud Agent image/build.
+- Optionally make `--env-check` fail if paramiko import fails.
+
+### Suggested files to inspect/change
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py` (env-check import)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261026-1741-publish-fallback-504-reconstruct
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: publish-transport
+
+### What went wrong
+- ~7.0MB PHP payload: local HTTP trigger TimeoutError; FALLBACK curl returned nginx 504 (170 bytes) within client wait.
+- Publish script raised `Cloud WebFetch Fallback timed out after 120 seconds` even though WP post became LIVE.
+- Code wait window remains `range(120)` (~120s) while PHP may finish after 504.
+
+### How the agent recovered this run
+- Did **not** fire a second bootstrap trigger.
+- REST slug poll found post **4585** LIVE; featured **4591**; inline **4593/4594/4595**; HEAD 200.
+- SSH one-shot meta-check: schema_len=12334 valid BlogPosting|FAQPage|HowTo; skip_theme_faq=1.
+- Wrote reconstructed `wp-publish-result.json` + ledger/log/handoff.
+
+### Durable fix needed before next run
+- Increase FALLBACK wait beyond 120s (or poll REST by slug on 504 before FAIL).
+- Document reconstruct path in publish skill (already in automation memory).
+- Avoid double media race when first HTTP request continues after client timeout.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` wait loop)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-1737-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-10-26

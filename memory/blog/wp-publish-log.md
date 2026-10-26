@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-26 — B01 mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4585
+- **permalink:** https://avtosales125.ru/2026/10/26/mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026/
+- **featured_image:** 4591 (cover-1.png after FALLBACK race; orphan original cover **4586**)
+- **inline_images:** 4593 / 4594 / 4595 (`inline-01-1` / `inline-02-1` / `inline-03-1`); orphan originals **4587/4588/4589**
+- **schema_meta:** ok (len 12334; BlogPosting|FAQPage|HowTo)
+- **skip_theme_faq_meta:** ok (=1)
+- **method:** SSH (`SSH_ROOT=.`) upload → HTTP TimeoutError → FALLBACK curl 504 → REST+SSH meta reconstruct; **no republish**
+- **HEAD:** 200
+- **result:** `memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026/wp-publish-result.json`
+- **incidents:** INC-20261026-1740-publish-paramiko-missing ; INC-20261026-1741-publish-fallback-504-reconstruct

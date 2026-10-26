@@ -1,7 +1,7 @@
 # Promotion checklist — B01 mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-26  
-Live URL: (после publish) /blog/mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026/
+Live URL: https://avtosales125.ru/2026/10/26/mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Дизель 4N14 (~2267 см³) + AdBlue + порог 1.9 л → третья страна
 • Сначала аукционный лист, потом ставка
 
-Читать: /blog/mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/26/mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

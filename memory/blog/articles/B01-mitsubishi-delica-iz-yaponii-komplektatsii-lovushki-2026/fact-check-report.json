@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ске. Сюрприз рынка: на релизе Mitsubishi от 09.01.2026 около 83% предзаказов новой Delica D:5 ушли в топ-",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2019",
+      "kind": "date_or_year",
+      "context": "SCR) – отдельная ловушка. После рестайлинга около 2019 на дизеле появился SCR. Бак около 16 л; лить тольк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 месяцев",
+      "kind": "metric_or_duration",
+      "context": "\"обычной японки\" 1.5. Ориентир рынка – порядка 2–3 месяцев; точный срок – в договоре с Авто-Сейлс, не в чате",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2267",
+      "kind": "large_number",
+      "context": "до Владивостока. Через сутки всплыло: объём около 2267 см³, прямой вывоз из Японии закрыт порогом 1.9 л,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

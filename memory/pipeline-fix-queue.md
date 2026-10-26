@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-1724-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa`; роль запущена через `generalPurpose` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнил полный GEO QA контракт вручную в generalPurpose Task; все гейты доведены до PASS.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task types `excalibur-blog-*` в Cloud agents catalog / environment (или явно задокументировать generalPurpose-only orchestration в `.cursor/environment.json` + AGENTS.md без ожидания typed Task).
+- Синхронизировать `CLOUD-AUTOMATION.md` / director skill с фактическим каталогом Task types.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261026-1724-geo-qa-redacted-cta-hrefs
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: qa
+
+### What went wrong
+- В `article.html` от Writer CTA были `href="[REDACTED]"` (артефакт secret-scrub / копирования redact-шаблона).
+- `excalibur_blog_link_verify.py` трактовал плейсхолдер как relative path → 404 FAIL, cover/schema блокировались.
+
+### How the agent recovered this run
+- Для QA подставил CTA из env `CATALOG_URL` / `TELEGRAM_URL` (не литералы в отчётах).
+- Повторный link-verify → PASS (2/2).
+- Перед commit снова заменил значения секретов на `[REDACTED]` (как AS08/AS09), иначе pre-commit блокирует.
+
+### Durable fix needed before next run
+- Вынести публичные brand CTA из Cloud Secrets (`CATALOG_URL`/`TELEGRAM_URL`) ИЛИ добавить скрипт `expand_cta_placeholders` (подстановка из env перед link-verify/publish) + обратный redact перед git commit.
+- Writer: писать `href="${CATALOG_URL}"`/`href="[REDACTED]"` осознанно по контракту, не оставлять мёртвые плейсхолдеры без runtime expand.
+- link-verify: fail с явной ошибкой на литерал `href="[REDACTED]"` до HTTP.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-1718-writer-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-10-26

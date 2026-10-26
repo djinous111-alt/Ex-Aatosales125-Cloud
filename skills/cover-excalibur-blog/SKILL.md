@@ -122,19 +122,37 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — image generation (Cloud default = Kie async)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Cursor Cloud default:** если есть `KIE_API_KEY`, **сразу** запускай async Kie (не sync MCP):
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Скрипт читает `cover/quad-mcp-batch.json` (`jobs[0].mcp_args` / `preferred_image_flow`), возвращает `task_id`, поллит до URL. **ONE image job** — не создавать второй, пока статус предыдущего неизвестен.
+
+**Sync MCP gpt-image-2** (`CallMcpTool` → MCP-KV) — только legacy fallback, если Kie недоступен.
+
+### MCP `-32001` → Kie recovery (first-class)
+
+Если sync MCP вернул `HTTP -32001 Request timed out`:
+
+1. Не считай это финальным blocker и **не** запускай второй sync create вслепую.
+2. Подожди ~15–20s; проверь cloud/MCP events на late URL / `task_id`.
+3. Если URL есть — сохрани в `cover/quad-mcp-result.json` и иди в apply.
+4. Если URL нет, а `KIE_API_KEY` есть — **один** async job через `excalibur_blog_kie_gpt_image2_api.py` с теми же `mcp_args`.
+5. Hosted face URL на `PUBLIC_SITE_URL` media предпочтительнее нестабильных catbox/0x0/litterbox для `reference_url_hosted` / `input_urls`.
+
+См. также `preferred_image_flow` + `timeout_policy` в `cover/quad-mcp-batch.json`.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<MCP or Kie result url>" \
   --inject-html
 ```
 

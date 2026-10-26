@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-27",
+    "today_ru": "27.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-29",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-27 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "haval-jolion-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита в 2026",
+    "primary_query": "хавал джолион из китая",
+    "secondary_queries": [
+      "хавал джолион комплектации",
+      "комплектации хавал джолион 2026",
+      "хавал джолион премиум комплектация",
+      "хавал джолион комфорт комплектация"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "хавал джолион из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "хавал джолион из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "хавал джолион из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com хавал джолион из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "хавал джолион из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "хавал джолион из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "хавал джолион комплектации 2026",
+      "purpose": "вторичный запрос: хавал джолион комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "комплектации хавал джолион 2026 2026",
+      "purpose": "вторичный запрос: комплектации хавал джолион 2026"
+    },
+    {
+      "id": "secondary_3",
+      "query": "хавал джолион премиум комплектация 2026",
+      "purpose": "вторичный запрос: хавал джолион премиум комплектация"
+    },
+    {
+      "id": "secondary_4",
+      "query": "хавал джолион комфорт комплектация 2026",
+      "purpose": "вторичный запрос: хавал джолион комфорт комплектация"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-haval-jolion-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

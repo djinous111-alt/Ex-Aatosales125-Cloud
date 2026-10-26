@@ -142,6 +142,20 @@ def verify_article(
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
+        # Literal secret-scan placeholders break CTA and must fail fast (INC-2130).
+        if "[REDACTED]" in href or href.strip() in {"REDACTED", "[redacted]"}:
+            results.append(
+                {
+                    "url": href,
+                    "kind": "invalid_placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": "literal [REDACTED] href forbidden; use $CATALOG_URL/$TELEGRAM_URL + <!-- pragma: allowlist secret -->",
+                }
+            )
+            continue
         kind = classify_link(href, site_base)
         if skip_external and kind == "external":
             results.append(

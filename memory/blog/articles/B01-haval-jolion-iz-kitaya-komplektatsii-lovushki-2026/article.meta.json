@@ -1,0 +1,49 @@
+{
+  "topic_id": "B01",
+  "slug": "haval-jolion-iz-kitaya-komplektatsii-lovushki-2026",
+  "title": "Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита",
+  "h1": "Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита в 2026",
+  "description": "Хавал Джолион из Китая: чек-лист до депозита. Сверка Comfort / Оптимум / Premium / Techno+, привод, КПП, VIN и документы. Подбор – в каталоге Авто-Сейлс.",
+  "cover_alt": "Герой Авто-Сейлс у кроссовера Haval Jolion на фоне порта Владивостока, плашка до депозита",
+  "primary_query": "хавал джолион из китая",
+  "secondary_queries": [
+    "хавал джолион комплектации",
+    "комплектации хавал джолион 2026",
+    "хавал джолион премиум комплектация",
+    "хавал джолион комфорт комплектация"
+  ],
+  "char_count": 9429,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "чек-лист Хавал Джолион из Китая до депозита",
+    "как сверить комплектацию Jolion Comfort Оптимум Premium Techno+",
+    "ловушки параллельного ввоза Haval Jolion 2026"
+  ],
+  "meta_ab": {
+    "title_seo": "Хавал Джолион из Китая: чек-лист комплектаций до депозита",
+    "title_ctr": "🚗 Хавал Джолион из Китая: какие ловушки комплектаций ловят до депозита?",
+    "title_aeo": "Как выбрать комплектацию Хавал Джолион из Китая и что проверить до депозита?",
+    "description_seo": "Хавал Джолион из Китая: чек-лист до депозита. Сверка Comfort / Оптимум / Premium / Techno+, привод, КПП, VIN и документы. Подбор – в каталоге Авто-Сейлс.",
+    "description_ctr": "⚡ Не платите за слово \"премиум\"! 10 пунктов до депозита: привод, КПП, VIN, гарантия и маршрут через Владивосток.",
+    "description_aeo": "До депозита за Хавал Джолион из Китая сверьте оферту с Comfort/Оптимум/Premium/Techno+, зафиксируйте 2WD/4WD и КПП, сверьте VIN с договором."
+  },
+  "geo_qa": {
+    "score": 86,
+    "verdict": "PASS",
+    "date": "2026-10-27",
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "fact_check": "PASS",
+    "link_verify": "PASS",
+    "utility_gate": "PASS_FALLBACK",
+    "utility_gate_stock": "BLOCK",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat": "18/20",
+    "beginner_fit": "PASS",
+    "qa_cycle": 2
+  },
+  "cover_family": "brand_collage"
+}

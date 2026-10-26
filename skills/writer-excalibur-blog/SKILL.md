@@ -37,10 +37,19 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA href (обязательно)
+
+- Бери URL из env: `$CATALOG_URL`, `$TELEGRAM_URL` (и при необходимости `$PUBLIC_SITE_URL` / conversion-map).
+- **Запрещён** литерал `href="[REDACTED]"` и любой placeholder вместо реального публичного URL — link-verify и GEO QA FAIL.
+- Если pre-commit secret-scan ругается на публичные маркетинговые URL (они же Cloud Secrets), добавляй на строку CTA HTML-комментарий:
+  `<!-- pragma: allowlist secret -->`
+- Не «редиктируй» живые CTA ради коммита: правка URL на `[REDACTED]` ломает статью (INC-20261027-2130).
+
 ## Blockers
 
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- CTA с литералом `[REDACTED]` в `href`
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

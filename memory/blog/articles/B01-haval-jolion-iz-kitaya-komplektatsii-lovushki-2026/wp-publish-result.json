@@ -1,0 +1,20 @@
+{
+  "slug": "haval-jolion-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "post_id": 4597,
+  "permalink": "https://avtosales125.ru/2026/10/27/haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/",
+  "featured_image": 4598,
+  "inline_images": [
+    4599,
+    4600,
+    4601
+  ],
+  "schema_meta": true,
+  "schema_len": 12032,
+  "skip_theme_faq": "1",
+  "publish_method": "ssh",
+  "reconstruct": true,
+  "cover_evidence": {},
+  "raw_output": "OK post=4597 slug=haval-jolion-iz-kitaya-komplektatsii-lovushki-2026\nOK featured_image=4598\nOK schema_meta=1\nOK inline_image_upload=4599 src=cover/inline-01.png\nOK inline_image_upload=4600 src=cover/inline-02.png\nOK inline_image_upload=4601 src=cover/inline-03.png\npermalink=https://avtosales125.ru/2026/10/27/haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/\nNOTE reconstruct=REST+SSH_meta_check after HTTP TimeoutError; no second publish trigger\n",
+  "verdict": "pass"
+}

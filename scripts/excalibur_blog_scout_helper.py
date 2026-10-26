@@ -5,13 +5,77 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
+import urllib.error
+import urllib.parse
+import urllib.request
 from pathlib import Path
 from typing import Any
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def public_site_base() -> str:
+    return (
+        os.environ.get("PUBLIC_SITE_URL")
+        or os.environ.get("WP_HOME")
+        or os.environ.get("WP_SITE_URL")
+        or ""
+    ).rstrip("/")
+
+
+def fetch_live_posts(
+    *,
+    search: str = "",
+    per_page: int = 100,
+    max_pages: int = 5,
+) -> list[dict[str, Any]]:
+    """Authoritative LIVE dedup via PUBLIC_SITE_URL WP REST (not MCP-KV wordpress_*)."""
+    base = public_site_base()
+    if not base:
+        raise RuntimeError("PUBLIC_SITE_URL (or WP_HOME/WP_SITE_URL) is required for --live-slugs")
+
+    posts: list[dict[str, Any]] = []
+    for page in range(1, max_pages + 1):
+        query: dict[str, str] = {
+            "per_page": str(per_page),
+            "page": str(page),
+            "status": "publish",
+            "_fields": "id,slug,link,title",
+        }
+        if search.strip():
+            query["search"] = search.strip()
+        url = f"{base}/wp-json/wp/v2/posts?{urllib.parse.urlencode(query)}"
+        req = urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogScoutHelper/1.0"})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                batch = json.loads(resp.read().decode("utf-8", errors="replace"))
+        except urllib.error.HTTPError as exc:
+            if exc.code == 400 and page > 1:
+                break
+            raise
+        if not isinstance(batch, list) or not batch:
+            break
+        for item in batch:
+            title = item.get("title") or {}
+            if isinstance(title, dict):
+                title_text = str(title.get("rendered") or "")
+            else:
+                title_text = str(title)
+            posts.append(
+                {
+                    "id": item.get("id"),
+                    "slug": str(item.get("slug") or ""),
+                    "link": str(item.get("link") or ""),
+                    "title": re.sub(r"<[^>]+>", "", title_text).strip(),
+                }
+            )
+        if len(batch) < per_page:
+            break
+    return posts
 
 def load_published_topics(root: Path) -> set[str]:
     ledger_path = root / "shared/published-articles.md"
@@ -114,6 +178,23 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument(
+        "--live-slugs",
+        action="store_true",
+        help="List LIVE WP post slugs via PUBLIC_SITE_URL REST (authoritative dedup; not MCP-KV)",
+    )
+    ap.add_argument(
+        "--search",
+        type=str,
+        default="",
+        help="Optional WP REST search string for --live-slugs (Cyrillic/Latin model names)",
+    )
+    ap.add_argument(
+        "--slug",
+        type=str,
+        default="",
+        help="Optional exact slug probe with --live-slugs (prints match count)",
+    )
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -127,6 +208,29 @@ def main() -> int:
     active = load_active_article_topics(root)
     reserved = published | active
     existing = load_existing_topics(root)
+
+    if args.live_slugs:
+        try:
+            posts = fetch_live_posts(search=args.search)
+        except Exception as exc:  # noqa: BLE001
+            print(f"❌ LIVE SLUGS FAILED: {exc}", file=sys.stderr)
+            return 2
+        print("=== EXCALIBUR SCOUT LIVE SLUGS ===")
+        print(f"site_base_configured: {bool(public_site_base())}")
+        print(f"search: {args.search or '(none)'}")
+        print(f"count: {len(posts)}")
+        if args.slug:
+            needle = args.slug.strip().lower()
+            matches = [p for p in posts if p["slug"].lower() == needle]
+            print(f"exact_slug: {args.slug}")
+            print(f"exact_slug_matches: {len(matches)}")
+            for p in matches:
+                print(f"- {p['slug']}\tid={p['id']}\t{p['title']}")
+        else:
+            for p in posts:
+                print(f"- {p['slug']}\tid={p['id']}\t{p['title']}")
+        print("note: MCP-KV wordpress_* is non-authoritative for LIVE dedup; use this REST path.")
+        return 0
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")

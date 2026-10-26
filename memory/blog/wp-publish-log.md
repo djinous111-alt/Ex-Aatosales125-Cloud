@@ -1,7 +1,7 @@
 # WP publish log — Авто-Сейлс
 
 Сайт: https://avtosales125.ru/
-FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`)
+FTP/SFTP: [REDACTED] → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`)
 Метрика Дзен: 109566711
 
 Лог публикаций начинается с нуля после перенастройки под AVTO SALES (2026-07-17).
@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-27 — B01 haval-jolion-iz-kitaya-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4597
+- **permalink:** [REDACTED]/2026/10/27/haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/
+- **featured_image:** 4598
+- **inline_images:** 4599 (`inline-01.png`), 4600 (`inline-02.png`), 4601 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld` len=12032; BlogPosting|FAQPage|HowTo)
+- **skip_theme_faq_meta:** ok (`1`)
+- **method:** SSH (`SSH_ROOT=.`) upload → local HTTP TimeoutError (120s) → FALLBACK wait 120s empty → **no second trigger**; REST reconstruct by slug + SSH meta-check-once
+- **note:** NEW slug (not Delica 4585 / Outlander 4573); no `*-1.png` duplicates; paramiko installed via pip this run
+- **result:** `memory/blog/articles/B01-haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/wp-publish-result.json`
+

@@ -32,10 +32,25 @@ def save_json(path: Path, data: dict) -> None:
 
 
 def compact(value: object, limit: int) -> str:
+    """Truncate on token boundaries (space/;/,) so mid-phrase glue never reaches the model."""
     text = " ".join(str(value or "").split())
     if len(text) <= limit:
         return text
-    return text[: limit - 1].rstrip() + "…"
+    cut = text[: max(1, limit - 1)]
+    for sep in (" ", ";", ",", "—", "-", "/", ":"):
+        idx = cut.rfind(sep)
+        if idx >= max(12, limit // 3):
+            cut = cut[:idx]
+            break
+    return cut.rstrip(" ;,.—/-:") + "…"
+
+
+def normalize_reference_url_https(url: str) -> str:
+    """Kie i2i fails on http:// hosts that 301 to https — upgrade before createTask."""
+    text = (url or "").strip()
+    if text.startswith("http://"):
+        return "https://" + text[len("http://") :]
+    return text
 
 
 def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
@@ -43,15 +58,23 @@ def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
     type_def = (types_catalog.get("types") or {}).get(type_id) or {}
     label = type_def.get("label_ru", type_id)
     h2 = compact(slot.get("h2_anchor", ""), 95)
-    scene = compact(slot.get("scene_hint", ""), 220)
+    scene = compact(slot.get("scene_hint", ""), 180)
     return f"{label}; H2: «{h2}»; scene: {scene}; no host face."
 
 
 def validate_reference_url(ref_url: str) -> bool:
-    if REQUIRED_REFERENCE_HOST in ref_url:
+    if ref_url.startswith("http://"):
+        print(
+            "❌ COVER HERO BLOCKER: reference_url_hosted must be HTTPS "
+            f"(got plain HTTP which often 301-fails Kie i2i): {ref_url}",
+            file=sys.stderr,
+        )
+        return False
+    if REQUIRED_REFERENCE_HOST in ref_url and ref_url.startswith("https://"):
         return True
     print(
-        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} WordPress media URL, got: {ref_url}",
+        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable https://{REQUIRED_REFERENCE_HOST} "
+        f"WordPress media URL, got: {ref_url}",
         file=sys.stderr,
     )
     return False
@@ -86,15 +109,15 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit: follow scene weather/season and blog-hero outfit_rule; casual layers OK — do not hard-lock a white hoodie when scene says otherwise. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
-        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
+        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 100)}"; caption "{compact(cover.get("meme_caption_ru", ""), 40)}"; scene: {compact(cover.get("scene_hint", ""), 220)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts; corner brand avto-sales125.ru.',
         "",
         f"Top-right inline: {inline_panel_prompt(i1, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         f"Bottom-left inline: {inline_panel_prompt(i2, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         f"Bottom-right inline: {inline_panel_prompt(i3, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         "",
-        "Inline panels must NOT be plain whiteboards or clean SaaS slides. Negative: beige/cream/off-white paper background, gray background, gradients, grunge background, headphones, headset, earbuds, English/Latin UI, watermark, logo, vertical 9:16, corporate stock banner, unreadable text, extra faces on inline panels.",
+        "Inline panels must NOT be plain whiteboards or clean SaaS slides. Negative: beige/cream/off-white paper background, gray background, gradients, grunge background, headphones, headset, earbuds, English/Latin UI, watermark, logo, vertical 9:16, corporate stock banner, unreadable text, extra faces on inline panels, garbled Latin fragments like :::; host.",
     ]
     return "\n".join(line for line in lines if line)
 
@@ -126,7 +149,13 @@ def main() -> int:
     design_code_path = root / style.get("design_code", "memory/cover/cover-design-code.json")
     design_code = load_json(design_code_path) if design_code_path.is_file() else {}
 
-    ref_url = (hero.get("reference_url_hosted") or "").strip()
+    ref_url = normalize_reference_url_https((hero.get("reference_url_hosted") or "").strip())
+    if ref_url and ref_url != (hero.get("reference_url_hosted") or "").strip():
+        hero["reference_url_hosted"] = ref_url
+        hero_path = root / manifest.get("blog_hero", "memory/cover/blog-hero.json")
+        if hero_path.is_file():
+            save_json(hero_path, hero)
+            print(f"WARN upgraded reference_url_hosted to HTTPS and saved {hero_path}", file=sys.stderr)
     if not ref_url:
         print(
             "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py",

@@ -28,6 +28,12 @@ inject <figure> after H2 in article.html
 
 ---
 
+## HTTPS reference + prompt budget
+
+- `reference_url_hosted` must be **HTTPS**. Plain `http://` WordPress media often 301s and burns a failed Kie createTask; `excalibur_blog_hero_reference_url.py` / cover prompt / kie API normalize http→https.
+- Prompt builder truncates `scene_hint` on token boundaries and softens outfit lock (follow `outfit_rule`/weather, not hard white hoodie).
+- Prefer short per-slot scene hints; reserve space for cover brand footer `avto-sales125.ru`.
+
 ## Контракты и конфиги
 
 | Путь | Назначение |
@@ -90,7 +96,7 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
@@ -99,7 +105,7 @@ Fallback env: `BLOG_HERO_REFERENCE_URL`.
 ### Шаг 2 — manifest
 
 ```bash
-python scripts/excalibur_blog_quad_manifest.py \
+python3 scripts/excalibur_blog_quad_manifest.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --merge
 ```
@@ -115,7 +121,7 @@ python scripts/excalibur_blog_quad_manifest.py \
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
@@ -132,7 +138,7 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --url "<MCP result url>" \
   --inject-html

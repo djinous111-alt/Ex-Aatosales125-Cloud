@@ -113,9 +113,18 @@ def batch_mcp_args(batch_path: Path) -> dict[str, Any]:
         raise KieApiError("Missing prompt in jobs[0].mcp_args")
     if not isinstance(input_urls, list) or not input_urls:
         raise KieApiError("Missing non-empty input_urls in jobs[0].mcp_args")
+    # http:// media that 301→https burns a failed Kie createTask; normalize first.
+    normalized_urls: list[str] = []
+    for raw in input_urls:
+        url = str(raw or "").strip()
+        if url.startswith("http://"):
+            url = "https://" + url[len("http://") :]
+        if not url.startswith("https://"):
+            raise KieApiError(f"input_urls must be HTTPS, got: {raw!r}")
+        normalized_urls.append(url)
     return {
         "prompt": prompt,
-        "input_urls": input_urls,
+        "input_urls": normalized_urls,
         "aspect_ratio": args.get("aspect_ratio") or "auto",
         "resolution": args.get("resolution") or "1K",
     }

@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-1718-writer-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` всегда требовал `min_pain_markers=2` и `min_outcome_markers=3`, даже когда в `memory/brief/editorial-policy.json` не было списков `pain_markers_ru` / `outcome_markers_ru`.
+- Пустые списки давали count=0 → ложный BLOCK на любой статье (в т.ч. уже опубликованной AS09).
+
+### How the agent recovered this run
+- Добавил `pain_markers_ru`, `outcome_markers_ru` и mins в `editorial-policy.json`.
+- Усилил в `article.html` явные маркеры боли/результата (боль, ошибка, результат, сможете, вслепую).
+- Повторно прогнал utility gate до PASS.
+
+### Durable fix needed before next run
+- В `excalibur_blog_utility_gate.py`: если список маркеров пуст – skip check или fail с явной ошибкой "policy missing markers", а не silent 0/N BLOCK.
+- Синхронизировать маркеры с `excalibur_blog_human_voice_gate.py` (один источник правды).
+- Кратко зафиксировать в `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-1713-research-notes-gate-tech-false-positive
 status: open
 run_date: 2026-10-26

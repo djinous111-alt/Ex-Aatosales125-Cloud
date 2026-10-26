@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-haval-jolion-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "т: сверка с Comfort / Оптимум / Premium / Techno+ 2026, фиксация железа в договоре и стоп без VIN. После",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "лерской гарантии РФ \"из коробки\". Юрлицам с осени 2023 ужесточили параллельный ввоз брендов, официально п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "143",
+      "kind": "large_number",
+      "context": "й оферте Comfort Только 2WD + механика (ориентир ~143 л.с.) Не путать с \"базой с роботом\"; зафиксировать",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "270",
+      "kind": "large_number",
+      "context": "а, у 4WD – многорычажка и заявленный момент около 270 Нм на обновлённом моторе. Ориентиры дилерских МЦП",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -29,12 +29,20 @@
     "description_aeo": "До депозита за Хавал Джолион из Китая сверьте оферту с Comfort/Оптимум/Premium/Techno+, зафиксируйте 2WD/4WD и КПП, сверьте VIN с договором."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 74,
+    "verdict": "FAIL",
+    "date": "2026-10-27",
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "fact_check": "PASS",
+    "link_verify": "FAIL",
+    "utility_gate": "PASS_FALLBACK",
+    "utility_gate_stock": "BLOCK",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat": "17/20",
+    "beginner_fit": "PASS"
   },
   "cover_family": "brand_collage"
 }

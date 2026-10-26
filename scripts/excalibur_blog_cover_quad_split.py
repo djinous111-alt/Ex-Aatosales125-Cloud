@@ -31,6 +31,7 @@ WHITE_THRESHOLD = 235
 MIN_GUTTER_RUN = 2
 GUTTER_SEARCH_RADIUS = 80
 GUTTER_WHITE_FRACTION = 0.92
+CORNER_BRAND_TEXT = "avto-sales125.ru"
 
 
 from excalibur_repo_paths import repo_relative
@@ -59,6 +60,43 @@ def require_pillow():
     except ImportError:
         print("❌ QUAD SPLIT BLOCKER: install Pillow — pip install Pillow", file=sys.stderr)
         return False
+
+
+def ensure_corner_brand(cover_path: Path, brand_text: str = CORNER_BRAND_TEXT) -> bool:
+    """Overlay catalog corner brand when generation omitted avto-sales125.ru (no second MCP)."""
+    from PIL import Image, ImageDraw, ImageFont
+
+    with Image.open(cover_path) as img:
+        cover = img.convert("RGBA")
+        # Heuristic: sample lower-right band for near-white/light pixels with brand-like contrast.
+        # Without OCR we always reinforce a subtle plate if brand string is required by contract.
+        width, height = cover.size
+        plate_h = max(22, height // 28)
+        margin = max(10, width // 60)
+        plate_w = min(width // 2, max(160, len(brand_text) * (width // 55)))
+        left = width - plate_w - margin
+        top = height - plate_h - margin
+        overlay = Image.new("RGBA", cover.size, (0, 0, 0, 0))
+        draw = ImageDraw.Draw(overlay)
+        draw.rounded_rectangle(
+            [left, top, left + plate_w, top + plate_h],
+            radius=max(4, plate_h // 4),
+            fill=(20, 20, 20, 150),
+        )
+        font_size = max(12, plate_h - 8)
+        try:
+            font = ImageFont.truetype("DejaVuSans.ttf", font_size)
+        except OSError:
+            font = ImageFont.load_default()
+        text_bbox = draw.textbbox((0, 0), brand_text, font=font)
+        tw = text_bbox[2] - text_bbox[0]
+        th = text_bbox[3] - text_bbox[1]
+        tx = left + max(6, (plate_w - tw) // 2)
+        ty = top + max(2, (plate_h - th) // 2)
+        draw.text((tx, ty), brand_text, fill=(255, 255, 255, 230), font=font)
+        composed = Image.alpha_composite(cover, overlay)
+        composed.convert("RGB").save(cover_path, format="PNG", optimize=True)
+    return True
 
 
 def extract_h2_titles(article_html: Path) -> list[str]:
@@ -284,6 +322,9 @@ def split_canvas(
             out_name = "cover.png" if slot_key == "cover" else INLINE_FILES[slot_key]
             out_path = cover_dir / out_name
             crop.save(out_path, format="PNG", optimize=True)
+            brand_applied = False
+            if slot_key == "cover":
+                brand_applied = ensure_corner_brand(out_path)
             outputs[slot_key] = {
                 "file": f"cover/{out_name}",
                 "quadrant": quadrant,
@@ -293,6 +334,7 @@ def split_canvas(
                 "aspect_ratio": "16:9",
                 "alt": slot.get("alt") or "",
                 "h2_anchor": slot.get("h2_anchor"),
+                **({"corner_brand_overlay": brand_applied, "corner_brand": CORNER_BRAND_TEXT} if slot_key == "cover" else {}),
             }
 
         sample_box = quadrant_boxes["top_left"]

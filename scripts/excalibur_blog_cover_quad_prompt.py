@@ -158,11 +158,11 @@ def main() -> int:
             "preferred_image_flow": {
                 "provider": "kie.ai",
                 "model": KIE_IMAGE_MODEL,
-                "script": "python scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <article_dir>",
+                "script": "python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <article_dir>",
                 "api_key_env": "KIE_API_KEY",
                 "result_path": "cover/quad-mcp-result.json",
-                "apply_script": "python scripts/excalibur_blog_quad_apply.py --article-dir <article_dir> --inject-html",
-                "note": "Cursor Cloud should use the direct Kie createTask -> recordInfo API flow. It returns task_id quickly and polls in shell, avoiding MCP client timeout.",
+                "apply_script": "python3 scripts/excalibur_blog_quad_apply.py --article-dir <article_dir> --inject-html",
+                "note": "Cursor Cloud DEFAULT: skip sync MCP gpt-image-2 when KIE_API_KEY is set; use Kie createTask -> recordInfo. On MCP -32001, recover with ONE Kie async job (same mcp_args), never a blind second sync create.",
             },
             "timeout_policy": {
                 "tool": "gpt-image-2",

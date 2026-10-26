@@ -71,11 +71,46 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def paramiko_available() -> bool:
+    try:
+        import importlib.util
+
+        return importlib.util.find_spec("paramiko") is not None
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def http_trigger_timeout_sec() -> int:
+    raw = os.environ.get("HTTP_TRIGGER_TIMEOUT_SEC", "").strip()
+    try:
+        value = int(raw) if raw else 300
+    except ValueError:
+        value = 300
+    return max(30, value)
+
+
+def fallback_poll_sec() -> int:
+    raw = os.environ.get("FALLBACK_POLL_SEC", "").strip()
+    try:
+        value = int(raw) if raw else http_trigger_timeout_sec()
+    except ValueError:
+        value = http_trigger_timeout_sec()
+    return max(30, value)
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    has_paramiko = paramiko_available()
+    if not has_paramiko:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": has_paramiko,
+        "paramiko_install_tip": "python3 -m pip install --break-system-packages paramiko  # or: pip install -r requirements.txt",
+        "http_trigger_timeout_sec": http_trigger_timeout_sec(),
+        "fallback_poll_sec": fallback_poll_sec(),
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -83,7 +118,7 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -468,32 +503,96 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
 
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
+    timeout_sec = http_trigger_timeout_sec()
+    poll_sec = fallback_poll_sec()
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (timeout={timeout_sec}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=timeout_sec,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        print(
+            f"Local HTTP trigger failed ({type(e).__name__}: {e}). "
+            f"Entering Cloud WebFetch Fallback mode (poll={poll_sec}s)..."
+        )
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "NOTE: Do NOT issue a second HTTP trigger while the target slug may already be LIVE; "
+            "prefer REST reconstruct by slug after timeout."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(poll_sec):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {poll_sec} seconds. "
+            "Do not re-trigger bootstrap if the slug is already LIVE; use REST reconstruct."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def reconstruct_publish_output_via_rest(public_base: str, slug: str) -> str | None:
+    """If HTTP trigger timed out but WP already finished, rebuild a minimal OK log via REST."""
+    import urllib.parse
+
+    base = public_base.rstrip("/")
+    query = urllib.parse.urlencode(
+        {
+            "slug": slug,
+            "status": "publish",
+            "_fields": "id,slug,link,featured_media",
+        }
+    )
+    url = f"{base}/wp-json/wp/v2/posts?{query}"
+    req = urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=http_trigger_timeout_sec()) as response:
+            posts = json.loads(response.read().decode("utf-8", errors="replace"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN REST reconstruct failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if not isinstance(posts, list) or not posts:
+        return None
+    post = posts[0]
+    post_id = post.get("id")
+    permalink = str(post.get("link") or "")
+    featured = post.get("featured_media") or 0
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        "OK reconstructed_via=rest_after_http_timeout",
+    ]
+    if featured:
+        lines.append(f"OK featured_image={int(featured)}")
+    if permalink:
+        lines.append(f"permalink={permalink}")
+    print(
+        "HTTP trigger timed out, but LIVE post found via REST — "
+        "reconstructing publish output. Do NOT re-trigger bootstrap."
+    )
+    return "\n".join(lines) + "\n"
+
+
+def publish_via_ssh(
+    env: dict[str, str],
+    php: str,
+    public_base: str,
+    *,
+    slug: str = "",
+) -> str:
+    if not paramiko_available():
+        raise RuntimeError(
+            "paramiko is not installed. Run: python3 -m pip install --break-system-packages paramiko "
+            "(or pip install -r requirements.txt), then retry. Do not re-trigger if slug is already LIVE."
+        )
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +601,14 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        try:
+            out = trigger_bootstrap_http(url, root)
+        except Exception as trigger_error:  # noqa: BLE001
+            if slug:
+                reconstructed = reconstruct_publish_output_via_rest(public_base, slug)
+                if reconstructed and "OK post=" in reconstructed:
+                    return reconstructed
+            raise trigger_error
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -588,7 +694,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"
@@ -596,14 +702,17 @@ def main() -> int:
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+    reconstructed = "reconstructed_via=rest_after_http_timeout" in out
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
         "permalink": permalink,
-        "publish_method": "ssh",
+        "publish_method": "ssh_rest_reconstruct" if reconstructed else "ssh",
         "cover_evidence": payload.get("cover_evidence", {}),
         "raw_output": out,
         "verdict": "pass" if "OK post=" in out else "fail",
+        "http_trigger_timeout_sec": http_trigger_timeout_sec(),
+        "fallback_poll_sec": fallback_poll_sec(),
     }
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if result["verdict"] == "pass":

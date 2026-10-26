@@ -14,7 +14,9 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Whole-token markers (never substring-match inside field ids like reader_pain
+# or Russian morphology like гарантии).
+TECH_WORD_MARKERS = (
     "ai",
     "ии",
     "agent",
@@ -28,9 +30,15 @@ TECH_MARKERS = (
     "docker",
     "rag",
     "workflow",
+)
+
+# Intentional stem/prefix markers for Russian tech vocabulary.
+TECH_STEM_MARKERS = (
     "автоматизац",
     "нейросет",
 )
+
+TECH_MARKERS = TECH_WORD_MARKERS + TECH_STEM_MARKERS
 
 
 REQUIRED_FIELDS = (
@@ -73,14 +81,34 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str, marker: str) -> bool:
+    """Match tech markers as tokens/stems, not raw substrings."""
+    marker = marker.lower()
+    if marker in TECH_STEM_MARKERS:
+        return marker in blob
+    # Word-ish boundary: avoid matching inside identifiers (reader_pain) or
+    # longer Russian words (гарантии contains ии).
+    return bool(re.search(rf"(?<![\w]){re.escape(marker)}(?![\w])", blob, flags=re.IGNORECASE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
-    blob = " ".join(
+    # Prefer explicit topic card tags / search_intent over incidental note text.
+    tags = topic.get("tags") or topic.get("topic_tags") or []
+    if isinstance(tags, str):
+        tags = [tags]
+    tag_blob = " ".join(str(t) for t in tags).lower()
+    intent = str(topic.get("search_intent") or "").lower()
+    card_blob = " ".join(
         str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+        for key in ("h1", "primary_query", "secondary_queries", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    card_blob = f"{card_blob} {tag_blob} {intent}".strip()
+    if any(_tech_marker_hit(card_blob, marker) for marker in TECH_MARKERS):
+        return True
+    # Notes are secondary: still scan, but with the same token rules.
+    notes_blob = notes[:2000].lower()
+    return any(_tech_marker_hit(notes_blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

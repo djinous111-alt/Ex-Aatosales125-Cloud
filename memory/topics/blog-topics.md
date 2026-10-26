@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Mitsubishi Delica из Японии: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Mitsubishi Delica D:5 из Японии: как выбрать комплектацию и не попасть в ловушку до ставки
+- **primary_query:** делика из японии
+- **secondary_queries:** мицубиси делика д5, делика владивосток, мицубиси делика дизель, делика д5 из японии
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого Delica D:5 и чем она отличается от Noah / Stepwgn
+  2. Как читать комплектации G / G-Power / P и спецверсии до ставки
+  3. Дизель 2.2, AdBlue и порог 1.9 л: что проверить до оплаты
+  4. Аукционный лист: оценки, кузов, пробег, красные флаги
+  5. Чек-лист из 10 пунктов перед ставкой и логистикой во Владивосток
+- **faq_hints:** можно ли везти Delica D:5 напрямую из Японии при дизеле 2.2; чем G отличается от P; на что смотреть в AdBlue и сервисе дизеля; где смотреть лоты во Владивостоке
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у праворульного минивэна Delica D:5 / ролкера, Владивосток, плашка "до ставки", угол avto-sales125.ru
+- **wordstat_notes:** parent "мицубиси делика" ~24028; "мицубиси делика д5" ~5124; "делика из японии" ~735; "делика владивосток" ~2792; "делика дизель" ~4455; narrow "как выбрать мицубиси делика" = empty {} low-result; "byd song plus из китая" totalCount-only 57; "рав4 из японии" ~99 – проигравшие кандидаты
+- **cannibalization:** LIVE slug отсутствует; denylist без Delica; REST search без dedicated комплектации/ловушки гайда; helper --check-query clean

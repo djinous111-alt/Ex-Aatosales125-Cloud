@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20261026-1703-director-doctor-blog-path-stale
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` still checks for `--blog-path` on llms generator; current CLI is `--blog-dir` (+ `--out-dir`). Doctor SUMMARY errors=1 on every preflight.
+- Durable fix already existed on prior agent commits (e.g. `2fbf8c94`) but was not on this Cloud checkout / not merged to main.
+
+### How the agent recovered this run
+- Continued pipeline; noted FAIL; deferred durable patch to fixer loop.
+
+### Durable fix needed before next run
+- Align doctor check with `--blog-dir` / `--out-dir` (and warn if stale `--blog-path` present).
+- Ensure main receives prior fixer commits so cron boots do not regress.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261026-1703-director-scout-live-slugs-missing
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Automation memory documents `excalibur_blog_scout_helper.py --live-slugs`, but this checkout helper only supports `--suggest-next` / `--check-query`.
+- Ledger `shared/published-articles.md` only lists AS08/AS09 while LIVE WP has 100+ posts — scout cannibalization must use LIVE REST denylist.
+
+### How the agent recovered this run
+- Director fetched LIVE slugs via PUBLIC_SITE_URL REST and will pass denylist into Scout Task prompt.
+
+### Durable fix needed before next run
+- Restore `--live-slugs` (and related denylist/`--check-slug`) on scout helper; document that WP MCP is non-authoritative.
+- Merge prior durable scout fixes to main before next cron.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

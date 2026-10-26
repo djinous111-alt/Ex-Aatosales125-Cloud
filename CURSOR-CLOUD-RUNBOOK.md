@@ -96,6 +96,16 @@ python3 scripts/excalibur_blog_wp_publish.py --env-check
 
 Если `--publish` падает из-за секретов, это нормально для dry-run окружения и блокер для боевой публикации.
 Если SSH upload пишет warning про fallback на `.`, обновите Cursor Secret `SSH_ROOT` на `.` или уберите несуществующий panel/root path. Секретные значения не записывать в repo.
+`--env-check` / doctor также проверяют import `paramiko` (SSH publish). Cloud install ставит `requirements.txt`.
+
+Перед `git commit` в Cloud:
+
+```bash
+source scripts/excalibur_blog_sanitize_secret_names.sh
+```
+
+Это выкидывает URL/`[REDACTED]` из `CLOUD_AGENT_*_SECRET_NAMES`, иначе agent-hooks pre-commit падает с `invalid variable name`. `--no-verify` только как last resort.
+
 
 ## Optional GitHub Actions preflight
 

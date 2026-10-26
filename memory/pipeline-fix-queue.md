@@ -6,9 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none (2026-10-26 B01 fixer loop)_
 
 ## INC-20261026-0936-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-publish
 topic_id: B01
@@ -39,10 +40,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- `.cursor/cloud-agent-install.sh` and Dockerfile now install `requirements.txt` / `paramiko` (+ numpy) and verify import.
+- `excalibur_blog_wp_publish.py --env-check` fails when paramiko cannot be imported (`missing` includes `paramiko`).
+- Doctor warns/errors on missing paramiko (hard fail with `--publish`).
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_import_ok true)
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+commit: pending-parent-commit
 
 ## INC-20261026-0933-indexer-llms-absolute-site-base-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-indexer
 topic_id: B01
@@ -77,12 +97,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- llms generator defaults to empty `--site-base` and emits relative `/blog/<slug>/` (also for `[REDACTED]`).
+- Interlinker defaults empty site_base; report JSON does not embed live host.
+- Indexer agent/skill instruct `--site-base ""` for commit path; no `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: article_blog_url / build_llms_txt relative paths
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir/--out-dir
+commit: pending-parent-commit
 
 ## INC-20261026-0929-cover-kie-http-reference
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-cover
 topic_id: B01
@@ -112,10 +147,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- hero_reference_url / cover_quad_prompt / kie API normalize http→https and refuse plain HTTP for i2i input_urls.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: normalize + validate_reference_url HTTPS
+- py_compile cover/hero/kie scripts
+commit: pending-parent-commit
 
 ## INC-20261026-0929-cover-prompt-truncation-garbled-sticker
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-cover
 topic_id: B01
@@ -144,12 +193,22 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- `compact()` truncates on token boundaries; cover scene_hint budget tightened; brand footer reserved; white-hoodie outfit lock softened to outfit_rule/weather.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: compact mid-phrase cut
+- rg: hoodie lock phrase removed
+commit: pending-parent-commit
 
 ## INC-20261026-0920-geo-qa-utility-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -180,11 +239,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Kept non-empty `pain_markers_ru` / `outcome_markers_ru` in editorial-policy; utility gate already skips empty lists.
+- Doctor checks marker lists non-empty when min_* set.
+- human-voice `exactly_five_lists` now counts ol with exactly 5 li (not ≥5).
+files_changed:
+- `memory/brief/editorial-policy.json` (already populated; verified)
+- `scripts/excalibur_blog_utility_gate.py` (empty-list skip retained)
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor editorial-policy marker checks OK
+- unit: exactly-five ol counting
+commit: pending-parent-commit
 
 ## INC-20261026-0918-writer-pre-commit-hook-invalid-var
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-writer
 topic_id: B01
@@ -216,12 +289,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Added `scripts/excalibur_blog_sanitize_secret_names.sh` to filter `CLOUD_AGENT_*_SECRET_NAMES` to valid bash identifiers / drop `[REDACTED]` and URLs before commit.
+- Documented preferred workaround in pitfalls + CURSOR-CLOUD-RUNBOOK; `--no-verify` last resort only.
+- Cursor Dashboard secret-name injection (remove bare URL-as-name) remains optional human hygiene outside repo.
+files_changed:
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- source sanitize script with mixed CSV → only valid identifiers remain
+commit: pending-parent-commit
 
 ## INC-20261026-0915-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-research
 topic_id: B01
@@ -249,11 +332,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- TECH_MARKERS matching is token-boundary aware; strips required field labels before classifying notes; short Cyrillic tokens (ии) cannot match inside японии.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: Prado/Japan notes → technical_topic=False; MCP/AI topic → True
+- py_compile research_notes_gate
+commit: pending-parent-commit
 
 ## INC-20261026-0907-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-director
 topic_id: B01
@@ -281,6 +373,23 @@ category: tooling
 ### Secrets
 - none recorded
 
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Doctor now checks llms generator `--blog-dir` and `--out-dir` (not legacy `--blog-path`).
+- Indexer docs aligned to actual CLI.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+- rg: no actionable stale --blog-path CLI requirement
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

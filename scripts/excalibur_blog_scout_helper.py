@@ -5,13 +5,41 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
+import urllib.error
+import urllib.parse
+import urllib.request
 from pathlib import Path
 from typing import Any
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def public_site_base() -> str:
+    for key in ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"):
+        value = (os.environ.get(key) or "").strip().rstrip("/")
+        if value.startswith("http://") or value.startswith("https://"):
+            return value
+    return ""
+
+
+def fetch_live_posts(base: str, search: str = "", per_page: int = 50) -> list[dict[str, Any]]:
+    """Authoritative LIVE inventory via PUBLIC_SITE_URL REST (not WP MCP)."""
+    if not base:
+        raise RuntimeError("PUBLIC_SITE_URL/WP_HOME/WP_SITE_URL required for --live-slugs")
+    query = {"per_page": str(per_page), "status": "publish", "_fields": "id,slug,link,title"}
+    if search:
+        query["search"] = search
+    url = base.rstrip("/") + "/wp-json/wp/v2/posts?" + urllib.parse.urlencode(query)
+    request = urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogScout/1.0"})
+    with urllib.request.urlopen(request, timeout=45) as response:
+        payload = json.loads(response.read().decode("utf-8", errors="replace"))
+    if not isinstance(payload, list):
+        raise RuntimeError(f"unexpected WP REST shape from {base}")
+    return [row for row in payload if isinstance(row, dict)]
 
 def load_published_topics(root: Path) -> set[str]:
     ledger_path = root / "shared/published-articles.md"
@@ -114,6 +142,12 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument(
+        "--live-slugs",
+        action="store_true",
+        help="Fetch LIVE post slugs from PUBLIC_SITE_URL REST (authoritative; WP MCP is non-authoritative)",
+    )
+    ap.add_argument("--search", type=str, default="", help="Optional WP REST search= for --live-slugs")
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -127,6 +161,26 @@ def main() -> int:
     active = load_active_article_topics(root)
     reserved = published | active
     existing = load_existing_topics(root)
+
+    if args.live_slugs:
+        base = public_site_base()
+        try:
+            posts = fetch_live_posts(base, search=args.search)
+        except (urllib.error.URLError, TimeoutError, RuntimeError, json.JSONDecodeError) as exc:
+            print(f"❌ LIVE REST FAILED: {exc}", file=sys.stderr)
+            print("Do NOT fall back to wordpress_* MCP for LIVE dedup — fix PUBLIC_SITE_URL or network.")
+            return 2
+        print("=== EXCALIBUR SCOUT LIVE (PUBLIC_SITE_URL REST) ===")
+        print(f"base_host_configured: yes")
+        print(f"posts_returned: {len(posts)}")
+        for post in posts:
+            title = ""
+            raw_title = post.get("title")
+            if isinstance(raw_title, dict):
+                title = str(raw_title.get("rendered") or "")
+            print(f"- id={post.get('id')} slug={post.get('slug')} title={title[:80]}")
+        print("NOTE: MCP-KV wordpress_* may point at a different host — treat as non-authoritative.")
+        return 0
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")

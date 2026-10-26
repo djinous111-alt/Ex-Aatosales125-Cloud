@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "твета, можно ли вообще вывезти машину из Японии в 2026. Ниже – спокойный разбор до ставки: поколения XL/",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "ловой, потом ставка. PHEV, гибриды и моторы свыше 1900 куб. см для прямого вывоза в РФ с 09.08.2023 упира",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "выше 1900 куб. см для прямого вывоза в РФ с 09.08.2023 упираются в японский экспортный контроль. R/RA на",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1998",
+      "kind": "date_or_year",
+      "context": "практике типичный бензиновый Outlander 2.0 (около 1998 куб. см, код GF7W) тоже формально выше порога – ко",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -422,3 +422,35 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261026-1323-geo-qa-fact-check-label-conflict
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Writer agent text asks for Fact Check label «Достоверность данных», while `shared/excalibur-article-writing-contract.md` shows «Достоверность:» and `excalibur_blog_human_voice_gate.py` emits a warning whenever a blockquote contains both «материал проверен» and «достоверность данных».
+
+### How the agent recovered this run
+- Minimal edit in `article.html`: renamed Fact Check label to «Достоверность:» keeping the same topic sources; re-ran human voice → PASS with empty warnings.
+
+### Durable fix needed before next run
+- Align `.cursor/agents/excalibur-blog-writer.md` / `agents/excalibur-blog-writer.md` with writing-contract label «Достоверность:» OR change human_voice gate to warn only on generic Wordstat boilerplate, not on the phrase «достоверность данных».
+- Add one line to `shared/agent-pipeline-pitfalls.md` under Fact Check Box.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-writer.md`
+- `agents/excalibur-blog-writer.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

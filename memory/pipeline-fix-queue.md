@@ -469,6 +469,7 @@ category: env
 - Multi-line `sameAs` URL arrays would also fail allowlisting: the hook skips only lines containing `pragma: allowlist secret`, so URLs on their own array lines are still blocked.
 
 ### How the agent recovered this run
+- Recurrence (Indexer B01 commit `530dbe38`): same URL-token in `CLOUD_AGENT_INJECTED_SECRET_NAMES`; recovered via `source scripts/excalibur_blog_sanitize_secret_names.sh` + identifier filter before commit/push.
 - Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `str.isidentifier()` names for the commit process (14 valid names kept; 1 invalid URL-token dropped).
 - Emitted site/CTA `@id`/`url`/`image` with same-line `"x-excalibur-pragma": "pragma: allowlist secret"` and compacted `sameAs` arrays onto one line with the same pragma so every secret-bearing line is allowlisted.
 - Commit of `schema.jsonld` succeeded after the filter + pragma shape.

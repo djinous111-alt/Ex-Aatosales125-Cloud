@@ -59,7 +59,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_import_ok true)
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
-commit: pending-parent-commit
+commit: 2f0feefb (fixer series 950165d6..2f0feefb)
 
 ## INC-20261026-0933-indexer-llms-absolute-site-base-secret-scan
 status: fixed
@@ -114,7 +114,7 @@ files_changed:
 checks_run:
 - unit: article_blog_url / build_llms_txt relative paths
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir/--out-dir
-commit: pending-parent-commit
+commit: 2f0feefb (fixer series 950165d6..2f0feefb)
 
 ## INC-20261026-0929-cover-kie-http-reference
 status: fixed
@@ -161,7 +161,7 @@ files_changed:
 checks_run:
 - unit: normalize + validate_reference_url HTTPS
 - py_compile cover/hero/kie scripts
-commit: pending-parent-commit
+commit: 2f0feefb (fixer series 950165d6..2f0feefb)
 
 ## INC-20261026-0929-cover-prompt-truncation-garbled-sticker
 status: fixed
@@ -205,7 +205,7 @@ files_changed:
 checks_run:
 - unit: compact mid-phrase cut
 - rg: hoodie lock phrase removed
-commit: pending-parent-commit
+commit: 2f0feefb (fixer series 950165d6..2f0feefb)
 
 ## INC-20261026-0920-geo-qa-utility-pain-outcome-markers
 status: fixed
@@ -254,7 +254,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy marker checks OK
 - unit: exactly-five ol counting
-commit: pending-parent-commit
+commit: 2f0feefb (fixer series 950165d6..2f0feefb)
 
 ## INC-20261026-0918-writer-pre-commit-hook-invalid-var
 status: fixed
@@ -301,7 +301,7 @@ files_changed:
 - `CURSOR-CLOUD-RUNBOOK.md`
 checks_run:
 - source sanitize script with mixed CSV → only valid identifiers remain
-commit: pending-parent-commit
+commit: 2f0feefb (fixer series 950165d6..2f0feefb)
 
 ## INC-20261026-0915-research-tech-markers-false-positive
 status: fixed
@@ -342,7 +342,7 @@ files_changed:
 checks_run:
 - unit: Prado/Japan notes → technical_topic=False; MCP/AI topic → True
 - py_compile research_notes_gate
-commit: pending-parent-commit
+commit: 2f0feefb (fixer series 950165d6..2f0feefb)
 
 ## INC-20261026-0907-doctor-llms-blog-path
 status: fixed
@@ -389,7 +389,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
 - rg: no actionable stale --blog-path CLI requirement
-commit: pending-parent-commit
+commit: 2f0feefb (fixer series 950165d6..2f0feefb)
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

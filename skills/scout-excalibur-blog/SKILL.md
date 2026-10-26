@@ -26,11 +26,27 @@ Append new Topic Card to blog-topics.md
 
 ## Подробный алгоритм действий
 
+### Шаг 0 — WP slug denylist (обязательно)
+* Файл `shared/wp-slug-denylist.json` должен существовать с непустым `slugs[]` **до** выбора нового slug.
+* **LIVE WP REST denylist is authoritative**; WP MCP post list is non-authoritative (ledger may list only recent AS/B rows while LIVE has 100+ posts).
+* Проверка / восстановление:
+  ```bash
+  python3 scripts/excalibur_blog_wp_slug_denylist.py --check
+  # если missing/empty — rebuild from PUBLIC_SITE_URL REST:
+  python3 scripts/excalibur_blog_scout_helper.py --live-slugs
+  # aliases:
+  python3 scripts/excalibur_blog_scout_helper.py --rebuild-denylist
+  python3 scripts/excalibur_blog_wp_slug_denylist.py --rebuild
+  # candidate slug guard:
+  python3 scripts/excalibur_blog_scout_helper.py --check-slug "<candidate-slug>"
+  ```
+* Doctor тоже FAIL без denylist. В git коммить только slugs + метаданные источника (без полных secret URL).
+
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 

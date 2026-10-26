@@ -14,9 +14,12 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short markers must use word-boundary match (substring "ии" hits «Японии», "ai" hits latin words).
+TECH_MARKERS_BOUNDED = (
     "ai",
     "ии",
+)
+TECH_MARKERS_SUBSTRING = (
     "agent",
     "агент",
     "mcp",
@@ -73,14 +76,31 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_hit(blob: str, marker: str, *, bounded: bool) -> bool:
+    if not bounded:
+        return marker in blob
+    # Cyrillic-safe token boundary (Python \b is ASCII-word only).
+    pattern = rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])"
+    return bool(re.search(pattern, blob, flags=re.IGNORECASE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niche from topic card fields only.
+
+    Do not scan research-notes body: required headings like ``github_evidence``
+    and Wordstat/tool mentions create false positives for auto niche how-tos
+    (e.g. Toyota Corolla) that then incorrectly require github_urls>=3.
+    ``notes`` is kept for API compatibility with callers/tests.
+    """
+    del notes  # intentional: topic card only
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(_marker_hit(blob, m, bounded=True) for m in TECH_MARKERS_BOUNDED):
+        return True
+    return any(_marker_hit(blob, m, bounded=False) for m in TECH_MARKERS_SUBSTRING)
 
 
 def field_present(text_lower: str, field: str) -> bool:

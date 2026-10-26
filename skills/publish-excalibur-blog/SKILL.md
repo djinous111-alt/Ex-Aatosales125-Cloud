@@ -20,17 +20,31 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets overlay **or** `memory/site.env.local` (`SSH_*`, `PUBLIC_SITE_URL`) — site.env.local optional when Secrets cover all keys |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| SSH dep | `paramiko` (installed via `requirements.txt` / `.cursor/cloud-agent-install.sh` / Dockerfile) |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
 ## Алгоритм
 
+### 0. Env + dependency check
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+JSON must show `paramiko_available: true`. If false:
+
+```bash
+python3 -m pip install --break-system-packages paramiko
+# or: python3 -m pip install -r requirements.txt
+```
+
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
@@ -61,15 +75,18 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + 504 reconstruct
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт **сначала** пробует REST reconstruct по slug (post может уже быть LIVE после client timeout).
+2. Если LIVE нет — печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
+3. Cloud-агент открывает URL через WebFetch/curl и пишет ответ в `memory/webfetch-response.txt`.
+4. **nginx 504/502 HTML ≠ success** — не трактуй gateway HTML как OK; скрипт снова делает REST reconstruct по slug.
+5. HTTP wait / FALLBACK poll = **300s** (большие ~6–7MB payload часто режутся на ~120s edge).
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Запрещено:** второй bootstrap trigger, если REST уже видит LIVE post (иначе дубли media `*-1.png`).
+**Не останавливайся** на первом timeout — reconstruct или fallback, без republish.
 
 ### 5. Post-publish артефакты
 

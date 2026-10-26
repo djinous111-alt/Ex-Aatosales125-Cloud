@@ -3,5 +3,10 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-  "install": "bash .cursor/cloud-agent-install.sh"
+  "install": "bash .cursor/cloud-agent-install.sh",
+  "excalibur_blog_orchestration": {
+    "typed_task_types": "optional",
+    "canonical_path": "Task(generalPurpose) per role with .cursor/agents/<role>.md + .cursor/skills/<skill>/SKILL.md",
+    "note": "Cloud may reject excalibur-blog-* typed Task names; generalPurpose fallback is expected, not a blocker."
+  }
 }

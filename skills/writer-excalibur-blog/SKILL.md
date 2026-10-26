@@ -37,6 +37,17 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## Editorial policy markers
+
+- `memory/brief/editorial-policy.json` обязан содержать непустые `pain_markers_ru` / `outcome_markers_ru` и `_markers_pinned: true` (doctor FAIL иначе).
+- Если utility gate репортит `pain_markers=0` / `outcome_markers=0` при живом тексте боли/результата — это **policy defect** (восстанови маркеры / положись на FALLBACK в `excalibur_blog_utility_gate.py`), **не** рерайт статьи ради маркеров.
+
+## CTA hrefs (не оставляй мёртвые плейсхолдеры)
+
+- В `article.html` для каталога/Telegram CTA пиши **живые https URL** из env/`conversion-map` **или** осознанный плейсхолдер `href="env:CATALOG_URL"` / `href="env:TELEGRAM_URL"` (publish expand).
+- **Запрещено** копировать `href="[REDACTED]"` в финальный HTML для QA: `link_verify` / `html_linter` дают явный FAIL на литерал `[REDACTED]` до HTTP.
+- Если secret-scan требует redact перед commit — сначала expand для link-verify/publish, затем redact только в git-копии; publish снова hydrates из env.
+
 ## Blockers
 
 - нет research-notes.md

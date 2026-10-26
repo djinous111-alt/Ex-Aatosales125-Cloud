@@ -1,0 +1,651 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-26",
+    "today_ru": "26.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-28",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Mitsubishi Outlander из Японии: комплектации и ловушки до ставки 2026",
+    "primary_query": "аутлендер из японии",
+    "secondary_queries": [
+      "мицубиси аутлендер из японии",
+      "аутлендер владивосток",
+      "аутлендер phev",
+      "мицубиси аутлендер"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "аутлендер из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mitsubishi Outlander из Японии 2026: PHEV или 2.0L — что пройдёт таможню",
+          "url": "https://autoprofiasia.ru/blog/mitsubishi-outlander-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: поколения, PHEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/mitsubishi-outlander-iz-yaponii",
+          "snippet": "Клиент из Владивостока заказал Outlander 2.0L в январе 2026 — таможня Восточный пропустила, но предупредили, что в следующем месяце правила могут ужесточить. С PHEV таких проблем не было."
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: 2.0, 2.4, PHEV и цена | AZWAY",
+          "url": "https://azway.ru/blog/mitsubishi-outlander-iz-yaponii-obzor",
+          "snippet": "Разберём всё по делу: какие поколения и версии везут, каковы аукционные цены в Японии, как рассчитывается таможня и во что реально выходит Outlander под ключ в 2026 году."
+        },
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": "Как выбрать Mitsubishi Outlander: поколения, бензиновые 2.0 и 2.4, вариатор, полный привод и PHEV. Батарея, салон, цены и ограничения ввоза из Японии."
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии — купить под ключ 2026 | Azway",
+          "url": "https://azway.ru/auto/mitsubishi-outlander-iz-yaponii",
+          "snippet": "Какой Mitsubishi привезти из Японии в 2026: Delica D:2 и D:5, Eclipse Cross и Outlander, реальные лоты с годом и пробегом, полный привод и сроки доставки."
+        },
+        {
+          "title": "Mitsubishi Outlander из Китая и Японии - asia-pod-klyuch.ru",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-outlander-iz-kitaya-2026",
+          "snippet": "Купить Mitsubishi Outlander из Японии под ключ. 2.5 / 2.5 PHEV, 184-224 л.с.. Цена от 3.5 до 5.5 млн ₽. Доставка 25-45 дней. Растаможка, СБКТС, ЭПТС включены."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "аутлендер из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mitsubishi Outlander из Японии: поколения, PHEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/mitsubishi-outlander-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: 2.0, 2.4, PHEV и цена | AZWAY",
+          "url": "https://azway.ru/blog/mitsubishi-outlander-iz-yaponii-obzor",
+          "snippet": "Разберём всё по делу: какие поколения и версии везут, каковы аукционные цены в Японии, как рассчитывается таможня и во что реально выходит Outlander под ключ в 2026 году."
+        },
+        {
+          "title": "Каталог Mitsubishi Outlander (Мицубиси Аутлендер) из Японии — все ...",
+          "url": "https://jpstar.ru/catalog/mitsubishi/outlander/",
+          "snippet": "Как выбрать Mitsubishi Outlander: поколения, бензиновые 2.0 и 2.4, вариатор, полный привод и PHEV. Батарея, салон, цены и ограничения ввоза из Японии."
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии — купить под ключ 2026 | Azway",
+          "url": "https://azway.ru/auto/mitsubishi-outlander-iz-yaponii",
+          "snippet": "Привозим автомобили напрямую из Японии под заказ - полный каталог всех японских автомобилей! Джапан Стар предоставит выгодные условия и полное сопровождение на всех этапах сделки."
+        },
+        {
+          "title": "Mitsubishi Outlander (Мицубиси Аутлендер) из Японии — поколения и ...",
+          "url": "https://www.japantrek.ru/catalog/mitsubishi/outlander/",
+          "snippet": "Купить Mitsubishi Outlander из Японии под ключ. 2.5 / 2.5 PHEV, 184-224 л.с.. Цена от 3.5 до 5.5 млн ₽. Доставка 25-45 дней. Растаможка, СБКТС, ЭПТС включены."
+        },
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены под ключ в 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": "Все поколения Mitsubishi Outlander (Мицубиси Аутлендер) для японского рынка. Характеристики, кузова, двигатели, гибридные версии и особенности модели."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "аутлендер из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mitsubishi Outlander из Японии: поколения, PHEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/mitsubishi-outlander-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии 2026: PHEV или 2.0L — что пройдёт таможню",
+          "url": "https://autoprofiasia.ru/blog/mitsubishi-outlander-iz-yaponii-2026",
+          "snippet": "Разберём всё по делу: какие поколения и версии везут, каковы аукционные цены в Японии, как рассчитывается таможня и во что реально выходит Outlander под ключ в 2026 году."
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: 2.0, 2.4, PHEV и цена | AZWAY",
+          "url": "https://azway.ru/blog/mitsubishi-outlander-iz-yaponii-obzor",
+          "snippet": "Клиент из Владивостока заказал Outlander 2.0L в январе 2026 — таможня Восточный пропустила, но предупредили, что в следующем месяце правила могут ужесточить. С PHEV таких проблем не было."
+        },
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены под ключ в 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": "В 2024 году модель серьёзно обновили, а в июне 2026-го добавили отдельные функции комфорта и помощи водителю. Эти изменения не стоит записывать как ещё два новых поколения."
+        },
+        {
+          "title": "Митсубиси Аутлендер 2026: полный обзор, характеристики и цены",
+          "url": "https://ru.boyucar.com/mitsubisi-autlender-2026-polnyj-obzor-harakteristiki-i-tseny",
+          "snippet": "Какой Mitsubishi привезти из Японии в 2026: Delica D:2 и D:5, Eclipse Cross и Outlander, реальные лоты с годом и пробегом, полный привод и сроки доставки."
+        },
+        {
+          "title": "Mitsubishi из Японии: история бренда, топ-модели и расчёт утильсбора в 2026",
+          "url": "https://sferacar.ru/stati/mitsubishi-iz-yaponii-istoriya-top-modeli-utilsbor-2026.html",
+          "snippet": "Мицубиси Аутлендер 2026: полный обзор японского кроссовера — технические характеристики, комплектации, цены, тест-драйв, сравнение с конкурентами и советы по выбору для российского рынка."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com аутлендер из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 5,
+      "results": [
+        {
+          "title": "czz-aid/docs/logo.svg at master · ch66en/czz-aid · GitHub",
+          "url": "https://github.com/ch66en/czz-aid/blob/master/docs/logo.svg",
+          "snippet": ""
+        },
+        {
+          "title": "g8rdiers-github-readme-stats/powered-by-vercel.svg at master · g8rdier ...",
+          "url": "https://github.com/g8rdier/g8rdiers-github-readme-stats/blob/master/powered-by-vercel.svg",
+          "snippet": "Contribute to ch66en/czz-aid development by creating an account on GitHub."
+        },
+        {
+          "title": "forumnick/ArzMarketV3/items.json at main - GitHub",
+          "url": "https://github.com/FREYM1337/forumnick/blob/main/ArzMarketV3/items.json",
+          "snippet": ":zap: Dynamically generated stats for github account - g8rdier/g8rdiers-github-readme-stats"
+        },
+        {
+          "title": "wordpiece-tokenizer-cpp/tokenizer.json at main · ansharyan03 ... - GitHub",
+          "url": "https://github.com/ansharyan03/wordpiece-tokenizer-cpp/blob/main/tokenizer.json",
+          "snippet": "Contribute to FREYM1337/forumnick development by creating an account on GitHub."
+        },
+        {
+          "title": "raft-large-directories-lowercase.txt - GitHub",
+          "url": "https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-large-directories-lowercase.txt",
+          "snippet": "\"truncation\": { \"direction\": \"Right\", \"max_length\": 512, \"strategy\": \"LongestFirst\", \"stride\": 0. }, \"padding\": null, \"added_tokens\": [ \"id\": 0, \"content\": \"[PAD]\", \"single_word\": false, \"lstrip\": false, \"rstrip\": false, \"normalized\": false, \"special\": true. }, \"id\": 1, \"content\": \"[UNK]\", \"single_word\": false, \"lstrip\": false, \"rstrip\": false,"
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "аутлендер из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mitsubishi Outlander из Японии: поколения, PHEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/mitsubishi-outlander-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии 2026: PHEV или 2.0L — что пройдёт таможню",
+          "url": "https://autoprofiasia.ru/blog/mitsubishi-outlander-iz-yaponii-2026",
+          "snippet": "Разберём всё по делу: какие поколения и версии везут, каковы аукционные цены в Японии, как рассчитывается таможня и во что реально выходит Outlander под ключ в 2026 году."
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: 2.0, 2.4, PHEV и цена | AZWAY",
+          "url": "https://azway.ru/blog/mitsubishi-outlander-iz-yaponii-obzor",
+          "snippet": "Outlander — один из самых популярных SUV на Дальнем Востоке, но с 2024 года ввоз упёрся в лимит 1900 куб.см. Версия 2.0L (1998 куб.см) формально превышает лимит, и её могут завернуть на таможне. PHEV с тем же объёмом ДВС пропускают, плюс льготный утильсбор."
+        },
+        {
+          "title": "Мицубиси Аутлендер 2026 технические характеристики. Mitsubishi ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/outlander/2026/",
+          "snippet": "Как выбрать Mitsubishi Outlander: поколения, бензиновые 2.0 и 2.4, вариатор, полный привод и PHEV. Батарея, салон, цены и ограничения ввоза из Японии."
+        },
+        {
+          "title": "Митсубиси Аутлендер 2026: полный обзор, характеристики и цены",
+          "url": "https://ru.boyucar.com/mitsubisi-autlender-2026-polnyj-obzor-harakteristiki-i-tseny",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Outlander 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Mitsubishi Outlander (Мицубиси Аутлендер) из Японии — поколения и ...",
+          "url": "https://www.japantrek.ru/catalog/mitsubishi/outlander/",
+          "snippet": "Мицубиси Аутлендер 2026: полный обзор японского кроссовера — технические характеристики, комплектации, цены, тест-драйв, сравнение с конкурентами и советы по выбору для российского рынка."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "аутлендер из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "OUT-CLUB.RU - Форум кроссоверов и внедорожников Mitsubishi",
+          "url": "https://out-club.ru/board/",
+          "snippet": ""
+        },
+        {
+          "title": "Outlander 2016 - 2021 отзывы владельцев - Out-Club.ru",
+          "url": "https://out-club.ru/board/forumdisplay.php?f=383",
+          "snippet": "Благотворительность: 1 сентября 2026 для детей в Ярославском ОПТД. Подробная информация здесь. 20 лет - юбилейный День рождения Клуба 08 августа 2026 года! Обсуждение отмечания >>>"
+        },
+        {
+          "title": "Мицубиси Аутлендер 2026 отзывы владельцев - поломки",
+          "url": "https://www.drom.ru/reviews/mitsubishi/outlander/5kopeek/breakages/?year2=2026",
+          "snippet": "Благотворительность: 1 сентября 2026 для детей в Ярославском ОПТД. Подробная информация здесь. 20 лет - юбилейный День рождения Клуба 08 августа 2026 года! Обсуждение отмечания >>>"
+        },
+        {
+          "title": "Mitsubishi Outlander Клуб и Форум",
+          "url": "https://outlander-forum.ru/",
+          "snippet": "Отзывы владельцев Мицубиси Аутлендер 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Мицубиси Аутлендер: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Мицубиси Аутлендер 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/mitsubishi/outlander/5kopeek/breakages/?year2=2026&keywords=%E4%E2%E8%E3%E0%F2%E5%EB%FC",
+          "snippet": "Сейчас на форуме нет ни одного пользователя."
+        },
+        {
+          "title": "Отзывы владельцев | Mitsubishi Outlander Клуб и Форум",
+          "url": "https://outlander-forum.ru/forums/otzyvy-vladelcev.3/",
+          "snippet": "Отзывы владельцев Мицубиси Аутлендер 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Мицубиси Аутлендер: поломки, минусы, недостатки и проблемы."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "мицубиси аутлендер из японии 2026",
+      "purpose": "вторичный запрос: мицубиси аутлендер из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мицубиси Аутлендер 2026 технические характеристики. Mitsubishi ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/outlander/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: поколения, PHEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/mitsubishi-outlander-iz-yaponii",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Outlander 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Мицубиси Аутлендер 2026 между собой."
+        },
+        {
+          "title": "Mitsubishi из Японии: модельный ряд и цены под ключ в 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+          "snippet": "Разберём всё по делу: какие поколения и версии везут, каковы аукционные цены в Японии, как рассчитывается таможня и во что реально выходит Outlander под ключ в 2026 году."
+        },
+        {
+          "title": "Митсубиси Аутлендер 2026: полный обзор, характеристики и цены",
+          "url": "https://ru.boyucar.com/mitsubisi-autlender-2026-polnyj-obzor-harakteristiki-i-tseny",
+          "snippet": "Какой Mitsubishi привезти из Японии в 2026: Delica D:2 и D:5, Eclipse Cross и Outlander, реальные лоты с годом и пробегом, полный привод и сроки доставки."
+        },
+        {
+          "title": "Каталог Mitsubishi Outlander (Мицубиси Аутлендер) из Японии — все ...",
+          "url": "https://jpstar.ru/catalog/mitsubishi/outlander/",
+          "snippet": "Мицубиси Аутлендер 2026: полный обзор японского кроссовера — технические характеристики, комплектации, цены, тест-драйв, сравнение с конкурентами и советы по выбору для российского рынка."
+        },
+        {
+          "title": "Комплектации Mitsubishi Outlander 2024-2026 4 поколение — цены и ...",
+          "url": "https://jpstar.ru/catalog/mitsubishi/outlander/2024-2026-4-restyling-hybrid-dzip-suv-12000.html",
+          "snippet": "Привозим автомобили напрямую из Японии под заказ - полный каталог всех японских автомобилей! Джапан Стар предоставит выгодные условия и полное сопровождение на всех этапах сделки."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "аутлендер владивосток 2026",
+      "purpose": "вторичный запрос: аутлендер владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мицубиси Аутлендер 2026 технические характеристики. Mitsubishi ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/outlander/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Сколько стоит Мицубиси Аутлендер 2026 года, цена в Владивостоке",
+          "url": "https://cenamashin.ru/cena/mitsubishi/outlander/2026/vladivostok",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Outlander 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Мицубиси Аутлендер 2026 между собой."
+        },
+        {
+          "title": "Купить Mitsubishi Outlander по цене от 750 000 рублей во Владивостоке ...",
+          "url": "https://auto.ru/vladivostok/cars/mitsubishi/outlander/all/",
+          "snippet": "Средняя цена (стоимость) Мицубиси Аутлендер 2026 года в Владивостоке, статистика цены и продаж, ликвидность в городе, сколько стоил новый в 2026 году и еще много полезной информации."
+        },
+        {
+          "title": "Купить Mitsubishi Outlander IV Рестайлинг 2026 года по цене от 5 400 ...",
+          "url": "https://auto.ru/rossiya/cars/mitsubishi/outlander/2026-year/24014308/all/",
+          "snippet": "Полный модельный ряд Mitsubishi Outlander по цене от 750 000 рублей во Владивостоке - более 61 Митсубиси Аутлендер, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Комплектации Mitsubishi Outlander 2024-2026 4 поколение — цены и ...",
+          "url": "https://jpstar.ru/catalog/mitsubishi/outlander/2024-2026-4-restyling-hybrid-dzip-suv-12000.html",
+          "snippet": "Полный модельный ряд Mitsubishi Outlander IV Рестайлинг 2026 года по цене от 5 400 031 рубль в России - много Митсубиси Аутлендер IV Рестайлинг, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Митсубиси Аутлендер 2026 цены модели, комплектации, фото, новый кузов ...",
+          "url": "https://cenyavto.com/mitsubishi-outlander-2026/",
+          "snippet": "Комплектации Mitsubishi Outlander 2024-2026 (4 поколение): модификации, параметры и ориентиры по цене. Стоимость — по статистике продаж за 3 месяца, с учётом доставки в от компании Джапан Стар."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "аутлендер phev 2026",
+      "purpose": "вторичный запрос: аутлендер phev",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мицубиси Аутлендер 2026 технические характеристики. Mitsubishi ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/outlander/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Outlander PHEV 2026: детальный обзор, технические ...",
+          "url": "https://journal.carso.ru/articles/mitsubishi-outlander-phev-2026-detalnyy-obzor-tehnicheskie-harakteristiki-i-tsena-obnovlennogo-gibrida",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Outlander 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Мицубиси Аутлендер 2026 между собой."
+        },
+        {
+          "title": "Обзор Mitsubishi Outlander PHEV 2026: больше мощности и запаса хода",
+          "url": "https://fb.ru/news/suvs/2026/3/6/430021",
+          "snippet": "Подробный обзор Mitsubishi Outlander PHEV 2026: характеристики, обновленный дизайн, запас хода до 100 км на электротяге и система S-AWC. Узнайте всё о флагманском гибриде нового поколения."
+        },
+        {
+          "title": "Mitsubishi Outlander PHEV - цена и характеристики, фотографии и обзор",
+          "url": "https://auto.ironhorse.ru/outlander-3-phev_4393.html",
+          "snippet": "Mitsubishi представила обновленный Outlander PHEV 2026 модельного года, который получил значительные технические и интерьерные улучшения. Главными новшествами стали увеличенная емкость батареи, возросшая суммарная мощность и новые функции комфорта в салоне."
+        },
+        {
+          "title": "Обзор Mitsubishi Outlander PHEV 2026: характеристики, цена и интерьер",
+          "url": "https://fb.ru/news/suvs/2026/3/14/443548",
+          "snippet": "Технические характеристики Mitsubishi Outlander PHEV и его стоимость. Обзор гибридного Мицубиси Аутлендера с фото."
+        },
+        {
+          "title": "Mitsubishi Outlander 2026: тест-драйв кроссовера",
+          "url": "https://motorved.ru/test-drajv-mitsubishi-outlander-2026-goda-gibrid-kotoryj-ne-hochet-vzroslet/",
+          "snippet": "Подробный разбор Mitsubishi Outlander PHEV 2026 года: обновленный интерьер с кожей и Yamaha, запас хода до 84 км и нюансы зарядки стандарта CHAdeMO."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "мицубиси аутлендер 2026",
+      "purpose": "вторичный запрос: мицубиси аутлендер",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мицубиси Аутлендер 2026 технические характеристики. Mitsubishi ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/outlander/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Outlander рестайлинг 2026, джип/suv 5 дв., 4 поколение ...",
+          "url": "https://www.drom.ru/catalog/mitsubishi/outlander/g_2026_25019/",
+          "snippet": "Подробно расписан модельный ряд Mitsubishi Outlander 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Мицубиси Аутлендер 2026 между собой."
+        },
+        {
+          "title": "Купить Mitsubishi Outlander NEW 2026 в Москве по цене от 3549000 ...",
+          "url": "https://avantaauto.ru/cars/mitsubishi/outlander-new/",
+          "snippet": "Подробно расписаны модификации автомобилей Mitsubishi Outlander рестайлинг 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "Митсубиси Аутлендер (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/mitsubishi/outlander",
+          "snippet": "Продажа новых автомобилей Митсубиси Аутлендер Нью в Москве. Выгодный кредит 4,9%, рассрочка 0%, тест-драйв, акции и специальные цены на Mitsubishi Outlander NEW 2026 года в автосалоне Аванта."
+        },
+        {
+          "title": "Митсубиси Аутлендер 2026 цены модели, комплектации, фото, новый кузов ...",
+          "url": "https://cenyavto.com/mitsubishi-outlander-2026/",
+          "snippet": "Всё про автомобиль Митсубиси Аутлендер 2026 года: цена в России, фотографии кузова и салона, характеристики, информация про двигатели."
+        },
+        {
+          "title": "New 2026 Mitsubishi Outlander SUV | Mitsubishi Motors",
+          "url": "https://www.mitsubishicars.com/cars-and-suvs/outlander",
+          "snippet": "На сегодняшний день Митсубиси Аутлендер 2026 продается с разнообразными комплектациями и техническими характеристиками, от обычных версий с атмосферными моторами до гибридов."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Mitsubishi Outlander из Японии: комплектации и ловушки до ставки 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mitsubishi Outlander из Японии: поколения, PHEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/mitsubishi-outlander-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: 2.0, 2.4, PHEV и цена | AZWAY",
+          "url": "https://azway.ru/blog/mitsubishi-outlander-iz-yaponii-obzor",
+          "snippet": "Разберём всё по делу: какие поколения и версии везут, каковы аукционные цены в Японии, как рассчитывается таможня и во что реально выходит Outlander под ключ в 2026 году."
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/45-mitsubishi-outlander-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Как выбрать Mitsubishi Outlander: поколения, бензиновые 2.0 и 2.4, вариатор, полный привод и PHEV. Батарея, салон, цены и ограничения ввоза из Японии."
+        },
+        {
+          "title": "Комплектации Mitsubishi Outlander 2024-2026 4 поколение — цены и ...",
+          "url": "https://jpstar.ru/catalog/mitsubishi/outlander/2024-2026-4-restyling-hybrid-dzip-suv-12000.html",
+          "snippet": "Обзор Mitsubishi Outlander из Японии: цены, комплектации, поколения, нюансы покупки с аукциона. Узнайте подробности и оставьте заявку на консультацию — 4RingCars."
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии 2026: PHEV или 2.0L — что пройдёт таможню",
+          "url": "https://autoprofiasia.ru/blog/mitsubishi-outlander-iz-yaponii-2026",
+          "snippet": "Цены на Mitsubishi Outlander с аукционов Японии напрямую зависят от состояния авто (аукционная оценка, пробег) и комплектации (объем двигателя, тип топлива, привод, тюнинг и т.д.)."
+        },
+        {
+          "title": "Mitsubishi Outlander из Японии: поколения, комплектации, цены и ...",
+          "url": "https://avtomost-asia.ru/models/mitsubishi-outlander",
+          "snippet": "Outlander — один из самых популярных SUV на Дальнем Востоке, но с 2024 года ввоз упёрся в лимит 1900 куб.см. Версия 2.0L (1998 куб.см) формально превышает лимит, и её могут завернуть на таможне. PHEV с тем же объёмом ДВС пропускают, плюс льготный утильсбор."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://autoprofiasia.ru/blog/mitsubishi-outlander-iz-yaponii-2026",
+      "title": "Mitsubishi Outlander из Японии 2026: PHEV или 2.0L — что пройдёт таможню",
+      "from_query": "аутлендер из японии 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/mitsubishi-outlander-iz-yaponii",
+      "title": "Mitsubishi Outlander из Японии: поколения, PHEV и стоимость под ключ в 2026",
+      "from_query": "аутлендер из японии 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/mitsubishi-outlander-iz-yaponii-obzor",
+      "title": "Mitsubishi Outlander из Японии: 2.0, 2.4, PHEV и цена | AZWAY",
+      "from_query": "аутлендер из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-iz-yaponii-2026",
+      "title": "Mitsubishi из Японии: модельный ряд и цены",
+      "from_query": "аутлендер из японии 2026"
+    },
+    {
+      "url": "https://azway.ru/auto/mitsubishi-outlander-iz-yaponii",
+      "title": "Mitsubishi Outlander из Японии — купить под ключ 2026 | Azway",
+      "from_query": "аутлендер из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/mitsubishi-outlander-iz-kitaya-2026",
+      "title": "Mitsubishi Outlander из Китая и Японии - asia-pod-klyuch.ru",
+      "from_query": "аутлендер из японии 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/mitsubishi/outlander/",
+      "title": "Каталог Mitsubishi Outlander (Мицубиси Аутлендер) из Японии — все ...",
+      "from_query": "аутлендер из японии октябрь 2026"
+    },
+    {
+      "url": "https://www.japantrek.ru/catalog/mitsubishi/outlander/",
+      "title": "Mitsubishi Outlander (Мицубиси Аутлендер) из Японии — поколения и ...",
+      "from_query": "аутлендер из японии октябрь 2026"
+    },
+    {
+      "url": "https://ru.boyucar.com/mitsubisi-autlender-2026-polnyj-obzor-harakteristiki-i-tseny",
+      "title": "Митсубиси Аутлендер 2026: полный обзор, характеристики и цены",
+      "from_query": "аутлендер из японии новости 2026"
+    },
+    {
+      "url": "https://sferacar.ru/stati/mitsubishi-iz-yaponii-istoriya-top-modeli-utilsbor-2026.html",
+      "title": "Mitsubishi из Японии: история бренда, топ-модели и расчёт утильсбора в 2026",
+      "from_query": "аутлендер из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/ch66en/czz-aid/blob/master/docs/logo.svg",
+      "title": "czz-aid/docs/logo.svg at master · ch66en/czz-aid · GitHub",
+      "from_query": "site:github.com аутлендер из японии 2026"
+    },
+    {
+      "url": "https://github.com/g8rdier/g8rdiers-github-readme-stats/blob/master/powered-by-vercel.svg",
+      "title": "g8rdiers-github-readme-stats/powered-by-vercel.svg at master · g8rdier ...",
+      "from_query": "site:github.com аутлендер из японии 2026"
+    },
+    {
+      "url": "https://github.com/FREYM1337/forumnick/blob/main/ArzMarketV3/items.json",
+      "title": "forumnick/ArzMarketV3/items.json at main - GitHub",
+      "from_query": "site:github.com аутлендер из японии 2026"
+    },
+    {
+      "url": "https://github.com/ansharyan03/wordpiece-tokenizer-cpp/blob/main/tokenizer.json",
+      "title": "wordpiece-tokenizer-cpp/tokenizer.json at main · ansharyan03 ... - GitHub",
+      "from_query": "site:github.com аутлендер из японии 2026"
+    },
+    {
+      "url": "https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-large-directories-lowercase.txt",
+      "title": "raft-large-directories-lowercase.txt - GitHub",
+      "from_query": "site:github.com аутлендер из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/mitsubishi/outlander/2026/",
+      "title": "Мицубиси Аутлендер 2026 технические характеристики. Mitsubishi ...",
+      "from_query": "аутлендер из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://out-club.ru/board/",
+      "title": "OUT-CLUB.RU - Форум кроссоверов и внедорожников Mitsubishi",
+      "from_query": "аутлендер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://out-club.ru/board/forumdisplay.php?f=383",
+      "title": "Outlander 2016 - 2021 отзывы владельцев - Out-Club.ru",
+      "from_query": "аутлендер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/mitsubishi/outlander/5kopeek/breakages/?year2=2026",
+      "title": "Мицубиси Аутлендер 2026 отзывы владельцев - поломки",
+      "from_query": "аутлендер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://outlander-forum.ru/",
+      "title": "Mitsubishi Outlander Клуб и Форум",
+      "from_query": "аутлендер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/mitsubishi/outlander/5kopeek/breakages/?year2=2026&keywords=%E4%E2%E8%E3%E0%F2%E5%EB%FC",
+      "title": "Мицубиси Аутлендер 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "аутлендер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://outlander-forum.ru/forums/otzyvy-vladelcev.3/",
+      "title": "Отзывы владельцев | Mitsubishi Outlander Клуб и Форум",
+      "from_query": "аутлендер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/mitsubishi/outlander/2024-2026-4-restyling-hybrid-dzip-suv-12000.html",
+      "title": "Комплектации Mitsubishi Outlander 2024-2026 4 поколение — цены и ...",
+      "from_query": "мицубиси аутлендер из японии 2026"
+    },
+    {
+      "url": "https://cenamashin.ru/cena/mitsubishi/outlander/2026/vladivostok",
+      "title": "Сколько стоит Мицубиси Аутлендер 2026 года, цена в Владивостоке",
+      "from_query": "аутлендер владивосток 2026"
+    },
+    {
+      "url": "https://auto.ru/vladivostok/cars/mitsubishi/outlander/all/",
+      "title": "Купить Mitsubishi Outlander по цене от 750 000 рублей во Владивостоке ...",
+      "from_query": "аутлендер владивосток 2026"
+    },
+    {
+      "url": "https://auto.ru/rossiya/cars/mitsubishi/outlander/2026-year/24014308/all/",
+      "title": "Купить Mitsubishi Outlander IV Рестайлинг 2026 года по цене от 5 400 ...",
+      "from_query": "аутлендер владивосток 2026"
+    },
+    {
+      "url": "https://cenyavto.com/mitsubishi-outlander-2026/",
+      "title": "Митсубиси Аутлендер 2026 цены модели, комплектации, фото, новый кузов ...",
+      "from_query": "аутлендер владивосток 2026"
+    },
+    {
+      "url": "https://journal.carso.ru/articles/mitsubishi-outlander-phev-2026-detalnyy-obzor-tehnicheskie-harakteristiki-i-tsena-obnovlennogo-gibrida",
+      "title": "Mitsubishi Outlander PHEV 2026: детальный обзор, технические ...",
+      "from_query": "аутлендер phev 2026"
+    },
+    {
+      "url": "https://fb.ru/news/suvs/2026/3/6/430021",
+      "title": "Обзор Mitsubishi Outlander PHEV 2026: больше мощности и запаса хода",
+      "from_query": "аутлендер phev 2026"
+    },
+    {
+      "url": "https://auto.ironhorse.ru/outlander-3-phev_4393.html",
+      "title": "Mitsubishi Outlander PHEV - цена и характеристики, фотографии и обзор",
+      "from_query": "аутлендер phev 2026"
+    },
+    {
+      "url": "https://fb.ru/news/suvs/2026/3/14/443548",
+      "title": "Обзор Mitsubishi Outlander PHEV 2026: характеристики, цена и интерьер",
+      "from_query": "аутлендер phev 2026"
+    },
+    {
+      "url": "https://motorved.ru/test-drajv-mitsubishi-outlander-2026-goda-gibrid-kotoryj-ne-hochet-vzroslet/",
+      "title": "Mitsubishi Outlander 2026: тест-драйв кроссовера",
+      "from_query": "аутлендер phev 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/mitsubishi/outlander/g_2026_25019/",
+      "title": "Mitsubishi Outlander рестайлинг 2026, джип/suv 5 дв., 4 поколение ...",
+      "from_query": "мицубиси аутлендер 2026"
+    },
+    {
+      "url": "https://avantaauto.ru/cars/mitsubishi/outlander-new/",
+      "title": "Купить Mitsubishi Outlander NEW 2026 в Москве по цене от 3549000 ...",
+      "from_query": "мицубиси аутлендер 2026"
+    },
+    {
+      "url": "https://wroom.ru/cars/mitsubishi/outlander",
+      "title": "Митсубиси Аутлендер (2026) — цена, характеристики, фото",
+      "from_query": "мицубиси аутлендер 2026"
+    },
+    {
+      "url": "https://www.mitsubishicars.com/cars-and-suvs/outlander",
+      "title": "New 2026 Mitsubishi Outlander SUV | Mitsubishi Motors",
+      "from_query": "мицубиси аутлендер 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/45-mitsubishi-outlander-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Mitsubishi Outlander из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "Как выбрать Mitsubishi Outlander из Японии: комплектации и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://avtomost-asia.ru/models/mitsubishi-outlander",
+      "title": "Mitsubishi Outlander из Японии: поколения, комплектации, цены и ...",
+      "from_query": "Как выбрать Mitsubishi Outlander из Японии: комплектации и ловушки до ставки 2026 2026"
+    }
+  ]
+}

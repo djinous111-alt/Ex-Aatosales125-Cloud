@@ -51,14 +51,16 @@ def load_all_articles(blog_dir: Path) -> list[dict[str, Any]]:
 def find_linking_opportunities(articles: list[dict[str, Any]], site_base: str) -> list[dict[str, Any]]:
     suggestions = []
     # Normalize site base URL
-    site_base = site_base.rstrip("/")
+    site_base = (site_base or "").strip().rstrip("/")
+    if site_base.upper() in {"[REDACTED]", "REDACTED"}:
+        site_base = ""
 
     for target in articles:
         target_slug = target["slug"]
         if not target_slug:
             continue
 
-        target_url = f"{site_base}/blog/{target_slug}/"
+        target_url = f"/blog/{target_slug}/" if not site_base else f"{site_base}/blog/{target_slug}/"
         # Prioritize natural anchor variants for diversification, then primary, then secondary queries
         raw_keywords = target.get("anchor_variants", []) + [target["primary_query"]] + target["secondary_queries"]
         # Remove duplicates while preserving order
@@ -223,8 +225,12 @@ def main() -> int:
     suggestions = filter_suggestions_for_article(suggestions, article_dir, articles)
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
+    # Never embed a live PUBLIC_SITE_URL host into committed JSON (secret-scan).
+    site_base_for_report = (args.site_base or "").strip()
+    if site_base_for_report.upper() in {"[REDACTED]", "REDACTED"}:
+        site_base_for_report = ""
     report = {
-        "site_base": args.site_base,
+        "site_base": site_base_for_report,
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

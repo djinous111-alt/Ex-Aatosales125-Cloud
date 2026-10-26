@@ -37,6 +37,36 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261026-1714-research-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-delica-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud pre-commit hook `pre-commit.cursor` упал на `RAW_SECRET_VALUE="${!SECRET_NAME}"` с `invalid variable name`.
+- В `CLOUD_AGENT_INJECTED_SECRET_NAMES` есть имя, которое не является валидным bash identifier (скобки/спецсимволы); косвенное раскрытие ломает любой git commit.
+
+### How the agent recovered this run
+- Перед commit отфильтровал `CLOUD_AGENT_INJECTED_SECRET_NAMES` до имён вида `[A-Za-z_][A-Za-z0-9_]*`, затем успешно закоммитил и запушил research-артефакты.
+
+### Durable fix needed before next run
+- В pre-commit scanner пропускать/экранировать secret names, которые невалидны для bash indirect expansion.
+- Либо нормализовать injection list на стороне Cloud Agent (только POSIX env names).
+
+### Suggested files to inspect/change
+- Cloud Agent hooks (`pre-commit.cursor`) / platform secret injection
+- `shared/agent-pipeline-pitfalls.md` (git commit workaround: filter injected names)
+
+### Secrets
+- none recorded (имя/значение секрета не логировались)
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-1703-director-doctor-blog-path-stale
 status: open
 run_date: 2026-10-26

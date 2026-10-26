@@ -387,3 +387,38 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261026-1318-writer-missing-sanitize-and-policy-markers
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `scripts/excalibur_blog_sanitize_secret_names.sh` and `scripts/excalibur_blog_filter_commit_secret_env.sh` were missing on this Cloud branch workspace though referenced by research INC-1313 and automation memory.
+- `memory/brief/editorial-policy.json` lacked `pain_markers_ru` / `outcome_markers_ru`, so utility gate would under-count outcomes for GEO QA after Writer.
+
+### How the agent recovered this run
+- Restored both sanitize scripts from commit `37ac1bde` and sourced them before commit (comma-list filter drops `[REDACTED]`).
+- Restored `pain_markers_ru` / `outcome_markers_ru` lists into `editorial-policy.json` from the same known-good revision.
+- Wrote B01 article with exact recommendation markers (`сделайте` / `не делайте` / `чеклист` / `шаг `) and outcome markers; HTML linter + utility gate PASS locally.
+
+### Durable fix needed before next run
+- Ensure sanitize helper scripts and policy marker lists stay on the default branch / Cloud install image so every role can `source scripts/excalibur_blog_sanitize_secret_names.sh` before commit.
+- Add a doctor check: fail if sanitize script missing or policy pain/outcome marker lists empty.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

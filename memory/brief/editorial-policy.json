@@ -19,7 +19,9 @@
     "entertainment",
     "general"
   ],
-  "allowed_article_mode": ["B"],
+  "allowed_article_mode": [
+    "B"
+  ],
   "conditional_article_mode": {
     "comparison": "B",
     "note": "Режим A (новости/кейсы) — не публикуем в utility-only блоге"
@@ -91,5 +93,26 @@
     " vs ",
     "выбор ",
     "workflow"
+  ],
+  "pain_markers_ru": [
+    "боль",
+    "проблем",
+    "ошиб",
+    "паник",
+    "теряет",
+    "долго",
+    "сложно",
+    "застр",
+    "молч"
+  ],
+  "outcome_markers_ru": [
+    "результат",
+    "получите",
+    "сможете",
+    "проверьте",
+    "соберите",
+    "заполните",
+    "критерий успеха",
+    "на сегодня"
   ]
 }

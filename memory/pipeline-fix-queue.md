@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-0933-indexer-llms-absolute-site-base-secret-scan
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-prado-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- Skill/agent shell pass `--site-base ${PUBLIC_SITE_URL}` into `excalibur_blog_llms_generator.py`, which writes absolute host URLs into `memory/blog/llms.txt` and `llms-full.txt`.
+- Cursor pre-commit secret scan blocks commit (`PUBLIC_SITE_URL` value in staged llms files).
+- Committed convention (see history "drop the blog host") is relative `/blog/<slug>/` paths without the public host.
+- `interlink-suggestions.json` also embeds absolute `site_base` from the same env.
+
+### How the agent recovered this run
+- Regenerated llms with `--site-base ""` → relative `/blog/...` paths matching HEAD convention.
+- Cleared `site_base` in `memory/blog/interlink-suggestions.json` before commit.
+- Promotion checklist uses relative Live URL paths only.
+
+### Durable fix needed before next run
+- Change llms generator default / indexer skill to emit relative `/blog/<slug>/` URLs for committed artifacts (or a `--relative-urls` flag).
+- Update indexer skill/agent shell: do not require absolute PUBLIC_SITE_URL for llms commit path; keep absolute URLs only for live deploy if needed.
+- Document secret-scan pitfall in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 
 ## INC-20261026-0929-cover-kie-http-reference
 status: open

@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Prado из Японии
+
+- **priority:** P0
+- **slug:** toyota-prado-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Чек-лист Toyota Land Cruiser Prado из Японии: комплектации и ловушки до ставки в 2026
+- **primary_query:** тойота прадо из японии
+- **secondary_queries:** прадо из японии, прадо владивосток, тойота прадо 250, ленд крузер прадо из японии
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого Prado с аукциона Японии и какой сценарий (семья / бездорожье / трасса)
+  2. 150 или 250: как не перепутать поколение и кузов до ставки
+  3. Комплектации и моторы: бензин / дизель, мощность и что проверить до оплаты
+  4. Аукционный лист: оценка, пробег, фото, красные флаги
+  5. Правый руль, логистика до Владивостока и типовые сюрпризы по пути
+  6. Чек-лист из 10 пунктов перед первой ставкой
+- **faq_hints:** чем Prado 150 отличается от 250 на аукционе; стоит ли брать дизель с учётом утильсбора; какие поля листа смотреть до ставки; сколько roughly ждать до Владивостока
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у рамного Prado / LC250 у порта Владивостока, аукционный лист в руках, плашка «до ставки», угол avto-sales125.ru
+- **wordstat_signal:** parent «тойота прадо» ~211781; «прадо владивосток» ~4445; «прадо из японии» ~716; narrow «тойота прадо из японии» ~258; «ланд крузер 250» totalCount-only 48 (low-result)
+- **denylist_check:** PASS – нет LIVE slug prado/прадо; WP search прадо/prado/land cruiser = 0; не пересекается с Noah/Harrier/Alphard и process-статьями

@@ -1,7 +1,7 @@
 # Promotion checklist — B01 nissan-serena-iz-yaponii-komplektatsii-lovushki
 
-Дата публикации: 2026-10-27 (ожидается; до WP publish)  
-Live URL: /blog/nissan-serena-iz-yaponii-komplektatsii-lovushki/
+Дата публикации: 2026-10-27  
+Live URL: [REDACTED]/2026/10/27/nissan-serena-iz-yaponii-komplektatsii-lovushki/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir ...` — 0 links applied (`opportunities_found: 0`).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (flags: `--blog-dir` + `--out-dir`; без `--blog-path`; commit-safe `--site-base ""` → relative `/blog/<slug>/`).
-- Publish: ещё не выполнялся (Indexer only).
+- Publish: PASS post=4615 featured=4616 inline=4617/4618/4619 schema_meta=1

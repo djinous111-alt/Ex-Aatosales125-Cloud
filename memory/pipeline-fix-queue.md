@@ -507,3 +507,38 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261027-1740-publish-paramiko-siteenv-bootstrap
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki
+severity: low
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing at publish start (gitignored); Cloud Secrets present but not materialized.
+- `paramiko` not importable in image (`ModuleNotFoundError`) despite being required for SSH publish transport.
+
+### How the agent recovered this run
+- Created `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (no quoted values); mapped `SSH_PASSWORD`→`SSH_PASS`.
+- Installed `paramiko` via `pip install --break-system-packages paramiko` (5.1.0).
+- Publish succeeded: post=4615 (HTTP OK, no fallback).
+
+### Durable fix needed before next run
+- Ensure cloud install/`requirements.txt` installs paramiko on every boot.
+- Document or script auto-bootstrap of `site.env.local` from env with `SSH_ROOT=.` when only `SSH_PATH` is set.
+
+### Suggested files to inspect/change
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py` (optional auto-bootstrap helper)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

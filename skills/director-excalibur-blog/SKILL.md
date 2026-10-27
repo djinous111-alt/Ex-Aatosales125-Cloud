@@ -52,7 +52,17 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md` + `shared/pipeline-task-map.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+
+**Известный gap:** typed `excalibur-blog-geo-qa` часто отсутствует в Cloud Task types. Не трать ретраи на typed name — сразу:
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+topic_id/article_dir из handoff. Верни === EXCALIBUR BLOG GEO QA === + article-qa PASS.
+```
+
+То же для любой другой роли, если typed type rejected.
 
 ## Preflight (shell, директор)
 

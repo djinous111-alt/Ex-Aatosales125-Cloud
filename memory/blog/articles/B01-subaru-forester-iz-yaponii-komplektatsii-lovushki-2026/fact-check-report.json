@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-subaru-forester-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "Boxer и 2.5 до ставки: ловушка утильсбора С 01.12.2025 для физлица важен порог мощности: до 117,68 кВт (\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "турбо сами по ДВС уже выше льготного коридора. В 2026 у разных сайтов на один e-Boxer всплывают разные \"",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "физлица важен порог мощности: до 117,68 кВт (\"до 160 л.с.\" в разъяснениях). Выше – другая шкала утильсб",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "107",
+      "kind": "large_number",
+      "context": "практике японский e-Boxer (SKE) у Subaru – около 107 кВт бензина плюс электромотор порядка 10 кВт. Для",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "ем транспортной прокуратуры и письмом ФНС по ПП № 1713; мощности e-Boxer и актуальные JP-спеки – с матер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый 2.5 на фото — а утиль потом?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Subaru Forester у порта Владивостока, плашка про ловушку утильсбора до ставки",
+      "scene_hint": "Владивосток порт, лёгкий туман/осень: герой reference-лицо + очки, тёплая непромокаемая куртка (НЕ майка с reference), жест «стоп/подожди» к красивому Forester на фоне; fake UI: карточка лота SKE/SK9, плашка 117,68 кВт, рваная бумага + скотч + жёлтый маркер на слове «утиль»; стикеры «сначала лист», «до ставки»; мем shocked face; угол avto-sales125.ru; без Wordstat и Метрики; стикеры вежливые без оскорблений",
+      "meme_caption_ru": "Сначала кВт — потом ставка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Определите сценарий и поколение SJ/SK до просмотра фото",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистая UI-таблица кодов кузова Forester: SJ5 2.0 | SKE e-Boxer | SK9 2.5 | SK5 turbo — колонки «смотреть» / «мимо без расчёта»; без лица героя; мини-стикер «код раньше фото»; скотч на углу",
+      "alt": "Таблица кодов кузова Subaru Forester SJ/SKE/SK9 до просмотра фото лота"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните моторы 2.0, e-Boxer и 2.5 до ставки: ловушка утильсбора",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема-воркфлоу: мотор 2.0 → e-Boxer (ДВС+ЭД) → 2.5 SK9; стрелка к порогу 117,68 кВт; ветки «льгота» / «коммерческий утиль»; без героя; sticky note «спроси 30-мин кВт»",
+      "alt": "Схема сравнения моторов Forester и порога утильсбора 117,68 кВт до ставки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как читать комплектации на аукционе и что путают в листах",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake скрин аукционного листа Forester: оценка 4.5, карта A/U/W, пометка EyeSight, бейдж Advance vs код SKE; стрелки «не путай бейдж с кодом»; без лица героя; tape corner",
+      "alt": "Мокап аукционного листа: как читать комплектации Forester и не путать бейдж с кодом кузова"
+    }
+  }
+}

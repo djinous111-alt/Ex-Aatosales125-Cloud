@@ -1,0 +1,23 @@
+{
+  "slug": "subaru-forester-iz-yaponii-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "https://avtosales125.ru/2026/10/27/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026/",
+  "post_id": 4603,
+  "featured_image": 4604,
+  "inline_images": [
+    4605,
+    4606,
+    4607
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "publish_method": "ssh+http-timeout-reconstruct",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-subaru-forester-iz-yaponii-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "OK post=4603\nOK featured_image=4604\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4605 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026-inline-01.png\nOK inline_image_upload=4606 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026-inline-02.png\nOK inline_image_upload=4607 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026-inline-03.png\npermalink=https://avtosales125.ru/2026/10/27/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass",
+  "notes": "Local HTTP trigger TimeoutError(120s) after SSH upload; bootstrap completed server-side. Client fallback wait expired (no parallel WebFetch). LIVE REST/HEAD reconstruct; no second HTTP trigger. Foreign posts 4597/4585 untouched. schema_meta inferred: same PHP path sets meta before inline uploads; all 3 inlines LIVE."
+}

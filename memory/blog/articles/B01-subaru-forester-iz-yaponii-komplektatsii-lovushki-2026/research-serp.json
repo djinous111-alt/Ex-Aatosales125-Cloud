@@ -1,0 +1,233 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-27",
+    "today_ru": "27.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-29",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-27 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "subaru-forester-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Subaru Forester из Японии: комплектации, ловушки мощности и чек-лист до ставки в 2026",
+    "primary_query": "как выбрать субару форестер из японии",
+    "secondary_queries": [
+      "субару форестер комплектации",
+      "субару форестер гибрид",
+      "субару форестер из японии"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать субару форестер из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать субару форестер из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать субару форестер из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать субару форестер из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать субару форестер из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать субару форестер из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "субару форестер комплектации 2026",
+      "purpose": "вторичный запрос: субару форестер комплектации",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "субару форестер гибрид 2026",
+      "purpose": "вторичный запрос: субару форестер гибрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Субару Форестер 2026 технические характеристики. Subaru Forester 2026 ...",
+          "url": "https://www.drom.ru/catalog/subaru/forester/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Subaru Forester 2026: обзор, характеристики, комплектации и цена нового ...",
+          "url": "https://journal.carso.ru/articles/subaru-forester-2026-obzor-harakteristiki-komplektatsii-i-tsena-novogo-subaru-forester",
+          "snippet": "Подробно расписан модельный ряд Subaru Forester 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Субару Форестер 2026 между собой."
+        },
+        {
+          "title": "Subaru Forester Hybrid (2025-2026) - фото, характеристики, цена нового ...",
+          "url": "https://www.allcarz.ru/subaru-forester-6-hybrid/",
+          "snippet": "Подробный обзор Subaru Forester 2026 года: обновленный дизайн, внедрение гибридных технологий, легендарный полный привод и системы безопасности EyeSight. Узнайте всё о шестом поколении кроссовера."
+        },
+        {
+          "title": "2026 Subaru Forester Hybrid AWD SUV | Up to 40% better MPG",
+          "url": "https://www.subaru.com/vehicles/forester/hybrid/2026.html",
+          "snippet": "В Штатах состоялась премьера гибридной версии кроссовера Subaru Forester 6 шестого поколения. Модификацию представили одновременно с «внедорожным» исполнением Wilderness."
+        },
+        {
+          "title": "Subaru Forester гибрид 2026: Цены и комплектации | Официальный дилер ...",
+          "url": "https://subaru-vidi.com.ua/ru/avtomobili/forester-hybrid/",
+          "snippet": "The 2026 Subaru Forester Hybrid SUV is built for adventure with a range of 581 miles, 40% better city MPG, AWD, more power, and advanced safety."
+        },
+        {
+          "title": "2026 Subaru Forester Hybrid - MotorTrend",
+          "url": "https://www.motortrend.com/cars/subaru/forester-hybrid/2026",
+          "snippet": "Новый Subaru Forester Hybrid 2026 у официального дилера ВИДИ Стар. Актуальные цены, комплектации и характеристики. Запишитесь на тест-драйв и выберите свой Subaru Forester."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "субару форестер из японии 2026",
+      "purpose": "вторичный запрос: субару форестер из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Forester из Японии в 2026: какую версию везти под льготный утильсбор и ...",
+          "url": "https://subaruport.ru/forester-iz-yaponii-2026-kakuyu-versiyu-vezti-utilsbor/",
+          "snippet": ""
+        },
+        {
+          "title": "Subaru Forester из Японии 2026: только e-BOXER 1.8L — полный расчёт",
+          "url": "https://autoprofiasia.ru/blog/subaru-forester-iz-yaponii-2026",
+          "snippet": "Мы обслуживаем Subaru в Москве с 1996 года, и привезённые из Японии Forester — частые гости на наших подъёмниках."
+        },
+        {
+          "title": "Субару Форестер 2026 технические характеристики. Subaru Forester 2026 ...",
+          "url": "https://www.drom.ru/catalog/subaru/forester/2026/",
+          "snippet": "Subaru Forester с объёмом до 1900 куб.см — только e-BOXER 1.8L. Реальный расчёт цены под ключ, риски параллельного импорта и советы по поиску на аукционе."
+        },
+        {
+          "title": "Subaru Forester из Японии: внедорожный кроссовер с правым рулём 2026 ...",
+          "url": "https://jckauto.ru/blog/subaru-forester-import-japan",
+          "snippet": "Субару Форестер 2026 комплектации и цены, фото. Подробно расписан модельный ряд Subaru Forester 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "Subaru из Японии 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/subaru-iz-yaponii-2026",
+          "snippet": "Разбираем Subaru Forester шестого поколения: что изменилось, чем хорош оппозитник и симметричный полный привод, сколько стоит привезти из Японии в 2026 году. Техника, эргономика, цены."
+        },
+        {
+          "title": "Subaru Forester из Японии в 2026: какую версию реально везти, а какую ...",
+          "url": "https://auto.yuga.ru/articles/4764.html",
+          "snippet": "Какой Subaru привезти из Японии в 2026: Impreza от 1,04 млн и Forester от 1,51 млн под ключ — симметричный полный привод, ловушка версий и реальные сроки."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Subaru Forester из Японии: комплектации, ловушки мощности и чек-лист до ставки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-27"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/subaru/forester/2026/",
+      "title": "Субару Форестер 2026 технические характеристики. Subaru Forester 2026 ...",
+      "from_query": "субару форестер гибрид 2026"
+    },
+    {
+      "url": "https://journal.carso.ru/articles/subaru-forester-2026-obzor-harakteristiki-komplektatsii-i-tsena-novogo-subaru-forester",
+      "title": "Subaru Forester 2026: обзор, характеристики, комплектации и цена нового ...",
+      "from_query": "субару форестер гибрид 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/subaru-forester-6-hybrid/",
+      "title": "Subaru Forester Hybrid (2025-2026) - фото, характеристики, цена нового ...",
+      "from_query": "субару форестер гибрид 2026"
+    },
+    {
+      "url": "https://www.subaru.com/vehicles/forester/hybrid/2026.html",
+      "title": "2026 Subaru Forester Hybrid AWD SUV | Up to 40% better MPG",
+      "from_query": "субару форестер гибрид 2026"
+    },
+    {
+      "url": "https://subaru-vidi.com.ua/ru/avtomobili/forester-hybrid/",
+      "title": "Subaru Forester гибрид 2026: Цены и комплектации | Официальный дилер ...",
+      "from_query": "субару форестер гибрид 2026"
+    },
+    {
+      "url": "https://www.motortrend.com/cars/subaru/forester-hybrid/2026",
+      "title": "2026 Subaru Forester Hybrid - MotorTrend",
+      "from_query": "субару форестер гибрид 2026"
+    },
+    {
+      "url": "https://subaruport.ru/forester-iz-yaponii-2026-kakuyu-versiyu-vezti-utilsbor/",
+      "title": "Forester из Японии в 2026: какую версию везти под льготный утильсбор и ...",
+      "from_query": "субару форестер из японии 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/subaru-forester-iz-yaponii-2026",
+      "title": "Subaru Forester из Японии 2026: только e-BOXER 1.8L — полный расчёт",
+      "from_query": "субару форестер из японии 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/subaru-forester-import-japan",
+      "title": "Subaru Forester из Японии: внедорожный кроссовер с правым рулём 2026 ...",
+      "from_query": "субару форестер из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/subaru-iz-yaponii-2026",
+      "title": "Subaru из Японии 2026: модельный ряд и цены",
+      "from_query": "субару форестер из японии 2026"
+    },
+    {
+      "url": "https://auto.yuga.ru/articles/4764.html",
+      "title": "Subaru Forester из Японии в 2026: какую версию реально везти, а какую ...",
+      "from_query": "субару форестер из японии 2026"
+    }
+  ]
+}

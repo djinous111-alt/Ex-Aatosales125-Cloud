@@ -161,6 +161,11 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ---
 
+## Prompt safety (до MCP)
+
+- `excalibur_blog_cover_quad_prompt.py` блокирует toxic lemmas **внутри** prompt (даже в negative): не цитировать оскорбления — писать «non-toxic / no insults / no humiliating labels».
+- Outfit только из `blog-hero.json` / `scene_hint` (погода+тема). Hardcoded white-hoodie lock запрещён; builder + preflight это ловят.
+
 ## QA перед ✅
 
 - [ ] 1 MCP, не 4
@@ -169,6 +174,8 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
 - [ ] cover: hook + meme caption видны на PNG
+- [ ] видимый sticker-текст без токсичных ярлыков
+- [ ] outfit ≠ white hoodie lock
 - [ ] inline: без лица героя
 - [ ] fragment cover.md записан
 

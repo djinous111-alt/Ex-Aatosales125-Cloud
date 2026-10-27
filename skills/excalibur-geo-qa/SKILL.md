@@ -41,7 +41,10 @@ python scripts/excalibur_blog_cannibalization_guard.py \
   --blog-dir memory/blog/articles \
   -o memory/blog/articles/<dir>/cannibalization-report.json
 
-python scripts/excalibur_blog_utility_gate.py \
+# If utility reports pain_markers=0/outcome_markers=0 with empty lists in
+# memory/brief/editorial-policy.json → restore pain_markers_ru/outcome_markers_ru
+# (and skip-empty is already in utility_gate). Do NOT send writer for marker-only zeros.
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<dir> \
   --output utility-gate-report.json
 

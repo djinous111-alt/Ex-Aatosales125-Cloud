@@ -20,20 +20,34 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets → `memory/site.env.local` (SSH_*, `PUBLIC_SITE_URL`); auto-bootstrap если файла нет |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| Python deps | `paramiko` (SSH). Install: `.cursor/cloud-agent-install.sh` / `requirements.txt` / Dockerfile |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+## Env bootstrap
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Если `memory/site.env.local` отсутствует — скрипт создаёт его из process env (`SSH_PASSWORD`→`SSH_PASS`, default `SSH_ROOT=.`). Не коммить файл. CTA `${CATALOG_URL}` / legacy `href="[REDACTED]"` expand'ятся в WP payload из env (committed HTML может оставаться с плейсхолдерами).
 
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+# optional local expand for link-verify; redact before git commit
+python3 scripts/excalibur_blog_cta_hrefs.py \
+  --article-html memory/blog/articles/<topic_id>-<slug>/article.html \
+  --expand --write
+
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "${PUBLIC_SITE_URL}"
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
@@ -41,7 +55,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,11 +65,13 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
 Скрипт:
+- bootstrap'ит `site.env.local` при необходимости;
+- expand'ит CTA плейсхолдеры в payload;
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
@@ -84,9 +100,9 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru
+  --site-base "${PUBLIC_SITE_URL}"
 ```
 
 Inbound-ссылки из старых статей на новую.
@@ -110,7 +126,7 @@ blockers:
 
 ## Blockers
 
-- `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag
+- `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag, missing paramiko
 - `❌ PUBLISH FAIL` — скрипт вернул fail (смотри `raw_output` в wp-publish-result.json)
 
 ## Запрещено

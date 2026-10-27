@@ -49,8 +49,14 @@ Scout-агент ищет горячие и свежие инфоповоды п
    - Сначала вызвать `wordstat_get_top_requests` сервера `user-mcp-kv` для широкого parent-кластера (например, `llms.txt`, `rag система`, `чат боты для бизнеса`), затем для узкого how-to запроса.
    - Если узкий запрос возвращает только `totalCount` без списка top phrases, не считать это fatal/tool error: зафиксировать как низкодетальный low-result signal и использовать широкий кластер для semantic tail, FAQ и secondary queries.
    - Оценить объем спроса. Выбрать тему с живой частотностью (показами) и широким семантическим хвостом.
-5. **Защита от каннибализации:** Запустить скрипт `scripts/excalibur_blog_scout_helper.py --check-query "<выбранный запрос>"` чтобы убедиться, что тема не будет конфликтовать или дублировать существующие/уже начатые.
-6. **Генерация карточки темы:** Сформировать новую карточку строго по канону **utility-only** (режим B, how_to/checklist/comparison) и **дописать (append)** её в конец файла `memory/topics/blog-topics.md`. В `h1`, `h2_outline`, `faq_hints` избегай формулировок "для профи", "архитектура enterprise", "продвинутый стек"; пиши как для человека, который делает первый рабочий шаг.
+5. **Защита от каннибализации (pool):** Запустить `python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный запрос>"` — ловит overlap только с B-pool / ledger, **не** с уже LIVE WP постами.
+6. **LIVE WP dedup (обязательно):** перед append карточки:
+   ```bash
+   python3 scripts/excalibur_blog_scout_helper.py --live-slugs "<candidate-slug>"
+   python3 scripts/excalibur_blog_scout_helper.py --live-search "<модель латиницей>" "<модель кириллицей>"
+   ```
+   Exit ≠ 0 / `TAKEN` → отклонить кандидата (K5/Seltos и др. уже LIVE не видны в пустом B-pool). Нужен `PUBLIC_SITE_URL` или `--site-base`.
+7. **Генерация карточки темы:** Сформировать новую карточку строго по канону **utility-only** (режим B, how_to/checklist/comparison) и **дописать (append)** её в конец файла `memory/topics/blog-topics.md`. В `h1`, `h2_outline`, `faq_hints` избегай формулировок "для профи", "архитектура enterprise", "продвинутый стек"; пиши как для человека, который делает первый рабочий шаг.
 
 ## Не твоя зона
 - Написание статей (`article.html`), верстка, нарезка картинок или публикация.

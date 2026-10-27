@@ -30,7 +30,7 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -47,9 +47,17 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+
+### Шаг 4b — LIVE WP dedup (обязательно)
+`--check-query` видит только карточки `## Bxx` и ledger — **не** уже опубликованные AS/LIVE посты.
+```bash
+python3 scripts/excalibur_blog_scout_helper.py --live-slugs "<candidate-slug>"
+python3 scripts/excalibur_blog_scout_helper.py --live-search "<model latin>" "<модель кириллица>"
+```
+`TAKEN` / exit 1 → отклонить тему. Нужен `PUBLIC_SITE_URL` (или `--site-base`).
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

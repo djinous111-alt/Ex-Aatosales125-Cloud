@@ -1,0 +1,656 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-27",
+    "today_ru": "27.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-29",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-27 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "nissan-serena-iz-yaponii-komplektatsii-lovushki",
+    "h1": "Как выбрать Nissan Serena из Японии: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать ниссан серена из японии",
+    "secondary_queries": [
+      "ниссан серена из японии",
+      "ниссан серена комплектации",
+      "ниссан серена е пауэр",
+      "ниссан серена с27"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать ниссан серена из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nissan Serena из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/38-nissan-serena-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Serena (Ниссан Серена) из Японии — поколения, кузова и ...",
+          "url": "https://www.japantrek.ru/catalog/nissan/serena/",
+          "snippet": "Обзор Nissan Serena из Японии: цены, комплектации, поколения, нюансы покупки с аукциона. Узнайте подробности и оставьте заявку на консультацию — 4RingCars."
+        },
+        {
+          "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — поколения и цены",
+          "url": "https://jpstar.ru/catalog/nissan/serena/",
+          "snippet": "Все поколения Nissan Serena (Ниссан Серена) для японского рынка. Характеристики, кузова, двигатели, гибридные версии и особенности модели. Сравните поколения авто и подберите автомобиль из Японии."
+        },
+        {
+          "title": "Nissan с аукционов Японии: лучшие модели для российских дорог в 2026 году",
+          "url": "https://priority-auto.ru/blog/nissan-s-auktsionov-yaponii-gid-po-modelyam-i-tsenam/",
+          "snippet": "Привозим автомобили напрямую из Японии под заказ - полный каталог всех японских автомобилей! Джапан Стар предоставит выгодные условия и полное сопровождение на всех этапах сделки."
+        },
+        {
+          "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — все поколения",
+          "url": "https://bravomotorrs.com/catalog/nissan/serena/",
+          "snippet": "Разбираем лучшие модели Nissan для российских условий: кроссоверы X-Trail и Qashqai, компактный Note, семейный Serena. Расскажем, на что смотреть при выборе на аукционе, сколько стоит доставка под ключ и почему вариатор — не приговор. Практичный гид от Priority Auto."
+        },
+        {
+          "title": "Модельный ряд Nissan 2026 в Японии: что можно привезти",
+          "url": "https://asia-pod-klyuch.ru/blog/nissan-iz-yaponii-2026",
+          "snippet": "Оставьте заявку, и мы подберём варианты из японского каталога под ваш бюджет, покажем статистику продаж, проверим подходящие лоты на аукционах и заранее рассчитаем итоговую стоимость ..."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать ниссан серена из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nissan с аукционов Японии: лучшие модели для российских дорог в 2026 году",
+          "url": "https://priority-auto.ru/blog/nissan-s-auktsionov-yaponii-gid-po-modelyam-i-tsenam/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Serena (Ниссан Серена) из Японии — поколения, кузова и ...",
+          "url": "https://www.japantrek.ru/catalog/nissan/serena/",
+          "snippet": "Если присматриваетесь к Nissan из Японии — напишите или позвоните. Посчитаем стоимость под вашу модель, расскажем, что сейчас есть на аукционах, ответим на вопросы."
+        },
+        {
+          "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — поколения и цены",
+          "url": "https://jpstar.ru/catalog/nissan/serena/",
+          "snippet": "Все поколения Nissan Serena (Ниссан Серена) для японского рынка. Характеристики, кузова, двигатели, гибридные версии и особенности модели. Сравните поколения авто и подберите автомобиль из Японии."
+        },
+        {
+          "title": "Nissan Serena из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/38-nissan-serena-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Привозим автомобили напрямую из Японии под заказ - полный каталог всех японских автомобилей! Джапан Стар предоставит выгодные условия и полное сопровождение на всех этапах сделки."
+        },
+        {
+          "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — все поколения",
+          "url": "https://bravomotorrs.com/catalog/nissan/serena/",
+          "snippet": "Обзор Nissan Serena из Японии: цены, комплектации, поколения, нюансы покупки с аукциона. Узнайте подробности и оставьте заявку на консультацию — 4RingCars."
+        },
+        {
+          "title": "Nissan из Японии под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/nissan-iz-yaponii-pod-klyuch",
+          "snippet": "Оставьте заявку, и мы подберём варианты из японского каталога под ваш бюджет, покажем статистику продаж, проверим подходящие лоты на аукционах и заранее рассчитаем итоговую стоимость ..."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать ниссан серена из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nissan Serena из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/38-nissan-serena-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan с аукционов Японии: лучшие модели для российских дорог в 2026 году",
+          "url": "https://priority-auto.ru/blog/nissan-s-auktsionov-yaponii-gid-po-modelyam-i-tsenam/",
+          "snippet": "Обзор Nissan Serena из Японии: цены, комплектации, поколения, нюансы покупки с аукциона. Узнайте подробности и оставьте заявку на консультацию — 4RingCars."
+        },
+        {
+          "title": "Модельный ряд Nissan 2026 в Японии: что можно привезти",
+          "url": "https://asia-pod-klyuch.ru/blog/nissan-iz-yaponii-2026",
+          "snippet": "Разбираем лучшие модели Nissan для российских условий: кроссоверы X-Trail и Qashqai, компактный Note, семейный Serena. Расскажем, на что смотреть при выборе на аукционе, сколько стоит доставка под ключ и почему вариатор — не приговор. Практичный гид от Priority Auto."
+        },
+        {
+          "title": "Nissan Serena (Ниссан Серена) из Японии — поколения, кузова и ...",
+          "url": "https://www.japantrek.ru/catalog/nissan/serena/",
+          "snippet": "Модельный ряд Nissan 2026 в Японии: какие модели можно привезти, какие нет и почему. Note, X-Trail, Dayz, Serena, e-Power — сроки и утильсбор. На японских аукционах сейчас около 4 000 Nissan почти 80 моделей, и больше всего среди них Serena, Note, X-Trail и кей-каров Dayz и Roox."
+        },
+        {
+          "title": "Nissan Serena из Японии: минивэн на 7-8 мест с льготным утильсбором",
+          "url": "https://onlyjpcars.ru/blog/nissan-serena-iz-yaponii",
+          "snippet": "Все поколения Nissan Serena (Ниссан Серена) для японского рынка. Характеристики, кузова, двигатели, гибридные версии и особенности модели. Сравните поколения авто и подберите автомобиль из Японии."
+        },
+        {
+          "title": "Nissan из Японии под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/nissan-iz-yaponii-pod-klyuch",
+          "snippet": "Привоз Nissan Serena (C27/C28) из Японии под ключ в Сибирь. Цены, двигатели, утильсбор 2026 — все версии попадают под льготную ставку."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать ниссан серена из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "qwen600/assets/ex01.png at main · yassa9/qwen600 · GitHub",
+          "url": "https://github.com/yassa9/qwen600/blob/main/assets/ex01.png",
+          "snippet": ""
+        },
+        {
+          "title": "EngineeX_/icon.svg at main · zhenyang2004/EngineeX_ · GitHub",
+          "url": "https://github.com/zhenyang2004/EngineeX_/blob/main/icon.svg",
+          "snippet": "Static suckless single batch CUDA-only qwen3-0.6B mini inference engine - qwen600/assets/ex01.png at main · yassa9/qwen600"
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "Contribute to zhenyang2004/EngineeX_ development by creating an account on GitHub."
+        },
+        {
+          "title": "Удаление репозитория - Документация GitHub",
+          "url": "https://docs.github.com/ru/repositories/creating-and-managing-repositories/deleting-a-repository",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "ACE/src/main/resources/logoAce.png at main · xcsp3team/ACE",
+          "url": "https://github.com/xcsp3team/ACE/blob/main/src/main/resources/logoAce.png",
+          "snippet": "Вы можете удалить любой репозиторий или вилку, если вы являетесь владельцем организации или имеете права администратора для репозитория или вилки. При удалении репозитория, в котором создана вилка, вышестоящий репозиторий не удаляется."
+        },
+        {
+          "title": "MinerU-Diffusion/assets/decode.png at main · opendatalab/MinerU ...",
+          "url": "https://github.com/opendatalab/MinerU-Diffusion/blob/main/assets/decode.png",
+          "snippet": "Contribute to xcsp3team/ACE development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать ниссан серена из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ниссан Серена технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/serena/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Serena 2022, 2023, 2024, 2025, 2026, минивэн ... - Дром",
+          "url": "https://www.drom.ru/catalog/nissan/serena/g_2022_16801/",
+          "snippet": "Подробно расписан модельный ряд Nissan Serena: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Серена между собой."
+        },
+        {
+          "title": "Модельный ряд Nissan 2026 в Японии: что можно привезти",
+          "url": "https://asia-pod-klyuch.ru/blog/nissan-iz-yaponii-2026",
+          "snippet": "Подробно расписаны модификации автомобилей Nissan Serena 2022: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона."
+        },
+        {
+          "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — все поколения",
+          "url": "https://bravomotorrs.com/catalog/nissan/serena/",
+          "snippet": "Модельный ряд Nissan 2026 в Японии: какие модели можно привезти, какие нет и почему. Note, X-Trail, Dayz, Serena, e-Power — сроки и утильсбор. На японских аукционах сейчас около 4 000 Nissan почти 80 моделей, и больше всего среди них Serena, Note, X-Trail и кей-каров Dayz и Roox."
+        },
+        {
+          "title": "Nissan Serena 2026 — купить автомобиль из Японии | JCK AUTO",
+          "url": "https://jckauto.ru/catalog/cars/nissan-serena-2026-iz-yaponii-70656202",
+          "snippet": "Оставьте заявку, и мы подберём варианты из японского каталога под ваш бюджет, покажем статистику продаж, проверим подходящие лоты на аукционах и заранее рассчитаем итоговую стоимость ..."
+        },
+        {
+          "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — поколения и цены",
+          "url": "https://jpstar.ru/catalog/nissan/serena/",
+          "snippet": "Закупаете несколько автомобилей или работаете как посредник? Подберём любой автомобиль у мировых производителей и согласуем индивидуальные условия в зависимости от объёма."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать ниссан серена из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Бортжурнал Nissan Serena - клуб, форум о Ниссан Серена на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/nissan/serena/",
+          "snippet": ""
+        },
+        {
+          "title": "Модельный ряд Nissan 2026 в Японии: что можно привезти",
+          "url": "https://asia-pod-klyuch.ru/blog/nissan-iz-yaponii-2026",
+          "snippet": "Напишите год выпуска, пробег и какие ремонты уже приходилось делать. Думаю, ваш опыт будет полезен многим, кто рассматривает Serena под заказ из Японии."
+        },
+        {
+          "title": "Дром Ниссан Сирена: Полное руководство по покупке и обслуживанию",
+          "url": "https://nissan-expert.vercel.app/articles/d/dr/drom-nissan-sirena.html",
+          "snippet": "Модельный ряд Nissan 2026 в Японии: какие модели можно привезти, какие нет и почему. Note, X-Trail, Dayz, Serena, e-Power — сроки и утильсбор. На японских аукционах сейчас около 4 000 Nissan почти 80 моделей, и больше всего среди них Serena, Note, X-Trail и кей-каров Dayz и Roox."
+        },
+        {
+          "title": "Nissan с аукционов Японии: лучшие модели для российских дорог в 2026 году",
+          "url": "https://priority-auto.ru/blog/nissan-s-auktsionov-yaponii-gid-po-modelyam-i-tsenam/",
+          "snippet": "Разбор Nissan Serena на Дром: цены, особенности эксплуатации, слабые места, выбор двигателя и трансмиссии. Советы по осмотру перед покупкой."
+        },
+        {
+          "title": "Nissan Serena из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/38-nissan-serena-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Разбираем лучшие модели Nissan для российских условий: кроссоверы X-Trail и Qashqai, компактный Note, семейный Serena. Расскажем, на что смотреть при выборе на аукционе, сколько стоит доставка под ключ и почему вариатор — не приговор. Практичный гид от Priority Auto."
+        },
+        {
+          "title": "Ниссан Серена отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/nissan/serena/5kopeek/breakages/",
+          "snippet": "Обзор Nissan Serena из Японии: цены, комплектации, поколения, нюансы покупки с аукциона. Узнайте подробности и оставьте заявку на консультацию — 4RingCars."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "ниссан серена из японии 2026",
+      "purpose": "вторичный запрос: ниссан серена из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nissan Serena 2026 — купить автомобиль из Японии | JCK AUTO",
+          "url": "https://jckauto.ru/catalog/cars/nissan-serena-2026-iz-yaponii-70656202",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Ниссан Серена 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/nissan/serena/?year_from=2026&year_to=2026",
+          "snippet": "Nissan Serena 2026 — автомобиль из Японии. 2000 CVT, 50 000 км. Цена ≈ 3 092 318 ₽. Доставка под ключ с гарантией до 2 лет."
+        },
+        {
+          "title": "Ниссан Серена 2026 технические характеристики. Nissan Serena 2026 ...",
+          "url": "https://www.drom.ru/catalog/nissan/serena/2026/",
+          "snippet": "Список лотов Ниссан Серена 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "Nissan SERENA (Ниссан Серена) 2026 года с аукционов Японии",
+          "url": "https://asiaga.ru/statistika/nissan/serena/?year_from=2026&year_to=2026",
+          "snippet": "Подробно расписан модельный ряд Nissan Serena 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Nissan Serena из Японии: минивэн на 7-8 мест с льготным утильсбором",
+          "url": "https://onlyjpcars.ru/blog/nissan-serena-iz-yaponii",
+          "snippet": "Автомобили Nissan SERENA (Ниссан Серена) 2026 года на аукционах Японии, с подробным расчетом реальной стоимости в России. Удобный поиск по марке, модели, году и комплектации авто"
+        },
+        {
+          "title": "Nissan Serena 2026 e-POWER Highway Star V Япония",
+          "url": "https://infocar.group/catalog/nissan/serena/2026-serena-e-power-highway-star-v-15570",
+          "snippet": "Привоз Nissan Serena (C27/C28) из Японии под ключ в Сибирь. Цены, двигатели, утильсбор 2026 — все версии попадают под льготную ставку."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "ниссан серена комплектации 2026",
+      "purpose": "вторичный запрос: ниссан серена комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ниссан Серена 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/serena/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Ниссан Серена технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/serena/",
+          "snippet": "Подробно расписан модельный ряд Nissan Serena 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Серена 2026 между собой."
+        },
+        {
+          "title": "Nissan Serena (Ниссан Серена) Минивэн, 2025-, 6 поколение — комплектации",
+          "url": "https://jpstar.ru/catalog/nissan/serena/2025-2026-6-restyling-hybrid-miniven-25231.html",
+          "snippet": "Ниссан Серена комплектации и цены, фото. Подробно расписан модельный ряд Nissan Serena: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Модельный ряд Nissan 2026: цены на новые авто, комплектации и фото",
+          "url": "https://carmaps.ru/nissan/",
+          "snippet": "Комплектации Nissan Serena 2025- (6 поколение): модификации, параметры и ориентиры по цене. Стоимость — по статистике продаж за 3 месяца, с учётом доставки в от компании Джапан Стар."
+        },
+        {
+          "title": "Обновленный минивэн Nissan Serena 2026. Цены и комплектации",
+          "url": "https://pikabu.ru/story/obnovlennyiy_minivyen_nissan_serena_2026_tsenyi_i_komplektatsii_13530872",
+          "snippet": "Цены на новые автомобили Nissan 2026 года в России. В данном каталоге представлены цены, комплектации, фото, краш-тесты и обзоры автомобилей Nissan реализуемых на Российском рынке."
+        },
+        {
+          "title": "Комплектации Nissan Serena 2022-2026 3 поколение (C28) — цены и ...",
+          "url": "https://sferacar.ru/nissan/serena/2022-2026-6-hybrid-miniven-6028.html",
+          "snippet": "Компания Nissan рассекретила модернизированную Serena. Рестайлинг коснулся лишь богатых исполнений, зато гамма в целом стала больше. Также расширен список доступного опционального ..."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "ниссан серена е пауэр 2026",
+      "purpose": "вторичный запрос: ниссан серена е пауэр",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ниссан Серена 2026 технические характеристики. Nissan Serena 2026 ...",
+          "url": "https://www.drom.ru/catalog/nissan/serena/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Ниссан Серена технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/serena/",
+          "snippet": "Подробно расписан модельный ряд Nissan Serena 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Nissan Serena e-Power 2026: гибрид с пробегом или новая надежность?",
+          "url": "https://nissan-expert.vercel.app/articles/o/ob/obzor-nissan-serena-e-power.html",
+          "snippet": "Подробно расписан модельный ряд Nissan Serena: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Серена между собой."
+        },
+        {
+          "title": "Купить Ниссан Серена 2026 в России: продажа Nissan Serena 2026 года с ...",
+          "url": "https://auto.drom.ru/nissan/serena/year-2026/",
+          "snippet": "Разбор Nissan Serena e-Power: технические характеристики, плюсы и минусы гибридной системы, отзывы владельцев и сравнение с конкурентами. Узнайте, стоит ли покупать этот минивэн в 2026 году."
+        },
+        {
+          "title": "Обзор Nissan Serena 2026: все изменения популярного минивэна",
+          "url": "https://fb.ru/news/vans/2026/3/13/442137",
+          "snippet": "Объявления о продаже Ниссан Серена 2026 б/у и новых в России - частные объявления. Узнать стоимость Nissan Serena 2026 года и купить с пробегом на Дроме."
+        },
+        {
+          "title": "Nissan Serena - технические характеристики, модельный ряд, комплектации ...",
+          "url": "https://auto.ru/catalog/cars/nissan/serena/",
+          "snippet": "Подробный разбор обновленного Nissan Serena 2026: новый дизайн, гибридная установка e-Power, система ProPILOT 2.0 и уникальные решения против укачивания."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "ниссан серена с27 2026",
+      "purpose": "вторичный запрос: ниссан серена с27",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ниссан Серена 2026 технические характеристики. Nissan Serena 2026 ...",
+          "url": "https://www.drom.ru/catalog/nissan/serena/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Ниссан Серена 2026 в России: продажа Nissan Serena 2026 года с ...",
+          "url": "https://auto.drom.ru/nissan/serena/year-2026/",
+          "snippet": "Подробно расписан модельный ряд Nissan Serena 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Серена 2026 между собой."
+        },
+        {
+          "title": "Ниссан Серена технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/serena/",
+          "snippet": "Объявления о продаже Ниссан Серена 2026 б/у и новых в России - частные объявления. Узнать стоимость Nissan Serena 2026 года и купить с пробегом на Дроме."
+        },
+        {
+          "title": "Nissan Serena C27: цена и характеристики, фотографии и обзор",
+          "url": "https://auto.ironhorse.ru/serena-c27_14543.html",
+          "snippet": "Подробно расписан модельный ряд Nissan Serena: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Серена между собой."
+        },
+        {
+          "title": "Купить Ниссан Серена C27 От 1 300 000 - Авито",
+          "url": "https://www.avito.ru/all/avtomobili/nissan/serena/c27-ASgBAgICA0Tgtg36mCjitg38ryjqtg3e3Sg",
+          "snippet": "Перечень технических характеристик Ниссана Серены С27, оснащение и стоимость. Обзор минивэна Nissan Serena C27 (5-е поколение) и фотографии."
+        },
+        {
+          "title": "Купить Nissan Serena по цене от 120 000 рублей - более 588 Ниссан ...",
+          "url": "https://auto.ru/cars/nissan/serena/all/",
+          "snippet": "232 объявления о продаже Nissan Serena C27 во всех регионах по цене от 1 300 000 ₽. На Авито вы можете купить Ниссан по низкой цене, проверить историю б/у авто по VIN и оформить заявку на кредит. Большой ..."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Nissan Serena из Японии: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nissan Serena из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/38-nissan-serena-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Serena: гид покупателя. C26, C27 и e-POWER для трансферов и ...",
+          "url": "https://www.auto-x.jp/ru/blog/nissan-serena-buyers-guide",
+          "snippet": "В этой статье мы разберём все поколения Serena, актуальные цены на аукционах, комплектации и нюансы покупки для российских автовладельцев."
+        },
+        {
+          "title": "Nissan Serena: C27 или C28, e-POWER, комплектации и покупка",
+          "url": "https://azway.ru/blog/nissan-serena-iz-yaponii-obzor",
+          "snippet": "Гид по Nissan Serena: C26 против C27, как работает e-POWER, проверка вариатора и сдвижных дверей, аукционные цены и рынки для трансферных парков."
+        },
+        {
+          "title": "Nissan Serena из Японии — характеристики, комплектации и цены | Темп-А",
+          "url": "https://www.tempa-cars.ru/catalog/nissan/serena/",
+          "snippet": "Обзор Nissan Serena C27 и C28: бензин, S-HYBRID и e-POWER, 7 или 8 мест, расход, ProPILOT, проверка перед покупкой и ограничения ввоза из Японии."
+        },
+        {
+          "title": "Nissan Serena из Японии: минивэн на 7-8 мест с льготным утильсбором",
+          "url": "https://onlyjpcars.ru/blog/nissan-serena-iz-yaponii",
+          "snippet": "Информация поможет заранее оценить бюджет, сравнить разные поколения и комплектации модели и понять примерную стоимость машины «под ключ»."
+        },
+        {
+          "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — все комплектации и ...",
+          "url": "https://bravomotorrs.com/catalog/nissan/serena/",
+          "snippet": "Привоз Nissan Serena (C27/C28) из Японии под ключ в Сибирь. Цены, двигатели, утильсбор 2026 — все версии попадают под льготную ставку."
+        }
+      ],
+      "searched_at": "2026-10-27"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://4ringcars.ru/38-nissan-serena-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Nissan Serena из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://www.japantrek.ru/catalog/nissan/serena/",
+      "title": "Nissan Serena (Ниссан Серена) из Японии — поколения, кузова и ...",
+      "from_query": "как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/nissan/serena/",
+      "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — поколения и цены",
+      "from_query": "как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://priority-auto.ru/blog/nissan-s-auktsionov-yaponii-gid-po-modelyam-i-tsenam/",
+      "title": "Nissan с аукционов Японии: лучшие модели для российских дорог в 2026 году",
+      "from_query": "как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://bravomotorrs.com/catalog/nissan/serena/",
+      "title": "Каталог Nissan Serena (Ниссан Серена) из Японии — все поколения",
+      "from_query": "как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/nissan-iz-yaponii-2026",
+      "title": "Модельный ряд Nissan 2026 в Японии: что можно привезти",
+      "from_query": "как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/nissan-iz-yaponii-pod-klyuch",
+      "title": "Nissan из Японии под ключ 2026: цена и растаможка | ДАРЭ",
+      "from_query": "как выбрать ниссан серена из японии октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/nissan-serena-iz-yaponii",
+      "title": "Nissan Serena из Японии: минивэн на 7-8 мест с льготным утильсбором",
+      "from_query": "как выбрать ниссан серена из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/yassa9/qwen600/blob/main/assets/ex01.png",
+      "title": "qwen600/assets/ex01.png at main · yassa9/qwen600 · GitHub",
+      "from_query": "site:github.com как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://github.com/zhenyang2004/EngineeX_/blob/main/icon.svg",
+      "title": "EngineeX_/icon.svg at main · zhenyang2004/EngineeX_ · GitHub",
+      "from_query": "site:github.com как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://docs.github.com/ru/repositories/creating-and-managing-repositories/deleting-a-repository",
+      "title": "Удаление репозитория - Документация GitHub",
+      "from_query": "site:github.com как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://github.com/xcsp3team/ACE/blob/main/src/main/resources/logoAce.png",
+      "title": "ACE/src/main/resources/logoAce.png at main · xcsp3team/ACE",
+      "from_query": "site:github.com как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://github.com/opendatalab/MinerU-Diffusion/blob/main/assets/decode.png",
+      "title": "MinerU-Diffusion/assets/decode.png at main · opendatalab/MinerU ...",
+      "from_query": "site:github.com как выбрать ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/nissan/serena/",
+      "title": "Ниссан Серена технические характеристики, комплектации и цены",
+      "from_query": "как выбрать ниссан серена из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/nissan/serena/g_2022_16801/",
+      "title": "Nissan Serena 2022, 2023, 2024, 2025, 2026, минивэн ... - Дром",
+      "from_query": "как выбрать ниссан серена из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://jckauto.ru/catalog/cars/nissan-serena-2026-iz-yaponii-70656202",
+      "title": "Nissan Serena 2026 — купить автомобиль из Японии | JCK AUTO",
+      "from_query": "как выбрать ниссан серена из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/nissan/serena/",
+      "title": "Бортжурнал Nissan Serena - клуб, форум о Ниссан Серена на Авто.ру",
+      "from_query": "как выбрать ниссан серена из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://nissan-expert.vercel.app/articles/d/dr/drom-nissan-sirena.html",
+      "title": "Дром Ниссан Сирена: Полное руководство по покупке и обслуживанию",
+      "from_query": "как выбрать ниссан серена из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/nissan/serena/5kopeek/breakages/",
+      "title": "Ниссан Серена отзывы владельцев - поломки и проблемы",
+      "from_query": "как выбрать ниссан серена из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/nissan/serena/?year_from=2026&year_to=2026",
+      "title": "Купить Ниссан Серена 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/nissan/serena/2026/",
+      "title": "Ниссан Серена 2026 технические характеристики. Nissan Serena 2026 ...",
+      "from_query": "ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://asiaga.ru/statistika/nissan/serena/?year_from=2026&year_to=2026",
+      "title": "Nissan SERENA (Ниссан Серена) 2026 года с аукционов Японии",
+      "from_query": "ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://infocar.group/catalog/nissan/serena/2026-serena-e-power-highway-star-v-15570",
+      "title": "Nissan Serena 2026 e-POWER Highway Star V Япония",
+      "from_query": "ниссан серена из японии 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/nissan/serena/2025-2026-6-restyling-hybrid-miniven-25231.html",
+      "title": "Nissan Serena (Ниссан Серена) Минивэн, 2025-, 6 поколение — комплектации",
+      "from_query": "ниссан серена комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/nissan/",
+      "title": "Модельный ряд Nissan 2026: цены на новые авто, комплектации и фото",
+      "from_query": "ниссан серена комплектации 2026"
+    },
+    {
+      "url": "https://pikabu.ru/story/obnovlennyiy_minivyen_nissan_serena_2026_tsenyi_i_komplektatsii_13530872",
+      "title": "Обновленный минивэн Nissan Serena 2026. Цены и комплектации",
+      "from_query": "ниссан серена комплектации 2026"
+    },
+    {
+      "url": "https://sferacar.ru/nissan/serena/2022-2026-6-hybrid-miniven-6028.html",
+      "title": "Комплектации Nissan Serena 2022-2026 3 поколение (C28) — цены и ...",
+      "from_query": "ниссан серена комплектации 2026"
+    },
+    {
+      "url": "https://nissan-expert.vercel.app/articles/o/ob/obzor-nissan-serena-e-power.html",
+      "title": "Nissan Serena e-Power 2026: гибрид с пробегом или новая надежность?",
+      "from_query": "ниссан серена е пауэр 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/nissan/serena/year-2026/",
+      "title": "Купить Ниссан Серена 2026 в России: продажа Nissan Serena 2026 года с ...",
+      "from_query": "ниссан серена е пауэр 2026"
+    },
+    {
+      "url": "https://fb.ru/news/vans/2026/3/13/442137",
+      "title": "Обзор Nissan Serena 2026: все изменения популярного минивэна",
+      "from_query": "ниссан серена е пауэр 2026"
+    },
+    {
+      "url": "https://auto.ru/catalog/cars/nissan/serena/",
+      "title": "Nissan Serena - технические характеристики, модельный ряд, комплектации ...",
+      "from_query": "ниссан серена е пауэр 2026"
+    },
+    {
+      "url": "https://auto.ironhorse.ru/serena-c27_14543.html",
+      "title": "Nissan Serena C27: цена и характеристики, фотографии и обзор",
+      "from_query": "ниссан серена с27 2026"
+    },
+    {
+      "url": "https://www.avito.ru/all/avtomobili/nissan/serena/c27-ASgBAgICA0Tgtg36mCjitg38ryjqtg3e3Sg",
+      "title": "Купить Ниссан Серена C27 От 1 300 000 - Авито",
+      "from_query": "ниссан серена с27 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/nissan/serena/all/",
+      "title": "Купить Nissan Serena по цене от 120 000 рублей - более 588 Ниссан ...",
+      "from_query": "ниссан серена с27 2026"
+    },
+    {
+      "url": "https://www.auto-x.jp/ru/blog/nissan-serena-buyers-guide",
+      "title": "Nissan Serena: гид покупателя. C26, C27 и e-POWER для трансферов и ...",
+      "from_query": "Как выбрать Nissan Serena из Японии: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/nissan-serena-iz-yaponii-obzor",
+      "title": "Nissan Serena: C27 или C28, e-POWER, комплектации и покупка",
+      "from_query": "Как выбрать Nissan Serena из Японии: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://www.tempa-cars.ru/catalog/nissan/serena/",
+      "title": "Nissan Serena из Японии — характеристики, комплектации и цены | Темп-А",
+      "from_query": "Как выбрать Nissan Serena из Японии: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

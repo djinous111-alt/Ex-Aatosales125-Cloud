@@ -24,6 +24,12 @@ from excalibur_repo_paths import repo_relative
 USER_AGENT = "ExcaliburBlogResearch/1.0 (+research-start)"
 DDG_HTML = "https://html.duckduckgo.com/html/"
 DEFAULT_TZ = "Europe/Moscow"
+# Cloud egress often cannot complete TLS to DuckDuckGo; keep SERP bounded.
+SERP_TIMEOUT_SEC = 12
+SERP_RETRIES = 1
+SERP_CIRCUIT_FAILS = 1
+SERP_BUDGET_SEC = 55
+SSL_TIMEOUT_MARKERS = ("handshake operation timed out", "the handshake operation timed out", "ssl")
 
 
 def project_root() -> Path:
@@ -217,7 +223,25 @@ class DuckDuckGoResultParser(HTMLParser):
         return href
 
 
-def search_web(query: str, *, max_results: int = 8, retries: int = 3) -> list[dict[str, str]]:
+def _is_ssl_or_handshake_timeout(exc: BaseException) -> bool:
+    text = str(exc).lower()
+    if isinstance(exc, TimeoutError):
+        return True
+    if any(marker in text for marker in SSL_TIMEOUT_MARKERS):
+        return True
+    cause = getattr(exc, "__cause__", None) or getattr(exc, "reason", None)
+    if cause is not None and cause is not exc:
+        return _is_ssl_or_handshake_timeout(cause)
+    return False
+
+
+def search_web(
+    query: str,
+    *,
+    max_results: int = 8,
+    retries: int = SERP_RETRIES,
+    timeout: float = SERP_TIMEOUT_SEC,
+) -> list[dict[str, str]]:
     body = urllib.parse.urlencode({"q": query, "kl": "ru-ru"}).encode("utf-8")
     headers = {
         "User-Agent": USER_AGENT,
@@ -229,7 +253,7 @@ def search_web(query: str, *, max_results: int = 8, retries: int = 3) -> list[di
     for attempt in range(1, retries + 1):
         try:
             req = urllib.request.Request(DDG_HTML, data=body, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=25) as response:
+            with urllib.request.urlopen(req, timeout=timeout) as response:
                 html = response.read().decode("utf-8", errors="replace")
             parser = DuckDuckGoResultParser()
             parser.feed(html)
@@ -246,7 +270,10 @@ def search_web(query: str, *, max_results: int = 8, retries: int = 3) -> list[di
             return deduped
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             last_error = exc
-            time.sleep(min(2.0, 0.4 * attempt))
+            # SSL handshake hangs are not transient on Cloud egress — fail fast.
+            if _is_ssl_or_handshake_timeout(exc):
+                raise RuntimeError(f"search SSL/timeout for {query!r}: {exc}") from exc
+            time.sleep(min(1.0, 0.3 * attempt))
 
     raise RuntimeError(f"search failed for {query!r}: {last_error}")
 
@@ -295,6 +322,7 @@ def run_research_start(
     tz_name: str,
     max_results: int,
     dry_run: bool,
+    skip_serp: bool = False,
 ) -> dict[str, Any]:
     ctx = now_context(tz_name)
     topic = parse_topic_card(topics_path, topic_id)
@@ -320,11 +348,72 @@ def run_research_start(
 
     serp_runs: list[dict[str, Any]] = []
     errors: list[str] = []
+    circuit_open = False
+    ssl_fail_streak = 0
+    serp_provider = "duckduckgo_html"
+    serp_note = ""
+    started = time.monotonic()
 
+    # Always materialize context early so a later SERP hang still leaves usable files
+    # if the process is killed; final write overwrites with SERP results.
+    payload_context_early = {
+        "agent": "excalibur-blog",
+        "step": "research_start",
+        "date_context": ctx,
+        "topic": topic,
+        "utility_gate": utility_report,
+        "search_queries": queries,
+        "output_dir": repo_relative(out_dir, project_root()),
+        "serp_provider": serp_provider,
+        "serp_status": "pending",
+        "next_step": (
+            "Прочитай research-serp.json. Если SERP пуст/ошибка SSL — собери source_table "
+            "через Cursor WebSearch/WebFetch (не DDG HTML). Затем research-notes.md."
+        ),
+    }
     if not dry_run:
+        (out_dir / "research-context.json").write_text(
+            json.dumps(payload_context_early, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        (out_dir / "utility-gate-topic.json").write_text(
+            json.dumps(utility_report, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
+    if dry_run:
+        pass
+    elif skip_serp:
+        serp_provider = "skipped"
+        serp_note = "SERP skipped via --skip-serp; Research must use WebSearch/WebFetch"
+        errors.append(serp_note)
+    else:
         for item in queries:
+            elapsed = time.monotonic() - started
+            if circuit_open or elapsed >= SERP_BUDGET_SEC:
+                circuit_open = True
+                skip_reason = (
+                    "serp circuit open after SSL/timeout"
+                    if circuit_open and ssl_fail_streak
+                    else f"serp wall-clock budget {SERP_BUDGET_SEC}s exceeded"
+                )
+                errors.append(f"skipped {item['id']}: {skip_reason}")
+                serp_runs.append(
+                    {
+                        "query_id": item["id"],
+                        "query": item["query"],
+                        "purpose": item["purpose"],
+                        "result_count": 0,
+                        "results": [],
+                        "error": skip_reason,
+                        "skipped": True,
+                        "searched_at": ctx["today_iso"],
+                    }
+                )
+                continue
             try:
                 results = search_web(item["query"], max_results=max_results)
+                ssl_fail_streak = 0
                 serp_runs.append(
                     {
                         "query_id": item["id"],
@@ -335,9 +424,10 @@ def run_research_start(
                         "searched_at": ctx["today_iso"],
                     }
                 )
-                time.sleep(0.8)
+                time.sleep(0.2)
             except RuntimeError as exc:
-                errors.append(str(exc))
+                err = str(exc)
+                errors.append(err)
                 serp_runs.append(
                     {
                         "query_id": item["id"],
@@ -345,10 +435,19 @@ def run_research_start(
                         "purpose": item["purpose"],
                         "result_count": 0,
                         "results": [],
-                        "error": str(exc),
+                        "error": err,
                         "searched_at": ctx["today_iso"],
                     }
                 )
+                if "SSL/timeout" in err or _is_ssl_or_handshake_timeout(exc):
+                    ssl_fail_streak += 1
+                    if ssl_fail_streak >= SERP_CIRCUIT_FAILS:
+                        circuit_open = True
+                        serp_note = (
+                            "DuckDuckGo HTML SERP circuit open after SSL/handshake timeout; "
+                            "Research MUST gather sources via WebSearch/WebFetch"
+                        )
+                        errors.append(serp_note)
 
     payload_context = {
         "agent": "excalibur-blog",
@@ -358,13 +457,27 @@ def run_research_start(
         "utility_gate": utility_report,
         "search_queries": queries,
         "output_dir": repo_relative(out_dir, project_root()),
-        "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md",
+        "serp_provider": serp_provider,
+        "serp_status": (
+            "skipped"
+            if skip_serp
+            else ("circuit_open" if circuit_open else ("ok" if serp_runs and not errors else "degraded"))
+        ),
+        "serp_note": serp_note,
+        "next_step": (
+            "Прочитай research-serp.json. Если SERP пуст/circuit_open — собери source_table "
+            "через Cursor WebSearch/WebFetch (не DDG HTML). Затем research-notes.md."
+        ),
     }
 
     payload_serp = {
         "agent": "excalibur-blog",
         "date_context": ctx,
         "topic": topic,
+        "provider": serp_provider,
+        "circuit_open": circuit_open,
+        "serp_note": serp_note,
+        "elapsed_sec": round(time.monotonic() - started, 2),
         "searches": serp_runs,
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
@@ -389,6 +502,7 @@ def run_research_start(
         "serp": payload_serp,
         "ledger_reserved": ledger_reserved,
         "dry_run": dry_run,
+        "circuit_open": circuit_open,
     }
 
 
@@ -417,6 +531,11 @@ def main() -> int:
     ap.add_argument("--timezone", default=DEFAULT_TZ, help=f"IANA timezone (default: {DEFAULT_TZ})")
     ap.add_argument("--max-results", type=int, default=6, help="Max SERP results per query")
     ap.add_argument("--dry-run", action="store_true", help="Only print date context and queries, no HTTP")
+    ap.add_argument(
+        "--skip-serp",
+        action="store_true",
+        help="Skip DuckDuckGo HTML SERP; still write research-context.json + empty research-serp.json",
+    )
     args = ap.parse_args()
 
     root = project_root()
@@ -430,6 +549,7 @@ def main() -> int:
             tz_name=args.timezone,
             max_results=args.max_results,
             dry_run=args.dry_run,
+            skip_serp=args.skip_serp,
         )
     except (FileNotFoundError, ValueError) as exc:
         print(f"BLOCKER: {exc}", file=sys.stderr)
@@ -439,6 +559,7 @@ def main() -> int:
     print(f"OK date={ctx['today_ru']} year={ctx['year']} tz={ctx['timezone']}")
     print(f"topic={result['context']['topic']['topic_id']} slug={result['context']['topic'].get('slug')}")
     print(f"queries={len(result['context']['search_queries'])}")
+    print(f"serp_status={result['context'].get('serp_status')}")
     if args.dry_run:
         print(json.dumps(result["context"], ensure_ascii=False, indent=2))
         return 0
@@ -448,6 +569,14 @@ def main() -> int:
     print(f"context={result['context_path']}")
     print(f"serp={result['serp_path']}")
     print(f"ledger_reserved={str(result.get('ledger_reserved')).lower()}")
+    if result.get("circuit_open") or args.skip_serp:
+        print(
+            "WARN: SERP unavailable/skipped; context written. "
+            "Research MUST use WebSearch/WebFetch for source_table.",
+            file=sys.stderr,
+        )
+        # Context + ledger reserved; empty SERP is expected — not a hard pipeline stop.
+        return 0
     if result["serp"].get("errors"):
         print("WARN: some queries failed; see research-serp.json", file=sys.stderr)
         return 2 if unique == 0 else 0

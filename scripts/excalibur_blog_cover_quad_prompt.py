@@ -38,6 +38,31 @@ def compact(value: object, limit: int) -> str:
     return text[: limit - 1].rstrip() + "…"
 
 
+def outfit_instruction(cover: dict, hero: dict) -> str:
+    """Outfit follows scene weather/topic — never hardcode white hoodie (INC-20261027-1356)."""
+    scene = compact(cover.get("scene_hint") or "", 220)
+    outfit_rule = compact(hero.get("outfit_rule") or "", 220)
+    if scene:
+        base = (
+            "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. "
+            f"Outfit MUST match scene weather/topic from scene_hint ({scene}). "
+            "NEVER default to white hoodie / thick heavyweight white hoodie. "
+            "Vary pose, gesture, angle, expression, props and composition every cover. "
+            "No headphones/headset/earbuds. Do not copy reference clothing."
+        )
+    else:
+        base = (
+            "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. "
+            "Outfit MUST match scene weather and article topic (rain jacket at port, winter coat in snow, "
+            "light shirt in heat, smart casual for docs). NEVER default to white hoodie. "
+            "Vary pose, gesture, angle, expression, props and composition every cover. "
+            "No headphones/headset/earbuds. Do not copy reference clothing."
+        )
+    if outfit_rule:
+        return f"{base} Outfit rule: {outfit_rule}"
+    return base
+
+
 def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
     type_id = slot.get("visual_type") or "infographic_card"
     type_def = (types_catalog.get("types") or {}).get(type_id) or {}
@@ -86,7 +111,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_instruction(cover, hero),
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",

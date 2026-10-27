@@ -1,0 +1,147 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-27",
+    "today_ru": "27.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-29",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-27 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki",
+    "h1": "Как выбрать Toyota Land Cruiser 300 из Японии: комплектации и ловушки до ставки",
+    "primary_query": "как выбрать toyota land cruiser 300 из японии",
+    "secondary_queries": [
+      "ленд крузер 300 комплектации",
+      "тойота ленд крузер 300",
+      "ленд крузер 300 дизель"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать toyota land cruiser 300 из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'как выбрать toyota land cruiser 300 из японии 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать toyota land cruiser 300 из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'как выбрать toyota land cruiser 300 из японии октябрь 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать toyota land cruiser 300 из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'как выбрать toyota land cruiser 300 из японии новости 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать toyota land cruiser 300 из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'site:github.com как выбрать toyota land cruiser 300 из японии 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать toyota land cruiser 300 из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'как выбрать toyota land cruiser 300 из японии official docs documentation 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать toyota land cruiser 300 из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'как выбрать toyota land cruiser 300 из японии forum reddit discussion проблемы опыт 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "ленд крузер 300 комплектации 2026",
+      "purpose": "вторичный запрос: ленд крузер 300 комплектации",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'ленд крузер 300 комплектации 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "тойота ленд крузер 300 2026",
+      "purpose": "вторичный запрос: тойота ленд крузер 300",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'тойота ленд крузер 300 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "ленд крузер 300 дизель 2026",
+      "purpose": "вторичный запрос: ленд крузер 300 дизель",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'ленд крузер 300 дизель 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Land Cruiser 300 из Японии: комплектации и ловушки до ставки 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'Как выбрать Toyota Land Cruiser 300 из Японии: комплектации и ловушки до ставки 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+      "searched_at": "2026-10-27",
+      "workaround": "director_skipped_ddg_ssl_timeout"
+    }
+  ],
+  "errors": [
+    "search failed for 'как выбрать toyota land cruiser 300 из японии 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'как выбрать toyota land cruiser 300 из японии октябрь 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'как выбрать toyota land cruiser 300 из японии новости 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'site:github.com как выбрать toyota land cruiser 300 из японии 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'как выбрать toyota land cruiser 300 из японии official docs documentation 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'как выбрать toyota land cruiser 300 из японии forum reddit discussion проблемы опыт 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'ленд крузер 300 комплектации 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'тойота ленд крузер 300 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'ленд крузер 300 дизель 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)",
+    "search failed for 'Как выбрать Toyota Land Cruiser 300 из Японии: комплектации и ловушки до ставки 2026': search failed for query: URLError <urlopen error _ssl.c:983: The handshake operation timed out> (DuckDuckGo html SERP unreachable from Cloud egress)"
+  ],
+  "unique_urls": [],
+  "note": "DDG SSL handshake timed out; Research must fill sources via WebSearch/WebFetch"
+}

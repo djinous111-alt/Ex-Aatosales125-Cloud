@@ -29,6 +29,8 @@ shell today + research_start
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
 
+Особый случай: `excalibur-blog-geo-qa` часто **нет в Cloud Task enum** (есть cover/fixer/indexer/publish/research/schema/scout/writer). Для GEO QA сразу используй `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md` — это first-class fallback, не blocker.
+
 Если недоступен даже `generalPurpose` Task:
 
 `❌ БЛОКЕР: Cloud Agent не может запускать отдельные Task/subagents даже через generalPurpose. Single-agent pipeline запрещён.`

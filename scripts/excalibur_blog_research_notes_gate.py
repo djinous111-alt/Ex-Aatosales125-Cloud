@@ -14,6 +14,9 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Detect technical niches from the topic card only.
+# Do NOT include bare "github" — research-notes always have ## github_evidence + URLs,
+# which caused false technical_topic=true on automotive/import how-tos (INC-20261027-1325).
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -22,14 +25,16 @@ TECH_MARKERS = (
     "mcp",
     "api",
     "cursor",
-    "make",
+    "make.com",
     "n8n",
-    "github",
     "docker",
     "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+    "llm",
+    "saas",
+    "devops",
 )
 
 
@@ -74,13 +79,24 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """True only when the topic card itself is a developer/automation niche.
+
+    Notes body is ignored: required github_evidence / source URLs must not flip the flag.
+    Short markers (ии/ai/api) use word boundaries so «японии» / «капитал» do not match.
+    """
+    del notes  # notes intentionally unused — see INC-20261027-1325
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    for marker in TECH_MARKERS:
+        if len(marker) <= 3:
+            if re.search(rf"(?<![a-zа-яё0-9]){re.escape(marker)}(?![a-zа-яё0-9])", blob, flags=re.I):
+                return True
+        elif marker in blob:
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

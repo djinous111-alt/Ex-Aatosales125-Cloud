@@ -1,0 +1,205 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/"
+      },
+      "headline": "Как выбрать Toyota Land Cruiser 300 из Японии: комплектации и ловушки до ставки",
+      "description": "Чеклист выбора Toyota Land Cruiser 300 с японского аукциона: GX/ZX/GR Sport, дизель vs бензин, лист без R и почему льготного утильсбора нет.",
+      "datePublished": "2026-10-27",
+      "dateModified": "2026-10-27",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "keywords": [
+        "как выбрать toyota land cruiser 300 из японии",
+        "ленд крузер 300 комплектации",
+        "тойота ленд крузер 300",
+        "ленд крузер 300 дизель"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какие комплектации Toyota Land Cruiser 300 бывают на японских аукционах?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Чаще GX, AX, VX, ZX и GR Sport на лотах до обновления 2026. После 01.10.2026 на витрине JP – гибрид и новая сетка, но на аукционе ещё много машин со старой линейкой. Сверьте грейд, места и мотор в листе."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем LC300 отличается от Prado при заказе из Японии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prado-класс ближе к Land Cruiser 250: другие моторы и платежи. LC300 – флагман 3.3/3.5. Требуйте код кузова VJA300, FJA300 или VJH300. Нет кода – лот не подтверждайте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что смотреть в аукционном листе до ставки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Общую оценку, схему повреждений, блок ремонта и заметки. Цель новичка – обычно 4 / 4.5+ без R по раме. Скрин \"оценка красивая\" без полного листа – не основание для перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему на Land Cruiser 300 нет льготного утильсбора?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Льгота для личного пользования – до 3 л и до 160 л.с. У LC300 оба параметра выше. Считайте полную шкалу и просите расчёт в каталоге или Telegram до ставки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Дизель или бензин – что выбрать новичку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Трасса и готовность к DPF – аргумент за дизель 3.3. Город и короткие поездки – смотрите бензин/гибрид и историю ошибок. Решение – после вопросов по сервису, не из чата."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Правый руль LC300 из Японии можно оформить в РФ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Маршрут: море → СВХ Владивосток → таможня и документы → выдача или доставка дальше. Сроки пропишите в договоре."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда можно делать ставку на аукционе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Когда заполнен мини-бриф (модель, грейд, мотор, лист без критичного R) и известен потолок \"лот + логистика + платежи\". Нет расчёта – ставку отложите."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#howto",
+      "name": "Как выбрать Toyota Land Cruiser 300 из Японии до ставки",
+      "description": "Пошаговый чеклист до ставки на японском аукционе: отделить LC300 от Prado/LC250, выбрать грейд и мотор, прочитать лист без R по раме, закрыть ловушку утильсбора и собрать мини-бриф.",
+      "totalTime": "PT60M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Полный аукционный лист (оценка, схема, блок ремонта)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Мини-бриф: код кузова, грейд, мотор, места, флаги листа"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Расчёт платежей в каталоге или Telegram Авто-Сейлс"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Код кузова VJA300 / FJA300 / VJH300"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Сценарий езды и число мест (5 или 7)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Потолок бюджета: лот + логистика + платежи"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Отделите Land Cruiser 300 от Prado и LC250",
+          "text": "Зафиксируйте в брифе именно LC300 и код кузова VJA300 / FJA300 / VJH300. Не ставьте на лот с названием Land Cruiser, пока не сверили модель и мотор в листе.",
+          "url": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#отделите-land-cruiser-300-от-prado-и-lc250"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Как выбрать комплектацию GX, VX, ZX и GR Sport",
+          "text": "Сначала определите сценарий: 5 или 7 мест, комфорт или оффроуд. Затем выбирайте грейд GX/AX/VX/ZX/GR Sport с учётом эпохи комплектации до и после обновления 2026.",
+          "url": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#как-выбрать-комплектацию-gx-vx-zx-и-gr-sport"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Сравните дизель, бензин и гибрид под свой сценарий",
+          "text": "Отфильтруйте мотор по сценарию езды: трасса и готовность к DPF – дизель 3.3; город и короткие поездки – бензин/гибрид. До ставки уточните сервисные вопросы, не берите мотор из чата.",
+          "url": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#сравните-дизель-бензин-и-гибрид-под-свой-сценарий"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Прочитайте аукционный лист пошагово до ставки",
+          "text": "Запросите полный аукционный лист: общая оценка, схема повреждений, блок ремонта и заметки. Цель новичка – обычно 4 / 4.5+ без R по раме. Скрин без листа – не основание для ставки.",
+          "url": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#прочитайте-аукционный-лист-пошагово-до-ставки"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Закройте ловушку утильсбора: льготы у LC300 нет",
+          "text": "Учтите: льготный утильсбор до 3 л и до 160 л.с. на LC300 не действует. Заложите полную шкалу и запросите расчёт платежей в каталоге или Telegram Авто-Сейлс до ставки.",
+          "url": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#закройте-ловушку-утильсбора-льготы-у-lc300-нет"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Соберите чеклист Владивосток и первый результат на сегодня",
+          "text": "Заполните мини-бриф: код кузова, грейд, мотор, оценка листа, возраст vs 3 года и потолок бюджета лот + логистика + платежи. Пустой бриф – ставки нет.",
+          "url": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#соберите-чеклист-владивосток-и-первый-результат-на-сегодня"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Что сделать дальше",
+          "text": "После брифа и потолка бюджета передайте подбор в каталог Авто-Сейлс или Telegram avtosales125: сверка листа и платежей до таймера аукциона.",
+          "url": "https://avtosales125.ru/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/#что-сделать-дальше"
+        }
+      ]
+    }
+  ]
+}

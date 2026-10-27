@@ -30,9 +30,15 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+* **После reset ledger** ledger-only dedupe небезопасен. Перед выбором slug проверь LIVE WP:
+  ```bash
+  python3 scripts/excalibur_blog_scout_helper.py --live-slugs "<slug1>,<slug2>"
+  python3 scripts/excalibur_blog_scout_helper.py --live-search "<кириллический или latin query>"
+  ```
+  Нужен `PUBLIC_SITE_URL`. Busy slug → не брать. Ниша AVTO SALES: не дрейфовать в Cursor/Make/AI темы.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,7 +53,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

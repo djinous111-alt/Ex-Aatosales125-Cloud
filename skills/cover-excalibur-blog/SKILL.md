@@ -122,12 +122,19 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image (prefer Kie API; MCP sync is timeout-prone)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Канон для Cloud:** после первого `MCP error -32001: Request timed out` на sync `gpt-image-2` **сразу** переходи на:
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+(async createTask + poll → `cover/quad-mcp-result.json`). Не крути sync MCP retry loop.
+
+Опционально один раз: `CallMcpTool` → `user-mcp-kv` / `gpt-image-2` с `jobs[0].mcp_args`.  
+`reference_url_hosted` — предпочтительно `https://` (http → 301).  
+Outfit героя — из `scene_hint` / `blog-hero.outfit_rule`, **не** hardcoded white hoodie.
 
 ### Шаг 5 — apply
 

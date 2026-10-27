@@ -88,6 +88,9 @@ python scripts/excalibur_blog_quad_apply.py \
 
 ## MCP `gpt-image-2`
 
+После первого sync MCP `-32001` timeout → сразу `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` (не retry loop). Outfit из scene_hint/outfit_rule, не white hoodie.
+
+
 ```json
 {
   "prompt": "<из quad-mcp-batch.json jobs[0].mcp_args.prompt>",

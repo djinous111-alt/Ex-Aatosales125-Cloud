@@ -104,7 +104,37 @@ def _get_fallback(
         }
 
 
+PLACEHOLDER_HREF_RE = re.compile(
+    r"^\[REDACTED\]$|\[REDACTED\]|YOUR_[A-Z0-9_]+|TODO_|PLACEHOLDER|example\.com/cta",
+    re.IGNORECASE,
+)
+
+
+def is_placeholder_href(href: str) -> bool:
+    """Literal [REDACTED] / placeholder CTA must fail before HTTP (INC-20261027-1340)."""
+    cleaned = (href or "").strip()
+    if not cleaned:
+        return True
+    if cleaned in {"[REDACTED]", "REDACTED"}:
+        return True
+    if PLACEHOLDER_HREF_RE.search(cleaned):
+        # Allow real URLs that merely contain the word in a query? Block only token-like hrefs.
+        if cleaned.startswith("http://") or cleaned.startswith("https://") or cleaned.startswith("/"):
+            # Still block if the path/host is literally the redaction token
+            parsed = urlparse(cleaned if "://" in cleaned else f"https://invalid/{cleaned}")
+            host_path = f"{parsed.netloc}{parsed.path}".strip("/")
+            if host_path.upper() in {"[REDACTED]", "REDACTED"} or cleaned.upper() == "[REDACTED]":
+                return True
+            if "[REDACTED]" in cleaned:
+                return True
+            return False
+        return True
+    return False
+
+
 def classify_link(href: str, site_base: str | None) -> str:
+    if is_placeholder_href(href):
+        return "placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -143,6 +173,22 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "placeholder/redacted href forbidden in article.html; "
+                        "restore CTA from memory/brief/conversion-map.md (not literal [REDACTED])"
+                    ),
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {

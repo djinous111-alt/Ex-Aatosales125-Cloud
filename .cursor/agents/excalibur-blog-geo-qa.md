@@ -6,7 +6,10 @@ model: inherit
 readonly: false
 is_background: false
 
-**Язык:** русский. **Шаг пайплайна:** ③
+**Язык:** русский.
+
+> Cloud Task: если `subagent_type=excalibur-blog-geo-qa` отсутствует в enum — Директор запускает эту роль через `Task(generalPurpose)` с этим файлом и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+ **Шаг пайплайна:** ③
 
 ## Incident memory (обязательно)
 

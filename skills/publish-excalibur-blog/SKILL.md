@@ -20,17 +20,29 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | `memory/site.env.local` or Cloud Secrets: `SSH_*` (+ alias `SSH_PATH`→`SSH_ROOT`), `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+
+## Env bootstrap (Cloud)
+
+If `memory/site.env.local` is missing but Cloud Secrets are in process env, `excalibur_blog_wp_publish.py` auto-bootstraps the file (no quotes) and maps `SSH_PATH` → `SSH_ROOT`. Prefer Cloud Secret `SSH_ROOT=.` for this host.
+
+Install: `paramiko` must be present (`requirements.txt`, `.cursor/cloud-agent-install.sh`). If PEP 668 blocks plain pip: `python3 -m pip install --break-system-packages paramiko`.
+
+HTTP trigger timeout defaults to **300s** (`EXCALIBUR_PUBLISH_HTTP_TIMEOUT`). On client TimeoutError after SSH upload, script first REST-reconstructs by slug — **do not** open FALLBACK URL again if slug is already LIVE (duplicate media).
+
+Commit ledger/artifacts via: `bash scripts/excalibur_git.sh commit -m "..."` (filters invalid `CLOUD_AGENT_*_SECRET_NAMES`).
+
 
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
@@ -41,7 +53,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +63,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -69,7 +81,7 @@ python scripts/excalibur_blog_wp_publish.py \
 2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
 3. Скрипт продолжает и читает ответ из файла.
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — сначала REST-reconstruct by slug; FALLBACK URL только если slug ещё не LIVE. Не второй trigger при LIVE (duplicate media). Timeout HTTP = 300s (env `EXCALIBUR_PUBLISH_HTTP_TIMEOUT`).
 
 ### 5. Post-publish артефакты
 
@@ -84,7 +96,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

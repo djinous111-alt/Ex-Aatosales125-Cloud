@@ -6,6 +6,7 @@
 - `shared/excalibur-article-writing-contract.md`
 - `shared/editorial-utility-only.md`
 - `memory/brief/site-brief.md`, `conversion-map.md`
+- CTA URLs только из conversion-map (не `href="[REDACTED]"`). Recommendation markers — императив (`Сделайте`/`Не делайте`), не `Делать:`.
 
 ## Задача
 

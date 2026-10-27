@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1280,
+      722
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 722,
+        "end": 754
+      },
+      "v_gutter_px": {
+        "start": 1280,
+        "end": 1304
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 722
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 722
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у Corolla Cross в порту Владивостока: плашка до ставки, стикер не путать Z и оценку 5",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1304,
+          "top": 8,
+          "right": 2560,
+          "bottom": 714
+        },
+        "raw_box_px": {
+          "left": 1304,
+          "top": 0,
+          "right": 2560,
+          "bottom": 722
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица: седан Corolla vs японский Cross vs китайский Cross",
+        "h2_anchor": "Отсейте чужие кузова: седан Corolla и китайский Cross"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 30,
+          "top": 754,
+          "right": 1250,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 754,
+          "right": 1280,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема чтения кодов кузова ZSG10, ZVG13, ZVG16, MXGH15 до ставки",
+        "h2_anchor": "Как читать коды кузова ZSG10, ZVG13, ZVG16 и MXGH15"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1322,
+          "top": 754,
+          "right": 2542,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1304,
+          "top": 754,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист сравнения комплектаций G, S, Z, GR Sport и Z Adventure",
+        "h2_anchor": "Сравнение комплектаций G, S, Z, GR Sport и Z Adventure"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Отсейте чужие кузова: седан Corolla и китайский Cross",
+    "injected inline_2 after H2 — Как читать коды кузова ZSG10, ZVG13, ZVG16 и MXGH15",
+    "injected inline_3 after H2 — Сравнение комплектаций G, S, Z, GR Sport и Z Adventure"
+  ]
+}

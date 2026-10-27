@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2131-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP-KV `gpt-image-2` (i2i 2K 16:9) returned HTTP MCP -32001 Request timed out.
+- After poll of local MCP/agent logs (~1 min), no generated image URL / task_id was recoverable client-side.
+
+### How the agent recovered this run
+- Did not blind-retry a second sync MCP create (duplicate risk).
+- Used preferred batch flow: `scripts/excalibur_blog_kie_gpt_image2_api.py` with the same sanitized `jobs[0]` prompt + `input_urls`, then `excalibur_blog_quad_apply.py --inject-html`.
+
+### Durable fix needed before next run
+- Prefer async create/status MCP contract or default Cloud cover path to Kie script in skill/runbook so agents do not burn the first attempt on sync timeout.
+- Document log-recovery locations if sync MCP ever returns late URLs.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (batch preferred_image_flow already points to Kie)
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261027-2131-schema-precommit-secret-name-filter
 status: open
 run_date: 2026-10-28

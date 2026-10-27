@@ -51,7 +51,7 @@ files_changed:
 - `.cursor/skills/publish-excalibur-blog/SKILL.md`
 checks_run:
 - `python3 -c "import paramiko"`
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1410-publish-site-env-local-missing
 status: fixed
@@ -93,7 +93,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1411-publish-http-timeout-reconstruct
 status: fixed
@@ -139,7 +139,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg DEFAULT_HTTP_TIMEOUT_SEC=300` + reconstruct_publish_output_from_rest in wp_publish.py
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1411-publish-excalibur-git-sh-missing
 status: fixed
@@ -177,7 +177,7 @@ files_changed:
 - `.cursor/skills/publish-excalibur-blog/SKILL.md`
 checks_run:
 - `bash scripts/excalibur_git.sh help`
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1401-indexer-llms-blog-path-doctor-mismatch
 status: fixed
@@ -227,7 +227,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1355-cover-mcp-gpt-image2-sync-timeout
 status: fixed
@@ -273,7 +273,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` kie_gpt_image2_api + 32001 in cover skill/agent
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1356-cover-prompt-hardcoded-white-hoodie
 status: fixed
@@ -316,7 +316,7 @@ files_changed:
 checks_run:
 - B01 prompt rebuild contains NEVER default to white hoodie + scene_hint outfit
 - `rg` no Outfit lock white hoodie in scripts/
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1340-geo-qa-literal-redacted-hrefs
 status: fixed
@@ -366,7 +366,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - fixture href=[REDACTED] → verdict fail kind=placeholder
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1335-geo-qa-typed-task-missing
 status: fixed
@@ -410,7 +410,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose + geo-qa in AGENTS/director
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1330-writer-utility-gate-missing-pain-outcome-markers
 status: fixed
@@ -461,7 +461,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
 - JSON parse editorial-policy.json (pain/outcome lists present)
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1326-precommit-invalid-secret-name
 status: fixed
@@ -503,7 +503,7 @@ files_changed:
 - `skills/publish-excalibur-blog/SKILL.md`
 checks_run:
 - `bash scripts/excalibur_git.sh help`
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1325-research-notes-gate-github-false-technical
 status: fixed
@@ -544,7 +544,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - B01 research-notes-gate → technical_topic=false, PASS, no official-docs warning
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1315-research-start-ddg-ssl-timeout
 status: fixed
@@ -588,7 +588,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_start.py`
 - `python3 scripts/excalibur_blog_research_start.py --topic-id B01 --dry-run`
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20261027-1305-scout-missing-live-slugs
 status: fixed
@@ -637,7 +637,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
 - `python3 scripts/excalibur_blog_scout_helper.py --help` shows --live-slugs/--live-search
-commit: pending-parent-commit
+commit: f9085a85
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

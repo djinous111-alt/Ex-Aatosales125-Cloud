@@ -1,7 +1,7 @@
 # Promotion checklist — B01 subaru-forester-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-27 (pending publish)  
-Live URL: /blog/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-27  
+Live URL: https://avtosales125.ru/2026/10/27/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Чужие таблицы утиля расходятся — расчёт только по документам конкретной машины
 • До депозита: аукционный лист, R/RA, карта повреждений, пробег
 
-Читать: /blog/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/27/subaru-forester-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

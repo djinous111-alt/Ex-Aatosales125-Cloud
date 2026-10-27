@@ -498,3 +498,96 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261027-0934-publish-paramiko-missing
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-subaru-forester-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed (ModuleNotFoundError) on Cloud image; PEP 668 blocked plain `pip3 install`.
+
+### How the agent recovered this run
+- Installed with `python3 -m pip install --break-system-packages paramiko` → 5.1.0.
+
+### Durable fix needed before next run
+- Ensure paramiko in image install path (requirements.txt + cloud-agent-install / Dockerfile) so publish does not need ad-hoc pip.
+
+### Suggested files to inspect/change
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json` / Dockerfile
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261027-0934-publish-missing-site-env-local
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-subaru-forester-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` absent at publish start (only `site.env.local.example`); Cloud Secrets were in process env but file expected by contract/skill.
+
+### How the agent recovered this run
+- Generated gitignored `memory/site.env.local` from Cloud Secrets; set `SSH_ROOT=.` (host login cwd pattern).
+
+### Durable fix needed before next run
+- Document/bootstrap creating `site.env.local` from secrets in publish preflight or cloud start script when file missing.
+
+### Suggested files to inspect/change
+- `skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py` (optional auto-bootstrap note)
+- `.cursor/cloud-agent-install.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261027-0943-publish-http-timeout-reconstruct
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-subaru-forester-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH upload of ~7.1MB bootstrap OK; local HTTP trigger hit hardcoded 120s TimeoutError.
+- Script entered WebFetch fallback wait (120s) but publish agent ran as a single blocking process, so `memory/webfetch-response.txt` was never written before fallback timeout.
+- Server-side bootstrap still completed: LIVE post 4603 + featured 4604 + inlines 4605–4607.
+
+### How the agent recovered this run
+- Verified LIVE via HEAD 200 + WP REST by slug; confirmed foreign posts 4597/4585 untouched.
+- Reconstructed `wp-publish-result.json` / ledger / log **without** second HTTP trigger (bootstrap already 404).
+- schema_meta inferred from PHP order (meta before inline loop; all inlines present).
+
+### Durable fix needed before next run
+- Honor longer HTTP timeout via env (or raise default) for ~7–9MB payloads.
+- Document/automate parallel WebFetch watcher while publish waits; or add REST reconstruct path inside `excalibur_blog_wp_publish.py` when slug becomes LIVE after TimeoutError (no second trigger).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` timeout; reconstruct helper)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — B01 Forester 2026-10-27 fixer closed all open items below as fixed._
+
+
 ## INC-20261027-0933-indexer-llms-blog-path-mismatch
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-indexer
 topic_id: B01
@@ -40,10 +43,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Doctor checks `--blog-dir`/`--out-dir` (not `--blog-path`).
+- Indexer agent/skill examples drop stale `--blog-path /`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir/--out-dir
+- `rg -- --blog-path` only documents absence
+commit: pending-parent-commit
 
 ## INC-20261027-0931-cover-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-cover
 topic_id: B01
@@ -70,10 +89,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Restored `scripts/excalibur_git.sh` filter for invalid CLOUD_AGENT_*_SECRET_NAMES.
+- Cover agent contract documents commit via excalibur_git.sh; --no-verify only after filter.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_git.sh help`
+- doctor errors=0
+commit: pending-parent-commit
 
 ## INC-20261027-0927-schema-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-schema
 topic_id: B01
@@ -103,11 +135,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Same secret-name filter via excalibur_git.sh.
+- Schema skill: keep absolute public URLs in JSON-LD; do not [REDACTED]; commit via filter / optional --no-verify.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_git.sh help`
+- rg confirms schema skill forbids [REDACTED] in JSON-LD
+commit: pending-parent-commit
 
 ## INC-20261027-0920-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -137,11 +183,25 @@ category_detail: orchestration/contract
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Documented Cloud fallback: typed excalibur-blog-geo-qa often missing → Task(generalPurpose) + agent/skill paths.
+- AGENTS.md, director skill, pipeline-task-map, geo-qa agents, pitfalls updated.
+files_changed:
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+checks_run:
+- `rg generalPurpose` in director/AGENTS/pipeline-task-map
+commit: pending-parent-commit
 
 ## INC-20261027-0921-geo-qa-utility-pain-outcome-policy
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -176,11 +236,26 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Kept/aligned pain_markers_ru + outcome_markers_ru + mins in editorial-policy.json.
+- Utility gate falls back to human-voice markers if lists empty.
+- Writer skill requires policy marker forms; recommendation_markers include чек-лист / не делать.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir B01…` → PASS
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
 
 ## INC-20261027-0919-writer-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-writer
 topic_id: B01
@@ -207,11 +282,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- excalibur_git.sh secret-name filter restored; writer agent documents it.
+- CTA stays real CATALOG_URL/TELEGRAM_URL; pragma allowlist for secret-scan when needed.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_git.sh help`
+commit: pending-parent-commit
 
 ## INC-20261027-0908-research-wordstat-empty-primary
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-research
 topic_id: B01
@@ -248,7 +336,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Research skill: empty {} Wordstat ≠ 401; secondary phrases + n/a; WebSearch first when SERP dump empty.
+- Documented accessed_at: label + pain_solution_map keyword rows for gate.
+- TECH word-boundary gate + excalibur_git commit path restored from Jolion.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- rg Wordstat empty / accessed_at in research skill
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -500,7 +604,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261027-0934-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-publish
 topic_id: B01
@@ -526,10 +630,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- paramiko in requirements.txt + cloud-agent-install.sh + Dockerfile; doctor/env-check require import.
+files_changed:
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → OK paramiko available
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
+commit: pending-parent-commit
 
 ## INC-20261027-0934-publish-missing-site-env-local
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-publish
 topic_id: B01
@@ -555,10 +673,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- publish load_env auto-creates gitignored site.env.local from process env/Cloud Secrets when missing.
+- Default SSH_ROOT=. ; skill documents bootstrap + BLOCKER if no secrets.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/pipeline-task-map.md`
+checks_run:
+- `rg ensure_site_env_local_from_process scripts/excalibur_blog_wp_publish.py`
+- `--env-check` missing=[]
+commit: pending-parent-commit
 
 ## INC-20261027-0943-publish-http-timeout-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-publish
 topic_id: B01
@@ -589,5 +721,18 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- HTTP_TRIGGER_TIMEOUT_SEC / FALLBACK_POLL_SEC default 300 (env-overridable).
+- REST reconstruct by slug after timeout; no second bootstrap if LIVE.
+- Skill documents parallel WebFetch watcher.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--env-check` shows http_trigger_timeout_sec=300 fallback_poll_sec=300
+- `rg timeout=120` absent in publish script
+commit: pending-parent-commit

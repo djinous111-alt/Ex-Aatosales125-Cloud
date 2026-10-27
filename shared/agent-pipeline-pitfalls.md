@@ -3,6 +3,7 @@
 ## Cloud / Task
 
 - Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Особенно часто отсутствует typed `excalibur-blog-geo-qa` (и другие роли): Директор **сразу** запускает `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`, не ретрая typed name.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
 
@@ -22,8 +23,10 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - `--env-check` / doctor требуют `paramiko`; install: `pip install -r requirements.txt` (cloud-agent-install.sh + Dockerfile).
+- Если `memory/site.env.local` отсутствует, publish-скрипт создаёт gitignored файл из process env / Cloud Secrets; `SSH_ROOT` по умолчанию `.`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
 - HTTP trigger / WebFetch poll: `HTTP_TRIGGER_TIMEOUT_SEC` / `FALLBACK_POLL_SEC` (default **300**). После timeout — REST reconstruct by slug; **не** второй bootstrap trigger, пока slug LIVE.
+- WebFetch fallback нужен **параллельный** watcher, пишущий `memory/webfetch-response.txt`; иначе REST reconstruct.
 
 ## Writer / Fact Check Box
 
@@ -52,11 +55,15 @@
 ## Research
 
 - `technical_topic` в research-notes-gate: TECH markers матчятся token/stem-границей, не substring (`ai` ≠ `reader_pain`, `ии` ≠ `гарантии`).
+- Wordstat empty `{}` на primary (не 401) = low-volume quirk: secondary/broad phrases + `n/a` row; не invent impressions.
+- Пустой `research-serp.json` → WebSearch/WebFetch как реальный SERP (soft-fail dump).
+- Gate: `accessed_at: YYYY-MM-DD` label в source_table; pain_solution_map rows с `боль:`/`решение:`/`результат:`.
 
 ## Git / secrets
 
 - Перед commit в Cloud: `bash scripts/excalibur_git.sh commit …` или `eval "$(bash scripts/excalibur_git.sh print-filter)"` — отфильтровать invalid names в `CLOUD_AGENT_*_SECRET_NAMES` (иначе pre-commit.cursor → `invalid variable name`).
-- Публичные marketing URL (`PUBLIC_SITE_URL`, catalog/Telegram) лучше не держать как Cloud Secrets; `schema.jsonld` нельзя redacting'ом `[REDACTED]` / HTML pragma.
+- `--no-verify` только если hook всё ещё падает после filter и staged paths проверены на отсутствие private keys/tokens.
+- Публичные marketing URL (`PUBLIC_SITE_URL`, catalog/Telegram) лучше не держать как Cloud Secrets. В `schema.jsonld` **не** подставляй `[REDACTED]` — коммить абсолютные публичные URL через `excalibur_git.sh` (или `--no-verify` после проверки).
 
 ## Indexer
 

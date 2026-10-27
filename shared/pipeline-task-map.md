@@ -1,6 +1,6 @@
 # Excalibur BLOG — карта задач и субагентов
 
-Директор **не** Task. Все роли ниже — `Task(<name>)`.
+Директор **не** Task. Все роли ниже — `Task(<name>)` **или** Cloud fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill.
 
 ## Схема
 
@@ -14,7 +14,7 @@
   │
   ├─ ① Task(excalibur-blog-research)
   ├─ ② Task(excalibur-blog-writer)
-  ├─ ③ Task(excalibur-blog-geo-qa)
+  ├─ ③ Task(excalibur-blog-geo-qa)      ← часто нет typed type → generalPurpose
   │
   ├─ ④a Task(excalibur-blog-cover)  ─┐ параллель
   ├─ ④b Task(excalibur-blog-schema) ─┘
@@ -23,6 +23,19 @@
   ├─ ⑥ Task(excalibur-blog-publish)   ← автоматически после Indexer (skip только publish:no)
   └─ ⑦ Task(excalibur-blog-fixer)     ← только если memory/pipeline-fix-queue.md содержит open incidents
 ```
+
+## Cloud typed-Task gap (канон)
+
+Если Cloud API **не** принимает `excalibur-blog-*` (часто `excalibur-blog-geo-qa`):
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-<role>.md + .cursor/skills/<skill>/SKILL.md.
+Контракт: входы, маркер === EXCALIBUR BLOG <ROLE> ===, запреты из agent md.
+Один Task = одна роль. cover||schema = два отдельных Task в одном сообщении.
+```
+
+Не ретрай typed name бесконечно; не выполняй роль parent-агентом.
 
 ## Таблица распределения
 
@@ -154,9 +167,10 @@ interlinker --apply + llms generator. Блок === EXCALIBUR BLOG INDEXER === в
 ```text
 Ты excalibur-blog-publish. topic_id: {ID}. article_dir из handoff.
 Прочитай agents/excalibur-blog-publish.md + skills/publish-excalibur-blog/SKILL.md + shared/excalibur-wp-publish-contract.md.
-Preflight link-verify → dry-run → publish → обнови shared/published-articles.md + memory/blog/wp-publish-log.md.
+Preflight: site.env.local bootstrap (если нет) → --env-check (paramiko) → link-verify → dry-run → publish.
+Обнови shared/published-articles.md + memory/blog/wp-publish-log.md.
 Блок === EXCALIBUR BLOG PUBLISH === + permalink в PIPELINE DONE.
-При HTTP timeout bootstrap — WebFetch fallback (см. skill).
+При HTTP timeout bootstrap — WebFetch fallback (параллельный watcher) или REST reconstruct; не второй trigger если slug LIVE.
 ```
 
 ### ⑦ Fixer (post-run, только если есть open incidents)

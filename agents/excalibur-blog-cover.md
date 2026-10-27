@@ -207,3 +207,7 @@ summary: ...
 - `memory/cover/quad-style-digital-meme-collage-ru.json`
 - `shared/blog-visual-pipeline-contract.md` → redirect на quad contract
 
+
+## Git commits (Cloud)
+
+Перед `git commit`: `bash scripts/excalibur_git.sh commit -m "..."` (фильтрует invalid names в `CLOUD_AGENT_*_SECRET_NAMES`). `--no-verify` только если hook всё ещё падает после filter и staged paths без private keys.

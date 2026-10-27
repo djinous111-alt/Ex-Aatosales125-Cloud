@@ -33,6 +33,10 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 - cover, schema, publish, полный рерайт без FIX-цикла writer.
 
+## Cloud Task
+
+Typed `Task(excalibur-blog-geo-qa)` часто отсутствует в Cloud. Директор запускает `Task(generalPurpose)` с этим agent md + `.cursor/skills/excalibur-geo-qa/SKILL.md`. Parent не выполняет GEO QA сам.
+
 ## Skill
 
 `skills/excalibur-geo-qa/SKILL.md`

@@ -1,0 +1,187 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/"
+      },
+      "headline": "Как выбрать Nissan Serena из Японии: комплектации и ловушки до депозита",
+      "description": "Как выбрать Nissan Serena из Японии до депозита: C26/C27/C28, e-POWER vs бензин, красные флаги аукционного листа и маршрут Владивосток/СВХ. Расчёт – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-27",
+      "dateModified": "2026-10-27",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "как выбрать ниссан серена из японии",
+        "ниссан серена из японии",
+        "ниссан серена комплектации",
+        "ниссан серена е пауэр",
+        "ниссан серена с27"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем e-POWER отличается от обычного гибрида при растаможке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "e-POWER – последовательная схема: едет электромотор, ДВС – генератор. Для утильсбора часто смотрят 30-минутную мощность электромотора, а не \"л.с.\" из рекламы. Запросите расчёт по конкретной машине в каталоге до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какую комплектацию Highway Star брать новичку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сначала поколение и силовая, потом имя комплектации. Сверьте камеры, климат и кнопки по фото лота. Highway Star на C27 и C28 – не клон опций."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли везти правый руль Serena под себя в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, правый руль из Японии возят, но заранее оцените городской сценарий и маршрут выдачи. До договора уточните город растаможки/выдачи и состав \"под ключ\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как не перепутать C26, C27 и C28 в объявлении?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Берите код кузова из аукционного листа и сверяйте с фото. Год в заголовке и \"похож на рестайл\" без кода – недостаточны для ставки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие красные флаги листа – стоп до денег?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "R/RA, битые сдвижные двери, салон не бьётся с пробегом, мутный пробег, неисправности e-POWER. Нет полного листа – нет депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где считать пошлину и утильсбор по Serena?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не по статичной таблице из блога. Откройте каталог Авто-Сейлс или напишите в Telegram avtosales125 с кодом кузова и типом силовой – получите смету по лоту."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#howto",
+      "name": "Как выбрать Nissan Serena из Японии до депозита",
+      "description": "Пошаговый выбор Serena из Японии: сценарий семьи, поколения C26/C27/C28, бензин vs e-POWER, стоп-правила аукционного листа и маршрут Владивосток/СВХ.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Полный аукционный лист Serena"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Код кузова C26/C27/C28 и тип силовой"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Смета платежей в каталоге Авто-Сейлс"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Сценарий семьи: места, кресла, правый руль"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Договор: город выдачи, состав «под ключ», акт приёмки"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Определите, нужна ли вам Serena или другой минивэн",
+          "text": "Зафиксируйте сценарий семьи, число мест и готовность к правому рулю. Если правый руль или формат минивэна не ваш — снимите Serena с shortlist до депозита.",
+          "url": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#определите-нужна-ли-вам-serena-или-другой-минивэн"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Как отличить поколения C26, C27 и C28 до ставки",
+          "text": "Берите код кузова из аукционного листа и сверяйте с фото. Год в заголовке объявления и «рестайл» без кода недостаточны для ставки.",
+          "url": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#как-отличить-поколения-c26-c27-и-c28-до-ставки"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Сравните бензин, S-HYBRID и e-POWER до депозита",
+          "text": "Зафиксируйте ветку силовой. Для e-POWER запросите расчёт с учётом 30-минутной мощности электромотора; не верьте фразе «всем Serena льготный утиль».",
+          "url": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#сравните-бензин-s-hybrid-и-e-power-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Прочитайте аукционный лист: стоп-правила для семейного минивэна",
+          "text": "Запросите полный лист. Стоп при R/RA, битых сдвижных дверях, мутном пробеге и неисправностях e-POWER. Нет полного листа — нет депозита.",
+          "url": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#прочитайте-аукционный-лист-стоп-правила-для-семейного-минивэна"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Соберите чек-лист до депозита и маршрут Владивосток / СВХ",
+          "text": "До договора зафиксируйте город растаможки/выдачи, состав цены «под ключ», страховку и акт приёмки. Платежи считайте в каталоге, не по чужой таблице.",
+          "url": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#соберите-чек-лист-до-депозита-и-маршрут-владивосток-свх"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Что сделать сегодня: короткий план без DIY-аукциона",
+          "text": "Выберите поколение и силовую, список вопросов менеджеру, запросите подбор в каталоге. Депозит — только после листа, сметы и пунктов договора.",
+          "url": "https://avtosales125.ru/nissan-serena-iz-yaponii-komplektatsii-lovushki/#что-сделать-сегодня-короткий-план-без-diy-аукциона"
+        }
+      ]
+    }
+  ]
+}

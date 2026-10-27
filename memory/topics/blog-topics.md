@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Nissan Serena из Японии
+
+- **priority:** P0
+- **slug:** nissan-serena-iz-yaponii-komplektatsii-lovushki
+- **h1:** Как выбрать Nissan Serena из Японии: комплектации и ловушки до депозита
+- **primary_query:** как выбрать ниссан серена из японии
+- **secondary_queries:** ниссан серена из японии, ниссан серена комплектации, ниссан серена е пауэр, ниссан серена с27
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого Serena из Японии, а кому лучше смотреть другой минивэн
+  2. Как читать поколения C26/C27/C28 и комплектации до ставки на аукционе
+  3. Бензин или e-POWER: что проверить в листе и документах до депозита
+  4. Красные флаги аукциона: оценки, пробег, перекрас, «похож на Stepwgn/Noah»
+  5. Чек-лист перед депозитом и маршрутом через Владивосток / СВХ
+- **faq_hints:** чем e-POWER отличается от обычного гибрида при растаможке; какую комплектацию Highway Star брать новичку; можно ли везти правый руль Serena под себя в 2026
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** семейный минивэн Nissan Serena у порта Владивостока, герой Авто-Сейлс с плашкой «до депозита», угол avto-sales125.ru
+- **wordstat_evidence:** parent «ниссан серена» totalCount 71803 / phrase 65991; «комплектации» 273; «е пауэр» 1014; «с27» 4036; narrow «из японии» 80; «как выбрать…» totalCount-only 14 (low-result)
+- **live_check:** slug FREE; search «Серена»/«Ниссан Серена» = 0 dedicated; Latin Serena только listicle минивэнов без model-how-to

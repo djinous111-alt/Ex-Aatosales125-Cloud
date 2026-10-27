@@ -254,3 +254,39 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261027-1706-scout-missing-live-slugs
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Scout contract and Director Task require LIVE dedup via helper `--live-slugs`, but `scripts/excalibur_blog_scout_helper.py` still exposes only `--suggest-next` and `--check-query`.
+- `--check-query` only sees `## Bxx` pool cards and misses already-LIVE WP posts (K5/Seltos/etc.), so without REST dedup the scout can propose a cannibalizing model topic.
+- Automation memory previously noted the same gap; durable queue entry was missing after ledger/repo resets.
+
+### How the agent recovered this run
+- Manual LIVE dedup against `PUBLIC_SITE_URL` WP REST: `?slug=` for candidate slugs and `?search=` Latin+Cyrillic for model names.
+- Rejected K5/Seltos (already LIVE) despite strong Wordstat; selected Nissan Serena after FREE slug + 0 dedicated Cyrillic hits.
+- Appended utility-only B01 card; utility gate PASS.
+
+### Durable fix needed before next run
+- Add `--live-slugs` (and ideally `--live-search`) to `excalibur_blog_scout_helper.py`: fetch WP REST posts by slug/search, print FREE/TAKEN, exit non-zero on collision.
+- Document in scout skill/agent that helper lacks the flag until fixed, and REST curl is mandatory workaround.
+- Optionally seed a live denylist file from recent model how-to slugs so `--check-query` can catch AS/LIVE overlap even when B-pool is empty.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

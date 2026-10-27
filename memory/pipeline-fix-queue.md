@@ -18,19 +18,23 @@ category: script
 ### What went wrong
 - Automation memory claimed scout helper supports `--live-slugs` / `--live-search` for WP REST denylist, but current `scripts/excalibur_blog_scout_helper.py` only exposes `--suggest-next` and `--check-query`.
 - MCP `wordpress_get_posts` returned posts from a non-AVTO-SALES host, so it cannot be trusted for LIVE cannibalization checks on this brand.
+- Memory also claimed `scripts/excalibur_git.sh` exists to filter non-identifier names in `CLOUD_AGENT_INJECTED_SECRET_NAMES`; file is missing on this branch, so plain `git commit` failed when the list contained literal `[REDACTED]`.
 
 ### How the agent recovered this run
 - Used `PUBLIC_SITE_URL` WP REST (`/wp-json/wp/v2/posts`) for recent posts and exact slug probes.
 - Cross-checked candidate models against the LIVE denylist before appending B01 Corolla Cross.
+- Before commit, filtered `CLOUD_AGENT_*_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers, then committed.
 
 ### Durable fix needed before next run
 - Port `--live-slugs` / `--live-search` into `scripts/excalibur_blog_scout_helper.py` (and assert in doctor) so Scout does not depend on ad-hoc curl.
 - Document that MCP WordPress tools may point at a different site than `PUBLIC_SITE_URL`; Scout must prefer REST against `PUBLIC_SITE_URL`.
+- Restore `scripts/excalibur_git.sh` (or equivalent) that strips non-identifier secret names before hooks, and assert it in doctor.
 - Sync scout skill/agent text away from AI/Cursor niche defaults toward Авто-Сейлс site-brief when Director Task says so.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_scout_helper.py`
 - `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_git.sh`
 - `skills/scout-excalibur-blog/SKILL.md`
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`

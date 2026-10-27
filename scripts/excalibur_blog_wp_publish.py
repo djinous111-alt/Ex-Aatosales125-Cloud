@@ -31,6 +31,7 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
@@ -47,7 +48,36 @@ def _read_env_file(path: Path) -> dict[str, str]:
     return env
 
 
+def ensure_site_env_local(root: Path) -> bool:
+    """Write gitignored memory/site.env.local from process env when missing."""
+    path = root / "memory/site.env.local"
+    if path.is_file():
+        return False
+    lines = ["# Auto-written by excalibur_blog_wp_publish from Cloud Secrets / process env"]
+    wrote = False
+    for key in sorted(PUBLISH_ENV_KEYS):
+        value = os.environ.get(key, "").strip()
+        if not value:
+            continue
+        if key == "SSH_ROOT" and value in {"", "/"}:
+            value = "."
+        # No quotes around values — PHP/bootstrap parsers expect raw KEY=value.
+        lines.append(f"{key}={value}")
+        wrote = True
+    if not wrote:
+        return False
+    # Cloud Secrets may only set SSH_PATH; publish reads SSH_ROOT.
+    if not any(line.startswith("SSH_ROOT=") for line in lines):
+        ssh_path = os.environ.get("SSH_PATH", "").strip()
+        lines.append(f"SSH_ROOT={ssh_path or '.'}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("OK wrote missing memory/site.env.local from process env (gitignored)", file=sys.stderr)
+    return True
+
+
 def load_env(root: Path) -> dict[str, str]:
+    ensure_site_env_local(root)
     env = _read_env_file(root / "memory/site.env.local")
     for key in PUBLISH_ENV_KEYS:
         value = os.environ.get(key)
@@ -55,6 +85,12 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Map SSH_PATH → SSH_ROOT when Cloud Secrets only expose SSH_PATH.
+    if not (env.get("SSH_ROOT") or "").strip():
+        ssh_path = (env.get("SSH_PATH") or os.environ.get("SSH_PATH") or "").strip()
+        env["SSH_ROOT"] = ssh_path or "."
+    elif (env.get("SSH_ROOT") or "").strip() in {"", "/"}:
+        env["SSH_ROOT"] = "."
     return env
 
 
@@ -71,11 +107,25 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def paramiko_available() -> bool:
+    try:
+        import importlib.util
+
+        return importlib.util.find_spec("paramiko") is not None
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    has_paramiko = paramiko_available()
+    if not has_paramiko:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": has_paramiko,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -83,7 +133,7 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 

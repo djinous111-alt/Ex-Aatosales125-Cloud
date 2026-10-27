@@ -362,3 +362,8 @@ Excalibur BLOG следует этому контракту для каждой 
 10. Скрипт `excalibur_blog_cannibalization_guard.py` дал PASS (нет критической каннибализации ключевых слов)
 11. `schema.jsonld` содержит E-E-A-T автора по реестру; `promotion-checklist.md` сформирован.
 
+## CTA hrefs (Cloud secret-scan)
+
+В committed `article.html` используй только `${CATALOG_URL}`, `${TELEGRAM_URL}`, `${MAX_URL}`.
+Не вставляй live URL — `link_verify` расширяет их из env, publish подставляет при деплое.
+

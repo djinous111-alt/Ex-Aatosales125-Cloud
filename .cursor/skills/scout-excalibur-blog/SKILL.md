@@ -44,12 +44,18 @@ Append new Topic Card to blog-topics.md
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
+### Шаг 4 — Тест на каннибализацию ключевых слов + LIVE WP
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-slug "<candidate-slug>"
+# Optional LIVE probes against PUBLIC_SITE_URL (MCP wordpress_* may hit another host — ignore for denylist):
+python3 scripts/excalibur_blog_scout_helper.py --live-search "<model or query>"
+python3 scripts/excalibur_blog_scout_helper.py --live-slugs   # rebuild shared/wp-slug-denylist.json
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если возвращается `OVERLAP DETECTED` / slug blocked — измени формулировку или выбери другую тему.
+**Авто-Сейлс:** следуй Director Task + `memory/brief/site-brief.md`, не AI/Cursor defaults.
+**Commit:** `bash scripts/excalibur_git.sh commit …` (filters non-identifier secret names).
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

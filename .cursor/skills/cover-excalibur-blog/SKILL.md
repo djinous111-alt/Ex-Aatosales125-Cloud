@@ -15,16 +15,17 @@ reference PNG → reference_url_hosted
        ↓
 quad-manifest.json (agent fills hooks + scene_hint)
        ↓
-quad-mcp-batch.json (1 job, input_urls)
+quad-mcp-batch.json (1 job, input_urls; preferred_image_flow = Kie)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+PREFERRED: scripts/excalibur_blog_kie_gpt_image2_api.py (async createTask→poll)
+  fallback only: ONE sync MCP gpt-image-2 (max 1 attempt; -32001 → do not blind-retry)
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
 inject <figure> after H2 in article.html
 ```
 
-**Запрещено:** 4 отдельных MCP на cover + inline.
+**Запрещено:** 4 отдельных MCP на cover + inline; цитировать токсичные леммы (`лох` и т.п.) даже в negatives; hardcoded `white hoodie` outfit lock.
 
 ---
 
@@ -122,21 +123,31 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — image (Kie preferred)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Cloud default:** Kie batch flow (avoids sync MCP -32001 timeout):
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Uses `jobs[0]` prompt + `input_urls` from `cover/quad-mcp-batch.json`, writes `cover/quad-mcp-result.json`.
+
+**Legacy fallback only:** one sync MCP `gpt-image-2` with `jobs[0].mcp_args`. If HTTP -32001:
+1. Do **not** blind-retry a second create (duplicate risk).
+2. Inspect MCP/agent logs for a late URL / task_id; if found → save to `quad-mcp-result.json`.
+3. Else fall through to Kie script above.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
   --inject-html
 ```
+
+Or with explicit URL: `--url "<result url>"`.
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
 

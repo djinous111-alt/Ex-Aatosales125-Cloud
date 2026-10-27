@@ -373,12 +373,14 @@ category: docs
 ### How the agent recovered this run
 - Built CTA hrefs from env for correctness check, then replaced catalog/Telegram hrefs with `[REDACTED]` before commit to match repo policy and AS08/AS09.
 - Kept visible anchor text ("каталог Авто-Сейлс", "Telegram avtosales125", "avto-sales125.ru") and public 2GIS URL unchanged.
+- Pre-commit crashed on `RAW_SECRET_VALUE="${!SECRET_NAME}"` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a literal `[REDACTED]` token; filtered names to valid shell identifiers and retried commit.
 - Recorded `incident_report` for Director/fixer.
 
 ### Durable fix needed before next run
 - Document canonical Writer CTA rule: commit `href="[REDACTED]"` for catalog/Telegram; publish step substitutes from env; never invent hosts.
 - Align Director/writer prompts with secret-scan (remove "never href=[REDACTED]" or scope it to non-secret public URLs only).
 - Optionally add a tiny writer helper that rewrites CATALOG_URL/TELEGRAM_URL → `[REDACTED]` before `git add`.
+- Harden pre-commit secret-name loop: skip non-identifier names instead of crashing; fix injector so secret *names* are never masked as `[REDACTED]`.
 
 ### Suggested files to inspect/change
 - `.cursor/agents/excalibur-blog-writer.md`

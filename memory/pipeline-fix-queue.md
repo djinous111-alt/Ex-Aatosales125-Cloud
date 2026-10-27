@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none for run 2026-10-27 after fixer)_
+
+
 ## INC-20261027-1735-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-indexer
 topic_id: B01
@@ -45,10 +48,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Doctor now asserts `--blog-dir`/`--out-dir` and absence of stale `--blog-path`.
+- Indexer agent/skill examples drop `--blog-path /`; document commit-safe `--site-base ""`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+commit: pending-parent-commit
 
 ## INC-20261027-1730-cover-kie-prompt-moderation
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-cover
 topic_id: B01
@@ -80,10 +98,26 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Prompt builder keeps non-toxic sticker rule without quoting banned lemmas; outfit from scene_hint (no white-hoodie lock).
+- Added `validate_prompt_safety()` preflight rejecting toxic lemmas and hardcoded hoodie lock.
+- Cover agent/skill + pitfalls document: never quote insults in negative prompts.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- safety True on B01 prompt; toxic lemma injection rejected
+commit: pending-parent-commit
 
 ## INC-20261027-1715-research-wordstat-empty-primary
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-research
 topic_id: B01
@@ -112,10 +146,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Research skill/agent: cluster-first; empty `{}`/malformed primary = soft-fail → parent/secondary fallback; mark primary unverified; never invent impressions.
+- Pitfalls updated. MCP Wordstat server wrapper is external (MCP-KV) — client-side fallback is the durable agent contract.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Wordstat empty/soft-fail guidance in research skill
+commit: pending-parent-commit
 
 ## INC-20261027-1716-research-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-research
 topic_id: B01
@@ -144,10 +191,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- `is_technical_topic` uses topic-card fields only (not notes body/github_evidence).
+- Short TECH_MARKERS (`ии`/`ai`/…) use word-boundary match so «японии» is not technical.
+- Research skill documents accessed_at + pain/solution row literals.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- B01 research-notes-gate PASS with `technical_topic: false`
+commit: pending-parent-commit
 
 ## INC-20261027-1724-geo-qa-utility-pain-markers-empty
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -182,8 +242,23 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Confirmed `editorial-policy.json` has pain/outcome markers + min_* + recommendation aliases (`не делать`, `чек-лист`).
+- utility_gate skip-if-empty warnings kept; doctor now FAIL if markers lists empty after tip/rebrand.
+- GEO QA skill + pitfalls: restore policy, do not writer-FIX for pain=0 alone.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified populated)
+- `scripts/excalibur_blog_utility_gate.py` (skip-empty already present)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor: pain/outcome markers populated OK
+- JSON parse editorial-policy
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -435,7 +510,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261027-1706-scout-missing-live-slugs
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-scout
 topic_id: B01
@@ -468,10 +543,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- Added `--live-slugs` / `--live-search` (+ `--site-base`) to scout helper; WP REST FREE/TAKEN; exit 1 on collision.
+- Scout agent/skill require LIVE dedup before append; doctor asserts flags exist.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--help` shows flags; LIVE TAKEN for B01 slug 4615 and Kia K5 search
+- doctor scout helper checks OK
+commit: pending-parent-commit
 
 ## INC-20261027-1720-writer-cta-redacted-vs-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-writer
 topic_id: B01
@@ -506,10 +597,29 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- conversion-map teaches `${CATALOG_URL}`/`${TELEGRAM_URL}`/`${MAX_URL}` lifecycle (author → QA expand → commit redact → publish expand).
+- Added `scripts/excalibur_blog_cta_hrefs.py`; publish load_article expands placeholders/[REDACTED] into WP payload from env.
+- Writer agent/skill aligned; added `scripts/excalibur_git.sh` to skip non-identifier secret names in pre-commit.
+files_changed:
+- `memory/brief/conversion-map.md`
+- `scripts/excalibur_blog_cta_hrefs.py`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- cta --redact dry-run on B01 (3 replacements)
+- py_compile cta + publish
+commit: pending-parent-commit
 
 ## INC-20261027-1740-publish-paramiko-siteenv-bootstrap
-status: open
+status: fixed
 run_date: 2026-10-27
 role: excalibur-blog-publish
 topic_id: B01
@@ -540,5 +650,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-27
+fix_summary:
+- `requirements.txt` already listed paramiko; Dockerfile + cloud-agent-install now install paramiko/numpy; doctor checks import.
+- `wp_publish.py` auto-bootstraps `memory/site.env.local` from process env with `SSH_ROOT=.` / `SSH_PASSWORD`→`SSH_PASS` when missing.
+- Publish agent/skill document bootstrap + paramiko precondition.
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/excalibur-wp-publish/SKILL.md`
+- `.cursor/skills/excalibur-wp-publish/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor paramiko OK; `--env-check` JSON OK
+commit: pending-parent-commit

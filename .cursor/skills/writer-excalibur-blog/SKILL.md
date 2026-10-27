@@ -37,6 +37,16 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA (secret-scan)
+
+См. `memory/brief/conversion-map.md`:
+
+- В HTML: `href="${CATALOG_URL}"`, `href="${TELEGRAM_URL}"`, `href="${MAX_URL}"`.
+- Публичные 2GIS/Instagram — обычные URL.
+- Не выдумывать хосты каталога/Telegram.
+- Перед `git add`: если href уже из env — `python3 scripts/excalibur_blog_cta_hrefs.py --article-html <path> --redact --write`.
+- Publish сам expand'ит плейсхолдеры / legacy `[REDACTED]` в WP payload.
+
 ## Blockers
 
 - нет research-notes.md

@@ -15,6 +15,22 @@ REQUIRED_REFERENCE_HOST = "avtosales125.ru"
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
+# Banned toxic lemmas must NEVER appear in the generated image prompt —
+# including negative/forbid lists. Safety filters still flag quoted insults.
+BANNED_TOXIC_LEMMAS = (
+    "лох",
+    "лохов",
+    "лохи",
+    "для лохов",
+    "дебил",
+    "идиот",
+)
+HARDCODED_HOODIE_LOCK_MARKERS = (
+    "outfit lock: thick heavyweight white hoodie",
+    "thick heavyweight white hoodie",
+    "always wear a white hoodie",
+)
+
 
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
@@ -67,6 +83,30 @@ def validate_prompt_budget(prompt: str) -> bool:
         file=sys.stderr,
     )
     return False
+
+
+def validate_prompt_safety(prompt: str) -> bool:
+    """Fail if prompt contains toxic lemmas or a hardcoded white-hoodie lock."""
+    prompt_l = prompt.lower()
+    hits = [lemma for lemma in BANNED_TOXIC_LEMMAS if lemma in prompt_l]
+    if hits:
+        print(
+            "❌ COVER PROMPT BLOCKER: toxic lemmas in image prompt "
+            f"(even as negatives): {hits}. Describe the non-toxic sticker rule "
+            "without quoting banned words.",
+            file=sys.stderr,
+        )
+        return False
+    hoodie_hits = [m for m in HARDCODED_HOODIE_LOCK_MARKERS if m in prompt_l]
+    if hoodie_hits:
+        print(
+            "❌ COVER PROMPT BLOCKER: hardcoded white-hoodie outfit lock detected. "
+            "Outfit must come from blog-hero.json / scene_hint weather+topic, "
+            "with explicit NO white-hoodie lock.",
+            file=sys.stderr,
+        )
+        return False
+    return True
 
 
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
@@ -138,6 +178,8 @@ def main() -> int:
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
     if not validate_prompt_budget(prompt):
+        return 1
+    if not validate_prompt_safety(prompt):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"
     prompt_path.write_text(prompt + "\n", encoding="utf-8")

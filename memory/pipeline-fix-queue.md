@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-1326-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Agent `pre-commit.cursor` secrets scanner failed with `invalid variable name` when expanding `${!SECRET_NAME}` for one entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- One injected secret name is not a valid bash identifier, so every `git commit` aborts before creating a commit.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` to names matching `^[A-Za-z_][A-Za-z0-9_]*$` for the commit shell only; then commit+push succeeded.
+
+### Durable fix needed before next run
+- Fix Dashboard secret name that is not a valid shell identifier, or harden pre-commit scanner to skip non-identifier names instead of crashing.
+- Document the filter workaround in pitfalls if env cannot be renamed immediately.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Secrets (rename invalid secret key)
+- `shared/agent-pipeline-pitfalls.md` (optional workaround note)
+- Cloud pre-commit scanner (platform)
+
+### Secrets
+- none recorded (do not log secret names/values)
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261027-1325-research-notes-gate-github-false-technical
 status: open
 run_date: 2026-10-27

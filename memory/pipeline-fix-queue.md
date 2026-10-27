@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-1401-indexer-llms-blog-path-doctor-mismatch
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+severity: medium
+category: docs
+
+### What went wrong
+- Skill/agent indexer всё ещё требуют `excalibur_blog_llms_generator.py ... --blog-path /`.
+- CLI help скрипта: только `--blog-dir`, `--site-base`, `--out-dir` (флага `--blog-path` нет).
+- `excalibur_blog_doctor.py` проверяет `"--blog-path" in llms_help.stdout` → Doctor FAIL (known mismatch).
+
+### How the agent recovered this run
+- Запустил generator без `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- Получил `memory/blog/llms.txt` и `memory/blog/llms-full.txt` (3 articles).
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из skill/agent indexer; канон: `--blog-dir` + `--out-dir`.
+- В doctor заменить check `--blog-path` на `--blog-dir` и/или `--out-dir`.
+- Добавить в pitfalls: llms CLI без `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261027-1355-cover-mcp-gpt-image2-sync-timeout
 status: open
 run_date: 2026-10-27

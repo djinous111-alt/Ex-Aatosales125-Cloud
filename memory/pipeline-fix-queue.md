@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2148-publish-siteenv-paramiko-bootstrap
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing at publish start (gitignored; not present in fresh Cloud VM).
+- Cloud Secrets had `SSH_PATH` but not `SSH_ROOT`; publish script reads `SSH_ROOT`.
+- `paramiko` not importable in the runtime image until pip install.
+
+### How the agent recovered this run
+- Bootstrapped gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (login cwd; ENOENT-safe).
+- Mapped SSH password from Cloud Secrets; installed `paramiko==5.1.0` via pip `--break-system-packages`.
+- Expanded CTA `${CATALOG_URL|TELEGRAM_URL|MAX_URL}` and schema `env:*` for publish; restored placeholders before commit.
+- Publish PASS: WP post **4621** (NEW; denylist untouched), featured 4622, inline 4623–4625; HTTP OK ~166s, no WebFetch.
+
+### Durable fix needed before next run
+- Ensure Cloud Secrets include `SSH_ROOT=.` (or auto-map `SSH_PATH`→`SSH_ROOT` in `load_env`).
+- Keep `paramiko` in environment build / `requirements.txt` so publish image has it warm.
+- Document publish preflight: create `site.env.local` from secrets when missing (no quotes around values).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`load_env` SSH_PATH→SSH_ROOT)
+- `.cursor/cloud-agent-install.sh` / `requirements.txt` / Dockerfile
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261027-2140-indexer-precommit-secret-name-pollution
 status: open
 run_date: 2026-10-28

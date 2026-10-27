@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-28 — B01 toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4621
+- **permalink:** https://avtosales125.ru/2026/10/28/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/
+- **featured_image:** 4622
+- **inline_images:** 4623 (`inline-01.png`), 4624 (`inline-02.png`), 4625 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH (`SSH_ROOT=.`) upload OK; HTTP trigger OK (~166s, no WebFetch)
+- **note:** bootstrapped `memory/site.env.local` from Cloud Secrets; `SSH_PATH`→`SSH_ROOT=.`; installed paramiko 5.1.0; CTA/schema expanded for publish then placeholders restored for commit; NEW post (not denylist 4615/4609/4603/4597/…)
+- **result:** `memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/wp-publish-result.json`

@@ -5,14 +5,13 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "${CATALOG_URL}",
+      "url": "${CATALOG_URL}/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "qa_note": "live HEAD 200 with Cloud env expansion; URL sanitized for secret-scan commit"
+      "skipped": false
     },
     {
       "url": "${TELEGRAM_URL}",
@@ -21,8 +20,7 @@
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "qa_note": "live HEAD 200 with Cloud env expansion; URL sanitized for secret-scan commit"
+      "skipped": false
     },
     {
       "url": "${MAX_URL}",
@@ -31,9 +29,7 @@
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "qa_note": "live HEAD 200 with Cloud env expansion; URL sanitized for secret-scan commit"
+      "skipped": false
     }
-  ],
-  "qa_note": "Verified PASS live with env-expanded CTA; committed URLs are ${ENV} placeholders"
+  ]
 }

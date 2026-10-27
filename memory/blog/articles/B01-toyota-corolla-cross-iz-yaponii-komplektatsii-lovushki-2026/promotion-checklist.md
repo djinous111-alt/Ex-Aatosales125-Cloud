@@ -1,13 +1,13 @@
 # Promotion checklist — B01 toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-28 (planned)  
-Live URL: /blog/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-28  
+Live URL: https://avtosales125.ru/2026/10/28/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; REST id=4621 featured=4622)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Сначала код кузова ZSG/ZVG/MXGH, потом комплектация и лист
 • После 05.2025 почти вся JP-линейка гибрид — проверьте экспорт до ставки
 
-Читать: /blog/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/28/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

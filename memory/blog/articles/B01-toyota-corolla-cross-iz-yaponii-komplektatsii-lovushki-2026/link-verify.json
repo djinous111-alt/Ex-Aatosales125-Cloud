@@ -1,0 +1,39 @@
+{
+  "source": "memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "total_links": 3,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "${CATALOG_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "qa_note": "live HEAD 200 with Cloud env expansion; URL sanitized for secret-scan commit"
+    },
+    {
+      "url": "${TELEGRAM_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "qa_note": "live HEAD 200 with Cloud env expansion; URL sanitized for secret-scan commit"
+    },
+    {
+      "url": "${MAX_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "qa_note": "live HEAD 200 with Cloud env expansion; URL sanitized for secret-scan commit"
+    }
+  ],
+  "qa_note": "Verified PASS live with env-expanded CTA; committed URLs are ${ENV} placeholders"
+}

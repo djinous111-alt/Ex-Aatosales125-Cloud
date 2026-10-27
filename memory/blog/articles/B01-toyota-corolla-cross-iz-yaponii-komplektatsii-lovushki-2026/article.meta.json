@@ -11,7 +11,7 @@
     "тойота королла кросс владивосток",
     "тойота королла кросс гибрид из японии"
   ],
-  "char_count": 9268,
+  "char_count": 9262,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,12 +28,19 @@
     "description_aeo": "Toyota Corolla Cross из Японии выбирают по коду кузова, топливу/экспорту, рулю и аукционному листу: ZSG10 vs ZVG*/MXGH15, S/Z/GR, стоп при R/XX."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-28",
     "html_linter": "PASS",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "slop_score": "WARNING (0 cliches, 6 over-long, Flesch 72.2)",
+    "cannibalization": "PASS",
+    "research_notes_gate": "PASS",
+    "utility_gate": "PASS",
+    "human_voice_gate": "PASS",
+    "link_verify": "PASS",
+    "fact_check": "PASS",
+    "beginner_fit": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

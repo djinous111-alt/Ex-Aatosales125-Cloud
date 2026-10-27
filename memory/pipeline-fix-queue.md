@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2124-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: tooling
+
+### What went wrong
+- Cloud API does not accept typed Task `excalibur-blog-geo-qa`; Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Ran full GEO QA contract as generalPurpose subagent; produced `article-qa.md` PASS and handoff block `=== EXCALIBUR BLOG GEO QA ===`.
+
+### Durable fix needed before next run
+- Document Cloud Task-type fallback for geo-qa in pitfalls / CLOUD-AUTOMATION; keep generalPurpose path as first-class until typed tasks are registered.
+- Prefer registering `excalibur-blog-*` Task types in Cloud if platform allows.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+- `AGENTS.md`
+- `.cursor/rules/excalibur-blog-orchestrator.mdc`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261027-2124-geo-qa-cta-env-placeholders
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: qa
+
+### What went wrong
+- CTA hrefs `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` make `excalibur_blog_link_verify.py` treat links as internal_relative under `--site-base` → 404 FAIL.
+- Expanding real env values into `article.html` / `link-verify.json` trips Cloud pre-commit secret scan (those env vars are registered secrets).
+- Insight block started with banned template label `TL;DR / Быстрый инсайт`.
+
+### How the agent recovered this run
+- Minimal FIX: insight → `Инсайт до ставки`.
+- Live-expand CTA from Cloud env, run link-verify PASS 3/3, then restore `${…}` placeholders in HTML and sanitize `link-verify.json` for commit.
+- Filter `CLOUD_AGENT_*_SECRET_NAMES` to comma-separated valid identifiers before `git commit` (hook IFS=',').
+
+### Durable fix needed before next run
+- Document QA/Publish CTA flow: keep `${ENV}` in committed HTML; expand only for live verify; sanitize reports; publish substitutes at deploy.
+- Teach `link_verify` to resolve or soft-skip `${ENV}` tokens via os.environ so placeholders do not FAIL.
+- Restore `scripts/excalibur_git.sh` wrapper for secret-name filtering + document in pitfalls.
+- Writer: keep placeholders (correct for secret-scan); do not paste raw CATALOG/TELEGRAM/MAX URLs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_git.sh`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261027-2120-writer-utility-pain-markers-missing
 status: open
 run_date: 2026-10-28

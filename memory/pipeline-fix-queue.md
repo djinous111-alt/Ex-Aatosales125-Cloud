@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2140-indexer-precommit-secret-name-pollution
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud pre-commit secrets scanner failed with `invalid variable name` while expanding `${!SECRET_NAME}`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` included one non-identifier entry (URL/value-shaped, len=25) mixed into the comma-separated name list.
+
+### How the agent recovered this run
+- Filtered both env lists to bash identifiers (`^[A-Za-z_][A-Za-z0-9_]*$`) for the commit process only (14/15 kept).
+- Re-ran `git commit` + `git push` successfully; did not use `--no-verify`.
+
+### Durable fix needed before next run
+- Ensure Cloud secret-injection only puts valid env var *names* into `CLOUD_AGENT_*_SECRET_NAMES` (never secret values/URLs).
+- Harden `pre-commit.cursor` to skip non-identifier names instead of aborting the whole commit.
+- Document indexer commit workaround in pitfalls if env pollution can recur.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh` (if used for commits)
+- Cloud agent hook / secret injection config (platform)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261027-2131-cover-mcp-timeout-kie-fallback
 status: open
 run_date: 2026-10-28

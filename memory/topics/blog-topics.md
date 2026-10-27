@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Land Cruiser 300 из Японии
+
+- **priority:** P0
+- **slug:** toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+- **h1:** Как выбрать Toyota Land Cruiser 300 из Японии: комплектации и ловушки до ставки
+- **primary_query:** как выбрать toyota land cruiser 300 из японии
+- **secondary_queries:** ленд крузер 300 комплектации, тойота ленд крузер 300, ленд крузер 300 дизель
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого LC300 из Японии, а когда лучше смотреть другие рынки
+  2. Как читать комплектации GX / ZX / GR Sport до ставки на аукционе
+  3. Дизель или гибрид: что проверить в листе и на фото до депозита
+  4. Ловушки до ставки: оценка, пробег, опции, "похожий на Prado" лот
+  5. Чек-лист перед депозитом и связка Владивосток / СВХ / выдача
+- **faq_hints:** какие бывают комплектации тойота ленд крузер 300; чем LC300 отличается от Prado при заказе из Японии; что смотреть в аукционном листе до ставки
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** рамный LC300 у порта Владивостока, герой Авто-Сейлс с плашкой "до ставки", угол avto-sales125.ru
+- **wordstat_signal:** parent "ленд крузер 300" 34330 / phrase 33215; "комплектации" 347; узкий how-to low-detail (totalCount 29 / empty {})
+- **live_check:** slug free; cyrillic "ленд крузер 300" = 0 dedicated posts; related only frame-SUV/Prado cluster

@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-1305-scout-missing-live-slugs
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Scout run context required LIVE denylist dedupe via helper `--live-slugs`, but `scripts/excalibur_blog_scout_helper.py` CLI exposes only `--suggest-next` and `--check-query`.
+- Ledger `shared/published-articles.md` is nearly empty after AVTO SALES reset, so ledger-only dedupe is unsafe against a full LIVE blog.
+
+### How the agent recovered this run
+- Manual LIVE REST dedupe against `PUBLIC_SITE_URL` + `/wp-json/wp/v2/posts?slug=...` and `?search=...` (exact slug + Cyrillic/Latin title queries).
+- Selected free P0 topic `toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki` after Wordstat + LIVE checks.
+
+### Durable fix needed before next run
+- Add `--live-slugs` (and ideally `--live-search`) to `excalibur_blog_scout_helper.py` using `PUBLIC_SITE_URL` WP REST, with denylist merge and clear free/busy output.
+- Update scout skill/agent docs for AVTO SALES niche: prefer LIVE REST over ledger; forbid Cursor/Make/AI topic drift.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

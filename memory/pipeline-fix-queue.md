@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-1735-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_doctor.py` still asserts that llms generator help contains `--blog-path`, but `excalibur_blog_llms_generator.py --help` only exposes `--blog-dir` / `--out-dir` / `--site-base`.
+- Indexer agent + skill shell examples still pass `--blog-path /`, which would fail if followed literally (`unrecognized arguments`).
+- Doctor note already flagged this as stale before Indexer step; contracts were not yet aligned.
+
+### How the agent recovered this run
+- Ran llms generator with current flags only: `--blog-dir memory/blog/articles --out-dir memory/blog` (no `--blog-path`).
+- First pass with `--site-base $PUBLIC_SITE_URL` wrote absolute host URLs into `llms.txt` / `llms-full.txt` and was blocked by pre-commit secret-scan.
+- Regenerated with `--site-base ""` so links are relative `/blog/<slug>/` (matches HEAD convention after host-drop commit); cleared `site_base` in `interlink-suggestions.json` the same way.
+- Also filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid shell identifiers (comma-joined) so pre-commit does not crash on a non-identifier token.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from doctor check (or flip to assert flag is absent / assert `--blog-dir`+`--out-dir` present).
+- Update indexer agent/skill shell examples to drop `--blog-path /` and document commit-safe `--site-base ""` (relative `/blog/` URLs) vs live absolute base for publish-time artifacts.
+- Optionally teach llms generator a `--relative-urls` / default empty base for repo commits.
+- Mirror the same fix in root `agents/` and `skills/` copies if they diverge from `.cursor/`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261027-1730-cover-kie-prompt-moderation
 status: open
 run_date: 2026-10-27

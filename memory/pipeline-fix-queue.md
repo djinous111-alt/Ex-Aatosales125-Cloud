@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-1330-writer-utility-gate-missing-pain-outcome-markers
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always requires `pain_markers_ru` / `outcome_markers_ru` (defaults min 2 / 3), but `memory/brief/editorial-policy.json` had neither list.
+- Result: every article (including already-published AS08/AS09) got `UTILITY GATE BLOCKER` with `pain_markers=0` / `outcome_markers=0` even when content was fine.
+- Separately, recommendation markers expect imperative forms (`сделайте` / `не делайте`); soft `Делать:` labels do not count.
+
+### How the agent recovered this run
+- Added `pain_markers_ru` and `outcome_markers_ru` plus `min_pain_markers` / `min_outcome_markers` to `memory/brief/editorial-policy.json`.
+- Rewrote recommendation lines in B01 article to `Сделайте` / `Не делайте` / `Проверьте` / `Избегайте` / `Используйте`.
+- Re-ran utility gate → PASS; human-voice gate → PASS (soft warn on ol≥5 regex).
+
+### Durable fix needed before next run
+- Confirm marker lists with editorial (auto-import niche words vs generic AI/automation words).
+- Gate should skip pain/outcome checks when marker lists are empty, or fail doctor/preflight if keys missing.
+- Optionally document that recommendation markers need imperative wording in writer skill/contract.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/excalibur-article-writing-contract.md` / `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261027-1326-precommit-invalid-secret-name
 status: open
 run_date: 2026-10-27

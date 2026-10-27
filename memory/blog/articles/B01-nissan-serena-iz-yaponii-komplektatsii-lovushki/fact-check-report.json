@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "/ e-POWER) и полный аукционный лист. Часть гайдов 2026 пишет, что \"всем Serena льготный утиль\" – для e-PO",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2010",
+      "kind": "date_or_year",
+      "context": "з кода кузова – лотерея. На пальцах: C26 примерно 2010–2016, C27 с 2016 (рестайлинг около 2019–2022), C2",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2016",
+      "kind": "date_or_year",
+      "context": "а кузова – лотерея. На пальцах: C26 примерно 2010–2016, C27 с 2016 (рестайлинг около 2019–2022), C28 с н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2019",
+      "kind": "date_or_year",
+      "context": "примерно 2010–2016, C27 с 2016 (рестайлинг около 2019–2022), C28 с ноября 2022, на Drom уже есть рестай",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "ерно 2010–2016, C27 с 2016 (рестайлинг около 2019–2022), C28 с ноября 2022, на Drom уже есть рестайлинг",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "оября 2022, на Drom уже есть рестайлинг с декабря 2025. Сверяйте код кузова в листе и на фото морды/сало",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "ортные ограничения Японии затрагивают авто больше 1900 см³, гибриды и EV – бензин ~2.0 и e-POWER не счита",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

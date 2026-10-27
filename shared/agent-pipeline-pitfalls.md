@@ -34,6 +34,8 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- `editorial-policy.json` обязан содержать `pain_markers_ru` / `outcome_markers_ru` (как в `human_voice_gate`); пустые списки → utility false BLOCK или skip-warning. После rebrand/tip без fixer — восстановить, не слать writer за «pain=0».
+- Инсайт-блок: не начинать с ярлыка `TL;DR` / `Быстрый инсайт`.
 
 ## Cover
 

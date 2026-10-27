@@ -70,6 +70,44 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261027-1724-geo-qa-utility-pain-markers-empty
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki
+severity: medium
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` BLOCKED Serena article with `pain_markers=0` / `outcome_markers=0` because `memory/brief/editorial-policy.json` on this branch lacked `pain_markers_ru` / `outcome_markers_ru` (recurring after tip/rebrand without durable fixer).
+- Same empty lists also false-BLOCK previously published AS08/AS09 under current tip.
+- Skip-if-empty guard was missing from utility_gate again; recommendation list lacked writing-contract aliases `не делать` / `чек-лист` (article had action language but scored 5&lt;8).
+- Insight block started with banned label `TL;DR / Быстрый инсайт`.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` / `outcome_markers_ru` (aligned with human_voice_gate) + `min_pain_markers` / `min_outcome_markers` in editorial-policy.
+- Added recommendation aliases `не делать`, `чек-лист`; restored skip-if-empty warnings in utility_gate.
+- Renamed insight label to `Коротко до депозита:`; re-ran all QA scripts → utility/human-voice PASS; article-qa PASS score 87.
+- Did not send writer for marker-only zeros.
+
+### Durable fix needed before next run
+- Pin editorial-policy pain/outcome markers and utility_gate skip-empty so new Cloud tips from sanitized main cannot drop them again.
+- Keep pitfalls note: empty lists → restore policy, do not writer-FIX for pain=0 alone.
+- Fixer should verify policy + script on branch after each rebrand/tip.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

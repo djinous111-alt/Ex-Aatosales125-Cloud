@@ -61,7 +61,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check`
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2140-indexer-precommit-secret-name-pollution
 status: fixed
@@ -109,7 +109,7 @@ checks_run:
 - `bash scripts/excalibur_git.sh filter-env`
 - `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`
 - doctor asserts git helpers present
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2131-cover-mcp-timeout-kie-fallback
 status: fixed
@@ -154,7 +154,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg preferred_image_flow / Kie path in cover skill
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2131-schema-precommit-secret-name-filter
 status: fixed
@@ -198,7 +198,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor: excalibur_git.sh present
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2130-cover-toxic-lemma-in-prompt-builder
 status: fixed
@@ -243,7 +243,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - unit asserts toxic/hoodie validators + clean generated prompt
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2124-geo-qa-typed-task-unavailable
 status: fixed
@@ -282,7 +282,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg first-class generalPurpose guidance
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2124-geo-qa-cta-env-placeholders
 status: fixed
@@ -334,7 +334,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - link_verify on B01 article.html → pass with 3 cta_env links
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2120-writer-utility-pain-markers-missing
 status: fixed
@@ -384,7 +384,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy marker checks PASS
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2114-research-notes-gate-false-technical
 status: fixed
@@ -430,7 +430,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: Corolla/Japan notes → technical=False; MCP/Cursor → True
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2106-scout-live-helper-drift
 status: fixed
@@ -487,7 +487,7 @@ files_changed:
 checks_run:
 - doctor scout --live-slugs/--live-search OK
 - `--live-slugs` rebuild count=1229
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20261027-2107-doctor-llms-blog-path-stale
 status: fixed
@@ -525,7 +525,7 @@ files_changed:
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
 checks_run:
 - doctor: llms generator supports --blog-dir; no stale --blog-path (warn check)
-commit: pending-parent-commit
+commit: 148223e1
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

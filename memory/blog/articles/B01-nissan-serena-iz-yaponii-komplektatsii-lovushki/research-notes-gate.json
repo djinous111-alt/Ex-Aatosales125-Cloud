@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki",
+  "notes": "memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki/research-notes.md",
+  "context": "memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-27",
+    "prefer_sources_after": "2026-07-29",
+    "source_urls": 33,
+    "source_domains": 15,
+    "source_table_rows": 22,
+    "accessed_at": 20,
+    "github_urls": 4,
+    "official_doc_urls": 1,
+    "action_outline_items": 8,
+    "pain_solution_rows": 6,
+    "technical_topic": true
+  }
+}

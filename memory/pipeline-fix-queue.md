@@ -355,3 +355,39 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261027-1720-writer-cta-redacted-vs-secret-scan
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki
+severity: medium
+category: docs
+
+### What went wrong
+- Writer Task forbids `href="[REDACTED]"` and invented URLs; conversion-map/site-brief store catalog/Telegram as `[REDACTED]`.
+- Real `CATALOG_URL` / `TELEGRAM_URL` exist in Cloud Secrets; using them in `article.html` collides with pre-commit secret-scan (and prior AS08/AS09 commits keep `href="[REDACTED]"`).
+- Separately, pre-commit hook can crash with `invalid variable name` when a secret *name* in `CLOUD_AGENT_INJECTED_SECRET_NAMES` is itself masked as `[REDACTED]`.
+
+### How the agent recovered this run
+- Built CTA hrefs from env for correctness check, then replaced catalog/Telegram hrefs with `[REDACTED]` before commit to match repo policy and AS08/AS09.
+- Kept visible anchor text ("каталог Авто-Сейлс", "Telegram avtosales125", "avto-sales125.ru") and public 2GIS URL unchanged.
+- Recorded `incident_report` for Director/fixer.
+
+### Durable fix needed before next run
+- Document canonical Writer CTA rule: commit `href="[REDACTED]"` for catalog/Telegram; publish step substitutes from env; never invent hosts.
+- Align Director/writer prompts with secret-scan (remove "never href=[REDACTED]" or scope it to non-secret public URLs only).
+- Optionally add a tiny writer helper that rewrites CATALOG_URL/TELEGRAM_URL → `[REDACTED]` before `git add`.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-writer.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

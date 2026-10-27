@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Subaru Forester из Японии
+
+- **priority:** P0
+- **slug:** subaru-forester-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Subaru Forester из Японии: комплектации, ловушки мощности и чек-лист до ставки в 2026
+- **primary_query:** как выбрать субару форестер из японии
+- **secondary_queries:** субару форестер комплектации, субару форестер гибрид, субару форестер из японии
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. С чего начать новичку: поколение SJ/SK, правый руль и сценарий дорог
+  2. Как сравнить моторы 2.0 e-Boxer и 2.5 до ставки (ловушка утильсбора по мощности)
+  3. Какие комплектации реально смотреть на аукционе и что часто путают в листах
+  4. Красные флаги: вариатор, EyeSight, следы ударов, "идеальный" пробег
+  5. Чек-лист из 10 пунктов до ставки / депозита через Владивосток
+- **faq_hints:** какой Forester проходит под льготный утильсбор; чем e-Boxer отличается от обычного 2.0; можно ли везти 2.5 без сюрприза по платежам; что проверить в аукционном листе до ставки
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у кроссовера Forester у порта Владивостока, плашка "до ставки", угол avto-sales125.ru
+- **wordstat_signal:** parent "субару форестер" ~323093; "комплектации" ~1521; "гибрид" ~2674; how-to узкий totalCount-only ~33 (low-result)
+- **live_dedup:** WP REST slug free; нет dedicated Forester/Subaru model-статьи; не путать с общим топом японских кроссоверов

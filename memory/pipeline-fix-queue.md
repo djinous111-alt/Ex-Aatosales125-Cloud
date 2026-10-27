@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-1730-cover-kie-prompt-moderation
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-serena-iz-yaponii-komplektatsii-lovushki
+severity: medium
+category: prompt
+
+### What went wrong
+- First Kie `gpt-image-2-image-to-image` task failed: `failCode=400 failMsg=your prompt was flagged by website as violating content policies`.
+- Root cause: `excalibur_blog_cover_quad_prompt.py` listed banned toxic Russian lemmas (лох/лохов) verbatim inside the negative sticker rule; the safety filter still flagged the prompt.
+- Same builder also still had a hard `Outfit lock: thick heavyweight white hoodie`, contradicting `blog-hero.json` / cover-concept (weather outfit, no hoodie) and director instruction `no white-hoodie lock`.
+
+### How the agent recovered this run
+- Removed toxic lemmas from the prompt builder; kept a non-toxic sticker rule without banned words.
+- Softened `trash-design` wording; replaced white-hoodie lock with weather/topic outfit from `scene_hint`.
+- Regenerated batch and retried ONE Kie async job → success → split PASS → inject HTML ok.
+
+### Durable fix needed before next run
+- Keep banned toxic words out of generated image prompts entirely (describe the rule without quoting the lemmas).
+- Assert outfit rule comes from `blog-hero.json` / scene_hint, never a hardcoded white hoodie.
+- Optionally add a preflight scan that fails if prompt contains banned toxic lemmas or white-hoodie lock.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py` (partially patched this run)
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261027-1715-research-wordstat-empty-primary
 status: open
 run_date: 2026-10-27

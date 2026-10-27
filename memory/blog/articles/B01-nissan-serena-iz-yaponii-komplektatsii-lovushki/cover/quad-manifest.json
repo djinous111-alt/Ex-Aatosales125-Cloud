@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Оценка 4 — и уже депозит?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Семейный минивэн Nissan Serena у порта Владивостока, плашка до депозита, герой Авто-Сейлс",
+      "meme_caption_ru": "До депозита проверь",
+      "scene_hint": "Владивосток port fog: modern family Nissan Serena minivan by ro-ro terminal; blog host reference FACE+glasses only, outfit = waterproof navy port jacket + scarf (NO white hoodie, NO hood, NO cap); Cyrillic plaque «до депозита»; fake auction sheet + catalog card scrap with tape; corner brand avto-sales125.ru; shocked meme cutout; no toxic sticker text"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Определите, нужна ли вам Serena или другой минивэн",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "RU comparison table UI: Serena vs Noah/Voxy/Stepwgn — места, багаж, семья 2–3 ребёнка, правый руль; sticky note «семья?»; no host face",
+      "alt": "Таблица сравнения: Nissan Serena или другой семейный минивэн"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как отличить поколения C26, C27 и C28 до ставки",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram C26 → C27 → C28: годы, код кузова, Highway Star tip; mini auction-list inset with tape; marker arrow «до ставки»; no host face",
+      "alt": "Схема поколений Nissan Serena C26, C27 и C28 до ставки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните бензин, S-HYBRID и e-POWER до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board бензин / S-HYBRID / e-POWER: ДВС=генератор, 30-мин мощность, стоп до депозита; pink sticky «не путать гибрид»; no host face",
+      "alt": "Чеклист силовой: бензин, S-HYBRID и e-POWER до депозита"
+    }
+  }
+}

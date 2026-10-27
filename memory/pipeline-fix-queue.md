@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-0908-research-wordstat-empty-primary
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-subaru-forester-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` for primary_query `как выбрать субару форестер из японии` twice returned unexpected empty payload `{}` (not HTTP 401).
+- Step-0 `research-serp.json` had `result_count: 0` for most primary/secondary queries; live Cursor WebSearch was required as the real SERP source.
+- First `research-notes-gate` run BLOCKed: `accessed_at` counted only key-value `accessed_at:` labels (not bare date cells), and `pain_solution_map` rows must contain pain/solution/result keywords in the row text.
+
+### How the agent recovered this run
+- Retried primary Wordstat once; still empty.
+- Collected demand from working adjacent phrases (`субару форестер`, `комплектации`, `гибрид`, `из японии`) and marked primary as `n/a` with partial Wordstat warning (not inventing impressions).
+- Ignored empty SERP dump and rebuilt competitor/docs/community evidence via WebSearch/WebFetch for `research_date` 2026-10-27.
+- Rewrote source_table cells to `accessed_at: 2026-10-27` and prefixed pain map rows with `боль:` / `решение:` / `результат:`; gate PASS on retry.
+
+### Durable fix needed before next run
+- Document in research skill that empty `{}` from Wordstat is a known low-volume/API quirk distinct from 401; require secondary phrases + explicit `n/a` row.
+- Harden `excalibur_blog_research_start.py` SERP fetcher or mark empty SERP as soft-fail so research agents always plan WebSearch first.
+- Document gate regex quirks for `accessed_at:` labels and pain_solution_map keyword rows in research skill / pitfalls (or relax the gate to accept table date columns).
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_start.py`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

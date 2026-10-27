@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2120-writer-utility-pain-markers-missing
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Writer self-check: `excalibur_blog_utility_gate.py` BLOCK on article because `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` (and `min_pain_markers` / `min_outcome_markers`), so pain/outcome counts were 0.
+- Same regression previously fixed in earlier B01 runs (Delica / Coolray durable fixes) but wiped after rebrand sync (`feat: rebrand Ex-Aatosales125-Cloud for AVTO SALES`), which restored a thin policy without marker lists.
+- Current `scripts/excalibur_blog_utility_gate.py` also lost the human-voice fallback for empty marker lists that existed in commit `3a2111c5`.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru`, `outcome_markers_ru`, and min thresholds in `memory/brief/editorial-policy.json`.
+- Restored empty-list fallback to `PAIN_MARKERS` / `OUTCOME_MARKERS` from `excalibur_blog_human_voice_gate.py` inside utility gate.
+- Strengthened article recommendation markers (`Сделайте` / `Не делайте`, `Шаг N`) so action-marker count ≥ 8.
+- Utility + human-voice self-checks after restore: PASS.
+
+### Durable fix needed before next run
+- Keep `pain_markers_ru` / `outcome_markers_ru` in editorial-policy as required keys; add a doctor or policy schema check that fails when they are missing.
+- Preserve utility-gate fallback so empty lists never invent impossible 0-count BLOCK again.
+- Document in pitfalls that rebrand/sync of `editorial-policy.json` must not drop marker vocabularies.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261027-2114-research-notes-gate-false-technical
 status: open
 run_date: 2026-10-28

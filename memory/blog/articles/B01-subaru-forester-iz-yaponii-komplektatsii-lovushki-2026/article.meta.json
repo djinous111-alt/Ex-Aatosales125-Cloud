@@ -11,7 +11,7 @@
     "субару форестер гибрид",
     "субару форестер из японии"
   ],
-  "char_count": 9266,
+  "char_count": 9214,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,8 +28,8 @@
     "description_aeo": "До ставки по Subaru Forester из Японии сверьте код кузова и мощность с 117,68 кВт, прочитайте аукционный лист и запросите расчёт под ключ."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-27"
   },
   "cover_family": "brand_collage"

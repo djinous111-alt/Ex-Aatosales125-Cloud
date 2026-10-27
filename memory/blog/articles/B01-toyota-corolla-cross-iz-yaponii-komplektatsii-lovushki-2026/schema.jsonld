@@ -1,0 +1,200 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026",
+      "description": "Как выбрать Toyota Corolla Cross из Японии в 2026: коды ZSG/ZVG/MXGH, комплектации S/Z/GR, аукционный лист и ловушки до ставки. Чек-лист Авто-Сейлс.",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "env:PUBLIC_SITE_URL/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "env:PUBLIC_SITE_URL/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "env:CATALOG_URL"
+        },
+        "sameAs": [
+          "env:CATALOG_URL",
+          "env:TELEGRAM_URL",
+          "env:MAX_URL",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "env:PUBLIC_SITE_URL/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "env:CATALOG_URL",
+        "sameAs": [
+          "env:CATALOG_URL",
+          "env:TELEGRAM_URL",
+          "env:MAX_URL"
+        ]
+      },
+      "keywords": [
+        "тойота королла кросс из японии",
+        "тойота королла кросс комплектации",
+        "тойота королла кросс владивосток",
+        "тойота королла кросс гибрид из японии",
+        "toyota corolla cross японский аукцион"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какая комплектация Corolla Cross лучше для РФ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сначала решите топливо и выезд, потом букву. Для первого заказа чаще берут спокойную S или Z после чистого листа. GR Sport и Adventure подключайте, когда код, экспорт и схема уже зелёные."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Z отличается от S и G?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это уровни оснащения японской линейки, не оценка аукциона. G после рестайлинга к июлю 2026 снят; S – база комфорта, Z – богаче, GR Sport – отдельная ветка 2.0 E-Four. Сверяйте букву в карточке лота, а не в рекламном заголовке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Брать 2WD или E-Four?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Смотрите код: ZVG13 – 2WD, ZVG16 – E-Four, MXGH15 – только E-Four. E-Four помогает на снегу и грунтовке, но это электро-полный привод, не рамный внедорожник. Выбирайте под маршруты, не \"на всякий случай дороже\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить оценке аукциона по гибридной батарее?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет как единственному аргументу. Оценка листа – про общее состояние лота, не замена проверке экспорта и чтению схемы/примечаний. SOH батареи в листе часто нет: ориентируйтесь на код, пробег, замечания инспектора и брокерскую проверку."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем японский Cross отличается от версии из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Япония – правый руль и аукционный лист с кодами ZSG/ZVG/MXG*. Китай – левый руль, другой завод и часто моторы 2.0 (FAW Cross / GAC Frontlander). Не смешивайте рынки в одном \"под ключ\" без фильтра."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли сейчас привезти гибрид Corolla Cross с японского аукциона?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не считайте это \"ещё одной комплектацией\". С августа 2023 действуют ограничения на экспорт гибридных легковушек в РФ: до ставки сверьте статус с брокером и актуальным хабом контроля. Без зелёного света по экспорту ставку не даём."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "С чего начать заказ через Владивосток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Соберите бриф из чек-листа выше и отправьте его в каталог или Telegram avtosales125. Депозит и расчёт – только после кода кузова, рынка и оригинала листа, без оплаты \"на слово\"."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Toyota Corolla Cross из Японии до ставки",
+      "description": "Пошаговый выбор Toyota Corolla Cross с японского аукциона: рынок JP/CN, коды ZSG/ZVG/MXGH, топливо и экспорт, аукционный лист и бриф до ставки через Владивосток.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Оригинал аукционного листа (оценка, схема, примечания инспектора)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чек-лист до ставки через Владивосток"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Каталог Авто-Сейлс и Telegram avtosales125 для расчёта под ключ"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Бриф: рынок JP/CN, код кузова, топливо, руль, привод"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Данные листа: оценка, схема повреждений, стоп-флаги"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Потолок ставки или решение «пропускаю / допфото»"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выбрать рынок — Япония или Китай",
+          "text": "Шаг 1: выберите рынок – Япония или Китай – одной строкой в брифе.",
+          "url": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#отсейте-чужие-кузова-седан-corolla-и-китайский-cross"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Отсеять седан и объявления без кода кузова",
+          "text": "Шаг 2: отсейте седан и чужие объявления без кода кузова.",
+          "url": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#отсейте-чужие-кузова-седан-corolla-и-китайский-cross"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверить топливо, экспорт и привод по коду",
+          "text": "Шаг 3: проверьте топливо/экспорт и привод по коду.",
+          "url": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#проверьте-топливо-и-экспорт-до-ставки-на-гибрид"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Прочитать оригинал аукционного листа и стоп-флаги",
+          "text": "Шаг 4: прочитайте оригинал листа и отметьте стоп-флаги.",
+          "url": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#как-читать-аукционный-лист-оценка-не-равна-комплектации"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Собрать бриф на одну страницу",
+          "text": "Шаг 5: соберите бриф на одну страницу.",
+          "url": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#пройдите-чек-лист-до-ставки-через-владивосток"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Отправить бриф и согласовать потолок ставки",
+          "text": "Шаг 6: отправьте бриф в каталог или Telegram и согласуйте потолок ставки.",
+          "url": "env:PUBLIC_SITE_URL/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

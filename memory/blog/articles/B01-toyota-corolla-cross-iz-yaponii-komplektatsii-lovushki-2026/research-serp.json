@@ -1,0 +1,656 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-28",
+    "today_ru": "28.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-30",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-28 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026",
+    "primary_query": "тойота королла кросс из японии",
+    "secondary_queries": [
+      "тойота королла кросс комплектации",
+      "тойота королла кросс владивосток",
+      "тойота королла кросс гибрид из японии"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "тойота королла кросс из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Corolla Cross — цена под ключ и как купить из Японии в 2026 | АИ ...",
+          "url": "https://ai-import.ru/catalog/japan/toyota/corolla_cross",
+          "snippet": ""
+        },
+        {
+          "title": "Заказать Toyota Corolla Cross 2026 Года За 2 791 318 ₽ Из Японии ...",
+          "url": "https://asiaexpressauto.ru/japan/toyota/corolla-cross/toyota_corolla_cross-44/",
+          "snippet": "Toyota Corolla Cross купить под заказ от 1 740 000 ₽ под ключ — цены, комплектации и сроки доставки из Японии. Выкуп, проверка, растаможка и доставка по России по одному договору."
+        },
+        {
+          "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+          "snippet": "Основные характеристики: Год: 2026 Объем Двигателя 1800 Трансмиссия FAT Топливо Гибрид Привод Передний Оценка аукциона S Стоимость 2 791 318 ₽"
+        },
+        {
+          "title": "Toyota Corolla Cross 2026 года из Японии - sferacar.ru",
+          "url": "https://sferacar.ru/statistika/toyota/corolla-cross/?year_from=2026&year_to=2026",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Corolla из Японии: растаможка, утильсбор и срок 2026",
+          "url": "https://aa-dv.ru/rastamozhka-toyota-corolla.html",
+          "snippet": "Автомобили Toyota Corolla Cross 2026 года на аукционах Японии, удобный поиск по марке, модели и кузову авто. Фотографии и расчет стоимости и доставки по регионам РФ"
+        },
+        {
+          "title": "Купить Toyota Corolla cross из Японии — цены, подбор и доставка под ...",
+          "url": "https://atp-auto.ru/avto-iz-yaponii/toyota/corolla-cross/",
+          "snippet": "Мы привозим из Японии любую Toyota Corolla — седан, универсал Touring, Axio, Fielder и Corolla Cross, бензиновую и гибридную. Поможем купить и привезти любую машину — вопрос только во времени: гибриды и версии 2,0 идут в среднем два месяца, цену и срок фиксируем в договоре."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "тойота королла кросс из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Заказать Toyota Corolla Cross 2026 Года За 2 791 318 ₽ Из Японии ...",
+          "url": "https://asiaexpressauto.ru/japan/toyota/corolla-cross/toyota_corolla_cross-44/",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Королла Кросс 2026 между собой."
+        },
+        {
+          "title": "Toyota Corolla из Японии: растаможка, утильсбор и срок 2026",
+          "url": "https://aa-dv.ru/rastamozhka-toyota-corolla.html",
+          "snippet": "Основные характеристики: Год: 2026 Объем Двигателя 1800 Трансмиссия FAT Топливо Гибрид Привод Передний Оценка аукциона S Стоимость 2 791 318 ₽"
+        },
+        {
+          "title": "Купить Toyota Corolla cross из Японии — цены, подбор и доставка под ...",
+          "url": "https://atp-auto.ru/avto-iz-yaponii/toyota/corolla-cross/",
+          "snippet": "Мы привозим из Японии любую Toyota Corolla — седан, универсал Touring, Axio, Fielder и Corolla Cross, бензиновую и гибридную. Поможем купить и привезти любую машину — вопрос только во времени: гибриды и версии 2,0 идут в среднем два месяца, цену и срок фиксируем в договоре."
+        },
+        {
+          "title": "Toyota Corolla Cross 2026 года из Японии - sferacar.ru",
+          "url": "https://sferacar.ru/statistika/toyota/corolla-cross/?year_from=2026&year_to=2026",
+          "snippet": "Toyota Corolla cross из Японии — реальные цены с аукционов в 2026 году. Подбор под заказ и доставка от 25 дней по всей России. Покажем варианты."
+        },
+        {
+          "title": "Продажа Toyota Corolla Cross Из Японии",
+          "url": "https://autosender.ru/japan-auto/toyota/corolla-cross",
+          "snippet": "Автомобили Toyota Corolla Cross 2026 года на аукционах Японии, удобный поиск по марке, модели и кузову авто. Фотографии и расчет стоимости и доставки по регионам РФ"
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "тойота королла кросс из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Corolla Cross в Японии получил спецверсию к 60-летию модели",
+          "url": "https://101auto.ru/2026/07/toyota-corolla-cross-v-yaponii-poluchil-specversiyu-k-60-letiyu-modeli/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota сделала Corolla Cross похожим на Land Cruiser",
+          "url": "https://www.ixbt.com/news/2026/07/05/toyota-corolla-cross-land-cruiser.html",
+          "snippet": "Toyota обновила японскую Corolla Cross без громкой смены поколения, но с заметным акцентом на имидж. Главная новинка — спецверсия Z Adventure к 60-летию семейства Corolla."
+        },
+        {
+          "title": "Toyota Corolla Cross 2026 официально представлен в Китае",
+          "url": "https://cenyavto.com/toyota-predstavila-uluchshennyj-corolla-cross/",
+          "snippet": "Toyota представила в Японии обновленный кроссовер Corolla Cross и специальную юбилейную версию Z Adventure, посвященную 60-летию семейства Corolla. Главной особенностью новинки стал более внедорожный дизайн с элементами, напоминающими Land Cruiser."
+        },
+        {
+          "title": "Toyota Corolla Cross 2026: почему этот кроссовер стал выбором миллионов",
+          "url": "https://dzen.ru/a/arwnjIwtABJAnPTG",
+          "snippet": "28 октября Toyota официально вывела на рынок обновленный компактный кроссовер Corolla Cross (Sharp) 2026, который теперь доступен сразу в шести комплектациях."
+        },
+        {
+          "title": "Обновлённый Toyota Corolla Cross 2026: новые технологии и свежий дизайн",
+          "url": "https://auto.rambler.ru/news/55358421-obnovlennyy-toyota-corolla-cross-2026-novye-tehnologii-i-svezhiy-dizayn/",
+          "snippet": "Toyota Corolla Cross продолжает укреплять свои позиции в сегменте компактных кроссоверов, предлагая покупателям именно то, что они ценят в 2026 модельном году: надежность, функциональность и современные технологии."
+        },
+        {
+          "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+          "snippet": "<p>В США стартовали продажи обновлённого Toyota Corolla Cross 2026, серийное производство которого налажено на заводе в Хантсвилле, штат Алабама."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com тойота королла кросс из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "XPASS987/feature_7.svg at main · hsbx520/XPASS987 · GitHub",
+          "url": "https://github.com/hsbx520/XPASS987/blob/main/feature_7.svg",
+          "snippet": ""
+        },
+        {
+          "title": "qwen600/assets/ex01.png at main · yassa9/qwen600 · GitHub",
+          "url": "https://github.com/yassa9/qwen600/blob/main/assets/ex01.png",
+          "snippet": "Contribute to hsbx520/XPASS987 development by creating an account on GitHub."
+        },
+        {
+          "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+          "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+          "snippet": "Static suckless single batch CUDA-only qwen3-0.6B mini inference engine - qwen600/assets/ex01.png at main · yassa9/qwen600"
+        },
+        {
+          "title": "Aura-AI/flow.png at master · Rkcr7/Aura-AI · GitHub",
+          "url": "https://github.com/Rkcr7/Aura-AI/blob/master/flow.png",
+          "snippet": "Автор: evilork. Май 2026. Статья будет обновляться по мере изменения ситуации со Steam в России."
+        },
+        {
+          "title": "autoware_launch.twizy/tier4_universe_launch/tier4_localization ... - GitHub",
+          "url": "https://github.com/Monash-Connected-Autonomous-Vehicle/autoware_launch.twizy/blob/main/tier4_universe_launch/tier4_localization_launch/localization_launch.drawio.svg",
+          "snippet": "An undetectable AI assistant that lives on your screen. Solves problems, answers questions, analyzes screenshots — invisible to everyone but you. - Aura-AI/flow.png at master · Rkcr7/Aura-AI."
+        },
+        {
+          "title": "jhildenbiddle/assets/header-profile.svg at main - GitHub",
+          "url": "https://github.com/jhildenbiddle/jhildenbiddle/blob/main/assets/header-profile.svg",
+          "snippet": "Contribute to Monash-Connected-Autonomous-Vehicle/autoware_launch.twizy development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "тойота королла кросс из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "PDF Toyota Corolla Cross Brochure",
+          "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2026/2026-corollacross-brochure.pdf",
+          "snippet": ""
+        },
+        {
+          "title": "Руководства по эксплуатации автомобилей Toyota",
+          "url": "https://www.toyota.ru/owners/information/manuals",
+          "snippet": "Gas Powertrain Corolla Cross' 2.0L engine brings a rugged vibe and the oomph to get you where you're going. An EPA-estimated combined 32 mpg rating 1 keeps the fun rolling as the suspension smoothly adapts to every twist and turn."
+        },
+        {
+          "title": "Toyota Corolla Cross Manuals & User Guides - Manuals+",
+          "url": "https://manuals.plus/ru/category/corolla-cross",
+          "snippet": "Ознакомьтесь и скачайте руководство по эксплуатации, по мультимедийной системе для вашей модели Toyota"
+        },
+        {
+          "title": "Руководства по эксплуатации для владельцев автомобилей Toyota | Тойота ...",
+          "url": "https://toyota-nevsky.ru/owners/manuals",
+          "snippet": "You can access the official digitally formatted owner's manual on the Toyota Owners website under the Warranty & Manuals section, or browse the documents available on this page."
+        },
+        {
+          "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+          "snippet": "На сайте вы можете скачать руководства владельца для автомобилей Toyota: Corolla, Camry, C-HR, RAV4, Fortuner, Highlander, Land Cruiser Prado, Land Cruiser 200, Hilux, Alphard, Hiace."
+        },
+        {
+          "title": "Технические характеристики Toyota Corolla Cross 2026 года. Руководство ...",
+          "url": "https://www.autouserguide.com/ru/%D0%A2%D0%BE%D0%B9%D0%BE%D1%82%D0%B0/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D0%BF%D0%BE-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC-%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D0%BC-Toyota-Corolla-Cross-2026-%D0%B3%D0%BE%D0%B4%D0%B0/",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "тойота королла кросс из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Бортжурнал Toyota Corolla Cross I - клуб, форум на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/toyota/corolla_cross/22433000/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Corolla Cross: честные отзывы владельцев 2026 года",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-korolla-kross-otzyvy.html",
+          "snippet": "Бортжурнал Toyota Corolla Cross I: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        },
+        {
+          "title": "Отзывы Toyota Corolla Cross 2026: плюсы и минусы от владельцев",
+          "url": "https://toyotabase.vercel.app/articles/o/ot/otzyvy-tojota-korolla-kh.html",
+          "snippet": "Мы собрали реальные отзывы владельцев с пробегами от 5 000 до 120 000 км, выявили типичные проблемы и сравнили кроссовер с ключевыми конкурентами — Hyundai Creta, Kia Seltos и Mazda CX-30."
+        },
+        {
+          "title": "Toyota Corolla Cross: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-corolla-cross-iz-yaponii-2026",
+          "snippet": "В этой статье мы собрали и проанализировали более 300 отзывов владельцев Corolla Cross с форумов, автосайтов и социальных сетей. Здесь нет маркетинговых лозунгов — только конкретные цифры, технические нюансы и субъективные впечатления от ежедневного использования."
+        },
+        {
+          "title": "Отзывы реальных владельцев Toyota Corolla Cross",
+          "url": "https://ironhorse.ru/toyota/corolla-cross-xg10/comment-page-1/",
+          "snippet": "Взять «не ту» версию Corolla Cross практически невозможно: почти на весь японский рынок один мотор — атмосферный 1.8 на 140 сил с вариатором и передним приводом, — а значит, минимум риска взять «не ту» версию и почти никаких споров про надёжность агрегата."
+        },
+        {
+          "title": "Бортжурнал Toyota Corolla Cross - клуб, форум о Тойота Королла Кросс на ...",
+          "url": "https://auto.ru/logbook/cars/toyota/corolla_cross/",
+          "snippet": "Узнай мнение реальных владельцев Toyota Corolla Cross - их отзывы о достоинствах и недостатках, итоговые оценки."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "тойота королла кросс комплектации 2026",
+      "purpose": "вторичный запрос: тойота королла кросс комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Королла Кросс 2026 цены модели, комплектации, фото, новый кузов ...",
+          "url": "https://cenyavto.com/toyota-corolla-cross-2026/",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Тойота Королла Кросс технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/",
+          "snippet": "Тойота Королла Кросс 2026 с гибридным двигателем и по преемлимой цене. Легендарная надежность атмосферных моторов и гибридные варианты."
+        },
+        {
+          "title": "Toyota Corolla Cross - Комплектации и цены",
+          "url": "https://toyota-spb.ru/corolla-cross/equipment/",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Королла Кросс между собой."
+        },
+        {
+          "title": "Toyota Corolla Cross цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/toyota/corolla-cross/",
+          "snippet": "Сравните комплектации Toyota Corolla Cross 2026 года. Покажем актуальные цены, расскажем, чем отличаются версии, и поможем подобрать Corolla Cross в наличии, в кредит или по Trade-In."
+        },
+        {
+          "title": "Новый Toyota Corolla Cross hybrid (2026) цена и комплектации",
+          "url": "https://aurum-motors.ru/toyota-corolla-cross-hybrid-2026/",
+          "snippet": "Toyota Corolla Cross: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "тойота королла кросс владивосток 2026",
+      "purpose": "вторичный запрос: тойота королла кросс владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Toyota Corolla Cross 2026 года выпуска во Владивостоке",
+          "url": "https://auto.ru/vladivostok/cars/toyota/corolla_cross/2026-year/all/",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Королла Кросс 2026 во Владивостоке, x1f4ac; Написать нам в ...",
+          "url": "https://auto.drom.ru/vladivostok/toyota/corolla_cross/601732837.html",
+          "snippet": "Полный модельный ряд Toyota Corolla Cross 2026 года по цене от 2 600 090 рублей во Владивостоке - много Тойота Королла Кросс, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+          "snippet": "В разделе \"Продажа авто\" представлены цены на новые и подержанные автомобили Тойота Королла Кросс. Новые автомобили, с пробегом и без - широкий выбор для того, чтобы купить Тойота Королла Кросс во Владивостоке."
+        },
+        {
+          "title": "Продажа Тойота Королла Кросс 2026 во Владивостоке, x1f44b; Меня зовут ...",
+          "url": "https://auto.drom.ru/vladivostok/toyota/corolla_cross/424011013.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Королла Кросс 2026 между собой."
+        },
+        {
+          "title": "Toyota Corolla Cross 2.0 CVT, 2026, 5 км - Авито",
+          "url": "https://www.avito.ru/vladivostok/avtomobili/toyota_corolla_cross_2.0_cvt_2026_5_km_8185635614",
+          "snippet": "Новые автомобили, с пробегом и без - широкий выбор для того, чтобы купить Тойота Королла Кросс во Владивостоке."
+        },
+        {
+          "title": "Купить Toyota Corolla Cross 2026 года по цене от 2 925 000 рублей ...",
+          "url": "https://auto.ru/cars/toyota/corolla_cross/2026-year/all/",
+          "snippet": "Toyota Corolla Cross 2.0 CVT, 2026, 5 км: объявление о продаже авто 2026 года во Владивостоке на Авито. УВАЖАЕМЫЙ ПОКУПАТЕЛЬ‼ Меня зовут Вадим Ф, всегда готов ответить на все интересующие вопросы по телефону."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "тойота королла кросс гибрид из японии 2026",
+      "purpose": "вторичный запрос: тойота королла кросс гибрид из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Corolla Cross 2026 в России: цены, характеристики, гибрид и ...",
+          "url": "https://carsvibe.ru/articles/toyota-corolla-cross-2026-v-rossii-ceny-kharakteristiki-gibrid-i-215d8917",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Заказать Toyota Corolla Cross 2026 Года За 2 791 318 ₽ Из Японии ...",
+          "url": "https://asiaexpressauto.ru/japan/toyota/corolla-cross/toyota_corolla_cross-44/",
+          "snippet": "Подробный обзор Toyota Corolla Cross 2026: цены в России, характеристики бензиновой и гибридной версий, рестайлинг, комплектации, расход, привод, отличия автомобилей из Китая, Японии и США."
+        },
+        {
+          "title": "Тойота Королла Кросс технические характеристики. Toyota Corolla Cross ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/",
+          "snippet": "Основные характеристики: Год: 2026 Объем Двигателя 1800 Трансмиссия FAT Топливо Гибрид Привод Передний Оценка аукциона S Стоимость 2 791 318 ₽"
+        },
+        {
+          "title": "Королла Кросс китайской сборки 2026: отзывы владельцев, гибрид и цена ...",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-corolla-cross-iz-kitaya-cena-otzyvy/",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Королла Кросс между собой."
+        },
+        {
+          "title": "Подробный обзор Toyota Corolla Cross 2026 года: является ли она лучшим ...",
+          "url": "https://www.rankingdecoches.com/ru/%D0%9F%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9-%D1%82%D0%B5%D1%81%D1%82-Toyota-Corolla-Cross-2026-%D0%B3%D0%BE%D0%B4%D0%B0--%D0%B3%D0%B8%D0%B1%D1%80%D0%B8%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B2%D0%BD%D0%B5%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B8%D0%BA%D0%B0-%D1%81-%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%BC-%D1%81%D0%BE%D0%BE%D1%82%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC-%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD./",
+          "snippet": "В Китае Corolla Cross выпускает FAW Toyota, а его близнец Frontlander — GAC Toyota. Бензин 2.0 на 171 л.с. и гибрид 2.0. Разбираю цены 2026 года, утильсбор, чем китайская машина отличается от японской и что пишет владелец, который уже перегнал её через всю страну."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Corolla Cross рестайлинг 2025, 2026, джип/suv 5 дв., 1 поколение ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/g_2025_22901/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Corolla Cross — цена под ключ и как купить из Японии в 2026 | АИ ...",
+          "url": "https://ai-import.ru/catalog/japan/toyota/corolla_cross",
+          "snippet": "Подробно расписаны модификации автомобилей Toyota Corolla Cross рестайлинг 2025: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "Toyota Corolla Cross: обзор, характеристики, Китай или Япония",
+          "url": "https://azway.ru/blog/toyota-corolla-cross-obzor",
+          "snippet": "Toyota Corolla Cross — бензиновый кроссовер. Проверяем машину на месте по 30 параметрам и фиксируем цену до вашего города в договоре, а не на словах. Личный менеджер разберёт с вами комплектации, посчитает сумму под ключ и будет вести сделку до выдачи. Бесплатно."
+        },
+        {
+          "title": "Toyota Corolla Cross: цены, комплектации и отзывы 2026 года",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-korolla-kh.html",
+          "snippet": "Обзор Toyota Corolla Cross: размеры, бензин и гибрид, китайские и японские версии, левый или правый руль, комплектации, отзывная кампания и цена под ключ."
+        },
+        {
+          "title": "Toyota Corolla Cross из Японии — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/toyota-corolla-cross-zvg15",
+          "snippet": "В этом руководстве мы разберём технические характеристики, сравним с конкурентами (Hyundai Creta, Kia Seltos, Volkswagen T-Roc), проанализируем отзывы владельцев и дадим практические советы по выбору."
+        },
+        {
+          "title": "Toyota Corolla Cross: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-corolla-cross-iz-yaponii-2026",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Toyota Corolla Cross: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://ai-import.ru/catalog/japan/toyota/corolla_cross",
+      "title": "Toyota Corolla Cross — цена под ключ и как купить из Японии в 2026 | АИ ...",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://asiaexpressauto.ru/japan/toyota/corolla-cross/toyota_corolla_cross-44/",
+      "title": "Заказать Toyota Corolla Cross 2026 Года За 2 791 318 ₽ Из Японии ...",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+      "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://sferacar.ru/statistika/toyota/corolla-cross/?year_from=2026&year_to=2026",
+      "title": "Toyota Corolla Cross 2026 года из Японии - sferacar.ru",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://aa-dv.ru/rastamozhka-toyota-corolla.html",
+      "title": "Toyota Corolla из Японии: растаможка, утильсбор и срок 2026",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://atp-auto.ru/avto-iz-yaponii/toyota/corolla-cross/",
+      "title": "Купить Toyota Corolla cross из Японии — цены, подбор и доставка под ...",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://autosender.ru/japan-auto/toyota/corolla-cross",
+      "title": "Продажа Toyota Corolla Cross Из Японии",
+      "from_query": "тойота королла кросс из японии октябрь 2026"
+    },
+    {
+      "url": "https://101auto.ru/2026/07/toyota-corolla-cross-v-yaponii-poluchil-specversiyu-k-60-letiyu-modeli/",
+      "title": "Toyota Corolla Cross в Японии получил спецверсию к 60-летию модели",
+      "from_query": "тойота королла кросс из японии новости 2026"
+    },
+    {
+      "url": "https://www.ixbt.com/news/2026/07/05/toyota-corolla-cross-land-cruiser.html",
+      "title": "Toyota сделала Corolla Cross похожим на Land Cruiser",
+      "from_query": "тойота королла кросс из японии новости 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-predstavila-uluchshennyj-corolla-cross/",
+      "title": "Toyota Corolla Cross 2026 официально представлен в Китае",
+      "from_query": "тойота королла кросс из японии новости 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/arwnjIwtABJAnPTG",
+      "title": "Toyota Corolla Cross 2026: почему этот кроссовер стал выбором миллионов",
+      "from_query": "тойота королла кросс из японии новости 2026"
+    },
+    {
+      "url": "https://auto.rambler.ru/news/55358421-obnovlennyy-toyota-corolla-cross-2026-novye-tehnologii-i-svezhiy-dizayn/",
+      "title": "Обновлённый Toyota Corolla Cross 2026: новые технологии и свежий дизайн",
+      "from_query": "тойота королла кросс из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/hsbx520/XPASS987/blob/main/feature_7.svg",
+      "title": "XPASS987/feature_7.svg at main · hsbx520/XPASS987 · GitHub",
+      "from_query": "site:github.com тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://github.com/yassa9/qwen600/blob/main/assets/ex01.png",
+      "title": "qwen600/assets/ex01.png at main · yassa9/qwen600 · GitHub",
+      "from_query": "site:github.com тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+      "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+      "from_query": "site:github.com тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://github.com/Rkcr7/Aura-AI/blob/master/flow.png",
+      "title": "Aura-AI/flow.png at master · Rkcr7/Aura-AI · GitHub",
+      "from_query": "site:github.com тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://github.com/Monash-Connected-Autonomous-Vehicle/autoware_launch.twizy/blob/main/tier4_universe_launch/tier4_localization_launch/localization_launch.drawio.svg",
+      "title": "autoware_launch.twizy/tier4_universe_launch/tier4_localization ... - GitHub",
+      "from_query": "site:github.com тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://github.com/jhildenbiddle/jhildenbiddle/blob/main/assets/header-profile.svg",
+      "title": "jhildenbiddle/assets/header-profile.svg at main - GitHub",
+      "from_query": "site:github.com тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2026/2026-corollacross-brochure.pdf",
+      "title": "PDF Toyota Corolla Cross Brochure",
+      "from_query": "тойота королла кросс из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.toyota.ru/owners/information/manuals",
+      "title": "Руководства по эксплуатации автомобилей Toyota",
+      "from_query": "тойота королла кросс из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://manuals.plus/ru/category/corolla-cross",
+      "title": "Toyota Corolla Cross Manuals & User Guides - Manuals+",
+      "from_query": "тойота королла кросс из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyota-nevsky.ru/owners/manuals",
+      "title": "Руководства по эксплуатации для владельцев автомобилей Toyota | Тойота ...",
+      "from_query": "тойота королла кросс из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.autouserguide.com/ru/%D0%A2%D0%BE%D0%B9%D0%BE%D1%82%D0%B0/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D0%BF%D0%BE-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC-%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D0%BC-Toyota-Corolla-Cross-2026-%D0%B3%D0%BE%D0%B4%D0%B0/",
+      "title": "Технические характеристики Toyota Corolla Cross 2026 года. Руководство ...",
+      "from_query": "тойота королла кросс из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/corolla_cross/22433000/",
+      "title": "Бортжурнал Toyota Corolla Cross I - клуб, форум на Авто.ру",
+      "from_query": "тойота королла кросс из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-korolla-kross-otzyvy.html",
+      "title": "Toyota Corolla Cross: честные отзывы владельцев 2026 года",
+      "from_query": "тойота королла кросс из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/o/ot/otzyvy-tojota-korolla-kh.html",
+      "title": "Отзывы Toyota Corolla Cross 2026: плюсы и минусы от владельцев",
+      "from_query": "тойота королла кросс из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-corolla-cross-iz-yaponii-2026",
+      "title": "Toyota Corolla Cross: болячки, цена под ключ",
+      "from_query": "тойота королла кросс из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://ironhorse.ru/toyota/corolla-cross-xg10/comment-page-1/",
+      "title": "Отзывы реальных владельцев Toyota Corolla Cross",
+      "from_query": "тойота королла кросс из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/corolla_cross/",
+      "title": "Бортжурнал Toyota Corolla Cross - клуб, форум о Тойота Королла Кросс на ...",
+      "from_query": "тойота королла кросс из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-corolla-cross-2026/",
+      "title": "Тойота Королла Кросс 2026 цены модели, комплектации, фото, новый кузов ...",
+      "from_query": "тойота королла кросс комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/corolla_cross/",
+      "title": "Тойота Королла Кросс технические характеристики, комплектации и цены",
+      "from_query": "тойота королла кросс комплектации 2026"
+    },
+    {
+      "url": "https://toyota-spb.ru/corolla-cross/equipment/",
+      "title": "Toyota Corolla Cross - Комплектации и цены",
+      "from_query": "тойота королла кросс комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/toyota/corolla-cross/",
+      "title": "Toyota Corolla Cross цены и комплектации 2026 - carmaps.ru",
+      "from_query": "тойота королла кросс комплектации 2026"
+    },
+    {
+      "url": "https://aurum-motors.ru/toyota-corolla-cross-hybrid-2026/",
+      "title": "Новый Toyota Corolla Cross hybrid (2026) цена и комплектации",
+      "from_query": "тойота королла кросс комплектации 2026"
+    },
+    {
+      "url": "https://auto.ru/vladivostok/cars/toyota/corolla_cross/2026-year/all/",
+      "title": "Купить Toyota Corolla Cross 2026 года выпуска во Владивостоке",
+      "from_query": "тойота королла кросс владивосток 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/corolla_cross/601732837.html",
+      "title": "Тойота Королла Кросс 2026 во Владивостоке, x1f4ac; Написать нам в ...",
+      "from_query": "тойота королла кросс владивосток 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/corolla_cross/424011013.html",
+      "title": "Продажа Тойота Королла Кросс 2026 во Владивостоке, x1f44b; Меня зовут ...",
+      "from_query": "тойота королла кросс владивосток 2026"
+    },
+    {
+      "url": "https://www.avito.ru/vladivostok/avtomobili/toyota_corolla_cross_2.0_cvt_2026_5_km_8185635614",
+      "title": "Toyota Corolla Cross 2.0 CVT, 2026, 5 км - Авито",
+      "from_query": "тойота королла кросс владивосток 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/toyota/corolla_cross/2026-year/all/",
+      "title": "Купить Toyota Corolla Cross 2026 года по цене от 2 925 000 рублей ...",
+      "from_query": "тойота королла кросс владивосток 2026"
+    },
+    {
+      "url": "https://carsvibe.ru/articles/toyota-corolla-cross-2026-v-rossii-ceny-kharakteristiki-gibrid-i-215d8917",
+      "title": "Toyota Corolla Cross 2026 в России: цены, характеристики, гибрид и ...",
+      "from_query": "тойота королла кросс гибрид из японии 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-corolla-cross-iz-kitaya-cena-otzyvy/",
+      "title": "Королла Кросс китайской сборки 2026: отзывы владельцев, гибрид и цена ...",
+      "from_query": "тойота королла кросс гибрид из японии 2026"
+    },
+    {
+      "url": "https://www.rankingdecoches.com/ru/%D0%9F%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9-%D1%82%D0%B5%D1%81%D1%82-Toyota-Corolla-Cross-2026-%D0%B3%D0%BE%D0%B4%D0%B0--%D0%B3%D0%B8%D0%B1%D1%80%D0%B8%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B2%D0%BD%D0%B5%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B8%D0%BA%D0%B0-%D1%81-%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%BC-%D1%81%D0%BE%D0%BE%D1%82%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC-%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD./",
+      "title": "Подробный обзор Toyota Corolla Cross 2026 года: является ли она лучшим ...",
+      "from_query": "тойота королла кросс гибрид из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/corolla_cross/g_2025_22901/",
+      "title": "Toyota Corolla Cross рестайлинг 2025, 2026, джип/suv 5 дв., 1 поколение ...",
+      "from_query": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/toyota-corolla-cross-obzor",
+      "title": "Toyota Corolla Cross: обзор, характеристики, Китай или Япония",
+      "from_query": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-korolla-kh.html",
+      "title": "Toyota Corolla Cross: цены, комплектации и отзывы 2026 года",
+      "from_query": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/catalog/toyota-corolla-cross-zvg15",
+      "title": "Toyota Corolla Cross из Японии — цена под ключ · калькулятор 2026",
+      "from_query": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026 2026"
+    }
+  ]
+}

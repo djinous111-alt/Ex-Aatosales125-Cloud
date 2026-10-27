@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026",
+  "notes": "memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-28",
+    "prefer_sources_after": "2026-07-30",
+    "source_urls": 29,
+    "source_domains": 17,
+    "source_table_rows": 29,
+    "accessed_at": 5,
+    "github_urls": 4,
+    "official_doc_urls": 1,
+    "action_outline_items": 9,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

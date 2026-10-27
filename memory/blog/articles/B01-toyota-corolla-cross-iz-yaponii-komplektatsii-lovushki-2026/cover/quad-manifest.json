@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Гибрид Z с пятёркой — уже ставим?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Corolla Cross в порту Владивостока: плашка до ставки, стикер не путать Z и оценку 5",
+      "scene_hint": "Port fog Vladivostok pier, modern silver Toyota Corolla Cross behind. Blog host EXACT face+glasses from reference; OUTFIT: dark navy waterproof rain jacket + grey scarf (cold fog weather), NOT white hoodie/tank from reference; NO cap NO hood. Action selfie pointing at fake auction-sheet scrap with grade 5 and Hybrid Z sticker vs red STOP-export sticky. Torn paper collage, scotch tape, pink sticky «не путать Z и 5», shocked meme cutout, catalog card mock Corolla Cross, yellow highlight on «ставку». Huge Cyrillic plaque: «Гибрид Z с пятёркой — уже ставим?». Corner brand avto-sales125.ru. No analytics dashboards.",
+      "meme_caption_ru": "Сначала код — потом ставка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Отсейте чужие кузова: седан Corolla и китайский Cross",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI comparison table three columns: седан Corolla | JP Cross RHD | CN Cross LHD — rows: кузов, руль, рынок, риск подмены. Tape corner + small sticky «отсечь чужое». No people/faces. Cyrillic labels only.",
+      "alt": "Сравнительная таблица: седан Corolla vs японский Cross vs китайский Cross"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как читать коды кузова ZSG10, ZVG13, ZVG16 и MXGH15",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram 4 steps with arrows: ZSG10 бензин → ZVG13/16 гибрид 1.8 → MXGH15 GR → стоп-проверка экспорта. Mini chassis-code chips. Sticky «код ≠ оценка». No faces. Cyrillic.",
+      "alt": "Схема чтения кодов кузова ZSG10, ZVG13, ZVG16, MXGH15 до ставки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравнение комплектаций G, S, Z, GR Sport и Z Adventure",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board grades G / S / Z / GR Sport / Z Adventure with checkboxes: привод, год рестайлинга, что смотреть до ставки. Red marker X next to confusing Z vs auction 5. Tape + sticky «комплектация ≠ оценка листа». No faces.",
+      "alt": "Чеклист сравнения комплектаций G, S, Z, GR Sport и Z Adventure"
+    }
+  }
+}

@@ -68,3 +68,10 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+
+## Technical topic / accessed_at (gate)
+
+- `research_notes_gate` uses word-boundary markers: `pain` / `японии` do **not** force `technical_topic`.
+- Non-software niches (Авто-Сейлс) do not need ≥3 github.com URLs unless the topic is truly technical.
+- `accessed_at` may be literal labels **or** ISO dates under an `accessed_at` source_table column.

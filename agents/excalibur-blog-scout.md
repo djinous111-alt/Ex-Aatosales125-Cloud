@@ -57,3 +57,6 @@ Scout-агент ищет горячие и свежие инфоповоды п
 
 ## Skill
 `skills/scout-excalibur-blog/SKILL.md` · `shared/editorial-utility-only.md`
+
+- LIVE denylist via helper `--live-slugs` / `--live-search` / `--check-slug` on `PUBLIC_SITE_URL` (MCP WP host may differ).
+- Commits: `bash scripts/excalibur_git.sh commit …`.

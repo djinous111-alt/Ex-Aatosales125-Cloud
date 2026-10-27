@@ -207,3 +207,6 @@ summary: ...
 - `memory/cover/quad-style-digital-meme-collage-ru.json`
 - `shared/blog-visual-pipeline-contract.md` → redirect на quad contract
 
+
+- Cover image: prefer Kie `excalibur_blog_kie_gpt_image2_api.py`; sync MCP gpt-image-2 max 1 attempt on -32001.
+- Prompt builder forbids toxic lemma quotes and white-hoodie outfit lock.

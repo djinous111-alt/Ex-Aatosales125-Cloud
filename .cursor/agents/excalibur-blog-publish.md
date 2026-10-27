@@ -69,3 +69,6 @@ permalink=https://avtosales125.ru/...
 ## Skill
 
 `skills/publish-excalibur-blog/SKILL.md`
+
+- Auto-bootstrap `memory/site.env.local`; map `SSH_PATH→SSH_ROOT`; require `paramiko`.
+- CTA stays `${ENV}` in git; expand at publish.

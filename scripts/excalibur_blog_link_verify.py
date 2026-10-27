@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -13,6 +14,63 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
+
+
+# CTA / site URLs must stay as ${ENV} in committed HTML (Cloud secret-scan).
+# Expand from process env for live HTTP checks; redact live values in reports.
+CTA_ENV_NAMES = (
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+    "PUBLIC_SITE_URL",
+    "WP_SITE_URL",
+    "WP_HOME",
+)
+
+_ENV_TOKEN_RE = re.compile(r"\$\{([A-Z][A-Z0-9_]*)\}")
+_LITERAL_BAD_PLACEHOLDER_RE = re.compile(
+    r"\[REDACTED\]|https?://example\.com\b|TODO_URL|REPLACE_ME|YOUR_[A-Z0-9_]+",
+    flags=re.I,
+)
+
+
+def redact_report_urls(report: dict[str, Any]) -> dict[str, Any]:
+    """Rewrite live CTA/site URLs to ${ENV} so secret-scan can commit reports."""
+    replacements: list[tuple[str, str]] = []
+    for env_name in CTA_ENV_NAMES:
+        value = (os.environ.get(env_name) or "").strip().rstrip("/")
+        if value and len(value) >= 8:
+            replacements.append((value, f"${{{env_name}}}"))
+    if not replacements:
+        return report
+    text = json.dumps(report, ensure_ascii=False)
+    for live, placeholder in sorted(replacements, key=lambda x: len(x[0]), reverse=True):
+        text = text.replace(live, placeholder)
+        text = text.replace(live + "/", placeholder + "/")
+    return json.loads(text)
+
+
+def expand_env_href(href: str) -> tuple[str, str | None, str | None]:
+    """Expand ${ENV} tokens via os.environ.
+
+    Returns (expanded_href, env_token_or_None, error_or_None).
+    Missing env → soft-skip (ok) with warning, not FAIL as internal_relative.
+    """
+    tokens = _ENV_TOKEN_RE.findall(href)
+    if not tokens:
+        return href, None, None
+    expanded = href
+    for name in tokens:
+        value = (os.environ.get(name) or "").strip()
+        if not value:
+            return href, name, f"env {name} not set; soft-skip CTA placeholder"
+        expanded = expanded.replace(f"${{{name}}}", value)
+    return expanded, tokens[0], None
+
+
+def is_literal_bad_placeholder(href: str) -> bool:
+    """Reject literal redacted/example hrefs (writer must use ${ENV} tokens)."""
+    return bool(_LITERAL_BAD_PLACEHOLDER_RE.search(href.strip()))
 
 
 class LinkExtractor(HTMLParser):
@@ -105,6 +163,10 @@ def _get_fallback(
 
 
 def classify_link(href: str, site_base: str | None) -> str:
+    if _ENV_TOKEN_RE.search(href):
+        return "cta_env"
+    if is_literal_bad_placeholder(href):
+        return "invalid_placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -143,6 +205,52 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "invalid_placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "literal [REDACTED]/example href forbidden; "
+                        "use ${CATALOG_URL}/${TELEGRAM_URL}/${MAX_URL} placeholders"
+                    ),
+                }
+            )
+            continue
+        if kind == "cta_env":
+            expanded, token, err = expand_env_href(href)
+            if err:
+                results.append(
+                    {
+                        "url": href,
+                        "kind": kind,
+                        "status": None,
+                        "ok": True,
+                        "skipped": True,
+                        "method": None,
+                        "error": err,
+                        "warning": err,
+                        "env_token": token,
+                    }
+                )
+                continue
+            r = check_url(expanded, timeout, user_agent)
+            r["kind"] = kind
+            r["skipped"] = False
+            r["href_placeholder"] = href
+            r["env_token"] = token
+            # Keep placeholder in report url field for commit-safe artifacts.
+            r["url"] = href
+            r["checked_url_redacted"] = True
+            if is_soft_external_failure(expanded, r):
+                r["ok"] = True
+                r["warning"] = "soft external social timeout; verify manually if needed"
+            results.append(r)
+            continue
         if skip_external and kind == "external":
             results.append(
                 {
@@ -200,6 +308,11 @@ def main() -> int:
     ap.add_argument("--site-base", type=str, default=None, help="e.g. https://example.com")
     ap.add_argument("--timeout", type=float, default=15.0)
     ap.add_argument("--skip-external", action="store_true")
+    ap.add_argument(
+        "--keep-live-urls",
+        action="store_true",
+        help="Do not redact live CTA/site URLs in the JSON report (default: redact to ${ENV})",
+    )
     args = ap.parse_args()
 
     if not args.html.is_file():
@@ -212,6 +325,8 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
+    if not args.keep_live_urls:
+        report = redact_report_urls(report)
     text = json.dumps(report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -17,9 +17,12 @@ python3 scripts/excalibur_blog_interlinker.py --apply \
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru \
-  --blog-path / \
   --out-dir memory/blog
 ```
+
+> CLI flag is `--blog-dir` (not `--blog-path`). Before commit:
+> `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` or
+> `bash scripts/excalibur_git.sh commit …`.
 
 ## Выход
 

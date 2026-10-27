@@ -1,0 +1,15 @@
+{
+  "slug": "toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "https://avtosales125.ru/2026/10/28/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1194983,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4621 slug=toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026\nOK featured_image=4622\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4623 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026-inline-01.png\nOK inline_image_upload=4624 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026-inline-02.png\nOK inline_image_upload=4625 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026-inline-03.png\npermalink=https://avtosales125.ru/2026/10/28/toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass"
+}

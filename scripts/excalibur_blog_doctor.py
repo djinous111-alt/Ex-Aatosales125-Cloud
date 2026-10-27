@@ -46,26 +46,57 @@ def read_env_file(path: Path) -> dict[str, str]:
     return env
 
 
-def merged_publish_env(root: Path) -> dict[str, str]:
-    keys = {
-        "PUBLIC_SITE_URL",
-        "WP_HOME",
-        "WP_SITE_URL",
-        "SSH_HOST",
-        "SSH_PORT",
-        "SSH_USER",
-        "SSH_PASS",
-        "SSH_PASSWORD",
-        "SSH_ROOT",
-        "EXCALIBUR_BLOG_ALLOW_PUBLISH",
-    }
-    env = read_env_file(root / "memory/site.env.local")
+PUBLISH_ENV_KEYS = (
+    "PUBLIC_SITE_URL",
+    "WP_HOME",
+    "WP_SITE_URL",
+    "SSH_HOST",
+    "SSH_PORT",
+    "SSH_USER",
+    "SSH_PASS",
+    "SSH_PASSWORD",
+    "SSH_ROOT",
+    "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+)
+
+
+def ensure_site_env_local(root: Path) -> Path | None:
+    """Create gitignored memory/site.env.local from process env when missing."""
+    path = root / "memory/site.env.local"
+    if path.is_file():
+        return path
+    lines: list[str] = ["# Auto-written by excalibur_blog_doctor from Cloud Secrets / process env"]
+    wrote = False
+    keys = list(PUBLISH_ENV_KEYS) + ["SSH_PATH"]
     for key in keys:
+        value = os.environ.get(key, "").strip()
+        if not value:
+            continue
+        if key == "SSH_ROOT" and value in {"", "/"}:
+            value = "."
+        lines.append(f"{key}={value}")
+        wrote = True
+    if not wrote:
+        return None
+    if not any(line.startswith("SSH_ROOT=") for line in lines):
+        ssh_path = os.environ.get("SSH_PATH", "").strip()
+        lines.append(f"SSH_ROOT={ssh_path or '.'}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"OK wrote missing {path.relative_to(root)} from process env (gitignored)")
+    return path
+
+
+def merged_publish_env(root: Path) -> dict[str, str]:
+    env = read_env_file(root / "memory/site.env.local")
+    for key in list(PUBLISH_ENV_KEYS) + ["SSH_PATH"]:
         value = os.environ.get(key)
         if value:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    if not (env.get("SSH_ROOT") or "").strip():
+        env["SSH_ROOT"] = (env.get("SSH_PATH") or "").strip() or "."
     return env
 
 
@@ -113,6 +144,54 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available", errors, warnings, warn=not args.publish)
+
+    denylist = root / "shared/wp-slug-denylist.json"
+    check(denylist.is_file(), "shared/wp-slug-denylist.json exists", errors, warnings)
+    if denylist.is_file():
+        try:
+            import json
+
+            data = json.loads(denylist.read_text(encoding="utf-8"))
+            slugs = data.get("slugs") or []
+            check(isinstance(slugs, list) and len(slugs) >= 10, "wp-slug-denylist has slugs", errors, warnings)
+        except Exception as exc:  # noqa: BLE001
+            check(False, f"wp-slug-denylist.json parses ({exc})", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    check(policy_path.is_file(), "editorial-policy.json exists", errors, warnings)
+    if policy_path.is_file():
+        try:
+            import json
+
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            req = policy.get("article_required_signals") or {}
+            check(isinstance(pain, list) and len(pain) >= 3, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+            check(
+                isinstance(outcome, list) and len(outcome) >= 3,
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+            check(int(req.get("min_pain_markers") or 0) >= 1, "editorial-policy min_pain_markers set", errors, warnings)
+            check(
+                int(req.get("min_outcome_markers") or 0) >= 1,
+                "editorial-policy min_outcome_markers set",
+                errors,
+                warnings,
+            )
+            check(bool(policy.get("_markers_pinned")), "editorial-policy _markers_pinned true", errors, warnings)
+        except Exception as exc:  # noqa: BLE001
+            check(False, f"editorial-policy.json parses ({exc})", errors, warnings)
+
+    git_sh = root / "scripts/excalibur_git.sh"
+    filter_commit_sh = root / "scripts/excalibur_blog_filter_commit_secret_env.sh"
+    filter_names_sh = root / "scripts/excalibur_blog_filter_secret_names.sh"
+    check(git_sh.is_file(), "excalibur_git.sh present", errors, warnings)
+    check(filter_commit_sh.is_file(), "excalibur_blog_filter_commit_secret_env.sh present", errors, warnings)
+    check(filter_names_sh.is_file(), "excalibur_blog_filter_secret_names.sh present", errors, warnings)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,8 +211,22 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator has no stale --blog-path flag", errors, warnings, warn=True)
 
+    scout = root / "scripts/excalibur_blog_scout_helper.py"
+    scout_help = subprocess.run(
+        [sys.executable, str(scout), "--help"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    check("--live-slugs" in scout_help.stdout, "scout helper supports --live-slugs", errors, warnings)
+    check("--live-search" in scout_help.stdout, "scout helper supports --live-search", errors, warnings)
+
+    ensure_site_env_local(root)
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))
     check(has_public, "PUBLIC_SITE_URL/WP_SITE_URL configured", errors, warnings, warn=not args.publish)

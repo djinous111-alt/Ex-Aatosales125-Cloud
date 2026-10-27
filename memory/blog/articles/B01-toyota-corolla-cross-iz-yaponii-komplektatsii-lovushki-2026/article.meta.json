@@ -1,0 +1,46 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026",
+  "title": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026",
+  "h1": "Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026",
+  "description": "Как выбрать Toyota Corolla Cross из Японии в 2026: коды ZSG/ZVG/MXGH, комплектации S/Z/GR, аукционный лист и ловушки до ставки. Чек-лист Авто-Сейлс.",
+  "cover_alt": "Герой Авто-Сейлс у компактного кроссовера Toyota Corolla Cross у причала Владивостока, плашка до ставки",
+  "primary_query": "тойота королла кросс из японии",
+  "secondary_queries": [
+    "тойота королла кросс комплектации",
+    "тойота королла кросс владивосток",
+    "тойота королла кросс гибрид из японии"
+  ],
+  "char_count": 9262,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать Corolla Cross из Японии до ставки",
+    "комплектации Toyota Corolla Cross и ловушки листа",
+    "чеклист Corolla Cross из Японии через Владивосток"
+  ],
+  "meta_ab": {
+    "title_seo": "Тойота королла кросс из японии: комплектации и ловушки до ставки",
+    "title_ctr": "🚗 Тойота королла кросс из японии: какие комплектации ставить, а какие отложить?",
+    "title_aeo": "Как выбрать тойота королла кросс из японии и не попасть на гибрид без экспорта?",
+    "description_seo": "Как выбрать Toyota Corolla Cross из Японии в 2026: коды ZSG/ZVG/MXGH, комплектации S/Z/GR, аукционный лист и ловушки до ставки. Чек-лист Авто-Сейлс.",
+    "description_ctr": "⚡ Почти дали ставку на Hybrid Z с оценкой 5? Сначала код кузова, руль и лист. Чек-лист ловушек Corolla Cross из Японии до молотка.",
+    "description_aeo": "Toyota Corolla Cross из Японии выбирают по коду кузова, топливу/экспорту, рулю и аукционному листу: ZSG10 vs ZVG*/MXGH15, S/Z/GR, стоп при R/XX."
+  },
+  "geo_qa": {
+    "score": 87,
+    "verdict": "PASS",
+    "date": "2026-10-28",
+    "html_linter": "PASS",
+    "slop_score": "WARNING (0 cliches, 6 over-long, Flesch 72.2)",
+    "cannibalization": "PASS",
+    "research_notes_gate": "PASS",
+    "utility_gate": "PASS",
+    "human_voice_gate": "PASS",
+    "link_verify": "PASS",
+    "fact_check": "PASS",
+    "beginner_fit": "PASS",
+    "core_eeat": "18/20"
+  },
+  "cover_family": "brand_collage"
+}

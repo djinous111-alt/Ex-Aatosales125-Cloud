@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "егионов почти дала добро на \"свежую Королла Кросс 2026 из Японии как у соседа из Китая\": в чате красивый",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ZVG/MXG*, не седан Corolla. После рестайлинга мая 2025 японская линейка почти целиком гибридная (ZVG13/ZV",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "в РФ упирается в экспортные ограничения с августа 2023. До ставки берите код кузова, руль/рынок, топливо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "Corolla Cross – компактный SUV с клиренсом около 160 мм у 1.8 и другими шасси-кодами. Китайский FAW Cor",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "140",
+      "kind": "large_number",
+      "context": "то Привод Что делать до ставки ZSG10 Бензин 1.8 (~140 PS), ранняя линейка 2WD (FF) Идти дальше к листу,",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

@@ -59,7 +59,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir/--out-dir
 - `rg -- --blog-path` only documents absence
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20261027-0931-cover-precommit-secret-names
 status: fixed
@@ -102,7 +102,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_git.sh help`
 - doctor errors=0
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20261027-0927-schema-precommit-secret-names
 status: fixed
@@ -150,7 +150,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_git.sh help`
 - rg confirms schema skill forbids [REDACTED] in JSON-LD
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20261027-0920-geo-qa-typed-task-missing
 status: fixed
@@ -198,7 +198,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-geo-qa.md`
 checks_run:
 - `rg generalPurpose` in director/AGENTS/pipeline-task-map
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20261027-0921-geo-qa-utility-pain-outcome-policy
 status: fixed
@@ -252,7 +252,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir B01…` → PASS
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20261027-0919-writer-precommit-secret-names
 status: fixed
@@ -296,7 +296,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `bash scripts/excalibur_git.sh help`
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20261027-0908-research-wordstat-empty-primary
 status: fixed
@@ -352,7 +352,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - rg Wordstat empty / accessed_at in research skill
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -404,7 +404,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -455,7 +455,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -496,7 +496,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -543,7 +543,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -597,7 +597,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## Fixed incidents
 
@@ -644,7 +644,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK paramiko available
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20261027-0934-publish-missing-site-env-local
 status: fixed
@@ -687,7 +687,7 @@ files_changed:
 checks_run:
 - `rg ensure_site_env_local_from_process scripts/excalibur_blog_wp_publish.py`
 - `--env-check` missing=[]
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9
 
 ## INC-20261027-0943-publish-http-timeout-reconstruct
 status: fixed
@@ -735,4 +735,4 @@ files_changed:
 checks_run:
 - `--env-check` shows http_trigger_timeout_sec=300 fallback_poll_sec=300
 - `rg timeout=120` absent in publish script
-commit: pending-parent-commit
+commit: cebaae6b/d13982c9

@@ -6,6 +6,70 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2106-scout-live-helper-drift
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Automation memory claimed scout helper supports `--live-slugs` / `--live-search` for WP REST denylist, but current `scripts/excalibur_blog_scout_helper.py` only exposes `--suggest-next` and `--check-query`.
+- MCP `wordpress_get_posts` returned posts from a non-AVTO-SALES host, so it cannot be trusted for LIVE cannibalization checks on this brand.
+
+### How the agent recovered this run
+- Used `PUBLIC_SITE_URL` WP REST (`/wp-json/wp/v2/posts`) for recent posts and exact slug probes.
+- Cross-checked candidate models against the LIVE denylist before appending B01 Corolla Cross.
+
+### Durable fix needed before next run
+- Port `--live-slugs` / `--live-search` into `scripts/excalibur_blog_scout_helper.py` (and assert in doctor) so Scout does not depend on ad-hoc curl.
+- Document that MCP WordPress tools may point at a different site than `PUBLIC_SITE_URL`; Scout must prefer REST against `PUBLIC_SITE_URL`.
+- Sync scout skill/agent text away from AI/Cursor niche defaults toward Авто-Сейлс site-brief when Director Task says so.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261027-2107-doctor-llms-blog-path-stale
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-scout
+topic_id: n/a
+article_dir: n/a
+severity: low
+category: docs
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` reports `FAIL llms generator supports --blog-path` (errors=1) while the live llms script uses `--blog-dir`.
+
+### How the agent recovered this run
+- Did not block Scout topic append; noted for Director/fixer after scout.
+
+### Durable fix needed before next run
+- Align doctor assertion with actual llms CLI (`--blog-dir`) or restore `--blog-path` alias for compatibility.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_txt.py` (or current llms generator script name)
+- `skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

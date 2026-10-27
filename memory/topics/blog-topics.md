@@ -184,3 +184,29 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Corolla Cross из Японии
+
+- **priority:** P0
+- **slug:** toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota Corolla Cross из Японии: комплектации и ловушки до ставки 2026
+- **primary_query:** тойота королла кросс из японии
+- **secondary_queries:** тойота королла кросс комплектации, тойота королла кросс владивосток, тойота королла кросс гибрид из японии
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Чем Corolla Cross отличается от седана Corolla и зачем вообще смотреть Японию
+  2. Как читать коды кузова ZVG13 / ZVG16 / MXGH15 и не перепутать 2WD с E-Four
+  3. Комплектации G, S, Z и GR Sport: что брать новичку под первый заказ
+  4. Что проверить в аукционном листе до ставки: оценка, схема кузова, гибрид без SOH
+  5. Ловушки до депозита: путаница с китайским LHD, переплата за Z, «чистый» лист без истории торгов
+  6. Чек-лист перед ставкой и переводом депозита через Владивосток
+- **faq_hints:** какая комплектация Corolla Cross лучше для РФ; чем Z отличается от S и G; брать 2WD или E-Four; можно ли верить оценке аукциона по гибридной батарее; чем японский Cross отличается от версии из Китая
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** компактный кроссовер Toyota Corolla Cross у причала Владивостока, герой Авто-Сейлс с плашкой «до ставки», угол avto-sales125.ru; без чужих логотипов аукционов
+- **wordstat_signal:** parent «тойота королла кросс» ~37169; узкий «из японии» ~638 (фразы: купить, комплектации, гибрид, русификация); «комплектации» ~1065; «владивосток» ~938; narrow «как выбрать…» = totalCount-only soft low-result
+- **live_dedup:** REST slug отсутствует; не пересекается с LIVE toyota-corolla (седан 4525) и denylist Serena/LC300/…
+- **beginner_angle:** первый понятный результат — коротколист G/S/Z + 2WD/E-Four и чек-лист «смотреть / не ставить» до депозита

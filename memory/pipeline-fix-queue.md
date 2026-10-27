@@ -63,7 +63,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: pending-parent-commit
+commit: cf3e6cf8
 
 ## INC-20261027-1730-cover-kie-prompt-moderation
 status: fixed
@@ -114,7 +114,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - safety True on B01 prompt; toxic lemma injection rejected
-commit: pending-parent-commit
+commit: cf3e6cf8
 
 ## INC-20261027-1715-research-wordstat-empty-primary
 status: fixed
@@ -159,7 +159,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Wordstat empty/soft-fail guidance in research skill
-commit: pending-parent-commit
+commit: cf3e6cf8
 
 ## INC-20261027-1716-research-gate-false-technical
 status: fixed
@@ -204,7 +204,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - B01 research-notes-gate PASS with `technical_topic: false`
-commit: pending-parent-commit
+commit: cf3e6cf8
 
 ## INC-20261027-1724-geo-qa-utility-pain-markers-empty
 status: fixed
@@ -258,7 +258,7 @@ files_changed:
 checks_run:
 - doctor: pain/outcome markers populated OK
 - JSON parse editorial-policy
-commit: pending-parent-commit
+commit: cf3e6cf8
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -559,7 +559,7 @@ files_changed:
 checks_run:
 - `--help` shows flags; LIVE TAKEN for B01 slug 4615 and Kia K5 search
 - doctor scout helper checks OK
-commit: pending-parent-commit
+commit: cf3e6cf8
 
 ## INC-20261027-1720-writer-cta-redacted-vs-secret-scan
 status: fixed
@@ -616,7 +616,7 @@ files_changed:
 checks_run:
 - cta --redact dry-run on B01 (3 replacements)
 - py_compile cta + publish
-commit: pending-parent-commit
+commit: cf3e6cf8
 
 ## INC-20261027-1740-publish-paramiko-siteenv-bootstrap
 status: fixed
@@ -670,4 +670,4 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor paramiko OK; `--env-check` JSON OK
-commit: pending-parent-commit
+commit: cf3e6cf8

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "ZX на скрине – ещё не ставка",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой про Land Cruiser 300 до ставки",
+      "scene_hint": "Vladivostok foggy port + LC300 ro-ro; host face+glasses from ref; dark rain jacket+scarf (NOT white hoodie); plaque hook; auction-sheet phone mock + catalog card; sticky «читай лист»; shocked meme; corner avto-sales125.ru; no toxic text",
+      "meme_caption_ru": "Сначала лист, потом ставка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Отделите Land Cruiser 300 от Prado и LC250",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Table LC300 vs Prado vs LC250: кузов, рама, класс; tape+sticky «не путать»; no face",
+      "alt": "Таблица сравнения Land Cruiser 300, Prado и LC250 по коду кузова и классу"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как выбрать комплектацию GX, VX, ZX и GR Sport",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Flow GX→VX→ZX→GR Sport with seats/options icons; sticky «не только ZX»; no face",
+      "alt": "Схема выбора комплектаций GX, VX, ZX и GR Sport для LC300"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните дизель, бензин и гибрид под свой сценарий",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist diesel 3.3 / petrol 3.5 / hybrid vs трасса город холод DPF; no face",
+      "alt": "Чеклист выбора дизеля, бензина или гибрида LC300 под сценарий"
+    }
+  }
+}

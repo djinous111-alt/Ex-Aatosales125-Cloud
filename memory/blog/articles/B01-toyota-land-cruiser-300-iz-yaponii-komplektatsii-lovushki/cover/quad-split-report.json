@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1266,
+      710
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 710,
+        "end": 734
+      },
+      "v_gutter_px": {
+        "start": 1266,
+        "end": 1292
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1266,
+          "bottom": 710
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1266,
+          "bottom": 710
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой про Land Cruiser 300 до ставки",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1292,
+          "top": 0,
+          "right": 2560,
+          "bottom": 710
+        },
+        "raw_box_px": {
+          "left": 1292,
+          "top": 0,
+          "right": 2560,
+          "bottom": 710
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения Land Cruiser 300, Prado и LC250 по коду кузова и классу",
+        "h2_anchor": "Отделите Land Cruiser 300 от Prado и LC250"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 5,
+          "top": 734,
+          "right": 1260,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 734,
+          "right": 1266,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора комплектаций GX, VX, ZX и GR Sport для LC300",
+        "h2_anchor": "Как выбрать комплектацию GX, VX, ZX и GR Sport"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1298,
+          "top": 734,
+          "right": 2553,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1292,
+          "top": 734,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист выбора дизеля, бензина или гибрида LC300 под сценарий",
+        "h2_anchor": "Сравните дизель, бензин и гибрид под свой сценарий"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Отделите Land Cruiser 300 от Prado и LC250",
+    "injected inline_2 after H2 — Как выбрать комплектацию GX, VX, ZX и GR Sport",
+    "injected inline_3 after H2 — Сравните дизель, бензин и гибрид под свой сценарий"
+  ]
+}

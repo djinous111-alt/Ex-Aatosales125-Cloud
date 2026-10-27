@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-1355-cover-mcp-gpt-image2-sync-timeout
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+severity: high
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (i2i, 16:9, 1K/2K) несколько раз вернул `MCP error -32001: Request timed out` без URL/task_id в ответе клиента.
+- Catbox/0x0 re-host reference: SSL handshake timeout из Cloud VM.
+
+### How the agent recovered this run
+- Использовал канонический fallback `scripts/excalibur_blog_kie_gpt_image2_api.py` (async Kie createTask + poll) с `input_urls` HTTPS reference + batch prompt.
+- Получил `cover/quad-mcp-result.json` → `excalibur_blog_quad_apply.py --inject-html` → split PASS.
+
+### Durable fix needed before next run
+- Cover skill/agent: после первого MCP -32001 сразу переходить на Kie API script, не крутить sync MCP retry loop.
+- Предпочитать `https://` для `reference_url_hosted` (http → 301).
+- Опционально: async MCP start/status tools, если появятся в MCP-KV.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261027-1356-cover-prompt-hardcoded-white-hoodie
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` жёстко вшивает `Outfit lock: thick heavyweight white hoodie`, хотя `blog-hero.json` / design code требуют одежду под погоду/тему сцены (порт Владивостока → rain jacket).
+
+### How the agent recovered this run
+- После `--write-batch` патчил prompt/batch: заменил hoodie lock на weather outfit из `scene_hint`.
+- Итоговое cover.png: тёмная куртка + шарф, без белого худи.
+
+### Durable fix needed before next run
+- Убрать hardcoded hoodie из prompt builder; брать outfit из `scene_hint` / `blog-hero.outfit_rule`.
+- Добавить regression: prompt не должен содержать `white hoodie` если scene_hint задаёт другую одежду.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261027-1340-geo-qa-literal-redacted-hrefs
 status: open
 run_date: 2026-10-27

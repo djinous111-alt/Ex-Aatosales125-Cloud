@@ -13,6 +13,9 @@ published-articles.md + blog-topics.md (Audit)
               ↓
 excalibur_blog_scout_helper.py --suggest-next (Get next ID)
               ↓
+excalibur_blog_scout_helper.py --live-slugs [--search …] [--slug …]
+  (LIVE dedup via PUBLIC_SITE_URL WP REST — NOT MCP-KV wordpress_*)
+              ↓
 WebSearch (Cursor native trend scouting for 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
@@ -33,6 +36,18 @@ Append new Topic Card to blog-topics.md
   python scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+
+### Шаг 1b — LIVE slug dedup (обязательно перед новой карточкой)
+
+```bash
+python3 scripts/excalibur_blog_scout_helper.py --live-slugs
+python3 scripts/excalibur_blog_scout_helper.py --live-slugs --search "джолион"
+python3 scripts/excalibur_blog_scout_helper.py --live-slugs --slug "proposed-kebab-slug"
+```
+
+- Источник истины: `PUBLIC_SITE_URL/wp-json/wp/v2/posts` (через helper).
+- MCP-KV `wordpress_*` **не** авторитетен для LIVE dedup (может быть другой сайт/стейджинг).
+- Учитывай denylist / model-specific exceptions из scout notes: brand comparison ≠ model guide.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:

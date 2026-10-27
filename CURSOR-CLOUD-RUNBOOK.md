@@ -55,6 +55,15 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+Публичные marketing URL (`PUBLIC_SITE_URL`, catalog/Telegram/MAX) лучше **не** класть в Cloud Secrets как secret values — secret-scan блокирует `article.html` CTA и `schema.jsonld`. Если уже secrets: CTA с `<!-- pragma: allowlist secret -->`; schema — live URLs + `bash scripts/excalibur_git.sh commit` (фильтр invalid secret names), без литерала `[REDACTED]`.
+
+Перед commit в Cloud shell:
+
+```bash
+bash scripts/excalibur_git.sh commit -m "message"
+# or: eval "$(bash scripts/excalibur_git.sh print-filter)" && git commit ...
+```
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

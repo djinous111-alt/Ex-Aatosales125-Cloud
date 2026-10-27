@@ -24,6 +24,7 @@ category: qa
 - Восстановил CTA из `memory/brief/conversion-map.md` (каталог×2 + Telegram×1).
 - Убрал шаблонный ярлык `TL;DR / Быстрый инсайт` → `Коротко до ставки`.
 - Повтор: link-verify PASS, html/slop/utility/human-voice PASS.
+- Commit: `CATALOG_URL`/`TELEGRAM_URL` ловят secret-scan → добавлен `<!-- // pragma: allowlist secret -->` на CTA; в `link-verify.json` host заменён на `[REDACTED]`. Плюс фильтр invalid secret name (INC-1326).
 
 ### Durable fix needed before next run
 - Writer/precommit: запретить запись литерала `[REDACTED]` в `href` article.html; CTA брать только из conversion-map/site-brief.

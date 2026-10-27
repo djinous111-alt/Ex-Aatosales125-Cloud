@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "\" и кликать на похожий силуэт. Land Cruiser 250 с 2024 занял нишу бывшего Prado в Японии: другие моторы (",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ектацию GX, VX, ZX и GR Sport До обновления осени 2026 на аукционах чаще GX, AX, VX, ZX и GR Sport. На па",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "й линейки изменилась. На аукционе ещё полно машин 2021–2025 со старой сеткой. Не думайте, что \"все 300 о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ейки изменилась. На аукционе ещё полно машин 2021–2025 со старой сеткой. Не думайте, что \"все 300 одинако",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "одель не входит. Дальше полная шкала; возраст \"до 3 лет / старше\" сильно двигает сумму. В реальном проект",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "300",
+      "kind": "large_number",
+      "context": "до конца аукциона брокер показал: у Land Cruiser 300 объём больше 3 л и мощность далеко выше 160 л.с.,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "uiser 300 объём больше 3 л и мощность далеко выше 160 л.с., льготы нет, а на листе ещё отметка ремонта с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "250",
+      "kind": "large_number",
+      "context": "крузак\" и кликать на похожий силуэт. Land Cruiser 250 с 2024 занял нишу бывшего Prado в Японии: другие м",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "309",
+      "kind": "large_number",
+      "context": "ценарий Дизель F33A-FTV (около 3,3 л, порядка 307–309 л.с., тяга около 700 N·m) берут за момент и трассу",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "700",
+      "kind": "large_number",
+      "context": "TV (около 3,3 л, порядка 307–309 л.с., тяга около 700 N·m) берут за момент и трассу. Бензин V35A-FTS (ок",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3400",
+      "kind": "large_number",
+      "context": "пользования узкий: до 3 л и до 160 л.с. Тогда это 3400 ₽ / 5200 ₽ по возрасту. У LC300 объём 3,3 или 3,5",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5200",
+      "kind": "large_number",
+      "context": "ия узкий: до 3 л и до 160 л.с. Тогда это 3400 ₽ / 5200 ₽ по возрасту. У LC300 объём 3,3 или 3,5 л и мощн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

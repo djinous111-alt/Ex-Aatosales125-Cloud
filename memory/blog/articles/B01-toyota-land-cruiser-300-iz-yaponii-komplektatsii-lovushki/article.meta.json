@@ -11,7 +11,7 @@
     "тойота ленд крузер 300",
     "ленд крузер 300 дизель"
   ],
-  "char_count": 8960,
+  "char_count": 9166,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,12 +28,15 @@
     "description_aeo": "Чтобы выбрать LC300 из Японии, зафиксируйте код кузова, грейд и мотор, прочитайте аукционный лист без R по раме и заложите полную шкалу утильсбора."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 88,
+    "verdict": "PASS",
+    "date": "2026-10-27",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility": "PASS",
+    "link_verify": "PASS"
   },
   "cover_family": "brand_collage"
 }

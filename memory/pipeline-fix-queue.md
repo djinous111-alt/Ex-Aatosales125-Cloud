@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-1340-geo-qa-literal-redacted-hrefs
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+severity: high
+category: qa
+
+### What went wrong
+- `article.html` содержал три литеральных `href="[REDACTED]"` вместо CTA URL каталога/Telegram.
+- `link-verify` классифицировал токен как `internal_relative` и получал HTTP 404 на `site_base/[REDACTED]`.
+- Вероятная причина: secret-scan / ручная редкция URL в артефакте статьи (в AS09 CTA остались абсолютными https).
+
+### How the agent recovered this run
+- Восстановил CTA из `memory/brief/conversion-map.md` (каталог×2 + Telegram×1).
+- Убрал шаблонный ярлык `TL;DR / Быстрый инсайт` → `Коротко до ставки`.
+- Повтор: link-verify PASS, html/slop/utility/human-voice PASS.
+
+### Durable fix needed before next run
+- Writer/precommit: запретить запись литерала `[REDACTED]` в `href` article.html; CTA брать только из conversion-map/site-brief.
+- Link-verify или doctor: FAIL с явной ошибкой, если href содержит `[REDACTED]` / пустой placeholder.
+- Не редктить CTA URL внутри HTML до publish-артефактов (или держать whitelist доменов без скана как secret).
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261027-1335-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-27
+role: director
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+severity: medium
+category: orchestration
+
+### What went wrong
+- Cloud Task rejected `subagent_type=excalibur-blog-geo-qa` (not in allowed enum).
+- Allowed includes cover/fixer/indexer/publish/research/schema/scout/writer but not geo-qa.
+
+### How the agent recovered this run
+- Fallback `Task(generalPurpose)` with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- GEO QA generalPurpose completed: article-qa PASS (score 88), human-voice PASS, link-verify PASS.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` as Cloud Task type OR keep documented generalPurpose fallback in AGENTS/director skill as first-class.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+
 ## INC-20261027-1330-writer-utility-gate-missing-pain-outcome-markers
 status: open
 run_date: 2026-10-27

@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2131-schema-precommit-secret-name-filter
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Plain `git commit` of `schema.jsonld` failed: Cloud pre-commit hook errors with `invalid variable name` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains a non-identifier token.
+- Wrapper `scripts/excalibur_git.sh` still missing on this branch (also noted in geo-qa incident).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` to bash-safe identifiers, then committed schema successfully (no `--no-verify`).
+- Fragment records this incident; schema artifact itself is valid PASS.
+
+### Durable fix needed before next run
+- Restore or add `scripts/excalibur_git.sh` that filters secret-name lists before commit hooks run.
+- Document the filter step in `skills/schema-excalibur-blog/SKILL.md` and `shared/agent-pipeline-pitfalls.md` so schema/cover do not rediscover it.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing)
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261027-2130-cover-toxic-lemma-in-prompt-builder
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-cross-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` still injects banned demeaning Russian slang lemmas into the non-toxic instruction line (quoted as negatives). Kie/MCP moderation has rejected this before.
+- Same builder also forces "Outfit lock: thick heavyweight white hoodie", conflicting with weather/topic outfit_rule and agent scene_hint.
+
+### How the agent recovered this run
+- Sanitized `cover/quad-mcp-batch.json` + `quad-mcp-prompt.txt` before image call: replaced toxic-lemma citation with generic "no demeaning slang nicknames"; replaced white-hoodie lock with scene_hint weather outfit rule.
+
+### Durable fix needed before next run
+- Remove banned slang quotes from prompt builder negatives forever; use generic non-toxic wording only.
+- Drop white-hoodie outfit lock; keep face/glasses lock and defer outfit to scene_hint / blog-hero outfit_rule.
+- Add a preflight assert that rejects prompt text containing those banned lemmas before write-batch succeeds.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261027-2124-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-28

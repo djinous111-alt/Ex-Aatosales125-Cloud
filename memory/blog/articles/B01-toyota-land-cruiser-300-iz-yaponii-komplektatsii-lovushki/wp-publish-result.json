@@ -1,0 +1,15 @@
+{
+  "slug": "toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/27/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1330778,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4609 slug=toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki\nOK featured_image=4610\nOK schema_meta=1\nOK inline_image_upload=4611 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki-inline-01.png\nOK inline_image_upload=4612 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki-inline-02.png\nOK inline_image_upload=4613 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki-inline-03.png\npermalink=[REDACTED]/2026/10/27/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/\n# reconstruct: HTTP client TimeoutError after SSH upload; REST+SSH meta-check; NO second trigger (slug already LIVE)\n",
+  "verdict": "pass"
+}

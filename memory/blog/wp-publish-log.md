@@ -1,6 +1,6 @@
 # WP publish log — Авто-Сейлс
 
-Сайт: https://avtosales125.ru/
+Сайт: [REDACTED]/
 FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`)
 Метрика Дзен: 109566711
 
@@ -10,7 +10,7 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 
 - **verdict:** PASS
 - **post_id:** 3342
-- **permalink:** https://avtosales125.ru/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/
+- **permalink:** [REDACTED]/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/
 - **featured_image:** 3349
 - **inline_images:** 3351 (`inline-01.png`), 3355 (`inline-02.png`), 3358 (`inline-03.png`)
 - **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
@@ -23,7 +23,7 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 
 - **verdict:** PASS
 - **post_id:** 3364
-- **permalink:** https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
+- **permalink:** [REDACTED]/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
 - **featured_image:** 3386
 - **inline_images:** 3387 (`inline-01.png`), 3388 (`inline-02.png`), 3389 (`inline-03.png`)
 - **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-27 — B01 toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
+
+- **verdict:** PASS
+- **post_id:** 4609 (NEW — not Forester 4603 / Jolion 4597)
+- **permalink:** [REDACTED]/2026/10/27/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/
+- **featured_image:** 4610
+- **inline_images:** 4611 (`inline-01.png`), 4612 (`inline-02.png`), 4613 (`inline-03.png`) — no `*-1.png`
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld` len=12763; skip_theme_faq=1)
+- **method:** SSH_ROOT=. upload → HTTP TimeoutError (script hardcoded 120s) → REST+SSH meta-check reconstruct into webfetch-response.txt; **no second HTTP trigger** (slug already LIVE)
+- **preflight:** bootstrapped `memory/site.env.local` from process env; `pip install --break-system-packages paramiko==5.1.0`; link-verify PASS; `--env-check` PASS; dry-run PHP ~7.4MB
+- **result:** `memory/blog/articles/B01-toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/wp-publish-result.json`
+

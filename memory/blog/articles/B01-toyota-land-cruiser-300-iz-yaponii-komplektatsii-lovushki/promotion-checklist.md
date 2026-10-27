@@ -1,7 +1,7 @@
 # Promotion checklist — B01 toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki
 
-Дата публикации: 2026-10-27 (ожидает publish)  
-Live URL: (после publish) /blog/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/
+Дата публикации: 2026-10-27  
+Live URL: [REDACTED]/2026/10/27/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ ZX на скрине – ещё не ставка. LC300 ≠ Prado/LC250.
 • Грейд GX/VX/ZX/GR Sport + мотор без путаницы
 • Утильсбор: льготы у 3.3/3.5 л и 300+ л.с. нет
 
-Читать: [URL после publish]
+Читать: [REDACTED]/2026/10/27/toyota-land-cruiser-300-iz-yaponii-komplektatsii-lovushki/
 ```
 
 ## Перелинковка

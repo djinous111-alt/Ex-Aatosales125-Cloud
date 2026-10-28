@@ -251,6 +251,41 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261028-0920-writer-pain-outcome-markers-regression
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` and `min_pain_markers` / `min_outcome_markers` after tip/rebrand sync (same class as INC-20261027-2120).
+- Current `scripts/excalibur_blog_utility_gate.py` also lost the empty-list fallback to human-voice `PAIN_MARKERS` / `OUTCOME_MARKERS`, so utility gate would count 0 and BLOCK any article.
+
+### How the agent recovered this run
+- Restored pain/outcome marker lists + mins in `editorial-policy.json`.
+- Re-applied utility-gate fallback import from `excalibur_blog_human_voice_gate` when policy lists are empty.
+- Writer self-check: html_linter PASS, utility PASS, human_voice PASS for B01 CR-V China article.
+
+### Durable fix needed before next run
+- Pin pain/outcome markers in editorial-policy as required keys (doctor or schema check).
+- Keep utility-gate fallback permanently; add regression test that empty policy lists still PASS when article has human-voice markers.
+- Note in pitfalls: tip/rebrand must not drop these keys.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261028-0910-scout-git-secret-name-hook
 status: open
 run_date: 2026-10-28

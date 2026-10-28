@@ -1,0 +1,192 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки",
+      "description": "Тойота Краун из Японии 2026: кузова Crossover/Sport/Sedan/Estate, буквы G/Z/RS, HEV vs PHEV и стоп-флаги аукционного листа до депозита.",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "env:PUBLIC_SITE_URL/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "env:PUBLIC_SITE_URL/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "env:CATALOG_URL"
+        },
+        "sameAs": [
+          "env:CATALOG_URL",
+          "env:TELEGRAM_URL",
+          "env:MAX_URL",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "env:PUBLIC_SITE_URL/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "env:CATALOG_URL",
+        "sameAs": [
+          "env:CATALOG_URL",
+          "env:TELEGRAM_URL",
+          "env:MAX_URL"
+        ]
+      },
+      "keywords": [
+        "тойота краун из японии",
+        "тойота краун гибрид",
+        "тойота краун кроссовер",
+        "тойота краун 2026",
+        "toyota crown японский аукцион"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Crown Crossover отличается от седана?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Crossover – универсальный кросс для города и быта, седан – классический FR-формат без RS в линейке дилера. Сделайте выбор по багажнику и посадке до поиска лота, не делайте ставку \"на красивое фото без кузова в брифе\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли привезти гибридный Crown из Японии в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Прямой экспорт гибридов/PHEV в РФ с августа 2023 в зоне ограничений METI. Проверьте проходной сценарий и маршрут у подборщика до депозита; не делайте DIY-ставку вслепую."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какую комплектацию брать – G, Z или RS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "G – база, Z – баланс оснащения, RS – топ и часто другой мотор (PHEV или turbo-hybrid). Выберите уровень под бюджет ремонта и зарядки; отсекайте RS PHEV, если нужен обычный HEV Z."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что значит оценка R или RA на аукционном листе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это сигнал истории ремонта/аварии на уровне аукциона, не \"мелкий скол стекла\". При R/RA без экспертизы – стоп. Не путайте с кодом R на схеме стекла."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему Sport RS – не всегда лучший выбор для семьи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sport – спортивный характер, а RS часто PHEV. Для семьи чаще спокойнее Crossover Z или Estate Z. Сверьте тип гибрида в карточке до эмоций по дискам."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "С чего начать новичку сегодня без команды \"на местах\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Заполните чеклист из 8 пунктов выше, соберите бриф и отправьте его в каталог или Telegram на проверку лота. Результат дня – отсеянные красные флаги, а не депозит в спешке."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Toyota Crown из Японии до ставки",
+      "description": "Пошаговый выбор Toyota Crown с японского аукциона: кузов Crossover/Sport/Sedan/Estate, буквы G/Z/RS, HEV vs PHEV, аукционный лист и бриф до депозита через Владивосток.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Оригинал аукционного листа (оценка, схема, 修復歴, примечания)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чеклист из 8 пунктов до депозита"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Каталог Авто-Сейлс и Telegram avtosales125 для расчёта под ключ"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Бриф: кузов + G/Z/RS + HEV/PHEV"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Данные листа: оценка, схема повреждений, стоп-флаги R/RA"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Запрос маршрута через Владивосток до депозита"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксируйте бюджет под ключ",
+          "text": "Шаг 1. Зафиксируйте бюджет \"под ключ\" запросом расчёта – без цифр из случайных чатов.",
+          "url": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#пройдите-чеклист-до-ставки-8-пунктов-перед-депозитом"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выберите один кузов Crown",
+          "text": "Шаг 2. Выберите один кузов: Crossover, Sport, Sedan или Estate.",
+          "url": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#выберите-кузов-crown-crossover-sport-sedan-или-estate"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Запишите уровень G, Z или RS",
+          "text": "Шаг 3. Запишите уровень G, Z или RS и почему он вам нужен.",
+          "url": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#как-отличить-комплектации-g-z-и-rs-до-ставки"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Укажите тип гибрида HEV или PHEV",
+          "text": "Шаг 4. Укажите тип установки: HEV 2.5 / turbo-hybrid 2.4 / PHEV – без смешения.",
+          "url": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#проверьте-гибрид-crown-hev-phev-и-маршрут-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Прочитайте аукционный лист и стоп-флаги",
+          "text": "Шаг 5–7. Откройте аукционный лист: оценка, 修復歴, рукописные заметки; проверьте схему W2–W3, XX, сильные U/B; сверьте пробег и флаги ★.",
+          "url": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#прочитайте-аукционный-лист-оценки-и-красные-флаги"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Уточните маршрут до депозита",
+          "text": "Шаг 8. До депозита уточните у Авто-Сейлс маршрут через Владивосток, сроки и состав \"под ключ\".",
+          "url": "env:PUBLIC_SITE_URL/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

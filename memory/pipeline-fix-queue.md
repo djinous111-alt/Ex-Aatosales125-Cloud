@@ -541,6 +541,44 @@ category: publish
 ### Fixer resolution
 - pending
 
+## INC-20261028-1335-indexer-llms-blog-path-stale-docs
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Indexer skill/agent still document `excalibur_blog_llms_generator.py --blog-path /`, but the CLI no longer accepts `--blog-path` (only `--blog-dir`, `--site-base`, `--out-dir`, …).
+- Doctor still FAIL on this mismatch; following skill literally would crash the generator.
+- Passing live `${PUBLIC_SITE_URL}` into `--site-base` would bake an absolute host into committed `llms.txt` / `llms-full.txt`.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` (no `--blog-path`).
+- Kept relative `/blog/<slug>/` URLs consistent with the existing corpus.
+- Interlinker `--apply` completed with opportunities_found=0 (AS08/AS09 keyword miss).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer skill/agent shell examples; align doctor check with actual CLI flags.
+- Document Cloud convention: empty `--site-base` for relative `/blog/<slug>/` in committed llms artifacts.
+- Add the same note to `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

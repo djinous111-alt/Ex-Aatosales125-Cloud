@@ -486,3 +486,39 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261028-0930-schema-env-url-placeholders
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First `schema.jsonld` draft with real `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` values was blocked by Cursor secret scan on commit.
+- Schema skill/contract still imply absolute site URLs; AS08/AS09 committed artifacts predate the secret gate.
+- `scripts/excalibur_blog_wp_publish.py` uploads `schema_jsonld` raw and does not expand `env:PUBLIC_SITE_URL` (or `env:CATALOG_URL` / `env:TELEGRAM_URL` / `env:MAX_URL`) before writing post meta.
+
+### How the agent recovered this run
+- Rewrote schema `@id` / `author.image` / `sameAs` brand channels to `env:*` placeholders (Instagram + 2GIS left as public URLs).
+- Commit of placeholder schema succeeded; fragment notes that publish must hydrate.
+
+### Durable fix needed before next run
+- Document in schema skill: commit-safe `env:PUBLIC_SITE_URL` / `env:CATALOG_URL` / `env:TELEGRAM_URL` / `env:MAX_URL` placeholders (not live host strings).
+- In `excalibur_blog_wp_publish.py` (or PHP bootstrap), expand `env:NAME` tokens in schema JSON-LD from publish env before `update_post_meta`.
+- Add a one-line pitfall: raw site/CTA URLs in schema.jsonld fail Cloud secret scan.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

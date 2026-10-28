@@ -627,3 +627,42 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261028-0945-publish-siteenv-paramiko-schema-hydrate
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing in workspace (Cloud Secrets present in process env); bash-sourcing password-bearing file can break on special chars.
+- `paramiko` not installed in image until `pip install --break-system-packages paramiko`.
+- `excalibur_blog_wp_publish.py` does not expand `env:NAME` in schema.jsonld or `${CATALOG_URL}`/`${TELEGRAM_URL}` in article.html before payload/link-verify; first link-verify failed 2/3.
+- Related open INC-20261028-0930-schema-env-url-placeholders.
+
+### How the agent recovered this run
+- Wrote gitignored `memory/site.env.local` from Cloud Secrets; forced `SSH_ROOT=.`.
+- Installed paramiko 5.1.0; hydrated article/schema for publish then restored placeholders for commit; sanitized link-verify.json.
+- Publish PASS via SSH+HTTP (~161s): post 4627 / featured 4628 / inline 4629-4631; no WebFetch; did not touch foreign LIVE 4621.
+
+### Durable fix needed before next run
+- Ensure cloud install installs paramiko; document/create site.env.local bootstrap in publish skill.
+- Expand `env:NAME` and `${NAME}` CTA tokens inside `excalibur_blog_wp_publish.py` (and optionally link-verify preflight) from publish env before upload; restore not needed if expansion is in-memory only.
+- Prefer reading env via Python (never bash-source password files).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

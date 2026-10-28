@@ -21,11 +21,11 @@
   },
   "outfit_rule": "Одежду героя менять под ПОГОДУ сцены и ТЕМУ статьи. Примеры: зима/снег Владивосток — пуховик, шарф; дождь/порт — дождевик или куртка; лето/жара — лёгкая рубашка/футболка; таможня/документы — smart casual; Encar/аукцион — neat casual; комфорт/подвеска — удобный городской look. Майку с reference НЕ копировать. Кепку и капюшон не надевать.",
   "weather_outfit_examples": {
-    "winter_snow": "пуховик / тёплая куртка, шарф, перчатки опционально",
-    "rain_fog_port": "непромокаемая куртка, слой под дождь",
-    "summer_heat": "лёгкая рубашка или футболка, без тяжёлого верха",
-    "night_city": "стильный бомбер / кожанка",
-    "office_docs_customs": "рубашка / лёгкий пиджак smart casual"
+    "winter_snow": "warm winter coat, scarf; NO hoodie",
+    "rain_fog_port": "dark olive softshell over charcoal crewneck; NO hoodie",
+    "summer_heat": "light shirt or tee; NO hoodie",
+    "night_city": "stylish bomber / leather jacket; NO hoodie",
+    "office_docs_customs": "smart casual shirt/blazer; NO hoodie"
   },
   "topic_outfit_hint": "Сначала определи weather из scene_hint/cover_hook (снег, дождь, солнце, туман, ночь), затем подстрой одежду под тему (порт, аукцион, салон авто, ямы на дороге, семья).",
   "prompt_fragment": "AVTO SALES blog host from first reference image: keep EXACT face likeness and stylish glasses ONLY; CHANGE full outfit to match scene WEATHER and ARTICLE TOPIC (winter coat in snow, rain jacket in rain, light shirt in summer heat, smart casual for customs/docs, casual for comfort/suspension road scenes); DO NOT copy reference t-shirt; NO cap NO hood; photorealistic action selfie 24mm wide-angle; funny/serious reaction; modern cars from Japan/Korea/China when cars appear; Cyrillic headline plaque; subtle catalog site footer in corner: avto-sales125.ru (NOT Telegram).",

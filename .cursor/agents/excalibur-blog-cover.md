@@ -70,23 +70,27 @@ python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 # 3. Отредактировать cover/quad-manifest.json при необходимости:
 #    cover_hook, meme_caption_ru, cover.scene_hint, inline scene_hint
 
-# 4. Промпт + batch (1 job)
-python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
+# 4. Промпт + batch (1 job) — builder blocks toxic lemmas + hoodie lock
+python3 scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
-# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
-#    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
-#    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
+# 5. Cloud default: Kie async (avoids sync MCP -32001)
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir "$ARTICLE"
+# Legacy: ONE sync MCP gpt-image-2 only if no KIE_API_KEY.
+# On -32001: do NOT blind-retry; prefer Kie or recover URL/task_id from logs.
 
 # 6. Скачать + split + inject
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir "$ARTICLE" \
-  --url "<url из MCP>" \
   --inject-html
 ```
 
 ---
 
-## MCP `gpt-image-2`
+## Image flow (Kie preferred)
+
+Cloud default: `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → poll → URL).
+
+Legacy sync MCP `gpt-image-2` (max 1 attempt unless no Kie key):
 
 ```json
 {
@@ -97,7 +101,7 @@ python scripts/excalibur_blog_quad_apply.py \
 }
 ```
 
-Перед вызовом: `tools/list` → `gpt-image-2` schema. Без `input_urls` → **❌ COVER HERO BLOCKER**.
+Без `input_urls` → **❌ COVER HERO BLOCKER**. Outfit: softshell/crewneck from scene_hint — never white-hoodie lock; never quote demeaning slang in negatives.
 
 ---
 

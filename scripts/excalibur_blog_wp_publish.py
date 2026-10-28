@@ -31,7 +31,11 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
 
 
@@ -47,7 +51,35 @@ def _read_env_file(path: Path) -> dict[str, str]:
     return env
 
 
+def ensure_site_env_local(root: Path) -> bool:
+    """Write gitignored memory/site.env.local from process env when missing."""
+    path = root / "memory/site.env.local"
+    if path.is_file():
+        return False
+    lines = ["# Auto-written by excalibur_blog_wp_publish from Cloud Secrets / process env"]
+    wrote = False
+    for key in sorted(PUBLISH_ENV_KEYS):
+        value = os.environ.get(key, "").strip()
+        if not value:
+            continue
+        if key == "SSH_ROOT" and value in {"", "/"}:
+            value = "."
+        # No quotes around values — parsers expect raw KEY=value.
+        lines.append(f"{key}={value}")
+        wrote = True
+    if not wrote:
+        return False
+    if not any(line.startswith("SSH_ROOT=") for line in lines):
+        ssh_path = os.environ.get("SSH_PATH", "").strip()
+        lines.append(f"SSH_ROOT={ssh_path or '.'}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("OK wrote missing memory/site.env.local from process env (gitignored)", file=sys.stderr)
+    return True
+
+
 def load_env(root: Path) -> dict[str, str]:
+    ensure_site_env_local(root)
     env = _read_env_file(root / "memory/site.env.local")
     for key in PUBLISH_ENV_KEYS:
         value = os.environ.get(key)
@@ -55,6 +87,12 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Map SSH_PATH → SSH_ROOT when Cloud Secrets only expose SSH_PATH.
+    if not (env.get("SSH_ROOT") or "").strip():
+        ssh_path = (env.get("SSH_PATH") or os.environ.get("SSH_PATH") or "").strip()
+        env["SSH_ROOT"] = ssh_path or "."
+    elif (env.get("SSH_ROOT") or "").strip() in {"", "/"}:
+        env["SSH_ROOT"] = "."
     return env
 
 
@@ -71,11 +109,54 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def paramiko_available() -> bool:
+    try:
+        import importlib.util
+
+        return importlib.util.find_spec("paramiko") is not None
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def expand_env_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand git-safe placeholders like env:PUBLIC_SITE_URL or ${PUBLIC_SITE_URL}.
+
+    Schema/HTML in git must not embed secret host URLs; publish expands before WP upload.
+    On-disk article artifacts keep placeholders for secret-scan.
+    """
+    import re
+
+    def env_value(key: str) -> str:
+        return (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+
+    def repl_env_colon(match: re.Match[str]) -> str:
+        key = match.group(1)
+        suffix = match.group(2) or ""
+        value = env_value(key)
+        if not value:
+            return match.group(0)
+        return value + suffix
+
+    def repl_dollar(match: re.Match[str]) -> str:
+        key = match.group(1)
+        value = env_value(key)
+        return value if value else match.group(0)
+
+    text = re.sub(r"\benv:([A-Z][A-Z0-9_]*)(/[^\s\"'<>]*)?", repl_env_colon, text)
+    text = re.sub(r"\$\{([A-Z][A-Z0-9_]*)\}", repl_dollar, text)
+    return text
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    has_paramiko = paramiko_available()
+    if not has_paramiko:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": has_paramiko,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -83,7 +164,7 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -569,9 +650,12 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
-    php = build_php(payload)
 
     if args.dry_run:
+        dry_env = load_env(root)
+        payload["schema_jsonld"] = expand_env_placeholders(payload.get("schema_jsonld") or "", dry_env)
+        payload["content"] = expand_env_placeholders(payload.get("content") or "", dry_env)
+        php = build_php(payload)
         print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
@@ -581,6 +665,8 @@ def main() -> int:
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
     missing = validate_publish_env(env)
+    if not paramiko_available():
+        missing = [*missing, "paramiko"]
     if missing:
         print(f"BLOCKER: missing publish env: {', '.join(missing)}", file=sys.stderr)
         return 2
@@ -588,6 +674,11 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
+    # Expand env:VAR / ${VAR} placeholders in schema/HTML before SSH/WP upload
+    # (on-disk git artifacts keep placeholders for secret-scan).
+    payload["schema_jsonld"] = expand_env_placeholders(payload.get("schema_jsonld") or "", env)
+    payload["content"] = expand_env_placeholders(payload.get("content") or "", env)
+    php = build_php(payload)
     out = publish_via_ssh(env, php, public)
     print(out)
 

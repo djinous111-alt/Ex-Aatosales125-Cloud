@@ -1,0 +1,498 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-28",
+    "today_ru": "28.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-30",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-28 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-crown-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки",
+    "primary_query": "тойота краун из японии",
+    "secondary_queries": [
+      "тойота краун гибрид",
+      "тойота краун кроссовер",
+      "тойота краун 2026"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "тойота краун из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "тойота краун из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Тойота Краун 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/toyota/crown/?year_from=2026&year_to=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Краун 2026 технические характеристики. Toyota Crown 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/crown/2026/",
+          "snippet": "Автомобили Toyota Crown (Тойота Краун) 2026 года с аукционов Японии доступны для заказа с доставкой в Россию."
+        },
+        {
+          "title": "Купить Toyota Crown Из Японии С Аукциона Без Пробега По Рф - Каталог ...",
+          "url": "https://autosender.ru/japan-auto/toyota/crown",
+          "snippet": "Подробно расписан модельный ряд Toyota Crown 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Краун 2026 между собой."
+        },
+        {
+          "title": "Статистика аукционов Японии | СфераКар",
+          "url": "https://sferacar.ru/statistika/toyota/crown/?year_from=2026&year_to=2026",
+          "snippet": "Вы можете выбрать и купить новые и б/у TOYOTA CROWN из каталога - все автомобили с реальными фотографиями, техническими характеристиками, описанием и окончательными ценами."
+        },
+        {
+          "title": "Заказать Toyota Crown (Тойота Краун) 2026 года с аукционов Японии",
+          "url": "https://youmeco.ru/statistika/toyota/crown/?year_from=2026&year_to=2026",
+          "snippet": "В данном разделе представлены автомобили Toyota Crown 2026 года с аукционов Японии. Цены указаны в рублях уже с учётом всех расходов: затрат в Японии, доставки в Россию, брокерских услуг, пошлины и СВХ."
+        },
+        {
+          "title": "Toyota Crown Из Японии",
+          "url": "https://tokito-auto.ru/japan/czeny-na-avto/toyota/crown",
+          "snippet": "Автомобили Toyota Crown (Тойота Краун) 2026 года на аукционах Японии, с подробным расчетом реальной стоимости в России. Удобный поиск по марке, модели, году и комплектации авто"
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "тойота краун из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Модельный ряд Тойота Краун: история, поколения и новинки 2026",
+          "url": "https://toyotabase.vercel.app/articles/m/mo/modelnyj-ryad-tojota-kraun.html",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Краун 2026 технические характеристики. Toyota Crown 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/crown/2026/",
+          "snippet": "Toyota решила не ограничиваться одним кузовом и запустила модель Crown Crossover. Это был первый случай в истории, когда под именем Краун вышел автомобиль с кузовом, напоминающим купе-кроссовер."
+        },
+        {
+          "title": "Тойота Краун из Китая с левым рулём: цена и утильсбор",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-crown-iz-kitaya/",
+          "snippet": "Подробно расписан модельный ряд Toyota Crown 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Crown 2026: цены, комплектации и тест-драйв нового флагмана",
+          "url": "https://toyotabase.vercel.app/articles/p/po/poslednij-tojota-kraun.html",
+          "snippet": "Краун из Китая ищут ради левого руля — в Японии он праворульный. Какие Crown реально продавались в Китае, что осталось в 2026 году, цены и утильсбор."
+        },
+        {
+          "title": "Новая Toyota Crown: раскрыты детали появления доступного гибрида",
+          "url": "https://motor.ru/news/novaya-toyota-crown-raskryty-detali-poyavleniya-dostupnogo-gibrida-24-06-2026.htm",
+          "snippet": "Полный обзор последнего поколения Toyota Crown: технические характеристики, сравнение с конкурентами, отзывы владельцев и советы по выбору комплектации."
+        },
+        {
+          "title": "Обзор Toyota Crown 2022-2026: Такого я ещё не видел... ну и цена космос",
+          "url": "https://dzen.ru/a/af2HqsORJlFGGwhJ",
+          "snippet": "Toyota готовит обновление для семейства Crown на японском рынке. В него войдут как лёгкие косметические улучшения, так и технические доработки. Изменения затронут кроссовер Crown, версию Sport и седан Crown. Поступление в продажу запланировано на 3 сентября. Об этом сообщает Carscoops."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com тойота краун из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "docs/favicon.svg at main · yao-dev/docs · GitHub",
+          "url": "https://github.com/yao-dev/docs/blob/main/favicon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "pavsoss/assets/banner.svg at main · pavsoss/pavsoss · GitHub",
+          "url": "https://github.com/pavsoss/pavsoss/blob/main/assets/banner.svg",
+          "snippet": "Contribute to yao-dev/docs development by creating an account on GitHub."
+        },
+        {
+          "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+          "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+          "snippet": "Contribute to pavsoss/pavsoss development by creating an account on GitHub."
+        },
+        {
+          "title": "awesome-cosplay-building/assets/armor-assembly.svg at main - GitHub",
+          "url": "https://github.com/Costumary/awesome-cosplay-building/blob/main/assets/armor-assembly.svg",
+          "snippet": "Автор: evilork. Май 2026. Статья будет обновляться по мере изменения ситуации со Steam в России."
+        },
+        {
+          "title": "effective-html/assets/effective-html-banner.png at main · plannotator ...",
+          "url": "https://github.com/plannotator/effective-html/blob/main/assets/effective-html-banner.png",
+          "snippet": "A curated list of materials, suppliers, tools, techniques, and planning resources for cosplay builders. Real products, real prices, real opinions. - awesome-cosplay-building/assets/armor-assembly.svg at main · Costumary/awesome-cosplay-building."
+        },
+        {
+          "title": "PiTrac_Enclosure_V3/3D Printed Parts/Enclosure Version 3 ... - GitHub",
+          "url": "https://github.com/jamespilgrim/PiTrac_Enclosure_V3/blob/main/3D%20Printed%20Parts/Enclosure%20Version%203/Assembly/Assembly4/Assy_RaspberryPi5_carrier-3D.svg",
+          "snippet": "Agent skills for useful HTML artifacts, wireframes, interactive prototypes, plans, and diagrams. - plannotator/effective-html"
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "тойота краун из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "PDF Toyota Toyota Crown Brochure - Toyota Official Site",
+          "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2026/crown_ebrochure.pdf",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Краун 2026 технические характеристики. Toyota Crown 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/crown/2026/",
+          "snippet": "Disruptive Design At first glance, Toyota Crown's dynamically proportioned design gives it an elegant and streamlined appearance. And the sharp line of the Daytime Running Lights (DRL) emphasizes its contemporary grille, while its refined taillight flows across the rear to complete this sedan's captivating design."
+        },
+        {
+          "title": "Модельный ряд Тойота Краун: история, поколения и новинки 2026",
+          "url": "https://toyotabase.vercel.app/articles/m/mo/modelnyj-ryad-tojota-kraun.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Crown 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Краун Тойота: все поколения (1955-2026) — фото, технические ...",
+          "url": "https://toyotabase.vercel.app/articles/k/kr/kraun-tojota-pokoleniya.html",
+          "snippet": "Японская автомобильная промышленность подарила миру множество культовых моделей, но Toyota Crown занимает среди них особое, почти мифическое место."
+        },
+        {
+          "title": "Новая Тойота Кроун 2026: обзор, характеристики и комплектации",
+          "url": "https://toyotabase.vercel.app/articles/n/no/novaya-tojota-kroun.html",
+          "snippet": "Подробный обзор всех поколений Toyota Crown: от классических седанов 1950-х до современных кроссоверов 2026 года. Сравнение дизайна, двигателей и особенностей каждой модели."
+        },
+        {
+          "title": "Тойота Краун 2026: салон изнутри — фото, отзывы, особенности",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kraun-salon-iznutri.html",
+          "snippet": "Toyota Crown больше не просто седан бизнес-класса, а смелый гибрид, сочетающий черты купе, кроссовера и классической «четырехдверки»."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "тойота краун из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "тойота краун гибрид 2026",
+      "purpose": "вторичный запрос: тойота краун гибрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Краун 2026 технические характеристики. Toyota Crown 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/crown/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Модельный ряд Тойота Краун: история, поколения и новинки 2026",
+          "url": "https://toyotabase.vercel.app/articles/m/mo/modelnyj-ryad-tojota-kraun.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Crown 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota - Краун | Crossover 2.5 4WD Hybrid 2026 · Dumsan",
+          "url": "https://dumsan.com/ru/car/20014907",
+          "snippet": "Главной технической новинкой стала система Hybrid MAX. В отличие от обычных гибридов, ориентированных на экономию, эта установка мощностью 249 лошадиных сил нацелена на динамику."
+        },
+        {
+          "title": "Тойота Краун цены 2026: стоимость, комплектации и обзор",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kraun-tseny.html",
+          "snippet": "Обзор Модель Краун Тип топлива Гибрид Год 2026 Коробка передач Автоматическая Километры 5 500 км Привод Четырехколесный"
+        },
+        {
+          "title": "Тойота Краун Веллфайр 2026 технические характеристики. Toyota Crown ...",
+          "url": "https://www.drom.ru/catalog/toyota/crown_vellfire/2026/",
+          "snippet": "Актуальные цены на Тойота Краун в 2026 году. Подробный разбор комплектаций, технические характеристики и стоимость обслуживания нового седана бизнес-класса."
+        },
+        {
+          "title": "2026 Toyota Crown Platinum 2.4L Turbo 4 Cyl Hybrid AWD A/T",
+          "url": "https://beyondautos.com/ru/cars/2026-toyota-crown-2-4l-l4-turbo-hybrid-petrol",
+          "snippet": "Подробно расписан модельный ряд Toyota Crown Vellfire 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "тойота краун кроссовер 2026",
+      "purpose": "вторичный запрос: тойота краун кроссовер",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Краун 2026 технические характеристики. Toyota Crown 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/crown/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Тойота Краун 2026 в России: продажа Toyota Crown 2026 года с ...",
+          "url": "https://auto.drom.ru/toyota/crown/year-2026/",
+          "snippet": "Подробно расписан модельный ряд Toyota Crown 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Краун 2026 между собой."
+        },
+        {
+          "title": "Тойота Краун 2026: 4 кузова и цены от 4,9 млн ₽",
+          "url": "https://carto-auto.ru/blog/toyota-crown-crossover-sport-estate-sedan-2026-cetyre-kuzova/",
+          "snippet": "Объявления о продаже Тойота Краун 2026 б/у и новых в России - частные объявления. Узнать стоимость Toyota Crown 2026 года и купить с пробегом на Дроме."
+        },
+        {
+          "title": "Модельный ряд Тойота Краун: история, поколения и новинки 2026",
+          "url": "https://toyotabase.vercel.app/articles/m/mo/modelnyj-ryad-tojota-kraun.html",
+          "snippet": "Toyota Crown 2026 в четырёх кузовах — Crossover, Sport, Estate и Sedan: моторы и гибриды, чем отличаются версии и цены под ключ в Москве от 4,9 млн ₽."
+        },
+        {
+          "title": "Купить Тойота Краун 2026: цены, комплектации и где заказать",
+          "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-tojota-kraun.html",
+          "snippet": "Toyota решила не ограничиваться одним кузовом и запустила модель Crown Crossover. Это был первый случай в истории, когда под именем Краун вышел автомобиль с кузовом, напоминающим купе-кроссовер."
+        },
+        {
+          "title": "Купить новый Toyota Crown Cross-Sedan 2026 в наличии и на заказ в Москве.",
+          "url": "https://autopremiumgroup.ru/katalog-avtomobilej/toyota-crown-cross-sedan-2026-vnedorozhnik-5dv/",
+          "snippet": "В этой статье мы подробно разберем все аспекты приобретения Toyota Crown, уделив особое внимание выбору между новыми гибридными версиями и классическими бензиновыми двигателями."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "тойота краун 2026 2026",
+      "purpose": "вторичный запрос: тойота краун 2026",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Краун 2026 технические характеристики. Toyota Crown 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/crown/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Crown 2026: цены, комплектации и тест-драйв нового флагмана",
+          "url": "https://toyotabase.vercel.app/articles/p/po/poslednij-tojota-kraun.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Crown 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Краун 2026 между собой."
+        },
+        {
+          "title": "Toyota Crown 2026: гибрид 239 л.с. — новый флагман из Японии для России",
+          "url": "https://jckauto.ru/blog/toyota-crown-gibrid-239-ls-novyy",
+          "snippet": "Полный обзор последнего поколения Toyota Crown: технические характеристики, сравнение с конкурентами, отзывы владельцев и советы по выбору комплектации."
+        },
+        {
+          "title": "Новый Toyota Crown 2026: цены, комплектации и отзывы экспертов",
+          "url": "https://toyotabase.vercel.app/articles/n/no/novyj-kraun-tojota.html",
+          "snippet": "Toyota обновила Crown Crossover: гибрид пятого поколения мощностью 239 л.с., расход 23,1 км/л и новая аудиосистема. Разбираем, что изменилось и как привезти Crown из Японии в Россию."
+        },
+        {
+          "title": "Toyota Crown из Японии — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/toyota-crown",
+          "snippet": "Подробный обзор нового Toyota Crown 2026 года: технические характеристики, фото, цены в России, сравнение с конкурентами и реальные отзывы владельцев."
+        },
+        {
+          "title": "Toyota Crown из Японии: поколения, комплектации, цены и аукционы",
+          "url": "https://avtomost-asia.ru/models/toyota-crown",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Toyota Crown: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://tokai-auto.ru/toyota/crown/?year_from=2026&year_to=2026",
+      "title": "Купить Тойота Краун 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "тойота краун из японии октябрь 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/crown/2026/",
+      "title": "Тойота Краун 2026 технические характеристики. Toyota Crown 2026 ...",
+      "from_query": "тойота краун из японии октябрь 2026"
+    },
+    {
+      "url": "https://autosender.ru/japan-auto/toyota/crown",
+      "title": "Купить Toyota Crown Из Японии С Аукциона Без Пробега По Рф - Каталог ...",
+      "from_query": "тойота краун из японии октябрь 2026"
+    },
+    {
+      "url": "https://sferacar.ru/statistika/toyota/crown/?year_from=2026&year_to=2026",
+      "title": "Статистика аукционов Японии | СфераКар",
+      "from_query": "тойота краун из японии октябрь 2026"
+    },
+    {
+      "url": "https://youmeco.ru/statistika/toyota/crown/?year_from=2026&year_to=2026",
+      "title": "Заказать Toyota Crown (Тойота Краун) 2026 года с аукционов Японии",
+      "from_query": "тойота краун из японии октябрь 2026"
+    },
+    {
+      "url": "https://tokito-auto.ru/japan/czeny-na-avto/toyota/crown",
+      "title": "Toyota Crown Из Японии",
+      "from_query": "тойота краун из японии октябрь 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/m/mo/modelnyj-ryad-tojota-kraun.html",
+      "title": "Модельный ряд Тойота Краун: история, поколения и новинки 2026",
+      "from_query": "тойота краун из японии новости 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-crown-iz-kitaya/",
+      "title": "Тойота Краун из Китая с левым рулём: цена и утильсбор",
+      "from_query": "тойота краун из японии новости 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/p/po/poslednij-tojota-kraun.html",
+      "title": "Toyota Crown 2026: цены, комплектации и тест-драйв нового флагмана",
+      "from_query": "тойота краун из японии новости 2026"
+    },
+    {
+      "url": "https://motor.ru/news/novaya-toyota-crown-raskryty-detali-poyavleniya-dostupnogo-gibrida-24-06-2026.htm",
+      "title": "Новая Toyota Crown: раскрыты детали появления доступного гибрида",
+      "from_query": "тойота краун из японии новости 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/af2HqsORJlFGGwhJ",
+      "title": "Обзор Toyota Crown 2022-2026: Такого я ещё не видел... ну и цена космос",
+      "from_query": "тойота краун из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/yao-dev/docs/blob/main/favicon.svg",
+      "title": "docs/favicon.svg at main · yao-dev/docs · GitHub",
+      "from_query": "site:github.com тойота краун из японии 2026"
+    },
+    {
+      "url": "https://github.com/pavsoss/pavsoss/blob/main/assets/banner.svg",
+      "title": "pavsoss/assets/banner.svg at main · pavsoss/pavsoss · GitHub",
+      "from_query": "site:github.com тойота краун из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+      "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+      "from_query": "site:github.com тойота краун из японии 2026"
+    },
+    {
+      "url": "https://github.com/Costumary/awesome-cosplay-building/blob/main/assets/armor-assembly.svg",
+      "title": "awesome-cosplay-building/assets/armor-assembly.svg at main - GitHub",
+      "from_query": "site:github.com тойота краун из японии 2026"
+    },
+    {
+      "url": "https://github.com/plannotator/effective-html/blob/main/assets/effective-html-banner.png",
+      "title": "effective-html/assets/effective-html-banner.png at main · plannotator ...",
+      "from_query": "site:github.com тойота краун из японии 2026"
+    },
+    {
+      "url": "https://github.com/jamespilgrim/PiTrac_Enclosure_V3/blob/main/3D%20Printed%20Parts/Enclosure%20Version%203/Assembly/Assembly4/Assy_RaspberryPi5_carrier-3D.svg",
+      "title": "PiTrac_Enclosure_V3/3D Printed Parts/Enclosure Version 3 ... - GitHub",
+      "from_query": "site:github.com тойота краун из японии 2026"
+    },
+    {
+      "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2026/crown_ebrochure.pdf",
+      "title": "PDF Toyota Toyota Crown Brochure - Toyota Official Site",
+      "from_query": "тойота краун из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/kr/kraun-tojota-pokoleniya.html",
+      "title": "Краун Тойота: все поколения (1955-2026) — фото, технические ...",
+      "from_query": "тойота краун из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/n/no/novaya-tojota-kroun.html",
+      "title": "Новая Тойота Кроун 2026: обзор, характеристики и комплектации",
+      "from_query": "тойота краун из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kraun-salon-iznutri.html",
+      "title": "Тойота Краун 2026: салон изнутри — фото, отзывы, особенности",
+      "from_query": "тойота краун из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://dumsan.com/ru/car/20014907",
+      "title": "Toyota - Краун | Crossover 2.5 4WD Hybrid 2026 · Dumsan",
+      "from_query": "тойота краун гибрид 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kraun-tseny.html",
+      "title": "Тойота Краун цены 2026: стоимость, комплектации и обзор",
+      "from_query": "тойота краун гибрид 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/crown_vellfire/2026/",
+      "title": "Тойота Краун Веллфайр 2026 технические характеристики. Toyota Crown ...",
+      "from_query": "тойота краун гибрид 2026"
+    },
+    {
+      "url": "https://beyondautos.com/ru/cars/2026-toyota-crown-2-4l-l4-turbo-hybrid-petrol",
+      "title": "2026 Toyota Crown Platinum 2.4L Turbo 4 Cyl Hybrid AWD A/T",
+      "from_query": "тойота краун гибрид 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/toyota/crown/year-2026/",
+      "title": "Купить Тойота Краун 2026 в России: продажа Toyota Crown 2026 года с ...",
+      "from_query": "тойота краун кроссовер 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/toyota-crown-crossover-sport-estate-sedan-2026-cetyre-kuzova/",
+      "title": "Тойота Краун 2026: 4 кузова и цены от 4,9 млн ₽",
+      "from_query": "тойота краун кроссовер 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-tojota-kraun.html",
+      "title": "Купить Тойота Краун 2026: цены, комплектации и где заказать",
+      "from_query": "тойота краун кроссовер 2026"
+    },
+    {
+      "url": "https://autopremiumgroup.ru/katalog-avtomobilej/toyota-crown-cross-sedan-2026-vnedorozhnik-5dv/",
+      "title": "Купить новый Toyota Crown Cross-Sedan 2026 в наличии и на заказ в Москве.",
+      "from_query": "тойота краун кроссовер 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/toyota-crown-gibrid-239-ls-novyy",
+      "title": "Toyota Crown 2026: гибрид 239 л.с. — новый флагман из Японии для России",
+      "from_query": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/n/no/novyj-kraun-tojota.html",
+      "title": "Новый Toyota Crown 2026: цены, комплектации и отзывы экспертов",
+      "from_query": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/catalog/toyota-crown",
+      "title": "Toyota Crown из Японии — цена под ключ · калькулятор 2026",
+      "from_query": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки 2026"
+    },
+    {
+      "url": "https://avtomost-asia.ru/models/toyota-crown",
+      "title": "Toyota Crown из Японии: поколения, комплектации, цены и аукционы",
+      "from_query": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки 2026"
+    }
+  ]
+}

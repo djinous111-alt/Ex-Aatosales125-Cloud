@@ -128,6 +128,14 @@ Task(excalibur-blog-writer)
 Task(excalibur-blog-geo-qa)
 ```
 
+Если typed Task `excalibur-blog-geo-qa` недоступен (Cloud enum) — сразу:
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+Запусти все QA-скрипты для article_dir. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.
+```
+
 Промпт: «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»
 
 **Gate:** QA PASS, link-verify pass, **research notes gate PASS**, **utility gate статьи PASS**, **human voice gate PASS**. Статья должна явно решать боль читателя и давать результат. Без PASS **не** идти к шагу 4.

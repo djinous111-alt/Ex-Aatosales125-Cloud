@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-28",
+    "today_ru": "28.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-30",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-28 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-crown-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки",
+    "primary_query": "тойота краун из японии",
+    "secondary_queries": [
+      "тойота краун гибрид",
+      "тойота краун кроссовер",
+      "тойота краун 2026"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "тойота краун из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "тойота краун из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "тойота краун из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com тойота краун из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "тойота краун из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "тойота краун из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "тойота краун гибрид 2026",
+      "purpose": "вторичный запрос: тойота краун гибрид"
+    },
+    {
+      "id": "secondary_2",
+      "query": "тойота краун кроссовер 2026",
+      "purpose": "вторичный запрос: тойота краун кроссовер"
+    },
+    {
+      "id": "secondary_3",
+      "query": "тойота краун 2026 2026",
+      "purpose": "вторичный запрос: тойота краун 2026"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

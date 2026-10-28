@@ -20,17 +20,27 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / `memory/site.env.local` (auto-bootstrap): `SSH_*`, `PUBLIC_SITE_URL`, `CATALOG_URL`… |
+| Transport | SSH + `paramiko` (required in image; see `requirements.txt`) |
+| Schema | `env:VAR` / `${VAR}` placeholders hydrated in-memory before meta write |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
 ## Алгоритм
 
+### 0. Env preflight
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+If `memory/site.env.local` missing, script writes it from process env (no quotes). `SSH_PATH` maps to `SSH_ROOT` (default `.`). Schema `env:PUBLIC_SITE_URL` placeholders expand at publish; on-disk file keeps placeholders.
+
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
@@ -41,7 +51,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +61,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -84,7 +94,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

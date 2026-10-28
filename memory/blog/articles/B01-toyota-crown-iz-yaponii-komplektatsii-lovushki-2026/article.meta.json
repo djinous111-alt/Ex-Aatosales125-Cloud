@@ -1,0 +1,43 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-crown-iz-yaponii-komplektatsii-lovushki-2026",
+  "title": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки",
+  "h1": "Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки",
+  "description": "Тойота Краун из Японии 2026: кузова Crossover/Sport/Sedan/Estate, буквы G/Z/RS, HEV vs PHEV и стоп-флаги аукционного листа до депозита.",
+  "cover_alt": "Герой Авто-Сейлс у современного Toyota Crown, фрагмент аукционного листа, плашка до ставки, угол avto-sales125.ru",
+  "primary_query": "тойота краун из японии",
+  "secondary_queries": [
+    "тойота краун гибрид",
+    "тойота краун кроссовер",
+    "тойота краун 2026"
+  ],
+  "char_count": 9191,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать Toyota Crown из Японии до ставки",
+    "комплектации Crown G Z RS и ловушки листа",
+    "чеклист тойота краун гибрид из японии 2026"
+  ],
+  "meta_ab": {
+    "title_seo": "Тойота Краун из Японии: комплектации и ловушки 2026",
+    "title_ctr": "🚗 Тойота Краун из Японии: какие кузова и буквы G/Z/RS ловят до ставки?",
+    "title_aeo": "Как выбрать Toyota Crown из Японии по комплектации до ставки на аукцион?",
+    "description_seo": "Тойота Краун из Японии 2026: кузова Crossover/Sport/Sedan/Estate, буквы G/Z/RS, HEV vs PHEV и стоп-флаги аукционного листа до депозита.",
+    "description_ctr": "⚡ Не ставьте депозит по красивому фото. Чеклист кузова, G/Z/RS, гибрида и листа Crown до ставки из Японии.",
+    "description_aeo": "До ставки на Toyota Crown из Японии выберите кузов, букву G/Z/RS, тип HEV/PHEV и отсейте лоты с R/RA по аукционному листу."
+  },
+  "geo_qa": {
+    "score": 88,
+    "verdict": "PASS",
+    "date": "2026-10-28",
+    "html_linter": "pass",
+    "slop_score": 0,
+    "cannibalization": "pass",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "link_verify": "pass",
+    "research_notes_gate": "PASS"
+  },
+  "cover_family": "brand_collage"
+}

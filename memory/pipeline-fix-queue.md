@@ -579,6 +579,45 @@ category: docs
 ### Fixer resolution
 - pending
 
+## INC-20261028-1342-publish-siteenv-paramiko-schema-hydrate
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- `memory/site.env.local` was absent at publish start (Cloud Secrets present in process env only).
+- `paramiko` missing from the image until `pip install --break-system-packages`.
+- Publish script still does not hydrate `env:*` / `${CATALOG_URL}` / `${TELEGRAM_URL}` in schema/HTML before building the PHP payload.
+- `SSH_ROOT` unset; host requires login-cwd `.` for bootstrap upload.
+
+### How the agent recovered this run
+- Wrote gitignored `memory/site.env.local` from process env with `SSH_ROOT=.` (no quoted values).
+- Installed paramiko 5.1.0; ran `--env-check` then link-verify → dry-run → publish.
+- Expanded CTA/schema placeholders into live files for publish, then restored placeholders and sanitized `link-verify.json`.
+- SSH upload + HTTP trigger succeeded (post 4633); no WebFetch fallback needed.
+
+### Durable fix needed before next run
+- Autocreate `site.env.local` mapping from Cloud Secrets (including `SSH_PATH`→`SSH_ROOT` / default `.`) inside publish preflight.
+- Pin paramiko in environment install / requirements path used by Cloud image.
+- Hydrate `env:*` and `${…}` inside `excalibur_blog_wp_publish.py` in-memory before PHP payload (no durable live URLs in git).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

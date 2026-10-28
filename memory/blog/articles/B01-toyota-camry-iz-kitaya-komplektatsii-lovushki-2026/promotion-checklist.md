@@ -1,7 +1,7 @@
 # Promotion checklist — B01 toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-28 (pending publish)  
-Live URL: /blog/toyota-camry-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-28  
+Live URL: https://avtosales125.ru/2026/10/28/toyota-camry-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -48,4 +48,9 @@ Sport Plus красиво — а мотор уже другая полоса?
 
 - Indexer: interlinker `--apply --blog-dir memory/blog/articles --article-dir … --site-base ${PUBLIC_SITE_URL}` — opportunities_found=0.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir` + `--out-dir`; без `--blog-path`; `--site-base ""` → relative `/blog/<slug>/`).
-- Publish: не запускался (Indexer only).
+- Publish: PASS post=4633 featured=4634 inline=4635/4636/4637 schema_meta=ok.
+
+## Publish result
+
+- Live URL = https://avtosales125.ru/2026/10/28/toyota-camry-iz-kitaya-komplektatsii-lovushki-2026/
+- WP post_id = 4633

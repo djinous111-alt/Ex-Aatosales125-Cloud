@@ -522,3 +522,72 @@ category: publish
 
 ### Fixer resolution
 - pending
+
+## INC-20261028-0935-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync Cursor MCP `gpt-image-2` (MCP-KV) returned `HTTP MCP error -32001: Request timed out` before returning the 2K i2i URL.
+- Agent-accessible MCP tool log had no generated URL / task_id after polling (~1 min); no async start/status tools in Available Tools.
+
+### How the agent recovered this run
+- Did not blind-retry a second sync MCP create.
+- Sanitized `cover/quad-mcp-batch.json` prompt (removed toxic lemma quotes + white-hoodie outfit lock), then ran `scripts/excalibur_blog_kie_gpt_image2_api.py` with the same mcp_args (ONE task).
+- Wrote `cover/quad-mcp-result.json` and completed `excalibur_blog_quad_apply.py --inject-html` (split PASS).
+
+### Durable fix needed before next run
+- Prefer documented Kie async path (or MCP async create/status) after first -32001; keep sync MCP optional smoke only.
+- Cover skill/task-map: if MCP log unavailable → Kie API recovery with same batch, not COVER MCP RECOVERY NEEDED dead-end when `KIE_API_KEY` is set.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/mcp-image-async-contract.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261028-0935-cover-prompt-builder-hoodie-toxic
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` still injects: (1) toxic lemma examples `лох/лохов` even as negatives; (2) hard `Outfit lock: thick heavyweight white hoodie` that fights scene_hint weather/topic outfits.
+- Prior Corolla Cross fixer incident claimed this was fixed; regression remains in the prompt builder strings.
+
+### How the agent recovered this run
+- Manually sanitized `quad-mcp-batch.json` / `quad-mcp-prompt.txt` before Kie createTask: neutral non-toxic wording + outfit follows scene_hint (navy field jacket), no hoodie lock.
+
+### Durable fix needed before next run
+- Edit prompt builder defaults: ban demeaning slang even in negatives; remove white-hoodie outfit lock; keep «Do not copy reference clothing» + scene_hint outfit rule.
+- Add a unit/smoke assert that built prompts never contain `лох` / `Outfit lock: thick heavyweight white hoodie`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

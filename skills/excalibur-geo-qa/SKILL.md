@@ -55,3 +55,8 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Link verify / IRI
+
+`excalibur_blog_link_verify.py` percent-encodes non-ASCII path/query (IRI→URI) before `urllib`. Cyrillic 2GIS URLs no longer need manual encoding in HTML, but percent-encoded hrefs remain valid.
+

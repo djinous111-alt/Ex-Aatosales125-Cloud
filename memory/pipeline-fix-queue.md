@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none for run 2026-10-28 B01 Crown — all nine closed below as fixed._
+
+## Recently fixed (2026-10-28 B01 Crown)
+
 ## INC-20261028-1745-publish-siteenv-paramiko-schema-hydrate
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-publish
 topic_id: B01
@@ -43,11 +47,32 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- `excalibur_blog_wp_publish.py` auto-bootstraps gitignored `memory/site.env.local` from process env (no quotes); maps `SSH_PATH`→`SSH_ROOT`.
+- `expand_env_placeholders` hydrates `env:VAR` and `${VAR}` in schema/HTML in-memory before WP meta write; on-disk placeholders remain for secret-scan.
+- `paramiko` required in `requirements.txt`, `.cursor/Dockerfile`, `cloud-agent-install.sh`; `--env-check` reports `paramiko_available`.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `requirements.txt`
+- `memory/site.env.local.example`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- hydrate smoke (`env:PUBLIC_SITE_URL` / `${CATALOG_URL}`)
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check`
+commit: pending-parent-commit
 
 
 ## INC-20261028-1730-cover-mcp-timeout-kie-fallback
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-cover
 topic_id: B01
@@ -81,10 +106,26 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Cover skill/agent/contract default to Kie async (`excalibur_blog_kie_gpt_image2_api.py`); sync MCP is legacy.
+- After first sync `-32001`: no blind second create; recover URL/task_id or fall through to Kie.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+checks_run:
+- `rg` Kie-first wording in cover skill
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+commit: pending-parent-commit
 
 ## INC-20261028-1731-cover-prompt-builder-hoodie-toxic
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-cover
 topic_id: B01
@@ -115,11 +156,26 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Prompt builder no longer quotes demeaning slang; blocks toxic lemmas + white-hoodie lock; outfit from `blog-hero` / scene_hint (softshell/crewneck).
+- `blog-hero.json` weather examples force `NO hoodie`.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- toxic/hoodie validator smoke
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+commit: pending-parent-commit
 
 
 ## INC-20261028-1719-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -151,11 +207,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Director skill Step 3 now has explicit `Task(generalPurpose)` + agent/skill paths when typed `excalibur-blog-geo-qa` is missing from Cloud enum.
+- Pitfalls/AGENTS treat generalPurpose as first-class fallback (Cloud Task enum registration is outside repo).
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose + geo-qa agent/skill paths in director skill
+commit: pending-parent-commit
 
 
 ## INC-20261028-1719-geo-qa-link-verify-iri
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -184,11 +251,24 @@ category: scripts
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- `iri_to_uri()` percent-encodes non-ASCII path/query/host before urllib Request (2GIS Cyrillic IRIs).
+- GEO QA skill documents IRI handling.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- IRI smoke with Cyrillic 2GIS path
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: pending-parent-commit
 
 
 ## INC-20261028-1718-writer-pain-outcome-markers-regression
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-writer
 topic_id: B01
@@ -221,11 +301,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Pinned `pain_markers_ru` / `outcome_markers_ru` + `_markers_pinned: true` in editorial-policy.
+- Utility gate keeps hardcoded fallbacks when lists empty.
+- Doctor fails if marker arrays / pin flag missing.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor editorial-policy marker checks PASS
+- JSON parse editorial-policy
+commit: pending-parent-commit
 
 
 ## INC-20261028-1715-research-tech-marker-regression
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-research
 topic_id: B01
@@ -257,11 +351,23 @@ category: scripts
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Kept word-boundary match for short markers `ai`/`ии`; longer tech tokens remain substring.
+- Doctor regression: auto-niche notes with `reader_pain` + «Японии» must not be `technical_topic`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor research tech-marker regression PASS
+- Crown research-notes gate remains technical_topic=false
+commit: pending-parent-commit
 
 
 ## INC-20261028-1706-doctor-llms-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-10-28
 role: director
 topic_id: B01
@@ -294,9 +400,26 @@ category: scripts
 - Indexer confirmed CLI has only `--blog-dir` (no `--blog-path`); ran generator successfully with `--blog-dir` + `--out-dir`.
 - Agent/skill shell examples still show `--blog-path /` — would fail if followed literally; Fixer should strip that flag from examples.
 
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Doctor checks `--blog-dir` + `--out-dir`; warns if stale `--blog-path` appears in CLI help.
+- Indexer agent/skill shell examples no longer pass `--blog-path /`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor llms `--blog-dir` PASS
+- `rg` no `--blog-path /` in indexer agent/skill
+commit: pending-parent-commit
 
 ## INC-20261028-1705-scout-precommit-env-hook
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-scout
 topic_id: B01
@@ -326,7 +449,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Restored `scripts/excalibur_git.sh` + secret-name filter helpers that strip non-identifier tokens from `CLOUD_AGENT_*_SECRET_NAMES` before pre-commit.
+- Scout skill/agent document safe commit path; doctor asserts helpers present.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_git.sh help`
+- doctor `excalibur_git.sh present` PASS
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

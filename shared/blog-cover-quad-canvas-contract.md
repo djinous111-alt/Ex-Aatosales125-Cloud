@@ -25,13 +25,15 @@ python scripts/excalibur_blog_quad_manifest.py \
 python scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --write-batch
 
-# 4. ONE CallMcpTool gpt-image-2 по cover/quad-mcp-batch.json
-#    input_urls: [reference_url_hosted] — обязательно
+# 4. Cloud default: Kie async (не sync MCP) — избегает -32001
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+# Legacy: ONE sync MCP gpt-image-2; на -32001 НЕ blind-retry — Kie или URL из логов
 
 # 5. Скачать canvas + split
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<mcp_url>" --inject-html
+  --inject-html
 ```
 
 ## Раскладка 2×2

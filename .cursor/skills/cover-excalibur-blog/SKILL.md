@@ -122,21 +122,33 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — image (Kie preferred)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Cloud default:** Kie async flow (avoids sync MCP `-32001` timeout):
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Uses `jobs[0]` prompt + `input_urls` from `cover/quad-mcp-batch.json`, writes `cover/quad-mcp-result.json`.
+
+**Legacy fallback only** (no `KIE_API_KEY`): one sync MCP `gpt-image-2` with `jobs[0].mcp_args`. If HTTP `-32001`:
+1. Do **not** blind-retry a second create (duplicate risk).
+2. Inspect MCP/agent logs for a late URL / task_id; if found → save to `quad-mcp-result.json`.
+3. Else prefer Kie script above when `KIE_API_KEY` is set; max 2 sync attempts / 10 min only if no Kie key.
+
+Prompt builder blocks toxic lemmas (even as negatives) and white-hoodie outfit lock; outfit comes from `blog-hero` / `scene_hint` (softshell/crewneck).
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
   --inject-html
 ```
+
+Or with explicit URL: `--url "<result url>"`.
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
 
@@ -169,6 +181,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
 - [ ] cover: hook + meme caption видны на PNG
+- [ ] no toxic lemmas / no hoodie lock in prompt; corner brand avto-sales125.ru
 - [ ] inline: без лица героя
 - [ ] fragment cover.md записан
 

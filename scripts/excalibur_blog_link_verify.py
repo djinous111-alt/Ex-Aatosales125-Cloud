@@ -12,7 +12,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse, urlsplit, urlunsplit
 
 
 class LinkExtractor(HTMLParser):
@@ -43,10 +43,34 @@ def extract_links(html: str) -> list[str]:
     return out
 
 
+def iri_to_uri(url: str) -> str:
+    """Percent-encode non-ASCII path/query so urllib can request IRIs (e.g. 2GIS Cyrillic)."""
+    parts = urlsplit(url)
+    host = parts.hostname or ""
+    try:
+        host_ascii = host.encode("idna").decode("ascii") if host else ""
+    except UnicodeError:
+        host_ascii = host
+    netloc = host_ascii
+    if parts.port:
+        netloc = f"{host_ascii}:{parts.port}"
+    if parts.username:
+        user = quote(parts.username, safe="")
+        if parts.password:
+            user = f"{user}:{quote(parts.password, safe='')}"
+        netloc = f"{user}@{netloc}"
+    # Keep already-percent-encoded octets; encode raw non-ASCII only.
+    path = quote(parts.path, safe="/%:@!$&'()*+,;=")
+    query = quote(parts.query, safe="%&=:@!$'()*+,;")
+    fragment = quote(parts.fragment, safe="%!$'()*+,;:@&=/")
+    return urlunsplit((parts.scheme, netloc, path, query, fragment))
+
+
 def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
     ctx = ssl.create_default_context()
+    request_url = iri_to_uri(url)
     req = urllib.request.Request(
-        url,
+        request_url,
         method="HEAD",
         headers={"User-Agent": user_agent},
     )
@@ -61,7 +85,7 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
             }
     except urllib.error.HTTPError as e:
         if e.code in (405, 501, 403):
-            return _get_fallback(url, timeout, user_agent, ctx, str(e))
+            return _get_fallback(request_url, timeout, user_agent, ctx, str(e), display_url=url)
         return {
             "url": url,
             "status": e.code,
@@ -70,17 +94,24 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
             "error": str(e),
         }
     except Exception as e:  # noqa: BLE001
-        return _get_fallback(url, timeout, user_agent, ctx, str(e))
+        return _get_fallback(request_url, timeout, user_agent, ctx, str(e), display_url=url)
 
 
 def _get_fallback(
-    url: str, timeout: float, user_agent: str, ctx: ssl.SSLContext, head_error: str
+    url: str,
+    timeout: float,
+    user_agent: str,
+    ctx: ssl.SSLContext,
+    head_error: str,
+    *,
+    display_url: str | None = None,
 ) -> dict[str, Any]:
+    shown = display_url or url
     req = urllib.request.Request(url, headers={"User-Agent": user_agent})
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
             return {
-                "url": url,
+                "url": shown,
                 "status": resp.status,
                 "ok": 200 <= resp.status < 400,
                 "method": "GET",
@@ -88,7 +119,7 @@ def _get_fallback(
             }
     except urllib.error.HTTPError as e:
         return {
-            "url": url,
+            "url": shown,
             "status": e.code,
             "ok": False,
             "method": "GET",
@@ -96,7 +127,7 @@ def _get_fallback(
         }
     except Exception as e:  # noqa: BLE001
         return {
-            "url": url,
+            "url": shown,
             "status": None,
             "ok": False,
             "method": "GET",

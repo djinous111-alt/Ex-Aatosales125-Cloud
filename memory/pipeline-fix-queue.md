@@ -6,6 +6,75 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261028-1719-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Task enum does not accept typed Task `excalibur-blog-geo-qa`.
+- Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Executed full GEO QA contract under generalPurpose: all python3 gates + article-qa.md PASS.
+- Did not start cover/schema/publish from this role.
+
+### Durable fix needed before next run
+- Register typed Task `excalibur-blog-geo-qa` in Cloud Task enum / environment, or keep explicit generalPurpose fallback documented in director skill + AGENTS.md (already noted in pitfalls; verify environment.json / Cloud Automation wiring).
+- Ensure Director prompt always passes agent+skill paths when typed type is unavailable.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261028-1719-geo-qa-link-verify-iri
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: scripts
+
+### What went wrong
+- `excalibur_blog_link_verify.py` failed on 2GIS URL containing raw Cyrillic in the path (`ascii codec can't encode characters`).
+- Link itself was valid; urllib Request rejected non-ASCII IRI.
+
+### How the agent recovered this run
+- Percent-encoded the search path in `article.html` to ASCII (`%D0%B0...`).
+- Re-ran link-verify → PASS 3/3.
+
+### Durable fix needed before next run
+- IRI-encode URL path/query before `urllib.request` in `excalibur_blog_link_verify.py`.
+- Document in Writer/QA pitfalls: external URLs with Cyrillic must be percent-encoded or the verifier will fail.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261028-1718-writer-pain-outcome-markers-regression
 status: open
 run_date: 2026-10-28

@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "й бриф в каталог. TL;DR / Быстрый инсайт: С марта 2025 у Toyota Crown в Японии уже четыре кузова – Crosso",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "осле ставки. На практике тойота краун из японии в 2026 – это не одна модель, а линейка с разными багажни",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "5 HEV, что у G/Z. Отдельно про вывоз. С 9 августа 2023 METI запретил экспорт в РФ авто с двигателем свыше",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "ETI запретил экспорт в РФ авто с двигателем свыше 1900 cc (бензин/дизель), а также гибридов, PHEV и EV. Т",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

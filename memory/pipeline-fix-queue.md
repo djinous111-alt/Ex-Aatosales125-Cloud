@@ -606,10 +606,12 @@ category: docs
 - Related doctor check was already corrected in INC-20261028-0904; skill/agent/docs were not updated in the same pass, so Indexer would fail if the shell block is copied literally.
 
 ### How the agent recovered this run
-- Ran `python3 scripts/excalibur_blog_llms_generator.py --help`, then invoked with `--blog-dir memory/blog/articles --site-base "$PUBLIC_SITE_URL" --out-dir memory/blog` only. Generated `memory/blog/llms.txt` + `memory/blog/llms-full.txt` (3 articles, B01 listed).
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help`, then invoked with `--blog-dir` + `--out-dir` only (no `--blog-path`).
+- First generate with `--site-base "$PUBLIC_SITE_URL"` embedded absolute URLs and was blocked by Cursor secret scan on commit; regenerated with `--site-base ""` → relative `/blog/<slug>/` paths and cleared `interlink-suggestions.json` site_base.
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from all Indexer contracts and keep a single canonical CLI example with `--blog-dir` + `--out-dir`.
+- Document commit-safe pattern: Indexer should generate llms with `--site-base ""` (relative paths) so PUBLIC_SITE_URL value is never committed; publish/live can rewrite if needed.
 - Add pitfalls note: never pass `--blog-path` to llms generator; doctor already asserts `--blog-dir`.
 
 ### Suggested files to inspect/change
@@ -618,6 +620,7 @@ category: docs
 - `agents/excalibur-blog-indexer.md`
 - `.cursor/agents/excalibur-blog-indexer.md`
 - `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_llms_generator.py`
 
 ### Secrets
 - none recorded

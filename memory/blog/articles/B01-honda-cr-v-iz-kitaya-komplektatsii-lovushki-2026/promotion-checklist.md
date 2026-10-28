@@ -46,5 +46,5 @@ Prestige на ярлыке — а комплектация китайская?
 ## Notes
 
 - Indexer: interlinker `--apply --article-dir …/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026` → opportunities_found=0 / applied=0.
-- llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir memory/blog/articles`, без `--blog-path`).
+- llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir`, `--site-base ""`, без `--blog-path`; relative `/blog/<slug>/`).
 - Publish: не запускался (зона publish-агента).

@@ -58,7 +58,7 @@ files_changed:
 checks_run:
 - filter smoke: non-identifier names skipped
 - doctor: excalibur_git.sh present
-commit: cc80c883
+commit: 820e4c0f
 
 ## INC-20261028-1315-research-tech-markers-false-positive
 status: fixed
@@ -105,7 +105,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research-notes-gate B01 Camry PASS technical_topic=False
-commit: cc80c883
+commit: 820e4c0f
 
 
 ## INC-20261028-1318-writer-pain-outcome-markers-missing
@@ -159,7 +159,7 @@ files_changed:
 checks_run:
 - doctor pain/outcome populated
 - utility gate B01 Camry PASS
-commit: cc80c883
+commit: 820e4c0f
 
 
 ## INC-20261028-1318-writer-human-voice-relative-output
@@ -206,7 +206,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - repo-relative -o no nested tree; basename -o under article_dir
-commit: cc80c883
+commit: 820e4c0f
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -497,7 +497,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg generalPurpose geo-qa fallback present
-commit: cc80c883
+commit: 820e4c0f
 
 ## INC-20261028-1320-geo-qa-tldr-label-conflict
 status: fixed
@@ -540,7 +540,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - html-linter FAIL on TL;DR fixture; PASS on B01 Camry
-commit: cc80c883
+commit: 820e4c0f
 
 ## INC-20261028-1320-geo-qa-cta-env-placeholders
 status: fixed
@@ -586,7 +586,7 @@ files_changed:
 - `skills/publish-excalibur-blog/SKILL.md`
 checks_run:
 - py_compile cta_hrefs + publish
-commit: cc80c883
+commit: 820e4c0f
 
 ## INC-20261028-1326-cover-prompt-builder-hoodie-lock
 status: fixed
@@ -628,7 +628,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - cover prompt B01 Camry: no white-hoodie lock
-commit: cc80c883
+commit: 820e4c0f
 
 ## INC-20261028-1330-schema-env-url-placeholders
 status: fixed
@@ -675,7 +675,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit smoke expand_schema_placeholders
-commit: cc80c883
+commit: 820e4c0f
 
 ## INC-20261028-1335-indexer-llms-blog-path-stale-docs
 status: fixed
@@ -727,7 +727,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor llms --blog-dir OK / no stale --blog-path
-commit: cc80c883
+commit: 820e4c0f
 
 ## INC-20261028-1342-publish-siteenv-paramiko-schema-hydrate
 status: fixed
@@ -785,7 +785,7 @@ checks_run:
 - doctor paramiko available
 - py_compile wp_publish
 - schema/CTA hydrate unit smoke
-commit: cc80c883
+commit: 820e4c0f
 
 ## Fixed incidents
 

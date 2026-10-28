@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый Sport RS — а это уже PHEV?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у современного Toyota Crown, фрагмент аукционного листа и плашка до ставки, угол avto-sales125.ru",
+      "scene_hint": "EXACT face+glasses from reference; OUTFIT: charcoal softshell jacket over cream crewneck (cool Vladivostok October port fog, crewneck/softshell only; no cap; no tank/t-shirt from reference); pose: pointing at phone screen with auction card; collage: torn paper strip with Cyrillic hook «Красивый Sport RS — а это уже PHEV?» yellow highlight on «PHEV»; fake UI: Japanese auction sheet snippet (grade 3.5, flag W2 on fender — no real lot numbers), catalog card Toyota Crown Crossover Z, sticky note «сначала кузов»; shocked-face meme cutout; scotch tape; corner brand avto-sales125.ru; modern Crown silhouette behind fog/port cranes; 16:9",
+      "meme_caption_ru": "Сначала кузов — потом ставка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Выберите кузов Crown: Crossover, Sport, Sedan или Estate",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI 4 rows: Crossover / Sport / Sedan / Estate — columns «для кого» and «что помнить»; icons of body silhouettes; small sticky note «один кузов до поиска»; NO person face; tape corner; readable Cyrillic labels",
+      "alt": "Таблица сравнения кузовов Toyota Crown: Crossover, Sport, Sedan, Estate"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как отличить комплектации G, Z и RS до ставки",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram 3 steps: G → Z → RS with arrows; note under RS «часто другой мотор / PHEV на Sport·Estate»; badge «Crossover RS = 2.4 turbo-hybrid»; NO hero face; light paper texture + one tape strip",
+      "alt": "Схема отличий комплектаций Crown G, Z и RS до ставки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте гибрид Crown: HEV, PHEV и маршрут до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board clipboard: ☐ HEV или PHEV в карточке лота; ☐ маршрут/логистика до депозита; ☐ Sport/Estate RS ≠ обычный гибрид; ☐ стоп если тип гибрида неясен; mini inset auction grade chip; NO person face; pink sticky «до депозита»",
+      "alt": "Чеклист проверки HEV/PHEV и маршрута Crown до депозита"
+    }
+  }
+}

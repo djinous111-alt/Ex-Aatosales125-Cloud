@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1370,
+      773
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 773,
+        "end": 819
+      },
+      "v_gutter_px": {
+        "start": 1370,
+        "end": 1404
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1370,
+          "bottom": 773
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1370,
+          "bottom": 773
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у современного Toyota Crown, фрагмент аукционного листа и плашка до ставки, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1404,
+          "top": 12,
+          "right": 2736,
+          "bottom": 761
+        },
+        "raw_box_px": {
+          "left": 1404,
+          "top": 0,
+          "right": 2736,
+          "bottom": 773
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения кузовов Toyota Crown: Crossover, Sport, Sedan, Estate",
+        "h2_anchor": "Выберите кузов Crown: Crossover, Sport, Sedan или Estate"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 47,
+          "top": 819,
+          "right": 1322,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 819,
+          "right": 1370,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема отличий комплектаций Crown G, Z и RS до ставки",
+        "h2_anchor": "Как отличить комплектации G, Z и RS до ставки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1432,
+          "top": 819,
+          "right": 2707,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1404,
+          "top": 819,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки HEV/PHEV и маршрута Crown до депозита",
+        "h2_anchor": "Проверьте гибрид Crown: HEV, PHEV и маршрут до депозита"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Выберите кузов Crown: Crossover, Sport, Sedan или Estate",
+    "injected inline_2 after H2 — Как отличить комплектации G, Z и RS до ставки",
+    "injected inline_3 after H2 — Проверьте гибрид Crown: HEV, PHEV и маршрут до депозита"
+  ]
+}

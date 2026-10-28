@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-crown-iz-yaponii-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у современного Toyota Crown, фрагмент аукционного листа и плашка до ставки, угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-28T17:35:33+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у современного Toyota Crown, фрагмент аукционного листа и плашка до ставки, угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения кузовов Toyota Crown: Crossover, Sport, Sedan, Estate",
+      "h2_anchor": "Выберите кузов Crown: Crossover, Sport, Sedan или Estate",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема отличий комплектаций Crown G, Z и RS до ставки",
+      "h2_anchor": "Как отличить комплектации G, Z и RS до ставки",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист проверки HEV/PHEV и маршрута Crown до депозита",
+      "h2_anchor": "Проверьте гибрид Crown: HEV, PHEV и маршрут до депозита",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -6,6 +6,78 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261028-1730-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP-KV `gpt-image-2` returned HTTP MCP error `-32001` Request timed out (no image URL in agent log).
+- Blind second sync create is wasteful; cover needs async recovery path.
+
+### How the agent recovered this run
+- Waited briefly after timeout; did not invent a URL.
+- Ran `scripts/excalibur_blog_kie_gpt_image2_api.py` with the same sanitized `cover/quad-mcp-batch.json` mcp_args (i2i + input_urls).
+- Kie task `022d0c33cb7c045b2ceeb4593503bbb0` → success → tempfile URL → `excalibur_blog_quad_apply.py --inject-html` PASS.
+
+### Durable fix needed before next run
+- Document cover runbook: after first sync MCP `-32001`, prefer Kie async (`excalibur_blog_kie_gpt_image2_api.py`) instead of a second blind MCP create; keep max 2 sync attempts / 10 min only if no Kie key.
+- Optionally raise MCP client timeout for 2K i2i or default cover pipeline to Kie when `KIE_API_KEY` is set.
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261028-1731-cover-prompt-builder-hoodie-toxic
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` still injects toxic lemma examples (`лох` / `лохов`) into the negative line and locks outfit to `thick heavyweight white hoodie`.
+- Listing banned slang in the prompt teaches the image model; hoodie lock fights scene_hint softshell/crewneck.
+
+### How the agent recovered this run
+- Sanitized `cover/quad-mcp-prompt.txt` + `cover/quad-mcp-batch.json` before MCP/Kie: respectful negatives without demeaning lemmas; outfit lock → charcoal softshell + cream crewneck; removed literal `hoodie` token.
+- PIL-stamped corner brand `avto-sales125.ru` on `cover/cover.png` after gen missed it.
+
+### Durable fix needed before next run
+- Patch prompt builder defaults: no demeaning slang tokens even as negatives; default outfit softshell/crewneck (weather-aware), never hoodie lock.
+- Add automatic sanitize step in `excalibur_blog_cover_quad_prompt.py --write-batch` and optional corner-brand stamp helper after split.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261028-1719-geo-qa-typed-task-missing
 status: open
 run_date: 2026-10-28

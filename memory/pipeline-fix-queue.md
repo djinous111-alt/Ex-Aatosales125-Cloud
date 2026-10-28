@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261028-1306-scout-precommit-secret-name
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Default `git commit` failed in Cloud pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes at least one name that is not a valid bash identifier, so `${!SECRET_NAME}` errors with "invalid variable name".
+- Memory suggested `scripts/excalibur_git.sh commit`, but that wrapper is missing from this repo snapshot.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to identifier-only names for the commit process, then committed and pushed normally.
+- Did not print secret names or values.
+
+### Durable fix needed before next run
+- Restore or add `scripts/excalibur_git.sh` that filters non-identifier secret names before invoking git commit.
+- Or document the same filter in scout/publish skills so Cloud agents do not stall on pre-commit.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing)
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

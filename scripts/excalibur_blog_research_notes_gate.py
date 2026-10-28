@@ -73,14 +73,31 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_in_blob(marker: str, blob: str) -> bool:
+    """Whole-token match for short markers so «ии» ≠ «японии», «ai» ≠ «email»."""
+    marker = marker.lower()
+    if len(marker) <= 3:
+        return bool(re.search(rf"(?<![a-zа-яё0-9]){re.escape(marker)}(?![a-zа-яё0-9])", blob, flags=re.I))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech topics from topic card fields only.
+
+    Do NOT scan full research-notes body: mandatory `github_evidence` / GitHub URLs
+    otherwise false-flag auto-import / consumer how-to topics as technical.
+    Short markers (ии/ai/api/mcp/rag) use word-boundary match («японии» ≠ tech).
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Optional: first heading line of notes (title), still exclude github_evidence section.
+    first_line = (notes.splitlines()[0] if notes else "").lower()
+    if first_line.startswith("#"):
+        blob += " " + first_line
+    return any(_marker_in_blob(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -205,7 +222,15 @@ def main() -> int:
     report = validate_research_notes(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        # Basename → article_dir; repo-relative (memory/...) → repo root (avoid nested duplicates).
+        if args.output.is_absolute():
+            output = args.output
+        else:
+            rel = str(args.output).replace("\\", "/")
+            if "/" in rel or rel.startswith("memory"):
+                output = root / args.output
+            else:
+                output = article_dir / args.output
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

@@ -21,4 +21,8 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
+**URL placeholders (secret-scan):** в committed JSON-LD пиши `env:PUBLIC_SITE_URL`, `env:CATALOG_URL`, `env:TELEGRAM_URL`, `env:MAX_URL` (+ optional path suffix `env:PUBLIC_SITE_URL/blog/<slug>/`). Не вставляй live `PUBLIC_SITE_URL` / catalog hosts. Publish гидратит placeholders in-memory перед WP meta.
+
+Публичные Instagram/2GIS URL оставляй как есть.
+
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).

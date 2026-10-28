@@ -45,13 +45,19 @@ python scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<dir> \
   --output utility-gate-report.json
 
-python scripts/excalibur_blog_human_voice_gate.py \
+python3 scripts/excalibur_blog_human_voice_gate.py \
   --article-dir memory/blog/articles/<dir> \
   -o human-voice-report.json
 ```
 
+`-o` с basename пишет в `--article-dir`; repo-relative `memory/...` путь резолвится от корня репо (не создаёт nested tree). Для research-notes gate предпочтительно `-o research-notes-gate.json`.
+
+**CTA / link-verify:** в git HTML держи `${CATALOG_URL}` / `${TELEGRAM_URL}`. Для live verify — временный expand (`scripts/excalibur_blog_cta_hrefs.py --expand`) или env, затем верни placeholders и sanitize `link-verify.json`.
+
 **Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass, **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
 
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
+
+**Cloud:** если typed Task `excalibur-blog-geo-qa` недоступен — Director запускает `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + этот skill (не skip QA).
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).

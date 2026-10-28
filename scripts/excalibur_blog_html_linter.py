@@ -35,6 +35,28 @@ def detect_anchor_toc(html: str) -> list[str]:
     return errors
 
 
+def detect_forbidden_insight_labels(html: str) -> list[str]:
+    """Fail template insight openers banned by GEO QA / writing contract."""
+    errors: list[str] = []
+    for quote in re.findall(r"<blockquote\b[\s\S]*?</blockquote>", html, flags=re.I):
+        plain = re.sub(r"<[^>]+>", " ", quote)
+        plain = re.sub(r"\s+", " ", plain).strip().lower()
+        if plain.startswith("tl;dr") or "tl;dr" in plain[:40]:
+            errors.append(
+                "Forbidden insight label «TL;DR» in <blockquote>; "
+                "use a thematic opener (e.g. «Инсайт до депозита»), "
+                "see shared/excalibur-article-writing-contract.md block 2."
+            )
+            break
+        if "быстрый инсайт" in plain[:80]:
+            errors.append(
+                "Forbidden insight label «Быстрый инсайт» in <blockquote>; "
+                "use a thematic opener, see writing contract block 2."
+            )
+            break
+    return errors
+
+
 def detect_duplicate_faq_sections(html: str) -> list[str]:
     """Fail if article has more than one FAQ heading block."""
     errors: list[str] = []
@@ -121,6 +143,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.feed(html_content)
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
+    linter.errors.extend(detect_forbidden_insight_labels(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
 
     return {

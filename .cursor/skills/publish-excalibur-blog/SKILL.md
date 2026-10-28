@@ -20,42 +20,54 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / `memory/site.env.local` (SSH_* + `PUBLIC_SITE_URL`); script bootstrap'ит файл из process env если отсутствует |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| SSH deps | `paramiko` (requirements.txt / cloud-agent-install / Dockerfile) |
+| SSH root | `SSH_ROOT=.` (или `SSH_PATH`→`.`); panel absolute paths часто ENOENT |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
 ## Алгоритм
 
+### 0. Env check
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Без секретов в stdout. При отсутствии `site.env.local` скрипт создаёт его из Cloud Secrets (`SSH_ROOT` default `.`).
+
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 ```
 
-Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
+CTA: expand `${…}` только для verify, затем верни placeholders. Gate: `link-verify.json` → pass.
 
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
 
-Проверь: slug, title, размер PHP payload без ошибок.
+Проверь: slug, title, размер PHP payload. Placeholders `${…}` / `env:…` гидратятся in-memory.
 
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
 Скрипт:
+- bootstrap `site.env.local` + SSH (paramiko);
+- гидратит CTA `${CATALOG_URL}` и schema `env:PUBLIC_SITE_URL` **только в payload** (git не трогает);
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;

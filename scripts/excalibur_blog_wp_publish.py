@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Publish one Excalibur blog article to WordPress (SSH bootstrap)."""
 from __future__ import annotations
 
@@ -31,7 +31,11 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
 
 
@@ -43,18 +47,75 @@ def _read_env_file(path: Path) -> dict[str, str]:
         line = line.strip()
         if "=" in line and not line.startswith("#"):
             k, v = line.split("=", 1)
-            env[k.strip()] = v.strip()
+            env[k.strip()] = v.strip().strip('"').strip("'")
     return env
 
 
+def bootstrap_site_env_local(root: Path) -> Path | None:
+    """Materialize memory/site.env.local from process env when missing/incomplete.
+
+    Cloud Secrets are injected as env vars but the gitignored local file is often
+    absent on a fresh pod. Prefer SSH_ROOT=. when only SSH_PATH is set or root
+    is empty — panel absolute paths frequently ENOENT inside the SSH cwd.
+    """
+    path = root / "memory" / "site.env.local"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    existing = _read_env_file(path)
+    merged = dict(existing)
+    for key in PUBLISH_ENV_KEYS:
+        value = (os.environ.get(key) or "").strip()
+        if value:
+            merged[key] = value
+    if not merged.get("SSH_PASS") and merged.get("SSH_PASSWORD"):
+        merged["SSH_PASS"] = merged["SSH_PASSWORD"]
+    if not (merged.get("SSH_ROOT") or "").strip():
+        # SSH_PATH is a common Cloud Secret alias; login cwd usually needs ".".
+        ssh_path = (merged.get("SSH_PATH") or "").strip()
+        merged["SSH_ROOT"] = "." if ssh_path in {"", "/", "."} else ssh_path
+
+    critical = (
+        merged.get("SSH_HOST"),
+        merged.get("SSH_USER"),
+        merged.get("SSH_PASS") or merged.get("SSH_PASSWORD"),
+        merged.get("PUBLIC_SITE_URL") or merged.get("WP_HOME") or merged.get("WP_SITE_URL"),
+    )
+    needs_write = (not path.is_file()) or (not existing.get("SSH_ROOT") and merged.get("SSH_ROOT"))
+    if not any(critical) and not needs_write:
+        return None
+    if path.is_file() and existing.get("SSH_HOST") and existing.get("SSH_PASS") and existing.get("SSH_ROOT"):
+        # File already usable; do not rewrite secrets to disk on every call.
+        return path
+
+    # Never write quoted values; PHP/env parsers treat quotes as part of the secret.
+    lines = [
+        "# Auto-bootstrapped from Cloud Secrets / process env. Do not commit.",
+        f"PUBLIC_SITE_URL={merged.get('PUBLIC_SITE_URL') or merged.get('WP_HOME') or merged.get('WP_SITE_URL') or ''}",
+        f"SSH_HOST={merged.get('SSH_HOST', '')}",
+        f"SSH_PORT={merged.get('SSH_PORT', '22')}",
+        f"SSH_USER={merged.get('SSH_USER', '')}",
+        f"SSH_PASS={merged.get('SSH_PASS') or merged.get('SSH_PASSWORD') or ''}",
+        f"SSH_ROOT={merged.get('SSH_ROOT', '.')}",
+        f"EXCALIBUR_BLOG_ALLOW_PUBLISH={merged.get('EXCALIBUR_BLOG_ALLOW_PUBLISH', '')}",
+    ]
+    for optional in ("CATALOG_URL", "TELEGRAM_URL", "MAX_URL"):
+        if merged.get(optional):
+            lines.append(f"{optional}={merged[optional]}")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("OK bootstrapped memory/site.env.local from process env (SSH_ROOT default '.')", file=sys.stderr)
+    return path
+
+
 def load_env(root: Path) -> dict[str, str]:
+    bootstrap_site_env_local(root)
     env = _read_env_file(root / "memory/site.env.local")
     for key in PUBLISH_ENV_KEYS:
         value = os.environ.get(key)
         if value:
-            env[key] = value
+            env[key] = value.strip().strip('"').strip("'")
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    if not (env.get("SSH_ROOT") or "").strip():
+        env["SSH_ROOT"] = "."
     return env
 
 
@@ -69,6 +130,40 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     if not (env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")):
         missing.append("PUBLIC_SITE_URL")
     return missing
+
+
+def expand_schema_placeholders(schema_text: str, env: dict[str, str] | None = None) -> str:
+    """Expand env:VAR(/path) and ${VAR} placeholders before WP schema meta upload.
+
+    Committed schema.jsonld must stay secret-scan safe (env:PUBLIC_SITE_URL, ${CATALOG_URL}, …).
+    """
+    import re
+
+    env = env or {}
+    out = schema_text
+
+    def repl_env_colon(match: re.Match[str]) -> str:
+        key = match.group(1)
+        suffix = match.group(2) or ""
+        value = (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+        if not value:
+            return match.group(0)
+        return value + suffix
+
+    out = re.sub(r"\benv:([A-Z][A-Z0-9_]*)(/[^\s\"'<>]*)?", repl_env_colon, out)
+    for key in (
+        "PUBLIC_SITE_URL",
+        "WP_SITE_URL",
+        "WP_HOME",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+    ):
+        value = (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+        if value:
+            out = out.replace(f"${{{key}}}", value)
+            out = out.replace(f"${key}", value)
+    return out
 
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
@@ -176,6 +271,16 @@ def load_article(article_dir: Path) -> dict:
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     meta_ab = meta.get("meta_ab") or {}
     content = html_path.read_text(encoding="utf-8").strip()
+    # Expand ${CATALOG_URL}/[REDACTED] CTA placeholders from env for the live WP payload
+    # without rewriting the committed article.html (secret-scan safe).
+    try:
+        from excalibur_blog_cta_hrefs import expand_html, load_cta_env
+
+        content, cta_n = expand_html(content, load_cta_env())
+        if cta_n:
+            print(f"OK publish CTA expand replacements={cta_n}", file=sys.stderr)
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN publish CTA expand skipped: {exc}", file=sys.stderr)
     cover_path = article_dir / "cover" / "cover.png"
     schema_path = article_dir / "schema.jsonld"
     cover_b64 = ""
@@ -187,6 +292,8 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        # Expand env:VAR and ${VAR} placeholders in-memory only (git keeps placeholders).
+        schema_raw = expand_schema_placeholders(schema_raw, load_env(project_root()))
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))

@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-28 B01 Camry China — all closed below as fixed._
+
+
 ## INC-20261028-1306-scout-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-scout
 topic_id: B01
@@ -36,10 +39,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Restored scripts/excalibur_git.sh (comma-separated identifier filter) + filter helpers.
+- Scout agent/skill document Cloud commit via bash scripts/excalibur_git.sh commit.
+- Doctor asserts excalibur_git.sh present.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- filter smoke: non-identifier names skipped
+- doctor: excalibur_git.sh present
+commit: cc80c883
 
 ## INC-20261028-1315-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-research
 topic_id: B01
@@ -71,11 +93,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- is_technical_topic() scans topic-card fields only with word-boundary for short markers.
+- Does not scan full research-notes body (avoids reader_pain / комплектации false positives).
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- research-notes-gate B01 Camry PASS technical_topic=False
+commit: cc80c883
 
 
 ## INC-20261028-1318-writer-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-writer
 topic_id: B01
@@ -108,11 +142,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Pinned pain_markers_ru/outcome_markers_ru + _markers_pinned in editorial-policy.
+- Utility gate falls back to human-voice markers when policy lists empty.
+- Doctor fails if marker lists empty.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- doctor pain/outcome populated
+- utility gate B01 Camry PASS
+commit: cc80c883
 
 
 ## INC-20261028-1318-writer-human-voice-relative-output
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-writer
 topic_id: B01
@@ -141,7 +192,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- human-voice and research-notes gates resolve repo-relative -o against repo root; basename under article_dir.
+files_changed:
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- repo-relative -o no nested tree; basename -o under article_dir
+commit: cc80c883
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -194,7 +259,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: cc80c883
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -245,7 +310,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: cc80c883
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -286,7 +351,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: cc80c883
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -333,7 +398,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: cc80c883
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -387,10 +452,10 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: cc80c883
 
 ## INC-20261028-1320-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -417,10 +482,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Documented Cloud generalPurpose fallback for geo-qa in director/CLOUD-AUTOMATION/agent/skill/pitfalls.
+files_changed:
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg generalPurpose geo-qa fallback present
+commit: cc80c883
 
 ## INC-20261028-1320-geo-qa-tldr-label-conflict
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -447,10 +527,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Writing contract forbids TL;DR / Быстрый инсайт; thematic insight label required.
+- HTML linter blocks forbidden insight openers; writer skill aligned.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- html-linter FAIL on TL;DR fixture; PASS on B01 Camry
+commit: cc80c883
 
 ## INC-20261028-1320-geo-qa-cta-env-placeholders
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -476,10 +569,27 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Writer/GEO QA/writing-contract: CTA placeholders in git; expand-only for verify.
+- Restored excalibur_blog_cta_hrefs.py; publish expands in-memory.
+files_changed:
+- `scripts/excalibur_blog_cta_hrefs.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- py_compile cta_hrefs + publish
+commit: cc80c883
 
 ## INC-20261028-1326-cover-prompt-builder-hoodie-lock
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-cover
 topic_id: B01
@@ -505,10 +615,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Prompt builder uses weather/topic outfit; validates against hardcoded white-hoodie lock.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- cover prompt B01 Camry: no white-hoodie lock
+commit: cc80c883
 
 ## INC-20261028-1330-schema-env-url-placeholders
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-schema
 topic_id: B01
@@ -539,10 +662,23 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Publish expands env:VAR and ${VAR} in schema.jsonld in-memory before WP meta.
+- Schema skill documents placeholder contract.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit smoke expand_schema_placeholders
+commit: cc80c883
 
 ## INC-20261028-1335-indexer-llms-blog-path-stale-docs
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-indexer
 topic_id: B01
@@ -577,10 +713,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Indexer agent/skill use --blog-dir + --out-dir; no --blog-path.
+- Doctor asserts --blog-dir/--out-dir and absence of --blog-path.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor llms --blog-dir OK / no stale --blog-path
+commit: cc80c883
 
 ## INC-20261028-1342-publish-siteenv-paramiko-schema-hydrate
-status: open
+status: fixed
 run_date: 2026-10-28
 role: excalibur-blog-publish
 topic_id: B01
@@ -616,7 +766,26 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-28
+fix_summary:
+- Publish bootstraps site.env.local from Cloud Secrets (SSH_PATH to SSH_ROOT=.).
+- paramiko pinned in requirements + cloud-agent-install + Dockerfile.
+- In-memory hydrate for CTA placeholders and schema env placeholders before PHP payload.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_cta_hrefs.py`
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor paramiko available
+- py_compile wp_publish
+- schema/CTA hydrate unit smoke
+commit: cc80c883
 
 ## Fixed incidents
 

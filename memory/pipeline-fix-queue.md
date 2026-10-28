@@ -68,7 +68,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - hydrate smoke (`env:PUBLIC_SITE_URL` / `${CATALOG_URL}`)
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check`
-commit: pending-parent-commit
+commit: 30a770a6
 
 
 ## INC-20261028-1730-cover-mcp-timeout-kie-fallback
@@ -122,7 +122,7 @@ files_changed:
 checks_run:
 - `rg` Kie-first wording in cover skill
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
-commit: pending-parent-commit
+commit: 30a770a6
 
 ## INC-20261028-1731-cover-prompt-builder-hoodie-toxic
 status: fixed
@@ -171,7 +171,7 @@ files_changed:
 checks_run:
 - toxic/hoodie validator smoke
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
-commit: pending-parent-commit
+commit: 30a770a6
 
 
 ## INC-20261028-1719-geo-qa-typed-task-missing
@@ -218,7 +218,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose + geo-qa agent/skill paths in director skill
-commit: pending-parent-commit
+commit: 30a770a6
 
 
 ## INC-20261028-1719-geo-qa-link-verify-iri
@@ -264,7 +264,7 @@ files_changed:
 checks_run:
 - IRI smoke with Cyrillic 2GIS path
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
-commit: pending-parent-commit
+commit: 30a770a6
 
 
 ## INC-20261028-1718-writer-pain-outcome-markers-regression
@@ -315,7 +315,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy marker checks PASS
 - JSON parse editorial-policy
-commit: pending-parent-commit
+commit: 30a770a6
 
 
 ## INC-20261028-1715-research-tech-marker-regression
@@ -363,7 +363,7 @@ files_changed:
 checks_run:
 - doctor research tech-marker regression PASS
 - Crown research-notes gate remains technical_topic=false
-commit: pending-parent-commit
+commit: 30a770a6
 
 
 ## INC-20261028-1706-doctor-llms-blog-path-flag
@@ -416,7 +416,7 @@ files_changed:
 checks_run:
 - doctor llms `--blog-dir` PASS
 - `rg` no `--blog-path /` in indexer agent/skill
-commit: pending-parent-commit
+commit: 30a770a6
 
 ## INC-20261028-1705-scout-precommit-env-hook
 status: fixed
@@ -467,7 +467,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_git.sh help`
 - doctor `excalibur_git.sh present` PASS
-commit: pending-parent-commit
+commit: 30a770a6
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

@@ -74,6 +74,76 @@ category: script
 - pending
 
 
+## INC-20261028-1318-writer-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` and `outcome_markers_ru`.
+- `excalibur_blog_utility_gate.py` then counts empty lists as 0 and blocks the article (`pain_markers < 2`, `outcome_markers < 3`) even when the HTML names reader pain and outcome in plain language.
+
+### How the agent recovered this run
+- Restored both marker lists in `editorial-policy.json` with Russian substrings aligned to human-voice/utility expectations.
+- Re-ran utility gate → PASS after restore.
+- Did not invent marker hits in the article beyond normal Camry how-to wording.
+
+### Durable fix needed before next run
+- Pin `pain_markers_ru` / `outcome_markers_ru` in editorial-policy (or ship defaults inside `excalibur_blog_utility_gate.py` when keys are missing).
+- Add a doctor/preflight check that fails if those keys are empty.
+- Document the regression in `shared/agent-pipeline-pitfalls.md` and writer skill.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261028-1318-writer-human-voice-relative-output
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_human_voice_gate.py` joins a relative `-o` path to `article_dir`.
+- Passing a repo-relative path like `memory/blog/articles/<slug>/human-voice-selfcheck.json` creates a nested duplicate tree under the article directory.
+
+### How the agent recovered this run
+- Re-ran with an absolute `-o` path (and/or basename only) and deleted the nested `article_dir/memory/...` junk tree.
+
+### Durable fix needed before next run
+- Resolve relative `-o` against repo root (same as utility gate `--output`), or document "use basename / absolute path only" in writer and GEO QA skills.
+- Mirror the existing research-notes-gate note in pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

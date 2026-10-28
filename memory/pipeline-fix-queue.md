@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261028-1718-writer-pain-outcome-markers-regression
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru`.
+- Writer selfcheck `excalibur_blog_utility_gate.py --article-dir` BLOCK: pain_markers=0, outcome_markers=0 despite article text containing «боль», «ошиб», «результат», «сможете».
+- Same regression already hit earlier B01 Camry/CR-V writer runs; lists drop after template/tip reset.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` / `outcome_markers_ru` (+ min counts) in `memory/brief/editorial-policy.json`.
+- Added hardcoded fallback lists in `scripts/excalibur_blog_utility_gate.py` when policy keys are empty.
+- Re-ran utility gate on Crown article after restore.
+
+### Durable fix needed before next run
+- Pin marker lists in editorial-policy and keep script fallback permanently.
+- Add doctor check that policy contains non-empty pain/outcome marker arrays.
+- Document in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261028-1715-research-tech-marker-regression
 status: open
 run_date: 2026-10-28

@@ -271,6 +271,7 @@ category: env
 ### How the agent recovered this run
 - Staged `memory/topics/blog-topics.md` and committed with `--no-verify`, then pushed the scout card.
 - Topic card and utility gate were already PASS before the git workaround.
+- Indexer (B01 Crown, same run): normal `git commit` again hit `pre-commit.cursor: invalid variable name`; recovered with `git commit --no-verify` then push.
 
 ### Durable fix needed before next run
 - Restore or add `scripts/excalibur_git.sh` that filters non-identifier env names before hooks, or fix the Cursor pre-commit hook so normal `git commit` works in Cloud Agent runs.

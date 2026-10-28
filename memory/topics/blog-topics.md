@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Camry из Китая: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита в 2026
+- **primary_query:** тойота камри из китая
+- **secondary_queries:** камри из китая, тойота камри комплектации, тойота камри гибрид из китая, камри 80 из китая
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Camry из Китая, а кому лучше Япония или Корея
+  2. Какие версии XV80 реально везут: бензин 2.0 и гибриды 2.0 / 2.5
+  3. Ловушка утильсбора: почему соседние комплектации дают разный итог
+  4. Что проверить до депозита: VIN, мотор, мультимедиа, правило 180 дней
+  5. Чек-лист заказа через Владивосток без статичных цен
+- **faq_hints:** чем китайская Camry 80 отличается от японской; стоит ли брать гибрид 2.5; нужна ли русификация мультимедиа; как сравнить две версии до оплаты
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного седана Camry на фоне порта Владивостока, плашка "до депозита", угол avto-sales125.ru
+- **wordstat_signal:** parent "тойота камри" 573301; narrow "тойота камри из китая" 864; "камри из китая" 1791; "тойота камри комплектации" 2915
+- **live_dedup:** slug toyota-camry-iz-kitaya-komplektatsii-lovushki-2026 ABSENT on PUBLIC_SITE_URL REST 2026-10-28

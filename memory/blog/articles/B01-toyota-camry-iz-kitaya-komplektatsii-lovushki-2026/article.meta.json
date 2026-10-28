@@ -1,0 +1,45 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-camry-iz-kitaya-komplektatsii-lovushki-2026",
+  "title": "Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита",
+  "h1": "Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита в 2026",
+  "description": "Тойота Камри из Китая XV80: сравнение комплектаций Elite/Sport/Premium, бензин 2.0 и гибриды 2.0/2.5, ловушки утильсбора и правило 180 дней до депозита.",
+  "cover_alt": "Герой Авто-Сейлс у седана Camry у порта Владивостока, плашка до депозита",
+  "primary_query": "тойота камри из китая",
+  "secondary_queries": [
+    "камри из китая",
+    "тойота камри комплектации",
+    "тойота камри гибрид из китая",
+    "камри 80 из китая"
+  ],
+  "char_count": 9874,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать Camry из Китая до депозита",
+    "комплектации тойота камри из китая XV80",
+    "чек-лист Camry China: VIN и утильсбор"
+  ],
+  "meta_ab": {
+    "title_seo": "Тойота Камри из Китая: комплектации и ловушки 2026",
+    "title_ctr": "🚗 Тойота Камри из Китая: какие комплектации ломают смету до депозита?",
+    "title_aeo": "Как выбрать Toyota Camry из Китая и не перепутать комплектации до депозита?",
+    "description_seo": "Тойота Камри из Китая XV80: сравнение Elite/Sport/Premium, бензин 2.0 и гибриды 2.0/2.5, утильсбор по VIN и правило 180 дней. Чек-лист до депозита.",
+    "description_ctr": "⚡ Депозит за красивую Камри из Китая без сверки мотора – лотерея. Чек-лист двух комплектаций, VIN и 180 дней внутри.",
+    "description_aeo": "Китайская Camry XV80: три мотора, разные trim-ы и ловушка утильсбора. До депозита сравните две версии по VIN и документам."
+  },
+  "geo_qa": {
+    "score": 87,
+    "verdict": "PASS",
+    "date": "2026-10-28",
+    "html_linter": "PASS",
+    "slop_score": "WARNING_0_cliches",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "18/20"
+  },
+  "cover_family": "brand_collage"
+}

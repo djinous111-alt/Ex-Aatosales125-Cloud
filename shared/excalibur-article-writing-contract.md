@@ -82,10 +82,13 @@ Excalibur BLOG следует этому контракту для каждой 
 
 350–500 символов. Формула: «[боль/интрига] — [суть ответа] — [что получит читатель]». Без «в этой статье вы узнаете».
 
-### Блок 2: Инсайт-выжимка (AEO TL;DR Box)
+### Блок 2: Инсайт-выжимка (AEO insight box)
 
-Обязательный блок `<blockquote>` сразу после первого `<p>` (Lead). Он содержит концентрированные выводы по статье в 3-4 предложениях для голосового и нейропоиска. 
-Пример: `<blockquote><b>TL;DR / Быстрый инсайт:</b> Суть проблемы простыми словами...</blockquote>`
+Обязательный блок `<blockquote>` сразу после первого `<p>` (Lead). Он содержит концентрированные выводы по статье в 3-4 предложениях для голосового и нейропоиска.
+
+**Запрещены** шаблонные ярлыки `TL;DR` и `Быстрый инсайт` в начале blockquote (GEO QA / human-voice блокируют). Пиши тематический заголовок инсайта.
+
+Пример: `<blockquote><b>Инсайт до депозита:</b> Суть проблемы простыми словами...</blockquote>`
 
 ### Блок 3: Оглавление (Table of Contents) — **ЗАПРЕЩЕНО**
 
@@ -361,4 +364,6 @@ Excalibur BLOG следует этому контракту для каждой 
 9. Скрипт `excalibur_blog_slop_detector.py` дал PASS/WARNING (нет перебора клише)
 10. Скрипт `excalibur_blog_cannibalization_guard.py` дал PASS (нет критической каннибализации ключевых слов)
 11. `schema.jsonld` содержит E-E-A-T автора по реестру; `promotion-checklist.md` сформирован.
+12. CTA в `article.html` — только `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` (не live hosts). GEO QA expand-only для link-verify; publish гидратит in-memory.
+13. В `schema.jsonld` URL сайта/каталога — `env:PUBLIC_SITE_URL` / `env:CATALOG_URL` / `env:TELEGRAM_URL` / `env:MAX_URL` (publish гидратит перед WP meta).
 

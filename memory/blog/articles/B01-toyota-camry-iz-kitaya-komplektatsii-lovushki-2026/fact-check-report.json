@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "том бензин\". В открытых каталогах China Market на 2026 держат три линии: бензин 2.0 + вариатор, гибрид 2.",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1987",
+      "kind": "date_or_year",
+      "context": ") HEV 2.0 (M20F) HEV 2.5 (A25D) Объём (ориентир) ~1987 см3 ~1987 см3 ~2487 см3 Мощность ДВС (ориентир по",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "ём мотора в другой полосе, меню на иероглифах, а \"180 дней\" он перепутал с льготой утильсбора. Стоп до сверк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "зоров под \"ваш\" лот. Разведите правило 180 дней и 12 месяцев владения Тут важный момент, на котором ломается п",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "ём мотора в другой полосе, меню на иероглифах, а \"180 дней\" он перепутал с льготой утильсбора. Стоп до с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2487",
+      "kind": "large_number",
+      "context": "2.5 (A25D) Объём (ориентир) ~1987 см3 ~1987 см3 ~2487 см3 Мощность ДВС (ориентир по 公告) ~127 кВт ~112 кВ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "127",
+      "kind": "large_number",
+      "context": "1987 см3 ~2487 см3 Мощность ДВС (ориентир по 公告) ~127 кВт ~112 кВт ~136 кВт Привод передний передний пер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "112",
+      "kind": "large_number",
+      "context": "~2487 см3 Мощность ДВС (ориентир по 公告) ~127 кВт ~112 кВт ~136 кВт Привод передний передний передний На",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "136",
+      "kind": "large_number",
+      "context": "Мощность ДВС (ориентир по 公告) ~127 кВт ~112 кВт ~136 кВт Привод передний передний передний На что смотр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "евю (рестайл 2026), логикой утильсбора по ПП РФ № 1713 / перечню к № 1291 и разводкой 180 дней vs 12 мес",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "логикой утильсбора по ПП РФ № 1713 / перечню к № 1291 и разводкой 180 дней vs 12 месяцев из отраслевых р",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

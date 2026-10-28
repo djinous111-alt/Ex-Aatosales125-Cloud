@@ -77,6 +77,16 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 ---
 
+## Git commit в Cloud
+
+Pre-commit secret-scan падает, если `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит non-identifier имена. Коммить через:
+
+```bash
+bash scripts/excalibur_git.sh commit -m "…"
+```
+
+Не печатай secret names/values.
+
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.

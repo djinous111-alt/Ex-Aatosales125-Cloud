@@ -62,6 +62,7 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## wordstat
 | phrase | impressions |
+(cluster-first; empty `{}` / malformed primary → soft-fail, table from parent/secondary, mark primary unverified; never invent impressions)
 
 ## github_evidence
 | repo/issue/doc | url | signal |

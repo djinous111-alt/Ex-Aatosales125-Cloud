@@ -37,6 +37,10 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 `skills/excalibur-geo-qa/SKILL.md`
 
+## Cloud fallback
+
+Если typed Task `excalibur-blog-geo-qa` недоступен — Director запускает `Task(generalPurpose)` с этим agent md + skill (QA не пропускать).
+
 ## Gate
 
 Без PASS директор **не** запускает cover||schema.

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-camry-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у современного седана Camry у порта Владивостока, плашка «до депозита»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-28T13:29:16+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у современного седана Camry у порта Владивостока, плашка «до депозита»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица: Camry из Китая vs Япония vs Корея",
+      "h2_anchor": "Сравните: кому подходит Camry из Китая, а кому Япония или Корея",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема силовых версий Camry XV80: бензин 2.0 и гибриды 2.0/2.5",
+      "h2_anchor": "Разберите силовые версии XV80: бензин 2.0 и гибриды 2.0 / 2.5",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист ловушки утильсбора: соседние комплектации Camry дают разный итог",
+      "h2_anchor": "Поймите ловушку утильсбора: почему соседние комплектации дают разный итог",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

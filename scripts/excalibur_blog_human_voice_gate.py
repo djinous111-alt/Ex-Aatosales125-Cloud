@@ -325,7 +325,15 @@ def main() -> int:
     report = analyze_human_voice(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        # Basename → article_dir; repo-relative (memory/...) → repo root (not nested under article_dir).
+        if args.output.is_absolute():
+            output = args.output
+        else:
+            rel = str(args.output).replace("\\", "/")
+            if "/" in rel or rel.startswith("memory"):
+                output = root / args.output
+            else:
+                output = article_dir / args.output
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

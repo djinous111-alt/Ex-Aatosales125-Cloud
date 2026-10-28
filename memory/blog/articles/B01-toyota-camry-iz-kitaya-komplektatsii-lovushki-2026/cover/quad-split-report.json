@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1283,
+      725
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 725,
+        "end": 762
+      },
+      "v_gutter_px": {
+        "start": 1283,
+        "end": 1322
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 725
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у современного седана Camry у порта Владивостока, плашка «до депозита»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1322,
+          "top": 14,
+          "right": 2560,
+          "bottom": 710
+        },
+        "raw_box_px": {
+          "left": 1322,
+          "top": 0,
+          "right": 2560,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица: Camry из Китая vs Япония vs Корея",
+        "h2_anchor": "Сравните: кому подходит Camry из Китая, а кому Япония или Корея"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 39,
+          "top": 762,
+          "right": 1244,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 762,
+          "right": 1283,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема силовых версий Camry XV80: бензин 2.0 и гибриды 2.0/2.5",
+        "h2_anchor": "Разберите силовые версии XV80: бензин 2.0 и гибриды 2.0 / 2.5"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1338,
+          "top": 762,
+          "right": 2543,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1322,
+          "top": 762,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист ловушки утильсбора: соседние комплектации Camry дают разный итог",
+        "h2_anchor": "Поймите ловушку утильсбора: почему соседние комплектации дают разный итог"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сравните: кому подходит Camry из Китая, а кому Япония или Корея",
+    "injected inline_2 after H2 — Разберите силовые версии XV80: бензин 2.0 и гибриды 2.0 / 2.5",
+    "injected inline_3 after H2 — Поймите ловушку утильсбора: почему соседние комплектации дают разный итог"
+  ]
+}

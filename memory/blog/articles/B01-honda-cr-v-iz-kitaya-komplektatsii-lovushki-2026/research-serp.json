@@ -1,0 +1,656 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-28",
+    "today_ru": "28.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-30",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-28 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Honda CR-V из Китая: комплектации и ловушки до депозита 2026",
+    "primary_query": "хонда срв из китая",
+    "secondary_queries": [
+      "хонда срв комплектации",
+      "хонда срв 6 поколения из китая",
+      "хонда срв из китая отзывы",
+      "хонда срв под заказ"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хонда срв из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda CR-V 2026 из Китая — характеристики, комплектации и цены | JapAutoBuy",
+          "url": "https://japautobuy.ru/informacziya/articles/honda-cr-v-2026-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Honda CR-V 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/honda/cr-v",
+          "snippet": "Обзор Honda CR-V 2026 для китайского рынка: двигатель 1.5 Turbo на 193 л.с., гибрид e:HEV, расход от 5,49 л/100 км, полный привод, 5- и 7-местные версии и цены в Китае."
+        },
+        {
+          "title": "Купить Honda CR-V 2026 из Китая под ключ в Москве — 3 786 000 - 4 561 ...",
+          "url": "https://encarrus-china.ru/new/honda-crv/",
+          "snippet": "Honda CR-V (Хонда CR-V) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 4.8 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        },
+        {
+          "title": "Honda CR-V вернулась в Россию из Китая: 1,5-литровый турбомотор на 193 ...",
+          "url": "https://www.agscenter.ru/news/179014/ags-honda-crv-china-2026/",
+          "snippet": "Honda CR-V шестого поколения — эталон семейного кроссовера: строгий дизайн, образцовая эргономика и фирменная управляемость Honda. Турбомотор 240TURBO или экономичный гибрид e:HEV — на выбор."
+        },
+        {
+          "title": "Honda CR-V 2026 из Китая: Полный обзор, цены и нюансы импорта",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025-iz-kitaya.html",
+          "snippet": "В Россию из Китая начались поставки Honda CR-V 2026 года. Основная версия — 1,5-литровый турбомотор (193 л.с.), вариатор и полный привод. Также доступна гибридная модификация e:HEV."
+        },
+        {
+          "title": "Honda CR-V из Китая или б/у CR-V: сравнение, багажник 589 л, что лучше",
+          "url": "https://verticalauto.ru/articles/589-l-bagaznika-i-turbo-15-stoit-li-pokupat-honda-cr-v-iz-kitaia-v-2026-godu",
+          "snippet": "Анализ новой Honda CR-V 2026 года, собираемой в Китае. Цены, комплектации, отличия от глобальной версии, риски растаможки и советы по покупке через посредников."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хонда срв из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda CR-V 2026 из Китая — характеристики, комплектации и цены | JapAutoBuy",
+          "url": "https://japautobuy.ru/informacziya/articles/honda-cr-v-2026-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Honda CR-V 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/honda/cr-v",
+          "snippet": "Обзор Honda CR-V 2026 для китайского рынка: двигатель 1.5 Turbo на 193 л.с., гибрид e:HEV, расход от 5,49 л/100 км, полный привод, 5- и 7-местные версии и цены в Китае."
+        },
+        {
+          "title": "Honda CR-V 2026 из Китая: Полный обзор, цены и нюансы импорта",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025-iz-kitaya.html",
+          "snippet": "Honda CR-V (Хонда CR-V) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 4.8 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        },
+        {
+          "title": "Honda CR-V вернулась в Россию из Китая: 1,5-литровый турбомотор на 193 ...",
+          "url": "https://www.agscenter.ru/news/179014/ags-honda-crv-china-2026/",
+          "snippet": "Анализ новой Honda CR-V 2026 года, собираемой в Китае. Цены, комплектации, отличия от глобальной версии, риски растаможки и советы по покупке через посредников."
+        },
+        {
+          "title": "Honda CR-V новые из Китая — цена от 3 870 000 ₽, 22 комплектаций",
+          "url": "https://china.sferacar.ru/china-new/honda/cr-v/",
+          "snippet": "В Россию из Китая начались поставки Honda CR-V 2026 года. Основная версия — 1,5-литровый турбомотор (193 л.с.), вариатор и полный привод. Также доступна гибридная модификация e:HEV."
+        },
+        {
+          "title": "Хонда СР-В из Китая: реальные отзывы владельцев, плюсы и минусы",
+          "url": "https://honda-library.vercel.app/articles/k/kh/khonda-srv-iz-kitaya-otzyvy-vladeltsev.html",
+          "snippet": "Honda CR-V 2026 новые из Китая: Внедорожник, двигатели 2.0 Гибрид и 1.5 Бензин, 22 комплектаций. Цена под ключ от 3 870 000 ₽ с доставкой и растаможкой."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хонда срв из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda CR-V 2026 из Китая — характеристики, комплектации и цены | JapAutoBuy",
+          "url": "https://japautobuy.ru/informacziya/articles/honda-cr-v-2026-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Honda CR-V вернулась в Россию из Китая: 1,5-литровый турбомотор на 193 ...",
+          "url": "https://www.agscenter.ru/news/179014/ags-honda-crv-china-2026/",
+          "snippet": "Обзор Honda CR-V 2026 для китайского рынка: двигатель 1.5 Turbo на 193 л.с., гибрид e:HEV, расход от 5,49 л/100 км, полный привод, 5- и 7-местные версии и цены в Китае."
+        },
+        {
+          "title": "Honda CR-V из Китая или б/у CR-V: сравнение, багажник 589 л, что лучше",
+          "url": "https://verticalauto.ru/articles/589-l-bagaznika-i-turbo-15-stoit-li-pokupat-honda-cr-v-iz-kitaia-v-2026-godu",
+          "snippet": "Легендарный японский кроссовер Honda CR-V снова доступен на российском рынке — теперь из Китая по альтернативным схемам ввоза. В продаже уже более сотни машин 2026 года выпуска."
+        },
+        {
+          "title": "Общие вопросы по CR-V из Китая! — Honda CR-V (6G) бензин, 1,5 л, 2026 ...",
+          "url": "https://www.drive2.ru/l/727652673167306470/",
+          "snippet": "Главная интрига 2026 года Honda CR-V 5-го поколения была эталоном семейной практичности. После ухода Honda из России её место заняли китайские версии 6-го поколения от Dongfeng-Honda и GAC-Honda."
+        },
+        {
+          "title": "Honda CR-V 2026 из Китая: Полный обзор, цены и нюансы импорта",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025-iz-kitaya.html",
+          "snippet": "Присматриваюсь к покупке нового автомобиля из Китая. Хочу понять нюансы русификации, целесообразность антикора и работу CarPlay, а также проверить наличие известных косяков."
+        },
+        {
+          "title": "Рынок автомобилей в шоке: японский лидер 2026 года обвалил цены на ...",
+          "url": "https://www.pravda.ru/news/auto/2374580-honda-crv-2026-russia-price/",
+          "snippet": "Анализ новой Honda CR-V 2026 года, собираемой в Китае. Цены, комплектации, отличия от глобальной версии, риски растаможки и советы по покупке через посредников."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хонда срв из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "filez/schema.svg at main · kevinongg/filez · GitHub",
+          "url": "https://github.com/kevinongg/filez/blob/main/schema.svg",
+          "snippet": ""
+        },
+        {
+          "title": "docs/favicon.svg at main · akkdio/docs · GitHub",
+          "url": "https://github.com/akkdio/docs/blob/main/favicon.svg",
+          "snippet": "Contribute to kevinongg/filez development by creating an account on GitHub."
+        },
+        {
+          "title": "golden-sails/icon.svg at main · rjaxxx/golden-sails · GitHub",
+          "url": "https://github.com/rjaxxx/golden-sails/blob/main/icon.svg",
+          "snippet": "Contribute to akkdio/docs development by creating an account on GitHub."
+        },
+        {
+          "title": "Godot_Demo/icon.svg at main · Toxicccxz/Godot_Demo · GitHub",
+          "url": "https://github.com/Toxicccxz/Godot_Demo/blob/main/icon.svg",
+          "snippet": "Contribute to rjaxxx/golden-sails development by creating an account on GitHub."
+        },
+        {
+          "title": "howtomod/icon.svg at main · RamBanjo/howtomod · GitHub",
+          "url": "https://github.com/RamBanjo/howtomod/blob/main/icon.svg",
+          "snippet": "Contribute to Toxicccxz/Godot_Demo development by creating an account on GitHub."
+        },
+        {
+          "title": "zmk-sofle/keymap-drawer/eyelash_sofle.svg at main - GitHub",
+          "url": "https://github.com/blackshushi/zmk-sofle/blob/main/keymap-drawer/eyelash_sofle.svg",
+          "snippet": "Contribute to RamBanjo/howtomod development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хонда срв из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda CR-V 2026 из Китая: Полный обзор, цены и нюансы импорта",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025-iz-kitaya.html",
+          "snippet": ""
+        },
+        {
+          "title": "Руководства и регламенты ТО Honda",
+          "url": "https://auto.honda.ru/docs/",
+          "snippet": "Анализ новой Honda CR-V 2026 года, собираемой в Китае. Цены, комплектации, отличия от глобальной версии, риски растаможки и советы по покупке через посредников."
+        },
+        {
+          "title": "Honda CR-V 2026 из Китая — характеристики, комплектации и цены | JapAutoBuy",
+          "url": "https://japautobuy.ru/informacziya/articles/honda-cr-v-2026-obzor",
+          "snippet": "Руководство по навигации (Pilot 2016) 74.65 МБ Показать все CIVIC 4D Регламент ТО CIVIC и INTEGRA 2023-2026 335.89 КБ Регламент ТО (Civic 4D 2012) обновленный"
+        },
+        {
+          "title": "Docs - Redis",
+          "url": "https://redis.io/docs/latest/",
+          "snippet": "Обзор Honda CR-V 2026 для китайского рынка: двигатель 1.5 Turbo на 193 л.с., гибрид e:HEV, расход от 5,49 л/100 км, полный привод, 5- и 7-местные версии и цены в Китае."
+        },
+        {
+          "title": "Honda CR-V из Китая: Полное руководство по покупке и эксплуатации",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-crv-iz-kitaya.html",
+          "snippet": "Welcome to Redis Docs Quickly set up a Redis cache, primary, vector or custom database Develop with Redis Open Source Run Redis in production"
+        },
+        {
+          "title": "Общие вопросы по CR-V из Китая! — Honda CR-V (6G) бензин, 1,5 л, 2026 ...",
+          "url": "https://www.drive2.ru/l/727652673167306470/",
+          "snippet": "Всё о китайской Honda CR-V 6-го поколения. Сравнение с европейской версией, цены, комплектации и нюансы растаможки. Читайте экспертный обзор."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хонда срв из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Общие вопросы по CR-V из Китая! — Honda CR-V (6G) бензин, 1,5 л, 2026 ...",
+          "url": "https://www.drive2.ru/l/727652673167306470/",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда СР-В из Китая: реальные отзывы владельцев, плюсы и минусы",
+          "url": "https://honda-library.vercel.app/articles/k/kh/khonda-srv-iz-kitaya-otzyvy-vladeltsev.html",
+          "snippet": "Всем заранее спасибо за ответы и помощь! Присматриваюсь к покупке нового автомобиля из Китая. Хочу понять нюансы русификации, целесообразность антикора и работу CarPlay, а также проверить наличие известных косяков."
+        },
+        {
+          "title": "Honda Форум - Клуб Хонда И Акура",
+          "url": "https://forum.honda-club.ru/",
+          "snippet": "В этой статье мы разберем все нюансы, с которыми сталкиваются хозяева китайских версий CR-V, чтобы вы могли принять взвешенное решение. Многие покупатели ошибочно полагают, что китайский Honda CR-V — это просто копия американского или европейского аналога."
+        },
+        {
+          "title": "Клуб Honda CR-V Россия - Главная страница",
+          "url": "https://forum.crvclub.ru/",
+          "snippet": "Хонда и Акура клуб: форум, FAQ, сервис. Делимся опытом и помогаем с ремонтом автомобилей Honda (Accord, Civic, CR-V, Fit, HR-V, Jazz, Legend, Clarity..."
+        },
+        {
+          "title": "Honda CR-V из Китая: Полное руководство по покупке и эксплуатации",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-crv-iz-kitaya.html",
+          "snippet": "Решение технических вопросов, обмен опытом, касающиеся CR-V I поколения, обсуждаем здесь ! в Шум при нажатии на газ!!... Honda CR-V 2002 - 2006 г.в. (II поколения). Решение технических вопросов, обмен опытом, касающиеся CR-V II поколения, обсуждаем здесь ! в Перенесено: Недостаточна... Honda CR-V 2007 - 2012 г.в. (III поколения)."
+        },
+        {
+          "title": "Форум Honda CR-V с ИИ от ChatGPT - Хонда СРВ форум сервис",
+          "url": "https://honda.forums.services/cr-v",
+          "snippet": "Сегодня китайская сборка Honda CR-V представляет собой продукт, который не только догоняет, но и в некоторых аспектах превосходит европейские аналоги. Вы, вероятно, задаётесь вопросом, почему стоит обратить внимание на китайский параллельный импорт, и это абсолютно логично."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хонда срв комплектации 2026",
+      "purpose": "вторичный запрос: хонда срв комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда ЦР-В 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/cr-v/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда СР-В 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/honda/honda-cr-v-2026.html",
+          "snippet": "Подробно расписан модельный ряд Honda CR-V 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda CR-V цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/honda/cr-v/",
+          "snippet": "Технические характеристики Хонда СР-В 2026 в новом кузове может заинтересовать покупателей, которые выбирают семейный кроссовер для города и трассы."
+        },
+        {
+          "title": "Honda CR-V 2026: полный обзор, характеристики и советы по выбору ...",
+          "url": "https://ru.boyucar.com/honda-cr-v-2026-polnyj-obzor-harakteristiki-i-sovety-po-vyboru-komplektatsii",
+          "snippet": "Honda CR-V: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        },
+        {
+          "title": "Honda CR-V › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/honda/cr-v/",
+          "snippet": "Honda CR-V 2026 — подробный обзор характеристик, комплектаций, расхода топлива, цен и сравнения с конкурентами. Всё что нужно знать перед покупкой японского кроссовера."
+        },
+        {
+          "title": "Honda CR-V 2026: характеристики, комплектации и обзор гибрида",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025.html",
+          "snippet": "Honda CR-V: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "хонда срв 6 поколения из китая 2026",
+      "purpose": "вторичный запрос: хонда срв 6 поколения из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "2026'Honda CR-V: фото, плюсы и минусы, цены и характеристики",
+          "url": "https://ironhorse.ru/honda/crv/sixgensuv/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda CR-V из Китая или б/у CR-V: сравнение, багажник 589 л, что лучше",
+          "url": "https://verticalauto.ru/articles/589-l-bagaznika-i-turbo-15-stoit-li-pokupat-honda-cr-v-iz-kitaia-v-2026-godu",
+          "snippet": "Подробно об особенностях шестого поколения Honda CR-V, его минусы и плюсы. Технические характеристики, фотографии, оснащение и стоимость (в Китае, США и России)."
+        },
+        {
+          "title": "Honda CR-V 2026 из Китая — характеристики, комплектации и цены | JapAutoBuy",
+          "url": "https://japautobuy.ru/informacziya/articles/honda-cr-v-2026-obzor",
+          "snippet": "Главная интрига 2026 года Honda CR-V 5-го поколения была эталоном семейной практичности. После ухода Honda из России её место заняли китайские версии 6-го поколения от Dongfeng-Honda и GAC-Honda."
+        },
+        {
+          "title": "Honda CR-V из Китая добралась до России: названы цены и комплектации",
+          "url": "https://vecherka-spb.ru/2026/08/20/honda-crv-iz-kitaya-dobralas-do-rossii-nazvani-tseni-i-komplektatsii",
+          "snippet": "Обзор Honda CR-V 2026 для китайского рынка: двигатель 1.5 Turbo на 193 л.с., гибрид e:HEV, расход от 5,49 л/100 км, полный привод, 5- и 7-местные версии и цены в Китае."
+        },
+        {
+          "title": "Общие вопросы по CR-V из Китая! — Honda CR-V (6G) бензин, 1,5 л, 2026 ...",
+          "url": "https://www.drive2.ru/l/727652673167306470/",
+          "snippet": "На китайском рынке стоимость CR-V начинается примерно от 185 900 юаней — около 2,35 млн рублей. В России цены значительно выше: новый автомобиль под заказ во Владивостоке предлагают примерно за 3,5 млн рублей."
+        },
+        {
+          "title": "Honda CR-V 2026 из Китая: Полный обзор, цены и нюансы импорта",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025-iz-kitaya.html",
+          "snippet": "Присматриваюсь к покупке нового автомобиля из Китая. Хочу понять нюансы русификации, целесообразность антикора и работу CarPlay, а также проверить наличие известных косяков."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "хонда срв из китая отзывы 2026",
+      "purpose": "вторичный запрос: хонда срв из китая отзывы",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда СР-В из Китая: реальные отзывы владельцев, плюсы и минусы",
+          "url": "https://honda-library.vercel.app/articles/k/kh/khonda-srv-iz-kitaya-otzyvy-vladeltsev.html",
+          "snippet": ""
+        },
+        {
+          "title": "Общие вопросы по CR-V из Китая! — Honda CR-V (6G) бензин, 1,5 л, 2026 ...",
+          "url": "https://www.drive2.ru/l/727652673167306470/",
+          "snippet": "Отзывы владельцев позволяют составить объективную картину: от отличной шумоизоляции до специфических проблем с программным обеспечением. В этой статье мы разберем все нюансы, с которыми сталкиваются хозяева китайских версий CR-V, чтобы вы могли принять взвешенное решение."
+        },
+        {
+          "title": "Honda CR-V из Китая или б/у CR-V: сравнение, багажник 589 л, что лучше",
+          "url": "https://verticalauto.ru/articles/589-l-bagaznika-i-turbo-15-stoit-li-pokupat-honda-cr-v-iz-kitaia-v-2026-godu",
+          "snippet": "Присматриваюсь к покупке нового автомобиля из Китая. Хочу понять нюансы русификации, целесообразность антикора и работу CarPlay, а также проверить наличие известных косяков."
+        },
+        {
+          "title": "Honda CR-V 2026 из Китая — характеристики, комплектации и цены | JapAutoBuy",
+          "url": "https://japautobuy.ru/informacziya/articles/honda-cr-v-2026-obzor",
+          "snippet": "Главная интрига 2026 года Honda CR-V 5-го поколения была эталоном семейной практичности. После ухода Honda из России её место заняли китайские версии 6-го поколения от Dongfeng-Honda и GAC-Honda."
+        },
+        {
+          "title": "Хонда ЦР-В 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/honda/cr-v/5kopeek/?year1=2025&year2=2026",
+          "snippet": "Обзор Honda CR-V 2026 для китайского рынка: двигатель 1.5 Turbo на 193 л.с., гибрид e:HEV, расход от 5,49 л/100 км, полный привод, 5- и 7-местные версии и цены в Китае."
+        },
+        {
+          "title": "Honda XR-V из Китая — характеристики, отзывы, отличие от Vezel",
+          "url": "https://azway.ru/blog/honda-xr-v-obzor",
+          "snippet": "Отзывы владельцев Хонда ЦР-В 2025 - 2026: все минусы и плюсы, недостатки, поломки. Опыт эксплуатации реальных владельцев автомобилей Хонда ЦР-В: плюсы и минусы."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "хонда срв под заказ 2026",
+      "purpose": "вторичный запрос: хонда срв под заказ",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda CR-V под заказ по цене от 1 748 400 рублей - Авто.ру",
+          "url": "https://auto.ru/cars/honda/cr_v/all/for-order/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить новые Honda CR-V 2026 года по цене от 3 690 000 рублей - более ...",
+          "url": "https://auto.ru/cars/honda/cr_v/2026-year/new/",
+          "snippet": "Полный модельный ряд Honda CR-V под заказ из Японии по цене от 1 748 400 рублей - более 54 Honda CR-V, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Купить Honda CR-V 2026 из Китая под ключ в Москве — 3 786 000 - 4 561 ...",
+          "url": "https://encarrus-china.ru/new/honda-crv/",
+          "snippet": "Полный модельный ряд новых Honda CR-V 2026 года по цене от 3 690 000 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Хонда ЦР-В 2026 технические характеристики. Honda CR-V 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/cr-v/2026/",
+          "snippet": "Новый CR-V 2026 в максимальной комплектации доступен в двух версиях: бензиновый 1.5 турбо (240TURBO) на 193 л.с. и гибрид e:HEV на 231 л.с. Заказать новый Хонда СР-В из Китая под ключ в Москве можно через EncarRus ..."
+        },
+        {
+          "title": "Купить Хонда ЦР-В 2026 в России: продажа Honda CR-V 2026 года с ...",
+          "url": "https://auto.drom.ru/honda/cr-v/year-2026/",
+          "snippet": "Подробно расписан модельный ряд Honda CR-V 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda под заказ",
+          "url": "https://auto.honda.ru/pod-zakaz/",
+          "snippet": "22 объявления о продаже Хонда ЦР-В 2026 б/у и новых в России от 4 390 000 рублей - частные объявления. Узнать стоимость Honda CR-V 2026 года и купить с пробегом на Дроме."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Honda CR-V из Китая: комплектации и ловушки до депозита 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda CR-V 2026 из Китая — характеристики, комплектации и цены | JapAutoBuy",
+          "url": "https://japautobuy.ru/informacziya/articles/honda-cr-v-2026-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Honda CR-V 2026 в России: цены, характеристики и что выбрать — 1.5 ...",
+          "url": "https://carsvibe.ru/articles/honda-cr-v-2026-v-rossii-ceny-kharakteristiki-i-chto-vybrat-1-5-turbo-ili-gibrid",
+          "snippet": "JapAutoBuy помогает подобрать Honda CR-V на китайском рынке, проверить автомобиль и его комплектацию, организовать покупку, доставку и оформление в России."
+        },
+        {
+          "title": "Honda CR-V вернулась в Россию из Китая: 1,5-литровый турбомотор на 193 ...",
+          "url": "https://www.agscenter.ru/news/179014/ags-honda-crv-china-2026/",
+          "snippet": "Подробный обзор Honda CR-V 2026: цены в России, характеристики двигателя 1.5 Turbo и гибрида 2.0, комплектации, полный привод, отличия китайских, американских и японских версий."
+        },
+        {
+          "title": "Honda CR-V из Китая: Полное руководство по покупке и эксплуатации",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-crv-iz-kitaya.html",
+          "snippet": "В продаже уже более сотни машин 2026 года выпуска. Основная версия оснащается 1,5-литровым турбомотором (193 л.с.), вариатором и полным приводом. Встречаются и гибридные модификации e:HEV с 2,0-литровым атмосферником и электродвигателем. Разбираем техническую начинку и особенности адаптации."
+        },
+        {
+          "title": "Honda CR-V из Китая: привоз и цена — Блог Кармэн",
+          "url": "https://blog.carmancars.ru/blog/honda-cr-v-iz-kitaya",
+          "snippet": "Всё о китайской Honda CR-V 6-го поколения. Сравнение с европейской версией, цены, комплектации и нюансы растаможки. Читайте экспертный обзор."
+        },
+        {
+          "title": "Honda CR-V 2026 из Китая: Полный обзор, цены и нюансы импорта",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025-iz-kitaya.html",
+          "snippet": "Honda CR-V в Китае — не серая схема и не экзотика: полноценный местный рынок с двумя локальными производителями, богатыми комплектациями и версиями, которых в России официально не было. Привезти такой автомобиль реально, но важно понимать, что входит в итоговую цену и где можно ошибиться."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://japautobuy.ru/informacziya/articles/honda-cr-v-2026-obzor",
+      "title": "Honda CR-V 2026 из Китая — характеристики, комплектации и цены | JapAutoBuy",
+      "from_query": "хонда срв из китая 2026"
+    },
+    {
+      "url": "https://easy.car/car/china/2026/honda/cr-v",
+      "title": "Купить Honda CR-V 2026 из Китая под ключ — EASY.CAR",
+      "from_query": "хонда срв из китая 2026"
+    },
+    {
+      "url": "https://encarrus-china.ru/new/honda-crv/",
+      "title": "Купить Honda CR-V 2026 из Китая под ключ в Москве — 3 786 000 - 4 561 ...",
+      "from_query": "хонда срв из китая 2026"
+    },
+    {
+      "url": "https://www.agscenter.ru/news/179014/ags-honda-crv-china-2026/",
+      "title": "Honda CR-V вернулась в Россию из Китая: 1,5-литровый турбомотор на 193 ...",
+      "from_query": "хонда срв из китая 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025-iz-kitaya.html",
+      "title": "Honda CR-V 2026 из Китая: Полный обзор, цены и нюансы импорта",
+      "from_query": "хонда срв из китая 2026"
+    },
+    {
+      "url": "https://verticalauto.ru/articles/589-l-bagaznika-i-turbo-15-stoit-li-pokupat-honda-cr-v-iz-kitaia-v-2026-godu",
+      "title": "Honda CR-V из Китая или б/у CR-V: сравнение, багажник 589 л, что лучше",
+      "from_query": "хонда срв из китая 2026"
+    },
+    {
+      "url": "https://china.sferacar.ru/china-new/honda/cr-v/",
+      "title": "Honda CR-V новые из Китая — цена от 3 870 000 ₽, 22 комплектаций",
+      "from_query": "хонда срв из китая октябрь 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/k/kh/khonda-srv-iz-kitaya-otzyvy-vladeltsev.html",
+      "title": "Хонда СР-В из Китая: реальные отзывы владельцев, плюсы и минусы",
+      "from_query": "хонда срв из китая октябрь 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/727652673167306470/",
+      "title": "Общие вопросы по CR-V из Китая! — Honda CR-V (6G) бензин, 1,5 л, 2026 ...",
+      "from_query": "хонда срв из китая новости 2026"
+    },
+    {
+      "url": "https://www.pravda.ru/news/auto/2374580-honda-crv-2026-russia-price/",
+      "title": "Рынок автомобилей в шоке: японский лидер 2026 года обвалил цены на ...",
+      "from_query": "хонда срв из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/kevinongg/filez/blob/main/schema.svg",
+      "title": "filez/schema.svg at main · kevinongg/filez · GitHub",
+      "from_query": "site:github.com хонда срв из китая 2026"
+    },
+    {
+      "url": "https://github.com/akkdio/docs/blob/main/favicon.svg",
+      "title": "docs/favicon.svg at main · akkdio/docs · GitHub",
+      "from_query": "site:github.com хонда срв из китая 2026"
+    },
+    {
+      "url": "https://github.com/rjaxxx/golden-sails/blob/main/icon.svg",
+      "title": "golden-sails/icon.svg at main · rjaxxx/golden-sails · GitHub",
+      "from_query": "site:github.com хонда срв из китая 2026"
+    },
+    {
+      "url": "https://github.com/Toxicccxz/Godot_Demo/blob/main/icon.svg",
+      "title": "Godot_Demo/icon.svg at main · Toxicccxz/Godot_Demo · GitHub",
+      "from_query": "site:github.com хонда срв из китая 2026"
+    },
+    {
+      "url": "https://github.com/RamBanjo/howtomod/blob/main/icon.svg",
+      "title": "howtomod/icon.svg at main · RamBanjo/howtomod · GitHub",
+      "from_query": "site:github.com хонда срв из китая 2026"
+    },
+    {
+      "url": "https://github.com/blackshushi/zmk-sofle/blob/main/keymap-drawer/eyelash_sofle.svg",
+      "title": "zmk-sofle/keymap-drawer/eyelash_sofle.svg at main - GitHub",
+      "from_query": "site:github.com хонда срв из китая 2026"
+    },
+    {
+      "url": "https://auto.honda.ru/docs/",
+      "title": "Руководства и регламенты ТО Honda",
+      "from_query": "хонда срв из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://redis.io/docs/latest/",
+      "title": "Docs - Redis",
+      "from_query": "хонда срв из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/h/ho/honda-crv-iz-kitaya.html",
+      "title": "Honda CR-V из Китая: Полное руководство по покупке и эксплуатации",
+      "from_query": "хонда срв из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://forum.honda-club.ru/",
+      "title": "Honda Форум - Клуб Хонда И Акура",
+      "from_query": "хонда срв из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://forum.crvclub.ru/",
+      "title": "Клуб Honda CR-V Россия - Главная страница",
+      "from_query": "хонда срв из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://honda.forums.services/cr-v",
+      "title": "Форум Honda CR-V с ИИ от ChatGPT - Хонда СРВ форум сервис",
+      "from_query": "хонда срв из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/cr-v/2026/",
+      "title": "Хонда ЦР-В 2026 технические характеристики, комплектации и цены",
+      "from_query": "хонда срв комплектации 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/honda/honda-cr-v-2026.html",
+      "title": "Хонда СР-В 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "хонда срв комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/honda/cr-v/",
+      "title": "Honda CR-V цены и комплектации 2026 - carmaps.ru",
+      "from_query": "хонда срв комплектации 2026"
+    },
+    {
+      "url": "https://ru.boyucar.com/honda-cr-v-2026-polnyj-obzor-harakteristiki-i-sovety-po-vyboru-komplektatsii",
+      "title": "Honda CR-V 2026: полный обзор, характеристики и советы по выбору ...",
+      "from_query": "хонда срв комплектации 2026"
+    },
+    {
+      "url": "https://carsdo.ru/honda/cr-v/",
+      "title": "Honda CR-V › Цена и комплектации 2026 - CarsDo.ru",
+      "from_query": "хонда срв комплектации 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/h/ho/honda-cr-v-2025.html",
+      "title": "Honda CR-V 2026: характеристики, комплектации и обзор гибрида",
+      "from_query": "хонда срв комплектации 2026"
+    },
+    {
+      "url": "https://ironhorse.ru/honda/crv/sixgensuv/",
+      "title": "2026'Honda CR-V: фото, плюсы и минусы, цены и характеристики",
+      "from_query": "хонда срв 6 поколения из китая 2026"
+    },
+    {
+      "url": "https://vecherka-spb.ru/2026/08/20/honda-crv-iz-kitaya-dobralas-do-rossii-nazvani-tseni-i-komplektatsii",
+      "title": "Honda CR-V из Китая добралась до России: названы цены и комплектации",
+      "from_query": "хонда срв 6 поколения из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/honda/cr-v/5kopeek/?year1=2025&year2=2026",
+      "title": "Хонда ЦР-В 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "хонда срв из китая отзывы 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/honda-xr-v-obzor",
+      "title": "Honda XR-V из Китая — характеристики, отзывы, отличие от Vezel",
+      "from_query": "хонда срв из китая отзывы 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/honda/cr_v/all/for-order/",
+      "title": "Honda CR-V под заказ по цене от 1 748 400 рублей - Авто.ру",
+      "from_query": "хонда срв под заказ 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/honda/cr_v/2026-year/new/",
+      "title": "Купить новые Honda CR-V 2026 года по цене от 3 690 000 рублей - более ...",
+      "from_query": "хонда срв под заказ 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/honda/cr-v/year-2026/",
+      "title": "Купить Хонда ЦР-В 2026 в России: продажа Honda CR-V 2026 года с ...",
+      "from_query": "хонда срв под заказ 2026"
+    },
+    {
+      "url": "https://auto.honda.ru/pod-zakaz/",
+      "title": "Honda под заказ",
+      "from_query": "хонда срв под заказ 2026"
+    },
+    {
+      "url": "https://carsvibe.ru/articles/honda-cr-v-2026-v-rossii-ceny-kharakteristiki-i-chto-vybrat-1-5-turbo-ili-gibrid",
+      "title": "Honda CR-V 2026 в России: цены, характеристики и что выбрать — 1.5 ...",
+      "from_query": "Как выбрать Honda CR-V из Китая: комплектации и ловушки до депозита 2026 2026"
+    },
+    {
+      "url": "https://blog.carmancars.ru/blog/honda-cr-v-iz-kitaya",
+      "title": "Honda CR-V из Китая: привоз и цена — Блог Кармэн",
+      "from_query": "Как выбрать Honda CR-V из Китая: комплектации и ловушки до депозита 2026 2026"
+    }
+  ]
+}

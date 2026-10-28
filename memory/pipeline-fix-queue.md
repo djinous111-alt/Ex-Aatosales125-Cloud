@@ -478,6 +478,69 @@ category: qa
 ### Fixer resolution
 - pending
 
+## INC-20261028-1326-cover-prompt-builder-hoodie-lock
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie`, which conflicts with `blog-hero.json` outfit_rule (одежда под погоду/тему) and prior CR-V cover workaround.
+
+### How the agent recovered this run
+- Regenerated batch, then sanitized `quad-mcp-prompt.txt` + `quad-mcp-batch.json` to navy field jacket / port weather before ONE Kie i2i createTask.
+
+### Durable fix needed before next run
+- Replace hoodie lock in prompt builder with weather/topic outfit instruction from `blog-hero.json` / design code; keep non-toxic sticker ban.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261028-1330-schema-env-url-placeholders
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Absolute `PUBLIC_SITE_URL` / catalog / Telegram / MAX URLs inside committed `schema.jsonld` fail Cloud secret scan.
+- Schema agent must write `env:PUBLIC_SITE_URL` (and related) placeholders instead of live hosts.
+
+### How the agent recovered this run
+- Wrote `schema.jsonld` with `env:PUBLIC_SITE_URL`, `env:CATALOG_URL`, `env:TELEGRAM_URL`, `env:MAX_URL` placeholders; kept public Instagram/2GIS URLs.
+- BlogPosting + FAQPage (6) + HowTo (6) for Mode B; datePublished 2026-10-28 from research-context.
+
+### Durable fix needed before next run
+- Publish step must hydrate `env:*` URL placeholders in `schema.jsonld` before WordPress schema meta upload.
+- Document the placeholder contract in schema + publish skills so agents do not re-discover via secret-scan failure.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

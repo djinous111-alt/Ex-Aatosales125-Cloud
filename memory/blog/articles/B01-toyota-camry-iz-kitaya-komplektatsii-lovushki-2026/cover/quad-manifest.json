@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Sport Plus красиво — а мотор уже другая полоса?",
+  "mcp_note": "ONE gpt-image-2 / Kie i2i with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у современного седана Camry у порта Владивостока, плашка «до депозита»",
+      "scene_hint": "Герой Авто-Сейлс (лицо с reference + очки): navy field jacket под пасмурный порт Владивостока, без кепки/капюшона; стоит у современного серебристого седана Camry XV80 у ролкера/причала; плашка «до депозита»; fake UI — карточка лота Camry Elite/Sport/Premium + стикер «стоп до сверки»; угол avto-sales125.ru; мемы шок/facepalm без токсичных ярлыков",
+      "meme_caption_ru": "Стой. До депозита."
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните: кому подходит Camry из Китая, а кому Япония или Корея",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица 3 колонки: Китай XV80 FWD / Япония RHD аукцион / Корея Encar; критерии город-трасса, меню, готовность к русификации; стикер «выберите рынок»; без лица героя",
+      "alt": "Сравнительная таблица: Camry из Китая vs Япония vs Корея"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите силовые версии XV80: бензин 2.0 и гибриды 2.0 / 2.5",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема трёх силовых линий XV80: бензин 2.0 → HEV 2.0 → HEV 2.5; стрелки к проверке см3/кВт и trim Elite/Sport/Premium; мини-карточка мотора; без лица героя",
+      "alt": "Схема силовых версий Camry XV80: бензин 2.0 и гибриды 2.0/2.5"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Поймите ловушку утильсбора: почему соседние комплектации дают разный итог",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-доска утильсбора: см3, кВт ДВС, 30-мин мощность ЭМ из бумаг, полоса объёма 2.0 vs 2.5; стикер «соседние trim ≠ один итог»; без рублей и без лица героя",
+      "alt": "Чеклист ловушки утильсбора: соседние комплектации Camry дают разный итог"
+    }
+  }
+}

@@ -20,10 +20,11 @@
 
 Cover agent:
 
-- предпочитает async tools, если они есть в Cursor `Available Tools`;
-- sync `gpt-image-2` вызывает только один раз, если async tools недоступны;
+- **primary:** direct Kie async shell (`scripts/excalibur_blog_kie_gpt_image2_api.py`) when `KIE_API_KEY` is set — см. `shared/kie-gpt-image-api-contract.md`;
+- sync MCP `gpt-image-2` — optional smoke only (max 1 attempt);
 - после `HTTP MCP -32001 Request timed out` не делает blind retry sync create;
-- если нет `url`, `task_id` и status/result tool — возвращает `COVER MCP ASYNC BLOCKER`.
+- если нет `url`/`task_id` в MCP log, но есть `KIE_API_KEY` — ONE Kie createTask с тем же `quad-mcp-batch.json` (не `COVER MCP RECOVERY NEEDED`);
+- `COVER MCP ASYNC BLOCKER` только если Kie недоступен **и** нет url/task_id/async MCP status tool.
 
 ## Why
 

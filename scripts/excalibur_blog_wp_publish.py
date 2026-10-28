@@ -32,7 +32,21 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    # CTA / schema hydrate tokens (optional; expanded in-memory only, never written back)
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
+
+# Placeholders committed in article.html / schema.jsonld for Cloud secret-scan safety.
+HYDRATE_ENV_NAMES = (
+    "PUBLIC_SITE_URL",
+    "WP_HOME",
+    "WP_SITE_URL",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+)
 
 
 def _read_env_file(path: Path) -> dict[str, str]:
@@ -93,6 +107,42 @@ def normalize_post_title(title: str) -> str:
     if not title:
         return title
     return title[0].upper() + title[1:]
+
+
+def expand_publish_tokens(text: str, env: dict[str, str]) -> str:
+    """Expand commit-safe placeholders in HTML/JSON-LD using publish env (in-memory only).
+
+    Supported forms:
+    - env:NAME  (schema.jsonld @id / sameAs / author.image)
+    - ${NAME}   (article.html CTA hrefs)
+    """
+    if not text:
+        return text
+    out = text
+    for name in HYDRATE_ENV_NAMES:
+        value = (env.get(name) or "").strip()
+        if not value:
+            continue
+        out = out.replace(f"env:{name}", value)
+        out = out.replace(f"${{{name}}}", value)
+    # Common alias: site base for schema @id when only PUBLIC_SITE_URL is set
+    public = (
+        (env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or "")
+        .strip()
+        .rstrip("/")
+    )
+    if public:
+        out = out.replace("env:PUBLIC_SITE_URL", public)
+        out = out.replace("${PUBLIC_SITE_URL}", public)
+    return out
+
+
+def hydrate_payload(payload: dict, env: dict[str, str]) -> dict:
+    """Return a shallow-copied payload with HTML + schema tokens expanded for upload."""
+    hydrated = dict(payload)
+    hydrated["content"] = expand_publish_tokens(str(payload.get("content") or ""), env)
+    hydrated["schema_jsonld"] = expand_publish_tokens(str(payload.get("schema_jsonld") or ""), env)
+    return hydrated
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -568,7 +618,8 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    payload = hydrate_payload(load_article(article_dir), env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +627,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

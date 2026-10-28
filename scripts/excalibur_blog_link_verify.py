@@ -12,7 +12,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlsplit, urlunsplit, urlparse
 
 
 class LinkExtractor(HTMLParser):
@@ -43,10 +43,37 @@ def extract_links(html: str) -> list[str]:
     return out
 
 
+def iri_to_uri(url: str) -> str:
+    """Percent-encode non-ASCII path/query/fragment; IDNA-encode host for urllib."""
+    parts = urlsplit(url.strip())
+    if not parts.scheme:
+        return url
+    hostname = parts.hostname or ""
+    try:
+        host_ascii = hostname.encode("idna").decode("ascii") if hostname else ""
+    except UnicodeError:
+        host_ascii = hostname
+    userinfo = ""
+    if parts.username:
+        userinfo = quote(parts.username, safe="")
+        if parts.password is not None:
+            userinfo += ":" + quote(parts.password, safe="")
+        userinfo += "@"
+    netloc = userinfo + host_ascii
+    if parts.port:
+        netloc += f":{parts.port}"
+    # Keep already-percent-encoded octets; encode remaining non-ASCII / reserved gaps.
+    path = quote(parts.path, safe="/%:@!$&'()*+,;=-._~")
+    query = quote(parts.query, safe="=&%:@!$&'()*+,;=-._~")
+    fragment = quote(parts.fragment, safe="%:@!$&'()*+,;=-._~")
+    return urlunsplit((parts.scheme, netloc, path, query, fragment))
+
+
 def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
     ctx = ssl.create_default_context()
+    request_url = iri_to_uri(url)
     req = urllib.request.Request(
-        url,
+        request_url,
         method="HEAD",
         headers={"User-Agent": user_agent},
     )
@@ -54,6 +81,7 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
             return {
                 "url": url,
+                "checked_url": request_url if request_url != url else None,
                 "status": resp.status,
                 "ok": 200 <= resp.status < 400,
                 "method": "HEAD",
@@ -61,26 +89,33 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
             }
     except urllib.error.HTTPError as e:
         if e.code in (405, 501, 403):
-            return _get_fallback(url, timeout, user_agent, ctx, str(e))
+            return _get_fallback(request_url, url, timeout, user_agent, ctx, str(e))
         return {
             "url": url,
+            "checked_url": request_url if request_url != url else None,
             "status": e.code,
             "ok": False,
             "method": "HEAD",
             "error": str(e),
         }
     except Exception as e:  # noqa: BLE001
-        return _get_fallback(url, timeout, user_agent, ctx, str(e))
+        return _get_fallback(request_url, url, timeout, user_agent, ctx, str(e))
 
 
 def _get_fallback(
-    url: str, timeout: float, user_agent: str, ctx: ssl.SSLContext, head_error: str
+    request_url: str,
+    display_url: str,
+    timeout: float,
+    user_agent: str,
+    ctx: ssl.SSLContext,
+    head_error: str,
 ) -> dict[str, Any]:
-    req = urllib.request.Request(url, headers={"User-Agent": user_agent})
+    req = urllib.request.Request(request_url, headers={"User-Agent": user_agent})
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
             return {
-                "url": url,
+                "url": display_url,
+                "checked_url": request_url if request_url != display_url else None,
                 "status": resp.status,
                 "ok": 200 <= resp.status < 400,
                 "method": "GET",
@@ -88,7 +123,8 @@ def _get_fallback(
             }
     except urllib.error.HTTPError as e:
         return {
-            "url": url,
+            "url": display_url,
+            "checked_url": request_url if request_url != display_url else None,
             "status": e.code,
             "ok": False,
             "method": "GET",
@@ -96,7 +132,8 @@ def _get_fallback(
         }
     except Exception as e:  # noqa: BLE001
         return {
-            "url": url,
+            "url": display_url,
+            "checked_url": request_url if request_url != display_url else None,
             "status": None,
             "ok": False,
             "method": "GET",

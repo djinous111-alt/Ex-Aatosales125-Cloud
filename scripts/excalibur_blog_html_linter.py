@@ -67,6 +67,22 @@ def detect_duplicate_faq_sections(html: str) -> list[str]:
     return errors
 
 
+def detect_template_insight_labels(html: str) -> list[str]:
+    """Warn if insight blockquote starts with banned TL;DR / Быстрый инсайт labels."""
+    warnings: list[str] = []
+    m = re.search(r"<blockquote\b[^>]*>([\s\S]*?)</blockquote>", html, flags=re.I)
+    if not m:
+        return warnings
+    opening = re.sub(r"<[^>]+>", " ", m.group(1))
+    opening = re.sub(r"\s+", " ", opening).strip()[:120].lower()
+    if opening.startswith("tl;dr") or "быстрый инсайт" in opening[:80]:
+        warnings.append(
+            "Insight blockquote uses template label TL;DR / Быстрый инсайт. "
+            "Prefer a topic-specific label (e.g. «Инсайт до депозита») per GEO QA skill."
+        )
+    return warnings
+
+
 class HTMLTagLinter(HTMLParser):
     def __init__(self, whitelist: set[str]) -> None:
         super().__init__()
@@ -122,12 +138,14 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    warnings = detect_template_insight_labels(html_content)
 
     return {
         "file": str(html_path.name),
         "verdict": "pass" if not linter.errors else "fail",
         "total_errors": len(linter.errors),
         "errors": linter.errors,
+        "warnings": warnings,
     }
 
 
@@ -156,11 +174,13 @@ def main() -> int:
 
     print(f"HTML Linter Verdict: {report['verdict'].upper()}")
     if report["errors"]:
-        print(f"Found {report['total_errors']} HTML errors/warnings:")
+        print(f"Found {report['total_errors']} HTML errors:")
         for err in report["errors"]:
             print(f" - {err}")
     else:
         print("All HTML tags are clean, validated, and conform to whitelist!")
+    for warn in report.get("warnings") or []:
+        print(f"WARN: {warn}")
 
     return 0 if report["verdict"] == "pass" else 1
 

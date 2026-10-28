@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -113,6 +114,38 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available (SSH publish)", errors, warnings, warn=True)
+    check((root / "scripts/excalibur_git.sh").is_file(), "scripts/excalibur_git.sh exists", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            policy = {}
+            check(False, "editorial-policy.json parses as JSON", errors, warnings)
+        else:
+            check(
+                bool(policy.get("pain_markers_ru")),
+                "editorial-policy.json has pain_markers_ru",
+                errors,
+                warnings,
+            )
+            check(
+                bool(policy.get("outcome_markers_ru")),
+                "editorial-policy.json has outcome_markers_ru",
+                errors,
+                warnings,
+            )
+            req = policy.get("article_required_signals") or {}
+            check(
+                "min_pain_markers" in req and "min_outcome_markers" in req,
+                "editorial-policy.json has min_pain/outcome markers",
+                errors,
+                warnings,
+            )
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -133,6 +166,12 @@ def main() -> int:
         check=False,
     )
     check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator has no stale --blog-path flag",
+        errors,
+        warnings,
+    )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

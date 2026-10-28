@@ -52,7 +52,7 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md` / `CURSOR-CLOUD-RUNBOOK.md`. Durable rule: typed `excalibur-blog-*` часто отсутствует в Cloud catalog (в т.ч. geo-qa) — **сразу** `Task(generalPurpose)` per role + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Не трать ход на повторный typed launch после первого rejection.
 
 ## Preflight (shell, директор)
 

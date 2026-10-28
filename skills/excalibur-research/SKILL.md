@@ -68,3 +68,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## Gate notes (research-notes-gate)
+
+- Source table dates: use literal `accessed_at: YYYY-MM-DD` (or ISO date cell on URL rows). Column header alone is not enough.
+- `technical_topic` / GitHub quota ≥3 triggers only from **topic card** signals (AI/Cursor/MCP/API/n8n/…); auto-import niches with `## github_evidence` section or «агентская смета» are **not** forced into GitHub quota.

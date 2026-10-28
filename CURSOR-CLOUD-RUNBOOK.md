@@ -64,6 +64,19 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 5. Добавить Secrets.
 6. Запустить тестового Cloud Agent с промптом из `CLOUD-AUTOMATION.md`.
 
+## Cloud Task types / generalPurpose fallback
+
+Typed Task names `excalibur-blog-research`, `excalibur-blog-writer`, `excalibur-blog-geo-qa`, … часто **не** принимаются Cloud API.
+
+Durable rule (Director):
+
+1. Try typed `Task(excalibur-blog-<role>)` once **or** skip straight to fallback if prior runs already showed typed missing.
+2. Fallback: one `Task(generalPurpose)` per role with `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+3. Never collapse the whole pipeline into a single agent.
+4. `cover || schema` = two separate generalPurpose Tasks in one Director message.
+
+Details: `AGENTS.md`, `CLOUD-AUTOMATION.md`, `.cursor/skills/director-excalibur-blog/SKILL.md`.
+
 ## Automation setup
 
 Рекомендуемый первый режим:

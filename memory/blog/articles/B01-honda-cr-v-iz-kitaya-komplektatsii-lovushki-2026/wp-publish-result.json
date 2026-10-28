@@ -1,0 +1,36 @@
+{
+  "slug": "honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "https://avtosales125.ru/2026/10/28/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1209995,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4627 slug=honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026\nOK featured_image=4628\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4629 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026-inline-01.png\nOK inline_image_upload=4630 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026-inline-02.png\nOK inline_image_upload=4631 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026-inline-03.png\npermalink=https://avtosales125.ru/2026/10/28/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass",
+  "post_id": 4627,
+  "featured_image": 4628,
+  "inline_images": [
+    {
+      "id": 4629,
+      "src": "cover/inline-01.png",
+      "url": "[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026-inline-01.png"
+    },
+    {
+      "id": 4630,
+      "src": "cover/inline-02.png",
+      "url": "[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026-inline-02.png"
+    },
+    {
+      "id": 4631,
+      "src": "cover/inline-03.png",
+      "url": "[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026-inline-03.png"
+    }
+  ],
+  "schema_meta": "ok",
+  "skip_theme_faq_meta": "ok"
+}

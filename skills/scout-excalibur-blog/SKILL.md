@@ -81,3 +81,8 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+
+## Git commits in Cloud
+
+Use `bash scripts/excalibur_git.sh commit ...` instead of raw `git commit` when Cloud pre-commit fails with `invalid variable name` on `${!SECRET_NAME}`. The wrapper drops non-identifier entries from `CLOUD_AGENT_INJECTED_SECRET_NAMES` (e.g. a URL mistakenly listed as a secret *name*). Prefer fixing Dashboard secret names; do not use `--no-verify` as the default workaround.

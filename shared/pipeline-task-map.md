@@ -115,21 +115,14 @@
 
 ```text
 Ты excalibur-blog-cover. topic_id: {ID}. article_dir из handoff.
-Прочитай agents/excalibur-blog-cover.md + skills/cover-excalibur-blog/SKILL.md + shared/blog-cover-quad-canvas-contract.md.
-1) excalibur_blog_hero_reference_url.py
-2) excalibur_blog_quad_manifest.py --merge
-3) правка cover/quad-manifest.json (hook, scene_hint, outfit агента)
-4) excalibur_blog_cover_quad_prompt.py --write-batch
-5) ONE Cursor MCP tool call: выбрать gpt-image-2 в Available Tools (server user-mcp-kv), arguments = jobs[0].mcp_args из quad-mcp-batch.json (input_urls обязателен)
-   Если HTTP MCP вернул -32001 Request timed out: это не blocker с первой попытки.
-   Не искать URL в cover/*: он появится там только после ручной записи quad-mcp-result.json.
-   Проверить MCP tool log / expanded tool response / Cursor MCP Logs.
-   Если generated URL уже виден — записать cover/quad-mcp-result.json вручную или передать URL сразу в apply.
-   Если URL ещё нет — проверять MCP log короткими polling-проверками каждые 15–30 секунд, максимум 5 минут; не запускать длинное shell-ожидание одной командой.
-   Повторять ONE quad request через MCP tool gpt-image-2 только если лог доступен и подтверждает, что URL не появился.
-   Если MCP log недоступен агенту — COVER MCP RECOVERY NEEDED, нужен URL из лога; не retry вслепую.
-   Максимум 2 попытки / общий бюджет 10 минут. Без URL не делать apply/split.
-6) excalibur_blog_quad_apply.py --url ... --inject-html
+Прочитай agents/excalibur-blog-cover.md + skills/cover-excalibur-blog/SKILL.md + shared/blog-cover-quad-canvas-contract.md + shared/kie-gpt-image-api-contract.md.
+1) python3 scripts/excalibur_blog_hero_reference_url.py
+2) python3 scripts/excalibur_blog_quad_manifest.py --merge
+3) правка cover/quad-manifest.json (hook, scene_hint, outfit из scene_hint — без white-hoodie lock)
+4) python3 scripts/excalibur_blog_cover_quad_prompt.py --write-batch  (prompt must not contain токсичные lemmas / hoodie outfit lock)
+5) PRIMARY: python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <dir>  (KIE_API_KEY)
+   Optional smoke: ONE sync MCP gpt-image-2. On -32001: check MCP log for URL; if none and KIE_API_KEY set → ONE Kie createTask same batch (не COVER MCP RECOVERY NEEDED, не второй sync MCP).
+6) python3 scripts/excalibur_blog_quad_apply.py --inject-html
 Fragment .cursor/excalibur-blog-fragments/cover.md (=== EXCALIBUR BLOG COVER ===). Не 4 MCP. Не трогай schema.
 ```
 
@@ -138,7 +131,8 @@ Fragment .cursor/excalibur-blog-fragments/cover.md (=== EXCALIBUR BLOG COVER ===
 ```text
 Ты excalibur-blog-schema. topic_id: {ID}.
 Прочитай agents/excalibur-blog-schema.md + skills/schema-excalibur-blog/SKILL.md.
-schema.jsonld BlogPosting+FAQPage. Fragment .cursor/excalibur-blog-fragments/schema.md (=== EXCALIBUR BLOG SCHEMA ===). Не делай cover.
+schema.jsonld BlogPosting+FAQPage с commit-safe env:PUBLIC_SITE_URL / env:CATALOG_URL / env:TELEGRAM_URL / env:MAX_URL (не live host strings).
+Fragment .cursor/excalibur-blog-fragments/schema.md (=== EXCALIBUR BLOG SCHEMA ===). Не делай cover.
 ```
 
 ### ⑤ Indexer
@@ -146,7 +140,7 @@ schema.jsonld BlogPosting+FAQPage. Fragment .cursor/excalibur-blog-fragments/sch
 ```text
 Ты excalibur-blog-indexer. topic_id: {ID}.
 Прочитай agents/excalibur-blog-indexer.md + skills/indexer-excalibur-blog/SKILL.md.
-interlinker --apply + llms generator. Блок === EXCALIBUR BLOG INDEXER === в handoff.
+interlinker --apply + llms generator с --blog-dir и --site-base "" (нет --blog-path). Блок === EXCALIBUR BLOG INDEXER === в handoff.
 ```
 
 ### ⑥ Publish (автоматически после Indexer)

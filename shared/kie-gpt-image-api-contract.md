@@ -22,9 +22,11 @@ This keeps waiting in the shell process instead of a single MCP request.
 ## Cover command
 
 ```bash
-python scripts/excalibur_blog_kie_gpt_image2_api.py \
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
+
+After sync MCP `-32001` with empty MCP log: run this **once** with the existing batch (do not start a second sync MCP job).
 
 The script reads:
 
@@ -38,7 +40,7 @@ The script writes:
 Then run:
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --inject-html
 ```

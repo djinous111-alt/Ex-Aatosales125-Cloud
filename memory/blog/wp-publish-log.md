@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-28 — B01 honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4627
+- **permalink:** https://avtosales125.ru/2026/10/28/honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026/
+- **featured_image:** 4628
+- **inline_images:** 4629 (inline-01.png), 4630 (inline-02.png), 4631 (inline-03.png)
+- **schema_meta:** ok (_excalibur_blog_schema_jsonld)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH (SSH_ROOT=.) upload + HTTP trigger OK (~161s); no WebFetch
+- **note:** NEW CR-V China post (not Corolla Cross 4621); hydrated env schema + CATALOG/TELEGRAM CTA placeholders for publish then restored for commit; created site.env.local; installed paramiko
+- **result:** memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026/wp-publish-result.json
+

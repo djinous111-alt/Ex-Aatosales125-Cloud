@@ -19,29 +19,45 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | QA PASS | `article-qa.md` → verdict PASS |
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
-| Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Schema | `schema.jsonld` (commit-safe `env:*` placeholders OK) |
+| Credentials | Cloud Secrets / process env; optional gitignored `memory/site.env.local` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| Python deps | `paramiko` (install via `.cursor/cloud-agent-install.sh`) |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+### Env bootstrap (Cloud)
+
+1. Prefer **process env / Cloud Secrets** — `excalibur_blog_wp_publish.py` читает их через Python (`load_env`), не bash-source password files.
+2. Optional: write gitignored `memory/site.env.local` from Secrets if local override needed (`SSH_ROOT=.` recommended).
+3. Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check` (no secret values printed).
+
+Скрипт **in-memory** гидратирует перед upload:
+- `env:PUBLIC_SITE_URL` / `env:CATALOG_URL` / `env:TELEGRAM_URL` / `env:MAX_URL` в `schema.jsonld`
+- `${CATALOG_URL}` / `${TELEGRAM_URL}` / … в `article.html`
+
+Не нужно руками подставлять live URL в git-артефакты перед publish.
 
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
-  -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  -o memory/blog/articles/<topic_id>-<slug>/link-verify.json
 ```
+
+Примечание: link-verify сам IRI-encode non-ASCII URL path; CTA-плейсхолдеры `${…}` в HTML для live-check раскрывай только во временной копии или после hydrate в publish.
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,11 +67,12 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
 Скрипт:
+- гидратирует `env:*` / `${…}` из publish env;
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
@@ -84,9 +101,9 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
-  --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru
+python3 scripts/excalibur_blog_interlinker.py --apply \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --site-base ""
 ```
 
 Inbound-ссылки из старых статей на новую.
@@ -98,24 +115,19 @@ Inbound-ссылки из старых статей на новую.
 topic_id:
 slug:
 article_dir:
-publish_date:
-verdict: PASS|FAIL
-permalink:
 post_id:
-featured_image:
-inline_images:
-schema_meta: ok|fail
-blockers:
+permalink:
+featured_media_id:
+inline_media_ids:
+ledger: shared/published-articles.md
+verdict: PASS | BLOCKER
+incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ```
 
 ## Blockers
 
-- `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag
-- `❌ PUBLISH FAIL` — скрипт вернул fail (смотри `raw_output` в wp-publish-result.json)
-
-## Запрещено
-
-- Писать или переписывать longread
-- Генерировать cover/schema с нуля
-- Пропускать dry-run
-- Завершать пайплайн без записи в `published-articles.md` при успешном publish
+- нет `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`
+- нет SSH / PUBLIC_SITE_URL
+- нет `paramiko` в окружении (doctor WARN; install script must include it)
+- QA/link-verify не PASS
+- cover/schema отсутствуют

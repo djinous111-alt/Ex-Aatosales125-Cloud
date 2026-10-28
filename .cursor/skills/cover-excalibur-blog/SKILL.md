@@ -15,16 +15,18 @@ reference PNG → reference_url_hosted
        ↓
 quad-manifest.json (agent fills hooks + scene_hint)
        ↓
-quad-mcp-batch.json (1 job, input_urls)
+quad-mcp-batch.json (1 job, input_urls)  ← prompt builder: no toxic lemmas, no white-hoodie outfit lock
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+PREFERRED: python3 scripts/excalibur_blog_kie_gpt_image2_api.py  (createTask→poll, needs KIE_API_KEY)
+  optional smoke: sync MCP gpt-image-2 once
+  on MCP -32001 + no URL in log → ONE Kie recovery (same batch), never blind second sync MCP
        ↓
-split → cover.png + inline-01..03.png (1200×675)
-       ↓
-inject <figure> after H2 in article.html
+quad_apply --inject-html → cover.png + inline-01..03.png
 ```
 
-**Запрещено:** 4 отдельных MCP на cover + inline.
+См. `shared/kie-gpt-image-api-contract.md` + `shared/mcp-image-async-contract.md`.
+
+**Запрещено:** 4 отдельных MCP на cover + inline; blind retry sync MCP после -32001.
 
 ---
 
@@ -99,7 +101,7 @@ Fallback env: `BLOG_HERO_REFERENCE_URL`.
 ### Шаг 2 — manifest
 
 ```bash
-python scripts/excalibur_blog_quad_manifest.py \
+python3 scripts/excalibur_blog_quad_manifest.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --merge
 ```
@@ -115,26 +117,32 @@ python scripts/excalibur_blog_quad_manifest.py \
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Kie preferred)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Primary (Cloud):**
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Читает `cover/quad-mcp-batch.json` → пишет `cover/quad-mcp-result.json`.
+
+**Optional smoke:** sync MCP `gpt-image-2` once with `jobs[0].mcp_args`.  
+Если `-32001` timeout и в MCP log нет URL/`task_id` — **не** `COVER MCP RECOVERY NEEDED` при наличии `KIE_API_KEY`: один Kie createTask (тот же batch). Blind second sync MCP запрещён.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
   --inject-html
 ```
 

@@ -14,22 +14,25 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+# Match only against topic-card fields (not research-notes body): notes always contain
+# required headings like `## github_evidence` and may use «агентская смета» in auto niche.
+TECH_MARKER_PATTERNS = (
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"make\.com",
+    r"автоматизац",
+    r"нейросет",
+    r"ai[- ]?агент",
+    r"агент(?:ы|ов|ами)?\s+(?:cursor|mcp|ai|ии)",
 )
 
 
@@ -74,13 +77,18 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """True only when the topic card itself is AI/dev/automation — not auto-import niche copy.
+
+    Research notes are intentionally ignored: they always include `github_evidence` and
+    may mention «агент» in non-dev senses (агентская смета / подбор).
+    """
+    del notes  # explicit: do not scan notes body for tech markers
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(re.search(pattern, blob, flags=re.I) for pattern in TECH_MARKER_PATTERNS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +138,17 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Prefer explicit `accessed_at: YYYY-MM-DD`; also accept ISO dates in source-table URL rows.
+    accessed_count = len(re.findall(r"\baccessed_at\b\s*:\s*\d{4}-\d{2}-\d{2}", text_lower))
+    if accessed_count < 5:
+        table_iso = len(
+            re.findall(
+                r"^\s*\|[^\n]*https?://[^\n]*\|\s*\d{4}-\d{2}-\d{2}\b",
+                text,
+                flags=re.M | re.I,
+            )
+        )
+        accessed_count = max(accessed_count, table_iso)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

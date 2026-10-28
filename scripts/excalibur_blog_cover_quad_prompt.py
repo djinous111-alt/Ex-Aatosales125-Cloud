@@ -84,9 +84,9 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "ALL panels keep a clean pure white #FFFFFF base; scraps/cards may cast light shadows but no beige, gray, gradient, grunge, paper-tint, or colored full-panel background.",
         "",
-        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
+        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no demeaning slang or toxic nicknames in sticker/meme text (do not quote banned words even as negatives).",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit follows scene_hint (never force a white hoodie lock). Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -137,6 +137,11 @@ def main() -> int:
         return 1
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
+    banned_prompt_tokens = ("лох", "лохов", "Outfit lock: thick heavyweight white hoodie")
+    hit = next((tok for tok in banned_prompt_tokens if tok.lower() in prompt.lower()), None)
+    if hit:
+        print(f"❌ PROMPT BLOCKER: banned token in built prompt: {hit!r}", file=sys.stderr)
+        return 1
     if not validate_prompt_budget(prompt):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"
@@ -178,11 +183,12 @@ def main() -> int:
                     "status": "Poll an available status/result MCP tool by task_id every 10-15 seconds until url is ready, up to backend_max_wait_seconds.",
                     "idempotency": "Do not create a second image job unless status/result confirms the previous job was not created or failed.",
                 },
-                "blocker_only_if": "Sync gpt-image-2 times out with -32001 and no generated URL, task_id, or async status/result MCP tool is available.",
-                "mcp_invocation": "Legacy fallback only. Cursor Cloud should prefer direct Kie API via scripts/excalibur_blog_kie_gpt_image2_api.py because sync MCP gpt-image-2 is client-timeout-prone for 2K i2i.",
+                "blocker_only_if": "Sync gpt-image-2 times out with -32001, no URL/task_id in MCP logs, async MCP tools unavailable, AND KIE_API_KEY is not set (or Kie createTask also failed).",
+                "mcp_invocation": "Optional smoke only. Prefer direct Kie API via scripts/excalibur_blog_kie_gpt_image2_api.py (createTask→recordInfo) because sync MCP gpt-image-2 is client-timeout-prone for 2K i2i.",
                 "log_recovery": "If the MCP/Cloud log or expanded MCP tool response already contains a generated image URL after the HTTP timeout, treat it as success: save that URL to cover/quad-mcp-result.json yourself or pass it directly to quad_apply. Do not search cover/* for the URL; it will not exist there until you save it. Do not start another image job while a generated URL exists.",
-                "recovery_needed": "If there is no URL/task_id and no async status/result tool after a sync timeout, stop with COVER MCP ASYNC BLOCKER. Do not blindly retry and create a duplicate generation.",
-                "instruction": "Prefer async image tools if Available Tools exposes them. If only sync gpt-image-2 exists, call it once. If the HTTP MCP client times out with -32001, inspect the expanded MCP tool response / Cursor MCP Logs for a generated URL or task_id. If a URL exists, save it as cover/quad-mcp-result.json or pass it directly to quad_apply. If task_id exists, use the status/result MCP tool. If no URL/task_id/status tool exists, stop with COVER MCP ASYNC BLOCKER because the MCP backend must expose async retrieval for late image results. Do not continue to split/apply without a real image URL.",
+                "kie_recovery": "If sync MCP returns -32001 and there is no URL/task_id in the MCP log, do NOT stop with COVER MCP RECOVERY NEEDED when KIE_API_KEY is set. Run ONE Kie createTask from the same cover/quad-mcp-batch.json via scripts/excalibur_blog_kie_gpt_image2_api.py, then quad_apply --inject-html. Never blind-retry a second sync MCP create.",
+                "recovery_needed": "Only if KIE_API_KEY is missing/unavailable AND there is no URL/task_id and no async status/result MCP tool after a sync timeout: stop with COVER MCP ASYNC BLOCKER. Do not blindly retry and create a duplicate generation.",
+                "instruction": "Prefer Kie async shell path (preferred_image_flow) when KIE_API_KEY is set. Sync MCP gpt-image-2 is optional smoke. After HTTP -32001: (1) inspect MCP log for URL/task_id; (2) if none and KIE_API_KEY set → ONE Kie createTask with same batch; (3) only if Kie unavailable too → COVER MCP ASYNC BLOCKER. Do not continue to split/apply without a real image URL.",
             },
             "jobs": [
                 {

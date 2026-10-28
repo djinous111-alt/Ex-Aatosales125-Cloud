@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261028-1715-research-tech-marker-regression
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: scripts
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` again used bare substring TECH_MARKERS.
+- Auto-niche notes with required field `reader_pain` and Russian «Японии»/«магии» falsely set `technical_topic=true` because `"ai"` ⊂ `pain` and `"ии"` ⊂ genitive endings.
+- Gate BLOCK: `technical topic requires GitHub evidence` despite N/A community evidence for auction niche.
+- Same durable fix existed historically (`eb024374` word-boundary markers) but was lost after sanitized template reset.
+
+### How the agent recovered this run
+- Restored bounded match for short markers `ai` / `ии` and kept substring list for longer tech tokens in `scripts/excalibur_blog_research_notes_gate.py`.
+- Re-ran research-notes gate; expected PASS without fake GitHub URLs.
+
+### Durable fix needed before next run
+- Keep word-boundary logic in the gate; add a regression test that auto topic notes with `reader_pain` + «из Японии» are not `technical_topic`.
+- Document in `shared/agent-pipeline-pitfalls.md` so template resets do not drop the fix again.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- optional unit/smoke under `scripts/` or doctor check
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261028-1706-doctor-llms-blog-path-flag
+status: open
+run_date: 2026-10-28
+role: director
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: scripts
+
+### What went wrong
+- `excalibur_blog_doctor.py` checks that llms generator `--help` contains `--blog-path`.
+- Actual CLI in `scripts/excalibur_blog_llms_generator.py` exposes `--blog-dir` (and related flags), so doctor reports FAIL errors=1 even when the generator is healthy.
+
+### How the agent recovered this run
+- Continued pipeline after noting the mismatch; Indexer will use `--blog-dir` as documented in skills/pitfalls.
+
+### Durable fix needed before next run
+- Align doctor check with the real CLI (`--blog-dir`) or restore `--blog-path` as an alias in the generator.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+
 ## INC-20261028-1705-scout-precommit-env-hook
 status: open
 run_date: 2026-10-28

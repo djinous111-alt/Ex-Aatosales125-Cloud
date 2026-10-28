@@ -1,0 +1,24 @@
+{
+  "article": "memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 2,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "м рядом Третий ряд в кадре Заводские MSRP бензина 2026 в Китае идут ступенями примерно от 185.9k до 231.9",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "193",
+      "kind": "large_number",
+      "context": "новый 240TURBO у Dongfeng Honda – 1.5 турбо около 193 л.с. Для физлица это уже не льготный контур по мощ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

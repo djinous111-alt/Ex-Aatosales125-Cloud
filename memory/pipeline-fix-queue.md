@@ -387,3 +387,102 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261028-0925-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Cloud Agent could not launch typed Task `excalibur-blog-geo-qa`; Director used `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Recurring Cloud limitation: typed role Tasks are not listed/accepted; each run re-discovers the fallback.
+
+### How the agent recovered this run
+- Executed GEO QA as generalPurpose with the role contract/skill paths; completed gates and handoff block.
+
+### Durable fix needed before next run
+- Document durable Cloud Task listing / fallback in `CLOUD-AUTOMATION.md` / `CURSOR-CLOUD-RUNBOOK.md` / director skill: when typed `excalibur-blog-*` Task types are rejected, always use one `generalPurpose` Task per role with agent+skill paths.
+- Keep AGENTS.md Cloud Task fallback section aligned with actual Cursor Cloud Task catalog.
+
+### Suggested files to inspect/change
+- `CLOUD-AUTOMATION.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261028-0925-geo-qa-link-verify-iri-encode
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` failed the 2GIS reviews URL with `'ascii' codec can't encode characters` when the path still contained raw Cyrillic (mixed with `%20`).
+- First link-verify verdict was fail (1/3) despite a valid public URL.
+
+### How the agent recovered this run
+- Percent-encoded the 2GIS path in `article.html` (IRI→ASCII).
+- Expanded `${CATALOG_URL}`/`${TELEGRAM_URL}` only for live check; restored placeholders in committed HTML; sanitized `link-verify.json`.
+- Re-ran link-verify → PASS 3/3.
+
+### Durable fix needed before next run
+- In `excalibur_blog_link_verify.py`, IRI-encode non-ASCII URL path/query before `urllib.request` (or use a request stack that accepts IDNA/IRI).
+- Note in writer/GEO QA pitfalls: 2GIS search URLs must be fully percent-encoded; CTA stay as `${CATALOG_URL}`/`${TELEGRAM_URL}` in git.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261028-0925-geo-qa-tldr-label-conflict
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Writer left insight opener `TL;DR / Быстрый инсайт` (matches writing-contract example).
+- GEO QA skill forbids those template labels; human-voice gate still PASSed, so the conflict is docs/skill drift, not a script blocker.
+
+### How the agent recovered this run
+- QA micro-fix only: relabeled to `Инсайт до депозита` without rewriting body copy.
+
+### Durable fix needed before next run
+- Align `shared/excalibur-article-writing-contract.md` and writer skill with GEO QA skill: preferred insight label without `TL;DR` / `Быстрый инсайт`.
+- Optionally add a soft check in html-linter or human-voice gate.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Crown из Японии
+
+- **priority:** P0
+- **slug:** toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota Crown из Японии: комплектации и ловушки до ставки
+- **primary_query:** тойота краун из японии
+- **secondary_queries:** тойота краун гибрид, тойота краун кроссовер, тойота краун 2026
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Какие кузова Crown бывают и какой нужен вам (седан, Crossover, Sport, Estate)
+  2. Как отличить комплектации G, Z и RS до ставки без "магии менеджера"
+  3. Гибрид Crown: что проверить по экспорту и растаможке до депозита на аукцион
+  4. Аукционный лист Crown: оценки, пометки кузова и красные флаги
+  5. Чек-лист до ставки: комплектация, проходной возраст, маршрут через Владивосток
+- **faq_hints:** чем Crown Crossover отличается от седана; можно ли привезти гибридный Crown из Японии в 2026; какую комплектацию брать - G, Z или RS
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного Toyota Crown (кроссовер или седан), фрагмент аукционного листа, плашка "до ставки", угол avto-sales125.ru
+- **wordstat_signal:** parent "тойота краун" 60060; узкий "тойота краун из японии" 153; "тойота краун гибрид" 942; "тойота краун кроссовер" 347; "как выбрать тойота краун" totalCount-only 1 (low-result)
+- **live_dedup:** REST PUBLIC_SITE_URL 1231 posts - slug/model Crown отсутствует; denylist без Crown

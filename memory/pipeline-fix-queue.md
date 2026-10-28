@@ -243,9 +243,16 @@ category: scripts
 - `scripts/excalibur_blog_doctor.py`
 - `scripts/excalibur_blog_llms_generator.py`
 - `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md` (если есть дубль shell-примера с `--blog-path`)
 
 ### Secrets
 - none recorded
+
+### Indexer note (2026-10-28 B01 Crown)
+- Indexer confirmed CLI has only `--blog-dir` (no `--blog-path`); ran generator successfully with `--blog-dir` + `--out-dir`.
+- Agent/skill shell examples still show `--blog-path /` — would fail if followed literally; Fixer should strip that flag from examples.
 
 
 ## INC-20261028-1705-scout-precommit-env-hook

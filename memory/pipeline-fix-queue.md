@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261028-1745-publish-siteenv-paramiko-schema-hydrate
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing in Cloud workspace (only `site.env.local.example`); publish script prefers file + env overlay.
+- `paramiko` not installed in image (`ModuleNotFoundError`) despite SSH transport requirement.
+- `schema.jsonld` still uses `env:PUBLIC_SITE_URL` / `env:CATALOG_URL` / `env:TELEGRAM_URL` / `env:MAX_URL` placeholders; publish script does not hydrate them before writing post meta.
+
+### How the agent recovered this run
+- Created gitignored `memory/site.env.local` from Cloud Secrets; set `SSH_ROOT=.` (map when only SSH_PATH present).
+- Installed `paramiko==5.1.0` via pip `--break-system-packages`.
+- Hydrated schema placeholders for publish, then restored placeholders for commit.
+- Publish PASS: post=4639 featured=4640 inline=4641/4642/4643; HTTP OK (~140s); no WebFetch.
+
+### Durable fix needed before next run
+- Ensure Cloud install/image always ships `paramiko` (requirements + cloud-agent-install + Dockerfile).
+- Document or automate `site.env.local` bootstrap from Cloud Secrets (no bash-source; no quoted values).
+- Hydrate `env:*` / `${VAR}` inside `excalibur_blog_wp_publish.py` before schema meta write (then keep on-disk placeholders for secret-scan).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt` / Dockerfile
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/site.env.local.example`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261028-1730-cover-mcp-timeout-kie-fallback
 status: open
 run_date: 2026-10-28

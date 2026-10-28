@@ -1,13 +1,13 @@
 # Promotion checklist — B01 toyota-crown-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: (pending publish)  
-Live URL: /blog/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-28  
+Live URL: https://avtosales125.ru/2026/10/28/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200 + REST id=4639) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Буквы G/Z/RS ≠ один и тот же гибрид: Sport/Estate RS часто PHEV
 • Стоп-флаги листа R/RA — до депозита
 
-Читать: /blog/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/28/toyota-crown-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer: `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir …/B01-… --site-base $PUBLIC_SITE_URL` — opportunities_found=0.
 - llms: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (без `--blog-path`; CLI его не принимает).
 - `memory/blog/llms.txt` + `memory/blog/llms-full.txt` содержат B01 Crown.
-- Publish: не выполнялся (зона Indexer).
+- Publish: PASS post_id=4639; featured=4640; inline=[4641, 4642, 4643]; HEAD 200.

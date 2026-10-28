@@ -298,7 +298,7 @@ files_changed:
 checks_run:
 - utility fallback unit smoke → UTILITY_FALLBACK_OK
 - doctor OK editorial-policy pain/outcome keys
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## INC-20261028-0910-scout-git-secret-name-hook
 status: fixed
@@ -347,7 +347,7 @@ files_changed:
 checks_run:
 - bash filter smoke: URL-like name dropped; `SSH_PASS,PUBLIC_SITE_URL` kept
 - doctor OK `scripts/excalibur_git.sh exists`
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## INC-20261028-0912-research-tech-markers-false-positive
 status: fixed
@@ -396,7 +396,7 @@ files_changed:
 checks_run:
 - smoke: Honda CR-V topic → technical=False; Cursor MCP topic → True
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## Fixed incidents
 
@@ -445,7 +445,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
 - `rg` stale `--blog-path` only in “нет флага” docs
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## INC-20261028-0925-geo-qa-typed-task-unavailable
 status: fixed
@@ -490,7 +490,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Cloud Task fallback guidance present in runbook/automation/director
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## INC-20261028-0925-geo-qa-link-verify-iri-encode
 status: fixed
@@ -535,7 +535,7 @@ files_changed:
 checks_run:
 - IRI smoke with Cyrillic 2GIS path → ASCII percent-encoded URL
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## INC-20261028-0925-geo-qa-tldr-label-conflict
 status: fixed
@@ -583,7 +583,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_html_linter.py`
 - `rg` TL;DR example removed from writing-contract block 2
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## INC-20261028-0930-schema-env-url-placeholders
 status: fixed
@@ -634,7 +634,7 @@ files_changed:
 checks_run:
 - hydrate smoke HYDRATE_OK
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## INC-20261028-0935-cover-mcp-timeout-kie-fallback
 status: fixed
@@ -684,7 +684,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` kie_recovery / Kie preferred in cover skill + contracts
-commit: pending-parent-commit
+commit: eae2c83e
 
 
 ## INC-20261028-0935-cover-prompt-builder-hoodie-toxic
@@ -728,7 +728,7 @@ files_changed:
 checks_run:
 - rebuild B01 prompt → COVER_PROMPT_OK (no лох / hoodie lock)
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
-commit: pending-parent-commit
+commit: eae2c83e
 
 
 ## INC-20261028-0938-indexer-llms-blog-path-stale-docs
@@ -780,7 +780,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor OK no stale `--blog-path` flag
-commit: pending-parent-commit
+commit: eae2c83e
 
 ## INC-20261028-0945-publish-siteenv-paramiko-schema-hydrate
 status: fixed
@@ -834,5 +834,5 @@ files_changed:
 checks_run:
 - doctor OK paramiko available
 - hydrate smoke HYDRATE_OK
-commit: pending-parent-commit
+commit: eae2c83e
 

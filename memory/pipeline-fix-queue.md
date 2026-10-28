@@ -251,6 +251,69 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261028-0910-scout-git-secret-name-hook
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud Agent pre-commit.cursor: `invalid variable name` on `${!SECRET_NAME}`.
+- Root cause: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier entry shaped like a URL path (`http…ru/`), which bash cannot expand via nameref.
+- Memory expected `scripts/excalibur_git.sh` to filter non-identifier secret names, but the script was missing on this branch.
+
+### How the agent recovered this run
+- Added `scripts/excalibur_git.sh` that drops non-`[A-Za-z_][A-Za-z0-9_]*` names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` before `git commit`.
+- Committed topic card via that wrapper (not `--no-verify`).
+
+### Durable fix needed before next run
+- Keep `scripts/excalibur_git.sh` in repo and document it in scout/director pitfalls.
+- Optionally harden Cloud hook to skip invalid identifier secret names.
+- Fix Dashboard Secrets so URL values are not listed as secret *names*.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261028-0904-director-doctor-llms-flag
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` checked for `--blog-path` on `excalibur_blog_llms_generator.py`, but the CLI only exposes `--blog-dir`. Doctor exited errors=1 and blocked clean preflight.
+
+### How the agent recovered this run
+- Director one-line fix in `scripts/excalibur_blog_doctor.py`: assert `--blog-dir` instead of `--blog-path`. Re-ran doctor → errors=0 warnings=0.
+
+### Durable fix needed before next run
+- Keep doctor aligned with actual llms generator flags (`--blog-dir`). Consider adding a regression note in pitfalls if fixer finds more stale flag names.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

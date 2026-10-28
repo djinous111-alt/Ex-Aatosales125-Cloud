@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Honda CR-V из Китая
+
+- **priority:** P0
+- **slug:** honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Honda CR-V из Китая: комплектации и ловушки до депозита 2026
+- **primary_query:** хонда срв из китая
+- **secondary_queries:** хонда срв комплектации, хонда срв 6 поколения из китая, хонда срв из китая отзывы, хонда срв под заказ
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит CR-V 6 поколения из Китая и чем он отличается от японского/корейского канала
+  2. Как читать комплектации: Premium / Prestige / Executive, мотор 1.5 vs 2.0, 2WD/4WD, гибрид
+  3. Что проверить до депозита: VIN, видеоосмотр, зимний пакет, Bose, 360°, русификация, смета под ключ
+  4. Типичные ловушки 2026: «официальная» гарантия без ОТТС, скрытые доплаты, курс и этапы оплаты
+  5. Чек-лист перед ставкой/депозитом и когда лучше отдать подбор Авто-Сейлс
+- **faq_hints:** чем Prestige отличается от Premium у CR-V из Китая; нужна ли русификация до выдачи; что должно быть в договоре до перевода депозита; можно ли везти гибрид CR-V
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного Honda CR-V кроссовера, порт/площадка Владивостока, плашка «до депозита», угол avto-sales125.ru
+- **wordstat_signal:** parent «хонда срв» ~339247; узкий «хонда срв из китая» ~1368; «хонда срв комплектации» ~768; LIVE slug absent 2026-10-28
+- **live_dedup:** REST PUBLIC_SITE_URL/wp-json/wp/v2/posts per_page=100 – slug honda-cr-v-iz-kitaya-komplektatsii-lovushki-2026 отсутствует; honda на LIVE только fit/freed/stepwgn/vezel (Япония)

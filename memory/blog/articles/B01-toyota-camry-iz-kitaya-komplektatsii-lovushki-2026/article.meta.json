@@ -12,7 +12,7 @@
     "тойота камри гибрид из китая",
     "камри 80 из китая"
   ],
-  "char_count": 9482,
+  "char_count": 9874,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,12 +29,17 @@
     "description_aeo": "Китайская Camry XV80: три мотора, разные trim-ы и ловушка утильсбора. До депозита сравните две версии по VIN и документам."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 87,
+    "verdict": "PASS",
+    "date": "2026-10-28",
+    "html_linter": "PASS",
+    "slop_score": "WARNING_0_cliches",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

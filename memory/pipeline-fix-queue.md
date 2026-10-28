@@ -389,6 +389,95 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261028-1320-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Typed Cloud Task `excalibur-blog-geo-qa` unavailable; Director used generalPurpose fallback for GEO QA role.
+
+### How the agent recovered this run
+- Ran as generalPurpose with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`; completed full QA script set to PASS.
+
+### Durable fix needed before next run
+- Register typed Task type `excalibur-blog-geo-qa` in Cloud, or keep documented generalPurpose fallback as canonical in director skill / CLOUD-AUTOMATION.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261028-1320-geo-qa-tldr-label-conflict
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Writer shipped insight label `TL;DR / Быстрый инсайт` matching `shared/excalibur-article-writing-contract.md` example, but GEO QA skill forbids those template labels.
+
+### How the agent recovered this run
+- Short FIX: renamed to `Инсайт до депозита`; re-ran human-voice/html-linter PASS.
+
+### Durable fix needed before next run
+- Align writing contract example with GEO QA skill (remove TL;DR / Быстрый инсайт from templates) and/or harden writer self-check / html-linter to block the forbidden labels.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_html_linter.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261028-1320-geo-qa-cta-env-placeholders
+status: open
+run_date: 2026-10-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-camry-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Writer HTML contained live `CATALOG_URL`/`TELEGRAM_URL` values; secret-scan / commit hygiene requires `${ENV}` placeholders in git.
+
+### How the agent recovered this run
+- Replaced with `${CATALOG_URL}` / `${TELEGRAM_URL}`; expanded only for live link-verify (3/3 PASS); sanitized `link-verify.json`.
+
+### Durable fix needed before next run
+- Writer contract/skill must emit CTA placeholders by default; document expand-only-for-verify pattern in GEO QA skill.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

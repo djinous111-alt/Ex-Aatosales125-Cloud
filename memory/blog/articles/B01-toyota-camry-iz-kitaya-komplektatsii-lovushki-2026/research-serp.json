@@ -1,0 +1,676 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-28",
+    "today_ru": "28.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-30",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-28 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-camry-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита в 2026",
+    "primary_query": "тойота камри из китая",
+    "secondary_queries": [
+      "камри из китая",
+      "тойота камри комплектации",
+      "тойота камри гибрид из китая",
+      "камри 80 из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "тойота камри из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Camry из Китая 2026: цена, комплектации, стоит ли везти",
+          "url": "https://tendcar.ru/blog/toyota-camry-2026-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Комплектации Камри 80 из Китая 2026-2027: цены и какую брать",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-komplektacii/",
+          "snippet": "Китайская сборка Toyota Camry (FAW-Toyota) — альтернатива ушедшей с рынка РФ модели. Разбираем комплектации 2026 года, цену под ключ, утильсбор и риски параллельного импорта."
+        },
+        {
+          "title": "Toyota Camry 2026 из Китая: разбор гибрида и отличий",
+          "url": "https://kz.kursiv.media/2026-02-05/shkv-toyota-camry-80-2026-goda-iz-kitaya-razobral-avtoekspert/",
+          "snippet": "Где есть подогрев кресел, что в пакетах опций 2024-2026 и какую версию брать для России."
+        },
+        {
+          "title": "Купить Toyota Camry 2026 из Китая под ключ в Москве — 4 068 000 - 4 412 ...",
+          "url": "https://encarrus-china.ru/new/toyota-camry/",
+          "snippet": "Подробный разбор китайской Тойота Камри 80 2026 года. Технические характеристики, работа гибрида ECVT и сравнение надежности японского седана с «китайцами»."
+        },
+        {
+          "title": "Toyota из Китая 2026: Camry, RAV4 — цены и заказ",
+          "url": "https://160drive.ru/toyota-iz-kitaya-2026/",
+          "snippet": "Автомобиль заказывается напрямую из Китая. Цена указана под ключ в Москве: доставка, таможенные платежи, утилизационный сбор и оформление включены."
+        },
+        {
+          "title": "Toyota Camry из Китая: цена и растаможка — калькулятор 2026",
+          "url": "https://auto-rul.ru/china-calc-rastamogka-online/Toyota-Camry-rastamogka",
+          "snippet": "Китайская Camry 2024-2026 года — это 9-е поколение на платформе TNGA-K. Её продают только в Китае: ни в Японию, ни в Европу эта версия не идёт. Завод — GAC Toyota в Гуанчжоу. Два мотора: 2.0L (152 л.с.) и 2.5L Hybrid. Вот где начинается главное."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "тойота камри из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сколько стоит Камри из Китая: цены 75 и 80 кузова по годам 2021-2027",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-iz-kitaya-ceny-po-godam/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Toyota Camry 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/toyota/camry",
+          "snippet": "Камри 2027 модельного года: обновление августа 2026, прайс прежний 19 августа 2026 года в Китае вышла обновлённая Камри 2027 модельного года."
+        },
+        {
+          "title": "Комплектации Камри 80 из Китая 2026-2027: цены и какую брать",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-komplektacii/",
+          "snippet": "Toyota Camry (Тойота Camry) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 4.7 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        },
+        {
+          "title": "Купить Toyota Camry 2026 из Китая под ключ в Москве — 4 068 000 - 4 412 ...",
+          "url": "https://encarrus-china.ru/new/toyota-camry/",
+          "snippet": "Где есть подогрев кресел, что в пакетах опций 2024-2026 и какую версию брать для России."
+        },
+        {
+          "title": "Toyota Camry из Китая: цена и растаможка — калькулятор 2026",
+          "url": "https://auto-rul.ru/china-calc-rastamogka-online/Toyota-Camry-rastamogka",
+          "snippet": "Автомобиль заказывается напрямую из Китая. Цена указана под ключ в Москве: доставка, таможенные платежи, утилизационный сбор и оформление включены."
+        },
+        {
+          "title": "Toyota Camry 2026 из Китая: разбор гибрида и отличий",
+          "url": "https://kz.kursiv.media/2026-02-05/shkv-toyota-camry-80-2026-goda-iz-kitaya-razobral-avtoekspert/",
+          "snippet": "Расчёт растаможки Toyota Camry из Китая в Россию: пошлина, сборы, поколения, модификации и характеристики. Предварительные данные на 2026 год."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "тойота камри из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota из Китая 2026: стоит ли везти Camry, RAV4, Sienna? Цены ...",
+          "url": "https://dss-g.ru/blog/news/toyota-iz-kitaya-stoit-li-vezti-v-2026-czeny-rastamozhka-plyusy-i-minusy/",
+          "snippet": ""
+        },
+        {
+          "title": "Комплектации Камри 80 из Китая 2026-2027: цены и какую брать",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-komplektacii/",
+          "snippet": "Toyota Camry, Sienna и RAV4 из Китая — цены, комплектации и честный обзор 2026 года. Побывали в официальном дилере Toyota в Китае — самом нарядном из всех, что видели."
+        },
+        {
+          "title": "Toyota Camry 2026 из Китая: что реально получаешь",
+          "url": "https://auto.ru/logbook/cars/toyota/camry/toyota-camry-2026-iz-kitaia-chto-realno-poluchaesh_101b3192-5890-42ef-a94a-50ee9aa3e2c7/",
+          "snippet": "Где есть подогрев кресел, что в пакетах опций 2024-2026 и какую версию брать для России."
+        },
+        {
+          "title": "Дилеры начали прием заказов на Toyota Camry 2026 года из Китая",
+          "url": "https://novosvyat.ru/page/153889/",
+          "snippet": "Camry для китайского рынка (совместное производство Toyota и GAC) в 2026 году — это всё тот же узнаваемый бизнес‑седан, но с рядом важных нюансов. Разбираем, что стоит знать перед покупкой."
+        },
+        {
+          "title": "Toyota Camry 2026 из Китая: разбор гибрида и отличий",
+          "url": "https://kz.kursiv.media/2026-02-05/shkv-toyota-camry-80-2026-goda-iz-kitaya-razobral-avtoekspert/",
+          "snippet": "«Российская газета» сообщила о старте приема заказов на обновленную версию Toyota Camry 2026 модельного года. Большинство предлагаемых автомобилей на данный момент находятся в пути из Китая."
+        },
+        {
+          "title": "Toyota Из Китая - Стоит Ли Везти В 2026? Цены, Растаможка, Плюсы И ...",
+          "url": "https://rutube.ru/video/c7196f841402f840dcbacc56a800f752/",
+          "snippet": "Подробный разбор китайской Тойота Камри 80 2026 года. Технические характеристики, работа гибрида ECVT и сравнение надежности японского седана с «китайцами»."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com тойота камри из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Headswap — Android Auto on CarLife head units - GitHub",
+          "url": "https://github.com/YegorkaPomidorka/headswap",
+          "snippet": ""
+        },
+        {
+          "title": "howtomod/icon.svg at main · RamBanjo/howtomod · GitHub",
+          "url": "https://github.com/RamBanjo/howtomod/blob/main/icon.svg",
+          "snippet": "На многих машинах китайского рынка в штатной ГУ есть только Baidu CarLife, а Android Auto нет. Обычно это лечат донглами или заменой ГУ. Headswap обходится без них: приложение на самом телефоне делает Android Auto «головным устройством ..."
+        },
+        {
+          "title": "BryanCPineda/svg.svg at main - GitHub",
+          "url": "https://github.com/BryanCPineda/BryanCPineda/blob/main/svg.svg",
+          "snippet": "Contribute to RamBanjo/howtomod development by creating an account on GitHub."
+        },
+        {
+          "title": "boss-rush/icon.svg at main · DiegoStm3701/boss-rush · GitHub",
+          "url": "https://github.com/DiegoStm3701/boss-rush/blob/main/icon.svg",
+          "snippet": "Contribute to BryanCPineda/BryanCPineda development by creating an account on GitHub."
+        },
+        {
+          "title": "godot-reactive-ui/icon.svg at main · NoBS-Code/godot-reactive-ui",
+          "url": "https://github.com/NoBS-Code/godot-reactive-ui/blob/main/icon.svg",
+          "snippet": "Contribute to DiegoStm3701/boss-rush development by creating an account on GitHub."
+        },
+        {
+          "title": "dotfiles/Screenshots/sc-1.png at main · roscaa-stack/dotfiles",
+          "url": "https://github.com/roscaa-stack/dotfiles/blob/main/Screenshots/sc-1.png",
+          "snippet": "Repo for a YouTube video about creating flexible User Interfaces in Godot by separating State and Controls. - NoBS-Code/godot-reactive-ui"
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "тойота камри из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "TOYOTA 2026 Camry Instruction Manual - Manuals+",
+          "url": "https://manuals.plus/ru/toyota/2026-camry-manual",
+          "snippet": ""
+        },
+        {
+          "title": "PDF Toyota Camry",
+          "url": "https://www.toyota.ru/media/download/docs/brochure/mvxxex__camry.pdf",
+          "snippet": "The 2026 Toyota Camry instruction manual (T-MMS-26Camry) covers warranty & maintenance, with scheduled charts and key vehicle care guidance."
+        },
+        {
+          "title": "Toyota Camry 2026 из Китая: разбор гибрида и отличий",
+          "url": "https://kz.kursiv.media/2026-02-05/shkv-toyota-camry-80-2026-goda-iz-kitaya-razobral-avtoekspert/",
+          "snippet": "Обновленный рисунок перфорации сидений Toyota Camry и новые вставки выглядят еще более впечатляюще и при этом гармонично сочетаются с остальными элементами лекора."
+        },
+        {
+          "title": "Новая Тойота Камри: Характеристики, Дизайн и Цены 2026",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kamri-novaya-model.html",
+          "snippet": "Подробный разбор китайской Тойота Камри 80 2026 года. Технические характеристики, работа гибрида ECVT и сравнение надежности японского седана с «китайцами»."
+        },
+        {
+          "title": "Комплектации Камри 80 из Китая 2026-2027: цены и какую брать",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-komplektacii/",
+          "snippet": "Качество сборки вышло на новый уровень: мягкий пластик, прострочка контрастными нитями и вставки из алюминия создают ощущение премиальности."
+        },
+        {
+          "title": "Тойота Камри 2026 технические характеристики. Toyota Camry 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/camry/2026/",
+          "snippet": "Где есть подогрев кресел, что в пакетах опций 2024-2026 и какую версию брать для России."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "тойота камри из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Камри 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/toyota/camry/5kopeek/breakages/?year2=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Камри 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/toyota/camry/5kopeek/?year1=2025&year2=2026",
+          "snippet": "Отзывы владельцев Тойота Камри 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Тойота Камри: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Toyota китайской сборки: плюсы, минусы и модели 2026 года",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kitajskoj-sborki.html",
+          "snippet": "Опыт эксплуатации реальных владельцев автомобилей Тойота Камри: плюсы и минусы."
+        },
+        {
+          "title": "Toyota Camry форум - Toyota Camry клуб",
+          "url": "https://toyotacamry.ru/forum.php",
+          "snippet": "В этой статье мы детально разберём все аспекты — от технологических особенностей до реального опыта владельцев. Скептицизм вокруг \"китайских\" Toyota нередко подпитывается стереотипами о низком качестве продукции из КНР."
+        },
+        {
+          "title": "Тойота Камри форум владельцев: отзывы, проблемы и советы",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kamri-forum-vladeltsev.html",
+          "snippet": "Обсуждение вопросов внешнего и внутреннего тюнинга автомобиля Toyota Camry, выбора и установки дополнительного оборудования: парктроников, зеркал, багажников и т.п."
+        },
+        {
+          "title": "Бортжурнал Toyota Camry - клуб, форум о Тойота Камри на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/toyota/camry/",
+          "snippet": "Тойота Камри форум владельцев представляет собой огромный архив практического опыта, где пользователи делятся не только восторженными отзывами, но и суровой правдой о поломках."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "камри из китая 2026",
+      "purpose": "вторичный запрос: камри из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Camry из Китая 2026: цена, комплектации, стоит ли везти",
+          "url": "https://tendcar.ru/blog/toyota-camry-2026-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Комплектации Камри 80 из Китая 2026-2027: цены и какую брать",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-komplektacii/",
+          "snippet": "Китайская сборка Toyota Camry (FAW-Toyota) — альтернатива ушедшей с рынка РФ модели. Разбираем комплектации 2026 года, цену под ключ, утильсбор и риски параллельного импорта."
+        },
+        {
+          "title": "Купить Toyota Camry 2026 из Китая под ключ в Москве — 4 068 000 - 4 412 ...",
+          "url": "https://encarrus-china.ru/new/toyota-camry/",
+          "snippet": "Где есть подогрев кресел, что в пакетах опций 2024-2026 и какую версию брать для России."
+        },
+        {
+          "title": "Toyota Camry из Китая: цена и растаможка — калькулятор 2026",
+          "url": "https://auto-rul.ru/china-calc-rastamogka-online/Toyota-Camry-rastamogka",
+          "snippet": "Автомобиль заказывается напрямую из Китая. Цена указана под ключ в Москве: доставка, таможенные платежи, утилизационный сбор и оформление включены."
+        },
+        {
+          "title": "Купить Toyota Camry 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/toyota/camry",
+          "snippet": "Расчёт растаможки Toyota Camry из Китая в Россию: пошлина, сборы, поколения, модификации и характеристики. Предварительные данные на 2026 год."
+        },
+        {
+          "title": "Toyota из Китая 2026: стоит ли везти Camry, RAV4, Sienna? Цены ...",
+          "url": "https://dss-g.ru/blog/news/toyota-iz-kitaya-stoit-li-vezti-v-2026-czeny-rastamozhka-plyusy-i-minusy/",
+          "snippet": "Toyota Camry (Тойота Camry) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 4.7 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "тойота камри комплектации 2026",
+      "purpose": "вторичный запрос: тойота камри комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Камри 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/toyota/camry/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Camry 2026 — комплектации и цены в СПб | характеристики и оснащение",
+          "url": "https://toyota-spb.ru/camry/equipment/",
+          "snippet": "Подробно расписан модельный ряд Toyota Camry 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Камри 2026 между собой."
+        },
+        {
+          "title": "Toyota Camry рестайлинг 2026, седан, 10 ... - Дром",
+          "url": "https://www.drom.ru/catalog/toyota/camry/g_2026_25102/",
+          "snippet": "Сравните комплектации Toyota Camry 2026 года. Покажем актуальные цены, расскажем, чем отличаются версии, и поможем подобрать Camry в наличии, в кредит или по Trade-In."
+        },
+        {
+          "title": "Toyota Camry 2026: полный обзор, характеристики и советы по выбору ...",
+          "url": "https://ru.boyucar.com/toyota-camry-2026-polnyj-obzor-harakteristiki-i-sovety-po-vyboru-komplektatsii",
+          "snippet": "Подробно расписаны модификации автомобилей Toyota Camry рестайлинг 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "Тойота Камри 40 комплектации: обзор всех версий и опций",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kamri-40-komplektatsii.html",
+          "snippet": "Перед вами полный аналитический обзор Toyota Camry для российского покупателя 2026 года: характеристики, реальные цены, расчёт стоимости владения, сравнение с конкурентами и схемы покупки."
+        },
+        {
+          "title": "Toyota Camry 2026: комплектации, цены и характеристики",
+          "url": "https://motorved.ru/obzor-toyota-camry-2026-chto-rossiyane-mogut-najti-v-sedane/",
+          "snippet": "Полный разбор Тойота Камри 40 комплектации. Технические характеристики, отличия CE, LE, SE, XLE и XSE. Какую версию выбрать в 2026 году?"
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "тойота камри гибрид из китая 2026",
+      "purpose": "вторичный запрос: тойота камри гибрид из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Camry 2026 из Китая: разбор гибрида и отличий",
+          "url": "https://kz.kursiv.media/2026-02-05/shkv-toyota-camry-80-2026-goda-iz-kitaya-razobral-avtoekspert/",
+          "snippet": ""
+        },
+        {
+          "title": "Комплектации Камри 80 из Китая 2026-2027: цены и какую брать",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-komplektacii/",
+          "snippet": "Подробный разбор китайской Тойота Камри 80 2026 года. Технические характеристики, работа гибрида ECVT и сравнение надежности японского седана с «китайцами»."
+        },
+        {
+          "title": "Стоит ли брать Камри 80 из Китая в 2026 году",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-iz-kitaya-stoit-li-brat/",
+          "snippet": "Где есть подогрев кресел, что в пакетах опций 2024-2026 и какую версию брать для России."
+        },
+        {
+          "title": "Купить Toyota Camry 2026 из Китая под ключ в Москве — 4 068 000 - 4 412 ...",
+          "url": "https://encarrus-china.ru/new/toyota-camry/",
+          "snippet": "Камри 80 для Китая выпускает GAC Toyota. Альтернатив почти нет: Toyota закончила продажи Камри в Японии в 2023 году, а Япония не выпускает в Россию машины с мотором больше 1,9 литра и гибриды."
+        },
+        {
+          "title": "Toyota Camry из Китая: XV70, XV80, бензин и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/toyota-camry-iz-kitaya-obzor",
+          "snippet": "Автомобиль заказывается напрямую из Китая. Цена указана под ключ в Москве: доставка, таможенные платежи, утилизационный сбор и оформление включены."
+        },
+        {
+          "title": "Toyota Camry 2026 в России — цена под ключ, гибрид или бензин, версии",
+          "url": "https://ruliauto-zakaz.ru/stati/toyota-camry-2026-cena-versii",
+          "snippet": "Обзор китайской Camry: двигатели, Direct Shift-CVT и e-CVT, расход, поколения, комплектации, официальные кампании и архивный пример цены."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "камри 80 из китая 2026",
+      "purpose": "вторичный запрос: камри 80 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Комплектации Камри 80 из Китая 2026-2027: цены и какую брать",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-komplektacii/",
+          "snippet": ""
+        },
+        {
+          "title": "Стоит ли брать Камри 80 из Китая в 2026 году",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-iz-kitaya-stoit-li-brat/",
+          "snippet": "Где есть подогрев кресел, что в пакетах опций 2024-2026 и какую версию брать для России."
+        },
+        {
+          "title": "Toyota Camry 2026 из Китая: разбор гибрида и отличий",
+          "url": "https://kz.kursiv.media/2026-02-05/shkv-toyota-camry-80-2026-goda-iz-kitaya-razobral-avtoekspert/",
+          "snippet": "Камри 80 для Китая выпускает GAC Toyota. Альтернатив почти нет: Toyota закончила продажи Камри в Японии в 2023 году, а Япония не выпускает в Россию машины с мотором больше 1,9 литра и гибриды."
+        },
+        {
+          "title": "НОВАЯ ТОЙОТА КАМРИ 80! ПРИВЕЗЛИ ПОД ЗАКАЗ ИЗ КИТАЯ! - YouTube",
+          "url": "https://www.youtube.com/watch?v=OraY0xdQxD8",
+          "snippet": "Подробный разбор китайской Тойота Камри 80 2026 года. Технические характеристики, работа гибрида ECVT и сравнение надежности японского седана с «китайцами»."
+        },
+        {
+          "title": "Toyota camry Ix Xv80 для Китая 2026 года: гибрид, комплектации и ...",
+          "url": "https://pingola.ru/toyota-camry-ix-xv80-dlya-kitaya-2026-goda-gibrid-komplektacii-i-osobennosti-ekspluatacii/",
+          "snippet": "Доступно в наличии и под заказ! Toyota Camry 80! Год выпуска: 2026 Рестайлинг! Обновленная версия! Максимальная комплектация!"
+        },
+        {
+          "title": "Купить Toyota Camry 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/toyota/camry",
+          "snippet": "Toyota Camry девятого поколения с заводским индексом XV80 стала заметно современнее предшественницы и получила более выразительный дизайн, обновлённую платформу и исключительно ..."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Camry из Китая 2026: цена, комплектации, стоит ли везти",
+          "url": "https://tendcar.ru/blog/toyota-camry-2026-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Camry из Китая: XV80, гибрид, цена | AZWAY",
+          "url": "https://azway.ru/auto/toyota-camry-iz-kitaya",
+          "snippet": "Китайская сборка Toyota Camry (FAW-Toyota) — альтернатива ушедшей с рынка РФ модели. Разбираем комплектации 2026 года, цену под ключ, утильсбор и риски параллельного импорта."
+        },
+        {
+          "title": "Toyota Camry для Китая: особенности, цены и отзывы 2026",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-camry-china.html",
+          "snippet": "Как выбрать подходящую версию Большой китайский седан с левым рулём. Сравним поколение и установку, проверим историю и опции, рассчитаем цену до вашей точки получения."
+        },
+        {
+          "title": "Toyota Camry XV70 (б/у Россия) против новой Toyota Camry XV70/XV80 из ...",
+          "url": "https://verticalauto.ru/articles/toyota-camry-iz-kitaia-ili-bu-v-rossii-sravnenie-motory-cto-lucse",
+          "snippet": "В 2026 году Toyota Camry в КНР представлена в трёх основных модификациях: бензиновой, гибридной и эксклюзивной \"Dragons Edition\" с уникальным оформлением салона."
+        },
+        {
+          "title": "Toyota Camry из Китая: XV70, XV80, бензин и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/toyota-camry-iz-kitaya-obzor",
+          "snippet": "У нас сейчас более 3 000 автомобилей с пробегом в наличии, в том числе проверенные Toyota Camry российской сборки с прозрачной историей и полноценным зимним пакетом."
+        },
+        {
+          "title": "Toyota Camry из Китая — комплектации и отличия",
+          "url": "https://noviykluch.ru/parallel-import/toyota/camry",
+          "snippet": "В заявке удобно указать оба допустимых поколения и обязательные свойства. Тогда можно увидеть реальную доплату за переход к XV80, а не сравнивать минимальные цены из разных лет."
+        }
+      ],
+      "searched_at": "2026-10-28"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://tendcar.ru/blog/toyota-camry-2026-iz-kitaya",
+      "title": "Toyota Camry из Китая 2026: цена, комплектации, стоит ли везти",
+      "from_query": "тойота камри из китая 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-komplektacii/",
+      "title": "Комплектации Камри 80 из Китая 2026-2027: цены и какую брать",
+      "from_query": "тойота камри из китая 2026"
+    },
+    {
+      "url": "https://kz.kursiv.media/2026-02-05/shkv-toyota-camry-80-2026-goda-iz-kitaya-razobral-avtoekspert/",
+      "title": "Toyota Camry 2026 из Китая: разбор гибрида и отличий",
+      "from_query": "тойота камри из китая 2026"
+    },
+    {
+      "url": "https://encarrus-china.ru/new/toyota-camry/",
+      "title": "Купить Toyota Camry 2026 из Китая под ключ в Москве — 4 068 000 - 4 412 ...",
+      "from_query": "тойота камри из китая 2026"
+    },
+    {
+      "url": "https://160drive.ru/toyota-iz-kitaya-2026/",
+      "title": "Toyota из Китая 2026: Camry, RAV4 — цены и заказ",
+      "from_query": "тойота камри из китая 2026"
+    },
+    {
+      "url": "https://auto-rul.ru/china-calc-rastamogka-online/Toyota-Camry-rastamogka",
+      "title": "Toyota Camry из Китая: цена и растаможка — калькулятор 2026",
+      "from_query": "тойота камри из китая 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-iz-kitaya-ceny-po-godam/",
+      "title": "Сколько стоит Камри из Китая: цены 75 и 80 кузова по годам 2021-2027",
+      "from_query": "тойота камри из китая октябрь 2026"
+    },
+    {
+      "url": "https://easy.car/car/china/2026/toyota/camry",
+      "title": "Купить Toyota Camry 2026 из Китая под ключ — EASY.CAR",
+      "from_query": "тойота камри из китая октябрь 2026"
+    },
+    {
+      "url": "https://dss-g.ru/blog/news/toyota-iz-kitaya-stoit-li-vezti-v-2026-czeny-rastamozhka-plyusy-i-minusy/",
+      "title": "Toyota из Китая 2026: стоит ли везти Camry, RAV4, Sienna? Цены ...",
+      "from_query": "тойота камри из китая новости 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/camry/toyota-camry-2026-iz-kitaia-chto-realno-poluchaesh_101b3192-5890-42ef-a94a-50ee9aa3e2c7/",
+      "title": "Toyota Camry 2026 из Китая: что реально получаешь",
+      "from_query": "тойота камри из китая новости 2026"
+    },
+    {
+      "url": "https://novosvyat.ru/page/153889/",
+      "title": "Дилеры начали прием заказов на Toyota Camry 2026 года из Китая",
+      "from_query": "тойота камри из китая новости 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/c7196f841402f840dcbacc56a800f752/",
+      "title": "Toyota Из Китая - Стоит Ли Везти В 2026? Цены, Растаможка, Плюсы И ...",
+      "from_query": "тойота камри из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/YegorkaPomidorka/headswap",
+      "title": "Headswap — Android Auto on CarLife head units - GitHub",
+      "from_query": "site:github.com тойота камри из китая 2026"
+    },
+    {
+      "url": "https://github.com/RamBanjo/howtomod/blob/main/icon.svg",
+      "title": "howtomod/icon.svg at main · RamBanjo/howtomod · GitHub",
+      "from_query": "site:github.com тойота камри из китая 2026"
+    },
+    {
+      "url": "https://github.com/BryanCPineda/BryanCPineda/blob/main/svg.svg",
+      "title": "BryanCPineda/svg.svg at main - GitHub",
+      "from_query": "site:github.com тойота камри из китая 2026"
+    },
+    {
+      "url": "https://github.com/DiegoStm3701/boss-rush/blob/main/icon.svg",
+      "title": "boss-rush/icon.svg at main · DiegoStm3701/boss-rush · GitHub",
+      "from_query": "site:github.com тойота камри из китая 2026"
+    },
+    {
+      "url": "https://github.com/NoBS-Code/godot-reactive-ui/blob/main/icon.svg",
+      "title": "godot-reactive-ui/icon.svg at main · NoBS-Code/godot-reactive-ui",
+      "from_query": "site:github.com тойота камри из китая 2026"
+    },
+    {
+      "url": "https://github.com/roscaa-stack/dotfiles/blob/main/Screenshots/sc-1.png",
+      "title": "dotfiles/Screenshots/sc-1.png at main · roscaa-stack/dotfiles",
+      "from_query": "site:github.com тойота камри из китая 2026"
+    },
+    {
+      "url": "https://manuals.plus/ru/toyota/2026-camry-manual",
+      "title": "TOYOTA 2026 Camry Instruction Manual - Manuals+",
+      "from_query": "тойота камри из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.toyota.ru/media/download/docs/brochure/mvxxex__camry.pdf",
+      "title": "PDF Toyota Camry",
+      "from_query": "тойота камри из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kamri-novaya-model.html",
+      "title": "Новая Тойота Камри: Характеристики, Дизайн и Цены 2026",
+      "from_query": "тойота камри из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/camry/2026/",
+      "title": "Тойота Камри 2026 технические характеристики. Toyota Camry 2026 ...",
+      "from_query": "тойота камри из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/camry/5kopeek/breakages/?year2=2026",
+      "title": "Тойота Камри 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "тойота камри из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/camry/5kopeek/?year1=2025&year2=2026",
+      "title": "Тойота Камри 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "тойота камри из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kitajskoj-sborki.html",
+      "title": "Toyota китайской сборки: плюсы, минусы и модели 2026 года",
+      "from_query": "тойота камри из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotacamry.ru/forum.php",
+      "title": "Toyota Camry форум - Toyota Camry клуб",
+      "from_query": "тойота камри из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kamri-forum-vladeltsev.html",
+      "title": "Тойота Камри форум владельцев: отзывы, проблемы и советы",
+      "from_query": "тойота камри из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/camry/",
+      "title": "Бортжурнал Toyota Camry - клуб, форум о Тойота Камри на Авто.ру",
+      "from_query": "тойота камри из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyota-spb.ru/camry/equipment/",
+      "title": "Toyota Camry 2026 — комплектации и цены в СПб | характеристики и оснащение",
+      "from_query": "тойота камри комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/camry/g_2026_25102/",
+      "title": "Toyota Camry рестайлинг 2026, седан, 10 ... - Дром",
+      "from_query": "тойота камри комплектации 2026"
+    },
+    {
+      "url": "https://ru.boyucar.com/toyota-camry-2026-polnyj-obzor-harakteristiki-i-sovety-po-vyboru-komplektatsii",
+      "title": "Toyota Camry 2026: полный обзор, характеристики и советы по выбору ...",
+      "from_query": "тойота камри комплектации 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-kamri-40-komplektatsii.html",
+      "title": "Тойота Камри 40 комплектации: обзор всех версий и опций",
+      "from_query": "тойота камри комплектации 2026"
+    },
+    {
+      "url": "https://motorved.ru/obzor-toyota-camry-2026-chto-rossiyane-mogut-najti-v-sedane/",
+      "title": "Toyota Camry 2026: комплектации, цены и характеристики",
+      "from_query": "тойота камри комплектации 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-camry-80-iz-kitaya-stoit-li-brat/",
+      "title": "Стоит ли брать Камри 80 из Китая в 2026 году",
+      "from_query": "тойота камри гибрид из китая 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/toyota-camry-iz-kitaya-obzor",
+      "title": "Toyota Camry из Китая: XV70, XV80, бензин и гибрид | AZWAY",
+      "from_query": "тойота камри гибрид из китая 2026"
+    },
+    {
+      "url": "https://ruliauto-zakaz.ru/stati/toyota-camry-2026-cena-versii",
+      "title": "Toyota Camry 2026 в России — цена под ключ, гибрид или бензин, версии",
+      "from_query": "тойота камри гибрид из китая 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=OraY0xdQxD8",
+      "title": "НОВАЯ ТОЙОТА КАМРИ 80! ПРИВЕЗЛИ ПОД ЗАКАЗ ИЗ КИТАЯ! - YouTube",
+      "from_query": "камри 80 из китая 2026"
+    },
+    {
+      "url": "https://pingola.ru/toyota-camry-ix-xv80-dlya-kitaya-2026-goda-gibrid-komplektacii-i-osobennosti-ekspluatacii/",
+      "title": "Toyota camry Ix Xv80 для Китая 2026 года: гибрид, комплектации и ...",
+      "from_query": "камри 80 из китая 2026"
+    },
+    {
+      "url": "https://azway.ru/auto/toyota-camry-iz-kitaya",
+      "title": "Toyota Camry из Китая: XV80, гибрид, цена | AZWAY",
+      "from_query": "Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита в 2026 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-camry-china.html",
+      "title": "Toyota Camry для Китая: особенности, цены и отзывы 2026",
+      "from_query": "Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита в 2026 2026"
+    },
+    {
+      "url": "https://verticalauto.ru/articles/toyota-camry-iz-kitaia-ili-bu-v-rossii-sravnenie-motory-cto-lucse",
+      "title": "Toyota Camry XV70 (б/у Россия) против новой Toyota Camry XV70/XV80 из ...",
+      "from_query": "Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита в 2026 2026"
+    },
+    {
+      "url": "https://noviykluch.ru/parallel-import/toyota/camry",
+      "title": "Toyota Camry из Китая — комплектации и отличия",
+      "from_query": "Как выбрать Toyota Camry из Китая: комплектации и ловушки до депозита в 2026 2026"
+    }
+  ]
+}

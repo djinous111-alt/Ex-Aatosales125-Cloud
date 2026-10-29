@@ -325,3 +325,78 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261029-1323-geo-qa-utility-pain-markers-rebrand
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- First utility gate run BLOCK: action_markers 3, pain_markers 0, outcome_markers 0.
+- `memory/brief/editorial-policy.json` lost `pain_markers_ru` / `outcome_markers_ru` / min_pain/min_outcome and aliases `не делать` / `чек-лист` after rebrand commit `615ee0bc`.
+- Utility gate treated empty lists as count=0 and hard-BLOCKED with default mins (false negative for healthy articles using «Делать/Не делать»).
+
+### How the agent recovered this run
+- Restored marker lists + aliases + min_pain/min_outcome from known-good Serena policy shape.
+- Re-applied empty-list warn+skip fallback in `scripts/excalibur_blog_utility_gate.py`.
+- Noted regression in `shared/agent-pipeline-pitfalls.md`.
+- Utility re-run: PASS (action 25 / pain 2 / outcome 6).
+
+### Durable fix needed before next run
+- Doctor or preflight should assert non-empty `pain_markers_ru` / `outcome_markers_ru` in editorial-policy.json.
+- Keep utility gate empty-list skip so rebrand cannot false-BLOCK again.
+- Fixer may close this after doctor check lands.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261029-1323-geo-qa-writer-fix-tldr-cta-pain
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- `human-voice-report.json` BLOCK: only pain marker type `ошиб` (need ≥2 distinct PAIN_MARKERS).
+- Insight block uses banned label `TL;DR / Быстрый инсайт` (GEO QA skill / recurring conflict with writing-contract example).
+- Both CTA `href` values are literal `[REDACTED]` → link-verify fail (relative 404). Expected `${CATALOG_URL}` / `${TELEGRAM_URL}` with allowlist pragma.
+- GEO QA Task contract forbade editing `article.html`; cannot self-heal to PASS.
+
+### How the agent recovered this run
+- Did not modify `article.html`.
+- Wrote `article-qa.md` verdict FIX (score 74) with writer checklist.
+- Blocked cover||schema until human-voice + link-verify PASS.
+
+### Durable fix needed before next run
+- Writer skill: insight label without TL;DR; CTA via env placeholders + pragma; explicit second pain cue (`проблем`/`боль`/…).
+- Align `shared/excalibur-article-writing-contract.md` example with GEO QA skill (drop TL;DR sample).
+- Optionally html-linter/human-voice hard-fail on TL;DR / `[REDACTED]` href.
+
+### Suggested files to inspect/change
+- `memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/article.html` (writer FIX)
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -1,0 +1,191 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026",
+      "description": "Тойота рав 4 комплектации из Японии: XA50/XA60, Adventure vs G, гибрид и порог 1900 см³. Чек-лист 12 пунктов до ставки без депозита вслепую.",
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "тойота рав 4 комплектации",
+        "рав 4 комплектации",
+        "toyota rav4 из японии",
+        "тойота рав 4 гибрид 2026 комплектация",
+        "toyota rav4 2026 комплектации"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Adventure отличается от обычного G?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На XA50 Adventure – грейд с другим внешним характером, G – более \"городской\". Сверьте grade, фото и опции. При расхождении названия и картинки – не ставьте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли везти гибридный RAV4 из Японии в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В сценарии японский аукцион → РФ full hybrid и PHEV считайте непроходными с 09.08.2023. Не ставьте \"на удачу\". Гибрид принципиален – обсудите другой рынок до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в листе до ставки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте код кузова, грейд, объём, топливо, оценку, карту A/U/B/W/XX и фото опций. Сможете назвать вердикт проходности – только потом ставка. Нет листа – нет ставки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой кузов чаще берут под семью?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Семьи ищут понятный бензиновый правый руль – логика XA50, не JP XA60 без бензина. Выберите шорт-лист по коду и проходности, а не по рекламному \"2026 максималка\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему нельзя искать \"Престиж\" в японском листе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Престиж и Комфорт – язык дилера РФ. В Японии: X, G, G Z Package, Adventure или Adventure/Z/GR на XA60. Ищите grade + опции, иначе ошибка дорого обходится."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Оценка 4.5 – это идеальная машина?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, это ориентир. Избегайте решения по одной цифре: читайте карту, пробег и комментарий инспектора. W/XX на силовых – отказ или сверка."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию Toyota RAV4 из Японии до ставки",
+      "description": "Пошаговая сверка лота RAV4: код кузова XA50/XA60, грейд, объём и топливо на проходность, оценка и карта листа, вердикт до любой ставки.",
+      "totalTime": "PT15M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист: оценка, карта A/U/B/W/XX, комментарий инспектора"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чек-лист 12 пунктов проходности до ставки"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Сверка грейда и опций с живыми фото лота"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Ссылка на лот / номер лота японского аукциона"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Код кузова (MXAA / AXAH / AXAN и аналоги) и строка grade"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Объём см³ и тип топлива для сверки с METI-порогом"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выберите 1–2 лота и выпишите код кузова + грейд.",
+          "text": "Шаг 1: выберите 1–2 лота и выпишите код кузова + грейд.",
+          "url": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше-как-понять-что-проблема-закрыта"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Проверьте объём и топливо на проходность.",
+          "text": "Шаг 2: проверьте объём и топливо на проходность.",
+          "url": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше-как-понять-что-проблема-закрыта"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Прочитайте оценку и карту повреждений.",
+          "text": "Шаг 3: прочитайте оценку и карту повреждений.",
+          "url": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше-как-понять-что-проблема-закрыта"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверьте опции с фото; при расхождении – отказ.",
+          "text": "Шаг 4: сверьте опции с фото; при расхождении – отказ.",
+          "url": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше-как-понять-что-проблема-закрыта"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Зафиксируйте вердикт проходной / непроходной / нужна сверка.",
+          "text": "Шаг 5: зафиксируйте вердикт проходной / непроходной / нужна сверка.",
+          "url": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше-как-понять-что-проблема-закрыта"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Только потом ставка либо запрос расчёта в каталоге.",
+          "text": "Шаг 6: только потом ставка либо запрос расчёта в каталоге.",
+          "url": "https://avtosales125.ru/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше-как-понять-что-проблема-закрыта"
+        }
+      ]
+    }
+  ]
+}

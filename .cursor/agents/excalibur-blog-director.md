@@ -66,3 +66,5 @@ python3 scripts/excalibur_blog_research_start.py --topic-id <id>
 
 Полный сценарий: [skills/director-excalibur-blog/SKILL.md](../skills/director-excalibur-blog/SKILL.md)  
 Субагенты: [FOR-AGENTS.md](FOR-AGENTS.md) · Карта задач: [shared/pipeline-task-map.md](../shared/pipeline-task-map.md)
+
+Typed Task unavailable → `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path is **first-class** (especially geo-qa).

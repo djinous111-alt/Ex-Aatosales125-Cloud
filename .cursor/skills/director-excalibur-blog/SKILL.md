@@ -228,3 +228,10 @@ qa:
 publish:
 incident_queue:
 ```
+
+## Typed Task vs generalPurpose (first-class)
+
+Если Cloud не принимает typed Task `excalibur-blog-geo-qa` / `excalibur-blog-*`:
+используй **сразу** `Task(generalPurpose)` с путями `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+Это канонический fallback из `AGENTS.md` / `CLOUD-AUTOMATION.md`, не «обход». Не трать ретраи на typed type.
+

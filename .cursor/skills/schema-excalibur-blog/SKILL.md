@@ -22,3 +22,9 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+
+## Git commit на Cloud
+
+Для коммита `schema.jsonld` / артефактов используй `scripts/excalibur_git.sh commit …`, если обычный `git commit` падает на pre-commit `invalid variable name`. См. `shared/agent-pipeline-pitfalls.md`.
+

@@ -90,7 +90,7 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
@@ -99,7 +99,7 @@ Fallback env: `BLOG_HERO_REFERENCE_URL`.
 ### Шаг 2 — manifest
 
 ```bash
-python scripts/excalibur_blog_quad_manifest.py \
+python3 scripts/excalibur_blog_quad_manifest.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --merge
 ```
@@ -115,7 +115,7 @@ python scripts/excalibur_blog_quad_manifest.py \
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
@@ -132,10 +132,11 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --url "<MCP result url>" \
-  --inject-html
+  --inject-html \
+  --stamp-corner-brand
 ```
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
@@ -169,6 +170,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
 - [ ] cover: hook + meme caption видны на PNG
+- [ ] cover: угол каталога `avto-sales125.ru` (stamp OK)
 - [ ] inline: без лица героя
 - [ ] fragment cover.md записан
 
@@ -183,6 +185,32 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - inline = meme с ведущим вместо UI
 
 ---
+
+
+
+## HTTPS reference + MCP Internal Error 500
+
+- `reference_url_hosted` / batch `input_urls` **всегда https://**. `http://` WordPress media, который 301 → https, часто даёт Kie Internal Error / failCode=500.
+- `excalibur_blog_hero_reference_url.py` и `excalibur_blog_cover_quad_prompt.py` нормализуют http→https.
+- MCP Internal Error + Kie `failCode=500` трактуй как timeout-recovery: подтверди fail state, нормализуй https, затем **один** recreate через `excalibur_blog_kie_gpt_image2_api.py`. Blind second create пока job waiting — запрещён.
+
+## Outfit / toxic text
+
+- Prompt builder **не** хардкодит white hoodie и **не** цитирует banned lemmas в negative prompt.
+- Outfit берётся из `slots.cover.scene_hint` + `blog-hero.outfit_rule`.
+- Visible sticker text: no insults / demeaning slang (без перечисления токсичных примеров в prompt).
+
+## Corner brand stamp
+
+Если после split на `cover/cover.png` нет угла `avto-sales125.ru`:
+
+```bash
+python3 scripts/excalibur_blog_cover_corner_stamp.py --article-dir <article_dir> --force
+# или
+python3 scripts/excalibur_blog_quad_apply.py --article-dir <article_dir> --url <url> --inject-html --stamp-corner-brand
+```
+
+Не запускай вторую image-генерацию только ради бренда в углу.
 
 ## Deprecated scripts
 

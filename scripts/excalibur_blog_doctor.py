@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -133,6 +134,38 @@ def main() -> int:
         check=False,
     )
     check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+
+    git_wrapper = root / "scripts/excalibur_git.sh"
+    check(git_wrapper.is_file(), "scripts/excalibur_git.sh exists for Cloud commits", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            policy = {}
+            check(False, "editorial-policy.json parses as JSON", errors, warnings)
+        else:
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(isinstance(pain, list) and len(pain) > 0, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+            check(
+                isinstance(outcome, list) and len(outcome) > 0,
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+            rec = policy.get("recommendation_markers_ru") or []
+            rec_blob = " ".join(str(x) for x in rec).lower()
+            check(
+                "не делать" in rec_blob and ("чек-лист" in rec_blob or "чеклист" in rec_blob),
+                "editorial-policy recommendation aliases include не делать + чек-лист",
+                errors,
+                warnings,
+                warn=True,
+            )
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

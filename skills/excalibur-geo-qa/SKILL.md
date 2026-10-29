@@ -5,6 +5,10 @@ description: Excalibur BLOG GEO QA — fact-check, link verify, linter, slop, ca
 
 # Excalibur BLOG — GEO QA
 
+## Cloud Task
+
+Typed `excalibur-blog-geo-qa` часто недоступен → Директор: `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + этот skill. Parent не выполняет QA сам.
+
 ## Когда
 
 После `article.html` + `article.meta.json` от Writer. **До** cover/schema (их делает директор параллельно после PASS).

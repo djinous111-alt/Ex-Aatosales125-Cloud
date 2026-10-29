@@ -33,6 +33,12 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 - cover, schema, publish, полный рерайт без FIX-цикла writer.
 
+## Cloud Task fallback
+
+Typed Task `excalibur-blog-geo-qa` часто **недоступен** в Cloud enum. Директор обязан запускать  
+`Task(generalPurpose)` + этот agent-md + `skills/excalibur-geo-qa/SKILL.md` (или `.cursor/` копии).  
+Parent **не** пишет QA сам.
+
 ## Skill
 
 `skills/excalibur-geo-qa/SKILL.md`

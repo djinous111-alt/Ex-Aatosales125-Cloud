@@ -22,6 +22,12 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 Перед **каждой** статьей затем пиши `research-notes.md`. Без него нельзя утверждать цены, даты, версии, статистику.
 
+### TECH_MARKERS false positives
+
+`excalibur_blog_research_notes_gate.py` матчит короткие TECH_MARKERS (`ai`/`ии`/`api`) по **word-boundary**.  
+Слова вроде «комплектации», «Японии» **не** делают тему `technical_topic`.  
+Авто-ниши (Китай/Корея/Япония import) не обязаны тащить ≥3 github.com только из‑за substring `ии`.
+
 ## Вход
 
 - Карточка из `memory/topics/blog-topics.md`

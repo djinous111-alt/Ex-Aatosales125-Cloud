@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Семья из регионов увидела \"новый Qashqai 2026 под ключ\", внесла депозит за \"топовую Leading\" – и",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "i часто встречаются XV True и XV+ Leading (с июля 2025). Типичная ошибка – купить \"Leading\" и ждать пано",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 минут",
+      "kind": "metric_or_duration",
+      "context": "и экрана, когда депозит уже ушёл. Проще потратить 10 минут на сверку сейчас, чем спорить на выдаче. Делать:",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "151",
+      "kind": "large_number",
+      "context": "я комплектации: Glory J11, XV True / XV+ Leading, 151 л.с., VIN LGB и русификация. После него вы сами со",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "щность около 151 л.с. важна для льготы физлица до 160 л.с., но суммы утильсбора в статье не фиксируем –",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1087",
+      "kind": "large_number",
+      "context": "ял 2-е место среди моделей параллельного импорта (1087 шт.), опередив даже RAV4. На практике везут китайс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "194",
+      "kind": "large_number",
+      "context": "инг), двигатель MR20DD 2.0 около 151 л.с. и около 194 Нм, вариатор Xtronic, только передний привод. Это",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "и условия льготы по утильсбору С 01.12.2025 по ПП 1713 льготная логика для физлица завязана в том числе н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

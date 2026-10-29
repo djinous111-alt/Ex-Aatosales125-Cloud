@@ -19,7 +19,7 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | QA PASS | `article-qa.md` → verdict PASS |
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
-| Schema | `schema.jsonld` |
+| Schema | `schema.jsonld` (committed placeholders `${PUBLIC_SITE_URL}` / CTA; publish expands in-memory) |
 | Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 

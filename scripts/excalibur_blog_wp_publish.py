@@ -32,6 +32,9 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
 
 
@@ -69,6 +72,40 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     if not (env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")):
         missing.append("PUBLIC_SITE_URL")
     return missing
+
+
+def expand_schema_placeholders(schema_text: str, env: dict[str, str] | None = None) -> str:
+    """Expand env:VAR(/path) and ${VAR} placeholders before WP schema meta upload.
+
+    Committed schema.jsonld must stay secret-scan safe (${PUBLIC_SITE_URL}, ${CATALOG_URL}, …).
+    """
+    import re
+
+    env = env or {}
+    out = schema_text
+
+    def repl_env_colon(match: re.Match[str]) -> str:
+        key = match.group(1)
+        suffix = match.group(2) or ""
+        value = (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+        if not value:
+            return match.group(0)
+        return value + suffix
+
+    out = re.sub(r"\benv:([A-Z][A-Z0-9_]*)(/[^\s\"'<>]*)?", repl_env_colon, out)
+    for key in (
+        "PUBLIC_SITE_URL",
+        "WP_SITE_URL",
+        "WP_HOME",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+    ):
+        value = (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+        if value:
+            out = out.replace(f"${{{key}}}", value)
+            out = out.replace(f"${key}", value)
+    return out
 
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
@@ -187,6 +224,8 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        # Expand env:VAR / ${VAR} in-memory only (git keeps placeholders for secret-scan).
+        schema_raw = expand_schema_placeholders(schema_raw, load_env(project_root()))
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))

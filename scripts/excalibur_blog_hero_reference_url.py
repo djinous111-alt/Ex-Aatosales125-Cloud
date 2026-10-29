@@ -91,6 +91,34 @@ def resolve_reference_path(root: Path, hero: dict) -> Path:
     return path
 
 
+def prefer_https(url: str) -> str:
+    """Kie/gpt-image-2 input_urls often fail on HTTP→HTTPS redirects; prefer https://."""
+    url = (url or "").strip()
+    if url.startswith("http://"):
+        return "https://" + url[len("http://") :]
+    return url
+
+
+def expand_redacted_site_url(url: str) -> str:
+    """Expand `[REDACTED]/path` from PUBLIC_SITE_URL/WP_* and force HTTPS for Kie."""
+    url = (url or "").strip()
+    if not url.startswith("[REDACTED]"):
+        return prefer_https(url)
+    path = url[len("[REDACTED]") :]
+    if not path.startswith("/"):
+        path = "/" + path
+    base = (
+        os.environ.get("PUBLIC_SITE_URL")
+        or os.environ.get("WP_SITE_URL")
+        or os.environ.get("WP_HOME")
+        or ""
+    ).strip().rstrip("/")
+    if not base:
+        # Leave placeholder when env missing; cover builder will expand later.
+        return url
+    return prefer_https(base + path)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--hero-json", default="memory/cover/blog-hero.json")
@@ -112,18 +140,36 @@ def main() -> int:
         print(f"❌ HERO BLOCKER: reference image not found: {ref_path}", file=sys.stderr)
         return 1
 
-    existing = (hero.get("reference_url_hosted") or "").strip()
-    if existing and not args.force:
-        print(f"OK reference_url_hosted={existing}")
+    raw_existing = (hero.get("reference_url_hosted") or "").strip()
+    existing = expand_redacted_site_url(raw_existing)
+    if raw_existing and not args.force:
+        # Keep committed placeholder/[REDACTED] form; only report runtime HTTPS target.
+        if raw_existing.startswith("http://"):
+            # Upgrade committed HTTP → [REDACTED]+path (secret-scan safe) when possible.
+            from urllib.parse import urlparse
+
+            parsed = urlparse(raw_existing)
+            if parsed.path:
+                hero["reference_url_hosted"] = f"[REDACTED]{parsed.path}"
+                hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+                save_json(hero_path, hero)
+                print(f"OK reference_url_hosted redacted+HTTPS runtime={existing}")
+                return 0
+        print(f"OK reference_url_hosted={raw_existing} runtime={existing}")
         return 0
 
-    env_url = os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip()
+    env_url = prefer_https(os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip())
     if env_url:
-        hero["reference_url_hosted"] = env_url
+        # Persist secret-scan-safe form when env points at public site media path.
+        from urllib.parse import urlparse
+
+        parsed = urlparse(env_url)
+        stored = f"[REDACTED]{parsed.path}" if parsed.path else env_url
+        hero["reference_url_hosted"] = stored
         hero["reference_url_source"] = "env:BLOG_HERO_REFERENCE_URL"
         hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         save_json(hero_path, hero)
-        print(f"OK reference_url_hosted={env_url}")
+        print(f"OK reference_url_hosted={stored} runtime={env_url}")
         return 0
 
     providers = ["catbox", "0x0"] if args.provider == "auto" else [args.provider]

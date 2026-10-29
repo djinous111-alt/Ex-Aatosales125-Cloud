@@ -15,6 +15,22 @@ REQUIRED_REFERENCE_HOST = "avtosales125.ru"
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
+# Banned toxic lemmas must NEVER appear in the generated image prompt —
+# including negative/forbid lists. Safety filters still flag quoted insults.
+BANNED_TOXIC_LEMMAS = (
+    "лох",
+    "лохов",
+    "лохи",
+    "для лохов",
+    "дебил",
+    "идиот",
+)
+HARDCODED_HOODIE_LOCK_MARKERS = (
+    "outfit lock: thick heavyweight white hoodie",
+    "thick heavyweight white hoodie",
+    "always wear a white hoodie",
+)
+
 
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
@@ -47,11 +63,36 @@ def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
     return f"{label}; H2: «{h2}»; scene: {scene}; no host face."
 
 
+def prefer_https(url: str) -> str:
+    """Kie image APIs fail on HTTP→HTTPS redirects for input_urls; always prefer https://."""
+    url = (url or "").strip()
+    if url.startswith("http://"):
+        return "https://" + url[len("http://") :]
+    return url
+
+
+def expand_redacted_site_url(url: str) -> str:
+    """Expand secret-scan-safe `[REDACTED]/path` using PUBLIC_SITE_URL/WP_* env (HTTPS)."""
+    url = (url or "").strip()
+    if not url.startswith("[REDACTED]"):
+        return prefer_https(url)
+    path = url[len("[REDACTED]") :]
+    if not path.startswith("/"):
+        path = "/" + path
+    base = (
+        os.environ.get("PUBLIC_SITE_URL")
+        or os.environ.get("WP_SITE_URL")
+        or os.environ.get("WP_HOME")
+        or f"https://{REQUIRED_REFERENCE_HOST}"
+    ).strip().rstrip("/")
+    return prefer_https(base + path)
+
+
 def validate_reference_url(ref_url: str) -> bool:
-    if REQUIRED_REFERENCE_HOST in ref_url:
+    if REQUIRED_REFERENCE_HOST in ref_url and ref_url.startswith("https://"):
         return True
     print(
-        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} WordPress media URL, got: {ref_url}",
+        f"❌ COVER HERO BLOCKER: reference_url_hosted must use HTTPS {REQUIRED_REFERENCE_HOST} WordPress media URL, got: {ref_url}",
         file=sys.stderr,
     )
     return False
@@ -69,6 +110,30 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def validate_prompt_safety(prompt: str) -> bool:
+    """Fail if prompt contains toxic lemmas or a hardcoded white-hoodie lock."""
+    prompt_l = prompt.lower()
+    hits = [lemma for lemma in BANNED_TOXIC_LEMMAS if lemma in prompt_l]
+    if hits:
+        print(
+            "❌ COVER PROMPT BLOCKER: toxic lemmas in image prompt "
+            f"(even as negatives): {hits}. Describe the non-toxic sticker rule "
+            "without quoting banned words.",
+            file=sys.stderr,
+        )
+        return False
+    hoodie_hits = [m for m in HARDCODED_HOODIE_LOCK_MARKERS if m in prompt_l]
+    if hoodie_hits:
+        print(
+            "❌ COVER PROMPT BLOCKER: hardcoded white-hoodie outfit lock detected. "
+            "Outfit must come from blog-hero.json / scene_hint weather+topic, "
+            "with explicit NO white-hoodie lock.",
+            file=sys.stderr,
+        )
+        return False
+    return True
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -79,14 +144,14 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
     i1, i2, i3 = slot("inline_1"), slot("inline_2"), slot("inline_3")
 
     lines = [
-        "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine/trash-design: torn paper, scotch tape, pink notes, marker arrows, fake RU UI screenshots, meme cutouts. DESIGN.md-inspired bold readable Cyrillic; rotate hot accents (hot pink/purple/blue/orange); keep stickers/memes/collage; no price badges. Not corporate, not stock.",
+        "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. DIY zine collage: torn paper, scotch tape, pink notes, marker arrows, fake RU UI screenshots, meme cutouts. Bold readable Cyrillic; rotate hot accents (hot pink/purple/blue/orange); keep stickers/memes/collage; no price badges. Not corporate, not stock.",
         "Single 2048x1152 canvas, exact 2x2 grid, four equal 16:9 panels (1024x576 each). Thin center gutters only; no bleed across quadrants.",
         "",
         "ALL panels keep a clean pure white #FFFFFF base; scraps/cards may cast light shadows but no beige, gray, gradient, grunge, paper-tint, or colored full-panel background.",
         "",
-        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
+        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no mocking/derogatory Russian slang on stickers.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit MUST match scene weather + article topic from scene_hint (port jacket/rain coat/winter coat/smart casual) — NO white-hoodie lock, NO hood, NO cap. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -126,7 +191,10 @@ def main() -> int:
     design_code_path = root / style.get("design_code", "memory/cover/cover-design-code.json")
     design_code = load_json(design_code_path) if design_code_path.is_file() else {}
 
-    ref_url = (hero.get("reference_url_hosted") or "").strip()
+    raw_ref = (hero.get("reference_url_hosted") or "").strip()
+    ref_url = expand_redacted_site_url(raw_ref)
+    if raw_ref.startswith("http://") or raw_ref.startswith("[REDACTED]"):
+        print("WARN cover reference_url expanded/upgraded to HTTPS for Kie input_urls", file=sys.stderr)
     if not ref_url:
         print(
             "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py",
@@ -138,6 +206,8 @@ def main() -> int:
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
     if not validate_prompt_budget(prompt):
+        return 1
+    if not validate_prompt_safety(prompt):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"
     prompt_path.write_text(prompt + "\n", encoding="utf-8")

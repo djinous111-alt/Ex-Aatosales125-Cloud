@@ -32,6 +32,10 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Strip this section before TECH_MARKERS scan so auto niche notes with a
+# mandatory ## github_evidence block do not falsely flip technical_topic.
+TECH_NOTES_STRIP_SECTIONS = ("github_evidence",)
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +77,91 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def strip_sections_for_tech_scan(notes: str) -> str:
+    """Remove mandatory evidence sections that mention GitHub by contract."""
+    cleaned = notes
+    for section in TECH_NOTES_STRIP_SECTIONS:
+        pattern = rf"##\s*\d*\.?\s*{re.escape(section)}\b[\s\S]*?(?=\n##\s|\Z)"
+        cleaned = re.sub(pattern, " ", cleaned, flags=re.I)
+    return cleaned
+
+
+def _tech_marker_hit(blob: str, marker: str) -> bool:
+    """Match tech markers with word boundaries for short tokens (ai/ии/api/…)."""
+    if len(marker) <= 3:
+        return bool(re.search(rf"(?<![a-zа-яё0-9]){re.escape(marker)}(?![a-zа-яё0-9])", blob, flags=re.I))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Use early notes only, but drop ## github_evidence so car/import niches
+    # that still list GitHub evidence do not auto-qualify as developer topics.
+    notes_for_scan = strip_sections_for_tech_scan(notes)[:2000].lower()
+    blob += " " + notes_for_scan
+    return any(_tech_marker_hit(blob, marker) for marker in TECH_MARKERS)
+
+
+def count_accessed_at_signals(text: str) -> int:
+    """Count explicit accessed_at: labels plus ISO dates in an accessed_at table column."""
+    text_lower = text.lower()
+    label_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    table_dates = 0
+    lines = text.splitlines()
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if "|" in line and re.search(r"\baccessed_at\b", line, flags=re.I):
+            header = [c.strip().lower() for c in line.strip().strip("|").split("|")]
+            if "accessed_at" in header:
+                col_idx = header.index("accessed_at")
+                i += 1
+                if i < len(lines) and re.match(r"^\s*\|[\s\-:|]+\|\s*$", lines[i]):
+                    i += 1
+                while i < len(lines) and lines[i].strip().startswith("|"):
+                    cells = [c.strip() for c in lines[i].strip().strip("|").split("|")]
+                    if col_idx < len(cells) and re.search(r"\d{4}-\d{2}-\d{2}", cells[col_idx]):
+                        table_dates += 1
+                    i += 1
+                continue
+        i += 1
+    # Prefer the stronger signal; do not require both formats.
+    return max(label_count, table_dates)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count markdown table data rows under ## pain_solution_map (header excluded)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if not match:
+        # Legacy fallback: rows that literally mention pain/solution tokens.
+        return len(
+            re.findall(
+                r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                text.lower(),
+                flags=re.M,
+            )
+        )
+    section = match.group(1)
+    rows: list[str] = []
+    for line in section.splitlines():
+        if not re.match(r"^\s*\|", line):
+            continue
+        if re.match(r"^\s*\|[\s\-:|]+\|\s*$", line):
+            continue
+        rows.append(line)
+    if not rows:
+        return 0
+    # Drop header row when present.
+    data_rows = rows[1:] if len(rows) >= 2 else rows
+    return len(data_rows)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -89,6 +170,11 @@ def field_present(text_lower: str, field: str) -> bool:
     if field in {"action_outline", "github_evidence", "pain_solution_map"}:
         field_pattern = re.escape(field).replace("_", r"[_\s-]")
         return bool(re.search(rf"^\s*##\s*\d*\.?\s*{field_pattern}\b", text_lower, flags=re.I | re.M))
+    if field == "accessed_at":
+        # Accept label form OR a markdown table column named accessed_at.
+        if re.search(r"\baccessed_at\b\s*:", text_lower):
+            return True
+        return bool(re.search(r"^\s*\|[^\n]*\baccessed_at\b[^\n]*\|", text_lower, flags=re.M))
     field_pattern = re.escape(field).replace("_", r"[_\s-]")
     return bool(re.search(rf"\b{field_pattern}\b\s*:", text_lower, flags=re.I))
 
@@ -130,9 +216,9 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at_signals(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

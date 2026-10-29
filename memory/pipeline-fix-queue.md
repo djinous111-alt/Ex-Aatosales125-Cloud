@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261029-1305-scout-excalibur-git-secret-names
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-scout
 topic_id: B01
@@ -288,10 +288,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Confirmed `scripts/excalibur_git.sh` is present and filters non-identifier `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Documented Cloud commit wrapper in pitfalls, AGENTS, scout/director skills; doctor asserts wrapper exists.
+files_changed:
+- `scripts/excalibur_git.sh` (kept)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- wrapper file exists + executable
+commit: 94f67861..25cc7b94
 
 ## INC-20261029-1315-research-notes-gate-accessed-pain
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-research
 topic_id: B01
@@ -324,10 +341,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Gate counts ISO dates in markdown `accessed_at` column and accepts table header as field presence.
+- `pain_solution_map` counts data-rows under the section (tokens in cells optional).
+- `## github_evidence` stripped before TECH_MARKERS; short markers (`ai`/`ии`) use word boundaries.
+- Research skill/agent document the PASS minimums.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- fixture table-only accessed_at + pain rows → PASS, technical_topic=false
+- B01 research-notes gate → PASS
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: 94f67861..25cc7b94
 
 ## INC-20261029-1323-geo-qa-utility-pain-markers-rebrand
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -361,10 +396,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Confirmed `editorial-policy.json` has non-empty pain/outcome markers + recommendation aliases.
+- Utility gate empty-list warn+skip kept.
+- Doctor now hard-fails on empty `pain_markers_ru` / `outcome_markers_ru`.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified present)
+- `scripts/excalibur_blog_utility_gate.py` (verified skip)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (policy checks OK)
+commit: 94f67861..25cc7b94
 
 ## INC-20261029-1323-geo-qa-writer-fix-tldr-cta-pain
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -398,10 +446,31 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Writing contract + writer skill: ban TL;DR / Быстрый инсайт; require topic insight label, ≥2 PAIN_MARKERS, CTA placeholders + pragma.
+- html-linter hard-fails TL;DR and href=[REDACTED]; human-voice rejects TL;DR labels and clarifies pain distinct-count.
+- GEO QA skill documents Writer FIX path for weak pain / bad CTA.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- html-linter synthetic TL;DR+[REDACTED] → fail; insight+placeholder → pass
+- B01 article.html html-linter → PASS
+- `rg` confirms old TL;DR example removed from contract/writer skill
+commit: 94f67861..25cc7b94
 
 ## INC-20261029-1343-cover-prompt-builder-toxic-hoodie
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-cover
 topic_id: B01
@@ -436,11 +505,26 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Prompt builder uses neutral non-toxic wording; outfit follows weather/topic with NO hoodie/hood/cap (no white-hoodie lock).
+- Kie API sanitizes demeaning-slang lemmas + hoodie lock and upgrades http→https on input_urls before createTask.
+- Cover skill + pitfalls document the rules.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- build_prompt has no toxic lemmas / white hoodie lock
+- sanitize_cover_prompt redacts lemmas and replaces hoodie lock
+- `python3 -m py_compile` on both scripts
+commit: 94f67861..25cc7b94
 
 ## INC-20261029-1345-indexer-llms-blog-path-cli
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-indexer
 topic_id: B01
@@ -476,4 +560,17 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Added `--blog-path` to `excalibur_blog_llms_generator.py`; URL builder uses site-brief path (`/` → `/{slug}/`, not hardcoded `/blog/`).
+- Doctor `--blog-path` check now PASS; indexer skill/agent already documented the flag.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-path`
+- dry-run `--blog-path /` produces `/{slug}/` without `/blog/`
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: 94f67861..25cc7b94

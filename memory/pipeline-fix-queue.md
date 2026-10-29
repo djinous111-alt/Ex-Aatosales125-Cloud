@@ -485,3 +485,63 @@ category: env
 ### Fixer resolution
 - pending
 
+
+## INC-20261029-1725-cover-prompt-hoodie-lock
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie`, which conflicts with blog-hero/skill rules (NO hoodie/cap/hood) and agent `scene_hint` (rain jacket / weather-topic outfit).
+
+### How the agent recovered this run
+- Patched generated `quad-mcp-prompt.txt` + `quad-mcp-batch.json` to replace hoodie lock with dark rain jacket / NO hoodie before Kie i2i.
+
+### Durable fix needed before next run
+- Remove fixed hoodie outfit lock from prompt builder; derive outfit from `slots.cover.scene_hint` + `blog-hero.json` outfit_rule (weather/topic).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261029-1725-cover-kie-http-ref-fail
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- First Kie `gpt-image-2-image-to-image` task failed (`failCode=500 Internal Error`) with `reference_url_hosted` on `http://avtosales125.ru/...` (301 → https).
+- `--force` catbox upload returned HTTP 412; 0x0 timed out on SSL handshake.
+
+### How the agent recovered this run
+- Switched `reference_url_hosted` / batch `input_urls` to HTTPS wordpress media URL; second Kie task succeeded; `quad_apply --inject-html` PASS.
+
+### Durable fix needed before next run
+- Prefer HTTPS in `blog-hero.json` / `excalibur_blog_hero_reference_url.py` when WP media redirects HTTP→HTTPS.
+- Document Kie sensitivity to HTTP redirects for `input_urls`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/blog-hero.json`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

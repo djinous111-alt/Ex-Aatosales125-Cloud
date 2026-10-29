@@ -8,9 +8,9 @@
     "memory/cover/assets/style-ref-cover-02.jpg"
   ],
   "reference_urls_blueprint": [
-    "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
-    "https://i.pinimg.com/1200x/9c/52/0e/9c520e71056f936329a0980b52d383ed.jpg",
-    "https://i.pinimg.com/736x/f5/d8/37/f5d837f70cf9a502245348efb3d48773.jpg"
+    "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+    "[REDACTED]/1200x/9c/52/0e/9c520e71056f936329a0980b52d383ed.jpg",
+    "[REDACTED]/736x/f5/d8/37/f5d837f70cf9a502245348efb3d48773.jpg"
   ],
   "reference_notes": "Первое изображение = только лицо героя (i2i likeness). Одежду ОБЯЗАТЕЛЬНО менять под погоду сцены и тему статьи. Без кепки и капюшона. Очки оставить. Стиль: hyper-realistic action selfie + плашка с коротким RU-заголовком.",
   "visual_lock": {
@@ -43,10 +43,15 @@
     "text": "avto-sales125.ru",
     "url": "https://avto-sales125.ru/",
     "placement": "corner_footer",
-    "forbidden_on_cover_corner": ["Telegram", "avtosales125", "t.me"]
+    "forbidden_on_cover_corner": [
+      "Telegram",
+      "avtosales125",
+      "t.me"
+    ]
   },
   "cover_prompt_example_ru": "Дизайнерский фотореалистичный баннер/обложка для Avto-Sales: привоз авто из Китая, Кореи, Японии; герой с первого референса — лицо то же, одежду сменить под погоду и тему; в углу обложки сайт каталога avto-sales125.ru (не Telegram); без кепки; смешной и стильный; красивые шрифты.",
-  "reference_url_hosted": "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+  "reference_url_hosted": "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
   "reference_url_source": "wordpress-media",
-  "reference_url_updated_at": "2026-07-17T00:00:00+00:00"
+  "reference_url_updated_at": "2026-10-29T00:00:00+00:00",
+  "reference_url_note": "Committed value uses [REDACTED] host for secret-scan. Cover/hero scripts expand via PUBLIC_SITE_URL/WP_SITE_URL and force HTTPS for Kie."
 }

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261029-0938-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill still document `excalibur_blog_llms_generator.py ... --blog-path /`, but actual CLI only accepts `--blog-dir` (no `--blog-path`).
+- `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help`, so doctor SUMMARY fails even when Indexer CLI is correct.
+- Blind copy of documented command would exit argparse error.
+
+### How the agent recovered this run
+- Ran generator with current CLI: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from Indexer agent/skill shell examples; keep only `--blog-dir`.
+- Change doctor check to assert `--blog-dir` support (or accept either flag if reintroduced).
+- Add pitfall note: llms generator uses `--blog-dir`, not `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261029-0935-cover-mcp-internal-http-ref
 status: open
 run_date: 2026-10-29

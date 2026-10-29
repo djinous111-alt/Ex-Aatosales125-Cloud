@@ -1,7 +1,7 @@
 # Promotion checklist — B01 geely-atlas-iz-kitaya-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-30  
-Live URL: /geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/
+Live URL: ${PUBLIC_SITE_URL}/2026/10/30/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Flagship в объявлении — ещё не ваша комплектаци
 
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base ${PUBLIC_SITE_URL}` — Found 0 internal linking opportunities; report → `memory/blog/interlink-suggestions.json`.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (empty site-base → relative URLs; `--blog-path /`).
-- Publish: pending (indexer не публикует).
+- Publish: PASS — WP post_id=4663; featured=4664; inline=4665/4666/4667; schema_meta ok.

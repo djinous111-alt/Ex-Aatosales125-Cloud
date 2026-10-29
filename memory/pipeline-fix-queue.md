@@ -287,3 +287,69 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261029-1710-research-tech-markers-komplektatsii
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks auto topics as `technical_topic=true` because TECH_MARKERS include substring `ии`, which matches ordinary Russian words like `комплектации` in H1/slug/primary_query.
+- That forces a hard error unless research-notes contain ≥3 `github.com` URLs, even when the article is about China car configs (not software).
+
+### How the agent recovered this run
+- Added relevant VIN/WMI GitHub evidence (idlesign/vininfo, WALL-E/vin-decoder, dev-drozd/VIN-DECODER) proving `LGB` = Dongfeng Nissan.
+- Gate reached PASS; added `government.ru/docs/...` for ПП 1713 to satisfy official-docs warning.
+
+### Durable fix needed before next run
+- Tighten TECH_MARKERS matching: word-boundary / whole-token checks, or exclude auto niche topics (China/Korea/Japan import) from `technical_topic`.
+- Document that `ии`/`ai` substrings in Russian auto vocabulary are false positives.
+- Optionally allow non-GitHub primary-source evidence (customs, catalogs) to satisfy the technical evidence quota for AVTO SALES topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261029-1710-research-tech-markers-komplektatsii
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks auto topics as `technical_topic=true` because TECH_MARKERS include substring `ии`, which matches ordinary Russian words like `комплектации` in H1/slug/primary_query.
+- That forces a hard error unless research-notes contain ≥3 `github.com` URLs, even when the article is about China car configs (not software).
+
+### How the agent recovered this run
+- Added relevant VIN/WMI GitHub evidence (idlesign/vininfo, WALL-E/vin-decoder, dev-drozd/VIN-DECODER) proving `LGB` = Dongfeng Nissan.
+- Gate reached PASS with warning about official docs URL; added `government.ru/docs/...` for ПП 1713.
+
+### Durable fix needed before next run
+- Tighten TECH_MARKERS matching: word-boundary / whole-token checks, or exclude auto niche topics (China/Korea/Japan import) from `technical_topic`.
+- Document that `ии`/`ai` substrings in Russian auto vocabulary are false positives.
+- Optionally allow non-GitHub primary-source evidence (customs, catalogs) to satisfy the technical evidence quota for AVTO SALES topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

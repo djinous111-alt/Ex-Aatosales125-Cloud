@@ -1,0 +1,641 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-29",
+    "today_ru": "29.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-31",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-29 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Nissan Qashqai из Китая: чек-лист комплектаций и ловушек до депозита в 2026",
+    "primary_query": "ниссан кашкай из китая комплектации",
+    "secondary_queries": [
+      "кашкай из китая комплектации",
+      "ниссан кашкай 2026 из китая",
+      "кашкай из китая отзывы",
+      "русификация ниссан кашкай из китая"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "ниссан кашкай из китая комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nissan Qashqai 2026 Glory (J11): обзор кроссовера, комплектации и цены",
+          "url": "https://auto.rambler.ru/cars/56996431-nissan-qashqai-2026-glory-j11-obzor-krossovera-komplektatsii-i-tseny/",
+          "snippet": ""
+        },
+        {
+          "title": "Ниссан Кашкай 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/qashqai/2026/",
+          "snippet": "Разбираемся, чем Nissan Qashqai 2026 модельного года из Китая отличается от прежнего J11, что у него с оснащением и сколько он стоит на российском рынке. Присматриваетесь к Nissan Qashqai?"
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 за 2,1 млн ₽: показываем комплектации ...",
+          "url": "https://vk.ru/@altais.cars-novyi-nissan-qashqai-2026-za-21-mln-pokazyvaem-komplektacii",
+          "snippet": "Подробно расписан модельный ряд Nissan Qashqai 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Кашкай 2026 между собой."
+        },
+        {
+          "title": "Ниссан Кашкай из Китая 2026: 151 л.с., отзывы и цена под ключ",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/nissan-qashqai-iz-kitaya/",
+          "snippet": "Сегодня новый Nissan Qashqai 2026 года можно заказать напрямую с завода в Китае и получить автомобиль значительно дешевле многих конкурентов."
+        },
+        {
+          "title": "Купить Nissan Qashqai 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/nissan/qashqai",
+          "snippet": "Что идёт из Китая в 2026 году: Кашкай с мотором 2.0 на 151 л.с. — девять сил до границы льготного утильсбора. Отзывы владельцев, комплектации, смета по строкам и что проверять перед покупкой."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 — комплектации и цена с доставкой | АТП.АВТО",
+          "url": "https://atp-auto.ru/novye-avtomobili/nissan/qashqai/",
+          "snippet": "Nissan Qashqai (Ниссан Qashqai) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 2.7 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "ниссан кашкай из китая комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ниссан Кашкай 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/qashqai/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Qashqai 2026 Glory (J11): обзор кроссовера, комплектации и цены",
+          "url": "https://auto.rambler.ru/cars/56996431-nissan-qashqai-2026-glory-j11-obzor-krossovera-komplektatsii-i-tseny/",
+          "snippet": "Подробно расписан модельный ряд Nissan Qashqai 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Кашкай 2026 между собой."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 за 2,1 млн ₽: показываем комплектации ...",
+          "url": "https://vk.ru/@altais.cars-novyi-nissan-qashqai-2026-za-21-mln-pokazyvaem-komplektacii",
+          "snippet": "Разбираемся, чем Nissan Qashqai 2026 модельного года из Китая отличается от прежнего J11, что у него с оснащением и сколько он стоит на российском рынке. Присматриваетесь к Nissan Qashqai?"
+        },
+        {
+          "title": "Ниссан Кашкай из Китая 2026: 151 л.с., отзывы и цена под ключ",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/nissan-qashqai-iz-kitaya/",
+          "snippet": "Сегодня новый Nissan Qashqai 2026 года можно заказать напрямую с завода в Китае и получить автомобиль значительно дешевле многих конкурентов."
+        },
+        {
+          "title": "Купить Nissan Qashqai 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/nissan/qashqai",
+          "snippet": "Что идёт из Китая в 2026 году: Кашкай с мотором 2.0 на 151 л.с. — девять сил до границы льготного утильсбора. Отзывы владельцев, комплектации, смета по строкам и что проверять перед покупкой."
+        },
+        {
+          "title": "Nissan Qashqai из Китая — цена под ключ 2026 | AZWAY",
+          "url": "https://azway.ru/import/kitay/nissan-qashqai",
+          "snippet": "Nissan Qashqai (Ниссан Qashqai) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 2.7 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "ниссан кашкай из китая комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nissan Qashqai 2026 Glory (J11): обзор кроссовера, комплектации и цены",
+          "url": "https://auto.rambler.ru/cars/56996431-nissan-qashqai-2026-glory-j11-obzor-krossovera-komplektatsii-i-tseny/",
+          "snippet": ""
+        },
+        {
+          "title": "Ниссан Кашкай из Китая 2026: 151 л.с., отзывы и цена под ключ",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/nissan-qashqai-iz-kitaya/",
+          "snippet": "Разбираемся, чем Nissan Qashqai 2026 модельного года из Китая отличается от прежнего J11, что у него с оснащением и сколько он стоит на российском рынке. Присматриваетесь к Nissan Qashqai?"
+        },
+        {
+          "title": "Ниссан Кашкай 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/qashqai/2026/",
+          "snippet": "Что идёт из Китая в 2026 году: Кашкай с мотором 2.0 на 151 л.с. — девять сил до границы льготного утильсбора. Отзывы владельцев, комплектации, смета по строкам и что проверять перед покупкой."
+        },
+        {
+          "title": "Новый эталон среди кроссоверов? Nissan Qashqai 2026 из Китая - обзор ...",
+          "url": "https://rutube.ru/video/01d62e564b9ec54620dbce09c751e38b/",
+          "snippet": "Подробно расписан модельный ряд Nissan Qashqai 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Кашкай 2026 между собой."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 за 2,1 млн ₽: показываем комплектации ...",
+          "url": "https://vk.ru/@altais.cars-novyi-nissan-qashqai-2026-za-21-mln-pokazyvaem-komplektacii",
+          "snippet": "Nissan Qashqai 2026 года из Китая - каким стал один из самых известных компактных кроссоверов? 🚘 В этом видео подробно разбираем Qashqai в максимальной комплектации: внешний вид, салон, оснащение, мультимедиа, комфорт, пространство, техническую часть и особенности китайской версии."
+        },
+        {
+          "title": "Nissan Qashqai 2026: цены, комплектации и характеристики",
+          "url": "https://motorved.ru/obzor-nissan-qashqai-2026-goda-chto-za-krossover-vezut-v-rossiju/",
+          "snippet": "Сегодня новый Nissan Qashqai 2026 года можно заказать напрямую с завода в Китае и получить автомобиль значительно дешевле многих конкурентов."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com ниссан кашкай из китая комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Netflix/logo.svg at main · LakshRaval/Netflix · GitHub",
+          "url": "https://github.com/LakshRaval/Netflix/blob/main/logo.svg",
+          "snippet": ""
+        },
+        {
+          "title": "Commits · github/GitHub-for-Startups-HQ · GitHub",
+          "url": "https://github.com/github/GitHub-for-Startups-HQ/graphs/commit-activity",
+          "snippet": "Contribute to LakshRaval/Netflix development by creating an account on GitHub."
+        },
+        {
+          "title": "agentic-starter-kits/images/langgraph_logo.svg at main - GitHub",
+          "url": "https://github.com/red-hat-data-services/agentic-starter-kits/blob/main/images/langgraph_logo.svg",
+          "snippet": "Contribute to github/GitHub-for-Startups-HQ development by creating an account on GitHub."
+        },
+        {
+          "title": "golden-sails/icon.svg at main · rjaxxx/golden-sails · GitHub",
+          "url": "https://github.com/rjaxxx/golden-sails/blob/main/icon.svg",
+          "snippet": "Starter kits for building and deploying AI agents. Run interactively locally or deploy to Red Hat OpenShift (including RHOAI) via OGX. - agentic-starter-kits/images/langgraph_logo.svg at main · red-hat-data-services/agentic-starter-kits."
+        },
+        {
+          "title": "kson/assets/logo/kson_logo_blue.svg at main · kson-org/kson",
+          "url": "https://github.com/kson-org/kson/blob/main/assets/logo/kson_logo_blue.svg",
+          "snippet": "Contribute to rjaxxx/golden-sails development by creating an account on GitHub."
+        },
+        {
+          "title": "fory/docs/images/fory-logo.png at main · apache/fory · GitHub",
+          "url": "https://github.com/apache/fory/blob/main/docs/images/fory-logo.png",
+          "snippet": "A 💌 to the humans maintaining computer configurations - kson-org/kson"
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "ниссан кашкай из китая комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ниссан Кашкай 2026 технические характеристики. Nissan Qashqai 2026 ...",
+          "url": "https://www.drom.ru/catalog/nissan/qashqai/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Qashqai из Китая: комплектации — Блог Кармэн",
+          "url": "https://blog.carmancars.ru/blog/nissan-qashqai-komplektacii",
+          "snippet": "Подробно расписан модельный ряд Nissan Qashqai 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Кашкай 2026 между собой."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 за 2,1 млн ₽: показываем комплектации ...",
+          "url": "https://vk.ru/@altais.cars-novyi-nissan-qashqai-2026-za-21-mln-pokazyvaem-komplektacii",
+          "snippet": "Nissan Qashqai (Xiaoke) в Китае — три силовые линейки: бензин 2.0L, турбо 1.3T и гибрид e-POWER. Разбираем все комплектации и цены."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 от 2,1 млн ₽: показываем комплектации ...",
+          "url": "https://dzen.ru/a/ajFQ7_ENm0AyZuKw",
+          "snippet": "Сегодня новый Nissan Qashqai 2026 года можно заказать напрямую с завода в Китае и получить автомобиль значительно дешевле многих конкурентов."
+        },
+        {
+          "title": "Nissan Qashqai 2026 Glory (J11): обзор кроссовера, комплектации и цены",
+          "url": "https://auto.rambler.ru/cars/56996431-nissan-qashqai-2026-glory-j11-obzor-krossovera-komplektatsii-i-tseny/",
+          "snippet": "Компания «Альтаис Авто» организует поставку новых Nissan Qashqai по официальному договору с доставкой в Россию под ключ."
+        },
+        {
+          "title": "Ниссан Кашкай технические характеристики. Nissan Qashqai комплектации и ...",
+          "url": "https://www.drom.ru/catalog/nissan/qashqai/",
+          "snippet": "Разбираемся, чем Nissan Qashqai 2026 модельного года из Китая отличается от прежнего J11, что у него с оснащением и сколько он стоит на российском рынке. Присматриваетесь к Nissan Qashqai?"
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "ниссан кашкай из китая комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ниссан Кашкай Клуб | Nissan Qashqai — Форум",
+          "url": "https://www.qashqai-club.ru/forum/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Qashqai из Китая: что нужно знать перед заказом",
+          "url": "https://www.drive2.ru/b/732786842714875597/",
+          "snippet": "В этом разделе мы знакомимся, помогаем друг другу, узнаем о символике клуба автолюбителей Nissan Qashqai, общаемся на свободные темы по тематике не попадающие в другие разделы форума."
+        },
+        {
+          "title": "Ниссан Кашкай из Китая 2026: 151 л.с., отзывы и цена под ключ",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/nissan-qashqai-iz-kitaya/",
+          "snippet": "Когда подбираешь клиенту Qashqai из Китая, чаще всего всплывают одни и те же вопросы. Какие там моторы. Что внутри по комплектациям. Почему китайцы называют машину как-то иначе."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 за 2,1 млн ₽: показываем комплектации ...",
+          "url": "https://vk.ru/@altais.cars-novyi-nissan-qashqai-2026-za-21-mln-pokazyvaem-komplektacii",
+          "snippet": "Что идёт из Китая в 2026 году: Кашкай с мотором 2.0 на 151 л.с. — девять сил до границы льготного утильсбора. Отзывы владельцев, комплектации, смета по строкам и что проверять перед покупкой."
+        },
+        {
+          "title": "Nissan Qashqai из Китая: отзывы, вариатор и отличия | AZWAY",
+          "url": "https://azway.ru/blog/nissan-qashqai-obzor",
+          "snippet": "Сегодня новый Nissan Qashqai 2026 года можно заказать напрямую с завода в Китае и получить автомобиль значительно дешевле многих конкурентов."
+        },
+        {
+          "title": "Nissan Qashqai 2026 Glory (J11): обзор кроссовера, комплектации и цены",
+          "url": "https://auto.rambler.ru/cars/56996431-nissan-qashqai-2026-glory-j11-obzor-krossovera-komplektatsii-i-tseny/",
+          "snippet": "Отзывы о Nissan Qashqai 2.0 из Китая: ресурс вариатора Xtronic, слабые места, расход, русификация, салон и отличия от европейской версии."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "кашкай из китая комплектации 2026",
+      "purpose": "вторичный запрос: кашкай из китая комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ниссан Кашкай 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/nissan/qashqai/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Qashqai 2026 Glory (J11): обзор кроссовера, комплектации и цены",
+          "url": "https://auto.rambler.ru/cars/56996431-nissan-qashqai-2026-glory-j11-obzor-krossovera-komplektatsii-i-tseny/",
+          "snippet": "Подробно расписан модельный ряд Nissan Qashqai 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Ниссан Кашкай 2026 между собой."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 за 2,1 млн ₽: показываем комплектации ...",
+          "url": "https://vk.ru/@altais.cars-novyi-nissan-qashqai-2026-za-21-mln-pokazyvaem-komplektacii",
+          "snippet": "Разбираемся, чем Nissan Qashqai 2026 модельного года из Китая отличается от прежнего J11, что у него с оснащением и сколько он стоит на российском рынке. Присматриваетесь к Nissan Qashqai?"
+        },
+        {
+          "title": "Ниссан Кашкай из Китая 2026: 151 л.с., отзывы и цена под ключ",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/nissan-qashqai-iz-kitaya/",
+          "snippet": "Сегодня новый Nissan Qashqai 2026 года можно заказать напрямую с завода в Китае и получить автомобиль значительно дешевле многих конкурентов."
+        },
+        {
+          "title": "Новый эталон среди кроссоверов? Nissan Qashqai 2026 из Китая - обзор ...",
+          "url": "https://rutube.ru/video/01d62e564b9ec54620dbce09c751e38b/",
+          "snippet": "Что идёт из Китая в 2026 году: Кашкай с мотором 2.0 на 151 л.с. — девять сил до границы льготного утильсбора. Отзывы владельцев, комплектации, смета по строкам и что проверять перед покупкой."
+        },
+        {
+          "title": "Купить Nissan Qashqai 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/nissan/qashqai",
+          "snippet": "Nissan Qashqai 2026 года из Китая - каким стал один из самых известных компактных кроссоверов? 🚘 В этом видео подробно разбираем Qashqai в максимальной комплектации: внешний вид, салон, оснащение, мультимедиа, комфорт, пространство, техническую часть и особенности китайской версии."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "ниссан кашкай 2026 из китая 2026",
+      "purpose": "вторичный запрос: ниссан кашкай 2026 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Nissan Qashqai 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/nissan/qashqai",
+          "snippet": ""
+        },
+        {
+          "title": "Ниссан Кашкай из Китая 2026: 151 л.с., отзывы и цена под ключ",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/nissan-qashqai-iz-kitaya/",
+          "snippet": "Nissan Qashqai (Ниссан Qashqai) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 2.7 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        },
+        {
+          "title": "Nissan Qashqai из Китая — цена под ключ 2026 | AZWAY",
+          "url": "https://azway.ru/import/kitay/nissan-qashqai",
+          "snippet": "Что идёт из Китая в 2026 году: Кашкай с мотором 2.0 на 151 л.с. — девять сил до границы льготного утильсбора. Отзывы владельцев, комплектации, смета по строкам и что проверять перед покупкой."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 из Китая — цена | TMC AUTO",
+          "url": "https://tmcclub.ru/auto/nissan-qashqai",
+          "snippet": "Заказать Nissan Qashqai 2.0 из Китая от 1 990 000 ₽ под ключ. Подберём комплектацию Dongfeng-Nissan, проверим авто и рассчитаем доставку, таможню и оформление."
+        },
+        {
+          "title": "Nissan Qashqai 2026 из Китая — честный обзор и первые впечатления",
+          "url": "https://rutube.ru/video/b6ad5a6615009dadecd965a569689c0d/",
+          "snippet": "Можно ли заказать новый Nissan Qashqai 2026 года из Китая? Да. Подберём доступный автомобиль в нужной комплектации и цвете, проверим предложение и согласуем условия до оплаты."
+        },
+        {
+          "title": "Ниссан Кашкай 2026 технические характеристики. Nissan Qashqai 2026 ...",
+          "url": "https://www.drom.ru/catalog/nissan/qashqai/2026/",
+          "snippet": "Смотрите видео онлайн «Nissan Qashqai 2026 из Китая — честный обзор и первые впечатления» на канале «АПК Импорт | Авто из Южной Кореи и Китая» в хорошем качестве и бесплатно, опубликованное 5 июня 2026 года в 16:33, длительностью 00:18:13, на видеохостинге RUTUBE."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "кашкай из китая отзывы 2026",
+      "purpose": "вторичный запрос: кашкай из китая отзывы",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nissan Qashqai из Китая: отзывы, вариатор и отличия | AZWAY",
+          "url": "https://azway.ru/blog/nissan-qashqai-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Qashqai (2G) 2.0 бензиновый 2026 | GLORY White на DRIVE2",
+          "url": "https://www.drive2.ru/r/nissan/qashqai/729065270731095796/",
+          "snippet": "Отзывы о Nissan Qashqai 2.0 из Китая: ресурс вариатора Xtronic, слабые места, расход, русификация, салон и отличия от европейской версии."
+        },
+        {
+          "title": "Nissan Qashqai 2026 из Китая — честный обзор и первые впечатления",
+          "url": "https://rutube.ru/video/b6ad5a6615009dadecd965a569689c0d/",
+          "snippet": "Владелец Nissan Qashqai (2G) с 2.0 бензиновым двигателем, 141 л. с., вариатор, передний привод делится опытом эксплуатации, фото, тюнингом и обслуживанием своей машины 2026 года на DRIVE2."
+        },
+        {
+          "title": "Покупка Nissan Qashqai Glory из Китая со всей хронологией и ценами",
+          "url": "https://www.drive2.ru/l/739431466357771628/",
+          "snippet": "Смотрите видео онлайн «Nissan Qashqai 2026 из Китая — честный обзор и первые впечатления» на канале «АПК Импорт | Авто из Южной Кореи и Китая» в хорошем качестве и бесплатно, опубликованное 5 июня 2026 года в 16:33, длительностью 00:18:13, на видеохостинге RUTUBE."
+        },
+        {
+          "title": "Nissan Qashqai из Китая: как я ушёл с идеальной Creta",
+          "url": "https://auto.ru/logbook/review/cars/nissan/qashqai/24016599/nissan-qashqai-iz-kitaia-kak-ia-ushel-s-idealnoy-creta_37969809-1309-4f29-9f14-21b08854c612/",
+          "snippet": "Заказал кроссовер из Китая через компанию и прошел через долгий процесс оплаты, ожидания и таможни. В итоге разобрался с ценами и получил результат"
+        },
+        {
+          "title": "Ниссан из Китая отзывы: Sylphy, Qashqai, X-Trail, Kicks, Teana, Altima ...",
+          "url": "https://avtoservis.online/nissan/nissan-iz-kitaya/",
+          "snippet": "Qashqai из Китая оказался ровно тем самым: знакомым, надёжным и при этом заметно свежее. И за разумные деньги. В целом, если бы делал ещё раз — наверное, сделал бы так же."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "русификация ниссан кашкай из китая 2026",
+      "purpose": "вторичный запрос: русификация ниссан кашкай из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация китайского Nissan Qashqai 2026 | MMBRUSSIA",
+          "url": "https://mmbrussia.ru/blog/rusifikatsiya-nissan-qashqai-glory-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация Nissan из Китая — Qashqai и X-Trail, цены",
+          "url": "https://russification.ru/blog/rusifikaciya-nissan-iz-kitaya/",
+          "snippet": "Хотите сразу понять, что доступно именно для этой версии? Посмотрите услугу по русификации Nissan Qashqai из Китая: там указаны варианты работ и актуальная стоимость."
+        },
+        {
+          "title": "Русификация Nissan Qashqai 2025-2026 из Китая — от 40 000 ₽",
+          "url": "https://russification.ru/rusifikaciya/nissan-qashqai/",
+          "snippet": "Русификация Nissan Qashqai и X-Trail из Китая: перевод мультимедиа и приборной панели, приложения. Цены от 40 000 ₽, сроки, что зависит от версии машины."
+        },
+        {
+          "title": "Nissan Qashqai 2026 из Китая: что с мультимедиа и приборкой и что ...",
+          "url": "https://www.drive2.ru/b/746318257438328109/",
+          "snippet": "Русификация интерфейса и приборной панели для Nissan Qashqai Glory 2025-2026 с китайским мультимедиа. Полный перевод всех элементов, установка русских приложений."
+        },
+        {
+          "title": "Русификация Nissan Qashqai из Китая — мультимедиа на русском",
+          "url": "https://mmbrussia.ru/services/rusifikatsiya-kitayskikh-avtomobiley/qashqai/rusifikatsiya-qashqai-iz-kitaya",
+          "snippet": "Вопросы по китайскому Qashqai приходят одной серией: что именно переводится, останется ли приборка на китайском, будут ли работать навигация и голос, а CarPlay вообще есть или нет."
+        },
+        {
+          "title": "Русификация nissan qashqai из китая (8358874268)",
+          "url": "https://www.avito.ru/aprelevka/predlozheniya_uslug/rusifikatsiya_nissan_qashqai_iz_kitaya_8358874268",
+          "snippet": "Полная русификация мультимедиа, приборной панели, навигации и голосового управления для Qashqai — с сохранением онлайн-функций. Qashqai с китайского рынка приезжает с интерфейсом на китайском языке — как в мультимедиа, так и в приборной панели."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Nissan Qashqai из Китая: чек-лист комплектаций и ловушек до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Покупаете Nissan Qashqai из Китая? Что проверить до сделки",
+          "url": "https://auto.ru/logbook/cars/nissan/qashqai/24016599/pokupaete-nissan-qashqai-iz-kitaia-chto-proverit-do-sdelki_7a6732e2-f836-438a-9d13-82d0f58edea3/",
+          "snippet": ""
+        },
+        {
+          "title": "Nissan Qashqai из Китая: комплектации — Блог Кармэн",
+          "url": "https://blog.carmancars.ru/blog/nissan-qashqai-komplektacii",
+          "snippet": "Первое, что стоит уточнить, — какое поколение перед вами. В Китае одновременно выпускаются рестайлинг прежнего Qashqai с двухлитровым атмосферником и вариатором и третье поколение с мотором 1.3 турбо. Внешне они различаются, но в объявлениях обе версии называются одинаково."
+        },
+        {
+          "title": "Nissan Qashqai из Китая — цена под ключ 2026 | AZWAY",
+          "url": "https://azway.ru/import/kitay/nissan-qashqai",
+          "snippet": "Nissan Qashqai (Xiaoke) в Китае — три силовые линейки: бензин 2.0L, турбо 1.3T и гибрид e-POWER. Разбираем все комплектации и цены."
+        },
+        {
+          "title": "Nissan Qashqai из Китая: цена под ключ и комплектации",
+          "url": "https://flipexport.ru/new/nissan/qashqai",
+          "snippet": "Заказать Nissan Qashqai 2.0 из Китая от 1 990 000 ₽ под ключ. Подберём комплектацию Dongfeng-Nissan, проверим авто и рассчитаем доставку, таможню и оформление."
+        },
+        {
+          "title": "Новый Nissan Qashqai 2026 за 2,1 млн ₽: показываем комплектации ...",
+          "url": "https://vk.ru/@altais.cars-novyi-nissan-qashqai-2026-za-21-mln-pokazyvaem-komplektacii",
+          "snippet": "Мы описали 8 комплектаций 2022-2025 годов: моторы 1.3-2.0L · 151-158 л.с., привод 2WD. Полный список с характеристиками — ниже на этой странице, версии можно сравнить между собой."
+        },
+        {
+          "title": "Nissan Qashqai из Китая: отзывы, вариатор и отличия | AZWAY",
+          "url": "https://azway.ru/blog/nissan-qashqai-obzor",
+          "snippet": "Сегодня новый Nissan Qashqai 2026 года можно заказать напрямую с завода в Китае и получить автомобиль значительно дешевле многих конкурентов."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://auto.rambler.ru/cars/56996431-nissan-qashqai-2026-glory-j11-obzor-krossovera-komplektatsii-i-tseny/",
+      "title": "Nissan Qashqai 2026 Glory (J11): обзор кроссовера, комплектации и цены",
+      "from_query": "ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/nissan/qashqai/2026/",
+      "title": "Ниссан Кашкай 2026 технические характеристики, комплектации и цены",
+      "from_query": "ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://vk.ru/@altais.cars-novyi-nissan-qashqai-2026-za-21-mln-pokazyvaem-komplektacii",
+      "title": "Новый Nissan Qashqai 2026 за 2,1 млн ₽: показываем комплектации ...",
+      "from_query": "ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/nissan-qashqai-iz-kitaya/",
+      "title": "Ниссан Кашкай из Китая 2026: 151 л.с., отзывы и цена под ключ",
+      "from_query": "ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://easy.car/car/china/2026/nissan/qashqai",
+      "title": "Купить Nissan Qashqai 2026 из Китая под ключ — EASY.CAR",
+      "from_query": "ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://atp-auto.ru/novye-avtomobili/nissan/qashqai/",
+      "title": "Новый Nissan Qashqai 2026 — комплектации и цена с доставкой | АТП.АВТО",
+      "from_query": "ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://azway.ru/import/kitay/nissan-qashqai",
+      "title": "Nissan Qashqai из Китая — цена под ключ 2026 | AZWAY",
+      "from_query": "ниссан кашкай из китая комплектации октябрь 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/01d62e564b9ec54620dbce09c751e38b/",
+      "title": "Новый эталон среди кроссоверов? Nissan Qashqai 2026 из Китая - обзор ...",
+      "from_query": "ниссан кашкай из китая комплектации новости 2026"
+    },
+    {
+      "url": "https://motorved.ru/obzor-nissan-qashqai-2026-goda-chto-za-krossover-vezut-v-rossiju/",
+      "title": "Nissan Qashqai 2026: цены, комплектации и характеристики",
+      "from_query": "ниссан кашкай из китая комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/LakshRaval/Netflix/blob/main/logo.svg",
+      "title": "Netflix/logo.svg at main · LakshRaval/Netflix · GitHub",
+      "from_query": "site:github.com ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/github/GitHub-for-Startups-HQ/graphs/commit-activity",
+      "title": "Commits · github/GitHub-for-Startups-HQ · GitHub",
+      "from_query": "site:github.com ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/red-hat-data-services/agentic-starter-kits/blob/main/images/langgraph_logo.svg",
+      "title": "agentic-starter-kits/images/langgraph_logo.svg at main - GitHub",
+      "from_query": "site:github.com ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/rjaxxx/golden-sails/blob/main/icon.svg",
+      "title": "golden-sails/icon.svg at main · rjaxxx/golden-sails · GitHub",
+      "from_query": "site:github.com ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/kson-org/kson/blob/main/assets/logo/kson_logo_blue.svg",
+      "title": "kson/assets/logo/kson_logo_blue.svg at main · kson-org/kson",
+      "from_query": "site:github.com ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/apache/fory/blob/main/docs/images/fory-logo.png",
+      "title": "fory/docs/images/fory-logo.png at main · apache/fory · GitHub",
+      "from_query": "site:github.com ниссан кашкай из китая комплектации 2026"
+    },
+    {
+      "url": "https://blog.carmancars.ru/blog/nissan-qashqai-komplektacii",
+      "title": "Nissan Qashqai из Китая: комплектации — Блог Кармэн",
+      "from_query": "ниссан кашкай из китая комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/ajFQ7_ENm0AyZuKw",
+      "title": "Новый Nissan Qashqai 2026 от 2,1 млн ₽: показываем комплектации ...",
+      "from_query": "ниссан кашкай из китая комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/nissan/qashqai/",
+      "title": "Ниссан Кашкай технические характеристики. Nissan Qashqai комплектации и ...",
+      "from_query": "ниссан кашкай из китая комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://www.qashqai-club.ru/forum/",
+      "title": "Ниссан Кашкай Клуб | Nissan Qashqai — Форум",
+      "from_query": "ниссан кашкай из китая комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/732786842714875597/",
+      "title": "Nissan Qashqai из Китая: что нужно знать перед заказом",
+      "from_query": "ниссан кашкай из китая комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/nissan-qashqai-obzor",
+      "title": "Nissan Qashqai из Китая: отзывы, вариатор и отличия | AZWAY",
+      "from_query": "ниссан кашкай из китая комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://tmcclub.ru/auto/nissan-qashqai",
+      "title": "Новый Nissan Qashqai 2026 из Китая — цена | TMC AUTO",
+      "from_query": "ниссан кашкай 2026 из китая 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/b6ad5a6615009dadecd965a569689c0d/",
+      "title": "Nissan Qashqai 2026 из Китая — честный обзор и первые впечатления",
+      "from_query": "ниссан кашкай 2026 из китая 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/r/nissan/qashqai/729065270731095796/",
+      "title": "Nissan Qashqai (2G) 2.0 бензиновый 2026 | GLORY White на DRIVE2",
+      "from_query": "кашкай из китая отзывы 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/739431466357771628/",
+      "title": "Покупка Nissan Qashqai Glory из Китая со всей хронологией и ценами",
+      "from_query": "кашкай из китая отзывы 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/review/cars/nissan/qashqai/24016599/nissan-qashqai-iz-kitaia-kak-ia-ushel-s-idealnoy-creta_37969809-1309-4f29-9f14-21b08854c612/",
+      "title": "Nissan Qashqai из Китая: как я ушёл с идеальной Creta",
+      "from_query": "кашкай из китая отзывы 2026"
+    },
+    {
+      "url": "https://avtoservis.online/nissan/nissan-iz-kitaya/",
+      "title": "Ниссан из Китая отзывы: Sylphy, Qashqai, X-Trail, Kicks, Teana, Altima ...",
+      "from_query": "кашкай из китая отзывы 2026"
+    },
+    {
+      "url": "https://mmbrussia.ru/blog/rusifikatsiya-nissan-qashqai-glory-iz-kitaya",
+      "title": "Русификация китайского Nissan Qashqai 2026 | MMBRUSSIA",
+      "from_query": "русификация ниссан кашкай из китая 2026"
+    },
+    {
+      "url": "https://russification.ru/blog/rusifikaciya-nissan-iz-kitaya/",
+      "title": "Русификация Nissan из Китая — Qashqai и X-Trail, цены",
+      "from_query": "русификация ниссан кашкай из китая 2026"
+    },
+    {
+      "url": "https://russification.ru/rusifikaciya/nissan-qashqai/",
+      "title": "Русификация Nissan Qashqai 2025-2026 из Китая — от 40 000 ₽",
+      "from_query": "русификация ниссан кашкай из китая 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/746318257438328109/",
+      "title": "Nissan Qashqai 2026 из Китая: что с мультимедиа и приборкой и что ...",
+      "from_query": "русификация ниссан кашкай из китая 2026"
+    },
+    {
+      "url": "https://mmbrussia.ru/services/rusifikatsiya-kitayskikh-avtomobiley/qashqai/rusifikatsiya-qashqai-iz-kitaya",
+      "title": "Русификация Nissan Qashqai из Китая — мультимедиа на русском",
+      "from_query": "русификация ниссан кашкай из китая 2026"
+    },
+    {
+      "url": "https://www.avito.ru/aprelevka/predlozheniya_uslug/rusifikatsiya_nissan_qashqai_iz_kitaya_8358874268",
+      "title": "Русификация nissan qashqai из китая (8358874268)",
+      "from_query": "русификация ниссан кашкай из китая 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/nissan/qashqai/24016599/pokupaete-nissan-qashqai-iz-kitaia-chto-proverit-do-sdelki_7a6732e2-f836-438a-9d13-82d0f58edea3/",
+      "title": "Покупаете Nissan Qashqai из Китая? Что проверить до сделки",
+      "from_query": "Как выбрать Nissan Qashqai из Китая: чек-лист комплектаций и ловушек до депозита в 2026 2026"
+    },
+    {
+      "url": "https://flipexport.ru/new/nissan/qashqai",
+      "title": "Nissan Qashqai из Китая: цена под ключ и комплектации",
+      "from_query": "Как выбрать Nissan Qashqai из Китая: чек-лист комплектаций и ловушек до депозита в 2026 2026"
+    }
+  ]
+}

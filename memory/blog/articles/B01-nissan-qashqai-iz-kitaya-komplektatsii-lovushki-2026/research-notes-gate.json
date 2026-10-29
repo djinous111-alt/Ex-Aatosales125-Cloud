@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026",
+  "notes": "memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-29",
+    "prefer_sources_after": "2026-07-31",
+    "source_urls": 38,
+    "source_domains": 12,
+    "source_table_rows": 38,
+    "accessed_at": 7,
+    "github_urls": 6,
+    "official_doc_urls": 1,
+    "action_outline_items": 9,
+    "pain_solution_rows": 6,
+    "technical_topic": true
+  }
+}

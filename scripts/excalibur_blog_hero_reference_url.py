@@ -91,6 +91,14 @@ def resolve_reference_path(root: Path, hero: dict) -> Path:
     return path
 
 
+def normalize_hosted_url(url: str) -> str:
+    """Kie/MCP fetchers fail on http:// hosts that 301 to https — always prefer https."""
+    raw = (url or "").strip()
+    if raw.startswith("http://"):
+        return "https://" + raw[len("http://") :]
+    return raw
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--hero-json", default="memory/cover/blog-hero.json")
@@ -112,12 +120,20 @@ def main() -> int:
         print(f"❌ HERO BLOCKER: reference image not found: {ref_path}", file=sys.stderr)
         return 1
 
-    existing = (hero.get("reference_url_hosted") or "").strip()
+    existing = normalize_hosted_url(hero.get("reference_url_hosted") or "")
+    if existing and existing != (hero.get("reference_url_hosted") or "").strip():
+        hero["reference_url_hosted"] = existing
+        hero["reference_url_https_normalized"] = True
+        hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        save_json(hero_path, hero)
+        print(f"OK reference_url_hosted normalized to https: {existing}")
+        if not args.force:
+            return 0
     if existing and not args.force:
         print(f"OK reference_url_hosted={existing}")
         return 0
 
-    env_url = os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip()
+    env_url = normalize_hosted_url(os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip())
     if env_url:
         hero["reference_url_hosted"] = env_url
         hero["reference_url_source"] = "env:BLOG_HERO_REFERENCE_URL"

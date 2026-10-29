@@ -132,7 +132,27 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+
+    editorial_policy = root / "memory/brief/editorial-policy.json"
+    if editorial_policy.is_file():
+        try:
+            import json as _json
+
+            policy = _json.loads(editorial_policy.read_text(encoding="utf-8"))
+            has_pain = isinstance(policy.get("pain_markers_ru"), list) and bool(policy.get("pain_markers_ru"))
+            has_outcome = isinstance(policy.get("outcome_markers_ru"), list) and bool(policy.get("outcome_markers_ru"))
+            pinned = bool(policy.get("_markers_pinned"))
+            check(has_pain, "editorial-policy pain_markers_ru present", errors, warnings)
+            check(has_outcome, "editorial-policy outcome_markers_ru present", errors, warnings)
+            check(pinned, "editorial-policy _markers_pinned=true", errors, warnings)
+        except Exception as exc:  # noqa: BLE001 — doctor must surface parse errors
+            check(False, f"editorial-policy.json parseable ({exc})", errors, warnings)
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
+
+    git_helper = root / "scripts/excalibur_git.sh"
+    check(git_helper.is_file(), "scripts/excalibur_git.sh exists", errors, warnings, warn=True)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

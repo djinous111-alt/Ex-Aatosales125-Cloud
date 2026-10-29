@@ -47,6 +47,14 @@ def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
     return f"{label}; H2: «{h2}»; scene: {scene}; no host face."
 
 
+def normalize_https(url: str) -> str:
+    """Kie fetcher fails on http:// that 301-redirects to https — normalize before input_urls."""
+    raw = (url or "").strip()
+    if raw.startswith("http://"):
+        return "https://" + raw[len("http://") :]
+    return raw
+
+
 def validate_reference_url(ref_url: str) -> bool:
     if REQUIRED_REFERENCE_HOST in ref_url:
         return True
@@ -55,6 +63,29 @@ def validate_reference_url(ref_url: str) -> bool:
         file=sys.stderr,
     )
     return False
+
+
+def outfit_instruction(cover: dict, hero: dict) -> str:
+    """Prefer scene_hint / blog-hero outfit_rule — never hardcode a default sweatshirt."""
+    scene = compact(cover.get("scene_hint", ""), 220)
+    outfit_rule = compact(hero.get("outfit_rule", ""), 180)
+    corner = ""
+    brand = hero.get("cover_corner_brand") or {}
+    if isinstance(brand, dict) and brand.get("text"):
+        corner = compact(str(brand.get("text")), 40)
+    parts = [
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe.",
+        "Outfit: match scene weather/topic from scene_hint; follow blog-hero outfit_rule; CHANGE clothes every cover.",
+        "Do NOT reuse one default sweatshirt/outfit and do not copy reference clothing. No headphones/headset/earbuds. No cap/hood.",
+    ]
+    if scene:
+        parts.append(f"Scene outfit cue: {scene}")
+    if outfit_rule:
+        parts.append(f"Outfit rule: {outfit_rule}")
+    if corner:
+        parts.append(f"Corner catalog brand text must appear: {corner}")
+    parts.append("Vary pose, gesture, angle, expression, props and composition every cover.")
+    return " ".join(parts)
 
 
 def validate_prompt_budget(prompt: str) -> bool:
@@ -84,9 +115,9 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "ALL panels keep a clean pure white #FFFFFF base; scraps/cards may cast light shadows but no beige, gray, gradient, grunge, paper-tint, or colored full-panel background.",
         "",
-        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
+        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating or demeaning slang labels, no mockery of the reader.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_instruction(cover, hero),
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -126,7 +157,7 @@ def main() -> int:
     design_code_path = root / style.get("design_code", "memory/cover/cover-design-code.json")
     design_code = load_json(design_code_path) if design_code_path.is_file() else {}
 
-    ref_url = (hero.get("reference_url_hosted") or "").strip()
+    ref_url = normalize_https(hero.get("reference_url_hosted") or "")
     if not ref_url:
         print(
             "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py",
@@ -135,6 +166,8 @@ def main() -> int:
         return 1
     if not validate_reference_url(ref_url):
         return 1
+    if ref_url != (hero.get("reference_url_hosted") or "").strip():
+        print(f"WARN normalized reference_url_hosted http→https for Kie input_urls", file=sys.stderr)
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
     if not validate_prompt_budget(prompt):
@@ -167,17 +200,21 @@ def main() -> int:
             "timeout_policy": {
                 "tool": "gpt-image-2",
                 "timeout_error": "HTTP MCP tool execution failed: MCP error -32001: Request timed out",
+                "internal_error_failcode_500": "MCP Internal Error / Kie recordInfo failCode=500",
                 "not_final_blocker": True,
                 "sync_create_max_attempts": 1,
                 "backend_max_wait_seconds": 900,
                 "recommended_async_poll_interval_seconds": 10,
                 "recommended_async_max_wait_seconds": 900,
+                "https_input_urls_required": True,
+                "https_note": "Before any retry, ensure input_urls / reference_url_hosted use https:// (http:// WordPress media that 301s to https often fails Kie fetch with Internal Error 500).",
                 "backend_note": "If Cursor receives -32001 while the Kie backend continues working, the sync MCP call is not client-timeout-safe. The robust fix is an async MCP contract: create/start returns task_id quickly, status/result returns url later.",
                 "preferred_async_flow": {
                     "create": "Use an available async image create/start MCP tool if present. Call it once with jobs[0].mcp_args and record task_id.",
                     "status": "Poll an available status/result MCP tool by task_id every 10-15 seconds until url is ready, up to backend_max_wait_seconds.",
-                    "idempotency": "Do not create a second image job unless status/result confirms the previous job was not created or failed.",
+                    "idempotency": "Do not create a second image job unless status/result confirms the previous job was not created or failed (fail state / failCode=500). Blind second create while waiting is forbidden.",
                 },
+                "recovery_on_internal_error_500": "Treat MCP Internal Error + Kie failCode=500 like timeout recovery: normalize input_urls to https, confirm prior job is fail (not running), then recreate ONE job via Kie API script.",
                 "blocker_only_if": "Sync gpt-image-2 times out with -32001 and no generated URL, task_id, or async status/result MCP tool is available.",
                 "mcp_invocation": "Legacy fallback only. Cursor Cloud should prefer direct Kie API via scripts/excalibur_blog_kie_gpt_image2_api.py because sync MCP gpt-image-2 is client-timeout-prone for 2K i2i.",
                 "log_recovery": "If the MCP/Cloud log or expanded MCP tool response already contains a generated image URL after the HTTP timeout, treat it as success: save that URL to cover/quad-mcp-result.json yourself or pass it directly to quad_apply. Do not search cover/* for the URL; it will not exist there until you save it. Do not start another image job while a generated URL exists.",

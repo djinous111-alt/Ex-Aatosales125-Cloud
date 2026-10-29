@@ -14,22 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens must use word-boundary checks: naive "ai" matched inside "pain"/"reader_pain",
+# and "ии" matched common Russian morphology (double-и endings).
+TECH_MARKERS_BOUNDARIED = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
-    "make",
+    "rag",
     "n8n",
+)
+TECH_MARKERS_SUBSTRING = (
+    "agent",
+    "агент",
+    "cursor",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+    "make.com",
 )
 
 
@@ -73,14 +77,95 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _scrub_false_positive_tokens(text: str) -> str:
+    """Remove research field names that contain tech substrings (e.g. reader_pain → 'ai')."""
+    scrubbed = text.lower()
+    for field in REQUIRED_FIELDS:
+        token = field.lower().split(":", 1)[0].strip()
+        if token:
+            scrubbed = scrubbed.replace(token, " ")
+    # Common non-tech phrases that embed short markers
+    for noise in ("reader pain", "pain point", "campaign", "malaysia", "detail", "available"):
+        scrubbed = scrubbed.replace(noise, " ")
+    return scrubbed
+
+
+def _marker_in_blob(blob: str, marker: str, *, boundaried: bool) -> bool:
+    if boundaried:
+        return bool(
+            re.search(
+                rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])",
+                blob,
+                flags=re.IGNORECASE,
+            )
+        )
+    return marker.lower() in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect software/automation topics only — auto how-tos must stay non-technical."""
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Prefer topic metadata; scrub notes so required field names cannot trip markers.
+    notes_blob = _scrub_false_positive_tokens(notes[:2000])
+    blob = f"{topic_blob} {notes_blob}"
+    if any(_marker_in_blob(blob, m, boundaried=True) for m in TECH_MARKERS_BOUNDARIED):
+        return True
+    return any(_marker_in_blob(blob, m, boundaried=False) for m in TECH_MARKERS_SUBSTRING)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates: explicit accessed_at: OR ISO dates on URL table rows."""
+    text_lower = text.lower()
+    explicit = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    iso_on_url_rows = 0
+    for line in text.splitlines():
+        if not re.search(r"https?://", line):
+            continue
+        if not line.strip().startswith("|"):
+            continue
+        iso_on_url_rows += len(re.findall(r"\b20\d{2}-\d{2}-\d{2}\b", line))
+    return max(explicit, iso_on_url_rows)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count pain_solution_map table data rows by structure (not keyword-in-row)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if not match:
+        # Fallback: legacy keyword-in-row heuristic
+        return len(
+            re.findall(
+                r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                text.lower(),
+                flags=re.M,
+            )
+        )
+    section = match.group(1)
+    data_rows: list[list[str]] = []
+    for line in section.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if not cells or all(not c for c in cells):
+            continue
+        if all(re.fullmatch(r":?-{1,}:?", c.replace(" ", "") or "-") for c in cells):
+            continue
+        data_rows.append(cells)
+    if not data_rows:
+        return 0
+    header = " ".join(data_rows[0]).lower()
+    if any(k in header for k in ("pain", "боль", "solution", "решение", "result", "результат")):
+        if all(len(c) < 48 for c in data_rows[0]):
+            data_rows = data_rows[1:]
+    return len(data_rows)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,9 +215,9 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

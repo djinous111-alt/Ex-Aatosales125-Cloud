@@ -6,6 +6,98 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261029-0923-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: env
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` unavailable in Cloud; Director used `generalPurpose` fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Ran as generalPurpose with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`; completed full QA script set.
+
+### Durable fix needed before next run
+- Re-enable typed Task mapping for geo-qa in Cloud automation / Task type registry, or keep documented generalPurpose fallback in director skill as first-class path.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261029-0923-geo-qa-tldr-label-conflict
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Writer shipped insight block labeled `TL;DR / Быстрый инсайт` while GEO QA skill forbids both `TL;DR` and `Быстрый инсайт` as insight openers.
+- Writer/contract docs still nudge TL;DR-style labels, so the same FIX repeats across B01 model guides.
+
+### How the agent recovered this run
+- FIX cycle: renamed label to `Инсайт до ставки:`; re-ran html-linter / human-voice / utility → PASS.
+
+### Durable fix needed before next run
+- Align writer skill + writing contract examples to allowed insight labels (`Инсайт до ставки` / `Инсайт до депозита`); add html-linter or human-voice hard fail on `TL;DR` / `Быстрый инсайт`.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261029-0923-geo-qa-cta-env-placeholders
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Writer committed raw `CATALOG_URL` / `TELEGRAM_URL` values in `article.html` hrefs; secret-scan / Cloud Secrets policy requires `${CATALOG_URL}` / `${TELEGRAM_URL}` placeholders in git artifacts.
+
+### How the agent recovered this run
+- Replaced live CTA hrefs with env placeholders; expanded only in temp HTML for link-verify; sanitized `link-verify.json` before commit.
+
+### Durable fix needed before next run
+- Writer skill hard rule: CTA hrefs must be `${CATALOG_URL}` / `${TELEGRAM_URL}` (and MAX if used); doctor or writer self-check should fail on raw telegram/catalog hostnames in article.html.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261029-0920-writer-pain-outcome-markers-missing
 status: open
 run_date: 2026-10-29

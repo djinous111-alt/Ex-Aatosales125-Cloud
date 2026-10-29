@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "а в японском листе вдруг Hybrid или свежий кузов 2026. Типичная ошибка – путать Комфорт/Престиж РФ с гр",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1986",
+      "kind": "date_or_year",
+      "context": "словам \"Престиж\" и \"полная комплектация\". Бензин ~1986 см³ и full hybrid/PHEV из Японии с 09.08.2023 для",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "ин ~1986 см³ и full hybrid/PHEV из Японии с 09.08.2023 для РФ – стоп до сверки. Новый XA60 в Японии без б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "гибрид). Шестое (XA60) в японской линейке с конца 2025 – Adventure / Z / GR SPORT и по релизам Toyota то",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "Порог правил экспорта в Россию с 9 августа 2023 – 1900 см³; отдельно закрыты full hybrid, PHEV и электро.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2487",
+      "kind": "large_number",
+      "context": "объём выше 1900 см³ AXAH54 / Hybrid XA50 hybrid ~2487, hybrid Стоп; другой канал или модель AXAN64 / AX",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "\"полная комплектация\" Оценка 4.5 при пробеге до ~100 тыс. км – ориентир, не идеал. Цифра без карты почт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

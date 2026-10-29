@@ -34,6 +34,9 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- После rebrand/sync проверяй `memory/brief/editorial-policy.json`: `pain_markers_ru` / `outcome_markers_ru` и алиасы `не делать` / `чек-лист` / `делать:` часто пропадают → utility gate ложно BLOCK. Utility gate при пустых списках обязан warn+skip, не BLOCK.
+- Инсайт-блок: не ярлык `TL;DR` / `Быстрый инсайт` (writing-contract example устарел относительно GEO QA skill) — пиши `Инсайт до депозита` / `Инсайт до ставки`.
+- CTA в committed HTML: `${CATALOG_URL}` / `${TELEGRAM_URL}` (+ `<!-- pragma: allowlist secret -->` на строке). Не оставляй литерал `[REDACTED]` и не коммить сырые secret URL без pragma.
 
 ## Cover
 

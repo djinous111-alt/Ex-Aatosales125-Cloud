@@ -271,6 +271,7 @@ category: env
 
 ### How the agent recovered this run
 - Recreated `scripts/excalibur_git.sh` to drop non-identifier entries from `CLOUD_AGENT_INJECTED_SECRET_NAMES`, then committed the B01 topic card through the wrapper.
+- 2026-10-29 writer (B01 Haval Dargo): plain `git commit` failed again with the same `invalid variable name`; committed `article.html` / `article.meta.json` via `bash scripts/excalibur_git.sh`.
 
 ### Durable fix needed before next run
 - Keep `scripts/excalibur_git.sh` in repo and point scout/director/publish docs at it for all Cloud commits.

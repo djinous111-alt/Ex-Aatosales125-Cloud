@@ -1,15 +1,15 @@
 # Promotion checklist — B01 toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-29 (pending publish)  
-Live URL: /blog/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-29  
+Live URL: https://avtosales125.ru/2026/10/29/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD/GET 200; post_id=4645)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
-- [ ] Проверить internal links из статьи (200)
+- [x] Проверить internal links из статьи (200) — link-verify PASS 3/3
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)
@@ -29,7 +29,7 @@ RAV4 из Японии: сначала код кузова, потом став�
 • Hybrid и ~1986 см³ с 09.08.2023 — стоп для РФ до сверки
 • Чек-лист 12 пунктов до любой ставки
 
-Читать: /blog/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/29/toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ RAV4 из Японии: сначала код кузова, потом став�
 - Indexer: `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026 --site-base $PUBLIC_SITE_URL` → 0 links.
 - llms: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (без `--blog-path`; CLI его не принимает).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (3 articles indexed, B01 included).
-- Publish: не запускался (зона Indexer).
+- Publish: PASS — WP 4645; featured 4646; inline 4647/4648/4649; schema_meta ok; HEAD 200.

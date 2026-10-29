@@ -6,6 +6,75 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-0010-scout-precommit-secret-name-url
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes a non-identifier entry (catalog URL used as a "secret name"), so bash `${!SECRET_NAME}` errors with `invalid variable name`.
+- Recurs across Scout/publish runs; topic card stayed staged until env filter workaround.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash identifiers only (`[A-Za-z_][A-Za-z0-9_]*`) before retrying commit of `memory/topics/blog-topics.md`.
+- Did not print secret values or URLs.
+
+### Durable fix needed before next run
+- Document the filter workaround in `shared/agent-pipeline-pitfalls.md` and Scout skill/memory.
+- Prefer removing non-identifier entries from Cloud injected secret-name catalog (URL must be a secret *value* under a normal name like `CATALOG_URL`, not a name itself).
+- Optionally add `scripts/excalibur_git.sh` wrapper that sanitizes names before commit.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `scripts/` (optional `excalibur_git.sh`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261030-0005-director-llms-blog-path
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` failed: llms generator help lacked `--blog-path`, while indexer skill/agent contract requires `--blog-path /` (site-brief `blog_path: /`).
+- Generator hardcoded `/{site}/blog/{slug}/` URLs, ignoring WP root permalinks.
+
+### How the agent recovered this run
+- Director restored `--blog-path` + `article_url()` helper in `scripts/excalibur_blog_llms_generator.py` before Scout; doctor now errors=0.
+- Empty `site_base` yields root-relative URLs; `/` blog_path → `/{slug}/`.
+
+### Durable fix needed before next run
+- Fixer should verify docs/skills already match CLI; ensure regression does not drop `--blog-path` again; optionally add a unit test or doctor assert on URL join for blog_path=/.
+- Close this incident after verification.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

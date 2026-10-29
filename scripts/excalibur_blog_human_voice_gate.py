@@ -250,12 +250,21 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
     pain_hits = [marker for marker in PAIN_MARKERS if marker in text_lower]
     outcome_hits = [marker for marker in OUTCOME_MARKERS if marker in text_lower]
 
+    if re.search(r"tl\s*;\s*dr|быстрый\s+инсайт", text_lower):
+        errors.append(
+            "banned insight label TL;DR / Быстрый инсайт — use topic-specific "
+            "«Инсайт до …» wording; need ≥2 distinct PAIN_MARKERS in body "
+            f"(current distinct={len(pain_hits)}: {pain_hits})"
+        )
     if ai_opening_hits:
         errors.append(f"AI-style opening phrases near lead: {ai_opening_hits}")
     if len(concrete_hits) < 2:
         errors.append("too few concrete human markers: need examples/practice/error/scenario language")
     if len(pain_hits) < 2:
-        errors.append("reader pain is weak or invisible: article must name the problem it solves")
+        errors.append(
+            "reader pain is weak or invisible: article must name the problem it solves "
+            f"(need ≥2 distinct of {PAIN_MARKERS}; got {pain_hits})"
+        )
     if len(outcome_hits) < 3:
         errors.append("reader outcome is weak or invisible: article must promise and deliver a usable result")
     if repeated_openers:

@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -95,6 +96,34 @@ def require_success(response: dict[str, Any], action: str) -> None:
     raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
 
 
+# Demeaning slang must never reach the image API — even as negative examples.
+TOXIC_LEMMA_PATTERNS = (
+    r"\bлох(?:ов|а|у|ом|е|и)?\b",
+    r"для\s+лохов",
+)
+HOODIE_LOCK_PATTERNS = (
+    r"Outfit lock:\s*thick heavyweight white hoodie\.?",
+    r"thick heavyweight white hoodie",
+)
+
+
+def sanitize_cover_prompt(prompt: str) -> str:
+    """Neutralize toxic lemmas and hoodie locks before createTask."""
+    cleaned = prompt
+    for pattern in TOXIC_LEMMA_PATTERNS:
+        cleaned = re.sub(pattern, "[demeaning-slang-redacted]", cleaned, flags=re.I)
+    for pattern in HOODIE_LOCK_PATTERNS:
+        cleaned = re.sub(
+            pattern,
+            "Outfit: weather/topic softshell or crewneck; NO hoodie, NO hood, NO cap",
+            cleaned,
+            flags=re.I,
+        )
+    # Prefer https for any inline http:// URLs in the prompt text.
+    cleaned = re.sub(r"\bhttp://", "https://", cleaned)
+    return cleaned
+
+
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:
     batch = load_json(batch_path)
     jobs = batch.get("jobs")
@@ -107,15 +136,22 @@ def batch_mcp_args(batch_path: Path) -> dict[str, Any]:
     if not isinstance(args, dict):
         raise KieApiError(f"Missing jobs[0].mcp_args in {batch_path}")
 
-    prompt = str(args.get("prompt") or "").strip()
+    prompt = sanitize_cover_prompt(str(args.get("prompt") or "").strip())
     input_urls = args.get("input_urls")
     if not prompt:
         raise KieApiError("Missing prompt in jobs[0].mcp_args")
     if not isinstance(input_urls, list) or not input_urls:
         raise KieApiError("Missing non-empty input_urls in jobs[0].mcp_args")
+    # Force https on hosted reference URLs.
+    fixed_urls = []
+    for url in input_urls:
+        text = str(url).strip()
+        if text.startswith("http://"):
+            text = "https://" + text[len("http://") :]
+        fixed_urls.append(text)
     return {
         "prompt": prompt,
-        "input_urls": input_urls,
+        "input_urls": fixed_urls,
         "aspect_ratio": args.get("aspect_ratio") or "auto",
         "resolution": args.get("resolution") or "1K",
     }

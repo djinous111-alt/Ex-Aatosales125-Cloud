@@ -184,3 +184,29 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota RAV4 из Японии
+
+- **priority:** P0
+- **slug:** toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026
+- **primary_query:** тойота рав 4 комплектации
+- **secondary_queries:** рав 4 комплектации, toyota rav4 из японии, тойота рав 4 гибрид 2026 комплектация, toyota rav4 2026 комплектации
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем сверять комплектацию до ставки, а не после выигрыша лота
+  2. Кузова XA50 и XA60: какие RAV4 реально смотрят под заказ в РФ
+  3. X / G / G Z Package / Adventure: чем отличаются и где путают название
+  4. Бензин vs гибрид: как не поставить на непроходной лот
+  5. Ловушки аукционного листа: оценка, пробег, «полная комплектация» без фото опций
+  6. Чек-лист из 12 пунктов перед ставкой на RAV4
+- **faq_hints:** чем Adventure отличается от обычного G; можно ли везти гибридный RAV4 из Японии в 2026; что проверить в листе до ставки; какой кузов чаще берут под семью
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного Toyota RAV4 на фоне порта Владивостока или ролкера, плашка «до ставки», угол avto-sales125.ru
+- **wordstat_evidence:** parent `toyota rav4` 79721; `тойота рав 4` 496296; how-to cluster `рав 4 комплектации` 5515 / `тойота рав 4 комплектации` 3234; narrow `toyota rav4 из японии` 80 (low-result signal, tail from parent)
+- **live_dedup:** REST 1232 posts; slug `toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026` empty; не в LIVE denylist; Staria/GV80/Dargo рассматривались как запасные
+- **scout_date:** 2026-10-29

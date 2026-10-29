@@ -12,14 +12,17 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ```bash
 python3 scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --site-base ""
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
+  --site-base "" \
   --blog-path / \
   --out-dir memory/blog
 ```
+
+`--blog-path` из site-brief (`blog_path: /` → `/{slug}/`, не `/blog/{slug}/`).  
+Пустой `--site-base` → relative URLs (secret-scan safe). Commits через `bash scripts/excalibur_git.sh`.
 
 ## Выход
 

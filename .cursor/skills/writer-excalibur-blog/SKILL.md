@@ -37,10 +37,19 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## Human-voice outcome markers (критично)
+
+`excalibur_blog_human_voice_gate.py` требует ≥3 **разных** substring из `OUTCOME_MARKERS`:
+`результат`, `получите`, `сможете`, `сэконом`, `проверьте`, `запустите`, `соберите`, `настройте`, `исправьте`, `выберите`.
+
+- Пиши **императив/форму из списка** (`соберите`, `выберите`, `получите`), не только будущее «соберёте» / «получите» без второго/третьего маркера.
+- «соберёте» **не** матчит `соберите`. Закрой lead + success + next-steps тремя разными маркерами до FAQ.
+
 ## Blockers
 
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- human-voice BLOCK из‑за <3 outcome markers
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

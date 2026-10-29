@@ -47,7 +47,7 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 ## Жёсткие правила
 
 1. **ONE MCP** — один холст 2×2. **Запрещено** 4 отдельных вызова.
-2. MCP **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
+2. MCP **обязан** иметь `input_urls: [reference_url_hosted (HTTPS only — Kie fails on HTTP redirects)]` (Image to Image).
 3. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
 4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
 5. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.

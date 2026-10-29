@@ -57,8 +57,9 @@ inject <figure> after H2 in article.html
 ## Герой (blog-host)
 
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
-**Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
-**Запрет:** кепка, капюшон.  
+**Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.) через `scene_hint` + `blog-hero.json` `outfit_rule`. Майку с reference не копировать.  
+**Запрет:** кепка, капюшон, **white hoodie outfit lock** (prompt builder не hardcode hoodie).  
+**Reference URL:** только `https://` WordPress media — Kie ломается на HTTP→HTTPS redirect.  
 **Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
 **Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
 

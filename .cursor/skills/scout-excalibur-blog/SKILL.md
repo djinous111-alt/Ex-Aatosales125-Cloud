@@ -4,6 +4,11 @@
 
 Запускается по запросу пользователя для расширения пула тем или перед началом нового цикла написания статьи, когда старые темы в `blog-topics.md` исчерпаны.
 
+## Git commits (Cloud)
+
+`CLOUD_AGENT_INJECTED_SECRET_NAMES` иногда содержит URL как «имя» секрета → `pre-commit.cursor` падает с `invalid variable name`.  
+Все commits: `bash scripts/excalibur_git.sh commit -m "…"`, не сырой `git commit`.
+
 ---
 
 ## Архитектура работы

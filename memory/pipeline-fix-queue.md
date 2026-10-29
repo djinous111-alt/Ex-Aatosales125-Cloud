@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261029-1705-scout-precommit-secret-name-url
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-scout
 topic_id: B01
@@ -286,10 +286,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Restored `scripts/excalibur_git.sh` to filter non-identifier names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` before Cloud commits.
+- Documented wrapper in pitfalls + scout skill; doctor asserts wrapper exists.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `bash -n scripts/excalibur_git.sh`
+- filter unit: URL secret name dropped, identifiers kept
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: 658ba33c
 ## INC-20261029-1710-research-tech-markers-komplektatsii
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-research
 topic_id: B01
@@ -319,43 +333,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-## INC-20261029-1710-research-tech-markers-komplektatsii
-status: open
-run_date: 2026-10-29
-role: excalibur-blog-research
-topic_id: B01
-article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
-severity: medium
-category: script
-
-### What went wrong
-- `excalibur_blog_research_notes_gate.py` marks auto topics as `technical_topic=true` because TECH_MARKERS include substring `ии`, which matches ordinary Russian words like `комплектации` in H1/slug/primary_query.
-- That forces a hard error unless research-notes contain ≥3 `github.com` URLs, even when the article is about China car configs (not software).
-
-### How the agent recovered this run
-- Added relevant VIN/WMI GitHub evidence (idlesign/vininfo, WALL-E/vin-decoder, dev-drozd/VIN-DECODER) proving `LGB` = Dongfeng Nissan.
-- Gate reached PASS with warning about official docs URL; added `government.ru/docs/...` for ПП 1713.
-
-### Durable fix needed before next run
-- Tighten TECH_MARKERS matching: word-boundary / whole-token checks, or exclude auto niche topics (China/Korea/Japan import) from `technical_topic`.
-- Document that `ии`/`ai` substrings in Russian auto vocabulary are false positives.
-- Optionally allow non-GitHub primary-source evidence (customs, catalogs) to satisfy the technical evidence quota for AVTO SALES topics.
-
-### Suggested files to inspect/change
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- TECH_MARKERS short tokens (`ai`/`ии`/`api`) now use Cyrillic-safe word-boundary matching; `комплектации` no longer flips technical_topic.
+- Strip `## github_evidence` before tech scan so auto niches are not forced into ≥3 GitHub URLs.
+- Duplicate open block of the same INC id collapsed into this single fixed resolution.
+files_changed:
 - `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
 - `.cursor/skills/excalibur-research/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
+checks_run:
+- unit: `_tech_marker_hit('комплектации','ии') is False`
+- unit: Qashqai China topic `is_technical_topic` is False
+commit: 658ba33c
 ## INC-20261029-1721-geo-qa-utility-pain-markers-rebrand
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -388,10 +382,22 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Kept/pinned `pain_markers_ru`/`outcome_markers_ru` + recommendation aliases in editorial-policy; `_markers_pinned=true`.
+- Utility-gate empty-list fallback retained; doctor fails if marker lists empty.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py` (fallback already present)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor pain/outcome non-empty OK
+- JSON parse editorial-policy
+commit: 658ba33c
 ## INC-20261029-1721-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -417,10 +423,21 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Documented Cloud generalPurpose fallback for typed `excalibur-blog-geo-qa` in agent + skill + pitfalls (expected Cloud limitation, not code bug).
+files_changed:
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Cloud Task fallback wording present
+commit: 658ba33c
 ## INC-20261029-1721-geo-qa-human-voice-outcome-markers
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -448,10 +465,20 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Writer skill + writing contract now require ≥3 distinct human-voice OUTCOME_MARKERS substrings; note that «соберёте» does not match `соберите`.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` OUTCOME_MARKERS / соберёте guidance in writer contract
+commit: 658ba33c
 ## INC-20261029-1726-schema-placeholder-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-schema
 topic_id: B01
@@ -483,11 +510,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Schema skill/agent require committed `${PUBLIC_SITE_URL}`/CTA placeholders.
+- `excalibur_blog_wp_publish.expand_schema_placeholders` expands in-memory before WP meta.
+- Restored `excalibur_git.sh` (shared with scout INC).
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_git.sh`
+checks_run:
+- unit expand_schema_placeholders
+- py_compile publish script
+commit: 658ba33c
 ## INC-20261029-1725-cover-prompt-hoodie-lock
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-cover
 topic_id: B01
@@ -513,10 +556,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Removed hardcoded white-hoodie outfit lock; outfit follows scene_hint/weather; prompt safety rejects hoodie lock + toxic lemmas.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- validate_prompt_safety rejects white-hoodie lock
+- py_compile cover prompt builder
+commit: 658ba33c
 ## INC-20261029-1725-cover-kie-http-ref-fail
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-cover
 topic_id: B01
@@ -544,10 +600,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- `blog-hero.json` reference URL upgraded to HTTPS; hero helper + cover prompt prefer_https for Kie input_urls.
+files_changed:
+- `memory/cover/blog-hero.json`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- prefer_https unit
+- JSON parse blog-hero.json
+commit: 658ba33c
 ## INC-20261029-1734-indexer-llms-missing-blog-path
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-indexer
 topic_id: B01
@@ -580,4 +648,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Added `--blog-path` to llms generator with correct join for `blog_path: /` → `/{slug}/`.
+- Doctor asserts flag; indexer skill/agent use `--site-base "" --blog-path /`.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor errors=0 (llms --blog-path OK)
+- dry-run llms URLs `/nissan-qashqai-.../` without `/blog/`
+commit: 658ba33c

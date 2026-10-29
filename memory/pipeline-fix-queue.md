@@ -6,6 +6,103 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261029-0935-cover-mcp-internal-http-ref
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` i2i returned Internal Error with task_id; Kie `recordInfo` confirmed state=fail failCode=500.
+- Immediate Kie recreate with the same `http://avtosales125.ru/...` `input_urls` also failed Internal Error 500.
+- `http://` reference URL 301-redirects to `https://`; Kie fetcher appears to fail on the http form.
+
+### How the agent recovered this run
+- Switched `reference_url_hosted` / batch `input_urls` to the `https://` WordPress media URL (same asset).
+- Recreated ONE Kie job via `excalibur_blog_kie_gpt_image2_api.py`; success → `quad_apply --inject-html`.
+- catbox/0x0 `--force` rehost failed (412 / SSL timeout); kept WordPress https host.
+
+### Durable fix needed before next run
+- `excalibur_blog_hero_reference_url.py` (and/or batch writer) should normalize hosted reference to https when http origin 301s.
+- Cover skill/timeout policy: treat MCP Internal Error + failCode=500 like timeout recovery; prefer https input_urls before retry.
+- Document that blind second create is OK only after confirmed fail state (not while waiting).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261029-0936-cover-prompt-builder-toxic-hoodie
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` still embeds banned Cyrillic lemmas (`лох`/`лохов`) as negative examples and locks outfit to thick white hoodie, overriding agent scene_hint rain-jacket outfit.
+
+### How the agent recovered this run
+- Sanitized `cover/quad-mcp-batch.json` + prompt.txt before MCP/Kie: removed lemma examples; replaced hoodie lock with navy rain jacket outfit from scene_hint.
+
+### Durable fix needed before next run
+- Remove banned-lemma literals from prompt builder negatives; say "no demeaning slang" without quoting lemmas.
+- Stop hardcoding white hoodie lock; prefer `slots.cover.scene_hint` outfit / `blog-hero.outfit_rule`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261029-0937-cover-missing-corner-brand
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: other
+
+### What went wrong
+- Generated cover panel missed corner catalog brand `avto-sales125.ru` despite prompt requirements.
+
+### How the agent recovered this run
+- PIL overlay stamp of `avto-sales125.ru` on `cover/cover.png` (no second image gen).
+
+### Durable fix needed before next run
+- Add optional post-split corner stamp helper in `excalibur_blog_quad_apply.py` or a small stamp script when brand text is missing.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261029-0927-schema-precommit-secret-names
 status: open
 run_date: 2026-10-29

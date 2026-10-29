@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Adventure с пятёркой — уже ставим?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Toyota RAV4 в порту Владивостока, плашка до ставки, угол avto-sales125.ru",
+      "scene_hint": "Hyper-realistic action selfie: EXACT face+glasses from reference; OUTFIT = navy waterproof rain jacket over grey crewneck, light scarf (foggy Vladivostok port morning, NOT white reference hoodie); hero stands beside modern white Toyota RAV4 XA50 near ro-ro ship / port cranes; bold Cyrillic plaque «до ставки»; torn-paper collage with fake auction sheet scrap (grade 4.5, Adventure), sticky note «сначала код кузова», shocked-cat meme cutout, highlighter on «ставка»; corner brand avto-sales125.ru; no Wordstat/Metrika; no toxic slang",
+      "meme_caption_ru": "Сначала код — потом ставка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зачем сверять комплектацию до ставки, а не после выигрыша",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI mock comparison table RU: columns «До ставки» vs «После выигрыша» — rows: код кузова XA50/XA60, грейд X/G/Adventure, бензин/гибрид, объём ≤1900, оценка листа; green check vs red stop icons; tape corner + sticky «депозит не платить вслепую»; NO human face, NO hero",
+      "alt": "Таблица: сверка комплектации RAV4 до ставки против проверки после выигрыша"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите кузова XA50 и XA60: что смотрят под заказ",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram RU 5 steps: лот → код MXAA/AXAH (XA50) vs AXAN/AXAP (XA60) → топливо → объём см³ → проходность METI; two body silhouettes labeled XA50 / XA60; arrow to «только HEV на 60 JP»; mini sticky «новый ≠ бензин»; NO face, NO hero",
+      "alt": "Схема разбора кузовов Toyota RAV4 XA50 и XA60 под заказ из Японии"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните X, G, G Z Package и Adventure",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board RU grades: ☐ X ☐ G ☐ G Z Package ☐ Adventure — rows: клиренс, пакет, салон, «не = Престиж РФ»; marker highlight Adventure; tape + torn auction grade scrap; NO face, NO hero",
+      "alt": "Чеклист сравнения грейдов RAV4: X, G, G Z Package и Adventure"
+    }
+  }
+}

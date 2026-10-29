@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1359,
+      764
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 764,
+        "end": 801
+      },
+      "v_gutter_px": {
+        "start": 1359,
+        "end": 1382
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1359,
+          "bottom": 764
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1359,
+          "bottom": 764
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у Toyota RAV4 в порту Владивостока, плашка до ставки, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1382,
+          "top": 0,
+          "right": 2736,
+          "bottom": 764
+        },
+        "raw_box_px": {
+          "left": 1382,
+          "top": 0,
+          "right": 2736,
+          "bottom": 764
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: сверка комплектации RAV4 до ставки против проверки после выигрыша",
+        "h2_anchor": "Зачем сверять комплектацию до ставки, а не после выигрыша"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 26,
+          "top": 801,
+          "right": 1333,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 801,
+          "right": 1359,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема разбора кузовов Toyota RAV4 XA50 и XA60 под заказ из Японии",
+        "h2_anchor": "Разберите кузова XA50 и XA60: что смотрят под заказ"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1405,
+          "top": 801,
+          "right": 2712,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1382,
+          "top": 801,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист сравнения грейдов RAV4: X, G, G Z Package и Adventure",
+        "h2_anchor": "Сравните X, G, G Z Package и Adventure"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зачем сверять комплектацию до ставки, а не после выигрыша",
+    "injected inline_2 after H2 — Разберите кузова XA50 и XA60: что смотрят под заказ",
+    "injected inline_3 after H2 — Сравните X, G, G Z Package и Adventure"
+  ]
+}

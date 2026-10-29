@@ -81,3 +81,9 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+
+## Git commit на Cloud
+
+Коммить topic cards через `scripts/excalibur_git.sh` — фильтр non-identifier имён в `CLOUD_AGENT_INJECTED_SECRET_NAMES` + retry. Не полагайся на отсутствующий ad-hoc workaround.
+

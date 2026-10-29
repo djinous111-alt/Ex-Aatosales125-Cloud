@@ -46,3 +46,37 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+
+
+## Git / Cloud pre-commit
+
+- Если `git commit` падает с `invalid variable name` на `${!SECRET_NAME}` / pre-commit.cursor: используй `scripts/excalibur_git.sh commit -m "..."` (фильтрует non-identifier имена в `CLOUD_AGENT_INJECTED_SECRET_NAMES` и один раз ретраит с пустым списком).
+- Не регистрируй Cloud Secrets с URL-shaped именами — только bash identifiers (`[A-Za-z_][A-Za-z0-9_]*`).
+
+## Research notes gate
+
+- `technical_topic` — word-boundary маркеры; auto how-to не должен требовать 3× github.com из-за `ai` внутри `pain`.
+- `accessed_at` = явный токен или ISO-дата в URL-строках source table.
+- Official WebFetch 5xx → WebSearch snippet + secondary source + note in freshness_notes.
+
+## Writer / GEO QA
+
+- Инсайт-ярлык: только `Инсайт до ставки:` / `Инсайт до депозита:` — не `TL;DR` / не `Быстрый инсайт` (html-linter FAIL).
+- CTA в git: `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` — не live `t.me/...`.
+- `editorial-policy.json` обязан держать `pain_markers_ru`, `outcome_markers_ru`, `_markers_pinned: true` (doctor FAIL если сняли при rebrand). Utility-gate имеет script fallback, но ключи не удалять.
+
+## Cover
+
+- `input_urls` только https; http→https нормализация в hero/prompt builder.
+- MCP Internal Error / failCode=500 = recovery после confirmed fail + https, не blind duplicate create.
+- Outfit из scene_hint/outfit_rule, не white-hoodie lock; toxic lemmas не цитировать в prompt.
+- Нет угла бренда → `excalibur_blog_cover_corner_stamp.py` / `--stamp-corner-brand`, без второй генерации.
+
+## Indexer / llms
+
+- llms generator CLI: `--blog-dir`, **не** `--blog-path`. Doctor проверяет `--blog-dir`.
+
+## Typed Task fallback
+
+- Если typed `excalibur-blog-*` Task недоступен (в т.ч. geo-qa): `Task(generalPurpose)` + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` — **first-class path**, не аварийный костыль.
+

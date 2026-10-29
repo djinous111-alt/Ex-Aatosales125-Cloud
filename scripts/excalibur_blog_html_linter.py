@@ -30,8 +30,61 @@ def detect_anchor_toc(html: str) -> list[str]:
             errors.append(
                 "Forbidden in-body TOC: list with 3+ anchor links to headings "
                 f"(#{', #'.join(anchor_links[:5])}{'...' if len(anchor_links) > 5 else ''}). "
-                "Remove <ol>/<ul> navigation after TL;DR; see excalibur-article-writing-contract.md block 3."
+                "Remove <ol>/<ul> navigation after insight blockquote; see excalibur-article-writing-contract.md block 3."
             )
+    return errors
+
+
+FORBIDDEN_INSIGHT_LABELS = (
+    r"tl\s*;\s*dr",
+    r"быстрый\s+инсайт",
+)
+
+
+def detect_forbidden_insight_labels(html: str) -> list[str]:
+    """Fail on banned insight openers (TL;DR / Быстрый инсайт)."""
+    errors: list[str] = []
+    # Check first blockquote (AEO insight box) and early body
+    head = html[:4000]
+    for pat in FORBIDDEN_INSIGHT_LABELS:
+        if re.search(pat, head, flags=re.IGNORECASE):
+            errors.append(
+                "Forbidden insight label in article.html (matched "
+                f"/{pat}/). Use «Инсайт до ставки:» or «Инсайт до депозита:» — "
+                "never «TL;DR» or «Быстрый инсайт»."
+            )
+            break
+    return errors
+
+
+def detect_raw_cta_urls(html: str) -> list[str]:
+    """Fail if CTA hrefs embed live telegram/catalog hosts instead of ${ENV} placeholders."""
+    errors: list[str] = []
+    hrefs = re.findall(r"""href=["']([^"']+)["']""", html, flags=re.IGNORECASE)
+    banned_substrings = (
+        "t.me/",
+        "telegram.me/",
+        "telegram.org/",
+    )
+    for href in hrefs:
+        lower = href.lower().strip()
+        if lower.startswith("${") and lower.endswith("}"):
+            continue
+        for bad in banned_substrings:
+            if bad in lower:
+                errors.append(
+                    f"Forbidden raw CTA href with live messenger host ({bad!r}). "
+                    "Use ${TELEGRAM_URL} / ${CATALOG_URL} / ${MAX_URL} placeholders in git artifacts."
+                )
+                return errors
+        # Bare non-placeholder http(s) CTA to known catalog-looking paths is soft-warned via placeholders contract;
+        # hard-fail only when clearly a secret-scanned messenger host (above) or explicit CATALOG_URL without ${}.
+        if re.fullmatch(r"catalog_url|telegram_url|max_url", lower):
+            errors.append(
+                f"CTA href looks like an unexpanded env name without ${{...}}: {href!r}. "
+                "Use ${CATALOG_URL} / ${TELEGRAM_URL} / ${MAX_URL}."
+            )
+            return errors
     return errors
 
 
@@ -122,6 +175,8 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_forbidden_insight_labels(html_content))
+    linter.errors.extend(detect_raw_cta_urls(html_content))
 
     return {
         "file": str(html_path.name),

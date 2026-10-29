@@ -1,0 +1,45 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026",
+  "title": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026",
+  "h1": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026",
+  "description": "Тойота рав 4 комплектации из Японии: XA50/XA60, Adventure vs G, гибрид и порог 1900 см³. Чек-лист 12 пунктов до ставки без депозита вслепую.",
+  "cover_alt": "Герой Авто-Сейлс у Toyota RAV4 в порту Владивостока, плашка до ставки, угол avto-sales125.ru",
+  "primary_query": "тойота рав 4 комплектации",
+  "secondary_queries": [
+    "рав 4 комплектации",
+    "toyota rav4 из японии",
+    "тойота рав 4 гибрид 2026 комплектация",
+    "toyota rav4 2026 комплектации"
+  ],
+  "char_count": 8624,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать Toyota RAV4 из Японии до ставки",
+    "чеклист комплектаций RAV4 XA50 и XA60",
+    "ловушки аукционного листа RAV4 2026"
+  ],
+  "meta_ab": {
+    "title_seo": "Тойота рав 4 комплектации из Японии: чек-лист до ставки",
+    "title_ctr": "🚗 Тойота рав 4 комплектации: почему Adventure с аукциона может не доехать?",
+    "title_aeo": "Как выбрать комплектацию Toyota RAV4 из Японии и не поставить на непроходной лот?",
+    "description_seo": "Тойота рав 4 комплектации из Японии: XA50/XA60, Adventure vs G, гибрид и порог 1900 см³. Чек-лист 12 пунктов до ставки без депозита вслепую.",
+    "description_ctr": "⚡ Хотели Престиж, а в листе Hybrid? Чек-лист грейдов RAV4, METI-стоп и ловушки оценки 4.5 до любой ставки.",
+    "description_aeo": "До ставки на RAV4 из Японии сверьте код кузова, грейд X/G/Adventure, объём и топливо: hybrid и >1900 см³ с 09.08.2023 непроходные в РФ."
+  },
+  "geo_qa": {
+    "score": 87,
+    "verdict": "PASS",
+    "date": "2026-10-29",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "research_notes_gate": "PASS",
+    "utility_gate": "PASS",
+    "human_voice_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "18/20"
+  },
+  "cover_family": "brand_collage"
+}

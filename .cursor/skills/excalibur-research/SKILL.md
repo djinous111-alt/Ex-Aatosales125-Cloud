@@ -68,3 +68,19 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## Freshness / WebFetch 5xx
+
+Если официальный government/docs URL даёт WebFetch HTTP 5xx:
+1. Не блокируй research — зафиксируй URL + `accessed_at` и факт 5xx в `freshness_notes`.
+2. Подтверди те же факты через WebSearch snippet той же страницы **плюс** один независимый secondary source.
+3. Retry/backoff один раз опционален; после повторного 5xx иди по fallback выше.
+
+## technical_topic / github_evidence
+
+`research_notes_gate.py` помечает тему technical только по word-boundary маркерам (AI/MCP/API/agent/GitHub/Docker…), **не** по подстроке `ai` внутри `reader_pain` и не по русской морфологии `ии`.
+Для auto/non-dev тем (`technical_topic=false`) `github_evidence` может быть community/docs URL; три `github.com` обязательны только при `technical_topic=true`.
+
+`accessed_at` засчитывается из явного `accessed_at: YYYY-MM-DD` **или** ISO-даты в строках source-таблицы с URL.
+`pain_solution_map` считает data-rows таблицы по структуре секции, не требуя слова pain/solution в каждой клетке.
+

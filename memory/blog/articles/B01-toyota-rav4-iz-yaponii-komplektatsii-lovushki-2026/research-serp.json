@@ -1,0 +1,676 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-29",
+    "today_ru": "29.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-31",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-29 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026",
+    "primary_query": "тойота рав 4 комплектации",
+    "secondary_queries": [
+      "рав 4 комплектации",
+      "toyota rav4 из японии",
+      "тойота рав 4 гибрид 2026 комплектация",
+      "toyota rav4 2026 комплектации"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "тойота рав 4 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота РАВ4 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 2026 между собой."
+        },
+        {
+          "title": "РАВ 4 новый: комплектации и цены 2026 года | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/rav-4-novyy-komplektatsii-i-tseny-2026-goda-kak-vybrat-pod-klyuch-8539",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 между собой."
+        },
+        {
+          "title": "Toyota RAV4 2026 — комплектации и цены в СПб | характеристики и оснащение",
+          "url": "https://toyota-spb.ru/rav4/equipment/",
+          "snippet": "Разбираем, как читать комплектации Toyota RAV4 2026 модельного года, из чего складывается цена под ключ и на что смотреть перед заказом автомобиля в Россию."
+        },
+        {
+          "title": "Toyota RAV 4 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-toyota.ru/modelnyj-ryad-toyota/rav-4/",
+          "snippet": "Сравните комплектации Toyota RAV4 2026 года. Покажем актуальные цены, расскажем, чем отличаются версии, и поможем подобрать RAV4 в наличии, в кредит или по Trade-In."
+        },
+        {
+          "title": "Toyota RAV4 2026: комплектации и цены, сравнение версий",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav-4-komplektatsii.html",
+          "snippet": "Новый Тойота РАВ 4 2026 - комплектации, фото и технические характеристики. Цены на покупку RAV 4 за наличные и в кредит по официальной программе Toyota в салонах автодилеров в Москве."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "тойота рав 4 комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "РАВ 4 новый: комплектации и цены 2026 года | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/rav-4-novyy-komplektatsii-i-tseny-2026-goda-kak-vybrat-pod-klyuch-8539",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 2026 между собой."
+        },
+        {
+          "title": "Тойота РАВ4 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/",
+          "snippet": "Разбираем, как читать комплектации Toyota RAV4 2026 модельного года, из чего складывается цена под ключ и на что смотреть перед заказом автомобиля в Россию."
+        },
+        {
+          "title": "Тойота РАВ4 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/toyota-rav4-2026/",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 между собой."
+        },
+        {
+          "title": "Toyota RAV4 2026 — комплектации и цены в СПб | характеристики и оснащение",
+          "url": "https://toyota-spb.ru/rav4/equipment/",
+          "snippet": "Модель предлагается в нескольких комплектациях, а цена на нее стартует с отметки 2,12 млн рублей. В зависимости от рынка кроссовер доступен с разными техническими характеристиками. Его моторная линейка включает в себя как стандартные ДВС, так и гибридные установки."
+        },
+        {
+          "title": "Toyota RAV 4 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-toyota.ru/modelnyj-ryad-toyota/rav-4/",
+          "snippet": "Сравните комплектации Toyota RAV4 2026 года. Покажем актуальные цены, расскажем, чем отличаются версии, и поможем подобрать RAV4 в наличии, в кредит или по Trade-In."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "тойота рав 4 комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota RAV4 2026: обзор Тойота РАВ4, цены, характеристики",
+          "url": "https://avtospart.ru/blog/articles/detail/toyota-rav4-2026-4",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 2026 между собой."
+        },
+        {
+          "title": "Новый Тойота РАВ 4: Полный обзор, цены и характеристики 2026",
+          "url": "https://toyotabase.vercel.app/articles/n/no/novyj-tojota-rav-4.html",
+          "snippet": "Детальный обзор Toyota RAV4 2026: цены в России, характеристики, комплектации, плюсы и минусы, обслуживание. Всё о Тойота РАВ4 для будущих владельцев."
+        },
+        {
+          "title": "РАВ 4 новый: комплектации и цены 2026 года | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/rav-4-novyy-komplektatsii-i-tseny-2026-goda-kak-vybrat-pod-klyuch-8539",
+          "snippet": "Детальный анализ нового Тойота РАВ 4. Гибрид, динамика, комплектации и реальные отзывы. Стоит ли покупать кроссовер в 2026 году?"
+        },
+        {
+          "title": "Новая Toyota RAV4 2026: Полный обзор, цены и комплектации",
+          "url": "https://toyotabase.vercel.app/articles/n/no/nova-tojota-rav-4.html",
+          "snippet": "Разбираем, как читать комплектации Toyota RAV4 2026 модельного года, из чего складывается цена под ключ и на что смотреть перед заказом автомобиля в Россию."
+        },
+        {
+          "title": "Новый Toyota RAV4 2026: гибрид, спорт и прощание с бензином",
+          "url": "https://allroader.ru/toyota-rav4-2026-137729/",
+          "snippet": "Подробный тест-драйв новой Тойота РАВ4. Разбор двигателей, расход топлива, комплектации, безопасность и сравнение с конкурентами. Стоит ли покупать?"
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com тойота рав 4 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "croptails/icon.svg at main · EdmondWang/croptails · GitHub",
+          "url": "https://github.com/EdmondWang/croptails/blob/main/icon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "godot_story/icon.svg at main · Gabi-R-S/godot_story · GitHub",
+          "url": "https://github.com/Gabi-R-S/godot_story/blob/main/icon.svg",
+          "snippet": "Contribute to EdmondWang/croptails development by creating an account on GitHub."
+        },
+        {
+          "title": "BBK-S6-ToolBox/icon.png at main · GeekHorizonOpenSource/BBK-S6-ToolBox",
+          "url": "https://github.com/GeekHorizonOpenSource/BBK-S6-ToolBox/blob/main/icon.png",
+          "snippet": "Contribute to Gabi-R-S/godot_story development by creating an account on GitHub."
+        },
+        {
+          "title": "Dino2/icon.svg at main · rakibmondal003/Dino2 · GitHub",
+          "url": "https://github.com/rakibmondal003/Dino2/blob/main/icon.svg",
+          "snippet": "Contribute to GeekHorizonOpenSource/BBK-S6-ToolBox development by creating an account on GitHub."
+        },
+        {
+          "title": "maud/main_figure.png at main · The-Atticus-Project/maud",
+          "url": "https://github.com/The-Atticus-Project/maud/blob/main/main_figure.png",
+          "snippet": "Contribute to rakibmondal003/Dino2 development by creating an account on GitHub."
+        },
+        {
+          "title": "spend-conscience/icon.svg at main · sehejjain/spend-conscience",
+          "url": "https://github.com/sehejjain/spend-conscience/blob/main/icon.svg",
+          "snippet": "Contribute to The-Atticus-Project/maud development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "тойота рав 4 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "PDF Toyota Official Site",
+          "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2026/2026_rav4_brochure_20260612_142557.pdf",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 2026 между собой."
+        },
+        {
+          "title": "Toyota RAV4 2026: все комплектации и цены в России",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav4-komplektatsii.html",
+          "snippet": "Toyota Official Site"
+        },
+        {
+          "title": "Toyota RAV 4 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-toyota.ru/modelnyj-ryad-toyota/rav-4/",
+          "snippet": "Подробный обзор комплектаций Toyota RAV4 2026: сравнение Standard, Comfort, Prestige, Luxe. Технические характеристики, цены и что выбрать для города и бездорожья."
+        },
+        {
+          "title": "РАВ 4 новый: комплектации и цены 2026 года | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/rav-4-novyy-komplektatsii-i-tseny-2026-goda-kak-vybrat-pod-klyuch-8539",
+          "snippet": "Новый Тойота РАВ 4 2026 - комплектации, фото и технические характеристики. Цены на покупку RAV 4 за наличные и в кредит по официальной программе Toyota в салонах автодилеров в Москве."
+        },
+        {
+          "title": "Toyota RAV4 новая: обзор, комплектации и цены 2026-2026",
+          "url": "https://toyotabase.vercel.app/articles/r/ra/rav-4-tojota-novaya.html",
+          "snippet": "Разбираем, как читать комплектации Toyota RAV4 2026 модельного года, из чего складывается цена под ключ и на что смотреть перед заказом автомобиля в Россию."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "тойота рав 4 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Клуб ТОЙОТА РАВ 4 форум, ремонт, запчасти, тюнинг",
+          "url": "https://4rav.ru/forums/",
+          "snippet": ""
+        },
+        {
+          "title": "Отзывы владельцев Toyota RAV4, 2026 года с ФОТО",
+          "url": "https://www.drom.ru/reviews/toyota/rav4/2026-all/",
+          "snippet": "Форум (клуб) по самому главному конкуренту Тойота РАВ 4 от компании Honda. Более тысячи сообщений по этому автомобилю (фото, примеры тюнинга и т д)."
+        },
+        {
+          "title": "Тойота РАВ4 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/toyota/rav4/5kopeek/?year1=2025&year2=2026",
+          "snippet": "Мало отзывов о Тойоте Рав 4 в новом кузове. Давно читаю Дром и решил поделиться опытом. Отзыв будет составлен из нескольких частей. Сегодня напишу про муки выбора автомобиля. В июле 2026 года приобрёл Тойота Рав 4 VI поколения ХА60 с китайского рынка через параллельный..."
+        },
+        {
+          "title": "Toyota RAV4 2026: честные отзывы владельцев и экспертов",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav-4-otzyvy.html",
+          "snippet": "Отзывы владельцев Тойота РАВ4 2025 - 2026: все минусы и плюсы, недостатки, поломки. Опыт эксплуатации реальных владельцев автомобилей Тойота РАВ4: плюсы и минусы."
+        },
+        {
+          "title": "Toyota RAV4: форумы, отзывы владельцев и полезные советы 2026",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-forum-rav-4.html",
+          "snippet": "Вы узнаете, какие скрытые проблемы могут возникнуть при эксплуатации, как обстоят дела с расходом топлива в городском цикле, и почему некоторые владельцы жалеют о покупке."
+        },
+        {
+          "title": "Клуб ТОЙОТА РАВ 4 форум, ремонт, запчасти, тюнинг",
+          "url": "https://m.4rav.ru/forums/index.php",
+          "snippet": "В этой статье мы собрал топ-10 русскоязычных и зарубежных форумов про RAV4 (включая поколения XA40, XA50 и новейший XA60), разобрали самые горячие темы обсуждений (от коррозии кузова до прошивки ..."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "рав 4 комплектации 2026",
+      "purpose": "вторичный запрос: рав 4 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота РАВ4 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 2026 между собой."
+        },
+        {
+          "title": "РАВ 4 новый: комплектации и цены 2026 года | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/rav-4-novyy-komplektatsii-i-tseny-2026-goda-kak-vybrat-pod-klyuch-8539",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 между собой."
+        },
+        {
+          "title": "Купить новый Toyota RAV 4 (Тойота РАВ 4) комплектации и цены 2026",
+          "url": "https://legend-auto.ru/toyota/rav-4/",
+          "snippet": "Разбираем, как читать комплектации Toyota RAV4 2026 модельного года, из чего складывается цена под ключ и на что смотреть перед заказом автомобиля в Россию."
+        },
+        {
+          "title": "Toyota RAV4 2026: все комплектации и цены в России",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav4-komplektatsii.html",
+          "snippet": "Продажа автомобиля Toyota RAV 4 2026 модельного года в новом кузове: фото, комплектации и цены."
+        },
+        {
+          "title": "Toyota RAV 4 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-toyota.ru/modelnyj-ryad-toyota/rav-4/",
+          "snippet": "Подробный обзор комплектаций Toyota RAV4 2026: сравнение Standard, Comfort, Prestige, Luxe. Технические характеристики, цены и что выбрать для города и бездорожья."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "toyota rav4 из японии 2026",
+      "purpose": "вторичный запрос: toyota rav4 из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota RAV4 2026 — купить гибрид из Японии | JCK AUTO",
+          "url": "https://jckauto.ru/catalog/cars/toyota-rav4-2026-gibrid-iz-yaponii-04091669",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+          "snippet": "Это Toyota RAV4 2026 года, гибрид с 2.5-литровым двигателем и вариатором. Полный привод — не маркетинговая игрушка, а реальная помощь на скользкой дороге или лёгком бездорожье."
+        },
+        {
+          "title": "Toyota RAV4 из Японии 2026: какие двигатели проходят и сколько стоит на ...",
+          "url": "https://autoprofiasia.ru/blog/toyota-rav4-iz-yaponii-2026-tsena",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 2026 между собой."
+        },
+        {
+          "title": "Toyota RAV4 2026 - полный обзор нового поколения японского кроссовера",
+          "url": "https://avlc.ru/news/toyota-rav4-2026-polnyy-obzor-novogo-pokoleniya-yaponskogo-krossovera/",
+          "snippet": "Клиенты часто спрашивают: «Хочу RAV4 из Японии под ключ, сколько будет стоить в 2026 году?» Отвечаю честно — напрямую из Японии вы RAV4 не привезёте. Ни 2.0, ни гибрид."
+        },
+        {
+          "title": "Toyota RAV4 Hybrid из Японии: стоимость под ключ, комплектации и что ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-rav4-hybrid-iz-yaponii",
+          "snippet": "Полный обзор Toyota RAV4 2026: новое поколение японского кроссовера с революционным дизайном, гибридными двигателями и передовыми технологиями."
+        },
+        {
+          "title": "Toyota из Японии 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+          "snippet": "Toyota RAV4 Hybrid (AXAH52/54) из Японии под ключ в 2026: аукционные цены, таможня, расчёт стоимости для Сибири и ДВ. Какую комплектацию выбрать."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "тойота рав 4 гибрид 2026 комплектация 2026",
+      "purpose": "вторичный запрос: тойота рав 4 гибрид 2026 комплектация",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Новый Toyota RAV4 2026: гибрид, спорт и прощание с бензином",
+          "url": "https://allroader.ru/toyota-rav4-2026-137729/",
+          "snippet": "Подробно расписан модельный ряд Toyota RAV4 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота РАВ4 2026 между собой."
+        },
+        {
+          "title": "Toyota RAV4 PHV 2026: гибрид с подзарядкой, цены, характеристики",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav4-phv.html",
+          "snippet": "Toyota RAV4 2026 стал мощнее, технологичнее и полностью гибридным. Теперь в линейке - GR Sport и быстрая зарядка у PHEV-версий."
+        },
+        {
+          "title": "Toyota RAV4 2026: все комплектации и цены в России",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav4-komplektatsii.html",
+          "snippet": "Подробный обзор Toyota RAV4 Plug-in Hybrid (PHV): технические данные, расход топлива, зарядка, сравнение с конкурентами и отзывы владельцев. Узнайте, почему этот кроссовер лидирует в сегменте."
+        },
+        {
+          "title": "Новый Toyota RAV4 hybrid (2026) цена и комплектации",
+          "url": "https://aurum-motors.ru/toyota-rav4-hybrid-2026/",
+          "snippet": "Подробный обзор комплектаций Toyota RAV4 2026: сравнение Standard, Comfort, Prestige, Luxe. Технические характеристики, цены и что выбрать для города и бездорожья."
+        },
+        {
+          "title": "2026 Toyota RAV4 GR Sport PHEV 2.5L eCVT Plug-in Hybrid, 6-е поколение ...",
+          "url": "https://www.carspin.ru/2026-toyota-rav4-gr-sport-phev-2-5-ecvt-plug-in-hybrid-6-gen-xa60/",
+          "snippet": "Купить автомобиль под ключ с документами и доставкой до Вашего города, работаем со всеми регионами. С получением ЭПТС для постановки на учёт."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "toyota rav4 2026 комплектации 2026",
+      "purpose": "вторичный запрос: toyota rav4 2026 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota RAV4 2026: все комплектации с ценами и характеристиками",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-rav-4-komplektatsii.html",
+          "snippet": "Тойота РАВ4 2026 комплектации и цены, фото. Подробно расписан модельный ряд Toyota RAV4 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Toyota RAV4 2026: комплектации и цены, сравнение версий",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav-4-komplektatsii.html",
+          "snippet": "Подробный разбор комплектаций Toyota RAV4 2026: сравнение Standard, Comfort, Prestige и Luxe. Технические особенности, цены и что выбрать для города/бездорожья."
+        },
+        {
+          "title": "Toyota RAV4 2026 — комплектации и цены в СПб | характеристики и оснащение",
+          "url": "https://toyota-spb.ru/rav4/equipment/",
+          "snippet": "Подробный разбор всех комплектаций Toyota RAV4 2026 года: технические характеристики, цены, отличия версий и советы по выбору. Сравнительные таблицы и FAQ."
+        },
+        {
+          "title": "РАВ 4 новый: комплектации и цены 2026 года | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/rav-4-novyy-komplektatsii-i-tseny-2026-goda-kak-vybrat-pod-klyuch-8539",
+          "snippet": "Сравните комплектации Toyota RAV4 2026 года. Покажем актуальные цены, расскажем, чем отличаются версии, и поможем подобрать RAV4 в наличии, в кредит или по Trade-In."
+        },
+        {
+          "title": "Купить новые Toyota RAV4 2026 года по цене от 3 815 000 рублей - более ...",
+          "url": "https://auto.ru/cars/toyota/rav_4/2026-year/new/",
+          "snippet": "Разбираем, как читать комплектации Toyota RAV4 2026 модельного года, из чего складывается цена под ключ и на что смотреть перед заказом автомобиля в Россию."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota RAV4 японской сборки: где купить и как выбрать в 2026 году",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-rav-4-yaponskoj-sborki-kupit.html",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota RAV4 Hybrid из Японии: стоимость под ключ, комплектации и что ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-rav4-hybrid-iz-yaponii",
+          "snippet": "Хотите купить Toyota RAV4 оригинальной японской сборки? Сравниваем цены, проверяем историю, анализируем плюсы и минусы импорта из Японии. Полное руководство с экспертными советами."
+        },
+        {
+          "title": "Toyota RAV4 из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/32-toyota-rav4-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Toyota RAV4 Hybrid — один из самых запрашиваемых кроссоверов в нашем потоке. Проверенная гибридная система, полный привод E-Four на электромоторе, умеренный расход даже на трассе. Разберём, каковы реальные цены под ключ в Сибири и что важно учесть при выборе. Дата актуальности: 21 мая 2026."
+        },
+        {
+          "title": "Toyota RAV4 2026: стоит ли покупать и как выбрать комплектацию",
+          "url": "https://tamx.ru/journal/toyota-rav4-2026-stoit-li-pokupat-i-kak-vybrat-komplektatsiyu-7783",
+          "snippet": "Если вы планируете покупку Toyota RAV4 под ключ, важно заранее просчитать все расходы: от цены лота до таможенных пошлин и утилизационного сбора. Наши эксперты помогут подобрать оптимальный вариант и провести сделку без рисков."
+        },
+        {
+          "title": "Toyota RAV4 из Японии: почему «японец» всё ещё желаннее и как привезти ...",
+          "url": "https://jckauto.ru/blog/toyota-rav4-import-japan",
+          "snippet": "Эта модель интересна тем, кто ищет практичный кроссовер без лишнего риска: для семьи, города, трассы и регулярных поездок за город. По актуальным данным каталога tamx.ru, Toyota RAV4 2026 года и новее доступен из Кыргызстана и Японии; самый доступный маршрут — из Кыргызстана, от 2 130 000 ₽ под ключ."
+        },
+        {
+          "title": "Toyota RAV4 из Японии: поколения, комплектации, цены и аукционы",
+          "url": "https://avtomost-asia.ru/models/toyota-rav4",
+          "snippet": "Разбираем шестое поколение Toyota RAV4 для японского рынка: гибридные технологии, особенности комплектаций Z и Adventure, отличия от версий для других стран."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/toyota/rav4/2026/",
+      "title": "Тойота РАВ4 2026 технические характеристики. Toyota RAV4 2026 ...",
+      "from_query": "тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/rav4/",
+      "title": "Тойота РАВ4 технические характеристики, комплектации и цены",
+      "from_query": "тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://tamx.ru/journal/rav-4-novyy-komplektatsii-i-tseny-2026-goda-kak-vybrat-pod-klyuch-8539",
+      "title": "РАВ 4 новый: комплектации и цены 2026 года | АвтоДилер Тарасов",
+      "from_query": "тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://toyota-spb.ru/rav4/equipment/",
+      "title": "Toyota RAV4 2026 — комплектации и цены в СПб | характеристики и оснащение",
+      "from_query": "тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://kuplu-toyota.ru/modelnyj-ryad-toyota/rav-4/",
+      "title": "Toyota RAV 4 2026: комплектации и цены официальных дилеров в Москве",
+      "from_query": "тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav-4-komplektatsii.html",
+      "title": "Toyota RAV4 2026: комплектации и цены, сравнение версий",
+      "from_query": "тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-rav4-2026/",
+      "title": "Тойота РАВ4 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "тойота рав 4 комплектации октябрь 2026"
+    },
+    {
+      "url": "https://avtospart.ru/blog/articles/detail/toyota-rav4-2026-4",
+      "title": "Toyota RAV4 2026: обзор Тойота РАВ4, цены, характеристики",
+      "from_query": "тойота рав 4 комплектации новости 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/n/no/novyj-tojota-rav-4.html",
+      "title": "Новый Тойота РАВ 4: Полный обзор, цены и характеристики 2026",
+      "from_query": "тойота рав 4 комплектации новости 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/n/no/nova-tojota-rav-4.html",
+      "title": "Новая Toyota RAV4 2026: Полный обзор, цены и комплектации",
+      "from_query": "тойота рав 4 комплектации новости 2026"
+    },
+    {
+      "url": "https://allroader.ru/toyota-rav4-2026-137729/",
+      "title": "Новый Toyota RAV4 2026: гибрид, спорт и прощание с бензином",
+      "from_query": "тойота рав 4 комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/EdmondWang/croptails/blob/main/icon.svg",
+      "title": "croptails/icon.svg at main · EdmondWang/croptails · GitHub",
+      "from_query": "site:github.com тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/Gabi-R-S/godot_story/blob/main/icon.svg",
+      "title": "godot_story/icon.svg at main · Gabi-R-S/godot_story · GitHub",
+      "from_query": "site:github.com тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/GeekHorizonOpenSource/BBK-S6-ToolBox/blob/main/icon.png",
+      "title": "BBK-S6-ToolBox/icon.png at main · GeekHorizonOpenSource/BBK-S6-ToolBox",
+      "from_query": "site:github.com тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/rakibmondal003/Dino2/blob/main/icon.svg",
+      "title": "Dino2/icon.svg at main · rakibmondal003/Dino2 · GitHub",
+      "from_query": "site:github.com тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/The-Atticus-Project/maud/blob/main/main_figure.png",
+      "title": "maud/main_figure.png at main · The-Atticus-Project/maud",
+      "from_query": "site:github.com тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/sehejjain/spend-conscience/blob/main/icon.svg",
+      "title": "spend-conscience/icon.svg at main · sehejjain/spend-conscience",
+      "from_query": "site:github.com тойота рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2026/2026_rav4_brochure_20260612_142557.pdf",
+      "title": "PDF Toyota Official Site",
+      "from_query": "тойота рав 4 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav4-komplektatsii.html",
+      "title": "Toyota RAV4 2026: все комплектации и цены в России",
+      "from_query": "тойота рав 4 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/r/ra/rav-4-tojota-novaya.html",
+      "title": "Toyota RAV4 новая: обзор, комплектации и цены 2026-2026",
+      "from_query": "тойота рав 4 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://4rav.ru/forums/",
+      "title": "Клуб ТОЙОТА РАВ 4 форум, ремонт, запчасти, тюнинг",
+      "from_query": "тойота рав 4 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/rav4/2026-all/",
+      "title": "Отзывы владельцев Toyota RAV4, 2026 года с ФОТО",
+      "from_query": "тойота рав 4 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/rav4/5kopeek/?year1=2025&year2=2026",
+      "title": "Тойота РАВ4 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "тойота рав 4 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav-4-otzyvy.html",
+      "title": "Toyota RAV4 2026: честные отзывы владельцев и экспертов",
+      "from_query": "тойота рав 4 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-forum-rav-4.html",
+      "title": "Toyota RAV4: форумы, отзывы владельцев и полезные советы 2026",
+      "from_query": "тойота рав 4 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://m.4rav.ru/forums/index.php",
+      "title": "Клуб ТОЙОТА РАВ 4 форум, ремонт, запчасти, тюнинг",
+      "from_query": "тойота рав 4 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://legend-auto.ru/toyota/rav-4/",
+      "title": "Купить новый Toyota RAV 4 (Тойота РАВ 4) комплектации и цены 2026",
+      "from_query": "рав 4 комплектации 2026"
+    },
+    {
+      "url": "https://jckauto.ru/catalog/cars/toyota-rav4-2026-gibrid-iz-yaponii-04091669",
+      "title": "Toyota RAV4 2026 — купить гибрид из Японии | JCK AUTO",
+      "from_query": "toyota rav4 из японии 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/toyota-rav4-iz-yaponii-2026-tsena",
+      "title": "Toyota RAV4 из Японии 2026: какие двигатели проходят и сколько стоит на ...",
+      "from_query": "toyota rav4 из японии 2026"
+    },
+    {
+      "url": "https://avlc.ru/news/toyota-rav4-2026-polnyy-obzor-novogo-pokoleniya-yaponskogo-krossovera/",
+      "title": "Toyota RAV4 2026 - полный обзор нового поколения японского кроссовера",
+      "from_query": "toyota rav4 из японии 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/toyota-rav4-hybrid-iz-yaponii",
+      "title": "Toyota RAV4 Hybrid из Японии: стоимость под ключ, комплектации и что ...",
+      "from_query": "toyota rav4 из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+      "title": "Toyota из Японии 2026: модельный ряд и цены",
+      "from_query": "toyota rav4 из японии 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-rav4-phv.html",
+      "title": "Toyota RAV4 PHV 2026: гибрид с подзарядкой, цены, характеристики",
+      "from_query": "тойота рав 4 гибрид 2026 комплектация 2026"
+    },
+    {
+      "url": "https://aurum-motors.ru/toyota-rav4-hybrid-2026/",
+      "title": "Новый Toyota RAV4 hybrid (2026) цена и комплектации",
+      "from_query": "тойота рав 4 гибрид 2026 комплектация 2026"
+    },
+    {
+      "url": "https://www.carspin.ru/2026-toyota-rav4-gr-sport-phev-2-5-ecvt-plug-in-hybrid-6-gen-xa60/",
+      "title": "2026 Toyota RAV4 GR Sport PHEV 2.5L eCVT Plug-in Hybrid, 6-е поколение ...",
+      "from_query": "тойота рав 4 гибрид 2026 комплектация 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-rav-4-komplektatsii.html",
+      "title": "Toyota RAV4 2026: все комплектации с ценами и характеристиками",
+      "from_query": "toyota rav4 2026 комплектации 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/toyota/rav_4/2026-year/new/",
+      "title": "Купить новые Toyota RAV4 2026 года по цене от 3 815 000 рублей - более ...",
+      "from_query": "toyota rav4 2026 комплектации 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-rav-4-yaponskoj-sborki-kupit.html",
+      "title": "Toyota RAV4 японской сборки: где купить и как выбрать в 2026 году",
+      "from_query": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/32-toyota-rav4-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Toyota RAV4 из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://tamx.ru/journal/toyota-rav4-2026-stoit-li-pokupat-i-kak-vybrat-komplektatsiyu-7783",
+      "title": "Toyota RAV4 2026: стоит ли покупать и как выбрать комплектацию",
+      "from_query": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/toyota-rav4-import-japan",
+      "title": "Toyota RAV4 из Японии: почему «японец» всё ещё желаннее и как привезти ...",
+      "from_query": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://avtomost-asia.ru/models/toyota-rav4",
+      "title": "Toyota RAV4 из Японии: поколения, комплектации, цены и аукционы",
+      "from_query": "Как выбрать Toyota RAV4 из Японии: комплектации и ловушки до ставки в 2026 2026"
+    }
+  ]
+}

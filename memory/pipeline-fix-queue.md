@@ -63,7 +63,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0 warnings=0)
 - `bash scripts/excalibur_git.sh filter-env` smoke
-commit: pending-parent-commit
+commit: 746d0d13
 
 ## INC-20261030-2127-schema-public-site-placeholder-expand
 status: fixed
@@ -119,7 +119,7 @@ files_changed:
 checks_run:
 - doctor expand regression OK
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: 746d0d13
 
 ## INC-20261030-2128-cover-white-hoodie-outfit-lock
 status: fixed
@@ -172,7 +172,7 @@ files_changed:
 checks_run:
 - doctor cover no-hoodie checks OK
 - `rg` no Outfit lock white hoodie in prompt/manifest
-commit: pending-parent-commit
+commit: 746d0d13
 
 ## INC-20261030-2125-geo-qa-typed-task-unavailable
 status: fixed
@@ -220,7 +220,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose first-class guidance in director/geo-qa docs
-commit: pending-parent-commit
+commit: 746d0d13
 
 ## INC-20261030-2130-writer-editorial-policy-markers-missing
 status: fixed
@@ -269,7 +269,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy marker asserts OK
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: 746d0d13
 
 ## INC-20261030-2115-research-notes-gate-tech-false-positive
 status: fixed
@@ -319,7 +319,7 @@ files_changed:
 checks_run:
 - doctor research tech-marker regression OK
 - local is_technical_topic smoke for Atlas-like notes
-commit: pending-parent-commit
+commit: 746d0d13
 
 ## INC-20261030-0010-scout-precommit-secret-name-url
 status: fixed
@@ -370,7 +370,7 @@ files_changed:
 checks_run:
 - filter-env smoke with URL-shaped secret name
 - doctor git wrapper presence OK
-commit: pending-parent-commit
+commit: 746d0d13
 
 ## INC-20261030-0005-director-llms-blog-path
 status: fixed
@@ -415,7 +415,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor --blog-path + article_url regressions OK
-commit: pending-parent-commit
+commit: 746d0d13
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

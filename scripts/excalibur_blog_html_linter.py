@@ -67,6 +67,28 @@ def detect_duplicate_faq_sections(html: str) -> list[str]:
     return errors
 
 
+def detect_banned_insight_and_cta(html: str) -> list[str]:
+    """Fail on banned TL;DR insight labels and placeholder CTA hrefs."""
+    errors: list[str] = []
+    # First blockquote is the insight box — ban template labels there and anywhere early.
+    if re.search(r"TL\s*;\s*DR|быстрый\s+инсайт", html, flags=re.IGNORECASE):
+        errors.append(
+            "Forbidden insight label: do not use «TL;DR» or «Быстрый инсайт». "
+            "Use topic-specific label like «Инсайт до депозита» / «Инсайт до ставки»."
+        )
+    redacted_hrefs = re.findall(
+        r"""href\s*=\s*["']\s*\[REDACTED\]\s*["']""",
+        html,
+        flags=re.IGNORECASE,
+    )
+    if redacted_hrefs:
+        errors.append(
+            "Forbidden CTA href=[REDACTED]: use ${CATALOG_URL} / ${TELEGRAM_URL} "
+            "with <!-- pragma: allowlist secret --> on the same line."
+        )
+    return errors
+
+
 class HTMLTagLinter(HTMLParser):
     def __init__(self, whitelist: set[str]) -> None:
         super().__init__()
@@ -122,6 +144,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_banned_insight_and_cta(html_content))
 
     return {
         "file": str(html_path.name),

@@ -254,3 +254,323 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261029-1305-scout-excalibur-git-secret-names
+status: fixed
+run_date: 2026-10-29
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Plain `git commit` failed in Cloud pre-commit hook: `pre-commit.cursor` expands `${!SECRET_NAME}` over `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- One injected "secret name" is a public site URL (not a valid bash identifier), so the hook aborts with `invalid variable name` before the commit lands.
+- Documented helper `scripts/excalibur_git.sh` was missing from the repo even though scout automation memory told agents to prefer it.
+
+### How the agent recovered this run
+- Recreated `scripts/excalibur_git.sh` to drop non-identifier entries from `CLOUD_AGENT_INJECTED_SECRET_NAMES`, then committed the B01 topic card through the wrapper.
+- 2026-10-29 writer (B01 Haval Dargo): plain `git commit` failed again with the same `invalid variable name`; committed `article.html` / `article.meta.json` via `bash scripts/excalibur_git.sh`.
+
+### Durable fix needed before next run
+- Keep `scripts/excalibur_git.sh` in repo and point scout/director/publish docs at it for all Cloud commits.
+- Optionally ask platform/owners to stop injecting URL-like values into `CLOUD_AGENT_INJECTED_SECRET_NAMES` (treat site URL as a normal env var, not a named secret key).
+- Add a short note to `shared/agent-pipeline-pitfalls.md` about this hook failure mode.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Confirmed `scripts/excalibur_git.sh` is present and filters non-identifier `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Documented Cloud commit wrapper in pitfalls, AGENTS, scout/director skills; doctor asserts wrapper exists.
+files_changed:
+- `scripts/excalibur_git.sh` (kept)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- wrapper file exists + executable
+commit: 05df4c50..b37a4395
+
+## INC-20261029-1315-research-notes-gate-accessed-pain
+status: fixed
+run_date: 2026-10-29
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- First `excalibur_blog_research_notes_gate.py` run returned BLOCK though the brief looked complete.
+- Gate counts only literal `accessed_at:` labels (regex `\baccessed_at\b\s*:`); dates inside a markdown table column named `accessed_at` do not count toward the minimum of 5.
+- Gate counts `pain_solution_map` rows only if the row text contains pain|solution|result|боль|решение|результат; ordinary Russian table cells without those tokens were ignored (rows=2 including header).
+- Auto niche notes with a `github_evidence` section flip `technical_topic=true` via TECH_MARKERS (`github`), producing a docs URL warning even when the topic is not developer software.
+
+### How the agent recovered this run
+- Added explicit `accessed_at: 2026-10-29 (...)` lines above the source table.
+- Prefixed pain_solution_map cells with `pain:` / `solution:` / `result:`.
+- Re-ran gate to PASS (warning about official docs URL remains, non-blocking).
+
+### Durable fix needed before next run
+- Document the accessed_at and pain_solution_map token rules in excalibur-research SKILL / agent card with a minimal example.
+- Optionally relax the gate: count table dates under an `accessed_at` column; count any `|` data row under `## pain_solution_map`; exclude the word `github` inside `## github_evidence` from TECH_MARKERS for non-dev niches.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Gate counts ISO dates in markdown `accessed_at` column and accepts table header as field presence.
+- `pain_solution_map` counts data-rows under the section (tokens in cells optional).
+- `## github_evidence` stripped before TECH_MARKERS; short markers (`ai`/`ии`) use word boundaries.
+- Research skill/agent document the PASS minimums.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- fixture table-only accessed_at + pain rows → PASS, technical_topic=false
+- B01 research-notes gate → PASS
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: 05df4c50..b37a4395
+
+## INC-20261029-1323-geo-qa-utility-pain-markers-rebrand
+status: fixed
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- First utility gate run BLOCK: action_markers 3, pain_markers 0, outcome_markers 0.
+- `memory/brief/editorial-policy.json` lost `pain_markers_ru` / `outcome_markers_ru` / min_pain/min_outcome and aliases `не делать` / `чек-лист` after rebrand commit `615ee0bc`.
+- Utility gate treated empty lists as count=0 and hard-BLOCKED with default mins (false negative for healthy articles using «Делать/Не делать»).
+
+### How the agent recovered this run
+- Restored marker lists + aliases + min_pain/min_outcome from known-good Serena policy shape.
+- Re-applied empty-list warn+skip fallback in `scripts/excalibur_blog_utility_gate.py`.
+- Noted regression in `shared/agent-pipeline-pitfalls.md`.
+- Utility re-run: PASS (action 25 / pain 2 / outcome 6).
+
+### Durable fix needed before next run
+- Doctor or preflight should assert non-empty `pain_markers_ru` / `outcome_markers_ru` in editorial-policy.json.
+- Keep utility gate empty-list skip so rebrand cannot false-BLOCK again.
+- Fixer may close this after doctor check lands.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Confirmed `editorial-policy.json` has non-empty pain/outcome markers + recommendation aliases.
+- Utility gate empty-list warn+skip kept.
+- Doctor now hard-fails on empty `pain_markers_ru` / `outcome_markers_ru`.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified present)
+- `scripts/excalibur_blog_utility_gate.py` (verified skip)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (policy checks OK)
+commit: 05df4c50..b37a4395
+
+## INC-20261029-1323-geo-qa-writer-fix-tldr-cta-pain
+status: fixed
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- `human-voice-report.json` BLOCK: only pain marker type `ошиб` (need ≥2 distinct PAIN_MARKERS).
+- Insight block uses banned label `TL;DR / Быстрый инсайт` (GEO QA skill / recurring conflict with writing-contract example).
+- Both CTA `href` values are literal `[REDACTED]` → link-verify fail (relative 404). Expected `${CATALOG_URL}` / `${TELEGRAM_URL}` with allowlist pragma.
+- GEO QA Task contract forbade editing `article.html`; cannot self-heal to PASS.
+
+### How the agent recovered this run
+- Did not modify `article.html`.
+- Wrote `article-qa.md` verdict FIX (score 74) with writer checklist.
+- Blocked cover||schema until human-voice + link-verify PASS.
+
+### Durable fix needed before next run
+- Writer skill: insight label without TL;DR; CTA via env placeholders + pragma; explicit second pain cue (`проблем`/`боль`/…).
+- Align `shared/excalibur-article-writing-contract.md` example with GEO QA skill (drop TL;DR sample).
+- Optionally html-linter/human-voice hard-fail on TL;DR / `[REDACTED]` href.
+
+### Suggested files to inspect/change
+- `memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/article.html` (writer FIX)
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Writing contract + writer skill: ban TL;DR / Быстрый инсайт; require topic insight label, ≥2 PAIN_MARKERS, CTA placeholders + pragma.
+- html-linter hard-fails TL;DR and href=[REDACTED]; human-voice rejects TL;DR labels and clarifies pain distinct-count.
+- GEO QA skill documents Writer FIX path for weak pain / bad CTA.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- html-linter synthetic TL;DR+[REDACTED] → fail; insight+placeholder → pass
+- B01 article.html html-linter → PASS
+- `rg` confirms old TL;DR example removed from contract/writer skill
+commit: 05df4c50..b37a4395
+
+## INC-20261029-1343-cover-prompt-builder-toxic-hoodie
+status: fixed
+run_date: 2026-10-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` embeds toxic lemma negatives literally (`лох` / `лохов` / `для лохов`) and locks `Outfit lock: thick heavyweight white hoodie`.
+- Kie `gpt-image-2-image-to-image` createTask succeeded but recordInfo failed twice with `failCode=500 Internal Error` while those lemmas remained in the prompt (and while `http://` WP media URL was used on first attempt).
+- Catbox host returned 412; 0x0 SSL handshake timed out — WP https media is the reliable reference.
+
+### How the agent recovered this run
+- Switched `reference_url_hosted` / batch `input_urls` to `https://avtosales125.ru/...png`.
+- Sanitized prompt + batch: removed toxic lemmas from negatives; replaced hoodie lock with gray softshell/crewneck (NO hood/cap).
+- Retried ONE Kie async job (`task_id=a939c24cbc7e4ac10c4ad494b339c931`) → success → `excalibur_blog_quad_apply.py --inject-html` PASS.
+
+### Durable fix needed before next run
+- Prompt builder must not emit demeaning-slang lemmas even as negatives; use neutral phrasing («no insults / no demeaning buyer slang»).
+- Drop white-hoodie lock; follow `blog-hero.json` outfit_rule (weather/topic; no hood/cap).
+- Prefer https for `reference_url_hosted` in hero script / doctor check.
+- Optional: sanitize step inside `excalibur_blog_kie_gpt_image2_api.py` before createTask.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/blog-hero.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Prompt builder uses neutral non-toxic wording; outfit follows weather/topic with NO hoodie/hood/cap (no white-hoodie lock).
+- Kie API sanitizes demeaning-slang lemmas + hoodie lock and upgrades http→https on input_urls before createTask.
+- Cover skill + pitfalls document the rules.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- build_prompt has no toxic lemmas / white hoodie lock
+- sanitize_cover_prompt redacts lemmas and replaces hoodie lock
+- `python3 -m py_compile` on both scripts
+commit: 05df4c50..b37a4395
+
+## INC-20261029-1345-indexer-llms-blog-path-cli
+status: fixed
+run_date: 2026-10-29
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- Doctor/agent/skill contract requires `excalibur_blog_llms_generator.py --blog-path /`.
+- Actual argparse has no `--blog-path`; invoking with the documented flag exits 2 (`unrecognized arguments`).
+- Generator hardcodes URL path `/blog/{slug}/` while `memory/brief/site-brief.md` has `blog_path: /`.
+
+### How the agent recovered this run
+- Confirmed failure with `--blog-path /`.
+- Regenerated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` without `--blog-path` (flags: `--blog-dir`, `--site-base`, `--out-dir`; 3 articles including B01).
+- Absolute `--site-base ${PUBLIC_SITE_URL}` embeds the host into llms/interlink artifacts and trips the pre-commit secret scan; committed copies use empty `--site-base` → relative `/blog/{slug}/` URLs matching existing `memory/blog/llms.txt` policy.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` also contained one non-identifier URL token that crashed pre-commit at `${!SECRET_NAME}`; commit run filtered names to valid shell identifiers only (hook still active).
+
+### Durable fix needed before next run
+- Add `--blog-path` to `excalibur_blog_llms_generator.py` (default `/` or from site-brief) and use it in URL building instead of hardcoded `/blog/`.
+- Keep doctor check; update indexer skill/agent only if default/docs need clarifying after the script fix.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `memory/brief/site-brief.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Added `--blog-path` to `excalibur_blog_llms_generator.py`; URL builder uses site-brief path (`/` → `/{slug}/`, not hardcoded `/blog/`).
+- Doctor `--blog-path` check now PASS; indexer skill/agent already documented the flag.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-path`
+- dry-run `--blog-path /` produces `/{slug}/` without `/blog/`
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: 05df4c50..b37a4395

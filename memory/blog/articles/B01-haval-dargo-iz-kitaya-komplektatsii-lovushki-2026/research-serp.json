@@ -1,0 +1,631 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-29",
+    "today_ru": "29.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-31",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-29 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "haval-dargo-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Haval Dargo из Китая: комплектации и ловушки до депозита в 2026",
+    "primary_query": "хавал дарго комплектации",
+    "secondary_queries": [
+      "хавал дарго комплектации и цены",
+      "комплектации хавал дарго 2026",
+      "haval dargo из китая",
+      "хавал дарго 2026"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хавал дарго комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Дарго 2026 технические характеристики. Haval Dargo 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Haval Dargo (Хавейл Дарго) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-dargo/",
+          "snippet": "Подробно расписан модельный ряд Haval Dargo 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Хавейл Дарго технические характеристики. Haval Dargo комплектации и ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/",
+          "snippet": "Для комфорта в любую погоду HAVAL DARGO оснащен полным зимним пакетом: подогрев всех сидений, лобового стекла и форсунок омывателя. Поддерживать оптимальный микроклимат в салоне также помогают двухзонный климат-контроль и вентиляция сидений первого ряда."
+        },
+        {
+          "title": "Хавал Дарго 2026 с новыми комплектациями и ценами",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-dargo-komplektacii-tseny.html",
+          "snippet": "Подробно расписан модельный ряд Haval Dargo: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл Дарго между собой."
+        },
+        {
+          "title": "Haval Dargo, купить Хавейл Дарго, комплектации и цена 2026 | Мэйджор ...",
+          "url": "https://www.haval-major.ru/models/dargo/",
+          "snippet": "Обзор нового Хавал Дарго 2026 года в России: цены, комплектации, фото, характеристики, конкуренты и многое другое"
+        },
+        {
+          "title": "Haval Dargo 2026: актуальные цены, заводские комплектации и точные ...",
+          "url": "https://inycar.ru/blog/haval-dargo-2026-aktualnye-tseny-zavodskie-komplektatsii-i-tochnye-tehnicheskie-harakteristiki",
+          "snippet": "Купить Dargo в Москве можно у официального дилера Major Haval. В автоцентре помогут подобрать подходящую версию, оценить бюджет покупки и согласовать дальнейшие шаги без лишнего перехода между разными сервисами."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хавал дарго комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Дарго 2026 технические характеристики. Haval Dargo 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Dargo 2026: актуальные цены, заводские комплектации и точные ...",
+          "url": "https://inycar.ru/blog/haval-dargo-2026-aktualnye-tseny-zavodskie-komplektatsii-i-tochnye-tehnicheskie-harakteristiki",
+          "snippet": "Подробно расписан модельный ряд Haval Dargo 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить Haval Dargo (Хавейл Дарго) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-dargo/",
+          "snippet": "Все заводские комплектации Haval Dargo 2026, официальные цены и полные технические характеристики. Детальный разбор двигателей, оснащения и советы экспертов при покупке."
+        },
+        {
+          "title": "Haval Dargo › Цена и комплектации 2026",
+          "url": "https://carsdo.ru/haval/dargo/",
+          "snippet": "Для комфорта в любую погоду HAVAL DARGO оснащен полным зимним пакетом: подогрев всех сидений, лобового стекла и форсунок омывателя. Поддерживать оптимальный микроклимат в салоне также помогают двухзонный климат-контроль и вентиляция сидений первого ряда."
+        },
+        {
+          "title": "Haval Dargo и Dargo X 2026: цены и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-dargo/",
+          "snippet": "Haval Dargo: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Хавейл Дарго технические характеристики. Haval Dargo комплектации и ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/",
+          "snippet": "Haval Dargo — полноприводный кроссовер. В прайс-листе 2026 года три исполнения, максимальная цена перепродажи — от 3 499 000 до 3 899 000 ₽ (предложение актуально с 10.04.2026) [1]. Мотор — 2,0 л с турбонаддувом, 200 л.с. и 380 Нм, коробка — 7-ступенчатый робот, привод — подключаемый полный [1]."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хавал дарго комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Дарго 2026 технические характеристики. Haval Dargo 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Dargo 2026: обзор, характеристики, комплектации и цены нового ...",
+          "url": "https://journal.carso.ru/articles/haval-dargo-2026-obzor-harakteristiki-komplektatsii-i-tseny-novogo-haveyl-dargo",
+          "snippet": "Подробно расписан модельный ряд Haval Dargo 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Haval Dargo, купить Хавейл Дарго, комплектации и цена 2026 | Мэйджор ...",
+          "url": "https://www.haval-major.ru/models/dargo/",
+          "snippet": "Исчерпывающий обзор Haval Dargo 2026 года: внедорожные характеристики, возможности гибрида Hi4, обновленный дизайн и уровень комфорта. Узнайте, почему Дарго — идеальный выбор для города и леса."
+        },
+        {
+          "title": "Купить Haval Dargo (Хавейл Дарго) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-dargo/",
+          "snippet": "Оставьте заявку на сайте или обратитесь в Major Haval в Москве, чтобы уточнить условия покупки, получить консультацию по Dargo и выбрать удобное время для тест-драйва."
+        },
+        {
+          "title": "Haval Dargo 2026: актуальные цены, заводские комплектации и точные ...",
+          "url": "https://inycar.ru/blog/haval-dargo-2026-aktualnye-tseny-zavodskie-komplektatsii-i-tochnye-tehnicheskie-harakteristiki",
+          "snippet": "HAVAL DARGO получил новый турбированный двигатель 2.0 л мощностью 200 л.с. и крутящим моментом 380 Нм, система полного привода, 8 режимов вождения (снег, грязь, песок и другие) — уверенная езда в любых ..."
+        },
+        {
+          "title": "Хавал Дарго 2026 с новыми комплектациями и ценами",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-dargo-komplektacii-tseny.html",
+          "snippet": "Все заводские комплектации Haval Dargo 2026, официальные цены и полные технические характеристики. Детальный разбор двигателей, оснащения и советы экспертов при покупке."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хавал дарго комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - Anton111111/haval_m6: Скрипт для установки дополнительных ...",
+          "url": "https://github.com/Anton111111/haval_m6",
+          "snippet": ""
+        },
+        {
+          "title": "D2Runner/logo.png at master · niesoft/D2Runner · GitHub",
+          "url": "https://github.com/niesoft/D2Runner/blob/master/logo.png",
+          "snippet": "Скрипт для установки дополнительных приложений и функций на головное устройство (ГУ) автомобиля Haval M6. Автор скрипта не несет ответственности за выход из строя головного устройства. Все действия выполняются на ваш страх и риск."
+        },
+        {
+          "title": "clawcodex/assets/swebench-verified-gemini.png at main · agentforce314 ...",
+          "url": "https://github.com/agentforce314/clawcodex/blob/main/assets/swebench-verified-gemini.png",
+          "snippet": "Contribute to niesoft/D2Runner development by creating an account on GitHub."
+        },
+        {
+          "title": "walls/everblush/Dice.png at master · sewergweller/walls · GitHub",
+          "url": "https://github.com/sewergweller/walls/blob/master/everblush/Dice.png",
+          "snippet": "AI Coding Agent in 310K LoC Python. - clawcodex/assets/swebench-verified-gemini.png at main · agentforce314/clawcodex."
+        },
+        {
+          "title": "boss-rush/icon.svg at main · DiegoStm3701/boss-rush · GitHub",
+          "url": "https://github.com/DiegoStm3701/boss-rush/blob/main/icon.svg",
+          "snippet": "Personal collection of wallpapers. Contribute to sewergweller/walls development by creating an account on GitHub."
+        },
+        {
+          "title": "opentax/icon.svg at main · filedcom/opentax · GitHub",
+          "url": "https://github.com/filedcom/opentax/blob/main/icon.svg",
+          "snippet": "Godot shooter platformer. Contribute to DiegoStm3701/boss-rush development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хавал дарго комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Дарго 2026 технические характеристики. Haval Dargo 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хавейл Дарго технические характеристики. Haval Dargo комплектации и ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/",
+          "snippet": "Подробно расписан модельный ряд Haval Dargo 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл Дарго 2026 между собой."
+        },
+        {
+          "title": "Haval Dargo и Dargo X 2026: цены и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-dargo/",
+          "snippet": "Подробно расписан модельный ряд Haval Dargo: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл Дарго между собой."
+        },
+        {
+          "title": "Инструкции Для Владельцев Haval - Руководства По Эксплуатации",
+          "url": "https://haval.ru/owners/instructions/",
+          "snippet": "Haval Dargo — полноприводный кроссовер. В прайс-листе 2026 года три исполнения, максимальная цена перепродажи — от 3 499 000 до 3 899 000 ₽ (предложение актуально с 10.04.2026) [1]. Мотор — 2,0 л с турбонаддувом, 200 л.с. и 380 Нм, коробка — 7-ступенчатый робот, привод — подключаемый полный [1]."
+        },
+        {
+          "title": "Haval Dargo 2026: актуальные цены, заводские комплектации и точные ...",
+          "url": "https://inycar.ru/blog/haval-dargo-2026-aktualnye-tseny-zavodskie-komplektatsii-i-tochnye-tehnicheskie-harakteristiki",
+          "snippet": "Скачайте инструкции и руководства по эксплуатации автомобилей HAVAL. Подробные рекомендации, советы и информация для правильного ухода за авто."
+        },
+        {
+          "title": "Хавал Дарго 2026 с новыми комплектациями и ценами",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-dargo-komplektacii-tseny.html",
+          "snippet": "Все заводские комплектации Haval Dargo 2026, официальные цены и полные технические характеристики. Детальный разбор двигателей, оснащения и советы экспертов при покупке."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хавал дарго комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавал Дарго Клуб - Форум Haval Dargo - Хавал Клуб Форум | Haval Club ...",
+          "url": "https://haval-clubs.ru/dargo",
+          "snippet": ""
+        },
+        {
+          "title": "Хавейл Дарго 2025 - 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/haval/dargo/5kopeek/breakages/?year1=2025&year2=2026",
+          "snippet": "Добро пожаловать на форум Хавал Дарго - сообщество поклонников и владельцев Haval Dargo, отзывы владельцев, технические характеристики, комплектации и цены, тюнинг и допы, аксессуары и ..."
+        },
+        {
+          "title": "Хавейл Дарго 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/haval/dargo/5kopeek/2026-all/",
+          "snippet": "Отзывы владельцев Хавейл Дарго 2025 - 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Хавейл Дарго: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Haval Dargo Клуб и Форум / Dargo X / Хавал Дарго / Дарго Икс",
+          "url": "https://max.ru/channel_dargo",
+          "snippet": "Опыт эксплуатации реальных владельцев автомобилей Хавейл Дарго: плюсы и минусы."
+        },
+        {
+          "title": "Haval Dargo Club - Хавал Клуб Форум | Haval Club (Хавейл)",
+          "url": "https://haval-clubs.ru/forums/forum/429-haval-dargo-club/",
+          "snippet": "Актуальная цена и комплектации: где выгодно купить новый Haval Dargo 2026 или рестайлинг. Советы по ремонту, тюнингу, замене масла, фильтров и колодок. Ждем в клуб и на форум!"
+        },
+        {
+          "title": "Хавал Дарго: реальные отзывы владельцев и недостатки 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-dargo-otzyvy-realnykh-vladeltsev-nedostatki.html",
+          "snippet": "Клуб владельцев HAVAL Dargo: отзывы, комплектации и цены, эксплуатация, обслуживание, ремонт, тюнинг и советы участников."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хавал дарго комплектации и цены 2026",
+      "purpose": "вторичный запрос: хавал дарго комплектации и цены",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Дарго 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/haval/dargo/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Dargo, купить Хавейл Дарго, комплектации и цена 2026 | Мэйджор ...",
+          "url": "https://www.haval-major.ru/models/dargo/",
+          "snippet": "Подробно расписан модельный ряд Haval Dargo 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить Haval Dargo (Хавейл Дарго) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-dargo/",
+          "snippet": "Продажа Haval Dargo в салонах официального дилера в Москве Major. Комплектации и цены нового Хавейл Дарго, технические характеристики, кредит, Trade-In и лизинг."
+        },
+        {
+          "title": "Haval Dargo › Цена и комплектации 2026 - carsdo.ru",
+          "url": "https://carsdo.ru/haval/dargo/",
+          "snippet": "Оптимизация стоимости обслуживания для клиентов HAVAL за счет локализации масел и шин без потери качества - они соответствуют техническим характеристикам зарубежных аналогов."
+        },
+        {
+          "title": "Хавал Дарго (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/haval/dargo",
+          "snippet": "Haval Dargo: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Haval Dargo 2026: актуальные цены, заводские комплектации и точные ...",
+          "url": "https://inycar.ru/blog/haval-dargo-2026-aktualnye-tseny-zavodskie-komplektatsii-i-tochnye-tehnicheskie-harakteristiki",
+          "snippet": "Всё про автомобиль Хавал Дарго 2026 года: цена в России, фотографии кузова и салона, характеристики, информация про двигатели."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "комплектации хавал дарго 2026 2026",
+      "purpose": "вторичный запрос: комплектации хавал дарго 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Дарго 2026 технические характеристики. Haval Dargo 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Haval Dargo (Хавейл Дарго) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-dargo/",
+          "snippet": "Хавейл Дарго 2026 комплектации и цены, фото. Подробно расписан модельный ряд Haval Dargo 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Haval Dargo 2026: обзор, характеристики, комплектации и цены нового ...",
+          "url": "https://journal.carso.ru/articles/haval-dargo-2026-obzor-harakteristiki-komplektatsii-i-tseny-novogo-haveyl-dargo",
+          "snippet": "Для комфорта в любую погоду HAVAL DARGO оснащен полным зимним пакетом: подогрев всех сидений, лобового стекла и форсунок омывателя. Поддерживать оптимальный микроклимат в салоне также помогают двухзонный климат-контроль и вентиляция сидений первого ряда."
+        },
+        {
+          "title": "Haval Dargo, купить Хавейл Дарго, комплектации и цена 2026 | Мэйджор ...",
+          "url": "https://www.haval-major.ru/models/dargo/",
+          "snippet": "Haval Dargo 2026: обзор, характеристики, комплектации и цены нового Хавейл Дарго. К 2026 году автомобильный рынок окончательно разделился на два лагеря: безликие городские электрокары и харизматичные машины для приключений."
+        },
+        {
+          "title": "Хавал Дарго 2026 с новыми комплектациями и ценами",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-dargo-komplektacii-tseny.html",
+          "snippet": "Купить Dargo в Москве можно у официального дилера Major Haval. В автоцентре помогут подобрать подходящую версию, оценить бюджет покупки и согласовать дальнейшие шаги без лишнего перехода между разными сервисами."
+        },
+        {
+          "title": "Haval Dargo 2026: актуальные цены, заводские комплектации и точные ...",
+          "url": "https://inycar.ru/blog/haval-dargo-2026-aktualnye-tseny-zavodskie-komplektatsii-i-tochnye-tehnicheskie-harakteristiki",
+          "snippet": "Обзор нового Хавал Дарго 2026 года в России: цены, комплектации, фото, характеристики, конкуренты и многое другое"
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "haval dargo из китая 2026",
+      "purpose": "вторичный запрос: haval dargo из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval Dargo — купить из Китая под ключ, цена в России 2026",
+          "url": "https://chinaautozone.ru/catalog/haval/haval-dargo/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Dargo и Dargo X 2026: цены и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-dargo/",
+          "snippet": "Купить Haval Dargo из Китая под ключ: цена в России от 2,76 млн ₽ с растаможкой и доставкой. Комплектации, характеристики, отзывы владельцев, гарантия. Точный расчёт за 1 день."
+        },
+        {
+          "title": "Купить Haval Dargo из Китая в Россию, Москву под ключ",
+          "url": "https://westmotors.ru/catalog-avto-china/haval/dargo/2026-2027",
+          "snippet": "Haval Dargo — полноприводный кроссовер. В прайс-листе 2026 года три исполнения, максимальная цена перепродажи — от 3 499 000 до 3 899 000 ₽ (предложение актуально с 10.04.2026) [1]. Мотор — 2,0 л с турбонаддувом, 200 л.с. и 380 Нм, коробка — 7-ступенчатый робот, привод — подключаемый полный [1]."
+        },
+        {
+          "title": "Haval Dargo из Китая: стильный паркетник и честный расчёт стоимости под ...",
+          "url": "https://onlyjpcars.ru/blog/haval-dargo-iz-kitaya",
+          "snippet": "Не все авто разрешены к экспорту из Китая. Из-за ограничений экспорта каждый автомобиль проверяется индивидуально. Уточняйте возможность вывоза у менеджера."
+        },
+        {
+          "title": "Haval Dargo 2026 из Китая в Россию, Москву / 2261817",
+          "url": "https://westmotors.ru/catalog-avto-china/haval/dargo/2261817",
+          "snippet": "Haval Dargo из Китая под ключ в 2026: версии 2.0T и 1.5T, обе превышают 160 л.с. — коммерческая ставка утильсбора. Реальные цены, плюсы и минусы для Сибири."
+        },
+        {
+          "title": "2026 Haval Dargo — бензиновый кроссовер из Китая | Jerry Auto",
+          "url": "https://www.jerryautotrade.com/vehicles/haval-dargo-2026/",
+          "snippet": "Haval Dargo 2026 из Китая в Россию, Москву. 2261817. Доставка из Китая в Россию под ключ."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "хавал дарго 2026 2026",
+      "purpose": "вторичный запрос: хавал дарго 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл Дарго 2026 технические характеристики. Haval Dargo 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/dargo/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Haval Dargo (Хавейл Дарго) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-dargo/",
+          "snippet": "Хавейл Дарго 2026 комплектации и цены, фото. Подробно расписан модельный ряд Haval Dargo 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Купить новый автомобиль Haval Dargo 2026 года выпуска",
+          "url": "https://auto.ru/cars/haval/dargo/2026-year/new/",
+          "snippet": "HAVAL DARGO получил новый турбированный двигатель 2.0 л мощностью 200 л.с. и крутящим моментом 380 Нм, система полного привода, 8 режимов вождения (снег, грязь, песок и другие) — уверенная езда в любых условиях: от города до бездорожья."
+        },
+        {
+          "title": "Haval Dargo, купить Хавейл Дарго, комплектации и цена 2026 | Мэйджор ...",
+          "url": "https://www.haval-major.ru/models/dargo/",
+          "snippet": "Полный модельный ряд новых Haval Dargo 2026 года по цене от 2 459 446 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Haval Dargo и Dargo X 2026: цены и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-dargo/",
+          "snippet": "Купить Dargo в Москве можно у официального дилера Major Haval. В автоцентре помогут подобрать подходящую версию, оценить бюджет покупки и согласовать дальнейшие шаги без лишнего перехода между разными сервисами."
+        },
+        {
+          "title": "Хавал Дарго (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/haval/dargo",
+          "snippet": "Haval Dargo — полноприводный кроссовер. В прайс-листе 2026 года три исполнения, максимальная цена перепродажи — от 3 499 000 до 3 899 000 ₽ (предложение актуально с 10.04.2026) [1]. Мотор — 2,0 л с турбонаддувом, 200 л.с. и 380 Нм, коробка — 7-ступенчатый робот, привод — подключаемый полный [1]."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Haval Dargo из Китая: комплектации и ловушки до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval Dargo в 2026 году: цены, комплектации и обоснованность покупки ...",
+          "url": "https://avto-zhurnal.ru/article/haval-dargo-kupit/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Dargo 2026: аналитика цен, подбор комплектации и статистика ...",
+          "url": "https://inycar.ru/blog/haval-dargo-2026-analitika-tsen-podbor-komplektatsii-i-statistika-realnyh-otzyvov",
+          "snippet": "На апрель 2026 года цены на новый Dargo у официальных дилеров — от 2 990 000 ₽ до 3 690 000 ₽. Этот материал — навигатор по комплектациям, ценам и обоснованности выбора. Dargo разрабатывался как гибрид между классическим кроссовером и компактным внедорожником."
+        },
+        {
+          "title": "Haval Dargo: сравнение комплектаций 2026 — что выбрать?",
+          "url": "https://asia-motors-hub.vercel.app/articles/h/ha/haval-dargo-sravnenie-komplektatsij.html",
+          "snippet": "Объективный разбор цен на Haval Dargo 2026, сравнение комплектаций и агрегация реальных отзывов владельцев. Честная статистика, скрытые расходы и готовый алгоритм выбора автомобиля."
+        },
+        {
+          "title": "Каталог Haval Dargo 2026: цены, комплектации и отзывы",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/ka/katalog-haval-dargo.html",
+          "snippet": "Подробный разбор всех комплектаций Haval Dargo: технические характеристики, отличия, цены и советы по выбору. Сравнительная таблица и экспертные рекомендации."
+        },
+        {
+          "title": "Haval Dargo 2026: обзор, характеристики, комплектации и цены нового ...",
+          "url": "https://journal.carso.ru/articles/haval-dargo-2026-obzor-harakteristiki-komplektatsii-i-tseny-novogo-haveyl-dargo",
+          "snippet": "В этом подробном каталоге мы собрали всю актуальную информацию о Haval Dargo 2026 года: от базовых характеристик до скрытых особенностей, которые производитель не всегда афиширует."
+        },
+        {
+          "title": "Haval Dargo 2026: актуальные цены, заводские комплектации и точные ...",
+          "url": "https://inycar.ru/blog/haval-dargo-2026-aktualnye-tseny-zavodskie-komplektatsii-i-tochnye-tehnicheskie-harakteristiki",
+          "snippet": "Исчерпывающий обзор Haval Dargo 2026 года: внедорожные характеристики, возможности гибрида Hi4, обновленный дизайн и уровень комфорта. Узнайте, почему Дарго — идеальный выбор для города и леса."
+        }
+      ],
+      "searched_at": "2026-10-29"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/haval/dargo/2026/",
+      "title": "Хавейл Дарго 2026 технические характеристики. Haval Dargo 2026 ...",
+      "from_query": "хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://haval.ru/models/haval-dargo/",
+      "title": "Купить Haval Dargo (Хавейл Дарго) 2026 В России - Цены, Характеристики",
+      "from_query": "хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/dargo/",
+      "title": "Хавейл Дарго технические характеристики. Haval Dargo комплектации и ...",
+      "from_query": "хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://www.mediaspeak.ru/auto/drive/haval-dargo-komplektacii-tseny.html",
+      "title": "Хавал Дарго 2026 с новыми комплектациями и ценами",
+      "from_query": "хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://www.haval-major.ru/models/dargo/",
+      "title": "Haval Dargo, купить Хавейл Дарго, комплектации и цена 2026 | Мэйджор ...",
+      "from_query": "хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/haval-dargo-2026-aktualnye-tseny-zavodskie-komplektatsii-i-tochnye-tehnicheskie-harakteristiki",
+      "title": "Haval Dargo 2026: актуальные цены, заводские комплектации и точные ...",
+      "from_query": "хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://carsdo.ru/haval/dargo/",
+      "title": "Haval Dargo › Цена и комплектации 2026",
+      "from_query": "хавал дарго комплектации октябрь 2026"
+    },
+    {
+      "url": "https://haval-auto.com/models/haval-dargo/",
+      "title": "Haval Dargo и Dargo X 2026: цены и характеристики | haval-auto.com",
+      "from_query": "хавал дарго комплектации октябрь 2026"
+    },
+    {
+      "url": "https://journal.carso.ru/articles/haval-dargo-2026-obzor-harakteristiki-komplektatsii-i-tseny-novogo-haveyl-dargo",
+      "title": "Haval Dargo 2026: обзор, характеристики, комплектации и цены нового ...",
+      "from_query": "хавал дарго комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/Anton111111/haval_m6",
+      "title": "GitHub - Anton111111/haval_m6: Скрипт для установки дополнительных ...",
+      "from_query": "site:github.com хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://github.com/niesoft/D2Runner/blob/master/logo.png",
+      "title": "D2Runner/logo.png at master · niesoft/D2Runner · GitHub",
+      "from_query": "site:github.com хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://github.com/agentforce314/clawcodex/blob/main/assets/swebench-verified-gemini.png",
+      "title": "clawcodex/assets/swebench-verified-gemini.png at main · agentforce314 ...",
+      "from_query": "site:github.com хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://github.com/sewergweller/walls/blob/master/everblush/Dice.png",
+      "title": "walls/everblush/Dice.png at master · sewergweller/walls · GitHub",
+      "from_query": "site:github.com хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://github.com/DiegoStm3701/boss-rush/blob/main/icon.svg",
+      "title": "boss-rush/icon.svg at main · DiegoStm3701/boss-rush · GitHub",
+      "from_query": "site:github.com хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://github.com/filedcom/opentax/blob/main/icon.svg",
+      "title": "opentax/icon.svg at main · filedcom/opentax · GitHub",
+      "from_query": "site:github.com хавал дарго комплектации 2026"
+    },
+    {
+      "url": "https://haval.ru/owners/instructions/",
+      "title": "Инструкции Для Владельцев Haval - Руководства По Эксплуатации",
+      "from_query": "хавал дарго комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://haval-clubs.ru/dargo",
+      "title": "Хавал Дарго Клуб - Форум Haval Dargo - Хавал Клуб Форум | Haval Club ...",
+      "from_query": "хавал дарго комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/haval/dargo/5kopeek/breakages/?year1=2025&year2=2026",
+      "title": "Хавейл Дарго 2025 - 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "хавал дарго комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/haval/dargo/5kopeek/2026-all/",
+      "title": "Хавейл Дарго 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "хавал дарго комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://max.ru/channel_dargo",
+      "title": "Haval Dargo Клуб и Форум / Dargo X / Хавал Дарго / Дарго Икс",
+      "from_query": "хавал дарго комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://haval-clubs.ru/forums/forum/429-haval-dargo-club/",
+      "title": "Haval Dargo Club - Хавал Клуб Форум | Haval Club (Хавейл)",
+      "from_query": "хавал дарго комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-dargo-otzyvy-realnykh-vladeltsev-nedostatki.html",
+      "title": "Хавал Дарго: реальные отзывы владельцев и недостатки 2026",
+      "from_query": "хавал дарго комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://wroom.ru/cars/haval/dargo",
+      "title": "Хавал Дарго (2026) — цена, характеристики, фото",
+      "from_query": "хавал дарго комплектации и цены 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/catalog/haval/haval-dargo/",
+      "title": "Haval Dargo — купить из Китая под ключ, цена в России 2026",
+      "from_query": "haval dargo из китая 2026"
+    },
+    {
+      "url": "https://westmotors.ru/catalog-avto-china/haval/dargo/2026-2027",
+      "title": "Купить Haval Dargo из Китая в Россию, Москву под ключ",
+      "from_query": "haval dargo из китая 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/haval-dargo-iz-kitaya",
+      "title": "Haval Dargo из Китая: стильный паркетник и честный расчёт стоимости под ...",
+      "from_query": "haval dargo из китая 2026"
+    },
+    {
+      "url": "https://westmotors.ru/catalog-avto-china/haval/dargo/2261817",
+      "title": "Haval Dargo 2026 из Китая в Россию, Москву / 2261817",
+      "from_query": "haval dargo из китая 2026"
+    },
+    {
+      "url": "https://www.jerryautotrade.com/vehicles/haval-dargo-2026/",
+      "title": "2026 Haval Dargo — бензиновый кроссовер из Китая | Jerry Auto",
+      "from_query": "haval dargo из китая 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/haval/dargo/2026-year/new/",
+      "title": "Купить новый автомобиль Haval Dargo 2026 года выпуска",
+      "from_query": "хавал дарго 2026 2026"
+    },
+    {
+      "url": "https://avto-zhurnal.ru/article/haval-dargo-kupit/",
+      "title": "Haval Dargo в 2026 году: цены, комплектации и обоснованность покупки ...",
+      "from_query": "Как выбрать Haval Dargo из Китая: комплектации и ловушки до депозита в 2026 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/haval-dargo-2026-analitika-tsen-podbor-komplektatsii-i-statistika-realnyh-otzyvov",
+      "title": "Haval Dargo 2026: аналитика цен, подбор комплектации и статистика ...",
+      "from_query": "Как выбрать Haval Dargo из Китая: комплектации и ловушки до депозита в 2026 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/h/ha/haval-dargo-sravnenie-komplektatsij.html",
+      "title": "Haval Dargo: сравнение комплектаций 2026 — что выбрать?",
+      "from_query": "Как выбрать Haval Dargo из Китая: комплектации и ловушки до депозита в 2026 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/ka/katalog-haval-dargo.html",
+      "title": "Каталог Haval Dargo 2026: цены, комплектации и отзывы",
+      "from_query": "Как выбрать Haval Dargo из Китая: комплектации и ловушки до депозита в 2026 2026"
+    }
+  ]
+}

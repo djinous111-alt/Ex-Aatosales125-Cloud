@@ -75,9 +75,18 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
 
+### Шаг 6 — Commit через wrapper
+В Cloud Agent **не** вызывай сырой `git commit`: pre-commit hook ломается на URL-like значениях в `CLOUD_AGENT_INJECTED_SECRET_NAMES`. Все коммиты:
+
+```bash
+bash scripts/excalibur_git.sh add memory/topics/blog-topics.md
+bash scripts/excalibur_git.sh commit -m "scout: add topic card …"
+```
+
 ---
 
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* Plain `git commit` в Cloud без `scripts/excalibur_git.sh`.

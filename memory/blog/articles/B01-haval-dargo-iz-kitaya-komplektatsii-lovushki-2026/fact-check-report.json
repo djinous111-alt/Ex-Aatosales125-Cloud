@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "через Владивосток – без готовых сумм в тексте. В 2026 году в объявлениях часто пишут \"Хавал Дарго из Кит",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "лист красных флагов → Депозит по договору С 01.12.2025 льготный утиль для физлиц действует только до 160",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "238",
+      "kind": "large_number",
+      "context": "g Dog 2026 есть 1.5T передний привод и 2.0T около 238 л.с. с 9DCT и блокировкой заднего дифференциала. О",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": ". Официальный Dargo 2026 в РФ – только 2.0T около 200 л.с., только полный привод и три пакета Оптимум /",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "184",
+      "kind": "large_number",
+      "context": "g (бензин) Официальный Dargo РФ 2026 Мотор 1.5T (~184 л.с.) или 2.0T (~238 л.с.) Только 2.0T (~200 л.с.)",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "025 льготный утиль для физлиц действует только до 160 л.с. Типичные Dargo / Big Dog выше порога, поэтому",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

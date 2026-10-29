@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит за «Техно+» из Китая — а это Big Dog без зимнего пакета?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Haval Dargo хаки у порта Владивостока сверяет комплектацию до депозита",
+      "scene_hint": "reference face + glasses ONLY; outfit: серая softshell-куртка / crewneck под пасмурный порт Владивостока (НЕ майку с reference); современный Haval Dargo/Big Dog цвета хаки-серый на фоне ролкера/порта; phone fake UI: карточка лота «Big Dog 2.0 4WD» + стикер «до депозита?»; плашка кириллицей; уголок avto-sales125.ru; torn paper + tape + sticky note «сверь VIN»; мем facepalm/shocked (без токсичных слов лох/лохов); без Wordstat/Метрики/Telegram",
+      "meme_caption_ru": "Сначала сверка — потом депозит"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разведите три типа машин, прежде чем сравнивать цены",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица 3 колонки на русском: Официальный Dargo РФ | Китайская сборка под РФ | Big Dog параллельный импорт — гарантия, VIN, на что смотреть; sticky note «не сравнивай цены вслепую»; без лица героя; tape corner",
+      "alt": "Сравнительная таблица трёх типов Haval Dargo/Big Dog до выбора цены"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте комплектации Китая и РФ по железу, а не по маркетинговым именам",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема CN vs РФ: стрелки 1.5T/2.0T, 2WD/4WD, пакеты Оптимум/Премиум/Техно+ vs китайские имена; маркер «железо ≠ маркетинг»; без героя; лёгкий tape/sticker",
+      "alt": "Схема сверки моторов и приводов Big Dog Китая против Dargo РФ"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте зимний пакет на видео, а не по красивым скринам",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист зимнего пакета на доске: обогрев зеркал, лобовое, сиденья, язык меню — галочки vs крестики; мини-скрин «видео салона» vs «красивый скрин»; sticky «требуй видео»; без лица героя",
+      "alt": "Чеклист зимнего пакета Haval Dargo: проверять на видео, не по скринам"
+    }
+  }
+}

@@ -254,3 +254,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261029-1705-scout-precommit-secret-name-url
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud Agent pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes a non-identifier entry that is a catalog URL string (`https://…/`), so bash `${!SECRET_NAME}` raises `invalid variable name`.
+- Documented helper `scripts/excalibur_git.sh` (filters non-identifier secret names) is missing from the repo.
+
+### How the agent recovered this run
+- Re-ran `git commit` with a filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` containing only valid bash identifiers; commit `29bf9412` succeeded and was pushed.
+- Scout topic card itself was unrelated to the hook failure.
+
+### Durable fix needed before next run
+- Restore or add `scripts/excalibur_git.sh` that filters non-identifier names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` before commit.
+- Fix Cloud Secrets / injection so secret *names* are valid identifiers (URLs belong in secret *values*, not names).
+- Optionally document the workaround in `shared/agent-pipeline-pitfalls.md` and scout memory.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md` / automation memory scout notes
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

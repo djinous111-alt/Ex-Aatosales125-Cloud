@@ -120,7 +120,12 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
   --write-batch
 ```
 
-Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
+Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст и **https://**.
+
+**Prompt rules (builder + Kie sanitize):**
+- negatives без demeaning-slang lemmas (даже как «запрещённые слова»);
+- outfit по `blog-hero.json` outfit_rule: softshell/crewneck/weather — **NO hoodie / hood / cap**;
+- `excalibur_blog_kie_gpt_image2_api.py` санитизирует toxic lemmas и hoodie lock перед createTask.
 
 ### Шаг 4 — ONE MCP
 

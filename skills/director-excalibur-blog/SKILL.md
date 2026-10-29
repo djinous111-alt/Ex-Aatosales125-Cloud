@@ -53,6 +53,8 @@ Task(generalPurpose):
 ## Cloud Task fallback
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+Typed `excalibur-blog-geo-qa` часто отсутствует в Cloud Task enum — тот же `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+Cloud commits: `bash scripts/excalibur_git.sh …` (не plain `git commit`).
 
 ## Preflight (shell, директор)
 

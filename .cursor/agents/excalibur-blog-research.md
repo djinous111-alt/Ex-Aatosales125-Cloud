@@ -59,6 +59,7 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## source_table
 | source | url | accessed_at | why_it_matters |
+(gate counts ISO dates in the accessed_at column OR separate `accessed_at: YYYY-MM-DD` lines; need ≥5)
 
 ## wordstat
 | phrase | impressions |

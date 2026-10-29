@@ -3,8 +3,10 @@
 ## Cloud / Task
 
 - Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- В частности typed `excalibur-blog-geo-qa` часто отсутствует в Cloud Task enum — запускай `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`; не пиши QA сам в parent.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+- Cloud `git commit` может упасть в `pre-commit.cursor` с `invalid variable name`, если в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попал URL/не-идентификатор. Все Cloud commits: `bash scripts/excalibur_git.sh commit …` (не сырой `git commit`).
 
 ## Handoff / fragments
 
@@ -40,7 +42,20 @@
 
 ## Cover
 
-- Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным.
+- Prompt builder **не** вставляет demeaning-slang lemmas даже в negatives (нейтрально: «no insults / no demeaning buyer slang»). `excalibur_blog_kie_gpt_image2_api.py` дополнительно санитизирует prompt перед createTask.
+- Outfit: по `blog-hero.json` outfit_rule (погода/тема); **запрещены** white-hoodie lock, hood, cap. Reference URL — только `https://`.
+
+## Research notes gate
+
+- `accessed_at` считается и по `accessed_at: YYYY-MM-DD`, и по ISO-датам в колонке `accessed_at` markdown-таблицы (≥5).
+- `pain_solution_map`: достаточно data-rows под `## pain_solution_map` (токены pain/solution в ячейках не обязательны).
+- Секция `## github_evidence` не делает тему technical сама по себе.
+
+## Git / Indexer
+
+- Indexer llms: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir … --blog-path / --out-dir memory/blog` (`--blog-path` из site-brief; для Авто-Сейлс обычно `/`, не `/blog/`).
+- Для commit артефактов в Cloud — только через `bash scripts/excalibur_git.sh`.
 
 ## Scout
 

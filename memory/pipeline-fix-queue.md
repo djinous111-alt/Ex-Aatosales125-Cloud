@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261029-0920-writer-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-rav4-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru`, so `excalibur_blog_utility_gate.py` reported pain_markers=0 and outcome_markers=0 despite a human article with explicit pain/outcome language.
+- Same regression previously seen on Crown B01 (INC-20261028-1718); durable pin did not survive tip/rebrand.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru`, `outcome_markers_ru`, and `_markers_pinned: true` in editorial-policy.json.
+- Added script-level fallback defaults in `excalibur_blog_utility_gate.py` when policy lists are missing, with a warning.
+- Utility gate PASS after restore; human-voice PASS; html_linter PASS.
+
+### Durable fix needed before next run
+- Doctor assert: fail if editorial-policy missing pain/outcome marker lists or `_markers_pinned`.
+- Keep utility-gate fallback permanently; document in pitfalls that writers must not delete these keys during rebrand.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261029-0915-research-notes-gate-false-technical
 status: open
 run_date: 2026-10-29

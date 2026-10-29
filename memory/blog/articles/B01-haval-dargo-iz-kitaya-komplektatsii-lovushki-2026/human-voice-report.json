@@ -1,10 +1,8 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026",
-  "errors": [
-    "reader pain is weak or invisible: article must name the problem it solves"
-  ],
+  "errors": [],
   "warnings": [
     "multiple exactly-5-step lists detected; vary list size when editorially possible"
   ],
@@ -13,14 +11,15 @@
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 24,
-    "paragraph_avg_words": 32.3,
-    "paragraph_variance_ratio": 0.43,
+    "paragraph_avg_words": 32.8,
+    "paragraph_variance_ratio": 0.47,
     "concrete_markers": [
       "например",
       "на практике",
       "типичная ошибка"
     ],
     "pain_markers": [
+      "проблем",
       "ошиб"
     ],
     "outcome_markers": [
@@ -85,6 +84,7 @@
       "прайсом",
       "привод",
       "расчёт",
+      "российским",
       "статье",
       "считать",
       "утильсбор",

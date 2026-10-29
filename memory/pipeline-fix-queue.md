@@ -301,7 +301,7 @@ checks_run:
 - `bash -n scripts/excalibur_git.sh`
 - filter unit: URL secret name dropped, identifiers kept
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)
 ## INC-20261029-1710-research-tech-markers-komplektatsii
 status: fixed
 run_date: 2026-10-29
@@ -347,7 +347,7 @@ files_changed:
 checks_run:
 - unit: `_tech_marker_hit('комплектации','ии') is False`
 - unit: Qashqai China topic `is_technical_topic` is False
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)
 ## INC-20261029-1721-geo-qa-utility-pain-markers-rebrand
 status: fixed
 run_date: 2026-10-29
@@ -395,7 +395,7 @@ files_changed:
 checks_run:
 - doctor pain/outcome non-empty OK
 - JSON parse editorial-policy
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)
 ## INC-20261029-1721-geo-qa-typed-task-unavailable
 status: fixed
 run_date: 2026-10-29
@@ -435,7 +435,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Cloud Task fallback wording present
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)
 ## INC-20261029-1721-geo-qa-human-voice-outcome-markers
 status: fixed
 run_date: 2026-10-29
@@ -476,7 +476,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` OUTCOME_MARKERS / соберёте guidance in writer contract
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)
 ## INC-20261029-1726-schema-placeholder-secret-scan
 status: fixed
 run_date: 2026-10-29
@@ -528,7 +528,7 @@ files_changed:
 checks_run:
 - unit expand_schema_placeholders
 - py_compile publish script
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)
 ## INC-20261029-1725-cover-prompt-hoodie-lock
 status: fixed
 run_date: 2026-10-29
@@ -570,7 +570,7 @@ files_changed:
 checks_run:
 - validate_prompt_safety rejects white-hoodie lock
 - py_compile cover prompt builder
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)
 ## INC-20261029-1725-cover-kie-http-ref-fail
 status: fixed
 run_date: 2026-10-29
@@ -613,7 +613,7 @@ files_changed:
 checks_run:
 - prefer_https unit
 - JSON parse blog-hero.json
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)
 ## INC-20261029-1734-indexer-llms-missing-blog-path
 status: fixed
 run_date: 2026-10-29
@@ -664,4 +664,4 @@ files_changed:
 checks_run:
 - doctor errors=0 (llms --blog-path OK)
 - dry-run llms URLs `/nissan-qashqai-.../` without `/blog/`
-commit: 658ba33c
+commit: 658ba33c (scripts) / 1e626bb8 (docs)

@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Geely Atlas из Китая: комплектации до депозита
+
+- **priority:** P0
+- **slug:** geely-atlas-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Geely Atlas из Китая: комплектации и ловушки до депозита
+- **primary_query:** джили атлас из китая
+- **secondary_queries:** джили атлас комплектации, джили атлас про из китая, geely atlas из китая, джили атлас 2026 комплектации
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. С чего начать выбор Atlas/Boyue под заказ из Китая
+  2. Какие комплектации смотреть и чем они отличаются на практике
+  3. Красные флаги до депозита: мощность, пробег, документы, комплектация "на словах"
+  4. Как сверить карточку продавца с реальным оснащением
+  5. Чек-лист перед оплатой депозита и передачей в логистику через Владивосток
+- **faq_hints:** чем Atlas отличается от Atlas Pro при заказе из Китая; какую комплектацию брать новичку; что проверить до депозита кроме цены; как не перепутать китайскую Boyue с РФ-версией
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс в smart casual и стильных очках рядом с современным кроссовером Geely Atlas, порт/Владивосток на фоне, плашка "до депозита", угол avto-sales125.ru
+- **wordstat_signal:** parent "джили атлас" ~277008; mid "джили атлас комплектации" ~2925; narrow "джили атлас из китая" ~446; ultra-narrow комплектации+из китая low-result (~5)
+- **live_dedup:** slug FREE на avtosales125.ru REST; нет dedicated LIVE-статьи по Atlas; denylist не пересечён

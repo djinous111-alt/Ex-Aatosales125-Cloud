@@ -20,6 +20,17 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 Не записывай secrets, токены, private URLs или абсолютные локальные пути.
 
+## Git commit (Cloud)
+
+Перед commit при `invalid variable name` в pre-commit:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+# или: bash scripts/excalibur_git.sh commit -m "..."
+```
+
+Dashboard: secret *names* только identifiers (`CATALOG_URL`), URL — в value.
+
 ## Роль
 
 Scout-агент ищет горячие и свежие инфоповоды по нейросетям, автоматизации, ИИ-инструментам, сравнивает их по спросу в Вордстате и добавляет новые utility-only карточки тем в `memory/topics/blog-topics.md`.

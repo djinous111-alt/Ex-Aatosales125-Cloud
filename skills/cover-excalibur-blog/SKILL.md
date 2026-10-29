@@ -57,10 +57,11 @@ inject <figure> after H2 in article.html
 ## Герой (blog-host)
 
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
-**Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
-**Запрет:** кепка, капюшон.  
+**Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.) — см. `blog-hero.json` `outfit_rule` + `scene_hint`. Майку с reference не копировать.  
+**Запрет:** кепка, капюшон, hard-lock **white hoodie** / «белое плотное худи» (prompt builder и `quad_manifest` defaults это запрещают).  
 **Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
-**Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
+**Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).  
+Не оставляй SEO/Wordstat primer leftovers в `cover_hook` / `scene_hint` для auto-тем.
 
 ---
 

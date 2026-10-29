@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Flagship в объявлении — чужая комплектация до депозита?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с телефоном: карточка Geely Atlas Flagship из Китая и стикер стоп до депозита",
+      "scene_hint": "reference face + glasses ONLY; OUTFIT OVERRIDE: charcoal softshell jacket over dark navy polo (NOT white hoodie, NOT reference tank top, NO cap, NO hood); cool autumn Vladivostok port air, soft overcast; action selfie holding phone with fake catalog card «Geely Atlas / Boyue L · Flagship» and red sticky «СТОП до депозита»; torn paper strip «Boyue L ≠ Atlas Pro»; yellow highlighter on слово Flagship; shocked meme cutout + facepalm sticker; tape; corner brand avto-sales125.ru; NO Wordstat NO Metrika; sticker text only safe RU captions",
+      "meme_caption_ru": "Стоп до депозита!"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте поколение: Atlas Pro или Boyue L из Китая",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистая UI-таблица 16:9 без лица героя: две колонки «Atlas Pro (РФ)» vs «Boyue L / Atlas из Китая» — длина кузова, база, мотор 1.5/2.0, привод AWD vs FWD, язык ГУ; sticky note «сначала поколение»; лёгкий scotch tape; кириллица",
+      "alt": "Таблица сравнения Atlas Pro и Boyue L из Китая: размеры, мотор и привод"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните комплектации на практике: ярлык vs список опций",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-доска без героя: слева ярлык «Flagship» зачёркнут маркером, справа список опций с галочками — экран/ОС, 360 камеры, подогревы, багажник, AR-HUD, привод; стикер «опции > ярлык»; paper texture",
+      "alt": "Чеклист: ярлык Flagship против списка реальных опций Atlas"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Поймайте красные флаги до депозита",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow-схема без героя: 5 шагов до депозита — VIN/фото → мотор → привод → опции письменно → ЭПТС/СБКТС; красные флаги на стрелках «документы потом», «комплектация на словах»; sticky «не плати вслепую»; без токсичных оскорблений",
+      "alt": "Схема красных флагов до депозита: VIN, мотор, привод, опции, ЭПТС"
+    }
+  }
+}

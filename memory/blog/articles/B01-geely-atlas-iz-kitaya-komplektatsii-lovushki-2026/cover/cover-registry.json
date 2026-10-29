@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "geely-atlas-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс с телефоном: карточка Geely Atlas Flagship из Китая и стикер стоп до депозита",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-29T21:34:23+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс с телефоном: карточка Geely Atlas Flagship из Китая и стикер стоп до депозита",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения Atlas Pro и Boyue L из Китая: размеры, мотор и привод",
+      "h2_anchor": "Зафиксируйте поколение: Atlas Pro или Boyue L из Китая",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист: ярлык Flagship против списка реальных опций Atlas",
+      "h2_anchor": "Сравните комплектации на практике: ярлык vs список опций",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема красных флагов до депозита: VIN, мотор, привод, опции, ЭПТС",
+      "h2_anchor": "Поймайте красные флаги до депозита",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

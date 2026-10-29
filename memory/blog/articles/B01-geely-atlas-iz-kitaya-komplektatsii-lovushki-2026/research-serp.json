@@ -1,0 +1,651 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-30",
+    "today_ru": "30.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-30 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "geely-atlas-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Geely Atlas из Китая: комплектации и ловушки до депозита",
+    "primary_query": "джили атлас из китая",
+    "secondary_queries": [
+      "джили атлас комплектации",
+      "джили атлас про из китая",
+      "geely atlas из китая",
+      "джили атлас 2026 комплектации"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "джили атлас из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Атлас 2026 купить из Китая — Geely Atlas i-HEV",
+          "url": "https://revocars.ru/geely/geely-atlas-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Атлас 2026 технические характеристики. Geely Atlas 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+          "snippet": "Джили Атлас 2026 (Geely Atlas, Boyue L) из Китая: гибрид i-HEV, бензиновые 1.5T и 2.0T, 9 версий, передний привод. Везём под ключ с полным пакетом документов."
+        },
+        {
+          "title": "№2047471: Купить Geely Atlas 2026 года в Китае - Дром",
+          "url": "https://www.drom.ru/world/china/geely/atlas/2047471/",
+          "snippet": "Джили Атлас 2026 комплектации и цены, фото. Подробно расписан модельный ряд Geely Atlas 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Geely Atlas (Гу Джили Атлас): обзор, цены, отзывы и секреты 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/gu/gu-dzhili-atlas.html",
+          "snippet": "Актуальные предложения Geely Atlas под заказ из Китая с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости Geely Atlas с доставкой в Россию."
+        },
+        {
+          "title": "Geely Boyue L 2026: обзор, цены и заказ из Китая",
+          "url": "https://ezzhev.ru/how-buy-car/geely-boyue-l-2026/",
+          "snippet": "Полный гид по кроссоверу Geely Atlas 2026: технические характеристики, сравнение комплектаций, реальные отзывы владельцев и скрытые функции. Узнайте, стоит ли покупать!"
+        },
+        {
+          "title": "Geely Atlas из Китая под заказ — цена под ключ, характеристики 2026",
+          "url": "https://chinaautozone.ru/catalog/geely/geely-atlas-boyue/",
+          "snippet": "Полный обзор нового Geely Boyue L 2026 (Atlas). Узнайте технические характеристики, комплектации и цены. Закажите авто из Китая с выгодой!"
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "джили атлас из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Атлас 2026 купить из Китая — Geely Atlas i-HEV",
+          "url": "https://revocars.ru/geely/geely-atlas-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Атлас 2026 технические характеристики. Geely Atlas 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+          "snippet": "Джили Атлас 2026 (Geely Atlas, Boyue L) из Китая: гибрид i-HEV, бензиновые 1.5T и 2.0T, 9 версий, передний привод. Везём под ключ с полным пакетом документов."
+        },
+        {
+          "title": "Джили Атлас (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/geely/atlas",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Атлас 2026 между собой."
+        },
+        {
+          "title": "Джили Атлас технические характеристики. Geely Atlas комплектации и цены ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/china/",
+          "snippet": "Всё про автомобиль Джили Атлас 2026 года: цена в России, фотографии кузова и салона, характеристики, информация про двигатели."
+        },
+        {
+          "title": "Джили Атлас 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/geely-atlas-2026/",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Атлас между собой."
+        },
+        {
+          "title": "Купить новые Geely Atlas 2026 года по цене от 2 390 844 рубля - более ...",
+          "url": "https://auto.ru/cars/geely/atlas/2026-year/new/",
+          "snippet": "Именно этот раздел представляет наибольший интерес для потенциальных покупателей, поскольку комплектации и цены Джили Атлас 2026 зависят не только от оснащения, но и от рынка сбыта."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "джили атлас из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Новый Geely Atlas: эволюция модели, технические нюансы и опыт владения",
+          "url": "https://avtomancar.com/geely-atlas-evolyucziya-modeli-tehnicheskie-nyuansy-i-opyt-vladeniya/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Atlas — самая популярная бензиновая машина в Китае в 2026 году ...",
+          "url": "https://www.ixbt.com/news/2026/09/20/437141-geely-atlas-samaia-populiarna-benzinovaia-masina-v-kitae-v-2026-godu-geely-monjaro-i-toyota-camry-v-top-10.html",
+          "snippet": "В 2026 году модельный ряд Geely Atlas в России претерпел серьезные изменения. Главное событие — появление доступной переднеприводной модификации с турбомотором объемом 1.5 литра."
+        },
+        {
+          "title": "Geely Atlas (Гу Джили Атлас): обзор, цены, отзывы и секреты 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/gu/gu-dzhili-atlas.html",
+          "snippet": "По данным о регистрациях новых машин за январь-август 2026 года, самым популярным автомобилем с ДВС стал Geely Atlas. При этом половину первой десятки заняли модели Volkswagen."
+        },
+        {
+          "title": "Джили Атлас 2026 купить из Китая — Geely Atlas i-HEV",
+          "url": "https://revocars.ru/geely/geely-atlas-2026/",
+          "snippet": "В 2026 году Atlas получил серьёзное обновление: новый турбомотор, расширенную линейку комплектаций и улучшенную мультимедию. Однако вместе с плюсами появились и новые нюансы — например, изменения в гарантийной политике на гибридные версии."
+        },
+        {
+          "title": "Geely Boyue L 2026: обзор, цены и заказ из Китая",
+          "url": "https://ezzhev.ru/how-buy-car/geely-boyue-l-2026/",
+          "snippet": "Продажи нового ряда в Китае стартовали 24 сентября 2026 года. На российском рынке машины нового поколения ещё не продаются, и привезти Geely Boyue L из Китая сейчас можно только под заказ."
+        },
+        {
+          "title": "Джили Атлас 2025-2026 - фото, цена, комплектация нового Geely Atlas new",
+          "url": "https://www.allcarz.ru/geely-atlas-ii/",
+          "snippet": "Полный обзор нового Geely Boyue L 2026 (Atlas). Узнайте технические характеристики, комплектации и цены. Закажите авто из Китая с выгодой!"
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com джили атлас из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - pku-gsun/ATLAS-MICRO-2026: ATLAS: Pathfinding Efficient 3D ...",
+          "url": "https://github.com/pku-gsun/ATLAS-MICRO-2026",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - kaipengm2/Virtual-Cell-Challenge-2026: A Simple Atlas Transfer ...",
+          "url": "https://github.com/kaipengm2/Virtual-Cell-Challenge-2026",
+          "snippet": "ATLAS separates hardware definition, thermal correction, software description, and cycle-level simulation. Extending the framework to another accelerator or application follows the same four-stage flow."
+        },
+        {
+          "title": "GitHub - dE1l/geely-monjaro: ADB скрипт для Geely Monjaro (Geely ...",
+          "url": "https://github.com/dE1l/geely-monjaro",
+          "snippet": "This repository presents a simple atlas-transfer approach for predicting single-cell CRISPRi perturbation responses in the Arc Institute Virtual Cell Challenge 2026 (VCC 2026)."
+        },
+        {
+          "title": "kueue/keps/8691-concurrent-admission/variants.svg at main - GitHub",
+          "url": "https://github.com/kubernetes-sigs/kueue/blob/main/keps/8691-concurrent-admission/variants.svg",
+          "snippet": "На не прошитых китайцах заблокирован доступ к ADB, требуется прошивка. Как установить прошивку? Технически это не прошивка, а набор команд и приложений, которые добавят функционала в ГУ. Команды выполняются через Android Debug Bridge (adb) с помощью SDK Platform Tools. Что потребуется для установки? Важно!"
+        },
+        {
+          "title": "localtuya/img/5-success.png at master · rospogrigio/localtuya",
+          "url": "https://github.com/rospogrigio/localtuya/blob/master/img/5-success.png",
+          "snippet": ":vertical_traffic_light: Kubernetes-native Job Queueing and Scheduling - kubernetes-sigs/kueue"
+        },
+        {
+          "title": "alfred/art/alfred.svg at master · kaethorn/alfred · GitHub",
+          "url": "https://github.com/kaethorn/alfred/blob/master/art/alfred.svg",
+          "snippet": "Contribute to rospogrigio/localtuya development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "джили атлас из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Атлас 2026 купить из Китая — Geely Atlas i-HEV",
+          "url": "https://revocars.ru/geely/geely-atlas-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Атлас 2026 технические характеристики. Geely Atlas 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+          "snippet": "Джили Атлас 2026 (Geely Atlas, Boyue L) из Китая: гибрид i-HEV, бензиновые 1.5T и 2.0T, 9 версий, передний привод. Везём под ключ с полным пакетом документов."
+        },
+        {
+          "title": "Джили Атлас (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/geely/atlas",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Атлас 2026 между собой."
+        },
+        {
+          "title": "Geely Atlas - документы",
+          "url": "https://www.chinamobil.ru/geely/atlas/?view=files",
+          "snippet": "Указаны рекомендованные цены Джили Атлас 2026 года выпуска по данным официальных прайс-листов компании. Стоимость конкретных автомобилей у дилера может отличаться. Полноприводный «Джили Атлас» позволяет получать удовольствие от быстрой езды, но немного недотягивает в динамике разгона."
+        },
+        {
+          "title": "Джили Атлас 2025-2026 - фото, цена, комплектация нового Geely Atlas new",
+          "url": "https://www.allcarz.ru/geely-atlas-ii/",
+          "snippet": "Продается в России. Цена - от 1401 тыс.руб."
+        },
+        {
+          "title": "Geely Atlas рестайлинг 2026, джип/suv 5 дв ... - Дром",
+          "url": "https://www.drom.ru/catalog/geely/atlas/g_2026_25007/",
+          "snippet": "До России добрался кроссовер Джили Атлас 2026 второго поколения. В данном обзоре я рассказал об основных особенностях автомобиля, его характеристиках, ценах и комплектациях."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "джили атлас из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Atlas | ChinaAutoForum.ru - форум по китайским автомобилям",
+          "url": "https://chinaautoforum.ru/forums/atlas.18/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Atlas Форум Джили Атлас Клуб - Geely Club / Форум Джили Клуб",
+          "url": "https://geely-clubs.ru/geely-atlas/",
+          "snippet": "Форум Geely Atlas: отзывы владельцев, плюсы и минусы, обслуживание, реальные проблемы, сравнение комплектаций и советы по выбору и эксплуатации."
+        },
+        {
+          "title": "Geely Atlas / PRO - Форум Джили клуб | Geely-Club",
+          "url": "https://geely-club.com/forums/forum/274-geely-atlas-pro/",
+          "snippet": "Добро пожаловать на форум Джили Атлас Клуб! Сообщество владельцев и поклонников Geely Atlas и Atlas Pro."
+        },
+        {
+          "title": "Джили Атлас 2026: отзывы владельцев и разбор недостатков",
+          "url": "https://asia-motors-hub.vercel.app/articles/d/dz/dzhili-atlas-2024-otzyvy-realnykh-vladeltsev-nedostatki.html",
+          "snippet": "Обсуждение автомобиля и отзывы о Geely Atlas (Джили Атлас) и Geely Atlas PRO (Джили Атлас Про)"
+        },
+        {
+          "title": "Отзывы владельцев | Geely Atlas клуб и форум",
+          "url": "https://geely-atlas-club.ru/forums/otzyvy-vladelcev.3/",
+          "snippet": "Самая обсуждаемая тема в отзывах о Geely Atlas 2026 года — это программное обеспечение. Огромный вертикальный экран выглядит впечатляюще, но его функциональность часто критикуется. Недостатки мультимедиа заключаются не в качестве картинки, а в логике работы и адаптации под российского пользователя."
+        },
+        {
+          "title": "Geely Atlas клуб и форум",
+          "url": "https://geely-atlas-club.ru/",
+          "snippet": "Джилька Атлас про, моторчик 1,5, с турбой стало быть. Масло какое сюда льете? На дилере двадцатку лили, может что-то погуще заливать, тридцатку. Вот и попрощался я со своим Атласом 1.8. Шесть лет и 113500 км владения. Взял бы я его снова в 2019 году? Однозначно. Все мы здесь знаем, что китайцы."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "джили атлас комплектации 2026",
+      "purpose": "вторичный запрос: джили атлас комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Атлас 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Атлас технические характеристики. Geely Atlas комплектации и цены ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/",
+          "snippet": "Джили Атлас 2026 комплектации и цены, фото. Подробно расписан модельный ряд Geely Atlas 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Джили Атлас 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/geely-atlas-2026/",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Атлас между собой."
+        },
+        {
+          "title": "Комплектации и цены Geely Atlas 2026 в Москве | Джили Москва",
+          "url": "https://geely-moscow.ru/models/atlas/price/",
+          "snippet": "Именно этот раздел представляет наибольший интерес для потенциальных покупателей, поскольку комплектации и цены Джили Атлас 2026 зависят не только от оснащения, но и от рынка сбыта."
+        },
+        {
+          "title": "Geely ATLAS - комплектации и цены 2026 года в Москве | У Сервис+",
+          "url": "https://www.uservice.ru/brands/geely/atlas/complectation/",
+          "snippet": "Изучайте комплектации и цены Джили Атлас 2026 года в Москве в этом разделе сайта."
+        },
+        {
+          "title": "Джили Атлас 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/geely/geely-atlas-2026.html",
+          "snippet": "Все комплектации Джили Атлас: сравните версии и выберите подходящую. Актуальные цены, автомобили доступны в наличии, кредит, рассрочка и тест-драйв."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "джили атлас про из китая 2026",
+      "purpose": "вторичный запрос: джили атлас про из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Атлас 2026 технические характеристики. Geely Atlas 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Атлас 2026 купить из Китая — Geely Atlas i-HEV",
+          "url": "https://revocars.ru/geely/geely-atlas-2026/",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Geely Atlas Pro из Китая: цена 2026 | AZWAY",
+          "url": "https://azway.ru/import/kitay/geely-atlas-pro",
+          "snippet": "Джили Атлас 2026 (Geely Atlas, Boyue L) из Китая: гибрид i-HEV, бензиновые 1.5T и 2.0T, 9 версий, передний привод. Везём под ключ с полным пакетом документов."
+        },
+        {
+          "title": "Geely Atlas Pro из Китая: 3 цилиндра с Volvo-корнями и клиренс 204 мм",
+          "url": "https://jckauto.ru/blog/geely-atlas-pro-import-china",
+          "snippet": "Купить Geely Atlas Pro из Китая под ключ. Цена от 2.0 до 2.8 млн ₽ под ключ: подбор, проверка, доставка по России, растаможка, СБКТС и ЭПТС."
+        },
+        {
+          "title": "Джили Атлас технические характеристики. Geely Atlas комплектации и цены ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/china/",
+          "snippet": "Разбираем Geely Atlas Pro как кандидата на ввоз из Китая: реальные характеристики, слабые места по отзывам владельцев, комплектации и подводные камни импорта в 2026 году."
+        },
+        {
+          "title": "Geely Atlas Pro (Китай): цены, комплектации и отзывы 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-atlas-pro-kitaj.html",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Атлас между собой."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "geely atlas из китая 2026",
+      "purpose": "вторичный запрос: geely atlas из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Атлас 2026 купить из Китая — Geely Atlas i-HEV",
+          "url": "https://revocars.ru/geely/geely-atlas-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Geely Atlas из Китая в Россию, Москву под ключ",
+          "url": "https://westmotors.ru/catalog-avto-china/geely/atlas/2016-2026",
+          "snippet": "Джили Атлас 2026 (Geely Atlas, Boyue L) из Китая: гибрид i-HEV, бензиновые 1.5T и 2.0T, 9 версий, передний привод. Везём под ключ с полным пакетом документов."
+        },
+        {
+          "title": "Джили Атлас 2026 технические характеристики. Geely Atlas 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+          "snippet": "Не все авто разрешены к экспорту из Китая. Из-за ограничений экспорта каждый автомобиль проверяется индивидуально. Уточняйте возможность вывоза у менеджера."
+        },
+        {
+          "title": "Geely Atlas из Китая под заказ — цена под ключ, характеристики 2026",
+          "url": "https://chinaautozone.ru/catalog/geely/geely-atlas-boyue/",
+          "snippet": "Джили Атлас 2026 комплектации и цены, фото. Подробно расписан модельный ряд Geely Atlas 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Джили Атлас технические характеристики. Geely Atlas комплектации и цены ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/china/",
+          "snippet": "Geely Atlas (Boyue) — компактный кроссовер с европейским дизайном и собственными платформами Geely. Модель сочетает современные технологии и комфорт, доступна для импорта в Россию под ключ."
+        },
+        {
+          "title": "Geely Atlas (Гу Джили Атлас): обзор, цены, отзывы и секреты 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/gu/gu-dzhili-atlas.html",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Атлас между собой."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "джили атлас 2026 комплектации 2026",
+      "purpose": "вторичный запрос: джили атлас 2026 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Атлас 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Атлас технические характеристики. Geely Atlas комплектации и цены ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/",
+          "snippet": "Джили Атлас 2026 комплектации и цены, фото. Подробно расписан модельный ряд Geely Atlas 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Джили Атлас 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/geely-atlas-2026/",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Атлас между собой."
+        },
+        {
+          "title": "Джили Атлас 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/geely/geely-atlas-2026.html",
+          "snippet": "Именно этот раздел представляет наибольший интерес для потенциальных покупателей, поскольку комплектации и цены Джили Атлас 2026 зависят не только от оснащения, но и от рынка сбыта."
+        },
+        {
+          "title": "Джили Атлас 2026 в новом кузове - фото, цена и комплектации в России",
+          "url": "https://www.allcarz.ru/geely-atlas/",
+          "snippet": "Начальный Джили Атлас 2026 рассчитан на тех, кому важны габариты, свежий дизайн и современная мультимедийная платформа без переплаты за «всё и сразу». Уже в базе акцент сделан на цифровые функции салона (Flyme Auto) и повседневный комфорт."
+        },
+        {
+          "title": "Geely ATLAS - комплектации и цены 2026 года в Москве | У Сервис+",
+          "url": "https://www.uservice.ru/brands/geely/atlas/complectation/",
+          "snippet": "Комплектации и цена Джили Атлас 2026 года на сайте официального дилера. Обзор, характеристики, фото в новом кузове, видео тест-драйв."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Geely Atlas из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Атлас технические характеристики. Geely Atlas комплектации и цены ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/china/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Atlas: сравнение комплектаций 2026 — что выбрать?",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-atlas-sravnenie-komplektatsij.html",
+          "snippet": "Подробно расписан модельный ряд Geely Atlas: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Атлас между собой."
+        },
+        {
+          "title": "Geely Atlas Pro из Китая: 3 цилиндра с Volvo-корнями и клиренс 204 мм",
+          "url": "https://jckauto.ru/blog/geely-atlas-pro-import-china",
+          "snippet": "В этом материале мы детально разберём все доступные комплектации Geely Atlas 2026 модельного года, сравним их по ключевым параметрам: двигатели и трансмиссии, системы безопасности, мультимедиа и комфорт, а также проанализируем реальную ценность каждой опции."
+        },
+        {
+          "title": "Джили Атлас 2025-2026 - фото, цена, комплектация нового Geely Atlas new",
+          "url": "https://www.allcarz.ru/geely-atlas-ii/",
+          "snippet": "Разбираем Geely Atlas Pro как кандидата на ввоз из Китая: реальные характеристики, слабые места по отзывам владельцев, комплектации и подводные камни импорта в 2026 году."
+        },
+        {
+          "title": "Джили Атлас 2026 купить из Китая — Geely Atlas i-HEV",
+          "url": "https://revocars.ru/geely/geely-atlas-2026/",
+          "snippet": "До России добрался кроссовер Джили Атлас 2026 второго поколения. В данном обзоре я рассказал об основных особенностях автомобиля, его характеристиках, ценах и комплектациях."
+        },
+        {
+          "title": "Джили Атлас 2026 технические характеристики. Geely Atlas 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+          "snippet": "Джили Атлас 2026 (Geely Atlas, Boyue L) из Китая: гибрид i-HEV, бензиновые 1.5T и 2.0T, 9 версий, передний привод. Везём под ключ с полным пакетом документов."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://revocars.ru/geely/geely-atlas-2026/",
+      "title": "Джили Атлас 2026 купить из Китая — Geely Atlas i-HEV",
+      "from_query": "джили атлас из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/geely/atlas/2026/",
+      "title": "Джили Атлас 2026 технические характеристики. Geely Atlas 2026 ...",
+      "from_query": "джили атлас из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/geely/atlas/2047471/",
+      "title": "№2047471: Купить Geely Atlas 2026 года в Китае - Дром",
+      "from_query": "джили атлас из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/g/gu/gu-dzhili-atlas.html",
+      "title": "Geely Atlas (Гу Джили Атлас): обзор, цены, отзывы и секреты 2026",
+      "from_query": "джили атлас из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/geely-boyue-l-2026/",
+      "title": "Geely Boyue L 2026: обзор, цены и заказ из Китая",
+      "from_query": "джили атлас из китая 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/catalog/geely/geely-atlas-boyue/",
+      "title": "Geely Atlas из Китая под заказ — цена под ключ, характеристики 2026",
+      "from_query": "джили атлас из китая 2026"
+    },
+    {
+      "url": "https://wroom.ru/cars/geely/atlas",
+      "title": "Джили Атлас (2026) — цена, характеристики, фото",
+      "from_query": "джили атлас из китая октябрь 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/geely/atlas/china/",
+      "title": "Джили Атлас технические характеристики. Geely Atlas комплектации и цены ...",
+      "from_query": "джили атлас из китая октябрь 2026"
+    },
+    {
+      "url": "https://cenyavto.com/geely-atlas-2026/",
+      "title": "Джили Атлас 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "джили атлас из китая октябрь 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/geely/atlas/2026-year/new/",
+      "title": "Купить новые Geely Atlas 2026 года по цене от 2 390 844 рубля - более ...",
+      "from_query": "джили атлас из китая октябрь 2026"
+    },
+    {
+      "url": "https://avtomancar.com/geely-atlas-evolyucziya-modeli-tehnicheskie-nyuansy-i-opyt-vladeniya/",
+      "title": "Новый Geely Atlas: эволюция модели, технические нюансы и опыт владения",
+      "from_query": "джили атлас из китая новости 2026"
+    },
+    {
+      "url": "https://www.ixbt.com/news/2026/09/20/437141-geely-atlas-samaia-populiarna-benzinovaia-masina-v-kitae-v-2026-godu-geely-monjaro-i-toyota-camry-v-top-10.html",
+      "title": "Geely Atlas — самая популярная бензиновая машина в Китае в 2026 году ...",
+      "from_query": "джили атлас из китая новости 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/geely-atlas-ii/",
+      "title": "Джили Атлас 2025-2026 - фото, цена, комплектация нового Geely Atlas new",
+      "from_query": "джили атлас из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/pku-gsun/ATLAS-MICRO-2026",
+      "title": "GitHub - pku-gsun/ATLAS-MICRO-2026: ATLAS: Pathfinding Efficient 3D ...",
+      "from_query": "site:github.com джили атлас из китая 2026"
+    },
+    {
+      "url": "https://github.com/kaipengm2/Virtual-Cell-Challenge-2026",
+      "title": "GitHub - kaipengm2/Virtual-Cell-Challenge-2026: A Simple Atlas Transfer ...",
+      "from_query": "site:github.com джили атлас из китая 2026"
+    },
+    {
+      "url": "https://github.com/dE1l/geely-monjaro",
+      "title": "GitHub - dE1l/geely-monjaro: ADB скрипт для Geely Monjaro (Geely ...",
+      "from_query": "site:github.com джили атлас из китая 2026"
+    },
+    {
+      "url": "https://github.com/kubernetes-sigs/kueue/blob/main/keps/8691-concurrent-admission/variants.svg",
+      "title": "kueue/keps/8691-concurrent-admission/variants.svg at main - GitHub",
+      "from_query": "site:github.com джили атлас из китая 2026"
+    },
+    {
+      "url": "https://github.com/rospogrigio/localtuya/blob/master/img/5-success.png",
+      "title": "localtuya/img/5-success.png at master · rospogrigio/localtuya",
+      "from_query": "site:github.com джили атлас из китая 2026"
+    },
+    {
+      "url": "https://github.com/kaethorn/alfred/blob/master/art/alfred.svg",
+      "title": "alfred/art/alfred.svg at master · kaethorn/alfred · GitHub",
+      "from_query": "site:github.com джили атлас из китая 2026"
+    },
+    {
+      "url": "https://www.chinamobil.ru/geely/atlas/?view=files",
+      "title": "Geely Atlas - документы",
+      "from_query": "джили атлас из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/geely/atlas/g_2026_25007/",
+      "title": "Geely Atlas рестайлинг 2026, джип/suv 5 дв ... - Дром",
+      "from_query": "джили атлас из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://chinaautoforum.ru/forums/atlas.18/",
+      "title": "Atlas | ChinaAutoForum.ru - форум по китайским автомобилям",
+      "from_query": "джили атлас из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://geely-clubs.ru/geely-atlas/",
+      "title": "Geely Atlas Форум Джили Атлас Клуб - Geely Club / Форум Джили Клуб",
+      "from_query": "джили атлас из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://geely-club.com/forums/forum/274-geely-atlas-pro/",
+      "title": "Geely Atlas / PRO - Форум Джили клуб | Geely-Club",
+      "from_query": "джили атлас из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/d/dz/dzhili-atlas-2024-otzyvy-realnykh-vladeltsev-nedostatki.html",
+      "title": "Джили Атлас 2026: отзывы владельцев и разбор недостатков",
+      "from_query": "джили атлас из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://geely-atlas-club.ru/forums/otzyvy-vladelcev.3/",
+      "title": "Отзывы владельцев | Geely Atlas клуб и форум",
+      "from_query": "джили атлас из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://geely-atlas-club.ru/",
+      "title": "Geely Atlas клуб и форум",
+      "from_query": "джили атлас из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/geely/atlas/",
+      "title": "Джили Атлас технические характеристики. Geely Atlas комплектации и цены ...",
+      "from_query": "джили атлас комплектации 2026"
+    },
+    {
+      "url": "https://geely-moscow.ru/models/atlas/price/",
+      "title": "Комплектации и цены Geely Atlas 2026 в Москве | Джили Москва",
+      "from_query": "джили атлас комплектации 2026"
+    },
+    {
+      "url": "https://www.uservice.ru/brands/geely/atlas/complectation/",
+      "title": "Geely ATLAS - комплектации и цены 2026 года в Москве | У Сервис+",
+      "from_query": "джили атлас комплектации 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/geely/geely-atlas-2026.html",
+      "title": "Джили Атлас 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "джили атлас комплектации 2026"
+    },
+    {
+      "url": "https://azway.ru/import/kitay/geely-atlas-pro",
+      "title": "Geely Atlas Pro из Китая: цена 2026 | AZWAY",
+      "from_query": "джили атлас про из китая 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/geely-atlas-pro-import-china",
+      "title": "Geely Atlas Pro из Китая: 3 цилиндра с Volvo-корнями и клиренс 204 мм",
+      "from_query": "джили атлас про из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-atlas-pro-kitaj.html",
+      "title": "Geely Atlas Pro (Китай): цены, комплектации и отзывы 2026",
+      "from_query": "джили атлас про из китая 2026"
+    },
+    {
+      "url": "https://westmotors.ru/catalog-avto-china/geely/atlas/2016-2026",
+      "title": "Купить Geely Atlas из Китая в Россию, Москву под ключ",
+      "from_query": "geely atlas из китая 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/geely-atlas/",
+      "title": "Джили Атлас 2026 в новом кузове - фото, цена и комплектации в России",
+      "from_query": "джили атлас 2026 комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-atlas-sravnenie-komplektatsij.html",
+      "title": "Geely Atlas: сравнение комплектаций 2026 — что выбрать?",
+      "from_query": "Как выбрать Geely Atlas из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

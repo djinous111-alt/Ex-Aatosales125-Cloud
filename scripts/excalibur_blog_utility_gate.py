@@ -185,8 +185,19 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    # Fallback when editorial-policy lists were wiped (regression seen 2026-10).
+    default_pain = [
+        "боль", "проблем", "ошиб", "ловуш", "риск", "путаниц", "сложно", "дорого",
+    ]
+    default_outcome = [
+        "результат", "получите", "сможете", "сэконом", "проверьте", "соберите", "выберите",
+    ]
+    pain_markers = policy.get("pain_markers_ru") or default_pain
+    outcome_markers = policy.get("outcome_markers_ru") or default_outcome
+    if not (policy.get("pain_markers_ru") or []):
+        warnings.append("pain_markers_ru empty in policy; using script fallback")
+    if not (policy.get("outcome_markers_ru") or []):
+        warnings.append("outcome_markers_ru empty in policy; using script fallback")
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

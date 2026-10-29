@@ -305,7 +305,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - wrapper file exists + executable
-commit: 94f67861..25cc7b94
+commit: 05df4c50..b37a4395
 
 ## INC-20261029-1315-research-notes-gate-accessed-pain
 status: fixed
@@ -359,7 +359,7 @@ checks_run:
 - fixture table-only accessed_at + pain rows → PASS, technical_topic=false
 - B01 research-notes gate → PASS
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: 94f67861..25cc7b94
+commit: 05df4c50..b37a4395
 
 ## INC-20261029-1323-geo-qa-utility-pain-markers-rebrand
 status: fixed
@@ -409,7 +409,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 (policy checks OK)
-commit: 94f67861..25cc7b94
+commit: 05df4c50..b37a4395
 
 ## INC-20261029-1323-geo-qa-writer-fix-tldr-cta-pain
 status: fixed
@@ -467,7 +467,7 @@ checks_run:
 - html-linter synthetic TL;DR+[REDACTED] → fail; insight+placeholder → pass
 - B01 article.html html-linter → PASS
 - `rg` confirms old TL;DR example removed from contract/writer skill
-commit: 94f67861..25cc7b94
+commit: 05df4c50..b37a4395
 
 ## INC-20261029-1343-cover-prompt-builder-toxic-hoodie
 status: fixed
@@ -521,7 +521,7 @@ checks_run:
 - build_prompt has no toxic lemmas / white hoodie lock
 - sanitize_cover_prompt redacts lemmas and replaces hoodie lock
 - `python3 -m py_compile` on both scripts
-commit: 94f67861..25cc7b94
+commit: 05df4c50..b37a4395
 
 ## INC-20261029-1345-indexer-llms-blog-path-cli
 status: fixed
@@ -573,4 +573,4 @@ checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-path`
 - dry-run `--blog-path /` produces `/{slug}/` without `/blog/`
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: 94f67861..25cc7b94
+commit: 05df4c50..b37a4395

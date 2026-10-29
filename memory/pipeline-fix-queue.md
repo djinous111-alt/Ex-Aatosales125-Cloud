@@ -438,3 +438,42 @@ category: prompt
 ### Fixer resolution
 - pending
 
+
+## INC-20261029-1345-indexer-llms-blog-path-cli
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- Doctor/agent/skill contract requires `excalibur_blog_llms_generator.py --blog-path /`.
+- Actual argparse has no `--blog-path`; invoking with the documented flag exits 2 (`unrecognized arguments`).
+- Generator hardcodes URL path `/blog/{slug}/` while `memory/brief/site-brief.md` has `blog_path: /`.
+
+### How the agent recovered this run
+- Confirmed failure with `--blog-path /`.
+- Regenerated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` without `--blog-path` (flags: `--blog-dir`, `--site-base`, `--out-dir`; 3 articles including B01).
+- Absolute `--site-base ${PUBLIC_SITE_URL}` embeds the host into llms/interlink artifacts and trips the pre-commit secret scan; committed copies use empty `--site-base` → relative `/blog/{slug}/` URLs matching existing `memory/blog/llms.txt` policy.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` also contained one non-identifier URL token that crashed pre-commit at `${!SECRET_NAME}`; commit run filtered names to valid shell identifiers only (hook still active).
+
+### Durable fix needed before next run
+- Add `--blog-path` to `excalibur_blog_llms_generator.py` (default `/` or from site-brief) and use it in URL building instead of hardcoded `/blog/`.
+- Keep doctor check; update indexer skill/agent only if default/docs need clarifying after the script fix.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `memory/brief/site-brief.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

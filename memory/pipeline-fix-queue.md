@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — 2026-10-29 B01 fixer closed all open incidents)_
+
+## Recently fixed (2026-10-29)
+
 ## INC-20261029-0938-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-indexer
 topic_id: B01
@@ -41,11 +45,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Doctor asserts `--blog-dir` (not `--blog-path`).
+- Indexer agent/skill examples drop `--blog-path`.
+- Pitfall: llms generator uses `--blog-dir` only.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` no stale `--blog-path` CLI examples in indexer agents
+commit: pending-parent-commit
 
 
 ## INC-20261029-0935-cover-mcp-internal-http-ref
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-cover
 topic_id: B01
@@ -78,11 +98,28 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- hero_reference_url + cover_quad_prompt normalize http→https for input_urls.
+- batch timeout_policy documents failCode=500 recovery + https requirement + no blind recreate while waiting.
+- blog-hero blueprint URLs normalized to https.
+- Cover skill documents HTTPS + Internal Error 500 recovery.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` hero_reference_url + cover_quad_prompt
+- unit check normalize_https
+commit: pending-parent-commit
 
 
 ## INC-20261029-0936-cover-prompt-builder-toxic-hoodie
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-cover
 topic_id: B01
@@ -109,11 +146,24 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Removed banned-lemma literals from prompt builder negatives.
+- Removed white-hoodie outfit lock; outfit from scene_hint + blog-hero.outfit_rule + corner brand cue.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` no `лох` / `white hoodie` lock in prompt builder source
+- outfit_instruction unit check
+commit: pending-parent-commit
 
 
 ## INC-20261029-0937-cover-missing-corner-brand
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-cover
 topic_id: B01
@@ -138,11 +188,24 @@ category: other
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Added `excalibur_blog_cover_corner_stamp.py` PIL overlay helper.
+- `quad_apply.py --stamp-corner-brand` stamps after split without second image gen.
+files_changed:
+- `scripts/excalibur_blog_cover_corner_stamp.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- stamp dry-run on B01 cover.png copy → pixels changed, size 1200x675
+- `python3 -m py_compile` stamp + quad_apply
+commit: pending-parent-commit
 
 
 ## INC-20261029-0927-schema-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-schema
 topic_id: B01
@@ -170,12 +233,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Restored `scripts/excalibur_git.sh` filter + commit retry with cleared injected secret names.
+- Documented in pitfalls, CLOUD-AUTOMATION, schema skill.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+checks_run:
+- `bash -n scripts/excalibur_git.sh`
+- filter smoke: URL-shaped names dropped, identifiers kept
+commit: pending-parent-commit
 
 
 ## INC-20261029-0923-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -201,11 +277,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Documented `Task(generalPurpose)` + agent/skill paths as first-class when typed `excalibur-blog-*` unavailable (esp. geo-qa).
+- Director agent/skill + CLOUD-AUTOMATION updated; typed registry re-enable remains optional Cloud-side.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` first-class generalPurpose guidance present in director docs
+commit: pending-parent-commit
 
 
 ## INC-20261029-0923-geo-qa-tldr-label-conflict
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -233,11 +323,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Writer skill + writing contract use `Инсайт до ставки:` / `Инсайт до депозита:` only.
+- html-linter hard-fails on `TL;DR` / `Быстрый инсайт`.
+- GEO QA skill aligned.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- linter helper unit tests for forbidden labels
+- B01 article.html html-linter PASS
+commit: pending-parent-commit
 
 
 ## INC-20261029-0923-geo-qa-cta-env-placeholders
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -263,11 +369,25 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Writer skill + writing contract require `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` in git artifacts.
+- html-linter hard-fails raw `t.me/` CTA hrefs and bare env names without `${}`.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- detect_raw_cta_urls unit tests
+- B01 article.html html-linter PASS
+commit: pending-parent-commit
 
 
 ## INC-20261029-0920-writer-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-writer
 topic_id: B01
@@ -298,11 +418,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Doctor fails if editorial-policy missing pain/outcome markers or `_markers_pinned`.
+- Utility-gate script fallback retained; pitfalls warn not to delete keys on rebrand.
+- Current editorial-policy already has pinned markers.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py` (fallback kept)
+- `memory/brief/editorial-policy.json` (verified pinned)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK editorial-policy markers + pinned
+commit: pending-parent-commit
 
 
 ## INC-20261029-0915-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-research
 topic_id: B01
@@ -336,10 +469,26 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- `is_technical_topic` uses word-boundary markers + scrubs field-name false positives.
+- `accessed_at` counts ISO dates on URL table rows OR explicit tokens.
+- `pain_solution_map` counts table data rows by section structure.
+- Research skill documents auto/non-dev github_evidence rules.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: RAV4 notes → technical_topic=False
+- B01 research-notes-gate PASS with technical_topic=False
+commit: pending-parent-commit
+
 
 ## INC-20261029-0916-research-meti-webfetch-500
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-research
 topic_id: B01
@@ -365,10 +514,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Research skill: WebFetch 5xx on official/gov URL → WebSearch snippet + secondary source + freshness_notes (no research blocker).
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` WebFetch 5xx guidance in research skill
+commit: pending-parent-commit
+
 
 ## INC-20261029-0905-scout-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-10-29
 role: excalibur-blog-scout
 topic_id: B01
@@ -397,7 +557,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-29
+fix_summary:
+- Added `scripts/excalibur_git.sh` (filter non-identifier secret names + commit retry).
+- Scout skill + pitfalls + CLOUD-AUTOMATION document the helper.
+- Dashboard secret naming (no URL-as-name) noted for humans; repo workaround is durable.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+checks_run:
+- `bash -n scripts/excalibur_git.sh`
+- filter smoke keeps PUBLIC_SITE_URL/SSH_HOST, drops URL-shaped name
+- doctor WARN/OK for git helper presence
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

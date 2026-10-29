@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026",
+  "notes": "memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-10-29",
+    "prefer_sources_after": "2026-07-31",
+    "source_urls": 47,
+    "source_domains": 13,
+    "source_table_rows": 45,
+    "accessed_at": 10,
+    "github_urls": 7,
+    "official_doc_urls": 0,
+    "action_outline_items": 17,
+    "pain_solution_rows": 8,
+    "technical_topic": true
+  }
+}

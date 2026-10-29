@@ -288,3 +288,39 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261029-1315-research-notes-gate-accessed-pain
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- First `excalibur_blog_research_notes_gate.py` run returned BLOCK though the brief looked complete.
+- Gate counts only literal `accessed_at:` labels (regex `\baccessed_at\b\s*:`); dates inside a markdown table column named `accessed_at` do not count toward the minimum of 5.
+- Gate counts `pain_solution_map` rows only if the row text contains pain|solution|result|боль|решение|результат; ordinary Russian table cells without those tokens were ignored (rows=2 including header).
+- Auto niche notes with a `github_evidence` section flip `technical_topic=true` via TECH_MARKERS (`github`), producing a docs URL warning even when the topic is not developer software.
+
+### How the agent recovered this run
+- Added explicit `accessed_at: 2026-10-29 (...)` lines above the source table.
+- Prefixed pain_solution_map cells with `pain:` / `solution:` / `result:`.
+- Re-ran gate to PASS (warning about official docs URL remains, non-blocking).
+
+### Durable fix needed before next run
+- Document the accessed_at and pain_solution_map token rules in excalibur-research SKILL / agent card with a minimal example.
+- Optionally relax the gate: count table dates under an `accessed_at` column; count any `|` data row under `## pain_solution_map`; exclude the word `github` inside `## github_evidence` from TECH_MARKERS for non-dev niches.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

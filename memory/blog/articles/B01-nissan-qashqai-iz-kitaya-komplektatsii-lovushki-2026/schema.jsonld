@@ -28,7 +28,7 @@
           "url": "${PUBLIC_SITE_URL}"
         },
         "sameAs": [
-          "${CATALOG_URL}/",
+          "${CATALOG_URL}",
           "${TELEGRAM_URL}",
           "${MAX_URL}",
           "https://www.instagram.com/avtosales_rf",
@@ -42,7 +42,7 @@
         "alternateName": "AVTO SALES",
         "url": "${PUBLIC_SITE_URL}",
         "sameAs": [
-          "${CATALOG_URL}/",
+          "${CATALOG_URL}",
           "${TELEGRAM_URL}"
         ]
       },

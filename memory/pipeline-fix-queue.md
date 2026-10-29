@@ -449,3 +449,39 @@ category: qa
 
 ### Fixer resolution
 - pending
+
+## INC-20261029-1726-schema-placeholder-secret-scan
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First schema draft resolved absolute site/CTA URLs from env into `schema.jsonld`; Cursor secret-scan blocked commit (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`).
+- Pre-commit also still fails unless `CLOUD_AGENT_INJECTED_SECRET_NAMES` is filtered to bash identifiers (same class as scout INC-20261029-1705).
+
+### How the agent recovered this run
+- Rewrote `schema.jsonld` to use `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` placeholders (public Instagram/2GIS kept).
+- Filtered invalid secret *names* before commit; pushed `f4e219a9` (placeholder cleanup may follow).
+
+### Durable fix needed before next run
+- Document in schema skill: committed `schema.jsonld` must use env placeholders for site/CTA URLs; publish must expand before WP meta.
+- Teach `excalibur_blog_wp_publish.py` to expand `${PUBLIC_SITE_URL}` and CTA placeholders in `schema_jsonld` at publish time.
+- Restore `scripts/excalibur_git.sh` (filter non-identifier secret names) — still missing.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_git.sh` (missing)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -545,3 +545,39 @@ category: api
 
 ### Fixer resolution
 - pending
+
+## INC-20261029-1734-indexer-llms-missing-blog-path
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` FAIL: llms generator does not support `--blog-path` (expected by skill/site-brief `blog_path: /`).
+- Generator hardcodes URL path as `{site_base}/blog/{slug}/`, which mismatches site brief root blog (`/`) → should be `{site_base}/{slug}/` when `--blog-path /`.
+- Skill documents `--blog-path /` and `--site-base ${PUBLIC_SITE_URL}`, but CLI only has `--blog-dir`, `--site-base`, `--out-dir`, `--site-name`, `--site-desc`.
+
+### How the agent recovered this run
+- Ran with available args: `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` (relative URLs, secret-scan safe; no hardcoded PUBLIC_SITE_URL).
+- Produced `memory/blog/llms.txt` and `memory/blog/llms-full.txt` with `/blog/<slug>/` paths (legacy hardcoded prefix until script fix).
+
+### Durable fix needed before next run
+- Add `--blog-path` to `excalibur_blog_llms_generator.py` (default `/` or from site-brief); build URLs as `{site_base.rstrip('/')}{blog_path.rstrip('/')}/{slug}/` with correct join when blog_path is `/`.
+- Align doctor check, indexer skill, and agent docs with the new CLI.
+- Prefer empty/`""` site-base for relative URLs in committed artifacts when secret-scan forbids absolute PUBLIC_SITE_URL.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

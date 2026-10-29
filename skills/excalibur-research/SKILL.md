@@ -61,6 +61,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. Формат для `research_notes_gate.py`: ≥5 литералов `accessed_at: YYYY-MM-DD` в source_table; строки `pain_solution_map` с ключевыми словами `боль`/`решение`/`результат` (или pain/solution/result). Auto/China how-to **не** technical_topic: gate больше не матчит bare `ai`/`ии` внутри `reader_pain`/`комплектации`.
 
 ## Blockers
 

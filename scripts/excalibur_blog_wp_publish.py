@@ -32,6 +32,10 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    # CTA / sameAs hosts — expand ${VAR} in schema.jsonld at publish time only
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
 
 
@@ -69,6 +73,35 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     if not (env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")):
         missing.append("PUBLIC_SITE_URL")
     return missing
+
+
+def expand_env_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand git-safe placeholders like env:PUBLIC_SITE_URL or ${PUBLIC_SITE_URL}.
+
+    Committed schema.jsonld / HTML keep placeholders so Cloud secret-scan passes.
+    Publish expands in-memory before WP meta/content upload; never rewrite the file.
+    """
+    import re
+
+    def env_value(key: str) -> str:
+        return (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+
+    def repl_env_colon(match: re.Match[str]) -> str:
+        key = match.group(1)
+        suffix = match.group(2) or ""
+        value = env_value(key)
+        if not value:
+            return match.group(0)
+        return value + suffix
+
+    def repl_dollar(match: re.Match[str]) -> str:
+        key = match.group(1)
+        value = env_value(key)
+        return value if value else match.group(0)
+
+    text = re.sub(r"\benv:([A-Z][A-Z0-9_]*)(/[^\s\"'<>]*)?", repl_env_colon, text)
+    text = re.sub(r"\$\{([A-Z][A-Z0-9_]*)\}", repl_dollar, text)
+    return text
 
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
@@ -569,6 +602,12 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
+    env = load_env(root)
+    if args.public_base:
+        env["PUBLIC_SITE_URL"] = args.public_base
+    # Expand ${PUBLIC_SITE_URL}/${CATALOG_URL}/… in schema+HTML in-memory only.
+    payload["schema_jsonld"] = expand_env_placeholders(payload.get("schema_jsonld") or "", env)
+    payload["content"] = expand_env_placeholders(payload.get("content") or "", env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +615,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

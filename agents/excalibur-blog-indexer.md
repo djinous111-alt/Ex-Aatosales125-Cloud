@@ -22,10 +22,11 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 ## Твои задачи
 
-1. `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir <dir> --site-base ${PUBLIC_SITE_URL}`
-2. `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base ${PUBLIC_SITE_URL} --blog-path / --out-dir memory/blog`
+1. `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir <dir> --site-base "${PUBLIC_SITE_URL}"`
+2. `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "" --blog-path / --out-dir memory/blog` (WP root → relative `/{slug}/`)
 3. `promotion-checklist.md` из template.
 4. Handoff `=== EXCALIBUR BLOG INDEXER ===`.
+5. Commit через `bash scripts/excalibur_git.sh commit …` если Cloud pre-commit падает на non-identifier secret names.
 
 ## Не твоя зона
 

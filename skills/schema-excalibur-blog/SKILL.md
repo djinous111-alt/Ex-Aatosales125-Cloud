@@ -21,4 +21,14 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
+### Placeholders (обязательно для commit)
+
+Не вшивай live CTA hosts в committed JSON-LD (Cloud secret-scan):
+
+- `${PUBLIC_SITE_URL}` — BlogPosting/FAQPage/HowTo `@id` / `url` / `image`
+- `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` — author/publisher `sameAs` CTA
+- Публичные Instagram/2GIS и т.п. можно оставлять как есть
+
+Publish (`excalibur_blog_wp_publish.py`) расширяет placeholders **in-memory** перед WP meta upload и **не** переписывает файл на диске.
+
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).

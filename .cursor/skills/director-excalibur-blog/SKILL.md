@@ -50,9 +50,9 @@ Task(generalPurpose):
 
 Директор переносит оба блока в handoff после завершения пары Task.
 
-## Cloud Task fallback
+## Cloud Task fallback (first-class)
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+Typed `excalibur-blog-*` часто **нет** в Cloud Task enum (в т.ч. `excalibur-blog-geo-qa`). Не ретрай typed Task: **сразу** отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. См. `AGENTS.md` / `CLOUD-AUTOMATION.md`.
 
 ## Preflight (shell, директор)
 
@@ -126,6 +126,14 @@ Task(excalibur-blog-writer)
 
 ```text
 Task(excalibur-blog-geo-qa)
+```
+
+Если typed недоступен (типично в Cloud):
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.
 ```
 
 Промпт: «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»

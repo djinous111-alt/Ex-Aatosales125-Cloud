@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — Atlas B01 2026-10-30 open set closed by fixer)_
+
+## Fixed this run (2026-10-30 B01 Geely Atlas)
+
 ## INC-20261030-2142-indexer-secret-names-and-site-base-default
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-indexer
 topic_id: B01
@@ -39,12 +43,30 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Restored `scripts/excalibur_git.sh` + secret-name filter helpers so Cloud pre-commit skips non-identifier names.
+- llms generator keeps empty `--site-base` default; indexer skill/agent document `--site-base "" --blog-path /` WP-root recipe.
+- Doctor asserts `--blog-path`, empty site-base default, and `article_url(blog_path=/)` → `/{slug}/`.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_llms_generator.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0 warnings=0)
+- `bash scripts/excalibur_git.sh filter-env` smoke
+commit: pending-parent-commit
 
 ## INC-20261030-2127-schema-public-site-placeholder-expand
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-schema
 topic_id: B01
@@ -77,11 +99,30 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- `excalibur_blog_wp_publish.py` expands `${PUBLIC_SITE_URL}`/`${CATALOG_URL}`/`${TELEGRAM_URL}`/`${MAX_URL}` in-memory before WP upload; committed schema stays placeholder-safe.
+- Schema + publish skills/agents document the placeholder contract.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor expand regression OK
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: pending-parent-commit
 
 ## INC-20261030-2128-cover-white-hoodie-outfit-lock
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-cover
 topic_id: B01
@@ -114,10 +155,27 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Prompt builder already forbids white-hoodie lock; removed «белое плотное худи» / SEO primer defaults from `excalibur_blog_quad_manifest.py`.
+- Doctor regression asserts no Outfit lock white hoodie; cover skill/agent document outfit_rule + scene_hint.
+files_changed:
+- `scripts/excalibur_blog_quad_manifest.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor cover no-hoodie checks OK
+- `rg` no Outfit lock white hoodie in prompt/manifest
+commit: pending-parent-commit
 
 ## INC-20261030-2125-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -148,10 +206,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Documented `Task(generalPurpose)` as first-class Cloud path for geo-qa and sibling roles (director skill, AGENTS/CLOUD-AUTOMATION, geo-qa agent).
+- Avoids rediscovering missing typed Task each run; typed registry remains outside-repo optional.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose first-class guidance in director/geo-qa docs
+commit: pending-parent-commit
 
 ## INC-20261030-2130-writer-editorial-policy-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-writer
 topic_id: B01
@@ -184,10 +256,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Pinned non-empty `pain_markers_ru` / `outcome_markers_ru` with `_markers_pinned` + min_pain/min_outcome in editorial-policy.
+- Doctor fails preflight if lists empty; utility-gate fallback kept.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py` (verified fallback)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor editorial-policy marker asserts OK
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
 
 ## INC-20261030-2115-research-notes-gate-tech-false-positive
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-research
 topic_id: B01
@@ -220,10 +305,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Kept token-safe TECH_MARKERS (no bare ai/ии); doctor regression for China how-to + комплектации → technical_topic false.
+- Research skill documents accessed_at + pain_solution_map keyword format.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor research tech-marker regression OK
+- local is_technical_topic smoke for Atlas-like notes
+commit: pending-parent-commit
 
 ## INC-20261030-0010-scout-precommit-secret-name-url
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-scout
 topic_id: B01
@@ -254,11 +353,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Added durable `excalibur_git.sh` + filter scripts; Scout skill/agent document the commit workaround.
+- Dashboard should still use identifier-only secret *names* (optional human cleanup; repo workaround is durable).
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter-env smoke with URL-shaped secret name
+- doctor git wrapper presence OK
+commit: pending-parent-commit
 
 ## INC-20261030-0005-director-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-director
 topic_id: n/a
@@ -288,8 +403,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Verified `--blog-path` + `article_url()` in llms generator; doctor asserts help flag and URL join for blog_path=/.
+- Indexer docs match CLI; pitfalls note WP-root recipe.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor --blog-path + article_url regressions OK
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

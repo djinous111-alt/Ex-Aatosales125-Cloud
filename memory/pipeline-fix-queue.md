@@ -60,7 +60,8 @@ category: prompt
 ### How the agent recovered this run
 - Rewrote `cover/quad-manifest.json` for Atlas/China/deposit hooks; outfit = charcoal softshell + navy polo (not white hoodie).
 - Patched prompt builder to follow scene_hint/blog-hero outfit_rule and forbid white-hoodie lock; regenerated `--write-batch` before MCP i2i.
-- Forced `reference_url_hosted` to HTTPS for Kie input_urls.
+- Forced HTTPS hero for live Kie `input_urls`; sync MCP `gpt-image-2` hit `-32001` → preferred `excalibur_blog_kie_gpt_image2_api.py` (ONE job success).
+- For git commit: kept `blog-hero.json` unchanged; redacted public-site host in `quad-mcp-batch.json` to `[REDACTED]` placeholder; cleaned `CLOUD_AGENT_INJECTED_SECRET_NAMES` (15th entry was a raw URL, broke pre-commit `${!SECRET_NAME}`).
 
 ### Durable fix needed before next run
 - Keep prompt builder aligned with blog-hero outfit_rule; add regression check that generated prompt does not contain white-hoodie outfit lock.

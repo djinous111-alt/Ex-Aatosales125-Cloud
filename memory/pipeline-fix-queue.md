@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-2130-writer-editorial-policy-markers-missing
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru`, so `excalibur_blog_utility_gate.py` counted pain/outcome as 0 and BLOCKED a valid how-to article.
+- Same regression was already fixed in earlier China-complektatsii runs; lists were wiped again.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` and `outcome_markers_ru` in editorial-policy.
+- Added script fallback defaults + warnings in `scripts/excalibur_blog_utility_gate.py` when policy lists are empty.
+- Strengthened article recommendation phrasing (`Сделайте так` / `Не делайте так` / `чеклист`) so action-marker count ≥ 8.
+- Utility gate and human-voice gate PASS after fix.
+
+### Durable fix needed before next run
+- Doctor should assert non-empty `pain_markers_ru` / `outcome_markers_ru` in editorial-policy (or fail preflight).
+- Keep utility-gate fallback; document in `shared/agent-pipeline-pitfalls.md`.
+- Do not strip marker lists when editing editorial-policy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261030-2115-research-notes-gate-tech-false-positive
 status: open
 run_date: 2026-10-30

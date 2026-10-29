@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Excalibur BLOG LLMs Generator: AI-First Crawler Policy.
 
 Generates and maintains standard llms.txt and llms-full.txt in the root folder,
@@ -61,8 +61,28 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
-def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def article_url(site_base: str, blog_path: str, slug: str) -> str:
+    """Build article URL. blog_path=/ → /{slug}/; blog_path=/blog → /blog/{slug}/.
+    Empty site_base yields a root-relative path (for WordPress at site root).
+    """
+    path = (blog_path or "/").strip()
+    if not path.startswith("/"):
+        path = "/" + path
+    path = path.rstrip("/")
+    suffix = f"{path}/{slug}/" if path else f"/{slug}/"
+    base = (site_base or "").rstrip("/")
+    if not base:
+        return suffix
+    return f"{base}{suffix}"
+
+
+def build_llms_txt(
+    site_name: str,
+    site_desc: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    blog_path: str = "/blog",
+) -> str:
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -71,14 +91,18 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
         ""
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(site_base, blog_path, a["slug"])
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
-def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def build_llms_full_txt(
+    site_name: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    blog_path: str = "/blog",
+) -> str:
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -88,7 +112,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(site_base, blog_path, a["slug"])
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -108,7 +132,18 @@ def main() -> int:
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="",
+        help="Absolute site origin; empty → root-relative URLs (/{blog_path}/{slug}/)",
+    )
+    ap.add_argument(
+        "--blog-path",
+        type=str,
+        default="/blog",
+        help="URL path prefix for posts (site-brief blog_path; use / for WP root permalinks)",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -124,8 +159,12 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    llms_txt = build_llms_txt(
+        args.site_name, args.site_desc, articles, args.site_base, args.blog_path
+    )
+    llms_full_txt = build_llms_full_txt(
+        args.site_name, articles, args.site_base, args.blog_path
+    )
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

@@ -14,15 +14,14 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Whole-token markers only. Do NOT use bare "ai"/"ии": they false-positive inside
+# required fields like reader_pain and Russian words like "комплектации".
 TECH_MARKERS = (
-    "ai",
-    "ии",
     "agent",
     "агент",
     "mcp",
     "api",
     "cursor",
-    "make",
     "n8n",
     "github",
     "docker",
@@ -30,6 +29,11 @@ TECH_MARKERS = (
     "workflow",
     "автоматизац",
     "нейросет",
+    "openai",
+    "chatgpt",
+    "llm",
+    "make.com",
+    "n8n.io",
 )
 
 
@@ -79,8 +83,34 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Skip meta field names that contain markers (e.g. github_evidence) by using
+    # topic + lead fields only; still scan early notes body for real tech angle.
+    lead = notes[:2000].lower()
+    # Strip common research meta labels so required sections do not self-trigger.
+    for label in (
+        "github_evidence",
+        "reader_pain",
+        "pain_solution_map",
+        "success_criteria",
+        "voice_angle",
+        "reader_story",
+        "surprising_fact",
+        "reader_outcome",
+        "action_outline",
+        "utility_verdict",
+        "research_date",
+        "accessed_at",
+        "wordstat",
+        "mcp-kv",
+        "wordstat_get_top_requests",
+    ):
+        lead = lead.replace(label, " ")
+    blob += " " + lead
+    for marker in TECH_MARKERS:
+        # Token-ish match: avoid matching inside longer Russian/English words.
+        if re.search(rf"(?<![a-z0-9_а-яё]){re.escape(marker)}(?![a-z0-9_а-яё])", blob, flags=re.I):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

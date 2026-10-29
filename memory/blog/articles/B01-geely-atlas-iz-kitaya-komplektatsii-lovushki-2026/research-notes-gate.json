@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026",
+  "notes": "memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-30",
+    "prefer_sources_after": "2026-08-01",
+    "source_urls": 32,
+    "source_domains": 12,
+    "source_table_rows": 32,
+    "accessed_at": 15,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 8,
+    "pain_solution_rows": 7,
+    "technical_topic": false
+  }
+}

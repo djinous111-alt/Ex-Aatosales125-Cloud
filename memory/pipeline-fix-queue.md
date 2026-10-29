@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-2142-indexer-secret-names-and-site-base-default
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner failed: `CLOUD_AGENT_INJECTED_SECRET_NAMES` still contains a non-identifier URL entry, so bash `${!SECRET_NAME}` errors (`invalid variable name`) before any file scan.
+- Director patch to `scripts/excalibur_blog_llms_generator.py` kept a live `PUBLIC_SITE_URL` string as `--site-base` default; staging that default re-triggers secret-scan / hygiene risk (schema already switched to placeholders).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to identifier-only names for the commit shell.
+- Changed `--site-base` default to empty string (`""`) so empty site-base → relative URLs; callers pass `--site-base` / `--blog-path` explicitly (indexer used `--site-base "" --blog-path /`).
+
+### Durable fix needed before next run
+- Dashboard: remove non-identifier URL from injected secret *names* (identifier-only).
+- Keep llms generator default site-base empty; document in indexer skill that `--site-base "" --blog-path /` is the WP-root recipe.
+- Optionally harden pre-commit.cursor to skip non-identifier names instead of crashing.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard secret name list
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 
 ## INC-20261030-2127-schema-public-site-placeholder-expand
 status: open

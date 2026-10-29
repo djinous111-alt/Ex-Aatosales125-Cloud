@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 11,
+  "facts": [
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "иентир) ~4544 × 1837 × 1713, база ~2670 мм 4670 × 1900 × 1705, база 2777 мм Моторы 1.5T ~177 л.с. + 48V",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "n, Honour, Flagship, Intelligent. У поставщиков в 2025–2026 часто плавают Yangfan, Qicheng, Shanhe, Jinx",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "nour, Flagship, Intelligent. У поставщиков в 2025–2026 часто плавают Yangfan, Qicheng, Shanhe, Jinxiu. Яр",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "4544",
+      "kind": "large_number",
+      "context": "L (экспорт: Atlas / Starray) Габариты (ориентир) ~4544 × 1837 × 1713, база ~2670 мм 4670 × 1900 × 1705,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1837",
+      "kind": "large_number",
+      "context": "орт: Atlas / Starray) Габариты (ориентир) ~4544 × 1837 × 1713, база ~2670 мм 4670 × 1900 × 1705, база 27",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "las / Starray) Габариты (ориентир) ~4544 × 1837 × 1713, база ~2670 мм 4670 × 1900 × 1705, база 2777 мм М",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2670",
+      "kind": "large_number",
+      "context": "y) Габариты (ориентир) ~4544 × 1837 × 1713, база ~2670 мм 4670 × 1900 × 1705, база 2777 мм Моторы 1.5T ~1",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4670",
+      "kind": "large_number",
+      "context": "иты (ориентир) ~4544 × 1837 × 1713, база ~2670 мм 4670 × 1900 × 1705, база 2777 мм Моторы 1.5T ~177 л.с.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1705",
+      "kind": "large_number",
+      "context": "~4544 × 1837 × 1713, база ~2670 мм 4670 × 1900 × 1705, база 2777 мм Моторы 1.5T ~177 л.с. + 48V 1.5TD /",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2777",
+      "kind": "large_number",
+      "context": "37 × 1713, база ~2670 мм 4670 × 1900 × 1705, база 2777 мм Моторы 1.5T ~177 л.с. + 48V 1.5TD / 2.0TD (офиц",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "177",
+      "kind": "large_number",
+      "context": "мм 4670 × 1900 × 1705, база 2777 мм Моторы 1.5T ~177 л.с. + 48V 1.5TD / 2.0TD (офиц. таблица Geely) При",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "360",
+      "kind": "large_number",
+      "context": "ран и ОС мультимедиа (и план русификации). Камеры 360 или 540 – что именно на машине. Подогрев сидений /",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

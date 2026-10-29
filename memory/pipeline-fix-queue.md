@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-2125-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Task enum does not accept typed `excalibur-blog-geo-qa`; Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + skill path.
+- Same pattern recurs across Excalibur BLOG roles when Cloud API lacks plugin Task types.
+
+### How the agent recovered this run
+- Ran full GEO QA as generalPurpose: all scripts PASS; wrote `article-qa.md` verdict PASS (score 87).
+- Did not invent typed Task; followed AGENTS.md Cloud Task fallback contract.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` (and sibling roles) in Cloud Task type enum / automation config, or keep documented generalPurpose fallback as first-class path in director skill.
+- Avoid wasting tokens rediscovering the missing typed Task each run.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- Cursor Cloud / automation Task type registry (outside repo if applicable)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261030-2130-writer-editorial-policy-markers-missing
 status: open
 run_date: 2026-10-30

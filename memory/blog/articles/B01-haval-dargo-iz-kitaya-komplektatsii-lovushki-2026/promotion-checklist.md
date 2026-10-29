@@ -1,7 +1,7 @@
 # Promotion checklist — B01 haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-29  
-Live URL: ${PUBLIC_SITE_URL}2026/10/29/haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/
+Live URL: ${PUBLIC_SITE_URL}/2026/10/29/haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - 1.5T/2.0T, 2WD/4WD и зимний пакет — по VIN и видео, не по скринам
 - Договор на вас как физлицо + расчёт через Владивосток
 
-Читать: ${PUBLIC_SITE_URL}2026/10/29/haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/
+Читать: ${PUBLIC_SITE_URL}/2026/10/29/haval-dargo-iz-kitaya-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

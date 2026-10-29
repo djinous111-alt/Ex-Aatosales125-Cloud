@@ -400,3 +400,41 @@ category: qa
 ### Fixer resolution
 - pending
 
+## INC-20261029-1343-cover-prompt-builder-toxic-hoodie
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-dargo-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` embeds toxic lemma negatives literally (`лох` / `лохов` / `для лохов`) and locks `Outfit lock: thick heavyweight white hoodie`.
+- Kie `gpt-image-2-image-to-image` createTask succeeded but recordInfo failed twice with `failCode=500 Internal Error` while those lemmas remained in the prompt (and while `http://` WP media URL was used on first attempt).
+- Catbox host returned 412; 0x0 SSL handshake timed out — WP https media is the reliable reference.
+
+### How the agent recovered this run
+- Switched `reference_url_hosted` / batch `input_urls` to `https://avtosales125.ru/...png`.
+- Sanitized prompt + batch: removed toxic lemmas from negatives; replaced hoodie lock with gray softshell/crewneck (NO hood/cap).
+- Retried ONE Kie async job (`task_id=a939c24cbc7e4ac10c4ad494b339c931`) → success → `excalibur_blog_quad_apply.py --inject-html` PASS.
+
+### Durable fix needed before next run
+- Prompt builder must not emit demeaning-slang lemmas even as negatives; use neutral phrasing («no insults / no demeaning buyer slang»).
+- Drop white-hoodie lock; follow `blog-hero.json` outfit_rule (weather/topic; no hood/cap).
+- Prefer https for `reference_url_hosted` in hero script / doctor check.
+- Optional: sanitize step inside `excalibur_blog_kie_gpt_image2_api.py` before createTask.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/blog-hero.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

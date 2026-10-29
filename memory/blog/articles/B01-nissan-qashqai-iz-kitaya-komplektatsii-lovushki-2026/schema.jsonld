@@ -1,0 +1,186 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Nissan Qashqai из Китая: чек-лист комплектаций и ловушек до депозита в 2026",
+      "description": "Чек-лист Nissan Qashqai Glory из Китая: XV True и XV+ Leading, 151 л.с., VIN LGB, русификация и расчёт через Владивосток до депозита.",
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${PUBLIC_SITE_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}/",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${PUBLIC_SITE_URL}",
+        "sameAs": [
+          "${CATALOG_URL}/",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "ниссан кашкай из китая комплектации",
+        "кашкай из китая комплектации",
+        "русификация ниссан кашкай из китая",
+        "кашкай из китая 2026"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какой Qashqai из Китая чаще предлагают в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Массово – Glory/Honor на базе J11 с мотором 2.0 около 151 л.с. и передним приводом. Не путайте с европейским J12: до депозита требуйте поколение письменно в договоре."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем XV True отличается от XV+ Leading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это имена trim. Leading звучит как \"топ\", но зимние опции и панорама нужно сверять по конкретному экземпляру. Запросите таблицу есть/нет до оплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему важны 151 л.с. для утильсбора?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для физлица льготная логика после ПП 1713 завязана в том числе на мощность до 160 л.с. Проверьте цифру в документах и запросите живой расчёт – без опоры на \"цену от\" в рекламе."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что означает VIN с буквами LGB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Префикс LGB характерен для Dongfeng Nissan. Сверьте VIN на машине с карточкой и договором; расхождение – стоп до любых денег."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли русификация китайскому Qashqai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, заложите её заранее. Штатный CarPlay/Android Auto часто отсутствует, китайские сервисы в РФ не помогают. Выбирайте сервис с бэкапом прошивки, не делайте сами."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда можно переводить депозит?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только после пакета: договор, VIN, список опций, расчёт платежей и план логистики через Владивосток. Нет пакета – нет перевода."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Nissan Qashqai из Китая: чек-лист комплектаций до депозита",
+      "description": "Чек-лист Nissan Qashqai Glory из Китая: XV True и XV+ Leading, 151 л.с., VIN LGB, русификация и расчёт через Владивосток до депозита.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "КП и договор с поколением Glory/Honor J11"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Таблица опций экземпляра (не только имя trim)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото VIN и письменный расчёт платежей"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Карточка комплектации XV True / XV+ Leading"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Пакет до депозита: договор, VIN LGB, опции, расчёт, Владивосток"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксируйте поколение: Glory J11, а не европейский J12",
+          "text": "Проблема новичка – верить рекламе \"новый Кашкай 2026\" как глобальному третьему поколению. Китайский поток в РФ – Glory/Honor, кузов J11 (рестайлинг), двигатель MR20DD 2.0 около 151 л.с. и около 194 Нм, вариатор Xtronic, только передний привод. Это не J12 с другой платформой и другой \"европейской\" логикой опций.…",
+          "url": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-поколение-glory-j11-а-не-европейский-j12"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сравните XV True и XV+ Leading с реальными опциями",
+          "text": "В каталоге Drom на 2026 для китайского Qashqai часто встречаются XV True и XV+ Leading (с июля 2025). Типичная ошибка – купить \"Leading\" и ждать панораму, подогрев сидений и обогрев лобового \"как в РФ-топе\". На китайской спецификации топ по имени ≠ зимний пакет для России.",
+          "url": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#сравните-xv-true-и-xv-leading-с-реальными-опциями"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверьте 151 л.с. и условия льготы по утильсбору",
+          "text": "С 01.12.2025 по ПП 1713 льготная логика для физлица завязана в том числе на мощность до 160 л.с. (плюс условия личного ввоза). Китайский Qashqai Glory с ~151 л.с. обычно попадает в этот коридор по мощности – но это не \"гарантия цены из рекламы\".",
+          "url": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#проверьте-151-лс-и-условия-льготы-по-утильсбору"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверьте VIN: префикс LGB и совпадение с договором",
+          "text": "VIN китайского Dongfeng Nissan часто начинается с LGB (это код завода/СП в справочниках WMI). На пальцах: первые три символа говорят, кто собрал машину. Если в карточке одно, а в договоре другое – стоп. Тот же VIN должен совпасть на табличке, в КП и в будущем ЭПТС: иначе вы спорите уже не про опции, а про то, та ли…",
+          "url": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#сверьте-vin-префикс-lgb-и-совпадение-с-договором"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Заложите русификацию мультимедиа до оплаты",
+          "text": "У китайских Glory часто нет привычного CarPlay/Android Auto, а штатные сервисы в РФ бесполезны. Экран на китайском – не \"мелочь после выдачи\", а отдельная работа и бюджет. Кривая самостоятельная прошивка по отзывам владельцев легко превращается в часы ремонта.",
+          "url": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#заложите-русификацию-мультимедиа-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Чек-лист заказа через Владивосток до депозита",
+          "text": "Если не знаете, с чего начать импорт из Китая, идите по пакету документов, а не по эмоциям от фото. Владивосток здесь не \"галочка для красоты\": через порт и СВХ проходит растаможка, оформление ЭПТС и выдача. Пока машина на складе, вы как раз закрываете спорные пункты по опциям и платежам – до того, как деньги стали…",
+          "url": "${PUBLIC_SITE_URL}/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/#чек-лист-заказа-через-владивосток-до-депозита"
+        }
+      ]
+    }
+  ]
+}

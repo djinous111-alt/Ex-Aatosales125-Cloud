@@ -1,0 +1,27 @@
+{
+  "source": "memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ],
+  "note": "CTA ${CATALOG_URL}/${TELEGRAM_URL} expanded only for verification; committed HTML keeps placeholders"
+}

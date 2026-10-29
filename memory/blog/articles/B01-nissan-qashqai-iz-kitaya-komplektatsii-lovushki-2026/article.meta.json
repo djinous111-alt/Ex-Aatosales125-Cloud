@@ -12,7 +12,7 @@
     "кашкай из китая 2026",
     "nissan qashqai glory комплектации"
   ],
-  "char_count": 9255,
+  "char_count": 9351,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,12 +29,17 @@
     "description_aeo": "До депозита за Nissan Qashqai из Китая сверьте Glory J11, trim XV True/Leading с опциями, 151 л.с., VIN LGB и русификацию; расчёт – через Владивосток."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-29",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "link_verify": "pass",
+    "research_notes_gate": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

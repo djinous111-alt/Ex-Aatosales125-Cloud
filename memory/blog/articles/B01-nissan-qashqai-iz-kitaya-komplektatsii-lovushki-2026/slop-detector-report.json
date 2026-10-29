@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Схема до денег: Объявление → поколение Glory/J11 → trim + список опций → VIN LGB → расчёт платежей → русификация в смете → депозит Сравните XV True и XV+ Leading с реальными опциями В каталоге Drom на 2026 для китайского Qashqai часто встречаются XV True и XV+ Leading (с июля 2025)",
+      "word_count": 42
+    },
+    {
+      "sentence": "в карточке и ПТС/расчёте Зимние опции Часто без подогревов Тоже могут отсутствовать Сиденья, руль, лобовое – да/нет Мультимедиа Китайские сервисы Часто без CarPlay/Android Auto Русификация в смете отдельно Например, запросите фото и спеку: климат, экран ~12,3\", камеры 360°, панорама, диски, подогревы",
+      "word_count": 41
+    },
+    {
+      "sentence": "Тот же VIN должен совпасть на табличке, в КП и в будущем ЭПТС: иначе вы спорите уже не про опции, а про то, та ли это машина",
+      "word_count": 27
+    },
+    {
+      "sentence": "Опора на источники: каталог Drom Qashqai 2026, обзор Glory J11, Autonews/Автостат (июль 2026), ПП 1713 и разъяснения ФНС, Bromise/Drive2 по русификации, справочник WMI LGB (vininfo); живые расчёты платежей – в каталоге",
+      "word_count": 27
+    }
+  ],
+  "readability": {
+    "score": 76.6,
+    "level": "Easy (Standard modern readable web content)",
+    "avg_sentence_len": 9.5,
+    "avg_syllables_per_word": 2.0
+  }
+}

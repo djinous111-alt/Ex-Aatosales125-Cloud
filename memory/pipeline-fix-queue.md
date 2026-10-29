@@ -353,3 +353,99 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261029-1721-geo-qa-utility-pain-markers-rebrand
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- First GEO QA run: `excalibur_blog_utility_gate.py` BLOCK with `pain_markers=0` and `outcome_markers=0`.
+- Root cause: `memory/brief/editorial-policy.json` again missing `pain_markers_ru` / `outcome_markers_ru` and `min_pain_markers` / `min_outcome_markers` after AVTO SALES rebrand baseline on this branch.
+- Current `scripts/excalibur_blog_utility_gate.py` also lacked the durable empty-list fallback that earlier private-pipeline commits had restored.
+
+### How the agent recovered this run
+- Restored pain/outcome marker lists + mins in `memory/brief/editorial-policy.json`.
+- Re-added empty-list fallback defaults in `scripts/excalibur_blog_utility_gate.py`.
+- Point-fixed article.html for human-voice outcome markers (≥3) and Fact Check second line wording; re-ran all gates → PASS score 87.
+
+### Durable fix needed before next run
+- Keep pain/outcome lists in editorial-policy as required contract fields (do not drop on rebrand/template sync).
+- Keep utility-gate fallback forever so empty policy lists cannot zero-out a valid article.
+- Add a doctor/preflight check that fails if `pain_markers_ru`/`outcome_markers_ru` are missing.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261029-1721-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: handoff
+
+### What went wrong
+- Cloud typed Task `excalibur-blog-geo-qa` unavailable; Director used `generalPurpose` fallback with agent+skill paths.
+
+### How the agent recovered this run
+- Ran as generalPurpose GEO QA per AGENTS.md Cloud Task fallback; completed full script suite to PASS.
+
+### Durable fix needed before next run
+- Register typed Task types for excalibur-blog-* roles in Cloud, or keep generalPurpose fallback documented as default.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261029-1721-geo-qa-human-voice-outcome-markers
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Human voice gate BLOCK: only 2 outcome markers (`результат`, `проверьте`) while gate requires ≥3 distinct OUTCOME_MARKERS hits.
+- Writer lead used «соберёте» (future) which does not match imperative marker `соберите`.
+
+### How the agent recovered this run
+- Point edits: success paragraph «получите»/«сможете»; next-steps «соберите»; post-checklist «Выберите»; Fact Check second label → «Опора на источники» (kept required «Материал проверен»).
+
+### Durable fix needed before next run
+- Writer skill/checklist: ensure ≥3 of human-voice OUTCOME_MARKERS appear as substrings (получите/сможете/проверьте/соберите/выберите/…).
+- Note that conjugated forms like «соберёте» do not satisfy `соберите`.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

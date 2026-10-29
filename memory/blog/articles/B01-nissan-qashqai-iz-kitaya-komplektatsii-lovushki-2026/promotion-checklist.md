@@ -1,7 +1,7 @@
 # Promotion checklist — B01 nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-29 (pending publish)  
-Live URL: /nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-29  
+Live URL: ${PUBLIC_SITE_URL}/2026/10/29/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • XV True / XV+ Leading сверяйте с реальными опциями в карточке
 • 151 л.с., VIN LGB и русификация — до депозита; расчёт через Владивосток
 
-Читать: /nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/
+Читать: ${PUBLIC_SITE_URL}/2026/10/29/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir .../B01-... --site-base ${PUBLIC_SITE_URL}` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (empty `--site-base` → relative `/blog/<slug>/`; флаг `--blog-path` отсутствует — см. incident).
-- Publish: pending (шаг 6).
+- Publish: PASS — WP post_id=4657; featured=4658; inline=4659/4660/4661; HEAD 200; schema_meta ok.

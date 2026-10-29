@@ -1,0 +1,15 @@
+{
+  "slug": "nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "${PUBLIC_SITE_URL}/2026/10/29/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1261910,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4657 slug=nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026\nOK featured_image=4658\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4659 src=cover/inline-01.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026-inline-01.png\nOK inline_image_upload=4660 src=cover/inline-02.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026-inline-02.png\nOK inline_image_upload=4661 src=cover/inline-03.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026-inline-03.png\npermalink=${PUBLIC_SITE_URL}/2026/10/29/nissan-qashqai-iz-kitaya-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass"
+}

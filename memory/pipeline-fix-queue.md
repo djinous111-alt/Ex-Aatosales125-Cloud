@@ -6,6 +6,79 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20261030-2127-schema-public-site-placeholder-expand
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Schema step must commit `schema.jsonld` without secret-scanned CTA hosts (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`), while `scripts/excalibur_blog_wp_publish.py` `load_article()` uploads `schema_raw` as-is with no placeholder expansion.
+- Author `sameAs` from `shared/authors-registry.json` contains those CTA URLs; baking them into committed JSON-LD fails Cloud secret-scan. Older AS08/AS09 baked live hosts before this gate tightened.
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` still includes a non-identifier catalog URL entry that breaks bash `${!SECRET_NAME}` until filtered.
+
+### How the agent recovered this run
+- Wrote B01 `schema.jsonld` with `${PUBLIC_SITE_URL}` for BlogPosting/FAQPage/HowTo `@id`/`url`/`image` host and `${CATALOG_URL}`/`${TELEGRAM_URL}`/`${MAX_URL}` for author/publisher `sameAs` CTA entries; left public Instagram/2GIS URLs intact.
+- Filtered invalid secret *names* before retrying commit; documented in-memory expand gap for Fixer.
+
+### Durable fix needed before next run
+- In publish `load_article` (or helper), expand `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` in `schema.jsonld` in-memory before WP meta upload; do not rewrite the committed file.
+- Document the placeholder contract in schema + publish skills; optionally keep registry URLs out of committed schema by design.
+- Fix Dashboard secret *names* so catalog URL is not listed as a secret name (identifier-only names).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261030-2128-cover-white-hoodie-outfit-lock
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-atlas-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` hard-coded `Outfit lock: thick heavyweight white hoodie`, conflicting with `memory/cover/blog-hero.json` outfit_rule (weather + topic) and cover agent instruction to vary outfit via scene_hint.
+- Default/merge `quad-manifest` scene also still carried SEO/Wordstat primer leftovers for this B01 Atlas topic until manually rewritten.
+
+### How the agent recovered this run
+- Rewrote `cover/quad-manifest.json` for Atlas/China/deposit hooks; outfit = charcoal softshell + navy polo (not white hoodie).
+- Patched prompt builder to follow scene_hint/blog-hero outfit_rule and forbid white-hoodie lock; regenerated `--write-batch` before MCP i2i.
+- Forced `reference_url_hosted` to HTTPS for Kie input_urls.
+
+### Durable fix needed before next run
+- Keep prompt builder aligned with blog-hero outfit_rule; add regression check that generated prompt does not contain white-hoodie outfit lock.
+- Optionally clear primer SEO defaults in `excalibur_blog_quad_manifest.py` when article H2s are auto-topic (not SEO primer).
+- Sync `.cursor/skills/cover-excalibur-blog/SKILL.md` / agents copy if any still imply hoodie lock.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261030-2125-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-30

@@ -1,0 +1,186 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Geely Atlas из Китая: комплектации и ловушки до депозита",
+      "description": "Чек-лист до депозита: Boyue L vs Atlas Pro, мотор 1.5/2.0, передний привод, опции по факту, ЭПТС и СБКТС. Без чужих сумм под ключ.",
+      "datePublished": "2026-10-30",
+      "dateModified": "2026-10-30",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${PUBLIC_SITE_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${PUBLIC_SITE_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "джили атлас из китая",
+        "джили атлас комплектации",
+        "джили атлас про из китая",
+        "geely atlas из китая"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Atlas отличается от Atlas Pro при заказе из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atlas Pro у дилера в РФ – другая машина по кузову, мотору и приводу. Из Китая чаще везут Boyue L / Atlas нового поколения. Напишите целевое поколение и мотор, а не только слово \"Atlas\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какую комплектацию брать новичку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не начинайте с ярлыка Flagship. Соберите 8–12 must-have опций под зиму и семью, затем ищите уровень, где эти пункты есть по факту. Если полный привод обязателен – типичный Boyue L часто не подходит."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита кроме цены?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте поколение, мотор, привод, список опций, VIN/фото, план ЭПТС и СБКТС, язык меню и ожидания по гарантии. Цена без этого списка – ещё не оферта."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как не перепутать китайскую Boyue с РФ-версией?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сверьте имя Boyue L, габариты около 4670 мм и привод FWD в типичной поставке. РФ Atlas Pro короче и в линейке бывает полный привод."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли русификация мультимедиа?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Часто да: китайское меню встречается у машин из КНР. Заранее спросите, кто ставит русский интерфейс и что бывает с глюками."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить слову Flagship в объявлении?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Требуйте китайское имя комплектации и пункты оснащения. Flagship у поставщика и у РФ-дилера – разные наборы."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Geely Atlas из Китая: комплектации и ловушки до депозита",
+      "description": "Чек-лист до депозита: Boyue L vs Atlas Pro, мотор 1.5/2.0, передний привод, опции по факту, ЭПТС и СБКТС. Без чужих сумм под ключ.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Письменный список опций 8–12 пунктов и целевое поколение"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "VIN / фото сверки и карточка продавца"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "План ЭПТС и СБКТС до депозита"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "ТЗ: Boyue L / Atlas Pro, мотор 1.5 или 2.0, привод"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Must-have опции под зиму и семью без ярлыка Flagship"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксируйте поколение: Atlas Pro или Boyue L из Китая",
+          "text": "Первая ошибка – смешать поколения в одном чате. Atlas Pro у официального дилера в РФ – другой кузов. Boyue L / Atlas нового поколения из Китая – уже другая машина: длиннее, другая база, другие моторы.",
+          "url": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-поколение-atlas-pro-или-boyue-l-из-китая"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сравните комплектации на практике: ярлык vs список опций",
+          "text": "Второе место, где ломается сделка – слово Flagship вместо списка. В официальной таблице Geely по Boyue L встречаются Dragon, Honour, Flagship, Intelligent. У поставщиков в 2025–2026 часто плавают Yangfan, Qicheng, Shanhe, Jinxiu. Ярлыки разные, вам нужен список \"по факту\".",
+          "url": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#сравните-комплектации-на-практике-ярлык-vs-список-опций"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Поймайте красные флаги до депозита",
+          "text": "Боль здесь простая: деньги ушли, а потом всплыли \"ну это же почти то же самое\". Флаги ловят до перевода.",
+          "url": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#поймайте-красные-флаги-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Как сверить карточку продавца с реальным оснащением",
+          "text": "Выберите один лот и разберите его как экзамен. Проверьте фото салона: разъёмы, экран, кнопки на руле, проекцию. На практике у дилерского Atlas и китайского Boyue L отличаются USB, ОС и зимний пакет – из-за таких мелочей потом пишут злые отзывы.",
+          "url": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#как-сверить-карточку-продавца-с-реальным-оснащением"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Соберите чек-лист перед оплатой и выдачей во Владивостоке",
+          "text": "Критерий успеха до депозита: в чате лежит письменный список – китайское имя, мотор, привод, 8–12 опций, VIN/фото и пакет ЭПТС+СБКТС (или план оформления). Без этого перевод фиксирует ошибку.",
+          "url": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#соберите-чек-лист-перед-оплатой-и-выдачей-во-владивостоке"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Что дальше",
+          "text": "Напишите поколение, мотор, привод и must-have опции, сверьте VIN и закройте ЭПТС/СБКТС до депозита; только потом оплата и логистика через каталог Авто-Сейлс.",
+          "url": "${PUBLIC_SITE_URL}/geely-atlas-iz-kitaya-komplektatsii-lovushki-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

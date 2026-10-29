@@ -26,9 +26,10 @@ filter_secret_names() {
 
 filter_secret_names
 
-if [[ "${1:-}" == "commit" ]]; then
-  shift
-  exec git commit "$@"
+if [[ $# -eq 0 ]]; then
+  echo "usage: $0 <git-args...>" >&2
+  echo "example: $0 commit -m \"message\"" >&2
+  exit 2
 fi
 
 exec git "$@"

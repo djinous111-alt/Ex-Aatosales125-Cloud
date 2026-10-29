@@ -254,3 +254,37 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261029-1305-scout-excalibur-git-secret-names
+status: open
+run_date: 2026-10-29
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Plain `git commit` failed in Cloud pre-commit hook: `pre-commit.cursor` expands `${!SECRET_NAME}` over `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- One injected "secret name" is a public site URL (not a valid bash identifier), so the hook aborts with `invalid variable name` before the commit lands.
+- Documented helper `scripts/excalibur_git.sh` was missing from the repo even though scout automation memory told agents to prefer it.
+
+### How the agent recovered this run
+- Recreated `scripts/excalibur_git.sh` to drop non-identifier entries from `CLOUD_AGENT_INJECTED_SECRET_NAMES`, then committed the B01 topic card through the wrapper.
+
+### Durable fix needed before next run
+- Keep `scripts/excalibur_git.sh` in repo and point scout/director/publish docs at it for all Cloud commits.
+- Optionally ask platform/owners to stop injecting URL-like values into `CLOUD_AGENT_INJECTED_SECRET_NAMES` (treat site URL as a normal env var, not a named secret key).
+- Add a short note to `shared/agent-pipeline-pitfalls.md` about this hook failure mode.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

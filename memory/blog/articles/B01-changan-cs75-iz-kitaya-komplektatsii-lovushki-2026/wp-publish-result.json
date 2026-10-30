@@ -1,0 +1,22 @@
+{
+  "slug": "changan-cs75-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "${PUBLIC_SITE_URL}/2026/10/30/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/",
+  "post_id": 4675,
+  "featured_image": 4676,
+  "inline_images": [
+    4677,
+    4678,
+    4679
+  ],
+  "schema_meta": true,
+  "publish_method": "ssh",
+  "reconstructed": true,
+  "raw_output": "OK post=4675\nOK featured_image=4676\nOK schema_meta=1\nOK inline_image_upload=4677\nOK inline_image_upload=4678\nOK inline_image_upload=4679\npermalink=${PUBLIC_SITE_URL}/2026/10/30/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/\nNOTE: reconstructed after HTTP RemoteDisconnected; server-side publish succeeded; no republish",
+  "verdict": "pass",
+  "head_status": 200,
+  "foreign_denylist_untouched": {
+    "4669": "tank-500-iz-kitaya-komplektatsii-lovushki-2026",
+    "4663": "geely-atlas-iz-kitaya-komplektatsii-lovushki-2026"
+  }
+}

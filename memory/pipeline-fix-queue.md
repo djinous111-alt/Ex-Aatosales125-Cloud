@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-1345-publish-http-remotedisconnect-reconstruct
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-changan-cs75-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~6.9MB), then local HTTP trigger hit `RemoteDisconnected` before response body.
+- Script waited for `memory/webfetch-response.txt` (120s) and exited fail even though WP post was already LIVE.
+- `trigger_bootstrap_http` still hardcodes timeout=120; `EXCALIBUR_PUBLISH_HTTP_TIMEOUT=300` not honored.
+
+### How the agent recovered this run
+- Did **not** republish / second-trigger (would duplicate media `*-1.png`).
+- REST `posts?slug=changan-cs75-iz-kitaya-komplektatsii-lovushki-2026` → post **4675**, featured **4676**, inline **4677/4678/4679**.
+- WP-CLI (php 7.4) confirmed schema_meta LEN≈12k (BlogPosting+FAQPage+HowTo) and `skip_theme_faq=1`.
+- HEAD permalink 200; foreign denylist posts 4669/4663 untouched.
+- Wrote reconstructed `wp-publish-result.json`, ledger `published`, log, promotion, handoff.
+
+### Durable fix needed before next run
+- Honor `EXCALIBUR_PUBLISH_HTTP_TIMEOUT` in `trigger_bootstrap_http` (default 300).
+- On HTTP disconnect after successful SSH upload: auto REST reconstruct by slug before FAIL; require literal `OK post=` or reconstructed equivalent.
+- Document: never second-trigger while slug already LIVE.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261030-1336-indexer-llms-missing-blog-path
 status: open
 run_date: 2026-10-30

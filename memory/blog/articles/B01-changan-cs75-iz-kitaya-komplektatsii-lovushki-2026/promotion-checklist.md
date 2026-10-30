@@ -1,7 +1,7 @@
 # Promotion checklist — B01 changan-cs75-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-30 (pending WP publish)  
-Live URL: (после publish) /changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-30  
+Live URL: ${PUBLIC_SITE_URL}/2026/10/30/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До оплаты: фото шильдика с кВт vs порог 117,68 кВт (160 л.с.)
 • Чек-лист документов + маршрут Китай → СВХ Владивосток
 
-Читать: /changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/
+Читать: ${PUBLIC_SITE_URL}/2026/10/30/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -47,3 +47,8 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer 2026-10-30: llms.txt / llms-full.txt regenerated; relative `/{slug}/` after post-process (CLI без `--blog-path`, hardcode `/blog/`).
 - Cover+schema ✅ merged; publish not started by indexer.
+
+## Publish notes
+
+- WP post_id=4675; featured=4676; inline=4677/4678/4679
+- HEAD 200; schema_meta ok; reconstruct after RemoteDisconnected

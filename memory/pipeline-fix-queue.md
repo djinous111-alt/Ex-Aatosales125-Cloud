@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20261030-1725-schema-precommit-secret-name-url
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `schema.jsonld` failed: Cloud pre-commit hook `invalid variable name` while expanding `${!SECRET_NAME}`.
+- Same root cause as INC-20261030-1705: `CLOUD_AGENT_INJECTED_SECRET_NAMES` still contains a non-identifier URL token.
+
+### How the agent recovered this run
+- Filtered names to `^[A-Za-z_][A-Za-z0-9_]*$`.
+- Second blocker: secret-scan rejected `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` inside `schema.jsonld`.
+- Added EOL `// pragma: allowlist secret` on those lines (JSONC) and strip in `scripts/excalibur_blog_wp_publish.py` before WP meta write.
+- Schema artifact and fragment completed with PASS.
+
+### Durable fix needed before next run
+- Same as INC-20261030-1705: add `scripts/excalibur_git.sh` that filters secret names before every agent commit.
+- Document schema JSON-LD URL allowlist pragma + publish strip in schema skill / pitfalls (public marketing/site URLs are not true secrets).
+- Prefer Cloud config: do not treat `PUBLIC_SITE_URL` / catalog / Telegram / MAX as commit-blocking secrets for schema.jsonld.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py` (strip already added this run)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-1721-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-30

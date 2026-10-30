@@ -69,6 +69,29 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def outfit_lock_from_hero(hero: dict) -> str:
+    """Face lock only; clothing follows scene weather/topic — never white-hoodie lock."""
+    fragment = compact(hero.get("prompt_fragment") or "", 420)
+    rule = compact(hero.get("outfit_rule") or "", 220)
+    if fragment:
+        return (
+            "REFERENCE FACE only on top-left cover: preserve glasses/hair/beard likeness from input_urls. "
+            f"Outfit from hero lock (NOT white hoodie): {fragment}"
+        )
+    if rule:
+        return (
+            "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard. "
+            f"Outfit rule: {rule} NEVER white hoodie; NO cap NO hood; no headphones."
+        )
+    return (
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard. "
+        "Outfit MUST match scene WEATHER and ARTICLE TOPIC from cover scene_hint "
+        "(rain jacket at port, winter coat in snow, light shirt in heat, smart casual for customs) "
+        "— NEVER lock white hoodie / NEVER copy reference t-shirt/tank; NO cap NO hood. "
+        "No headphones/headset/earbuds."
+    )
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -86,9 +109,9 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_lock_from_hero(hero),
         "",
-        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
+        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts; corner brand avto-sales125.ru.',
         "",
         f"Top-right inline: {inline_panel_prompt(i1, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         f"Bottom-left inline: {inline_panel_prompt(i2, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",

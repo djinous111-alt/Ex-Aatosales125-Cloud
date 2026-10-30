@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-1334-cover-prompt-builder-hoodie-lock
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-changan-cs75-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` still hardcoded `Outfit lock: thick heavyweight white hoodie`, conflicting with `blog-hero.json` outfit_rule / weather-scene requirement (recurrence after prior Tank 500 cover sanitization).
+- Sync MCP `gpt-image-2` timed out twice with `-32001`; generation continued only via Kie async API (expected Cloud path).
+
+### How the agent recovered this run
+- Replaced hardcode with `outfit_lock_from_hero(hero)` using `prompt_fragment` / `outfit_rule`.
+- Manifest scene: olive rain jacket + Vladivostok port fog for Changan CS75 Plus.
+- Used `excalibur_blog_kie_gpt_image2_api.py` (createTask → poll → URL); one i2i job; split PASS + inject.
+
+### Durable fix needed before next run
+- Keep `outfit_lock_from_hero` as the only outfit line in prompt builder; add regression assert that prompt never contains `Outfit lock: thick heavyweight white hoodie`.
+- Cover skill/runbook: prefer Kie async over sync MCP when Cloud client times out; do not retry create blindly.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-1320-writer-precommit-secret-names
 status: open
 run_date: 2026-10-30

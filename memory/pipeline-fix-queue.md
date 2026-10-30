@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-0005-scout-precommit-secret-names-csv-url
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit hook with `invalid variable name` when expanding `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- The env value is a single space-token that mixes comma-separated secret names and a catalog URL (not a bash identifier).
+- Documented helpers `scripts/excalibur_blog_filter_commit_secret_env.sh` and `scripts/excalibur_git.sh` are missing from the repo, so scout had no durable one-liner.
+
+### How the agent recovered this run
+- Cleared/filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to empty or only `[A-Za-z_][A-Za-z0-9_]*` tokens via a one-off Python snippet, then re-ran `git commit` successfully.
+- Pushed scout commit `3d8f6e9c` (B01 Exeed TXL topic card).
+
+### Durable fix needed before next run
+- Restore or add `scripts/excalibur_blog_filter_commit_secret_env.sh` that splits on commas/whitespace and exports only valid bash identifiers.
+- Optionally add `scripts/excalibur_git.sh commit` wrapper used by all roles before commit.
+- Document in scout/director skills: always `eval` the filter before commit in Cloud.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (create)
+- `scripts/excalibur_git.sh` (create or restore)
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -1,0 +1,101 @@
+{
+  "article": "memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 13,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 12,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "\" живут на официальном tank.ru для РФ. В Китае на 2026 идут Hi4-T (Standard / Smart / Black Warrior), бен",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "е сверки комплектации и документов. Сравните Tank 500 и Tank 300 под ваш сценарий Сначала честно ответьт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "300",
+      "kind": "large_number",
+      "context": "мплектации и документов. Сравните Tank 500 и Tank 300 под ваш сценарий Сначала честно ответьте, зачем ва",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "220",
+      "kind": "large_number",
+      "context": "сколько человек ездит постоянно, нужна ли розетка 220 В. Не делать: брать 500 \"потому что солиднее на фо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "260",
+      "kind": "large_number",
+      "context": "ремиум / Оникс бензин 3.0, 5 мест ветка 3.0T (V6 ~260 кВт в обзорах) 3.0T + как машину запишут в РФ-доку",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "635",
+      "kind": "large_number",
+      "context": "тка длинный электроход, другая система Hi4-Z (до ~635 кВт / ~201 км WLTC) явно \"Hi4-Z\", не путать с Hi4-",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "201",
+      "kind": "large_number",
+      "context": "электроход, другая система Hi4-Z (до ~635 кВт / ~201 км WLTC) явно \"Hi4-Z\", не путать с Hi4-T Свежий фа",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "355",
+      "kind": "large_number",
+      "context": "итае обновили 27款 Tank 500 (BitAuto: Hi4-T от 335–355 тыс. ¥, 3.0T от 355 тыс. ¥, Hi4-Z от 375 тыс. ¥).",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "375",
+      "kind": "large_number",
+      "context": "T от 335–355 тыс. ¥, 3.0T от 355 тыс. ¥, Hi4-Z от 375 тыс. ¥). Это китайский прайс, не смета во Владивос",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "6 399 000",
+      "kind": "large_number",
+      "context": "nk.ru на дату прогона (акции, не оферта): Сити от 6 399 000 ₽, Техно от 7 199 000 ₽, Премиум 3.0T от 7 149 00",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7 199 000",
+      "kind": "large_number",
+      "context": "(акции, не оферта): Сити от 6 399 000 ₽, Техно от 7 199 000 ₽, Премиум 3.0T от 7 149 000 ₽, Оникс от 8 249 00",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7 149 000",
+      "kind": "large_number",
+      "context": "399 000 ₽, Техно от 7 199 000 ₽, Премиум 3.0T от 7 149 000 ₽, Оникс от 8 249 000 ₽. Красивая цифра в юанях б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "8 249 000",
+      "kind": "large_number",
+      "context": "199 000 ₽, Премиум 3.0T от 7 149 000 ₽, Оникс от 8 249 000 ₽. Красивая цифра в юанях без сметы по РФ – ещё н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

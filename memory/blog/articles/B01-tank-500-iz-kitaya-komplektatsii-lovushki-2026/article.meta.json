@@ -29,12 +29,17 @@
     "description_aeo": "До депозита за Tank 500 из Китая фиксируйте китайский код (Hi4-T/3.0T/Hi4-Z), число мест и расчёт утильсбора под спецификацию – русские Сити/Техно/Оникс не равны китайским ярлыкам."
   },
   "geo_qa": {
-    "score": 0,
-    "verdict": "PENDING",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-10-30",
-    "html_linter": "PENDING",
-    "slop_score": "PENDING",
-    "cannibalization": "PENDING"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat": "19/20",
+    "beginner_fit": "PASS"
   },
   "cover_family": "brand_collage"
 }

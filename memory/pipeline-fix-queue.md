@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-0921-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: handoff
+
+### What went wrong
+- Typed Task type `excalibur-blog-geo-qa` again unavailable in Cloud; Director/parent must fall back to generalPurpose + agent/skill paths.
+- Repeated class of incident across many B01 runs; durable cloud Task registration still missing.
+
+### How the agent recovered this run
+- Ran GEO QA as generalPurpose-equivalent role following `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Executed all python3 QA scripts; wrote `article-qa.md` with verdict PASS (score 88); did not rewrite `article.html`.
+
+### Durable fix needed before next run
+- Register typed Task `excalibur-blog-geo-qa` in Cloud Task catalog / automation config so Director can launch it without generalPurpose fallback.
+- Keep fallback docs in AGENTS.md / director skill until registration is verified green.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-0920-writer-editorial-policy-markers-missing
 status: open
 run_date: 2026-10-30

@@ -24,6 +24,7 @@ category: script
 - Added three VIN/WMI-related GitHub URLs under `github_evidence` (community signal only).
 - Rewrote source_table cells as `accessed_at: 2026-10-30` and prefixed pain/solution/result labels in map rows.
 - Gate reached PASS with warning only (`no obvious official docs/developer documentation URL`).
+- Pre-commit secret scan: own-blog checklist URL matched `PUBLIC_SITE_URL` — replaced with path-only `/2026/10/17/...` in research-notes; also filtered invalid token `[REDACTED]` from `CLOUD_AGENT_INJECTED_SECRET_NAMES` (breaks `${!SECRET_NAME}`).
 
 ### Durable fix needed before next run
 - Change TECH_MARKERS matching to word-boundary / tokenized checks; drop bare `ии`/`ai` as substrings or exclude them when the niche is auto/utility (non-IT).

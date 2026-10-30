@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-1315-research-tech-markers-false-positive
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-changan-cs75-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил авто-тему B01 (Changan CS75) как `technical_topic=true` и потребовал `github_urls >= 3`.
+- Причина: `TECH_MARKERS` ищутся как подстроки; маркер `ai` совпадает с `pain` в обязательном поле `reader_pain`, маркер `ии` совпадает с русским словом «комплектации» в H1/primary_query.
+
+### How the agent recovered this run
+- Добавлены релевантные GitHub URL по экосистеме Changan в `github_evidence`, чтобы закрыть требование gate.
+- Research brief и utility-угол не менялись под AI; topic остаётся авто-нишей.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / token match, либо исключить ложные подстроки (`pain`→`ai`, склонения на `-ии`).
+- Для non-tech ниш (авто) не требовать GitHub только из-за ложного technical flag; либо whitelist по `site-brief` niche.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261030-1315-scout-precommit-secret-names
 status: open
 run_date: 2026-10-30

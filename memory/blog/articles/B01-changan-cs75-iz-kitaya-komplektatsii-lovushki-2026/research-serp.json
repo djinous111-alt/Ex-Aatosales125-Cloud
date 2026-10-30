@@ -1,0 +1,666 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-30",
+    "today_ru": "30.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-30 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "changan-cs75-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Changan CS75 Plus из Китая: комплектации и ловушки до депозита",
+    "primary_query": "changan cs75 комплектации",
+    "secondary_queries": [
+      "чанган 75 плюс",
+      "комплектация чанган 75 плюс",
+      "changan cs75 plus комплектации",
+      "changan cs75 plus из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "changan cs75 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чанган ЦС75 Плюс 2026 технические характеристики. Changan CS75 Plus ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75_plus/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Changan CS75 Plus 2026 — купить Чанган СИЭС75 Плюс, цены от дилеров в ...",
+          "url": "https://changanauto.ru/model/cs75plus-new",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Plus 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Чанган ЦС75 2026 технические характеристики. Changan CS75 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75/2026/",
+          "snippet": "Новый кроссовер Changan CS75 Plus 2026 года: цены, комплектации, характеристики, фото и наличие. Купить Чанган СИЭС75 Плюс у официального дилера в России."
+        },
+        {
+          "title": "Changan CS75 Plus New 2026 — купить новый Чанган СИЭС75 Плюс, цены от ...",
+          "url": "https://changanauto.ru/model/cs75plus-gen4",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Комплектации Changan CS75 2026 года — сравнение характеристик всех версий",
+          "url": "https://chinaautozone.ru/specs.php?series=3204",
+          "snippet": "Новый Changan CS75 Plus 4-го поколения 2026 года: цены, комплектации, характеристики и фото. Купить новый Чанган СИЭС75 Плюс у официального дилера."
+        },
+        {
+          "title": "Changan CS75 Plus: комплектации 2026 года, цены и сравнение",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-plus-komplektatsii.html",
+          "snippet": "Все комплектации Changan CS75 2026 модельного года: сравнительная таблица характеристик по версиям. Цены из Китая, перевод параметров на русский."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "changan cs75 комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Комплектации Changan CS75 2026 года — сравнение характеристик всех версий",
+          "url": "https://chinaautozone.ru/specs.php?series=3204",
+          "snippet": ""
+        },
+        {
+          "title": "Чанган ЦС75 2026 технические характеристики. Changan CS75 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75/2026/",
+          "snippet": "Все комплектации Changan CS75 2026 модельного года: сравнительная таблица характеристик по версиям. Цены из Китая, перевод параметров на русский."
+        },
+        {
+          "title": "Чанган ЦС75 Плюс 2026 технические характеристики. Changan CS75 Plus ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75_plus/2026/",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чанган ЦС75 2026 между собой."
+        },
+        {
+          "title": "Changan CS75 New 2026: цены, комплектации и тест-драйв",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-novyj.html",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Plus 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Changan CS75 Plus 2026 — купить Чанган СИЭС75 Плюс, цены от дилеров в ...",
+          "url": "https://changanauto.ru/model/cs75plus-new",
+          "snippet": "Все о новом Changan CS75 New: технические характеристики, отзывы владельцев, сравнение с конкурентами и советы по выбору комплектации. Актуальные цены 2026 года."
+        },
+        {
+          "title": "Changan CS75 New 2026: цены, комплектации и тест-драйв",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-75-new.html",
+          "snippet": "Новый кроссовер Changan CS75 Plus 2026 года: цены, комплектации, характеристики, фото и наличие. Купить Чанган СИЭС75 Плюс у официального дилера в России."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "changan cs75 комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan CS75 New 2026: цены, комплектации и тест-драйв",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-novyj.html",
+          "snippet": ""
+        },
+        {
+          "title": "Changan CS75 Plus 2026 — купить Чанган СИЭС75 Плюс, цены от дилеров в ...",
+          "url": "https://changanauto.ru/model/cs75plus-new",
+          "snippet": "Все о новом Changan CS75 New: технические характеристики, отзывы владельцев, сравнение с конкурентами и советы по выбору комплектации. Актуальные цены 2026 года."
+        },
+        {
+          "title": "Чанган ЦС75 Плюс 2026 технические характеристики. Changan CS75 Plus ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75_plus/2026/",
+          "snippet": "Новый кроссовер Changan CS75 Plus 2026 года: цены, комплектации, характеристики, фото и наличие. Купить Чанган СИЭС75 Плюс у официального дилера в России."
+        },
+        {
+          "title": "Changan CS75 Pro › Цена и комплектации 2026",
+          "url": "https://carsdo.ru/changan/cs75-pro/",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Plus 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Чанган ЦС75 Про 2026 технические характеристики. Changan CS75 Pro 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75_pro/2026/",
+          "snippet": "Changan CS75 Pro: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Комплектации и цены Changan CS75 Pro 2026 в Москве | Чанган Москва",
+          "url": "https://changan.ru/models/cs75pro/price/",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com changan cs75 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "cs75 · GitHub",
+          "url": "https://github.com/cs75",
+          "snippet": ""
+        },
+        {
+          "title": "Releases · c80361619/diplay-changan - GitHub",
+          "url": "https://github.com/c80361619/diplay-changan/releases",
+          "snippet": "cs75 has 2 repositories available. Follow their code on GitHub."
+        },
+        {
+          "title": "Moon Sweepers PC Trainer Tools for Windows with automation profiles ...",
+          "url": "https://gist.github.com/SamuraiButlerStaple/f5698f4df48e4867ca7116a649064b4a",
+          "snippet": "专为 长安 CS75 2018款原厂车机 （飞思卡尔 i.MX6 / Android 4.4.2 KitKat）定制的免盒子 Apple CarPlay 投屏应用。 解决点击\"打开CarPlay\"退回桌面：修复老系统 Activity 任务栈冲突，点击平滑直达投屏。 引入 recoverBacklog 积压自愈机制，队列溢出时仅清空排队帧并请求 I 帧，不频繁销毁重建解码器，消除黑屏死循环。 车载无线音乐播放防卡顿：音频抖动缓冲从 300ms 提升至 500ms，有效抵御 2.4GHz Wi-Fi 抖动。 方向盘按键（方控）切歌支持：扩充车载媒体按键码，最高优先级广播拦截，无需连接车机原生蓝牙音乐即可直接切歌。 便携式车载热点全自动开启：进入前台与连接手机时自动拉起热点，界面提供一键开关。"
+        },
+        {
+          "title": "GitHub - c80361619/diplay-changan: 长安CS75 2018款原厂车机（飞思卡尔i.MX6 / Android ...",
+          "url": "https://github.com/c80361619/diplay-changan",
+          "snippet": "Moon Sweepers PC Trainer Tools for Windows with automation profiles, resource workflows, upgrade presets, saved configurations and a custom desktop dashboard. · GitHub. Instantly share code, notes, and snippets."
+        },
+        {
+          "title": "DogeUI/LongForm-Main.jpg at main · Tanya7z/DogeUI · GitHub",
+          "url": "https://github.com/Tanya7z/DogeUI/blob/main/LongForm-Main.jpg",
+          "snippet": "本项目基于开源项目 DiPlay 进行深度二次开发与底层架构降级改造，针对长安 CS75 2018款搭载的 飞思卡尔（Freescale / NXP）i.MX6 芯片及 Android 4.4.2 KitKat 系统 进行了专项适配与深度性能调优，实现无需外接 CarPlay 盒子、无需手机越狱、原车机直接安装即可使用。"
+        },
+        {
+          "title": "RoboLab/assets/scenes/_images/cartons_in_crate.png at main · NVlabs ...",
+          "url": "https://github.com/NVlabs/RoboLab/blob/main/assets/scenes/_images/cartons_in_crate.png",
+          "snippet": "Contribute to Tanya7z/DogeUI development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "changan cs75 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Комплектации Changan CS75 2026 года — сравнение характеристик всех версий",
+          "url": "https://chinaautozone.ru/specs.php?series=3204",
+          "snippet": ""
+        },
+        {
+          "title": "Чанган ЦС75 2026 технические характеристики. Changan CS75 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75/2026/",
+          "snippet": "Все комплектации Changan CS75 2026 модельного года: сравнительная таблица характеристик по версиям. Цены из Китая, перевод параметров на русский."
+        },
+        {
+          "title": "Чанган ЦС75 Про 2026 технические характеристики. Changan CS75 Pro 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75_pro/2026/",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чанган ЦС75 2026 между собой."
+        },
+        {
+          "title": "Changan CS75 Plus: комплектации 2026 года, цены и сравнение",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-plus-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чанган ЦС75 Про 2026 между собой."
+        },
+        {
+          "title": "PDF CS75 2026 rus 2 LE - changan-auto.kz",
+          "url": "https://changan-auto.kz/userdata/rubrics/rubrics_83/file_ru.pdf?1792403125",
+          "snippet": "Подробный обзор всех комплектаций Changan CS75 Plus: технические характеристики, отличия версий, цены и что выбрать. Актуальная информация на 2026 год."
+        },
+        {
+          "title": "Комплектации и цены Changan CS75 Pro 2026 в Москве | Чанган Москва",
+          "url": "https://changan.ru/models/cs75pro/price/",
+          "snippet": "Изложенная выше информация носит ознакомительный характер, не является публичной офертой. Подробности актуальных предложений доступны в салонах официальных дилеров CHANGAN."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "changan cs75 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чанган ЦС75 2025 - 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/changan/cs75/5kopeek/breakages/?year1=2025&year2=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Changan CS75: реальные отзывы владельцев 2026 года — плюсы и минусы",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/cs/cs75-changan-otzyvy.html",
+          "snippet": "Отзывы владельцев Чанган ЦС75 2025 - 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Чанган ЦС75: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Changan CS75 Pro: отзывы владельцев, комплектации и цены",
+          "url": "https://autodix.ru/changan-cs75-pro-otzyvy-vladelczev-obzor-komplektaczij-i-realnye-vpechatleniya/",
+          "snippet": "В этой статье мы проанализировали более 300 отзывов реальных владельцев с форумов, автосайтов и соцсетей, чтобы выявить объективные плюсы, типичные проблемы и скрытые нюансы эксплуатации, о которых молчат в салонах."
+        },
+        {
+          "title": "Обсуждение - Форум CS75 Чанган - my-changan.ru",
+          "url": "https://my-changan.ru/forum/87",
+          "snippet": "Подробный обзор Changan CS75 Pro: реальные отзывы владельцев, полный разбор комплектаций и цен, сравнение с конкурентами. Плюсы и минусы, расход топлива, впечатления от эксплуатации."
+        },
+        {
+          "title": "Чанган ЦС75 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/changan/cs75/5kopeek/?year1=2025&year2=2026",
+          "snippet": "Если вы владелец Чангана или только интересуетесь этой машиной, то наш форум Вам поможет лучше узнать этот автомобиль. Пишите, общайтесь, делитесь с друзьями."
+        },
+        {
+          "title": "CS75 - Форум CS75 Чанган - my-changan.ru",
+          "url": "https://my-changan.ru/forum/86",
+          "snippet": "Отзывы владельцев Чанган ЦС75 2025 - 2026: все минусы и плюсы, недостатки, поломки. Опыт эксплуатации реальных владельцев автомобилей Чанган ЦС75: плюсы и минусы."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "чанган 75 плюс 2026",
+      "purpose": "вторичный запрос: чанган 75 плюс",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan CS75 Plus 2026 — купить Чанган СИЭС75 Плюс, цены от дилеров в ...",
+          "url": "https://changanauto.ru/model/cs75plus-new",
+          "snippet": ""
+        },
+        {
+          "title": "Чанган ЦС75 Плюс 2026 технические характеристики. Changan CS75 Plus ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75_plus/2026/",
+          "snippet": "Новый кроссовер Changan CS75 Plus 2026 года: цены, комплектации, характеристики, фото и наличие. Купить Чанган СИЭС75 Плюс у официального дилера в России."
+        },
+        {
+          "title": "Changan CS75 Plus New 2026 — купить новый Чанган СИЭС75 Плюс, цены от ...",
+          "url": "https://changanauto.ru/model/cs75plus-gen4",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Plus 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить новые Changan CS75 Plus 2026 года по цене от 2 781 701 рубль ...",
+          "url": "https://auto.ru/cars/changan/cs75plus/2026-year/new/",
+          "snippet": "Новый Changan CS75 Plus 4-го поколения 2026 года: цены, комплектации, характеристики и фото. Купить новый Чанган СИЭС75 Плюс у официального дилера."
+        },
+        {
+          "title": "Changan CS75 Plus (Чанган ЦС75 Плюс ... - Дром",
+          "url": "https://www.drom.ru/catalog/changan/cs75_plus/",
+          "snippet": "Полный модельный ряд новых Changan CS75 Plus 2026 года по цене от 2 781 701 рубль - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Купить новые Changan CS75 Plus III 2026 года по цене от 2 781 701 рубль ...",
+          "url": "https://auto.ru/cars/changan/cs75plus/2026-year/24006208/new/",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Plus: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чанган ЦС75 Плюс между собой."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "комплектация чанган 75 плюс 2026",
+      "purpose": "вторичный запрос: комплектация чанган 75 плюс",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чанган ЦС75 Плюс 2026 технические характеристики. Changan CS75 Plus ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75_plus/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Changan CS75 Plus 2026 — купить Чанган СИЭС75 Плюс, цены от дилеров в ...",
+          "url": "https://changanauto.ru/model/cs75plus-new",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Plus 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Changan CS75 Plus New 2026 — купить новый Чанган СИЭС75 Плюс, цены от ...",
+          "url": "https://changanauto.ru/model/cs75plus-gen4",
+          "snippet": "Новый кроссовер Changan CS75 Plus 2026 года: цены, комплектации, характеристики, фото и наличие. Купить Чанган СИЭС75 Плюс у официального дилера в России."
+        },
+        {
+          "title": "Changan CS75 Plus (Чанган ЦС75 Плюс ... - Дром",
+          "url": "https://www.drom.ru/catalog/changan/cs75_plus/",
+          "snippet": "Новый Changan CS75 Plus 4-го поколения 2026 года: цены, комплектации, характеристики и фото. Купить новый Чанган СИЭС75 Плюс у официального дилера."
+        },
+        {
+          "title": "Changan CS75 Plus › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/changan/cs75-plus/",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Plus: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чанган ЦС75 Плюс между собой."
+        },
+        {
+          "title": "Changan CS75PLUS NEW 2026 комплектации, цены, купить новые Чанган СИ ...",
+          "url": "https://www.changan-major.ru/models/cs75plus-new/",
+          "snippet": "Changan CS75 Plus: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "changan cs75 plus комплектации 2026",
+      "purpose": "вторичный запрос: changan cs75 plus комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чанган ЦС75 Плюс 2026 технические характеристики. Changan CS75 Plus ...",
+          "url": "https://www.drom.ru/catalog/changan/cs75_plus/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Changan CS75 Plus 2026 — купить Чанган СИЭС75 Плюс, цены от дилеров в ...",
+          "url": "https://changanauto.ru/model/cs75plus-new",
+          "snippet": "Подробно расписан модельный ряд Changan CS75 Plus 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Changan CS75 Plus New 2026 — купить новый Чанган СИЭС75 Плюс, цены от ...",
+          "url": "https://changanauto.ru/model/cs75plus-gen4",
+          "snippet": "Новый кроссовер Changan CS75 Plus 2026 года: цены, комплектации, характеристики, фото и наличие. Купить Чанган СИЭС75 Плюс у официального дилера в России."
+        },
+        {
+          "title": "Changan CS75 Plus: комплектации 2026 года, цены и сравнение",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-plus-komplektatsii.html",
+          "snippet": "Новый Changan CS75 Plus 4-го поколения 2026 года: цены, комплектации, характеристики и фото. Купить новый Чанган СИЭС75 Плюс у официального дилера."
+        },
+        {
+          "title": "ChanGan CS75 Plus 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-changan.ru/modelnyj-ryad/cs75-plus/",
+          "snippet": "Подробный обзор всех комплектаций Changan CS75 Plus: технические характеристики, отличия версий, цены и что выбрать. Актуальная информация на 2026 год."
+        },
+        {
+          "title": "Changan CS75 Plus — цена 2026, комплектации Comfort, Luxury, Tech",
+          "url": "https://weilin.ru/catalog/changan/cs75-plus/",
+          "snippet": "Новый Чанган ЦС75 Плюс 2026 - комплектации, фото и технические характеристики. Цены на покупку CS75 Plus за наличные и в кредит по официальной программе ChanGan в салонах автодилеров в Москве."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "changan cs75 plus из китая 2026",
+      "purpose": "вторичный запрос: changan cs75 plus из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan CS75 2026: обзор, цены, как купить CS75 Plus/Pro из Китая",
+          "url": "https://ezzhev.ru/news/changan-cs75-plus-pro-obzor-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Changan из Китая 2026: модели, цены и стоит ли везти",
+          "url": "https://160drive.ru/changan-iz-kitaya-modeli-ceny-2026/",
+          "snippet": "Экспертный обзор Changan CS75 2026. Сравнение CS75 Plus и Pro, двигатели 1.5T и 2.0T, реальные цены и выгода при покупке из Китая. Рассчитайте стоимость на калькуляторе!"
+        },
+        {
+          "title": "Changan CS75 PLUS новые из Китая — цена от 2 870 000 ₽, 9 комплектаций",
+          "url": "https://china.sferacar.ru/china-new/changan/cs75-plus/",
+          "snippet": "Changan в России 2026: цены CS75, CS35, Uni-T у дилеров и привоз из Китая. Разница 1,7 млн - за что платит покупатель и есть ли альтернатива."
+        },
+        {
+          "title": "Changan из Китая 2026: что за бренд, какие модели привозим и сколько стоит",
+          "url": "https://autoprofiasia.ru/blog/changan-iz-kitaya-2026-modeli-tsena-pod-klyuch",
+          "snippet": "Changan CS75 PLUS 2026 новые из Китая: Внедорожник, двигатели 1.5 Гибрид и 1.5 Бензин и 2.0 Бензин, 9 комплектаций. Цена под ключ от 2 870 000 ₽ с доставкой и растаможкой."
+        },
+        {
+          "title": "Changan CS75 Plus New 2026: Полный обзор, характеристики и тест",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-75-plus-new.html",
+          "snippet": "Changan CS75 Plus и Uni-K из Китая 2026 — лучший выбор до 4 млн ₽. Рассказываем про модели, реальную стоимость под ключ во Владивосток и сравниваем с Haval и Chery."
+        },
+        {
+          "title": "Changan CS75 Plus 2026: Характеристики, цены и тест-драйв нового ...",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-plus-2025-goda.html",
+          "snippet": "Рынок кроссоверов среднего класса переживает настоящий ренессанс, и Changan CS75 Plus New занимает в этой гонке одну из лидирующих позиций. Этот автомобиль перестал быть просто «китайской альтернативой» европейским брендам, превратившись в эталонный продукт, задающий новые стандарты оснащения."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Changan CS75 Plus из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan CS75 Plus: обзор, комплектации и отзывы владельцев 2026",
+          "url": "https://silenkoautocratia.ru/blog/changan-cs75-plus-obzor/",
+          "snippet": ""
+        },
+        {
+          "title": "Changan CS75 2026: обзор, цены, как купить CS75 Plus/Pro из Китая",
+          "url": "https://ezzhev.ru/news/changan-cs75-plus-pro-obzor-2026/",
+          "snippet": "CS75 Plus — самый узнаваемый кроссовер Changan на российском рынке и один из лидеров продаж среди авто из Китая в целом. Разбираем реальный опыт владельцев и считаем итоговую цену под ключ."
+        },
+        {
+          "title": "Changan CS75 Plus купить из Китая: цены и доставка под ключ",
+          "url": "https://ezzhev.ru/how-buy-car/changan-cs75-plus-kupit-iz-kitaya/",
+          "snippet": "Экспертный обзор Changan CS75 2026. Сравнение CS75 Plus и Pro, двигатели 1.5T и 2.0T, реальные цены и выгода при покупке из Китая. Рассчитайте стоимость на калькуляторе!"
+        },
+        {
+          "title": "Changan CS75 Plus: комплектации 2026, цены и сравнение",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-tss-75-plyus-komplektatsii.html",
+          "snippet": "Планируете купить Changan CS75 Plus из Китая? Обзор цен, комплектаций и поколений. Рассчитайте стоимость доставки под ключ с таможней и утильсбором."
+        },
+        {
+          "title": "Changan CS75 PLUS новые из Китая — цена от 2 870 000 ₽, 9 комплектаций",
+          "url": "https://china.sferacar.ru/china-new/changan/cs75-plus/",
+          "snippet": "В этом материале мы детально разберём все доступные версии CS75 Plus, их технические особенности, а также дадим рекомендации, какую модификацию выбрать в зависимости от ваших задач."
+        },
+        {
+          "title": "Changan CS75 Plus: комплектации 2026 года, цены и сравнение",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-plus-komplektatsii.html",
+          "snippet": "Помогаем купить новый автомобиль из Китая под ключ: подбираем марку, модель и комплектацию, проверяем наличие у дилеров, рассчитываем итоговую стоимость, сопровождаем выкуп, доставку ..."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/changan/cs75_plus/2026/",
+      "title": "Чанган ЦС75 Плюс 2026 технические характеристики. Changan CS75 Plus ...",
+      "from_query": "changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://changanauto.ru/model/cs75plus-new",
+      "title": "Changan CS75 Plus 2026 — купить Чанган СИЭС75 Плюс, цены от дилеров в ...",
+      "from_query": "changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/changan/cs75/2026/",
+      "title": "Чанган ЦС75 2026 технические характеристики. Changan CS75 2026 ...",
+      "from_query": "changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://changanauto.ru/model/cs75plus-gen4",
+      "title": "Changan CS75 Plus New 2026 — купить новый Чанган СИЭС75 Плюс, цены от ...",
+      "from_query": "changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/specs.php?series=3204",
+      "title": "Комплектации Changan CS75 2026 года — сравнение характеристик всех версий",
+      "from_query": "changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-plus-komplektatsii.html",
+      "title": "Changan CS75 Plus: комплектации 2026 года, цены и сравнение",
+      "from_query": "changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-novyj.html",
+      "title": "Changan CS75 New 2026: цены, комплектации и тест-драйв",
+      "from_query": "changan cs75 комплектации октябрь 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-75-new.html",
+      "title": "Changan CS75 New 2026: цены, комплектации и тест-драйв",
+      "from_query": "changan cs75 комплектации октябрь 2026"
+    },
+    {
+      "url": "https://carsdo.ru/changan/cs75-pro/",
+      "title": "Changan CS75 Pro › Цена и комплектации 2026",
+      "from_query": "changan cs75 комплектации новости 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/changan/cs75_pro/2026/",
+      "title": "Чанган ЦС75 Про 2026 технические характеристики. Changan CS75 Pro 2026 ...",
+      "from_query": "changan cs75 комплектации новости 2026"
+    },
+    {
+      "url": "https://changan.ru/models/cs75pro/price/",
+      "title": "Комплектации и цены Changan CS75 Pro 2026 в Москве | Чанган Москва",
+      "from_query": "changan cs75 комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/cs75",
+      "title": "cs75 · GitHub",
+      "from_query": "site:github.com changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/c80361619/diplay-changan/releases",
+      "title": "Releases · c80361619/diplay-changan - GitHub",
+      "from_query": "site:github.com changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://gist.github.com/SamuraiButlerStaple/f5698f4df48e4867ca7116a649064b4a",
+      "title": "Moon Sweepers PC Trainer Tools for Windows with automation profiles ...",
+      "from_query": "site:github.com changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/c80361619/diplay-changan",
+      "title": "GitHub - c80361619/diplay-changan: 长安CS75 2018款原厂车机（飞思卡尔i.MX6 / Android ...",
+      "from_query": "site:github.com changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/Tanya7z/DogeUI/blob/main/LongForm-Main.jpg",
+      "title": "DogeUI/LongForm-Main.jpg at main · Tanya7z/DogeUI · GitHub",
+      "from_query": "site:github.com changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/NVlabs/RoboLab/blob/main/assets/scenes/_images/cartons_in_crate.png",
+      "title": "RoboLab/assets/scenes/_images/cartons_in_crate.png at main · NVlabs ...",
+      "from_query": "site:github.com changan cs75 комплектации 2026"
+    },
+    {
+      "url": "https://changan-auto.kz/userdata/rubrics/rubrics_83/file_ru.pdf?1792403125",
+      "title": "PDF CS75 2026 rus 2 LE - changan-auto.kz",
+      "from_query": "changan cs75 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/changan/cs75/5kopeek/breakages/?year1=2025&year2=2026",
+      "title": "Чанган ЦС75 2025 - 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "changan cs75 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/cs/cs75-changan-otzyvy.html",
+      "title": "Changan CS75: реальные отзывы владельцев 2026 года — плюсы и минусы",
+      "from_query": "changan cs75 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://autodix.ru/changan-cs75-pro-otzyvy-vladelczev-obzor-komplektaczij-i-realnye-vpechatleniya/",
+      "title": "Changan CS75 Pro: отзывы владельцев, комплектации и цены",
+      "from_query": "changan cs75 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://my-changan.ru/forum/87",
+      "title": "Обсуждение - Форум CS75 Чанган - my-changan.ru",
+      "from_query": "changan cs75 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/changan/cs75/5kopeek/?year1=2025&year2=2026",
+      "title": "Чанган ЦС75 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "changan cs75 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://my-changan.ru/forum/86",
+      "title": "CS75 - Форум CS75 Чанган - my-changan.ru",
+      "from_query": "changan cs75 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/changan/cs75plus/2026-year/new/",
+      "title": "Купить новые Changan CS75 Plus 2026 года по цене от 2 781 701 рубль ...",
+      "from_query": "чанган 75 плюс 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/changan/cs75_plus/",
+      "title": "Changan CS75 Plus (Чанган ЦС75 Плюс ... - Дром",
+      "from_query": "чанган 75 плюс 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/changan/cs75plus/2026-year/24006208/new/",
+      "title": "Купить новые Changan CS75 Plus III 2026 года по цене от 2 781 701 рубль ...",
+      "from_query": "чанган 75 плюс 2026"
+    },
+    {
+      "url": "https://carsdo.ru/changan/cs75-plus/",
+      "title": "Changan CS75 Plus › Цена и комплектации 2026 - CarsDo.ru",
+      "from_query": "комплектация чанган 75 плюс 2026"
+    },
+    {
+      "url": "https://www.changan-major.ru/models/cs75plus-new/",
+      "title": "Changan CS75PLUS NEW 2026 комплектации, цены, купить новые Чанган СИ ...",
+      "from_query": "комплектация чанган 75 плюс 2026"
+    },
+    {
+      "url": "https://kuplu-changan.ru/modelnyj-ryad/cs75-plus/",
+      "title": "ChanGan CS75 Plus 2026: комплектации и цены официальных дилеров в Москве",
+      "from_query": "changan cs75 plus комплектации 2026"
+    },
+    {
+      "url": "https://weilin.ru/catalog/changan/cs75-plus/",
+      "title": "Changan CS75 Plus — цена 2026, комплектации Comfort, Luxury, Tech",
+      "from_query": "changan cs75 plus комплектации 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/news/changan-cs75-plus-pro-obzor-2026/",
+      "title": "Changan CS75 2026: обзор, цены, как купить CS75 Plus/Pro из Китая",
+      "from_query": "changan cs75 plus из китая 2026"
+    },
+    {
+      "url": "https://160drive.ru/changan-iz-kitaya-modeli-ceny-2026/",
+      "title": "Changan из Китая 2026: модели, цены и стоит ли везти",
+      "from_query": "changan cs75 plus из китая 2026"
+    },
+    {
+      "url": "https://china.sferacar.ru/china-new/changan/cs75-plus/",
+      "title": "Changan CS75 PLUS новые из Китая — цена от 2 870 000 ₽, 9 комплектаций",
+      "from_query": "changan cs75 plus из китая 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/changan-iz-kitaya-2026-modeli-tsena-pod-klyuch",
+      "title": "Changan из Китая 2026: что за бренд, какие модели привозим и сколько стоит",
+      "from_query": "changan cs75 plus из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-75-plus-new.html",
+      "title": "Changan CS75 Plus New 2026: Полный обзор, характеристики и тест",
+      "from_query": "changan cs75 plus из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-cs75-plus-2025-goda.html",
+      "title": "Changan CS75 Plus 2026: Характеристики, цены и тест-драйв нового ...",
+      "from_query": "changan cs75 plus из китая 2026"
+    },
+    {
+      "url": "https://silenkoautocratia.ru/blog/changan-cs75-plus-obzor/",
+      "title": "Changan CS75 Plus: обзор, комплектации и отзывы владельцев 2026",
+      "from_query": "Как выбрать Changan CS75 Plus из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/changan-cs75-plus-kupit-iz-kitaya/",
+      "title": "Changan CS75 Plus купить из Китая: цены и доставка под ключ",
+      "from_query": "Как выбрать Changan CS75 Plus из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-tss-75-plyus-komplektatsii.html",
+      "title": "Changan CS75 Plus: комплектации 2026, цены и сравнение",
+      "from_query": "Как выбрать Changan CS75 Plus из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

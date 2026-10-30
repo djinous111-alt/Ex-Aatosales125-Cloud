@@ -65,6 +65,16 @@ if ($schema) {
 }
 ```
 
+## HTTP timeout / RemoteDisconnected
+
+Крупный bootstrap (~7–9MB) после SSH OK может дать клиентский `RemoteDisconnected`/504. Скрипт:
+
+1. читает `EXCALIBUR_PUBLISH_HTTP_TIMEOUT` (default **300**s);
+2. при disconnect сначала делает **REST reconstruct by slug** (`wp/v2/posts?slug=`) и при LIVE собирает `OK post=` / permalink / featured — **без second-trigger**;
+3. иначе печатает `FALLBACK_TRIGGER_URL` для WebFetch.
+
+**Запрещено:** повторный HTTP/bootstrap trigger, если slug уже LIVE (дубли media `*-1.png`).
+
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет credentials

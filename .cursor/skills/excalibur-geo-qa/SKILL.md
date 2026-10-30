@@ -55,3 +55,7 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Git commit (Cloud)
+
+Перед commit QA-артефактов: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` или `bash scripts/excalibur_git.sh commit …`. Typed Task `excalibur-blog-geo-qa` часто отсутствует — Директор должен запускать через `Task(generalPurpose)`.

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без шильдика — лотерея?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Changan CS75 Plus у порта Владивостока, плашка до депозита",
+      "scene_hint": "Vladivostok port terminal autumn fog/drizzle, modern Changan CS75 Plus crossover behind blog host; EXACT face+glasses from reference; OUTFIT: dark olive waterproof rain jacket over charcoal turtleneck (NOT white hoodie, NOT reference t-shirt), no cap no hood; action selfie near car + cargo cranes; fake UI: catalog card CS75 Plus + customs checklist sticky; Cyrillic plaque «до депозита» with yellow highlight on «депозита»; corner brand avto-sales125.ru; shocked meme cutout + handwritten arrow «сверь кВт»; torn paper tape DIY collage",
+      "meme_caption_ru": "До депозита — сверь кВт"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните путь: салон РФ или заказ из Китая",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI 16:9: columns «Салон РФ» vs «Заказ из Китая» — цена, срок, комплектация, риски; NO human face; small tape corner + sticky «выбери путь»; Cyrillic labels only",
+      "alt": "Таблица сравнения: салон РФ против заказа Changan CS75 из Китая"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разведите линейки CS75 / Plus / Pro до оплаты",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram 3 boxes: CS75 → CS75 Plus → CS75 Pro with arrows and «до оплаты» badge; feature chips (экран, мотор, пакет); NO hero face; mini catalog sticker; Cyrillic only",
+      "alt": "Схема линеек CS75 / Plus / Pro до оплаты"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте мощность на шильдике: ловушка утильсбора",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board: шильдик кВт, порог 117,68 кВт / 160 л.с., утильсбор флаг, VIN match; fake nameplate photo inset; red/green status dots; NO hero; sticky note «стоп до депозита»; Cyrillic",
+      "alt": "Чеклист мощности на шильдике и ловушки утильсбора CS75 Plus"
+    }
+  }
+}

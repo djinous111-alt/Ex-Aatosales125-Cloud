@@ -41,6 +41,8 @@ inject <figure> after H2 in article.html
 | `memory/cover/inline-visual-types.json` | типы inline-панелей |
 | `memory/brief/site-brief.md` | blog_hero_id, обложка = крючок |
 
+**Outfit:** `excalibur_blog_cover_quad_prompt.py` → `outfit_lock_from_hero`: сначала `prompt_fragment`, иначе weather examples / `outfit_rule` + `scene_hint`. Запрещён хардкод `Outfit lock: thick heavyweight white hoodie`. Prefer Kie async (`excalibur_blog_kie_gpt_image2_api.py`) over sync MCP `gpt-image-2` при Cloud `-32001`; не ретраи create вслепую.
+
 ---
 
 ## Панели quad 2×2

@@ -27,7 +27,8 @@ shell today + research_start
 - передай путь `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`;
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;
-- параллель `cover || schema` — **два отдельных Task** в одном сообщении.
+- параллель `cover || schema` — **два отдельных Task** в одном сообщении;
+- **geo-qa:** typed `excalibur-blog-geo-qa` часто отсутствует — не крутить ретраи typed type, сразу `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
 
 Если недоступен даже `generalPurpose` Task:
 

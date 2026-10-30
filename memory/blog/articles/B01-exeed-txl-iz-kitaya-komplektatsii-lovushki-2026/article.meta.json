@@ -43,5 +43,14 @@
     "writer_fix_cycle": 1,
     "writer_fix_note": "recheck PASS after action_markers 17 + insight Инсайт до депозита"
   },
-  "cover_family": "brand_collage"
+  "cover_family": "brand_collage",
+  "wp_post_id": 4687,
+  "permalink": "${PUBLIC_SITE_URL}/2026/10/31/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/",
+  "publish_status": "published",
+  "featured_image_id": 4693,
+  "inline_image_ids": [
+    4695,
+    4696,
+    4697
+  ]
 }

@@ -31,3 +31,18 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-31 — B01 exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+
+- verdict: pass
+- post_id: 4687
+- featured_image: 4693
+- inline_images: 4695, 4696, 4697
+- schema_meta: ok
+- skip_theme_faq_meta: ok
+- permalink: ${PUBLIC_SITE_URL}/2026/10/31/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/
+- HEAD: 200
+- transport: SSH upload + HTTP trigger timeout → WebFetch fallback (OK post=)
+- publish_method: ssh
+- note: do not republish this slug/post_id
+

@@ -576,3 +576,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261031-2140-publish-http-trigger-timeout-webfetch
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Local HTTP trigger of excalibur-blog-publish-once.php hit TimeoutError (script hardcodes 120s) after successful SSH upload of ~6.9MB PHP payload.
+- Publish would look failed without Cloud WebFetch fallback path.
+
+### How the agent recovered this run
+- Background watcher captured FALLBACK_TRIGGER_URL and fetched bootstrap URL; wrote memory/webfetch-response.txt with literal OK post=.
+- Result: post 4687, featured 4693, inline 4695/4696/4697, schema_meta=1, HEAD 200. No second trigger.
+
+### Durable fix needed before next run
+- Honor longer HTTP timeout from env (e.g. 300s) in trigger_bootstrap_http instead of hardcoded 120s; document watcher/WebFetch as standard Cloud path when nginx 504/timeout is expected for large payloads.
+- Ensure publish skill mentions parallel fallback watcher when HTTP may timeout before OK post=.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

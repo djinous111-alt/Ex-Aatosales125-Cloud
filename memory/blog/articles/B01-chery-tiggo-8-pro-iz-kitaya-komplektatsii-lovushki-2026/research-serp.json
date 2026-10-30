@@ -1,0 +1,524 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-30",
+    "today_ru": "30.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-30 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Chery Tiggo 8 Pro из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать chery tiggo 8 pro из китая",
+    "secondary_queries": [
+      "чери тигго 8 про комплектации",
+      "chery tiggo 8 pro max комплектации",
+      "чери тигго 8 про макс из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать chery tiggo 8 pro из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать chery tiggo 8 pro из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 8 Pro из Китая 2026: цена под ключ и сравнение с российским ...",
+          "url": "https://autoprofiasia.ru/blog/chery-tiggo-8-pro-iz-kitaya-2026-tsena-pod-klyuch",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo из Китая: версии и цена под ключ в 2026",
+          "url": "https://avto-pod-zakaz.com/chery-tiggo-iz-kitaya-cena-pod-klyuch-2026/",
+          "snippet": "Chery Tiggo 8 Pro из Китая обходится на 300 000-500 000 ₽ дешевле, чем у российского дилера, при той же или более богатой комплектации. Разбираем цифры и объясняем, как это работает."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro для Китая: цены, комплектации и отзывы 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-china.html",
+          "snippet": "Разбираем, чем версии различаются, из чего складывается цена под ключ и сколько стоят машины того же класса по нашим карточкам."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro: все комплектации 2026 года с ценами и сравнением",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-komplektatsii.html",
+          "snippet": "Подробный обзор Chery Tiggo 8 Pro для китайского рынка: технические характеристики, сравнение с глобальной версией, особенности покупки и эксплуатации. Актуальные цены и советы экспертов."
+        },
+        {
+          "title": "Chery Tiggo 8 PRO — купить из Китая под ключ, цена в России 2026",
+          "url": "https://chinaautozone.ru/catalog/chery/chery_tiggo_8_pro/",
+          "snippet": "В этом гайде мы разберём все актуальные версии Tiggo 8 Pro 2026 года, сравним их по ключевым параметрам и поможем определиться с выбором — будь то семейный автомобиль для города или универсальный ..."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro из Китая — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/chery-tiggo-8-pro",
+          "snippet": "Купить Chery Tiggo 8 PRO из Китая под ключ: цена в России от 2,51 млн ₽ с растаможкой и доставкой. Комплектации, характеристики, отзывы владельцев, гарантия. Точный расчёт за 1 день."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать chery tiggo 8 pro из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 8 Pro из Китая 2026: цена под ключ и сравнение с российским ...",
+          "url": "https://autoprofiasia.ru/blog/chery-tiggo-8-pro-iz-kitaya-2026-tsena-pod-klyuch",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo из Китая: версии и цена под ключ в 2026",
+          "url": "https://avto-pod-zakaz.com/chery-tiggo-iz-kitaya-cena-pod-klyuch-2026/",
+          "snippet": "Chery Tiggo 8 Pro из Китая обходится на 300 000-500 000 ₽ дешевле, чем у российского дилера, при той же или более богатой комплектации. Разбираем цифры и объясняем, как это работает."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro из Китая: 7-местный кроссовер под ключ в Сибирь в 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-tiggo8-pro-iz-kitaya",
+          "snippet": "Разбираем, чем версии различаются, из чего складывается цена под ключ и сколько стоят машины того же класса по нашим карточкам."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro: все комплектации 2026 года с ценами и сравнением",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-komplektatsii.html",
+          "snippet": "Chery — один из крупнейших китайских автопроизводителей, работающий с 1997 года. Tiggo 8 Pro является флагманским кроссовером марки и с 2021 года производится в обновлённом виде («Pro»-версия). Это не бюджетный, а средний сегмент китайского рынка — с соответствующим уровнем оснащения."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro для Китая: цены, комплектации и отзывы 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-china.html",
+          "snippet": "В этом гайде мы разберём все актуальные версии Tiggo 8 Pro 2026 года, сравним их по ключевым параметрам и поможем определиться с выбором — будь то семейный автомобиль для города или универсальный ..."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro из Китая — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/chery-tiggo-8-pro",
+          "snippet": "Подробный обзор Chery Tiggo 8 Pro для китайского рынка: технические характеристики, сравнение с глобальной версией, особенности покупки и эксплуатации. Актуальные цены и советы экспертов."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать chery tiggo 8 pro из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "90-local-llm-projects/35-video-script-writer/docs/images ... - GitHub",
+          "url": "https://github.com/kennedyraju55/90-local-llm-projects/blob/master/35-video-script-writer/docs/images/banner.svg",
+          "snippet": ""
+        },
+        {
+          "title": "unsupervised_topic_modeling/topics/ru/15/100/100/topics at master ...",
+          "url": "https://github.com/annontopicmodel/unsupervised_topic_modeling/blob/master/topics/ru/15/100/100/topics",
+          "snippet": "🚀 90 Production-Level Projects Built with Local LLM (Gemma 4 + Ollama) - Complete Python Portfolio - kennedyraju55/90-local-llm-projects"
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "Contribute to annontopicmodel/unsupervised_topic_modeling development by creating an account on GitHub."
+        },
+        {
+          "title": "FAQ по Shadowsocks/XRay/XTLS/Reality/Nekobox/etc. для обхода блокировок",
+          "url": "https://gist.github.com/zakirzianov/fbfb5daebd936143b970b0027e8e9109",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "GitHub - rin-nas/Evolute-I-Space: Автомобиль Evolute I-Space PHEV ...",
+          "url": "https://github.com/rin-nas/Evolute-I-Space",
+          "snippet": "Как выбрать сайт, под который стоит маскироваться с XTLS-Reality? Лучше всего выбирать что-нибудь из сети того же хостера, каким пользуетесь вы."
+        },
+        {
+          "title": "wordpiece-tokenizer-cpp/tokenizer.json at main · ansharyan03 ... - GitHub",
+          "url": "https://github.com/ansharyan03/wordpiece-tokenizer-cpp/blob/main/tokenizer.json",
+          "snippet": "Обновлённый российский гибридный кроссовер на 5 или 7 мест. Это последовательный гибрид. Автомобиль приводит в движение электромотор, бензиновый мотор работает как генератор: отдаёт энергию на электромотор и заряжает тяговую батарею. Сделан китайским автомобильным концерном Dongfeng и Seres."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать chery tiggo 8 pro из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 8 Pro: все комплектации 2026 года с ценами и сравнением",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-komplektatsii.html",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo 8 Pro для Китая: цены, комплектации и отзывы 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-china.html",
+          "snippet": "В этом гайде мы разберём все актуальные версии Tiggo 8 Pro 2026 года, сравним их по ключевым параметрам и поможем определиться с выбором — будь то семейный автомобиль для города или универсальный ..."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro из Китая 2026: цена под ключ и сравнение с российским ...",
+          "url": "https://autoprofiasia.ru/blog/chery-tiggo-8-pro-iz-kitaya-2026-tsena-pod-klyuch",
+          "snippet": "Подробный обзор Chery Tiggo 8 Pro для китайского рынка: технические характеристики, сравнение с глобальной версией, особенности покупки и эксплуатации. Актуальные цены и советы экспертов."
+        },
+        {
+          "title": "Чери Тигго 8 Про технические характеристики. Chery Tiggo 8 Pro ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro/",
+          "snippet": "Chery Tiggo 8 Pro официально поставляется в Россию — и это главный вопрос, который задают клиенты. Ответ прост: разница в цене между китайским рынком и российским дилером составляет от 300 000 до 500 000 ₽ даже с учётом всех расходов на доставку и таможню."
+        },
+        {
+          "title": "TIGGO 8 PRO - Chery",
+          "url": "https://www.cheryinternational.com/pc/models/tiggo/tiggo8pro/index.shtml",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 8 Pro: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чери Тигго 8 Про между собой."
+        },
+        {
+          "title": "Чери Тигго 8 Про 2026 технические характеристики. Chery Tiggo 8 Pro ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro/2026/",
+          "snippet": "With luxurious and dynamic tech, the seat is designed with surround-wide schematics, luxurious quality and elegant interior. The horizontal integrated dashboard is symmetrical left and right, comfortable and elegant. The screens and knobs after zoning are easy to operate and upgrade."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать chery tiggo 8 pro из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 8 Pro из Китая 2026: цена под ключ и сравнение с российским ...",
+          "url": "https://autoprofiasia.ru/blog/chery-tiggo-8-pro-iz-kitaya-2026-tsena-pod-klyuch",
+          "snippet": ""
+        },
+        {
+          "title": "Tiggo 8 Pro | ChinaAutoForum.ru - форум по китайским автомобилям",
+          "url": "https://chinaautoforum.ru/forums/tiggo-8-pro.16/",
+          "snippet": "Chery Tiggo 8 Pro официально поставляется в Россию — и это главный вопрос, который задают клиенты. Ответ прост: разница в цене между китайским рынком и российским дилером составляет от 300 000 до 500 000 ₽ даже с учётом всех расходов на доставку и таможню."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro: честные отзывы владельцев 2026 года",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-otzyvy.html",
+          "snippet": "Форум Chery Tiggo 8 Pro: отзывы владельцев, плюсы и минусы, обслуживание, реальные проблемы, сравнение комплектаций и советы перед покупкой."
+        },
+        {
+          "title": "Chery Tiggo из Китая: версии и цена под ключ в 2026",
+          "url": "https://avto-pod-zakaz.com/chery-tiggo-iz-kitaya-cena-pod-klyuch-2026/",
+          "snippet": "В этой статье — только проверенная информация о надежности, комфорте, расходе топлива и типичных проблемах Tiggo 8 Pro после 1-2 лет эксплуатации. Без прикрас и маркетинговых лозунгов."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro: честные отзывы владельцев 2026 года",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-tiggo-8-pro.html",
+          "snippet": "Разбираем, чем версии различаются, из чего складывается цена под ключ и сколько стоят машины того же класса по нашим карточкам."
+        },
+        {
+          "title": "Отзывы владельцев Chery Tiggo 8 Pro I (China Market) (2022-2026)",
+          "url": "https://bips.ru/reviews/chery/tiggo-8-pro/2022-2026-i-china-market",
+          "snippet": "Мы сравнили Tiggo 8 Pro с основными конкурентами (Haval Jolion, Geely Tugella, Kia Sorento), разобрали типичные жалобы на сервис и дали рекомендации по выбору комплектации."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "чери тигго 8 про комплектации 2026",
+      "purpose": "вторичный запрос: чери тигго 8 про комплектации",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "chery tiggo 8 pro max комплектации 2026",
+      "purpose": "вторичный запрос: chery tiggo 8 pro max комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Тигго 8 Про 2026 технические характеристики. Chery Tiggo 8 Pro ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Чери Тигго 8 Про Макс 2026 технические характеристики. Chery Tiggo 8 ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro_max/2026/",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 8 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro Max 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/chery/tiggo-8-pro-max/",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 8 Pro Max 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "2026 Chery Tiggo 8 Pro - фото, цена и комплектации машины в России",
+          "url": "https://www.allcarz.ru/chery-tiggo-8-pro/",
+          "snippet": "Новые комплектации и цены на 20.10.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей Chery. Также обратите внимание на технические характеристики."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro Max 2026, купить Чери Тигго 8 Про Макс в Москве: цены ...",
+          "url": "https://www.major-chery.ru/models/tiggo8promax/",
+          "snippet": "Комплектации и цены Chery Tiggo 8 Pro 2026 года в России. Обзор, технические характеристики, фото в новом кузове, видео тест-драйв."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro Max › Цена и комплектации 2026",
+          "url": "https://carsdo.ru/chery/tiggo-8-pro-max/",
+          "snippet": "Купить Чери Тигго 8 Про Макс в салоне официального дилера Chery в Москве. Комплектации и цены нового Chery Tiggo 8 Pro Max, технические характеристики, кредит, Трейд-ин и лизинг в Major Auto."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "чери тигго 8 про макс из китая 2026",
+      "purpose": "вторичный запрос: чери тигго 8 про макс из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Тигго 8 Про Макс 2026 технические характеристики. Chery Tiggo 8 ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro_max/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Чери Тигго 8 2026 технические характеристики. Chery Tiggo 8 2026 ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_8/2026/",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 8 Pro Max 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Чери Тигго 8 Pro Max: полные ТТХ, цены и секреты выбора 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-8-pro-maks-ttkh.html",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 8 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Чери Тигго 8 Про Макс (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/chery/tiggo8pro",
+          "snippet": "В этом материале мы детально разберём все ТТХ Tiggo 8 Pro Max, проанализируем плюсы и минусы модели, а также сравним её с ключевыми конкурентами."
+        },
+        {
+          "title": "Chery Tiggo из Китая: цены, отзывы и особенности в 2026 году",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-iz-kitaya.html",
+          "snippet": "Всё про автомобиль Чери Тигго 8 Про Макс 2026 года: цена в России, фотографии кузова и салона, характеристики, информация про двигатели."
+        },
+        {
+          "title": "Чери Тигго 8 Про Макс 2026 цены модели, комплектации, фото, новый кузов ...",
+          "url": "https://cenyavto.com/chery-tiggo-pro-8-max-2025/",
+          "snippet": "В этой статье разберём Chery Tiggo 7 Pro, Tiggo 8 Pro и другие популярные версии: их технические характеристики, реальные отзывы владельцев, подводные камни при покупке из Китая и альтернативы."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Chery Tiggo 8 Pro из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Тигго 8 Про технические характеристики. Chery Tiggo 8 Pro ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro/",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo 8 (Чери Тигго 8) технические характеристики, комплектации и ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_8/",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 8 Pro: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чери Тигго 8 Про между собой."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro из Китая 2026: цена под ключ и сравнение с российским ...",
+          "url": "https://autoprofiasia.ru/blog/chery-tiggo-8-pro-iz-kitaya-2026-tsena-pod-klyuch",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 8: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чери Тигго 8 между собой."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro: все комплектации 2026 года с ценами и сравнением",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-komplektatsii.html",
+          "snippet": "Chery Tiggo 8 Pro из Китая обходится на 300 000-500 000 ₽ дешевле, чем у российского дилера, при той же или более богатой комплектации. Разбираем цифры и объясняем, как это работает."
+        },
+        {
+          "title": "Chery Tiggo 8 PRO — купить из Китая под ключ, цена в России 2026",
+          "url": "https://chinaautozone.ru/catalog/chery/chery_tiggo_8_pro/",
+          "snippet": "В этом гайде мы разберём все актуальные версии Tiggo 8 Pro 2026 года, сравним их по ключевым параметрам и поможем определиться с выбором — будь то семейный автомобиль для города или универсальный ..."
+        },
+        {
+          "title": "Chery Tiggo 8 Pro: комплектации 2026, цены и сравнение",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tigo-8-pro-komplektatsii.html",
+          "snippet": "Купить Chery Tiggo 8 PRO из Китая под ключ: цена в России от 2,51 млн ₽ с растаможкой и доставкой. Комплектации, характеристики, отзывы владельцев, гарантия. Точный расчёт за 1 день."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://autoprofiasia.ru/blog/chery-tiggo-8-pro-iz-kitaya-2026-tsena-pod-klyuch",
+      "title": "Chery Tiggo 8 Pro из Китая 2026: цена под ключ и сравнение с российским ...",
+      "from_query": "как выбрать chery tiggo 8 pro из китая октябрь 2026"
+    },
+    {
+      "url": "https://avto-pod-zakaz.com/chery-tiggo-iz-kitaya-cena-pod-klyuch-2026/",
+      "title": "Chery Tiggo из Китая: версии и цена под ключ в 2026",
+      "from_query": "как выбрать chery tiggo 8 pro из китая октябрь 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-china.html",
+      "title": "Chery Tiggo 8 Pro для Китая: цены, комплектации и отзывы 2026",
+      "from_query": "как выбрать chery tiggo 8 pro из китая октябрь 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-komplektatsii.html",
+      "title": "Chery Tiggo 8 Pro: все комплектации 2026 года с ценами и сравнением",
+      "from_query": "как выбрать chery tiggo 8 pro из китая октябрь 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/catalog/chery/chery_tiggo_8_pro/",
+      "title": "Chery Tiggo 8 PRO — купить из Китая под ключ, цена в России 2026",
+      "from_query": "как выбрать chery tiggo 8 pro из китая октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/catalog/chery-tiggo-8-pro",
+      "title": "Chery Tiggo 8 Pro из Китая — цена под ключ · калькулятор 2026",
+      "from_query": "как выбрать chery tiggo 8 pro из китая октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/chery-tiggo8-pro-iz-kitaya",
+      "title": "Chery Tiggo 8 Pro из Китая: 7-местный кроссовер под ключ в Сибирь в 2026",
+      "from_query": "как выбрать chery tiggo 8 pro из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/kennedyraju55/90-local-llm-projects/blob/master/35-video-script-writer/docs/images/banner.svg",
+      "title": "90-local-llm-projects/35-video-script-writer/docs/images ... - GitHub",
+      "from_query": "site:github.com как выбрать chery tiggo 8 pro из китая 2026"
+    },
+    {
+      "url": "https://github.com/annontopicmodel/unsupervised_topic_modeling/blob/master/topics/ru/15/100/100/topics",
+      "title": "unsupervised_topic_modeling/topics/ru/15/100/100/topics at master ...",
+      "from_query": "site:github.com как выбрать chery tiggo 8 pro из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать chery tiggo 8 pro из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/zakirzianov/fbfb5daebd936143b970b0027e8e9109",
+      "title": "FAQ по Shadowsocks/XRay/XTLS/Reality/Nekobox/etc. для обхода блокировок",
+      "from_query": "site:github.com как выбрать chery tiggo 8 pro из китая 2026"
+    },
+    {
+      "url": "https://github.com/rin-nas/Evolute-I-Space",
+      "title": "GitHub - rin-nas/Evolute-I-Space: Автомобиль Evolute I-Space PHEV ...",
+      "from_query": "site:github.com как выбрать chery tiggo 8 pro из китая 2026"
+    },
+    {
+      "url": "https://github.com/ansharyan03/wordpiece-tokenizer-cpp/blob/main/tokenizer.json",
+      "title": "wordpiece-tokenizer-cpp/tokenizer.json at main · ansharyan03 ... - GitHub",
+      "from_query": "site:github.com как выбрать chery tiggo 8 pro из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro/",
+      "title": "Чери Тигго 8 Про технические характеристики. Chery Tiggo 8 Pro ...",
+      "from_query": "как выбрать chery tiggo 8 pro из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.cheryinternational.com/pc/models/tiggo/tiggo8pro/index.shtml",
+      "title": "TIGGO 8 PRO - Chery",
+      "from_query": "как выбрать chery tiggo 8 pro из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro/2026/",
+      "title": "Чери Тигго 8 Про 2026 технические характеристики. Chery Tiggo 8 Pro ...",
+      "from_query": "как выбрать chery tiggo 8 pro из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://chinaautoforum.ru/forums/tiggo-8-pro.16/",
+      "title": "Tiggo 8 Pro | ChinaAutoForum.ru - форум по китайским автомобилям",
+      "from_query": "как выбрать chery tiggo 8 pro из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-tiggo-8-pro-otzyvy.html",
+      "title": "Chery Tiggo 8 Pro: честные отзывы владельцев 2026 года",
+      "from_query": "как выбрать chery tiggo 8 pro из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-tiggo-8-pro.html",
+      "title": "Chery Tiggo 8 Pro: честные отзывы владельцев 2026 года",
+      "from_query": "как выбрать chery tiggo 8 pro из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://bips.ru/reviews/chery/tiggo-8-pro/2022-2026-i-china-market",
+      "title": "Отзывы владельцев Chery Tiggo 8 Pro I (China Market) (2022-2026)",
+      "from_query": "как выбрать chery tiggo 8 pro из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_8_pro_max/2026/",
+      "title": "Чери Тигго 8 Про Макс 2026 технические характеристики. Chery Tiggo 8 ...",
+      "from_query": "chery tiggo 8 pro max комплектации 2026"
+    },
+    {
+      "url": "https://carsdb.ru/chery/tiggo-8-pro-max/",
+      "title": "Chery Tiggo 8 Pro Max 2026 - цены и комплектации в России | carsdb.ru",
+      "from_query": "chery tiggo 8 pro max комплектации 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/chery-tiggo-8-pro/",
+      "title": "2026 Chery Tiggo 8 Pro - фото, цена и комплектации машины в России",
+      "from_query": "chery tiggo 8 pro max комплектации 2026"
+    },
+    {
+      "url": "https://www.major-chery.ru/models/tiggo8promax/",
+      "title": "Chery Tiggo 8 Pro Max 2026, купить Чери Тигго 8 Про Макс в Москве: цены ...",
+      "from_query": "chery tiggo 8 pro max комплектации 2026"
+    },
+    {
+      "url": "https://carsdo.ru/chery/tiggo-8-pro-max/",
+      "title": "Chery Tiggo 8 Pro Max › Цена и комплектации 2026",
+      "from_query": "chery tiggo 8 pro max комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_8/2026/",
+      "title": "Чери Тигго 8 2026 технические характеристики. Chery Tiggo 8 2026 ...",
+      "from_query": "чери тигго 8 про макс из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-8-pro-maks-ttkh.html",
+      "title": "Чери Тигго 8 Pro Max: полные ТТХ, цены и секреты выбора 2026",
+      "from_query": "чери тигго 8 про макс из китая 2026"
+    },
+    {
+      "url": "https://wroom.ru/cars/chery/tiggo8pro",
+      "title": "Чери Тигго 8 Про Макс (2026) — цена, характеристики, фото",
+      "from_query": "чери тигго 8 про макс из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-iz-kitaya.html",
+      "title": "Chery Tiggo из Китая: цены, отзывы и особенности в 2026 году",
+      "from_query": "чери тигго 8 про макс из китая 2026"
+    },
+    {
+      "url": "https://cenyavto.com/chery-tiggo-pro-8-max-2025/",
+      "title": "Чери Тигго 8 Про Макс 2026 цены модели, комплектации, фото, новый кузов ...",
+      "from_query": "чери тигго 8 про макс из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_8/",
+      "title": "Chery Tiggo 8 (Чери Тигго 8) технические характеристики, комплектации и ...",
+      "from_query": "Как выбрать Chery Tiggo 8 Pro из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tigo-8-pro-komplektatsii.html",
+      "title": "Chery Tiggo 8 Pro: комплектации 2026, цены и сравнение",
+      "from_query": "Как выбрать Chery Tiggo 8 Pro из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

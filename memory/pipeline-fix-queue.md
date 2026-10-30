@@ -7,6 +7,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261030-1715-research-wordstat-empty-payload
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV `wordstat_get_top_requests` for primary how-to phrase `как выбрать chery tiggo 8 pro из китая` twice returned unexpected empty payload `{}` (wrapper message: "Неожиданный формат ответа").
+- Not HTTP 401; parent/LSI phrases (`чери тигго 8 про`, комплектации, EN parent) worked and returned impressions.
+
+### How the agent recovered this run
+- Did not invent primary how-to volumes; recorded note in research-notes.md wordstat section.
+- Used successful parent/narrow/LSI responses (68609 / 18 / 597 / 35548 etc.) for demand table.
+
+### Durable fix needed before next run
+- Harden MCP/tool wrapper to surface `totalCount`-only or empty JSON as structured low-result instead of opaque `{}`.
+- Document in research skill that how-to phrases may return empty shape; parent fallback is OK if marked.
+
+### Suggested files to inspect/change
+- MCP-KV wordstat tool wrapper / skill `.cursor/skills/excalibur-research/SKILL.md`
+- Related prior: `INC-20260616-1950-scout-wordstat-format`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261030-1716-research-tech-markers-false-positive
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked auto topic as `technical_topic=true` via bare substring TECH_MARKERS (`ai` matches inside Russian words / field paths such as комплектации / reader_pain).
+- Forced ≥3 github.com URLs + warned about missing `/docs` developer URL on a non-dev automotive how-to.
+
+### How the agent recovered this run
+- Added 5 relevant GitHub community/VIN/СБКТС evidence rows; gate PASS with warning only.
+
+### Durable fix needed before next run
+- Match TECH_MARKERS on token boundaries; exclude meta field labels from lead scan; drop ultra-short markers `ai` / `ии` or require word boundaries.
+- Allow community/docs evidence without github.com for non-dev niches.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- automation memory `research-notes-gate.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-1703-llms-blog-path-missing
 status: open
 run_date: 2026-10-30

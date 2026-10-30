@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-0930-cover-prompt-builder-hoodie-lock
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie` in `build_prompt`, contradicting `memory/cover/blog-hero.json` outfit_rule (weather+topic clothes; no hoodie/cap) and site-brief.
+- Same class as prior Camry/China cover sanitization workarounds; durable fix never landed in the prompt builder.
+
+### How the agent recovered this run
+- After `--write-batch`, replaced hoodie lock in `cover/quad-mcp-prompt.txt` and `jobs[0].mcp_args.prompt` with olive rain jacket / softshell for rainy Vladivostok port + Tank 500 topic; kept toxic-sticker ban (лох/лохов).
+- Ran ONE Kie API i2i (`gpt-image-2-image-to-image`); split PASS; inject ok.
+
+### Durable fix needed before next run
+- Remove white-hoodie lock from `excalibur_blog_cover_quad_prompt.py`; inject outfit from `blog-hero.json` outfit_rule + cover `scene_hint` weather/topic.
+- Add doctor/self-check that fails if prompt contains `white hoodie` without explicit `NO white hoodie` override.
+- Document in cover skill: never ship hoodie lock; sanitize is temporary only until script fixed.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-0921-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-30

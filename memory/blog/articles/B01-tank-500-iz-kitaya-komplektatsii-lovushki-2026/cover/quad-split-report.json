@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1282,
+      722
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 722,
+        "end": 766
+      },
+      "v_gutter_px": {
+        "start": 1282,
+        "end": 1315
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1282,
+          "bottom": 722
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1282,
+          "bottom": 722
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у рамного Tank 500 на дождливом терминале Владивостока, плашка до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1315,
+          "top": 11,
+          "right": 2560,
+          "bottom": 711
+        },
+        "raw_box_px": {
+          "left": 1315,
+          "top": 0,
+          "right": 2560,
+          "bottom": 722
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения Tank 500 и Tank 300 по сценариям покупки",
+        "h2_anchor": "Сравните Tank 500 и Tank 300 под ваш сценарий"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 42,
+          "top": 766,
+          "right": 1240,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 766,
+          "right": 1282,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: от русских имён комплектаций к китайским кодам до депозита",
+        "h2_anchor": "Как отличить китайские коды от дилерских Сити/Техно/Оникс"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1338,
+          "top": 766,
+          "right": 2536,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1315,
+          "top": 766,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки утильсбора Tank 500 до депозита",
+        "h2_anchor": "Закройте ловушку утильсбора до депозита"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сравните Tank 500 и Tank 300 под ваш сценарий",
+    "injected inline_2 after H2 — Как отличить китайские коды от дилерских Сити/Техно/Оникс",
+    "injected inline_3 after H2 — Закройте ловушку утильсбора до депозита"
+  ]
+}

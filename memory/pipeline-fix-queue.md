@@ -6,8 +6,14 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+none (B01 Exeed TXL fixer loop 2026-10-31 closed all run opens).
+
+Also fixed root cause of preflight `needs_scout` with live AS pool: `today.py`/`scout_helper.py` now match `((?:AS|B)\d+)`.
+
+## Recently fixed (this run)
+
 ## INC-20261031-2138-indexer-llms-blog-path-rebrand-regression
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-indexer
 topic_id: B01
@@ -46,11 +52,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- Restored `--blog-path` + `article_url()` in `excalibur_blog_llms_generator.py`; default `--site-base ""`.
+- Interlinker also supports `--blog-path`; indexer skills/agents document `--site-base "" --blog-path /`.
+- Doctor asserts `--blog-path` again (green).
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- llms dry-run `--site-base "" --blog-path /` → `/{slug}/` URLs
+commit: pending-parent-commit
 
 
 ## INC-20261031-2135-cover-prompt-hoodie-lock
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-cover
 topic_id: B01
@@ -85,11 +108,26 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- Cover prompt builder uses `outfit_lock_from_hero` + forbids white-hoodie lock tokens.
+- Quad manifest no longer seeds SEO/Wordstat / «белое плотное худи» scene for auto-import niche.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor cover hoodie assert PASS
+- rg: no hardcoded Outfit lock hoodie / белое плотное худи
+commit: pending-parent-commit
 
 
 ## INC-20261031-2135-schema-registry-redacted-literal-copy
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-schema
 topic_id: B01
@@ -126,10 +164,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- Schema skill forbids copying UI `[REDACTED]`; documents `${PUBLIC_SITE_URL}`/CTA placeholders.
+- Publish expands `${…}` in schema.jsonld + HTML in-memory before WP upload.
+- Secret-name commit filter scripts restored for Cloud pre-commit.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- expand_env_placeholders unit smoke
+- filter_commit_secret_env.sh smoke (URL/non-id dropped)
+commit: pending-parent-commit
 
 ## INC-20261031-2130-geo-qa-utility-pain-outcome-markers-wiped
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -162,10 +215,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- Pinned `_markers_pinned: true` + pain/outcome lists in editorial-policy.json.
+- Utility-gate keeps hardcoded fallback when policy lists empty.
+- Doctor asserts marker lists + pin.
+- Writer skill notes imperative recommendation markers.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor editorial marker asserts PASS
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
 
 ## INC-20261031-2130-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -191,10 +260,20 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- Director skill + CLOUD-AUTOMATION treat `Task(generalPurpose)` + geo-qa agent/skill paths as first-class when typed Task missing (no typed retry loop).
+files_changed:
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg generalPurpose geo-qa fallback in director skill / CLOUD-AUTOMATION
+commit: pending-parent-commit
 
 ## INC-20261031-2130-geo-qa-cta-temp-linkverify
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -222,11 +301,22 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- `link_verify` expands `${CATALOG_URL}`/`${TELEGRAM_URL}`/`${MAX_URL}` from env and keeps placeholders in report.
+- GEO QA skill documents committed-placeholder + expand pattern.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- expand_env_href unit smoke
+commit: pending-parent-commit
 
 
 ## INC-20261031-2120-writer-cta-secret-scan-placeholders
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-writer
 topic_id: B01
@@ -257,10 +347,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- Writing contract + writer skill: commit CTA as `${CATALOG_URL}`/`${TELEGRAM_URL}` + optional allowlist pragma; filter secret env before commit.
+- Restored `excalibur_blog_filter_commit_secret_env.sh` + `excalibur_git.sh`.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter script smoke; doctor filter script asserts PASS
+commit: pending-parent-commit
 
 ## INC-20261031-2115-research-tech-markers-komplektatsii
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-research
 topic_id: B01
@@ -291,10 +394,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- TECH_MARKERS short tokens use word-boundary (`_marker_in_blob`); scan limited to topic card fields + H1 line (not full notes body).
+- «комплектации» no longer forces GitHub evidence.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: `_marker_in_blob("ии","комплектации")` False; doctor word-boundary assert PASS
+commit: pending-parent-commit
 
 ## INC-20261031-0005-scout-precommit-secret-names-csv-url
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-scout
 topic_id: B01
@@ -326,7 +440,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- Restored `scripts/excalibur_blog_filter_commit_secret_env.sh` (+ filter_secret_names + `excalibur_git.sh`) that keeps only bash identifiers and drops public URL secret names by default.
+- Scout skill documents eval-before-commit.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke with URL + `[REDACTED]` in CLOUD_AGENT_INJECTED_SECRET_NAMES
+- doctor filter scripts present PASS
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -578,7 +706,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261031-2140-publish-http-trigger-timeout-webfetch
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-publish
 topic_id: B01
@@ -607,5 +735,15 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-31
+fix_summary:
+- `trigger_bootstrap_http` honors `EXCALIBUR_PUBLISH_HTTP_TIMEOUT` (default 300s) + REST reconstruct when LIVE; WebFetch watcher path documented in publish skill.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- http_timeout_sec default 300 unit; doctor REST reconstruct assert PASS
+commit: pending-parent-commit
 

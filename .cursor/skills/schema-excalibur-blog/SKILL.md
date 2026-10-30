@@ -29,6 +29,8 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 - `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` — author/publisher `sameAs` CTA
 - Публичные Instagram/2GIS и т.п. можно оставлять как есть
 
+**Никогда** не копируй UI-токен `[REDACTED]` в `schema.jsonld` — это отображение redaction tool, не значение из `authors-registry.json`. Читай registry с диска (или через env→placeholder map), не из redact-preview.
+
 Publish (`excalibur_blog_wp_publish.py`) расширяет placeholders **in-memory** перед WP meta upload и **не** переписывает файл на диске.
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).

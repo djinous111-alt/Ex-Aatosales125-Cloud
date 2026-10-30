@@ -38,11 +38,42 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Не хардкодь `Outfit lock: thick heavyweight white hoodie`. Outfit = `outfit_lock_from_hero` / blog-hero weather+topic. Quad manifest не сидит SEO/Wordstat default scene для auto-import ниши.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Перед commit: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- LLMs/interlinker: `--site-base "" --blog-path /` для WP root permalinks (`/{slug}/`). Doctor требует `--blog-path` в CLI; не хардкодь `/blog/{slug}/`.
+
+## Topic IDs (AS## vs B##)
+
+- Pool Авто-Сейлс = `AS##`; scout/legacy cards = `B##`. `today.py` / `scout_helper.py` обязаны матчить `((?:AS|B)\d+)`. Селектор только `B\d+` → ложный `needs_scout` при живом AS-pool.
+- `suggest-next` предпочитает следующую `AS##`, если в pool уже есть AS.
+
+## Research / tech markers
+
+- `TECH_MARKERS` short tokens (`ии`, `ai`, `api`…) — только word-boundary; substring `ии` ложно бьёт «комплектации»/«Японии» и тянет лишний GitHub evidence.
+
+## Editorial markers
+
+- `memory/brief/editorial-policy.json` обязан иметь `_markers_pinned: true` + non-empty `pain_markers_ru` / `outcome_markers_ru`. Utility-gate держит hardcoded fallback, если списки стёрты rebrand/template-reset.
+
+## CTA / secret-scan / pre-commit
+
+- Committed HTML/schema: `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` / `${PUBLIC_SITE_URL}`, не live URL.
+- Перед commit в Cloud: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` или `bash scripts/excalibur_git.sh commit …` — иначе `CLOUD_AGENT_INJECTED_SECRET_NAMES` с URL/non-identifier → `invalid variable name`.
+- Schema: UI `[REDACTED]` ≠ значение registry; не копируй display-token в JSON-LD.
+- link_verify сам expand'ит `${…}` из env; publish expand'ит schema+HTML in-memory.
+
+## Publish HTTP
+
+- `EXCALIBUR_PUBLISH_HTTP_TIMEOUT` (default 300s). При TimeoutError — параллельный WebFetch watcher на `FALLBACK_TRIGGER_URL`; не делай второй trigger, если slug уже LIVE (REST reconstruct).
+
+## GEO QA Task type
+
+- Typed `excalibur-blog-geo-qa` часто нет в Cloud catalog → сразу `Task(generalPurpose)` + agent/skill paths; не крутить typed retry.

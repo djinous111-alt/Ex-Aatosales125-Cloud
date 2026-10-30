@@ -362,3 +362,11 @@ Excalibur BLOG следует этому контракту для каждой 
 10. Скрипт `excalibur_blog_cannibalization_guard.py` дал PASS (нет критической каннибализации ключевых слов)
 11. `schema.jsonld` содержит E-E-A-T автора по реестру; `promotion-checklist.md` сформирован.
 
+## CTA hrefs (Cloud secret-scan)
+
+В committed `article.html` используй только `${CATALOG_URL}`, `${TELEGRAM_URL}`, `${MAX_URL}` (плюс HTML-комментарий `<!-- pragma: allowlist secret -->` на тех же строках, если Cloud scan всё ещё ругается на имя плейсхолдера).
+
+- Не вставляй live URL из env — Cursor secret-scan блокирует commit.
+- GEO QA / `excalibur_blog_link_verify.py` расширяет `${…}` из env для HTTP-проверки и пишет в отчёт placeholder, не live URL.
+- Publish (`excalibur_blog_wp_publish.py`) подставляет значения **in-memory** перед WP upload и не переписывает файл на диске.
+

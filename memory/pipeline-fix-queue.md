@@ -20,10 +20,11 @@ category: env
 
 ### How the agent recovered this run
 - Retried commit with `CLOUD_AGENT_INJECTED_SECRET_NAMES` unset for the commit command only; article artifacts committed and pushed.
+- Recurrence 2026-10-30 GEO QA: same `invalid variable name` on commit of `article-qa.md` + report JSONs; recovered again with `CLOUD_AGENT_INJECTED_SECRET_NAMES=` unset for that commit only (reports on disk + handoff already written).
 
 ### Durable fix needed before next run
 - Fix Cloud pre-commit secret-name inject format (newline/array), not only document unset workaround.
-- Mirror workaround in writer skill / pitfalls so every role hits the same playbook.
+- Mirror workaround in writer / geo-qa / all commit-capable skills and `shared/agent-pipeline-pitfalls.md` so every role hits the same playbook.
 
 ### Suggested files to inspect/change
 - `shared/agent-pipeline-pitfalls.md`

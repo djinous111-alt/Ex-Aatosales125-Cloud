@@ -7,6 +7,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261030-1718-writer-cta-secret-scan-allowlist
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud pre-commit secret scanner treats `CATALOG_URL` and `TELEGRAM_URL` values as secrets, so writer cannot commit real public CTA hrefs without a workaround.
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` must be comma-separated identifiers for the hook (`IFS=','`); space-separated or `[REDACTED]` entries crash `${!SECRET_NAME}`.
+
+### How the agent recovered this run
+- Sanitized secret-name env to comma-separated bash identifiers.
+- Kept live catalog/Telegram hrefs in `article.html` and appended `<!-- // pragma: allowlist secret -->` on those lines so commit passes.
+- Did not use literal `[REDACTED]` href placeholders (broken for readers / publish).
+
+### Durable fix needed before next run
+- Document in writer skill: CTA URLs from env need pragma allowlist on the HTML line (or exclude CATALOG_URL/TELEGRAM_URL from secret-scan allowlist of public marketing URLs).
+- Document pre-commit: export `CLOUD_AGENT_INJECTED_SECRET_NAMES` as comma-separated identifiers only.
+- Prefer Cloud config so public marketing URLs are not scanned as secrets.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md` (CTA URL commit note)
+- Cloud Secrets / pre-commit injection of `CLOUD_AGENT_INJECTED_SECRET_NAMES`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+
 ## INC-20261030-1715-research-wordstat-empty-payload
 status: open
 run_date: 2026-10-30

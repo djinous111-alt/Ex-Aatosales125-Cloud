@@ -22,6 +22,7 @@ category: docs
 ### How the agent recovered this run
 - Restored `_markers_pinned`, `pain_markers_ru`, `outcome_markers_ru`, and min counts in editorial-policy.json.
 - Re-added default-list fallback in `excalibur_blog_utility_gate.py`.
+- Pre-commit: filtered non-identifier token from `CLOUD_AGENT_INJECTED_SECRET_NAMES`; CTA href lines use `<!-- pragma: allowlist secret -->`.
 - Writer self-check: html_linter PASS, utility PASS, human_voice PASS.
 
 ### Durable fix needed before next run

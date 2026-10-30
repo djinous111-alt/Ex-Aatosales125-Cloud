@@ -69,7 +69,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - llms dry-run `--site-base "" --blog-path /` → `/{slug}/` URLs
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 
 ## INC-20261031-2135-cover-prompt-hoodie-lock
@@ -123,7 +123,7 @@ files_changed:
 checks_run:
 - doctor cover hoodie assert PASS
 - rg: no hardcoded Outfit lock hoodie / белое плотное худи
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 
 ## INC-20261031-2135-schema-registry-redacted-literal-copy
@@ -179,7 +179,7 @@ files_changed:
 checks_run:
 - expand_env_placeholders unit smoke
 - filter_commit_secret_env.sh smoke (URL/non-id dropped)
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20261031-2130-geo-qa-utility-pain-outcome-markers-wiped
 status: fixed
@@ -231,7 +231,7 @@ files_changed:
 checks_run:
 - doctor editorial marker asserts PASS
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20261031-2130-geo-qa-typed-task-unavailable
 status: fixed
@@ -270,7 +270,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg generalPurpose geo-qa fallback in director skill / CLOUD-AUTOMATION
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20261031-2130-geo-qa-cta-temp-linkverify
 status: fixed
@@ -312,7 +312,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - expand_env_href unit smoke
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 
 ## INC-20261031-2120-writer-cta-secret-scan-placeholders
@@ -360,7 +360,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter script smoke; doctor filter script asserts PASS
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20261031-2115-research-tech-markers-komplektatsii
 status: fixed
@@ -405,7 +405,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: `_marker_in_blob("ии","комплектации")` False; doctor word-boundary assert PASS
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20261031-0005-scout-precommit-secret-names-csv-url
 status: fixed
@@ -454,7 +454,7 @@ files_changed:
 checks_run:
 - filter smoke with URL + `[REDACTED]` in CLOUD_AGENT_INJECTED_SECRET_NAMES
 - doctor filter scripts present PASS
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -506,7 +506,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -557,7 +557,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -598,7 +598,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -645,7 +645,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -699,7 +699,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: c2a8b16f / 288b6b46
 
 ## Fixed incidents
 

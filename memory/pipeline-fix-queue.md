@@ -60,7 +60,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - dry-run llms `--site-base "" --blog-path /` and legacy `/blog/`
-commit: pending
+commit: 599ab02937a7625e3479a7a7d9d3fc13f8297a1a
 
 
 
@@ -112,7 +112,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - outfit_lock_from_hero rain scene → olive/NO hoodie; banned lock rejected
 - doctor hoodie check OK
-commit: pending
+commit: 599ab02937a7625e3479a7a7d9d3fc13f8297a1a
 
 
 
@@ -161,7 +161,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for geo-qa generalPurpose fallback guidance
-commit: pending
+commit: 599ab02937a7625e3479a7a7d9d3fc13f8297a1a
 
 
 
@@ -215,7 +215,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor editorial-policy pain/outcome/_markers_pinned OK
-commit: pending
+commit: 599ab02937a7625e3479a7a7d9d3fc13f8297a1a
 
 
 
@@ -269,7 +269,7 @@ files_changed:
 checks_run:
 - unit asserts: комплектации → not technical; mcp agent → technical
 - doctor word-boundary check OK
-commit: pending
+commit: 599ab02937a7625e3479a7a7d9d3fc13f8297a1a
 
 
 
@@ -317,7 +317,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-path`
 - doctor SUMMARY errors=0
-commit: pending
+commit: 599ab02937a7625e3479a7a7d9d3fc13f8297a1a
 
 
 
@@ -611,7 +611,7 @@ files_changed:
 checks_run:
 - `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` → no invalid names
 - doctor filter script checks OK
-commit: pending
+commit: 599ab02937a7625e3479a7a7d9d3fc13f8297a1a
 
 
 ## INC-20261030-0940-publish-http-remotedisconnect-reconstruct
@@ -664,7 +664,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - doctor reconstruct check OK
-commit: pending
+commit: 599ab02937a7625e3479a7a7d9d3fc13f8297a1a
 
 
 

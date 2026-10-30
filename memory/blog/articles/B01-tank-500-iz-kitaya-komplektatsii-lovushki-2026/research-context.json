@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-30",
+    "today_ru": "30.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-30 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "tank-500-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Tank 500 из Китая: комплектации и ловушки до депозита 2026",
+    "primary_query": "танк 500 комплектации",
+    "secondary_queries": [
+      "танк 500 из китая",
+      "танк 500 гибрид",
+      "танк 500 комплектация и цены",
+      "танк 500 премиум комплектация"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "танк 500 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "танк 500 комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "танк 500 комплектации новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com танк 500 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "танк 500 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "танк 500 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "танк 500 из китая 2026",
+      "purpose": "вторичный запрос: танк 500 из китая"
+    },
+    {
+      "id": "secondary_2",
+      "query": "танк 500 гибрид 2026",
+      "purpose": "вторичный запрос: танк 500 гибрид"
+    },
+    {
+      "id": "secondary_3",
+      "query": "танк 500 комплектация и цены 2026",
+      "purpose": "вторичный запрос: танк 500 комплектация и цены"
+    },
+    {
+      "id": "secondary_4",
+      "query": "танк 500 премиум комплектация 2026",
+      "purpose": "вторичный запрос: танк 500 премиум комплектация"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Tank 500 из Китая: комплектации и ловушки до депозита 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

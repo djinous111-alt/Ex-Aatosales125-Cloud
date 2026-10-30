@@ -61,15 +61,16 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. HTTP disconnect / Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Крупный PHP (~7–9MB) часто даёт `RemoteDisconnected`/504 после успешного SSH upload.
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт сначала пробует **REST reconstruct by slug** (`wp/v2/posts?slug=`) и при LIVE собирает `OK post=` без second-trigger.
+2. Если slug ещё не LIVE — печатает `=== FALLBACK_TRIGGER_URL ===`.
+3. Cloud-агент **сразу параллельно** открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt` (не ждать конца 120–300s sleep).
+4. Пока ждёт файл, скрипт периодически снова проверяет REST LIVE.
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout. **Не** second-trigger bootstrap, если slug уже LIVE (дубли media `*-1.png`). Timeout: env `EXCALIBUR_PUBLISH_HTTP_TIMEOUT` (default 300s). Prefer `SSH_ROOT=.`.
 
 ### 5. Post-publish артефакты
 

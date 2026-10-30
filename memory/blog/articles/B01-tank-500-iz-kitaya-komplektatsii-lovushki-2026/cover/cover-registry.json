@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "tank-500-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у рамного Tank 500 на дождливом терминале Владивостока, плашка до депозита",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-30T09:28:57+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у рамного Tank 500 на дождливом терминале Владивостока, плашка до депозита",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения Tank 500 и Tank 300 по сценариям покупки",
+      "h2_anchor": "Сравните Tank 500 и Tank 300 под ваш сценарий",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема: от русских имён комплектаций к китайским кодам до депозита",
+      "h2_anchor": "Как отличить китайские коды от дилерских Сити/Техно/Оникс",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист проверки утильсбора Tank 500 до депозита",
+      "h2_anchor": "Закройте ловушку утильсбора до депозита",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

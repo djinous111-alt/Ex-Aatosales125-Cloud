@@ -6,6 +6,7 @@
 - `shared/excalibur-article-writing-contract.md`
 - `shared/editorial-utility-only.md`
 - `memory/brief/site-brief.md`, `conversion-map.md`
+- `memory/brief/editorial-policy.json` — до письма проверь `_markers_pinned`, `pain_markers_ru`, `outcome_markers_ru` и min counts; если списки стёрты template-reset’ом — восстанови из defaults utility-gate / pitfalls, иначе gate даст pain/outcome=0 BLOCK
 
 ## Задача
 

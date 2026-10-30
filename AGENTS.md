@@ -28,6 +28,7 @@ shell today + research_start
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
+- **geo-qa:** typed `excalibur-blog-geo-qa` часто отсутствует — не крутить ретраи typed type, сразу generalPurpose + agent/skill выше.
 
 Если недоступен даже `generalPurpose` Task:
 

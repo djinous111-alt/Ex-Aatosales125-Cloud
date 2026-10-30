@@ -31,3 +31,19 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-30 — B01 tank-500-iz-kitaya-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4669
+- **permalink:** ${PUBLIC_SITE_URL}/2026/10/30/tank-500-iz-kitaya-komplektatsii-lovushki-2026/
+- **featured_image:** 4670
+- **inline_images:** 4671 (`inline-01.png`), 4672 (`inline-02.png`), 4673 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld` LEN=12259; FAQ+HowTo+BlogPosting; WP-CLI verified)
+- **skip_theme_faq_meta:** ok (`1`)
+- **method:** SSH (`SSH_ROOT=.`) upload OK; local HTTP trigger RemoteDisconnected; server completed; REST reconstruct (no republish / no second trigger)
+- **head_check:** 200
+- **warnings:** client WebFetch fallback wait timed out 120s after disconnect; publish already LIVE
+- **foreign_untouched:** 4663 Atlas / 4657 Qashqai / prior denylist
+- **result:** `memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026/wp-publish-result.json`
+

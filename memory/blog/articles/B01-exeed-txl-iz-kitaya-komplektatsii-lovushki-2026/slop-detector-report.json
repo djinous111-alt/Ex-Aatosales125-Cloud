@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "Схема сметы до депозита: Цена авто → Логистика до Владивостока → Таможенный контур → Утильсбор → СБКТС и ЭПТС → Доставка по РФ → Итого вилкой СБКТС – сертификат безопасности конструкции (лаборатория из реестра РАЛ)",
+      "word_count": 28
+    },
+    {
+      "sentence": "Соберите папку \"до депозита\" и зафиксируйте stop или go Критерий успеха: в чате лежит один лист – VIN или спека, привод, объём/кВт, строки сметы – и вы решили stop / go / спросить до перевода денег",
+      "word_count": 33
+    }
+  ],
+  "readability": {
+    "score": 82.6,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 8.1,
+    "avg_syllables_per_word": 1.9
+  }
+}

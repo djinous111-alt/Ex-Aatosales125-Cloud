@@ -1,0 +1,32 @@
+{
+  "source": "memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/article.html (CTA env-expanded temp copy)",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "hosts": [
+    "avto-sales125.ru",
+    "t.me"
+  ],
+  "links": [
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "host": "avto-sales125.ru"
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "host": "t.me"
+    }
+  ]
+}

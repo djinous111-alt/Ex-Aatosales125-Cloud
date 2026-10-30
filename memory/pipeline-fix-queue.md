@@ -6,6 +6,103 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-2130-geo-qa-utility-pain-outcome-markers-wiped
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` and `min_pain_markers` / `min_outcome_markers` after rebrand baseline.
+- Utility gate then always reported pain=0 / outcome=0 even when article text had «Боль:», «ломает», «результат», «соберите».
+- Same wipe pattern as prior B01 China runs; doctor does not pin the lists.
+
+### How the agent recovered this run
+- Restored canonical marker lists + min counts into `memory/brief/editorial-policy.json` from prior PASS commit history.
+- Re-ran utility gate: pain 9 / outcome 4 PASS; remaining BLOCK only action_markers 2<8 → FIX list for Writer (no longread edit by GEO QA except CTA temp verify).
+
+### Durable fix needed before next run
+- Pin `pain_markers_ru` / `outcome_markers_ru` via doctor or `_markers_pinned` sentinel.
+- Add hardcoded fallback lists inside `excalibur_blog_utility_gate.py` when policy keys missing/empty.
+- Document Writer must use imperative forms matching `recommendation_markers_ru` («сделайте/не делайте/проверьте»), not only «Делать/Не делать».
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261031-2130-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: prompt
+
+### What went wrong
+- Typed Cloud Task `excalibur-blog-geo-qa` unavailable; Director used `generalPurpose` fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Ran full GEO QA script suite as generalPurpose with contracts from `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### Durable fix needed before next run
+- Register typed Task type `excalibur-blog-geo-qa` in Cloud automation, or keep explicit generalPurpose fallback in director skill as first-class path (already documented; keep reminding).
+
+### Suggested files to inspect/change
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261031-2130-geo-qa-cta-temp-linkverify
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: qa
+
+### What went wrong
+- Committed `article.html` keeps `${CATALOG_URL}` / `${TELEGRAM_URL}` placeholders (secret-scan). Link-verify needs real HTTP URLs.
+
+### How the agent recovered this run
+- Expanded env URLs into a temp HTML copy for `excalibur_blog_link_verify.py` only; left placeholders + allowlist pragma in committed article.
+- Sanitized `link-verify.json` URLs to host/`[REDACTED]` before commit.
+
+### Durable fix needed before next run
+- Document CTA temp-expand pattern in geo-qa skill; optionally add `--expand-env-cta` flag to link-verify script.
+- Close together with writer INC-20261031-2120 (placeholder commit contract).
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-2120-writer-cta-secret-scan-placeholders
 status: open
 run_date: 2026-10-31

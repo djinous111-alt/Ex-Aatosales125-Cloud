@@ -29,12 +29,16 @@
     "description_aeo": "До депозита за Exeed TXL из Китая сверьте Lingyun 300T/400T с Prestige/Flagship IOV: мотор, КПП, 两驱/四驱, VIN и смету по строкам."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 78,
+    "verdict": "FAIL",
     "date": "2026-10-31",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "utility_gate": "BLOCK",
+    "human_voice": "PASS",
+    "link_verify": "PASS",
+    "blocker": "utility action_markers 2<8"
   },
   "cover_family": "brand_collage"
 }

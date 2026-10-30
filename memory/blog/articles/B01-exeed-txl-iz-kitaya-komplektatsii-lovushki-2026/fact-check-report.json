@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "бличка и привод – потом деньги. На сайте бренда к 2026 линейка TXL ещё и пересекается с ESTEO MX – ещё од",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "201",
+      "kind": "large_number",
+      "context": "Exeed Lingyun: 300T часто с передним приводом и ~201 л.с., 400T до ~261 л.с. У РФ-дилера Prestige IOV –",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "261",
+      "kind": "large_number",
+      "context": "T часто с передним приводом и ~201 л.с., 400T до ~261 л.с. У РФ-дилера Prestige IOV – 1.6 / 194 л.с. / 7",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "194",
+      "kind": "large_number",
+      "context": "00T до ~261 л.с. У РФ-дилера Prestige IOV – 1.6 / 194 л.с. / 7DCT / полный привод, Flagship IOV – 2.0 /",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "197",
+      "kind": "large_number",
+      "context": "л.с. / 7DCT / полный привод, Flagship IOV – 2.0 / 197 л.с. / 8AT / полный привод. Депозит – только после",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

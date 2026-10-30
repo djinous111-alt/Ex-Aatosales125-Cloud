@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-1336-indexer-llms-missing-blog-path
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-changan-cs75-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_llms_generator.py` has no `--blog-path` (doctor FAIL / skill contract expects `--blog-path /`).
+- Generator hardcodes URL as `{site_base}/blog/{slug}/`, which mismatches site `blog_path=/` (`/{slug}/`).
+- Recurrence after prior Tank 500 / Atlas fixer cycles that claimed durable `--blog-path` support.
+
+### How the agent recovered this run
+- Ran generator with working flags only: `--site-base "" --blog-dir memory/blog/articles --out-dir memory/blog` (no `--blog-path`).
+- Post-processed `memory/blog/llms.txt` and `memory/blog/llms-full.txt`: rewrite `/blog/` → `/` so links are `/{slug}/`.
+- Did not change publish scripts; interlinker used normal `--site-base ${PUBLIC_SITE_URL}`.
+
+### Durable fix needed before next run
+- Add `--blog-path` (default `/`) to `excalibur_blog_llms_generator.py` and build URLs as `{site_base}{blog_path}{slug}/` without forced `/blog/`.
+- Align doctor + indexer skill/agent docs with the real CLI so doctor errors=0 without manual rewrite.
+- Keep empty `--site-base` for relative paths; never embed absolute PUBLIC_SITE_URL in committed llms files.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-1334-cover-prompt-builder-hoodie-lock
 status: open
 run_date: 2026-10-30

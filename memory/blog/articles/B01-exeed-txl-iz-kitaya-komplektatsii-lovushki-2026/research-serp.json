@@ -1,0 +1,610 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-31",
+    "today_ru": "31.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-02",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-31 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "exeed-txl-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Exeed TXL из Китая: как выбрать комплектацию и не попасть в ловушки до депозита",
+    "primary_query": "как выбрать exeed txl из китая",
+    "secondary_queries": [
+      "exeed txl комплектации",
+      "эксид тхл отзывы",
+      "exeed txl 1.6",
+      "exeed txl 2.0"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать exeed txl из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Exeed TXL в Китае: цены, особенности и где купить в 2026 году",
+          "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-txl-v-kitae.html",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Exeed TXL и RX из Китая: премиальный суббренд, цены и растаможка 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-exeed-tx-rx-iz-kitaya",
+          "snippet": "В этой статье мы разберём, почему TXL завоевал популярность среди китайских покупателей, какие у него сильные и слабые стороны, а также как правильно выбрать и купить этот автомобиль в 2026 году."
+        },
+        {
+          "title": "Лучшие EXEED из Китая: Обзор, цены, отзывы и сравнение с Geely",
+          "url": "https://jplife.ru/stati/exeed-iz-kitaya-reyting-luchshikh-modeley/",
+          "snippet": "Exeed создан Chery в 2018 году как отдельный бренд — с собственными дилерскими центрами в Китае, иным уровнем отделки и ценообразованием выше, чем у основной линейки Chery."
+        },
+        {
+          "title": "Exeed Txl Из Китая: Удлинённый Премиальный Кроссовер За 2,2-3,5 Млн ₽",
+          "url": "https://onlyjpcars.ru/blog/exeed-txl-iz-kitaya",
+          "snippet": "Полный гид по покупке EXEED из Китая. Рейтинг лучших моделей (TXL, VX, RX), калькулятор растаможки, решение проблем с гарантией и русификацией. Узнайте реальную цену под ключ!"
+        },
+        {
+          "title": "Exeed в Китае: цены, модели и особенности покупки 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-v-kitae.html",
+          "snippet": "EXEED TXL (2019-2023) — удлинённая версия TX, 1.5T и 2.0T, привоз из Китая и реальные цены 2026. Если вам нужен полноценный семейный кроссовер с тремя рядами сидений, европейским уровнем оснащения и бюджетом до 3,5 млн ₽ под ключ — EXEED TXL заслуживает пристального внимания."
+        },
+        {
+          "title": "Рейтинг Премиальных Кроссоверов Exeed Из Китая: Какой Автомобиль Лучше ...",
+          "url": "https://110km.ru/art/luchshie-modeli-exeed-2025-chto-vybrat-i-kak-vygodno-kupit-iz-kitaya-168823.html",
+          "snippet": "Как купить Exeed в Китае: официальные дилеры, популярные модели TX/TXL, цены, гарантия и нюансы импорта. Полный гайд для покупателей."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать exeed txl из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Exeed TXL и RX из Китая: премиальный суббренд, цены и растаможка 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-exeed-tx-rx-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Exeed TXL в 2026: Какое поколение, двигатель и комплектацию выбрать при ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-kakoe-pokolenie-dvigatel-i-komplektatsiyu-vybrat-pri-pokupke",
+          "snippet": "Разберём, что представляют собой TXL и RX при привозе из Китая и как считается растаможка с учётом выбора мотора. Дата актуальности: 22 мая 2026. Exeed создан Chery в 2018 году как отдельный бренд — с собственными дилерскими центрами в Китае, иным уровнем отделки и ценообразованием выше, чем у основной линейки Chery."
+        },
+        {
+          "title": "Exeed TXL — купить из Китая под ключ, цена в России 2026",
+          "url": "https://chinaautozone.ru/catalog/exeed/txl/",
+          "snippet": "Exeed TXL в 2026: сравниваем поколения, турбомоторы и версии оснащения. Подбираем лучшую комплектацию под ваш бюджет. Полный гид по выбору, ошибкам при покупке и обслуживанию."
+        },
+        {
+          "title": "Exeed из Китая под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/exeed-iz-kitaya-pod-klyuch",
+          "snippet": "Хотите купить Exeed TXL из Китая с полным оформлением под ключ? На chinaautozone.ru мы предлагаем импорт Exeed TXL в Россию с гарантией юридической чистоты и прозрачной ценой."
+        },
+        {
+          "title": "Exeed TXL AWD 2026 под заказ из Китая: 3 190 000 ₽, паспорт и растаможка",
+          "url": "https://glav-auto.ru/zakaz/exeed-txl-awd-2026",
+          "snippet": "Exeed под ключ из Китая в 2026: честная смета TXL/VX/RX — авто + растаможка + утильсбор. Фото до оплаты, договор, срок 50-60 дней."
+        },
+        {
+          "title": "Exeed TXL 2026: обзор, плюсы, минусы | GreenTeka",
+          "url": "https://greenteka.com/blog/exeed-txl-2026-obzor-plyusy-minusy-us4x0",
+          "snippet": "Exeed TXL с мотором 2.0T 254 л.с. и полным приводом — премиум-линейка Chery в топе. Привозим Exeed TXL под заказ из Китая — напрямую с завода или от дилера, с экспортным оформлением и проверкой перед выкупом."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать exeed txl из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Exeed TXL и RX из Китая: премиальный суббренд, цены и растаможка 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-exeed-tx-rx-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Лучшие EXEED из Китая: Обзор, цены, отзывы и сравнение с Geely",
+          "url": "https://jplife.ru/stati/exeed-iz-kitaya-reyting-luchshikh-modeley/",
+          "snippet": "Разберём, что представляют собой TXL и RX при привозе из Китая и как считается растаможка с учётом выбора мотора. Дата актуальности: 22 мая 2026. Exeed создан Chery в 2018 году как отдельный бренд — с собственными дилерскими центрами в Китае, иным уровнем отделки и ценообразованием выше, чем у основной линейки Chery."
+        },
+        {
+          "title": "Рейтинг Премиальных Кроссоверов Exeed Из Китая: Какой Автомобиль Лучше ...",
+          "url": "https://110km.ru/art/luchshie-modeli-exeed-2025-chto-vybrat-i-kak-vygodno-kupit-iz-kitaya-168823.html",
+          "snippet": "Полный гид по покупке EXEED из Китая. Рейтинг лучших моделей (TXL, VX, RX), калькулятор растаможки, решение проблем с гарантией и русификацией. Узнайте реальную цену под ключ!"
+        },
+        {
+          "title": "Exeed Txl Из Китая: Удлинённый Премиальный Кроссовер За 2,2-3,5 Млн ₽",
+          "url": "https://onlyjpcars.ru/blog/exeed-txl-iz-kitaya",
+          "snippet": "Линейка EXEED в 2026 году охватывает сразу несколько сегментов, что позволяет подобрать автомобиль под разные задачи. Самым универсальным и сбалансированным вариантом остается EXEED TXL - кроссовер, который сочетает в себе продуманный дизайн, качественные материалы и достойную динамику."
+        },
+        {
+          "title": "Exeed TXL 2026: полный обзор, цены, плюсы и минусы",
+          "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-txl-2024-obzor.html",
+          "snippet": "EXEED TXL (2019-2023) — удлинённая версия TX, 1.5T и 2.0T, привоз из Китая и реальные цены 2026. Если вам нужен полноценный семейный кроссовер с тремя рядами сидений, европейским уровнем оснащения и бюджетом до 3,5 млн ₽ под ключ — EXEED TXL заслуживает пристального внимания."
+        },
+        {
+          "title": "Exeed TXL в Китае: цены, особенности и где купить в 2026 году",
+          "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-txl-v-kitae.html",
+          "snippet": "Подробный обзор Exeed TXL 2026: технические характеристики, дизайн, комплектации, тест-драйв и сравнение с конкурентами. Все о новом флагмане китайского бренда."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать exeed txl из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать exeed txl из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Exeed в Китае: цены, модели и особенности покупки 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-v-kitae.html",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Exeed TXL и RX из Китая: премиальный суббренд, цены и растаможка 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-exeed-tx-rx-iz-kitaya",
+          "snippet": "Как купить Exeed в Китае: официальные дилеры, популярные модели TX/TXL, цены, гарантия и нюансы импорта. Полный гайд для покупателей."
+        },
+        {
+          "title": "Exeed TXL в 2026: Какое поколение, двигатель и комплектацию выбрать при ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-kakoe-pokolenie-dvigatel-i-komplektatsiyu-vybrat-pri-pokupke",
+          "snippet": "Разберём, что представляют собой TXL и RX при привозе из Китая и как считается растаможка с учётом выбора мотора. Дата актуальности: 22 мая 2026. Exeed создан Chery в 2018 году как отдельный бренд — с собственными дилерскими центрами в Китае, иным уровнем отделки и ценообразованием выше, чем у основной линейки Chery."
+        },
+        {
+          "title": "Exeed TXL в Китае: цены, особенности и где купить в 2026 году",
+          "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-txl-v-kitae.html",
+          "snippet": "Exeed TXL в 2026: сравниваем поколения, турбомоторы и версии оснащения. Подбираем лучшую комплектацию под ваш бюджет. Полный гид по выбору, ошибкам при покупке и обслуживанию."
+        },
+        {
+          "title": "Эксид Тхл 2026 Технические Характеристики. Exeed Txl 2026 Комплектации ...",
+          "url": "https://www.drom.ru/catalog/cheryexeed/txl/2026/",
+          "snippet": "В этой статье мы разберём, почему TXL завоевал популярность среди китайских покупателей, какие у него сильные и слабые стороны, а также как правильно выбрать и купить этот автомобиль в 2026 году."
+        },
+        {
+          "title": "Exeed 2026: сравнение LX, TXL, RX и VX — какой выбрать?",
+          "url": "https://exeed-motor.ru/blog/exeed-2026-sravnenie-lx-txl-rx-i-vx-kakoj-vybrat",
+          "snippet": "Подробно расписан модельный ряд EXEED TXL 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Эксид ТХЛ 2026 между собой."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать exeed txl из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Exeed TXL в 2026: Какое поколение, двигатель и комплектацию выбрать при ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-kakoe-pokolenie-dvigatel-i-komplektatsiyu-vybrat-pri-pokupke",
+          "snippet": ""
+        },
+        {
+          "title": "Exeed TXL в 2026 году: что ломается, сколько стоит обслуживание и ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-godu-chto-lomaetsya-skolko-stoit-obsluzhivanie-i-istorii-vladeltsev",
+          "snippet": "За четыре года с момента выхода в 2020-м модель получила массу правок: софт, подвеска, мультимедиа, прошивки мотора и коробки. Мы собрали реальные цифры по сервисам, форумы и жалобы владельцев. Задача простая — выбрать экземпляр без скрытых косяков и не переплатить за старое железо."
+        },
+        {
+          "title": "Exeed Клуб И Форум",
+          "url": "http://exeed-forum.ru/",
+          "snippet": "Exeed TXL в 2026 году: разбор типичных поломок, реальная стоимость ТО и запчастей, а также честные отзывы владельцев. Узнайте о надёжности китайского кроссовера перед покупкой."
+        },
+        {
+          "title": "EXEED TXL: выбор двигателя и коробки. - Exeed TXL - ForumChery",
+          "url": "https://forumchery.ru/topic/6347-exeed-txl-vybor-dvigatelya-i-korobki/",
+          "snippet": "Поездив на TXL 2.0 четыре месяца, я понял, что меня немного смущает странная настройка педали газа. А именно..."
+        },
+        {
+          "title": "Проблемы Exeed TXL 2019-2027: моторы, коробки, ходовая, электроника ...",
+          "url": "https://autonissancar.ru/obzory/problemy-exeed-txl-2019-2027",
+          "snippet": "У EXEED TXL \"последней версии\" для России (TXL FL) с выбором всё честно: никаких десяти моторов и трёх коробок на каждый. Есть две силовые связки, и каждая даёт свой характер — по тяге, динамике и ощущению в городе/на трассе. Разбираем, какие двигатели ставят, с чем они идут и кому что подходит."
+        },
+        {
+          "title": "Exeed TXL - ForumChery",
+          "url": "https://forumchery.ru/forum/6-exeed-txl/",
+          "snippet": "Самый полный обзор проблем и минусов Exeed TXL 2019-2027. Подробно разобрали надежность двигателей, коробок, ходовой, полного привода."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "exeed txl комплектации 2026",
+      "purpose": "вторичный запрос: exeed txl комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Эксид Тхл 2026 Технические Характеристики. Exeed Txl 2026 Комплектации ...",
+          "url": "https://www.drom.ru/catalog/cheryexeed/txl/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Exeed TXL 2026: комплектации, цены и характеристики",
+          "url": "https://motorved.ru/obzor-exeed-txl-2026-kogda-kitajskij-pochti-premium-pochti-ne-podvodit/",
+          "snippet": "Подробно расписан модельный ряд EXEED TXL 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Exeed Txl (Эксид Тхл) Технические Характеристики, Комплектации И Цены",
+          "url": "https://www.drom.ru/catalog/cheryexeed/txl/russia/",
+          "snippet": "Комплектации и цены: то, ради чего вы здесь Обновленный Exeed TXL 2026 года в России предлагается в двух комплектациях: Prestige IOV и Flagship IOV. Обе — с полным приводом и функцией IOV."
+        },
+        {
+          "title": "EXEED TXL цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/exeed/txl/",
+          "snippet": "Подробно расписан модельный ряд EXEED TXL: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Эксид ТХЛ между собой."
+        },
+        {
+          "title": "Купить Exeed Txl 2026 Цена И Комплектации, Купить Эксид Тхл В Москве У ...",
+          "url": "https://exeed-asc.ru/model/txl/",
+          "snippet": "EXEED TXL: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        },
+        {
+          "title": "Exeed TXL в 2026: Какое поколение, двигатель и комплектацию выбрать при ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-kakoe-pokolenie-dvigatel-i-komplektatsiyu-vybrat-pri-pokupke",
+          "snippet": "Новый EXEED TXL - полноприводный кроссовер (SUV) премиум класса. АвтоСпецЦентр предлагает купить Новый Эксид TXL в следующих комплектациях: полноприводные Бизнес, Престиж, Премиум и топовый Флагман с максимальными опциями. Цена за новый EXEED TXL 2026 года - одна из самых доступных в своем классе."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "эксид тхл отзывы 2026",
+      "purpose": "вторичный запрос: эксид тхл отзывы",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Эксид ТХЛ отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/cheryexeed/txl/5kopeek/",
+          "snippet": ""
+        },
+        {
+          "title": "Exeed TXL: отзывы владельцев Эксид ТХЛ на авто.ру",
+          "url": "https://auto.ru/logbook/reviews/cars/exeed/txl/",
+          "snippet": "Полностью подтверждаю предыдущий отзыв. Долго думал о покупке китайца, но все же решился и пожалел. Машина \"сырая\". Китай может и подтянулся по качеству, но еще очень далеко."
+        },
+        {
+          "title": "Эксид ТХЛ отзывы реальных владельцев 2026 — Exeed TXL: недостатки и ...",
+          "url": "https://motorist.expert/cheryexeed/service-cheryexeed/exeed-txl-otzyvy.html",
+          "snippet": "Отзывы реальных владельцев о Exeed TXL, плюсы и минусы (достоинства и недостатки). Эксид ТХЛ: отзывы с фото, опыт эксплуатации и обслуживания на Авто.ру"
+        },
+        {
+          "title": "Отзывы Владельцев Exeed Txl С Фото - Дром",
+          "url": "https://www.drom.ru/reviews/cheryexeed/txl/",
+          "snippet": "Короткий ответ на сентябрь 2026 года: машину хвалят за салон, оснащение и комфорт на трассе, а жалуются почти все на одно и то же — тормозные диски, стуки в передней подвеске и рывки трансмиссии."
+        },
+        {
+          "title": "Плюсы и минусы Эксид ТХЛ - стоит ли покупать, отзывы владельцев ...",
+          "url": "https://auto.ru/logbook/reviews/summary/cars/exeed/txl/",
+          "snippet": "Это мой третий по счёту кроссоверный отзыв на Дроме и в нём как и во всех предыдущих будет много букв, поэтому все заинтересованные запасаемся терпеньем и черпаем полезную и не очень инфу, а ..."
+        },
+        {
+          "title": "Отзывы EXEED TXL — реальные мнения владельцев о Эксид ТХЛ | Autospot",
+          "url": "https://autospot.ru/brands/cheryexeed/txl/suv/review/",
+          "snippet": "Отзывы реальных владельцев об автомобилях Эксид ТХЛ, минусы и плюсы, недостатки и преимущества автомобиля Exeed TXL."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "exeed txl 1.6 2026",
+      "purpose": "вторичный запрос: exeed txl 1.6",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Эксид Тхл 2026 Технические Характеристики. Exeed Txl 2026 Комплектации ...",
+          "url": "https://www.drom.ru/catalog/cheryexeed/txl/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Exeed TXL 2026 — купить по цене от 3 700 000 ₽",
+          "url": "https://exeed-motor.ru/models/txl",
+          "snippet": "Подробно расписан модельный ряд EXEED TXL 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Эксид ТХЛ 2026 между собой."
+        },
+        {
+          "title": "EXEED TXL 1.6 DCT AWD Prestige (Престиж) (04.2024 - 06.2026 ...",
+          "url": "https://www.drom.ru/catalog/cheryexeed/txl/498233/",
+          "snippet": "Новый Exeed TXL оснащен двигателем объемом 1,6 куб. см. и имеет множество функций, включая звукоизолированный капот, центральный подлокотник, 360-градусную камеру, ABS (антиблокировочную систему тормозов), LKA (систему помощи при движении по полосе) и многое другое."
+        },
+        {
+          "title": "Exeed TXL в 2026: Какое поколение, двигатель и комплектацию выбрать при ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-kakoe-pokolenie-dvigatel-i-komplektatsiyu-vybrat-pri-pokupke",
+          "snippet": "Подробно расписаны модификации автомобилей EXEED TXL 1.6 DCT AWD Prestige (Престиж): все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "Технические характеристики Exeed TXL 2021-2026: двигатели 1.6/2.0 ...",
+          "url": "https://inycar.ru/blog/tehnicheskie-harakteristiki-exeed-txl-20212026-dvigateli-1620-robot-rashod-to",
+          "snippet": "Exeed TXL в 2026: сравниваем поколения, турбомоторы и версии оснащения. Подбираем лучшую комплектацию под ваш бюджет. Полный гид по выбору, ошибкам при покупке и обслуживанию."
+        },
+        {
+          "title": "Обзор Exeed TXL 2026: габариты, технические характеристики и цены ...",
+          "url": "https://adom.ru/exeed/txl/tth",
+          "snippet": "Технические характеристики Exeed TXL 2021-2026: двигатели 1.6 и 2.0 л, 7DCT, реальный расход и цена ТО. Подробный разбор мощностей, разгона, надежности и затрат на содержание кроссовера Chery."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "exeed txl 2.0 2026",
+      "purpose": "вторичный запрос: exeed txl 2.0",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Exeed TXL 2026 — купить по цене от 3 700 000 ₽",
+          "url": "https://exeed-motor.ru/models/txl",
+          "snippet": ""
+        },
+        {
+          "title": "Эксид Тхл 2026 Технические Характеристики. Exeed Txl 2026 Комплектации ...",
+          "url": "https://www.drom.ru/catalog/cheryexeed/txl/2026/",
+          "snippet": "Новый Exeed TXL оснащен двигателем объемом 1,6 куб. см. и имеет множество функций, включая звукоизолированный капот, центральный подлокотник, 360-градусную камеру, ABS (антиблокировочную систему тормозов), LKA (систему помощи при движении по полосе) и многое другое."
+        },
+        {
+          "title": "Купить новые Exeed TXL 2026 года по цене от 2 900 000 рублей - много ...",
+          "url": "https://auto.ru/cars/exeed/txl/2026-year/new/",
+          "snippet": "Подробно расписан модельный ряд EXEED TXL 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Эксид ТХЛ 2026 между собой."
+        },
+        {
+          "title": "Купить Exeed Txl 2026 Цена И Комплектации, Купить Эксид Тхл В Москве У ...",
+          "url": "https://exeed-asc.ru/model/txl/",
+          "snippet": "Полный модельный ряд новых Exeed TXL 2026 года по цене от 2 900 000 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Exeed TXL в 2026: Какое поколение, двигатель и комплектацию выбрать при ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-kakoe-pokolenie-dvigatel-i-komplektatsiyu-vybrat-pri-pokupke",
+          "snippet": "АвтоСпецЦентр предлагает купить новые автомобили EXEED TXL 2.0 по специальным ценам. Доступны услуги обмена автомобиля, выкуп автомобилей, страхование и кредит, сервисное дилерское обслуживание."
+        },
+        {
+          "title": "Обзор Exeed TXL 2026: габариты, технические характеристики и цены ...",
+          "url": "https://adom.ru/exeed/txl/tth",
+          "snippet": "Exeed TXL в 2026: сравниваем поколения, турбомоторы и версии оснащения. Подбираем лучшую комплектацию под ваш бюджет. Полный гид по выбору, ошибкам при покупке и обслуживанию."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Exeed TXL из Китая: как выбрать комплектацию и не попасть в ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Exeed TXL в 2026: Какое поколение, двигатель и комплектацию выбрать при ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-kakoe-pokolenie-dvigatel-i-komplektatsiyu-vybrat-pri-pokupke",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Exeed TXL и RX из Китая: премиальный суббренд, цены и растаможка 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-exeed-tx-rx-iz-kitaya",
+          "snippet": "Exeed TXL в 2026: сравниваем поколения, турбомоторы и версии оснащения. Подбираем лучшую комплектацию под ваш бюджет. Полный гид по выбору, ошибкам при покупке и обслуживанию."
+        },
+        {
+          "title": "Exeed TXL в 2026 году: реальные отзывы, цены, выбор года и комплектации ...",
+          "url": "https://inycar.ru/blog/exeed-txl-v-2026-godu-realnye-otzyvy-tseny-vybor-goda-i-komplektatsii-dlya-pokupki",
+          "snippet": "Важная оговорка: в разных модельных годах и комплектациях мощность одного и того же двигателя Exeed может незначительно отличаться (от 145 до 150 л.с. для 1.6T, от 190 до 197 л.с. для 2.0T). Перед покупкой обязательно уточняйте точную мощность по паспортным данным конкретного лота."
+        },
+        {
+          "title": "Exeed TXL 2026: комплектации, цены и характеристики",
+          "url": "https://motorved.ru/obzor-exeed-txl-2026-kogda-kitajskij-pochti-premium-pochti-ne-podvodit/",
+          "snippet": "Exeed TXL в 2026 году: честные отзывы, актуальные цены, разбор комплектаций и советы по выбору года выпуска. Всё необходимое для осознанной покупки китайского кроссовера."
+        },
+        {
+          "title": "Exeed Txl Из Китая: Удлинённый Премиальный Кроссовер За 2,2-3,5 Млн ₽",
+          "url": "https://onlyjpcars.ru/blog/exeed-txl-iz-kitaya",
+          "snippet": "Разбираемся, заслуживает ли китайский «премиум» своих денег, куда делись физические кнопки и почему владельцы иногда хотят обнять автомобиль."
+        },
+        {
+          "title": "Рейтинг Премиальных Кроссоверов Exeed Из Китая: Какой Автомобиль Лучше ...",
+          "url": "https://110km.ru/art/luchshie-modeli-exeed-2025-chto-vybrat-i-kak-vygodno-kupit-iz-kitaya-168823.html",
+          "snippet": "Если вам нужен полноценный семейный кроссовер с тремя рядами сидений, европейским уровнем оснащения и бюджетом до 3,5 млн ₽ под ключ — EXEED TXL заслуживает пристального внимания."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-txl-v-kitae.html",
+      "title": "Exeed TXL в Китае: цены, особенности и где купить в 2026 году",
+      "from_query": "как выбрать exeed txl из китая 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/chery-exeed-tx-rx-iz-kitaya",
+      "title": "Chery Exeed TXL и RX из Китая: премиальный суббренд, цены и растаможка 2026",
+      "from_query": "как выбрать exeed txl из китая 2026"
+    },
+    {
+      "url": "https://jplife.ru/stati/exeed-iz-kitaya-reyting-luchshikh-modeley/",
+      "title": "Лучшие EXEED из Китая: Обзор, цены, отзывы и сравнение с Geely",
+      "from_query": "как выбрать exeed txl из китая 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/exeed-txl-iz-kitaya",
+      "title": "Exeed Txl Из Китая: Удлинённый Премиальный Кроссовер За 2,2-3,5 Млн ₽",
+      "from_query": "как выбрать exeed txl из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-v-kitae.html",
+      "title": "Exeed в Китае: цены, модели и особенности покупки 2026",
+      "from_query": "как выбрать exeed txl из китая 2026"
+    },
+    {
+      "url": "https://110km.ru/art/luchshie-modeli-exeed-2025-chto-vybrat-i-kak-vygodno-kupit-iz-kitaya-168823.html",
+      "title": "Рейтинг Премиальных Кроссоверов Exeed Из Китая: Какой Автомобиль Лучше ...",
+      "from_query": "как выбрать exeed txl из китая 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/exeed-txl-v-2026-kakoe-pokolenie-dvigatel-i-komplektatsiyu-vybrat-pri-pokupke",
+      "title": "Exeed TXL в 2026: Какое поколение, двигатель и комплектацию выбрать при ...",
+      "from_query": "как выбрать exeed txl из китая октябрь 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/catalog/exeed/txl/",
+      "title": "Exeed TXL — купить из Китая под ключ, цена в России 2026",
+      "from_query": "как выбрать exeed txl из китая октябрь 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/exeed-iz-kitaya-pod-klyuch",
+      "title": "Exeed из Китая под ключ 2026: цена и растаможка | ДАРЭ",
+      "from_query": "как выбрать exeed txl из китая октябрь 2026"
+    },
+    {
+      "url": "https://glav-auto.ru/zakaz/exeed-txl-awd-2026",
+      "title": "Exeed TXL AWD 2026 под заказ из Китая: 3 190 000 ₽, паспорт и растаможка",
+      "from_query": "как выбрать exeed txl из китая октябрь 2026"
+    },
+    {
+      "url": "https://greenteka.com/blog/exeed-txl-2026-obzor-plyusy-minusy-us4x0",
+      "title": "Exeed TXL 2026: обзор, плюсы, минусы | GreenTeka",
+      "from_query": "как выбрать exeed txl из китая октябрь 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/e/ex/exeed-txl-2024-obzor.html",
+      "title": "Exeed TXL 2026: полный обзор, цены, плюсы и минусы",
+      "from_query": "как выбрать exeed txl из китая новости 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/cheryexeed/txl/2026/",
+      "title": "Эксид Тхл 2026 Технические Характеристики. Exeed Txl 2026 Комплектации ...",
+      "from_query": "как выбрать exeed txl из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://exeed-motor.ru/blog/exeed-2026-sravnenie-lx-txl-rx-i-vx-kakoj-vybrat",
+      "title": "Exeed 2026: сравнение LX, TXL, RX и VX — какой выбрать?",
+      "from_query": "как выбрать exeed txl из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/exeed-txl-v-2026-godu-chto-lomaetsya-skolko-stoit-obsluzhivanie-i-istorii-vladeltsev",
+      "title": "Exeed TXL в 2026 году: что ломается, сколько стоит обслуживание и ...",
+      "from_query": "как выбрать exeed txl из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "http://exeed-forum.ru/",
+      "title": "Exeed Клуб И Форум",
+      "from_query": "как выбрать exeed txl из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://forumchery.ru/topic/6347-exeed-txl-vybor-dvigatelya-i-korobki/",
+      "title": "EXEED TXL: выбор двигателя и коробки. - Exeed TXL - ForumChery",
+      "from_query": "как выбрать exeed txl из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://autonissancar.ru/obzory/problemy-exeed-txl-2019-2027",
+      "title": "Проблемы Exeed TXL 2019-2027: моторы, коробки, ходовая, электроника ...",
+      "from_query": "как выбрать exeed txl из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://forumchery.ru/forum/6-exeed-txl/",
+      "title": "Exeed TXL - ForumChery",
+      "from_query": "как выбрать exeed txl из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://motorved.ru/obzor-exeed-txl-2026-kogda-kitajskij-pochti-premium-pochti-ne-podvodit/",
+      "title": "Exeed TXL 2026: комплектации, цены и характеристики",
+      "from_query": "exeed txl комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/cheryexeed/txl/russia/",
+      "title": "Exeed Txl (Эксид Тхл) Технические Характеристики, Комплектации И Цены",
+      "from_query": "exeed txl комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/exeed/txl/",
+      "title": "EXEED TXL цены и комплектации 2026 - carmaps.ru",
+      "from_query": "exeed txl комплектации 2026"
+    },
+    {
+      "url": "https://exeed-asc.ru/model/txl/",
+      "title": "Купить Exeed Txl 2026 Цена И Комплектации, Купить Эксид Тхл В Москве У ...",
+      "from_query": "exeed txl комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/cheryexeed/txl/5kopeek/",
+      "title": "Эксид ТХЛ отзывы владельцев: все минусы и недостатки",
+      "from_query": "эксид тхл отзывы 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/reviews/cars/exeed/txl/",
+      "title": "Exeed TXL: отзывы владельцев Эксид ТХЛ на авто.ру",
+      "from_query": "эксид тхл отзывы 2026"
+    },
+    {
+      "url": "https://motorist.expert/cheryexeed/service-cheryexeed/exeed-txl-otzyvy.html",
+      "title": "Эксид ТХЛ отзывы реальных владельцев 2026 — Exeed TXL: недостатки и ...",
+      "from_query": "эксид тхл отзывы 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/cheryexeed/txl/",
+      "title": "Отзывы Владельцев Exeed Txl С Фото - Дром",
+      "from_query": "эксид тхл отзывы 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/reviews/summary/cars/exeed/txl/",
+      "title": "Плюсы и минусы Эксид ТХЛ - стоит ли покупать, отзывы владельцев ...",
+      "from_query": "эксид тхл отзывы 2026"
+    },
+    {
+      "url": "https://autospot.ru/brands/cheryexeed/txl/suv/review/",
+      "title": "Отзывы EXEED TXL — реальные мнения владельцев о Эксид ТХЛ | Autospot",
+      "from_query": "эксид тхл отзывы 2026"
+    },
+    {
+      "url": "https://exeed-motor.ru/models/txl",
+      "title": "Exeed TXL 2026 — купить по цене от 3 700 000 ₽",
+      "from_query": "exeed txl 1.6 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/cheryexeed/txl/498233/",
+      "title": "EXEED TXL 1.6 DCT AWD Prestige (Престиж) (04.2024 - 06.2026 ...",
+      "from_query": "exeed txl 1.6 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/tehnicheskie-harakteristiki-exeed-txl-20212026-dvigateli-1620-robot-rashod-to",
+      "title": "Технические характеристики Exeed TXL 2021-2026: двигатели 1.6/2.0 ...",
+      "from_query": "exeed txl 1.6 2026"
+    },
+    {
+      "url": "https://adom.ru/exeed/txl/tth",
+      "title": "Обзор Exeed TXL 2026: габариты, технические характеристики и цены ...",
+      "from_query": "exeed txl 1.6 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/exeed/txl/2026-year/new/",
+      "title": "Купить новые Exeed TXL 2026 года по цене от 2 900 000 рублей - много ...",
+      "from_query": "exeed txl 2.0 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/exeed-txl-v-2026-godu-realnye-otzyvy-tseny-vybor-goda-i-komplektatsii-dlya-pokupki",
+      "title": "Exeed TXL в 2026 году: реальные отзывы, цены, выбор года и комплектации ...",
+      "from_query": "Exeed TXL из Китая: как выбрать комплектацию и не попасть в ловушки до депозита 2026"
+    }
+  ]
+}

@@ -6,6 +6,67 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20261030-1703-llms-blog-path-missing
+status: open
+run_date: 2026-10-30
+role: director
+topic_id: preflight
+article_dir: n/a
+severity: high
+category: scripts
+
+### What went wrong
+- `excalibur_blog_doctor.py` FAIL: llms generator does not support `--blog-path` (help only has `--blog-dir`/`--site-base`).
+- Script is `scripts/excalibur_blog_llms_generator.py` (not `*_llms_txt_generator.py`).
+- Prior durable fix from Tank/Changan runs not present on this branch tip.
+
+### How the agent recovered this run
+- Logged incident; continued Scout + pipeline. Indexer/fixer must restore `--blog-path` (prefer `/` with empty `--site-base` for relative `/{slug}/` URLs).
+
+### Durable fix needed before next run
+- Add `--blog-path` to `excalibur_blog_llms_generator.py` and make doctor check pass.
+- Align indexer skill/docs with `--site-base "" --blog-path /`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+
+## INC-20261030-1705-scout-precommit-secret-name-url
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: `invalid variable name` when expanding `${!SECRET_NAME}`.
+- One entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES` is not a bash identifier (catalog URL string), so the hook crashes before scanning.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to names matching `^[A-Za-z_][A-Za-z0-9_]*$`, then re-ran commit and push.
+- Topic card `B01` for Chery Tiggo 8 Pro was committed successfully after the filter.
+
+### Durable fix needed before next run
+- Restore or add `scripts/excalibur_git.sh` (or document in scout/director skill) that filters secret names before commit.
+- Prefer fixing Cloud secret injection so non-identifier values are not placed in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing)
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

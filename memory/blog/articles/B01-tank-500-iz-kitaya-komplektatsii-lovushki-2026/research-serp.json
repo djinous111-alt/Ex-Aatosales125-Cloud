@@ -1,0 +1,605 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-30",
+    "today_ru": "30.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-30 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "tank-500-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Tank 500 из Китая: комплектации и ловушки до депозита 2026",
+    "primary_query": "танк 500 комплектации",
+    "secondary_queries": [
+      "танк 500 из китая",
+      "танк 500 гибрид",
+      "танк 500 комплектация и цены",
+      "танк 500 премиум комплектация"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "танк 500 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тэнк 500 2026 технические характеристики. Tank 500 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/tank/500/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 500 - Комплектации И Цены | Официальный Сайт",
+          "url": "https://tank.ru/models/tank-500/trims-versions/",
+          "snippet": "Подробно расписан модельный ряд Tank 500 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Tank 500 (Тэнк 500) технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/tank/500/",
+          "snippet": "Выберите комплектацию TANK 500 на официальном сайте: сравните версии, цены, характеристики, оснащение, системы полного привода, комфортные опции и предложения дилеров TANK в России."
+        },
+        {
+          "title": "Tank 500 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/tank/500/",
+          "snippet": "Подробно расписан модельный ряд Tank 500: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тэнк 500 между собой."
+        },
+        {
+          "title": "Tank 500 в 2026 году: цены, комплектации и сравнение с Toyota Land ...",
+          "url": "https://avto-zhurnal.ru/article/tank-500-kupit/",
+          "snippet": "Tank 500: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Tank 500 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/tank/500/",
+          "snippet": "Цены на полноразмерный рамный внедорожник Tank 500 у официальных дилеров и в параллельном импорте. Разбор комплектаций и обоснованность покупки."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "танк 500 комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тэнк 500 2026 технические характеристики. Tank 500 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/tank/500/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 500 - Комплектации И Цены | Официальный Сайт",
+          "url": "https://tank.ru/models/tank-500/trims-versions/",
+          "snippet": "Подробно расписан модельный ряд Tank 500 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тэнк 500 2026 между собой."
+        },
+        {
+          "title": "Tank 500 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/tank/500/",
+          "snippet": "Выберите комплектацию TANK 500 на официальном сайте: сравните версии, цены, характеристики, оснащение, системы полного привода, комфортные опции и предложения дилеров TANK в России."
+        },
+        {
+          "title": "ТАНК 500 - цены и комплектации (Окт 2026) › Обзор, фото, характеристики",
+          "url": "https://ascars.ru/tank/t500/",
+          "snippet": "Tank 500: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Tank 500 (Тэнк 500) технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/tank/500/",
+          "snippet": "Tank 500 - рамный внедорожник премиум-класса в России - актуальные цены на Октябрь 2026. Полный обзор: характеристики, фото, аналоги и конкуренты"
+        },
+        {
+          "title": "Комплектации Tank 500 2026 — Гибриды И V6. Цены И Оснащение В России",
+          "url": "https://profdetail.com/komplektstsii-tank-500/",
+          "snippet": "Подробно расписан модельный ряд Tank 500: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тэнк 500 между собой."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "танк 500 комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тэнк 500 2026 технические характеристики. Tank 500 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/tank/500/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 500 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/tank/500/",
+          "snippet": "Подробно расписан модельный ряд Tank 500 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Комплектации Tank 500 2026 — Гибриды И V6. Цены И Оснащение В России",
+          "url": "https://profdetail.com/komplektstsii-tank-500/",
+          "snippet": "Tank 500: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Tank 500 в 2026 году: цены, комплектации и сравнение с Toyota Land ...",
+          "url": "https://avto-zhurnal.ru/article/tank-500-kupit/",
+          "snippet": "Обзор комплектаций TANK 500 2026 года: Сити Премиум и Техно Премиум (гибриды 299 и 394 л.с.), Премиум и Оникс (V6 299 и 354 л.с.). Сравнение цен, оснащения и внедорожных возможностей в России."
+        },
+        {
+          "title": "ТАНК 500 - цены и комплектации (Окт 2026) › Обзор, фото, характеристики",
+          "url": "https://ascars.ru/tank/t500/",
+          "snippet": "На апрель 2026 года цены на новый Tank 500 у официальных дилеров — от 5 990 000 ₽ до 7 590 000 ₽ в зависимости от комплектации. Этот материал — навигатор по комплектациям, ценам и обоснованности выбора крупного рамного внедорожника от китайского бренда."
+        },
+        {
+          "title": "Новый Tank 500 2026: обзор флагманского гибридного внедорожника, цены в ...",
+          "url": "https://classicretrocar.ru/stati/novyj-tank-500-2026-vsyo-o-flagmanskom-gibridnom-vnedorozhnike.html",
+          "snippet": "Tank 500 - рамный внедорожник премиум-класса в России - актуальные цены на Октябрь 2026. Полный обзор: характеристики, фото, аналоги и конкуренты"
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com танк 500 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "MakeIcon/resouces/GPT4.svg at main · vladgohn/MakeIcon · GitHub",
+          "url": "https://github.com/vladgohn/MakeIcon/blob/main/resouces/GPT4.svg",
+          "snippet": ""
+        },
+        {
+          "title": "DGMO/assets/miil-logo.png at main · wltschmrz/DGMO · GitHub",
+          "url": "https://github.com/wltschmrz/DGMO/blob/main/assets/miil-logo.png",
+          "snippet": "Contribute to vladgohn/MakeIcon development by creating an account on GitHub."
+        },
+        {
+          "title": "RimWorld AutoTranslation Cache - Russian / Русский (Yandex)",
+          "url": "https://gist.github.com/AutoTranslationGistBot/f476c444692da07753f6b18c65a2cd7d",
+          "snippet": "Contribute to wltschmrz/DGMO development by creating an account on GitHub."
+        },
+        {
+          "title": "2.59.0.92 -> 2.59.0.93 · GitHub",
+          "url": "https://gist.github.com/gszabi99/b0ced8344f5de839e00f67961b2e7c0a/26c54cab3ad497520e39a6ddf00dfc098aa10e30",
+          "snippet": "<Cache Language=\"Russian / Русский\"><Entry Key=\"NjIyNHkub25ld2l0aGRlYXRoOkEgQmxpZ2h0IGhhcyBpbmZlY3RlZCBldmVyeXRoaW5nLk9XRF9FdmVudF9TdGFnZTFfQmxpZ2h0 ..."
+        },
+        {
+          "title": "bridge-mcp/dxt/icon.svg at main · muchiny/bridge-mcp · GitHub",
+          "url": "https://github.com/muchiny/bridge-mcp/blob/main/dxt/icon.svg",
+          "snippet": "Created October 29, 2026 10:49 2.59.0.92 -> 2.59.0.93 Raw 2.59..93.md"
+        },
+        {
+          "title": "sonam-yangsel/bus-front.svg at main · tdolkr/sonam-yangsel",
+          "url": "https://github.com/tdolkr/sonam-yangsel/blob/main/bus-front.svg",
+          "snippet": "MCP server for secure SSH remote management — 337 tools across 74 groups for DevOps, Docker, Kubernetes, databases, systemd, Windows, cloud, compliance & more. Built in Rust. - bridge-mcp/dxt/icon.svg at main · muchiny/bridge-mcp."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "танк 500 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 500 - Комплектации И Цены | Официальный Сайт",
+          "url": "https://tank.ru/models/tank-500/trims-versions/",
+          "snippet": ""
+        },
+        {
+          "title": "Тэнк 500 2026 технические характеристики. Tank 500 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/tank/500/2026/",
+          "snippet": "Выберите комплектацию TANK 500 на официальном сайте: сравните версии, цены, характеристики, оснащение, системы полного привода, комфортные опции и предложения дилеров TANK в России."
+        },
+        {
+          "title": "Комплектации Tank 500 2026 — Гибриды И V6. Цены И Оснащение В России",
+          "url": "https://profdetail.com/komplektstsii-tank-500/",
+          "snippet": "Подробно расписан модельный ряд Tank 500 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тэнк 500 2026 между собой."
+        },
+        {
+          "title": "Комплектации И Цены Tank 500 - Официальный Дилер Иат Парнас",
+          "url": "https://iat-tank.ru/models/tank-500/trims-versions/",
+          "snippet": "TANK 500 — это флагманский рамный внедорожник, который в 2026 году предлагает российским покупателям широкий выбор силовых установок и уровней оснащения."
+        },
+        {
+          "title": "Tank 500 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/tank/500/",
+          "snippet": "Комплектации и цены TANK 500. Сравнение оснащения, опций и стоимости версий. Актуальные прайсы на новый TANK 500. Официальный дилер ИАТ Парнас. Узнайте больше на сайте или по указанному номеру"
+        },
+        {
+          "title": "Tank 500 (Тэнк 500) технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/tank/500/",
+          "snippet": "Внедорожник продается в 4 комплектациях. Новые комплектации и цены на 15.10.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей Tank. Также обратите внимание на технические характеристики."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "танк 500 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 500 | Tank Клуб И Форум",
+          "url": "https://tank-forum.ru/forums/tank-500.20/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 500 Club",
+          "url": "https://500-club.ru/",
+          "snippet": "TANK 500 - полноразмерный внедорожник, выпускаемый с 2021 года компанией Tank — внедорожным подразделением Great Wall Motors"
+        },
+        {
+          "title": "Недостатки Танк 500 (2025-2026): отзывы владельцев - все минусы и плюсы",
+          "url": "https://www.allcarz.ru/tank-500-nedostatki/",
+          "snippet": "Мы покатались на обновленном гибриде Tank 500. Autonews 13 Окт 2026 TANK TANK 500 с пробегом 143 000 и 188 000 км — ресурс, проблемы и надёжность. Эндоскопия и тест-драйв. АГАТ (Видео) 2 Окт 2026 TANK Tank 500: V6 или ..."
+        },
+        {
+          "title": "Tank 500 2026: Цены В России, V6 Или Гибрид, Комплектации И Отзывы ...",
+          "url": "https://carsvibe.ru/articles/tank-500-2026-ceny-v-rossii-v6-ili-gibrid-komplektacii-i-otzyvy",
+          "snippet": "Прежде чем покупать новый Танк 500 (2025-2026), предварительно стоит изучить отзывы владельцев, которые поделились опытом владения внедорожника, озвучили все его минусы и плюсы."
+        },
+        {
+          "title": "Первый китаец, опыт владения (дополнения июнь 2026)",
+          "url": "https://auto.ru/logbook/review/cars/tank/500/23321739/opyt-vladeniia-za-1-5-mesiatsa-i-6-5-tys-km-probega_7b1cf236-d091-4bd6-92c6-e819162109f5/",
+          "snippet": "Сколько стоит TANK 500 в 2026 году и какой вариант выбрать? Сравниваем бензиновый V6, два гибрида, семь или пять мест, расход, оснащение и реальные расходы на содержание."
+        },
+        {
+          "title": "Tank 500 3.0 бензиновый 2026 | на DRIVE2",
+          "url": "https://www.drive2.ru/r/tank/500/746786099635962484/",
+          "snippet": "Вернусь к началу, Решился на покупку перед новым 2026 годом так как скидка автосалона + 5% кредит и Трейд - ин свое сыграли."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "танк 500 из китая 2026",
+      "purpose": "вторичный запрос: танк 500 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 500 из Китая 2026: параллельный импорт vs дилер 6.75 млн ₽",
+          "url": "https://autoprofiasia.ru/blog/tank-500-parallelnyy-import-vs-diler-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 500 из Китая под заказ — цена под ключ, характеристики 2026",
+          "url": "https://chinaautozone.ru/catalog/tank/500/",
+          "snippet": "Tank 500 — один из самых обсуждаемых китайских внедорожников 2026 года в России. Официальная цена у дилера стартует от 6 749 000 ₽ за базовую версию, топовая — 7 800 000 ₽. Те же машины из Китая под ключ через нас — на 1.2-1.5 млн ₽ дешевле. Разберём, реально ли экономить и где подвохи."
+        },
+        {
+          "title": "Tank 500 2026 цена, Hi4-T/Hi4-Z FOB и экспорт из Китая",
+          "url": "https://kitayavtos.com/product/novyye-tank-500-2026/",
+          "snippet": "Tank 500 из Китая под ключ в Россию от 6.76 млн ₽. Комплектации, характеристики, растаможка, гарантия. Точный расчёт за 1 день."
+        },
+        {
+          "title": "Обзор Tank 500 2026: новый рамный внедорожник из Китая",
+          "url": "https://avtospart.ru/blog/articles/detail/tank-500-2026",
+          "snippet": "Tank 500 2026 — рамный люксовый PHEV-внедорожник из Китая для покупателей из России и СНГ, которым нужен GWM Tank, полный привод, высокий клиренс, большой салон, Hi4-T или Hi4-Z, зарядка, дальние маршруты, зимняя эксплуатация и более серьезный off-road образ, чем у обычного семейного SUV."
+        },
+        {
+          "title": "Tank 300 и Tank 500 из Китая: полный гайд по внедорожникам в 2026 году",
+          "url": "https://jckauto.ru/blog/tank-300-500-iz-kitaya",
+          "snippet": "Детальный обзор Tank 500 2026: экстерьер, салон, двигатели, расход, комплектации, обслуживание и сравнение с конкурентами. Для кого этот внедорожник."
+        },
+        {
+          "title": "Tank 500 vs Tank 300 (2026): обзор, цена под ключ | CARTO",
+          "url": "https://carto-auto.ru/blog/tank-500-vs-tank-300-2026-obzor-tsena/",
+          "snippet": "Всё о Tank 300 и Tank 500 с китайского рынка: цены, комплектации, мощность, расчёт под ключ. Стоит ли везти и какие подводные камни."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "танк 500 гибрид 2026",
+      "purpose": "вторичный запрос: танк 500 гибрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тэнк 500 2026 технические характеристики. Tank 500 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/tank/500/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Новый Tank 500 2026: обзор флагманского гибридного внедорожника, цены в ...",
+          "url": "https://classicretrocar.ru/stati/novyj-tank-500-2026-vsyo-o-flagmanskom-gibridnom-vnedorozhnike.html",
+          "snippet": "Подробно расписан модельный ряд Tank 500 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тэнк 500 2026 между собой."
+        },
+        {
+          "title": "Tank 500 гибрид- что это? — Tank 500 гибрид, 2 л, 2026 года | Двигатель ...",
+          "url": "https://www.drive2.ru/l/730719211097180425/",
+          "snippet": "Подробный обзор нового Tank 500 2026 — флагманского рамного гибридного внедорожника. Три силовые установки: 3.0T V6, Hi4-T и Hi4-Z. Лазерный радар, 7 экранов, запас хода до 1100 км."
+        },
+        {
+          "title": "Купить новые Tank 500 2026 года с гибридным двигателем по цене от 6 099 ...",
+          "url": "https://auto.ru/cars/tank/500/2026-year/new/engine-gibrid/",
+          "snippet": "TANK 500 Hi-Charge - это рамный внедорожник с гибридной силовой установкой на базе двухлитрового бензинового двигателя и электромотора. Такая архитектура позволяет преодолевать дальние расстояния на автомобиле, так как наличие ДВС не требует обязательной подзарядки."
+        },
+        {
+          "title": "Tank 500 - Комплектации И Цены | Официальный Сайт",
+          "url": "https://tank.ru/models/tank-500/trims-versions/",
+          "snippet": "Полный модельный ряд новых Tank 500 2026 года с гибридным двигателем по цене от 6 099 000 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Tank 500 2026: Цены В России, V6 Или Гибрид, Комплектации И Отзывы ...",
+          "url": "https://carsvibe.ru/articles/tank-500-2026-ceny-v-rossii-v6-ili-gibrid-komplektacii-i-otzyvy",
+          "snippet": "Выберите комплектацию TANK 500 на официальном сайте: сравните версии, цены, характеристики, оснащение, системы полного привода, комфортные опции и предложения дилеров TANK в России."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "танк 500 комплектация и цены 2026",
+      "purpose": "вторичный запрос: танк 500 комплектация и цены",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 500 - Комплектации И Цены | Официальный Сайт",
+          "url": "https://tank.ru/models/tank-500/trims-versions/",
+          "snippet": ""
+        },
+        {
+          "title": "Тэнк 500 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/tank/500/2026/",
+          "snippet": "Выберите комплектацию TANK 500 на официальном сайте: сравните версии, цены, характеристики, оснащение, системы полного привода, комфортные опции и предложения дилеров TANK в России."
+        },
+        {
+          "title": "Tank 500 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/tank/500/",
+          "snippet": "Подробно расписан модельный ряд Tank 500 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "ТАНК 500 - цены и комплектации (Окт 2026) › Обзор, фото, характеристики",
+          "url": "https://ascars.ru/tank/t500/",
+          "snippet": "Tank 500: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Tank 500 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/tank/500/",
+          "snippet": "Tank 500 - рамный внедорожник премиум-класса в России - актуальные цены на Октябрь 2026. Полный обзор: характеристики, фото, аналоги и конкуренты"
+        },
+        {
+          "title": "Tank 500 цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/tank/500/",
+          "snippet": "Новые комплектации и цены на 15.10.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей Tank. Также обратите внимание на технические характеристики."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "танк 500 премиум комплектация 2026",
+      "purpose": "вторичный запрос: танк 500 премиум комплектация",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 500 Премиум: комплектация 2026, цена, фото, оборудование Премиум 3 ...",
+          "url": "https://carsdo.ru/tank/500/equipment-3/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 500 Premium: комплектация 2026: цена, фото, оборудование и ...",
+          "url": "https://carmaps.ru/tank/500/com-premium/",
+          "snippet": "Стандартное и дополнительное оборудование комплектации Tank 500 Премиум 3.0 л (299 л.с.) AT 4x4 бензин. Дизайн и внешнее оборудование, интерьер и оборудование салона, безопасность и системы автомобиля."
+        },
+        {
+          "title": "Tank 500 - Комплектации И Цены | Официальный Сайт",
+          "url": "https://tank.ru/models/tank-500/trims-versions/",
+          "snippet": "Цена, фото, стандартное и дополнительное оборудование Tank 500 в комплектации Premium: оборудование, аксессуары, системы безопасности и характеристики."
+        },
+        {
+          "title": "Тэнк 500 2026 технические характеристики. Tank 500 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/tank/500/2026/",
+          "snippet": "Выберите комплектацию TANK 500 на официальном сайте: сравните версии, цены, характеристики, оснащение, системы полного привода, комфортные опции и предложения дилеров TANK в России."
+        },
+        {
+          "title": "Купить Tank 500 2026 в комплектации Премиум 3.0 AT (299 л.с.) 4WD по ...",
+          "url": "https://adom.ru/tank/500/premium",
+          "snippet": "Подробно расписан модельный ряд Tank 500 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тэнк 500 2026 между собой."
+        },
+        {
+          "title": "Комплектации Tank 500 2026 — Гибриды И V6. Цены И Оснащение В России",
+          "url": "https://profdetail.com/komplektstsii-tank-500/",
+          "snippet": "Узнайте как купить Танк 500 Премиум 2025-2026 по цене 7 659 000 ₽. ️ Рассрочка 0%, кредит 6.9%, Обмен авто."
+        }
+      ],
+      "searched_at": "2026-10-30"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Tank 500 из Китая: комплектации и ловушки до депозита 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-30"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/tank/500/2026/",
+      "title": "Тэнк 500 2026 технические характеристики. Tank 500 2026 комплектации и ...",
+      "from_query": "танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://tank.ru/models/tank-500/trims-versions/",
+      "title": "Tank 500 - Комплектации И Цены | Официальный Сайт",
+      "from_query": "танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/tank/500/",
+      "title": "Tank 500 (Тэнк 500) технические характеристики, комплектации и цены",
+      "from_query": "танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://carsdo.ru/tank/500/",
+      "title": "Tank 500 › Цена и комплектации 2026 - CarsDo.ru",
+      "from_query": "танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://avto-zhurnal.ru/article/tank-500-kupit/",
+      "title": "Tank 500 в 2026 году: цены, комплектации и сравнение с Toyota Land ...",
+      "from_query": "танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://carsdb.ru/tank/500/",
+      "title": "Tank 500 2026 - цены и комплектации в России | carsdb.ru",
+      "from_query": "танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://ascars.ru/tank/t500/",
+      "title": "ТАНК 500 - цены и комплектации (Окт 2026) › Обзор, фото, характеристики",
+      "from_query": "танк 500 комплектации октябрь 2026"
+    },
+    {
+      "url": "https://profdetail.com/komplektstsii-tank-500/",
+      "title": "Комплектации Tank 500 2026 — Гибриды И V6. Цены И Оснащение В России",
+      "from_query": "танк 500 комплектации октябрь 2026"
+    },
+    {
+      "url": "https://classicretrocar.ru/stati/novyj-tank-500-2026-vsyo-o-flagmanskom-gibridnom-vnedorozhnike.html",
+      "title": "Новый Tank 500 2026: обзор флагманского гибридного внедорожника, цены в ...",
+      "from_query": "танк 500 комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/vladgohn/MakeIcon/blob/main/resouces/GPT4.svg",
+      "title": "MakeIcon/resouces/GPT4.svg at main · vladgohn/MakeIcon · GitHub",
+      "from_query": "site:github.com танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/wltschmrz/DGMO/blob/main/assets/miil-logo.png",
+      "title": "DGMO/assets/miil-logo.png at main · wltschmrz/DGMO · GitHub",
+      "from_query": "site:github.com танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://gist.github.com/AutoTranslationGistBot/f476c444692da07753f6b18c65a2cd7d",
+      "title": "RimWorld AutoTranslation Cache - Russian / Русский (Yandex)",
+      "from_query": "site:github.com танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://gist.github.com/gszabi99/b0ced8344f5de839e00f67961b2e7c0a/26c54cab3ad497520e39a6ddf00dfc098aa10e30",
+      "title": "2.59.0.92 -> 2.59.0.93 · GitHub",
+      "from_query": "site:github.com танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/muchiny/bridge-mcp/blob/main/dxt/icon.svg",
+      "title": "bridge-mcp/dxt/icon.svg at main · muchiny/bridge-mcp · GitHub",
+      "from_query": "site:github.com танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/tdolkr/sonam-yangsel/blob/main/bus-front.svg",
+      "title": "sonam-yangsel/bus-front.svg at main · tdolkr/sonam-yangsel",
+      "from_query": "site:github.com танк 500 комплектации 2026"
+    },
+    {
+      "url": "https://iat-tank.ru/models/tank-500/trims-versions/",
+      "title": "Комплектации И Цены Tank 500 - Официальный Дилер Иат Парнас",
+      "from_query": "танк 500 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://tank-forum.ru/forums/tank-500.20/",
+      "title": "Tank 500 | Tank Клуб И Форум",
+      "from_query": "танк 500 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://500-club.ru/",
+      "title": "Tank 500 Club",
+      "from_query": "танк 500 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/tank-500-nedostatki/",
+      "title": "Недостатки Танк 500 (2025-2026): отзывы владельцев - все минусы и плюсы",
+      "from_query": "танк 500 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://carsvibe.ru/articles/tank-500-2026-ceny-v-rossii-v6-ili-gibrid-komplektacii-i-otzyvy",
+      "title": "Tank 500 2026: Цены В России, V6 Или Гибрид, Комплектации И Отзывы ...",
+      "from_query": "танк 500 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/review/cars/tank/500/23321739/opyt-vladeniia-za-1-5-mesiatsa-i-6-5-tys-km-probega_7b1cf236-d091-4bd6-92c6-e819162109f5/",
+      "title": "Первый китаец, опыт владения (дополнения июнь 2026)",
+      "from_query": "танк 500 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/r/tank/500/746786099635962484/",
+      "title": "Tank 500 3.0 бензиновый 2026 | на DRIVE2",
+      "from_query": "танк 500 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/tank-500-parallelnyy-import-vs-diler-2026",
+      "title": "Tank 500 из Китая 2026: параллельный импорт vs дилер 6.75 млн ₽",
+      "from_query": "танк 500 из китая 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/catalog/tank/500/",
+      "title": "Tank 500 из Китая под заказ — цена под ключ, характеристики 2026",
+      "from_query": "танк 500 из китая 2026"
+    },
+    {
+      "url": "https://kitayavtos.com/product/novyye-tank-500-2026/",
+      "title": "Tank 500 2026 цена, Hi4-T/Hi4-Z FOB и экспорт из Китая",
+      "from_query": "танк 500 из китая 2026"
+    },
+    {
+      "url": "https://avtospart.ru/blog/articles/detail/tank-500-2026",
+      "title": "Обзор Tank 500 2026: новый рамный внедорожник из Китая",
+      "from_query": "танк 500 из китая 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/tank-300-500-iz-kitaya",
+      "title": "Tank 300 и Tank 500 из Китая: полный гайд по внедорожникам в 2026 году",
+      "from_query": "танк 500 из китая 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/tank-500-vs-tank-300-2026-obzor-tsena/",
+      "title": "Tank 500 vs Tank 300 (2026): обзор, цена под ключ | CARTO",
+      "from_query": "танк 500 из китая 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/730719211097180425/",
+      "title": "Tank 500 гибрид- что это? — Tank 500 гибрид, 2 л, 2026 года | Двигатель ...",
+      "from_query": "танк 500 гибрид 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/tank/500/2026-year/new/engine-gibrid/",
+      "title": "Купить новые Tank 500 2026 года с гибридным двигателем по цене от 6 099 ...",
+      "from_query": "танк 500 гибрид 2026"
+    },
+    {
+      "url": "https://carmaps.ru/tank/500/",
+      "title": "Tank 500 цены и комплектации 2026 - carmaps.ru",
+      "from_query": "танк 500 комплектация и цены 2026"
+    },
+    {
+      "url": "https://carsdo.ru/tank/500/equipment-3/",
+      "title": "Tank 500 Премиум: комплектация 2026, цена, фото, оборудование Премиум 3 ...",
+      "from_query": "танк 500 премиум комплектация 2026"
+    },
+    {
+      "url": "https://carmaps.ru/tank/500/com-premium/",
+      "title": "Tank 500 Premium: комплектация 2026: цена, фото, оборудование и ...",
+      "from_query": "танк 500 премиум комплектация 2026"
+    },
+    {
+      "url": "https://adom.ru/tank/500/premium",
+      "title": "Купить Tank 500 2026 в комплектации Премиум 3.0 AT (299 л.с.) 4WD по ...",
+      "from_query": "танк 500 премиум комплектация 2026"
+    }
+  ]
+}

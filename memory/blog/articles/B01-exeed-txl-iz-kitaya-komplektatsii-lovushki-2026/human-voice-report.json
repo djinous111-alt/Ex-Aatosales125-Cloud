@@ -1,0 +1,123 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026",
+  "errors": [],
+  "warnings": [
+    "Fact Check block uses a repeated template; vary wording while preserving facts",
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 7,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 27,
+    "paragraph_avg_words": 31.1,
+    "paragraph_variance_ratio": 0.61,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "в реальном проекте"
+    ],
+    "pain_markers": [
+      "боль",
+      "ошиб",
+      "ломает"
+    ],
+    "outcome_markers": [
+      "результат",
+      "получите",
+      "проверьте",
+      "соберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "flagship",
+      "telegram",
+      "вернуть",
+      "депозит",
+      "дешевле",
+      "дилера",
+      "другая",
+      "другой",
+      "инвойсе",
+      "китая",
+      "место",
+      "передний",
+      "привод",
+      "рынок",
+      "смета",
+      "спором",
+      "человек",
+      "чтобы"
+    ],
+    "reader_pain_overlap": [
+      "flagship",
+      "prestige",
+      "депозит",
+      "другая",
+      "китайская",
+      "мощность",
+      "прошивка",
+      "сбктс",
+      "сюрприз",
+      "хочется"
+    ],
+    "reader_outcome_overlap": [
+      "exeed",
+      "депозита",
+      "китая",
+      "комплектации",
+      "любой",
+      "мотор",
+      "папку",
+      "перед",
+      "привод",
+      "рынок"
+    ],
+    "success_criteria_overlap": [
+      "денег",
+      "объём",
+      "одной",
+      "перевода",
+      "привод",
+      "решение",
+      "сметы",
+      "спека",
+      "спросить",
+      "строки",
+      "цифры"
+    ],
+    "voice_angle_overlap": [
+      "авто-сейлс",
+      "владивостока",
+      "депозит",
+      "потом",
+      "привод",
+      "сверь",
+      "сначала",
+      "эксперт"
+    ],
+    "surprising_fact_overlap": [
+      "connect",
+      "esteo",
+      "exeed",
+      "flagship",
+      "lingyun",
+      "prestige",
+      "зовут",
+      "китае",
+      "линейка",
+      "передний",
+      "полный",
+      "привод",
+      "причина",
+      "рф-дилера",
+      "только",
+      "часто"
+    ],
+    "exactly_five_lists": 2,
+    "fact_check_template_blocks": 1
+  }
+}

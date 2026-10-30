@@ -6,6 +6,7 @@
 - `shared/excalibur-article-writing-contract.md`
 - `shared/editorial-utility-only.md`
 - `memory/brief/site-brief.md`, `conversion-map.md`
+- `memory/brief/editorial-policy.json` — до письма проверь `_markers_pinned`, `pain_markers_ru`, `outcome_markers_ru` и min counts; если списки стёрты template-reset’ом — восстанови из defaults utility-gate / pitfalls, иначе gate даст pain/outcome=0 BLOCK
 
 ## Задача
 
@@ -23,7 +24,9 @@
    - `title_aeo`: 35–90 симв, сформулирован как вопрос ИИ-поисковику (начинается с "Как", "Что", "Почему" или содержит "?").
    - `description_seo`: 100–180 симв.
 10. Подзаголовки H2 должны начинаться с **глаголов действия** (создайте, настройте, проверьте) или содержать **маркеры действия** (как, чеклист, сравнение, выбор, пошагово). Минимум 3 H2 должны быть активными.
-11. **RSS И ДЗЕН-СОВМЕСТИМОСТЬ (КРИТИЧЕСКИ):** Тело статьи `article.html` должно быть чистым, семантическим HTML без JS-кнопок, инлайновых стилей `style="..."` или кастомных тегов. Выжимки TL;DR оборачивай строго в тег `<blockquote>` (он нативно рендерится Дзеном как цитата), а блоки кода/JSON — строго в `<pre><code>код_здесь</code></pre>` без дополнительных кастомных элементов.
+11. **RSS И ДЗЕН-СОВМЕСТИМОСТЬ (КРИТИЧЕСКИ):** Тело статьи `article.html` должно быть чистым, семантическим HTML без JS-кнопок и инлайновых стилей `style="..."`. Выжимки TL;DR — в `<blockquote>`. Теги `<pre>`/`<code>` запрещены HTML-линтером: код/шаблоны оформляй через blockquote/table/list, пока whitelist не расширен.
+11b. **CTA (Cloud secret-scan):** в committed HTML только `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` + при необходимости `<!-- pragma: allowlist secret -->`. Live URL из env не коммитить. Перед `git commit` в Cloud: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` или `bash scripts/excalibur_git.sh commit …`.
+11c. **Utility markers:** recommendation markers — императивы из `editorial-policy.json` (`сделайте`/`не делайте`/`проверьте`/…), не только «Делать/Не делать».
 12. **СТРУКТУРНЫЕ ЭЛЕМЕНТЫ (TL;DR, EEAT — без оглавления):** 
     - Сразу после Lead-абзаца вставляй блок `<blockquote>` с выжимкой ключевых инсайтов (**AEO TL;DR Box**).
     - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.

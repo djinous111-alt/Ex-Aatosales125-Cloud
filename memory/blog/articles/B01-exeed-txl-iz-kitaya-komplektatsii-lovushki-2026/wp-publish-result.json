@@ -1,0 +1,15 @@
+{
+  "slug": "exeed-txl-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "${PUBLIC_SITE_URL}/2026/10/31/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1203435,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4687 slug=exeed-txl-iz-kitaya-komplektatsii-lovushki-2026\nOK featured_image=4693\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4695 src=cover/inline-01.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026-inline-01-1.png\nOK inline_image_upload=4696 src=cover/inline-02.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026-inline-02-1.png\nOK inline_image_upload=4697 src=cover/inline-03.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026-inline-03-1.png\npermalink=${PUBLIC_SITE_URL}/2026/10/31/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass"
+}

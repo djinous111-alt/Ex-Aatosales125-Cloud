@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит за TXL из Китая без сверки привода — лотерея?",
+  "mcp_note": "ONE Kie gpt-image-2-image-to-image (async createTask), input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Exeed TXL на доке Владивостока: плашка до депозита и мем-стикеры",
+      "meme_caption_ru": "Стой. До депозита.",
+      "scene_hint": "outfit_lock_from_hero: тёмная непромокаемая куртка / field jacket под пасмурный порт Владивостока (НЕ белое худи, НЕ reference t-shirt); лицо+очки с reference; поза selfie у современного Exeed TXL; fake карточка каталога avto-sales125.ru + чеклист «VIN / привод / 300T-400T»; стикер «2WD вместо 4WD?»; мем facepalm; жёлтый highlight на «депозита»; угол avto-sales125.ru; без Wordstat/Метрики/Telegram"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу на листе до чата с продавцом",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-доска «до чата с продавцом»: задача семьи/бюджет/привод 两驱-四驱/рынок CN vs РФ; стикер tape; без лица героя; кириллица читаемая",
+      "alt": "Чеклист: что зафиксировать на листе до чата с продавцом Exeed TXL"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните комплектации: Prestige/Flagship и Lingyun 300T/400T",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица сравнения: РФ Prestige/Flagship IOV vs CN Lingyun 300T/400T — мотор, КПП, привод; мини-стикер «не путать по фото»; без лица героя",
+      "alt": "Таблица комплектаций Prestige/Flagship IOV против Lingyun 300T/400T"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Запросите VIN, спеку и фото табличек до предоплаты",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow: запрос VIN → фото заводской таблички → сверка спеки → стоп/го до предоплаты; fake UI карточки документов; без лица героя",
+      "alt": "Схема: VIN, спека и фото табличек до предоплаты за TXL"
+    }
+  }
+}

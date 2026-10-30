@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-0932-indexer-llms-hardcoded-blog-prefix
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_llms_generator.py` (and interlinker apply) hardcode URL path `/blog/{slug}/`.
+- Canonical policy for this site/schema is relative `/{slug}/` (see schema.jsonld HowTo step urls); skill/agent still mention stale `--blog-path /` which CLI no longer has (related: INC-20261030-0905).
+- Empty `--site-base ""` alone yields `/blog/{slug}/`, not `/{slug}/`.
+
+### How the agent recovered this run
+- Ran generator with `--site-base "" --out-dir memory/blog` (no `--blog-path`).
+- Post-processed `memory/blog/llms.txt` and `llms-full.txt`: replaced `/blog/{slug}/` → `/{slug}/`.
+- Interlinker `--apply` found 0 opportunities; left HTML `/blog/` convention untouched for existing corpus links.
+
+### Durable fix needed before next run
+- Add `--blog-path` (default `/`) so URLs are `{site_base}{blog_path}{slug}/`; with `--site-base "" --blog-path /` → `/{slug}/`.
+- Or stop hardcoding `/blog/` and align doctor/skill/pitfalls with the real CLI.
+- Update indexer skill shell example accordingly.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-0930-cover-prompt-builder-hoodie-lock
 status: open
 run_date: 2026-10-30

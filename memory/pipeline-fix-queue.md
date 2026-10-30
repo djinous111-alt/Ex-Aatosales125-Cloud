@@ -501,6 +501,44 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261030-0940-publish-http-remotedisconnect-reconstruct
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload succeeded (~7.3MB PHP), but local HTTP trigger hit `RemoteDisconnected` before stdout OK lines returned.
+- Script entered Cloud WebFetch Fallback and waited 120s for `memory/webfetch-response.txt`; agent was not yet writing the file in parallel, so client exited with timeout even though WordPress had already finished the job server-side.
+- Hardcoded 120s wait / non-parallel WebFetch still burns a failed client exit and forces REST reconstruct.
+
+### How the agent recovered this run
+- Did **not** republish / did **not** second-trigger bootstrap (avoids duplicate `*-1.png`).
+- Verified LIVE via WP REST `posts?slug=tank-500-iz-kitaya-komplektatsii-lovushki-2026` → post **4669**, featured **4670**, inline **4671/4672/4673**.
+- Confirmed schema meta via WP-CLI (`_excalibur_blog_schema_jsonld` LEN≈12k with BlogPosting+FAQPage+HowTo; `_excalibur_blog_skip_theme_faq=1`).
+- HEAD permalink **200**; wrote `wp-publish-result.json`, ledger `published`, handoff PUBLISH PASS.
+- Foreign LIVE posts untouched (Atlas 4663, Qashqai 4657, denylist).
+
+### Durable fix needed before next run
+- Honor longer HTTP timeout env (or raise default) for ~7–9MB bootstrap; document parallel WebFetch as soon as `FALLBACK_TRIGGER_URL` prints.
+- After HTTP disconnect, auto REST reconstruct-by-slug before failing when post already LIVE with expected media count.
+- Keep `SSH_ROOT=.` as Cloud Secret for this host (site.env.local created from secrets when missing).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` timeout + REST reconstruct)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 
 ## Fixed incidents
 

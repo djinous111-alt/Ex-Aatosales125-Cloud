@@ -1,0 +1,42 @@
+{
+  "verdict": "pass",
+  "topic_id": "B01",
+  "slug": "tank-500-iz-kitaya-komplektatsii-lovushki-2026",
+  "post_id": 4669,
+  "featured_image": 4670,
+  "inline_images": [
+    {
+      "id": 4671,
+      "file": "cover/inline-01.png"
+    },
+    {
+      "id": 4672,
+      "file": "cover/inline-02.png"
+    },
+    {
+      "id": 4673,
+      "file": "cover/inline-03.png"
+    }
+  ],
+  "schema_meta": true,
+  "skip_theme_faq_meta": true,
+  "permalink": "${PUBLIC_SITE_URL}/2026/10/30/tank-500-iz-kitaya-komplektatsii-lovushki-2026/",
+  "publish_date": "2026-10-30",
+  "method": "SSH upload + HTTP RemoteDisconnected; REST reconstruct (no republish); WP-CLI schema meta verify",
+  "head_check": 200,
+  "ssh_root": "dot",
+  "warnings": [
+    "Local HTTP trigger RemoteDisconnected; client WebFetch wait timed out 120s; server completed publish (REST id=4669).",
+    "SSH_ROOT set to '.' in site.env.local (SSH_PATH was set; prefer dot per publish-patterns)."
+  ],
+  "foreign_posts_untouched": [
+    4663,
+    4657,
+    4651,
+    4645,
+    4639,
+    4633,
+    4627,
+    4621
+  ]
+}

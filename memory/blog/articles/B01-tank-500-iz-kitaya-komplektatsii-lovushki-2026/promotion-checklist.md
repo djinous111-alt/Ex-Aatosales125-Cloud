@@ -1,14 +1,14 @@
 # Promotion checklist — B01 tank-500-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-30 (план; publish ещё не выполнен)  
-Live URL: /tank-500-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-30  
+Live URL: ${PUBLIC_SITE_URL}/2026/10/30/tank-500-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
-- [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
+- [x] Открыть live URL (HEAD 200; featured 4670; 3 inline WP media) — title, excerpt, featured image, FAQ
+- [x] View source — theme Rank Math graph BlogPosting; post meta `_excalibur_blog_schema_jsonld` has BlogPosting+FAQPage+HowTo (WP-CLI)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 

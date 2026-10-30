@@ -58,7 +58,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - import check DEFAULT_HTTP_TIMEOUT_SEC==300 + reconstruct helper present
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: 54de36b7
 
 ## INC-20261030-1336-indexer-llms-missing-blog-path
 status: fixed
@@ -113,7 +113,7 @@ checks_run:
 - `--help` shows `--blog-path`
 - dry-run generator `--site-base "" --blog-path /` → `/{slug}/`
 - doctor errors=0
-commit: pending-parent-commit
+commit: 54de36b7
 
 
 ## INC-20261030-1334-cover-prompt-builder-hoodie-lock
@@ -163,7 +163,7 @@ checks_run:
 - py_compile cover prompt builder
 - assert forbidden hoodie lock rejected; prompt_fragment used
 - doctor cover hoodie check OK
-commit: pending-parent-commit
+commit: 54de36b7
 
 
 ## INC-20261030-1320-writer-precommit-secret-names
@@ -212,7 +212,7 @@ files_changed:
 checks_run:
 - filter script keeps FOO,BAR and drops URL/[REDACTED]
 - doctor scripts present
-commit: pending-parent-commit
+commit: 54de36b7
 
 ## INC-20261030-1325-writer-editorial-policy-markers-missing
 status: fixed
@@ -258,7 +258,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy marker checks OK
 - JSON parse policy
-commit: pending-parent-commit
+commit: 54de36b7
 
 ## INC-20261030-1315-research-tech-markers-false-positive
 status: fixed
@@ -304,7 +304,7 @@ checks_run:
 - `_marker_in_blob('ai','…pain…')` False; `комплектации` vs `ии` False
 - Changan CS75 topic not technical
 - doctor research word-boundary check OK
-commit: pending-parent-commit
+commit: 54de36b7
 
 ## INC-20261030-1315-scout-precommit-secret-names
 status: fixed
@@ -348,7 +348,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter smoke + doctor script presence
-commit: pending-parent-commit
+commit: 54de36b7
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

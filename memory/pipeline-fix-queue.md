@@ -395,6 +395,39 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261030-0923-schema-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes one non-identifier token (URL-shaped), so bash `${!SECRET_NAME}` dies with `invalid variable name`.
+- Same class of failure already noted under research recovery; still blocks every later role commit until filtered in-shell.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` before commit; then committed `schema.jsonld` successfully.
+
+### Durable fix needed before next run
+- Remove non-identifier entries from Cloud injected secret-name lists (names must be env var identifiers, not URL values).
+- Or harden `/root/.cursor/agent-hooks/.../pre-commit.cursor` to skip names that fail identifier validation before `${!SECRET_NAME}`.
+- Document the filter workaround in `shared/agent-pipeline-pitfalls.md` for all pipeline roles.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- Cursor Dashboard Cloud Secrets / injected secret name list (no values recorded here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

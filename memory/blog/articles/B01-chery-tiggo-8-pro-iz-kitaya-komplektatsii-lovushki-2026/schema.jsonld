@@ -1,0 +1,197 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#blogposting", // pragma: allowlist secret
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/" // pragma: allowlist secret
+      },
+      "headline": "Как выбрать Chery Tiggo 8 Pro из Китая: комплектации и ловушки до депозита",
+      "description": "Как выбрать Chery Tiggo 8 Pro из Китая: Pro vs Pro Max, кВт до утиля, VIN и чек-лист из 12 пунктов до депозита. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-30",
+      "dateModified": "2026-10-30",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", // pragma: allowlist secret
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", // pragma: allowlist secret
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avto-sales125.ru/" // pragma: allowlist secret
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/", // pragma: allowlist secret
+          "https://t.me/avtosales125", // pragma: allowlist secret
+          "https://max.ru/id2508140890_biz", // pragma: allowlist secret
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", // pragma: allowlist secret
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avto-sales125.ru/", // pragma: allowlist secret
+        "sameAs": [
+          "https://avto-sales125.ru/", // pragma: allowlist secret
+          "https://t.me/avtosales125" // pragma: allowlist secret
+        ]
+      },
+      "keywords": [
+        "как выбрать chery tiggo 8 pro из китая",
+        "чери тигго 8 про комплектации",
+        "chery tiggo 8 pro max комплектации",
+        "чери тигго 8 про макс из китая"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#faq", // pragma: allowlist secret
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Tiggo 8 Pro отличается от Pro Max при заказе из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Смотрите китайское имя в договоре, а не только русский ярлык. Plus на внутреннем рынке часто уходит на экспорт как Pro / Pro Max; отдельный китайский Pro – другая домашняя ветка. Зафиксируйте модель, год, мотор и число мест одной строкой до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие комплектации Chery Tiggo 8 Pro чаще разбирают в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В РФ ориентиры Elite / Dreamline / Ultimate (иногда с AWD). Из Китая важнее список опций на конкретной машине: 5 или 7 мест, привод, панорама, ADAS. Сверьте видео этой машины, а не буклет."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в документах до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Одинаковый VIN везде, кВт и объём из китайских бумаг, дату учёта в КНР под правило 180 дней, экспортёра и счёт юрлица. Нет пакета – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли брать гибрид C-DM без сюрприза по утилю?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только с отдельным расчётом. Системная мощность PHEV заметно выше бензинового Pro; не смешивайте ветки \"по ощущению\". Если нужен обычный бензин – явно запретите подмену на C-DM в договоре."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему нельзя ориентироваться на л.с. из российского каталога?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Китайские документы пишут кВт. У 1.6T цифры в CN и в РФ-буклетах могут расходиться (ориентиры около 145 кВт vs около 137 кВт). Для утиля берите кВт из бумаг на машину."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если менеджер торопит депозит без VIN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Остановить сделку. Напишите: нужен VIN, шильдик, отчёт по прямой ссылке и живое видео до оплаты. Давление \"лот уйдёт\" без бумаг – красный флаг, не скидка."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#howto", // pragma: allowlist secret
+      "name": "Как выбрать Chery Tiggo 8 Pro из Китая до депозита",
+      "description": "Пошаговый выбор Chery Tiggo 8 Pro / Pro Max из Китая: ветка модели, кВт, комплектация, VIN, маршрут до СВХ Владивосток и чек-лист из 12 пунктов до оплаты.",
+      "totalTime": "PT60M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Китайские документы с мощностью в кВт и VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Отчёт инспекции по прямой ссылке на VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Живое видео машины: пуск, одометр, салон, днище"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Строка в договоре: китайское имя, год, мотор, места, привод"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чек-лист из 12 пунктов до депозита"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Счёт юрлица-экспортёра из договора"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать задачу семьи и ветку Pro / Pro Max / Plus",
+          "text": "Запишите сценарий: город или трасса, 5 или 7 мест, привод. Выберите ветку поиска до лота и не верьте только русскому ярлыку Dreamline без китайского имени в договоре.",
+          "url": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-задачу-pro-pro-max-или-plus-под-вашу-семью" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверить мотор и мощность в кВт",
+          "text": "Выпишите кВт и объём из китайских бумаг. Сверьте с порогом утиля; гибрид C-DM берите только с отдельным расчётом, не смешивайте с бензиновым Pro.",
+          "url": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#сверьте-мотор-и-мощность-в-квт-до-разговора-об-утиле" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Разобрать комплектацию списком опций",
+          "text": "Составьте таблицу «нужно / не нужно»: места, AWD, панорама, ADAS. Сверьте живое видео этой машины, а не буклет Elite / Dreamline / Ultimate.",
+          "url": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#разберите-комплектации-список-опций-вместо-маркетинга" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверить VIN, документы и историю до депозита",
+          "text": "Сверьте один VIN на шильдике, в договоре, инвойсе и отчёте по прямой ссылке; дату учёта в КНР под правило 180 дней; платёж только на счёт юрлица из договора.",
+          "url": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#проверьте-vin-документы-и-историю-до-любого-депозита" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Сложить маршрут до СВХ Владивосток",
+          "text": "Зафиксируйте цепочку: экспортёр → доставка → СВХ Владивосток → таможня → СБКТС → ЭПТС → выдача. Устные сметы без маршрута не принимайте.",
+          "url": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#сложите-маршрут-китай-свх-владивосток-выдача" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чеклист из 12 пунктов",
+          "text": "Не переводите депозит, пока все 12 пунктов зелёные: имя модели, VIN, кВт, не скрытый C-DM, 180 дней, видео, пробег, осмотр, опции, юрлицо, маршрут, актуальный расчёт.",
+          "url": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#пройдите-чеклист-из-12-пунктов-не-переводите-пока" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Взять актуальный расчёт и обсудить депозит",
+          "text": "Только после зелёного чек-листа обсуждайте депозит и берите расчёт под ключ в каталоге avto-sales125.ru или Telegram avtosales125 — без оплаты вслепую.",
+          "url": "https://avtosales125.ru/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/#что-дальше-расчёт-и-подбор-без-оплаты-вслепую" // pragma: allowlist secret
+        }
+      ]
+    }
+  ]
+}

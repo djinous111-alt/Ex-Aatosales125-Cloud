@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Dreamline на ярлыке — а комплектация другая?",
+  "mcp_note": "ONE gpt-image-2 / Kie i2i with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Chery Tiggo 8 Pro с чек-листом до депозита, порт Владивосток",
+      "meme_caption_ru": "Стой. До депозита.",
+      "scene_hint": "REFERENCE FACE + glasses only from input image. OUTFIT: navy field jacket / softshell over dark tee, overcast Vladivostok port fog drizzle (NOT white hoodie, NOT reference tank). Host holds phone with fake catalog card Chery Tiggo 8 Pro + sticky checklist VIN/кВт; torn paper hook plaque; shocked meme cutout; corner avto-sales125.ru; no toxic slang on stickers"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу: Pro, Pro Max или Plus под вашу семью",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "RU comparison table UI: колонки Plus / Pro / Pro Max — места 5/7, привод, имя на экспорт; sticky «не ярлык»; tape corner; NO host face",
+      "alt": "Таблица сравнения Plus, Pro и Pro Max для выбора Chery Tiggo 8 Pro под семью"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте мотор и мощность в кВт до разговора об утиле",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram 4 steps: шильдик кВт → паспорт КНР → порог 117,68 кВт → разговор об утиле; arrow stickers; mini engine badge mock; NO host face",
+      "alt": "Схема сверки мощности в кВт до расчёта утильсбора для Tiggo 8 Pro"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Разберите комплектации: список опций вместо маркетинга",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board комплектация: сиденья, панорама, ADAS, привод — галочки vs маркетинг Dreamline; pink sticky «опции этой VIN»; NO host face",
+      "alt": "Чеклист опций комплектации вместо маркетинговых ярлыков Dreamline"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "${PUBLIC_SITE_URL}/2026/10/30/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1192689,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4681 slug=chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026\nOK featured_image=4682\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4683 src=cover/inline-01.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026-inline-01.png\nOK inline_image_upload=4684 src=cover/inline-02.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026-inline-02.png\nOK inline_image_upload=4685 src=cover/inline-03.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/10/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026-inline-03.png\npermalink=${PUBLIC_SITE_URL}/2026/10/30/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass",
+  "post_id": 4681,
+  "featured_image": 4682,
+  "inline_images": [
+    4683,
+    4684,
+    4685
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "head_status": 200
+}

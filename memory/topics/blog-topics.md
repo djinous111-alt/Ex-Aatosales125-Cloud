@@ -184,3 +184,30 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Chery Tiggo 8 Pro из Китая
+
+- **priority:** P0
+- **slug:** chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Chery Tiggo 8 Pro из Китая: комплектации и ловушки до депозита
+- **primary_query:** как выбрать chery tiggo 8 pro из китая
+- **secondary_queries:** чери тигго 8 про комплектации, chery tiggo 8 pro max комплектации, чери тигго 8 про макс из китая
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зафиксировать задачу: Pro или Pro Max, семья, город или трасса
+  2. Сверить мотор и мощность в кВт по документам до ставки утиля
+  3. Разобрать комплектации: что реально нужно, а что маркетинг
+  4. Проверить документы, VIN и историю лота до депозита
+  5. Сложить маршрут Китай → СВХ Владивосток → выдача без сюрпризов
+  6. Чек-лист перед депозитом: 12 пунктов "не переводите, пока..."
+  7. Куда идти за актуальным расчётом и подбором (каталог + Telegram)
+- **faq_hints:** чем Tiggo 8 Pro отличается от Pro Max при заказе из Китая; какие комплектации чаще везут в 2026; что проверить в документах до депозита; можно ли брать гибрид без сюрприза по утилю
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного китайского кроссовера Chery Tiggo 8 Pro, документы и смартфон с чек-листом до депозита, светлый день или порт Владивостока на фоне, плашка "до депозита", угол avto-sales125.ru
+- **metrika_signal:** zen Chery/Omoda/Exeed gap; LIVE нет model-гайда Tiggo 8 Pro (есть только сравнение брендов концерна); Wordstat parent RU чери тигго 8 про ~68609
+- **wordstat_note:** parent `чери тигго 8 про` 68609 / `chery tiggo 8` 47036 / `chery tiggo 8 pro` 33671; mid `tiggo 8 pro комплектации` 458; narrow `чери тигго 8 про из китая` 18; how-to totalCount-only (low-result, not fatal)
+- **live_dedup:** slug FREE на PUBLIC_SITE_URL; denylist CS75/Tank500/Atlas/Qashqai/Dargo/RAV4/Crown/Camry/CR-V/Corolla Cross/Serena/LC300 не пересекается

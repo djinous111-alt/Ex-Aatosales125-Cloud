@@ -41,6 +41,10 @@ inject <figure> after H2 in article.html
 | `memory/cover/inline-visual-types.json` | типы inline-панелей |
 | `memory/brief/site-brief.md` | blog_hero_id, обложка = крючок |
 
+**Outfit:** `excalibur_blog_cover_quad_prompt.py` → `outfit_lock_from_hero` (одежда из `outfit_rule` + weather examples + `scene_hint`). Запрещён хардкод `white hoodie` / hoodie lock; toxic lemmas не цитировать в prompt body. Sanitize batch после `--write-batch` — только временный workaround.
+
+**Image flow:** Kie-first (`scripts/excalibur_blog_kie_gpt_image2_api.py` + `KIE_API_KEY`). Sync MCP `gpt-image-2` — legacy fallback (client timeout -32001).
+
 ---
 
 ## Панели quad 2×2
@@ -122,9 +126,10 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image (Kie-first)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
+Предпочтительно: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` (async createTask → poll).  
+Legacy fallback: `CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
 Аргументы = `jobs[0].mcp_args` из batch.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.

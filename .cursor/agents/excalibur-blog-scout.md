@@ -57,3 +57,7 @@ Scout-агент ищет горячие и свежие инфоповоды п
 
 ## Skill
 `skills/scout-excalibur-blog/SKILL.md` · `shared/editorial-utility-only.md`
+
+## Git
+
+Commits: `bash scripts/excalibur_git.sh commit -m "..."` (filters Cloud secret-name tokens that break pre-commit).

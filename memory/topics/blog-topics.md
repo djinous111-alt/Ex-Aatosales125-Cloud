@@ -184,3 +184,29 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Exeed TXL из Китая
+
+- **priority:** P0
+- **slug:** exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Exeed TXL из Китая: как выбрать комплектацию и не попасть в ловушки до депозита
+- **primary_query:** как выбрать exeed txl из китая
+- **secondary_queries:** exeed txl комплектации, эксид тхл отзывы, exeed txl 1.6, exeed txl 2.0
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит TXL под заказ из Китая через Владивосток
+  2. Как отличить Prestige и Flagship, моторы 1.6 и 2.0 до оплаты
+  3. Что проверить в комплектации: коробка 7DCT vs 8AT, привод, опции комфорта
+  4. Типичные ловушки по отзывам: мультимедиа, расход, сервисная сеть
+  5. Чек-лист документов и полного расчёта до депозита
+  6. Когда сравнить с Monjaro, Tiggo 8 Pro или дилерским TXL
+- **faq_hints:** какая комплектация Exeed TXL лучше для РФ; чем 1.6 отличается от 2.0; что смотреть до депозита при заказе из Китая
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у кроссовера Exeed TXL, док Владивостока, плашка "до депозита", угол avto-sales125.ru
+- **wordstat_signal:** parent EN exeed txl 31047 / RU эксид тхл 20920; mid комплектации 235; отзывы 550; TXL 2.0 1582; narrow из китая totalCount-only 11/7; how-to totalCount 2 / {} (low-result, not fatal)
+- **live_dedupe:** slug FREE vs last 100 WP; brand comparison Chery/Omoda/Exeed exists (id 3327) - other angle
+- **scout_date:** 2026-10-31

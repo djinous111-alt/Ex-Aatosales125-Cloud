@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-0920-writer-editorial-policy-markers-missing
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-500-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` and `min_pain_markers` / `min_outcome_markers`, so utility gate would count pain/outcome as 0 and BLOCK the article.
+- `scripts/excalibur_blog_utility_gate.py` also lost the documented fallback to default marker lists after template/reset drift (same class of regression as prior Atlas/Crown runs).
+
+### How the agent recovered this run
+- Restored `_markers_pinned`, `pain_markers_ru`, `outcome_markers_ru`, and min counts in editorial-policy.json.
+- Re-added default-list fallback in `excalibur_blog_utility_gate.py`.
+- Writer self-check: html_linter PASS, utility PASS, human_voice PASS.
+
+### Durable fix needed before next run
+- Pin markers in doctor (fail if lists missing) and keep utility-gate fallback permanently.
+- Document in writer skill: restore markers before writing if wiped; never ship without pain/outcome lists.
+- Stop template resets from dropping `_markers_pinned` fields.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-0910-research-tech-markers-ii-false-positive
 status: open
 run_date: 2026-10-30

@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Changan CS75 Plus из Китая
+
+- **priority:** P0
+- **slug:** changan-cs75-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Changan CS75 Plus из Китая: комплектации и ловушки до депозита
+- **primary_query:** changan cs75 комплектации
+- **secondary_queries:** чанган 75 плюс, комплектация чанган 75 плюс, changan cs75 plus комплектации, changan cs75 plus из китая
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого CS75 Plus из Китая, а когда лучше смотреть салон РФ
+  2. Линейка CS75 / CS75 Plus / Pro: что реально различается до оплаты
+  3. Мотор, мощность и полный привод: какие ловушки бьют по утильсбору
+  4. Чек-лист документов и проверки авто в Китае до депозита
+  5. Маршрут под ключ: выкуп → логистика → СВХ Владивосток → СБКТС/ЭПТС
+  6. Красные флаги комплектаций: «пустой» топ, обещания без VIN-сверки
+- **faq_hints:** чем CS75 Plus отличается от Pro; нужен ли полный привод для РФ; что проверить до депозита; сколько roughly ждать доставку через Владивосток
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного китайского кроссовера Changan CS75 Plus, порт/терминал Владивостока, плашка «до депозита», угол avto-sales125.ru
+- **wordstat_signal:** parent `changan cs75` 31415; RU `чанган 75 плюс` 19731; mid `changan cs75 комплектации` 373 / `комплектация чанган 75 плюс` 837; narrow `changan cs75 из китая` 40 (low-detail); how-to `как выбрать changan cs75` totalCount-only 3 (low-result)
+- **live_check:** slug FREE на LIVE REST 2026-10-30; denylist Tank 500/Atlas и др. не пересекается

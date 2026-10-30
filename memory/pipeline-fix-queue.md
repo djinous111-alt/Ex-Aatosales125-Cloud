@@ -36,6 +36,38 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261030-1325-writer-editorial-policy-markers-missing
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-changan-cs75-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again missing `pain_markers_ru` / `outcome_markers_ru` / `_markers_pinned` and `min_pain_markers` / `min_outcome_markers`, so utility gate would BLOCK on empty marker lists (recurrence of prior B01 writer restores).
+
+### How the agent recovered this run
+- Restored pinned marker lists and min counts from last known-good Tank 500 policy snapshot before selfcheck.
+- Article rewritten for exact substrings (`боль`/`проблем`/`ошиб`, `результат`/`получите`/`сможете`/…) and insight label without TL;DR; CTA from env CATALOG_URL/TELEGRAM_URL.
+
+### Durable fix needed before next run
+- Doctor or fixer must pin markers so rebrand/wipes cannot drop them between runs.
+- Writer skill: restore markers if missing; insight label `Инсайт до депозита`; CTA from env not placeholders.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261030-1315-research-tech-markers-false-positive
 status: open
 run_date: 2026-10-30

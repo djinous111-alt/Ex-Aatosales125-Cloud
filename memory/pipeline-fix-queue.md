@@ -252,8 +252,8 @@ category: script
 status: open
 run_date: 2026-10-30
 role: director
-topic_id: preflight
-article_dir: n/a
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
 severity: high
 category: scripts
 
@@ -261,21 +261,28 @@ category: scripts
 - `excalibur_blog_doctor.py` FAIL: llms generator does not support `--blog-path` (help only has `--blog-dir`/`--site-base`).
 - Script is `scripts/excalibur_blog_llms_generator.py` (not `*_llms_txt_generator.py`).
 - Prior durable fix from Tank/Changan runs not present on this branch tip.
+- Confirmed again by Indexer (B01): CLI has no `--blog-path`; URL template hardcodes `{site_base}/blog/{slug}/`.
 
 ### How the agent recovered this run
-- Logged incident; continued Scout + pipeline. Indexer/fixer must restore `--blog-path` (prefer `/` with empty `--site-base` for relative `/{slug}/` URLs).
+- Director: logged incident; continued Scout + pipeline.
+- Indexer (B01): used best available flags `--site-base "" --out-dir memory/blog` (no absolute PUBLIC_SITE_URL in committed llms). Resulting links are relative `/blog/{slug}/`, not preferred `/{slug}/` until `--blog-path` lands.
 
 ### Durable fix needed before next run
-- Add `--blog-path` to `excalibur_blog_llms_generator.py` and make doctor check pass.
+- Add `--blog-path` to `excalibur_blog_llms_generator.py` (default `/`) and build URLs as `{site_base}{blog_path}{slug}/` so `--site-base "" --blog-path /` yields `/{slug}/`.
+- Make doctor check pass for `--blog-path`.
 - Align indexer skill/docs with `--site-base "" --blog-path /`.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_llms_generator.py`
 - `scripts/excalibur_blog_doctor.py`
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
 
 ### Secrets
 - none recorded
+
+### Fixer resolution
+- pending
 
 
 ## INC-20261030-1705-scout-precommit-secret-name-url

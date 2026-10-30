@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-1320-writer-precommit-secret-names
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-changan-cs75-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Writer `git commit` of `article.html` / `article.meta.json` failed in Cursor pre-commit: `invalid variable name` from space-joined `CLOUD_AGENT_INJECTED_SECRET_NAMES` (recurrence of INC-20261030-1315-scout-precommit-secret-names).
+
+### How the agent recovered this run
+- Retried commit with `CLOUD_AGENT_INJECTED_SECRET_NAMES` unset for the commit command only; article artifacts committed and pushed.
+
+### Durable fix needed before next run
+- Fix Cloud pre-commit secret-name inject format (newline/array), not only document unset workaround.
+- Mirror workaround in writer skill / pitfalls so every role hits the same playbook.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- Cursor Cloud pre-commit / secret-inject wiring (no secret values)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261030-1315-research-tech-markers-false-positive
 status: open
 run_date: 2026-10-30

@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "8 Pro\" – отдельная линейка. Китайский 1.6T у Pro 2025 пишут как 145 кВт, в российских каталогах Pro Max",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "те же 160 сил\". Порог льготы в открытых разборах 2026 – 117,68 кВт (около 160 л.с.). Китайские паспорта",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "аковый → кВт из бумаг → дата учёта в КНР (правило 180 дней) → живое видео → список опций → счёт юрлица из до",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "145",
+      "kind": "large_number",
+      "context": "ьная линейка. Китайский 1.6T у Pro 2025 пишут как 145 кВт, в российских каталогах Pro Max Dreamline – ок",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "137",
+      "kind": "large_number",
+      "context": "в российских каталогах Pro Max Dreamline – около 137 кВт / 186 л.с.; путать имена и кВт до депозита опа",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "186",
+      "kind": "large_number",
+      "context": "ких каталогах Pro Max Dreamline – около 137 кВт / 186 л.с.; путать имена и кВт до депозита опасно для ут",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": ", места Приедет другая ветка линейки 1.6 / \"почти 160 сил\" Мощность в кВт из китайских бумаг Сюрприз по",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "187",
+      "kind": "large_number",
+      "context": "8 Pro facelift – 1.6T около 145 кВт и 2.0T около 187 кВт; у РФ Pro Max Dreamline ориентир около 137 кВт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "265",
+      "kind": "large_number",
+      "context": "рточках Tiggo 8 Plus – системная мощность порядка 265 кВт. Это не дефолт \"просто покататься\". На практик",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "аковый → кВт из бумаг → дата учёта в КНР (правило 180 дней) → живое видео → список опций → счёт юрлица и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

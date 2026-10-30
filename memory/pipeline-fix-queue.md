@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-1721-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: orchestration
+
+### What went wrong
+- Cloud API did not accept typed Task `excalibur-blog-geo-qa`; Director fell back to `Task(generalPurpose)` with agent/skill paths.
+
+### How the agent recovered this run
+- Ran as generalPurpose with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Completed full QA script suite and wrote handoff block.
+
+### Durable fix needed before next run
+- Register typed Task type `excalibur-blog-geo-qa` in Cloud Task catalog, or document generalPurpose fallback as canonical in director skill / CLOUD-AUTOMATION.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `AGENTS.md` (already mentions fallback)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261030-1721-geo-qa-utility-markers-wiped
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` and `min_pain_markers` / `min_outcome_markers`, so `excalibur_blog_utility_gate.py` always reported pain=0/outcome=0 BLOCK after rebrand wipe.
+- Writer also shipped insight label `TL;DR / Быстрый инсайт` (example from writing-contract) which conflicts with anti-template guidance.
+
+### How the agent recovered this run
+- Restored canonical marker lists + mins from prior durable commits (same lists as human-voice gate).
+- Edited article.html: insight label → `Инсайт до депозита`; added outcome/action phrasing; shortened final CTA list to 4 items.
+- Re-ran gates → utility PASS, human-voice PASS.
+
+### Durable fix needed before next run
+- Pin pain/outcome markers in editorial-policy.json and add a doctor/preflight check that fails if keys missing.
+- Align writing-contract insight example with non-TL;DR label (or teach writer skill to avoid TL;DR literal).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 
 ## INC-20261030-1718-writer-cta-secret-scan-allowlist
 status: open

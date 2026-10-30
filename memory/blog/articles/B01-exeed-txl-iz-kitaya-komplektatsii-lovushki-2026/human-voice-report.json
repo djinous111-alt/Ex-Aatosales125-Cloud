@@ -12,8 +12,8 @@
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 27,
-    "paragraph_avg_words": 30.1,
-    "paragraph_variance_ratio": 0.65,
+    "paragraph_avg_words": 31.1,
+    "paragraph_variance_ratio": 0.61,
     "concrete_markers": [
       "например",
       "на практике",
@@ -28,6 +28,7 @@
     "outcome_markers": [
       "результат",
       "получите",
+      "проверьте",
       "соберите"
     ],
     "ai_opening_hits": [],

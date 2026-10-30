@@ -7,6 +7,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261030-1730-cover-prompt-hoodie-lock-regression
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` again hard-locked cover outfit to "thick heavyweight white hoodie" and listed toxic lemma examples (`лох`/`лохов`) in the prompt text.
+- Default `scene_hint` / `meme_caption_ru` in `excalibur_blog_quad_manifest.py` still pointed at SEO/Wordstat + white hoodie, conflicting with `memory/cover/blog-hero.json` `outfit_rule` (weather/topic outfit, no hoodie lock).
+- Prior fixer runs claimed `outfit_lock_from_hero` was durable, but this branch still had the hoodie lock.
+
+### How the agent recovered this run
+- Patched prompt builder to `outfit_lock_from_hero` (weather/topic clothes; DO NOT lock white hoodie; non-toxic plaque rule without toxic lemma list).
+- Patched manifest defaults away from Wordstat/hoodie SEO stub.
+- Filled topic-specific Chery Tiggo 8 Pro manifest (port fog + navy field jacket) and generated via Kie async API (not sync MCP).
+
+### Durable fix needed before next run
+- Add a unit/doctor assertion that `quad_prompt` must NOT contain positive "Outfit lock: … white hoodie" and MUST mention outfit from hero/weather/topic.
+- Keep toxic-lemma denylist out of the generation prompt body (forbid via negative/validation only).
+- Pin cover skill/agent docs to Kie-first + `outfit_lock_from_hero`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261030-1725-schema-precommit-secret-name-url
 status: open
 run_date: 2026-10-30

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у Chery Tiggo 8 Pro с чек-листом до депозита, порт Владивосток",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-30T17:30:08+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у Chery Tiggo 8 Pro с чек-листом до депозита, порт Владивосток",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения Plus, Pro и Pro Max для выбора Chery Tiggo 8 Pro под семью",
+      "h2_anchor": "Зафиксируйте задачу: Pro, Pro Max или Plus под вашу семью",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема сверки мощности в кВт до расчёта утильсбора для Tiggo 8 Pro",
+      "h2_anchor": "Сверьте мотор и мощность в кВт до разговора об утиле",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист опций комплектации вместо маркетинговых ярлыков Dreamline",
+      "h2_anchor": "Разберите комплектации: список опций вместо маркетинга",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -6,6 +6,49 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-2138-indexer-llms-blog-path-rebrand-regression
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` asserts `--blog-path` in `excalibur_blog_llms_generator.py --help` → doctor FAIL.
+- Current generator CLI has only `--blog-dir/--site-name/--site-desc/--site-base/--out-dir`; no `--blog-path`.
+- Generator hardcodes `/blog/{slug}/`; WP root permalinks need `/{slug}/`.
+- Skill/agent shells still document `--blog-path /` and `${PUBLIC_SITE_URL}` site-base.
+- Durable fix `b77436fe` (`article_url` + `--blog-path`, default empty `--site-base`) was lost after rebrand tip `615ee0bc`.
+
+### How the agent recovered this run
+- Ran generator with available flags: `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` (never passed missing `--blog-path`).
+- Post-processed `memory/blog/llms.txt` and `llms-full.txt`: `/blog/` → `/` so paths are `/{slug}/`.
+- Did not commit absolute PUBLIC_SITE_URL; interlinker also used `--site-base ""`.
+
+### Durable fix needed before next run
+- Restore `--blog-path` (+ `article_url`) from commit `b77436fe` into `scripts/excalibur_blog_llms_generator.py`.
+- Default `--site-base ""`; document indexer flags: `--site-base "" --blog-path /`.
+- Align `.cursor/skills/indexer-excalibur-blog/SKILL.md`, `skills/indexer-excalibur-blog/SKILL.md`, and agent shells; keep doctor assert once flag is real.
+- Optionally teach interlinker the same path prefix (apply already hardcodes `/blog/`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-2135-cover-prompt-hoodie-lock
 status: open
 run_date: 2026-10-31

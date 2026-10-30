@@ -77,6 +77,17 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 ---
 
+## Git commit (Cloud)
+
+Перед `git commit` в Cloud:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+# или: bash scripts/excalibur_git.sh commit -m "..."
+```
+
+Если pre-commit падает с `invalid variable name` из‑за `CLOUD_AGENT_*_SECRET_NAMES` — фильтр выше обязателен; не оставляй topic card только staged.
+
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.

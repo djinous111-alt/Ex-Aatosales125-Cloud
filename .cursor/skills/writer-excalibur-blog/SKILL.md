@@ -6,6 +6,8 @@
 - `shared/excalibur-article-writing-contract.md`
 - `shared/editorial-utility-only.md`
 - `memory/brief/site-brief.md`, `conversion-map.md`
+- `memory/brief/editorial-policy.json` — до письма проверь `_markers_pinned`, `pain_markers_ru`, `outcome_markers_ru` и min counts; если списки стёрты template-reset’ом — восстанови из defaults utility-gate / pitfalls, иначе gate даст pain/outcome=0 BLOCK
+- Cloud git: перед commit `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` или `bash scripts/excalibur_git.sh commit …` (иначе `CLOUD_AGENT_*_SECRET_NAMES` → `invalid variable name`)
 
 ## Задача
 

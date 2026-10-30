@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-2120-writer-cta-secret-scan-placeholders
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Writer first embedded live `CATALOG_URL` / `TELEGRAM_URL` hrefs in `article.html`; Cursor secret scan blocked `git commit` (`CURSOR_SECRET_SCAN_BLOCKED`).
+- Same Cloud run also hit pre-commit `invalid variable name` on `CLOUD_AGENT_INJECTED_SECRET_NAMES` (URL token) – already tracked as INC-20261031-0005.
+- Writer skill/contract does not spell the Cloud CTA commit pattern (placeholders + pragma).
+
+### How the agent recovered this run
+- Replaced hrefs with `${CATALOG_URL}` / `${TELEGRAM_URL}` and HTML comment `<!-- pragma: allowlist secret -->` on those lines (pattern from prior B01 Dargo FIX).
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash identifiers only, then committed `1ccd1a3c`.
+
+### Durable fix needed before next run
+- Document in writer skill + writing contract: commit CTA as `${CATALOG_URL}` / `${TELEGRAM_URL}` + allowlist pragma; restore real URLs at GEO QA / publish (publish strips pragma).
+- Restore commit helper from INC-0005 so every role filters secret-name env before commit.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (create; shared with INC-0005)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-2115-research-tech-markers-komplektatsii
 status: open
 run_date: 2026-10-31

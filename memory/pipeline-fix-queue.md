@@ -6,6 +6,79 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-2135-cover-prompt-hoodie-lock
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie` in `build_prompt()`.
+- Auto `quad_manifest.py` also seeds cover `scene_hint` with «белое плотное худи» and SEO Wordstat scene for B01, ignoring car-import article content.
+- Contract for this run requires `outfit_lock_from_hero` (weather/topic outfit) and forbids white-hoodie lock.
+
+### How the agent recovered this run
+- Manually rewrote `cover/quad-manifest.json` hooks/scenes for Exeed TXL (deposit / trim / VIN).
+- After `--write-batch`, sanitized `quad-mcp-prompt.txt` + `quad-mcp-batch.json`: replaced hoodie lock with `outfit_lock_from_hero` (dark waterproof field/rain jacket, Vladivostok port).
+- Forced HTTPS `reference_url_hosted` for Kie i2i (HTTP historically caused Kie 500).
+- Used preferred Kie async API once (`task_id=80dc9f80dc0994b17b41308d94eae1d3`); no sync MCP.
+
+### Durable fix needed before next run
+- Remove white-hoodie outfit lock from `excalibur_blog_cover_quad_prompt.py`; default to `outfit_lock_from_hero` + blog-hero weather/topic rules.
+- Stop seeding SEO/Wordstat defaults in `excalibur_blog_quad_manifest.py` when article is auto-import niche; use H2/meta for hook.
+- Keep non-toxic sticker negatives (лох/лохов) in builder (already present).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/cover-prompts.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261031-2135-schema-registry-redacted-literal-copy
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-exeed-txl-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Tool/UI redaction showed `authors-registry.json` `sameAs` / `avatar_url` as the literal token `[REDACTED]`.
+- First schema draft wrote that display token into `schema.jsonld`, so author E-E-A-T URLs no longer matched the registry byte-for-byte.
+
+### How the agent recovered this run
+- Regenerated `schema.jsonld` in Python: load registry JSON and copy `sameAs` / `avatar_url` / author fields verbatim; FAQ answers scraped from `article.html`.
+- Validated equality `schema.author.sameAs == registry.sameAs` without printing secret hosts.
+
+### Durable fix needed before next run
+- In schema skill/agent: mandate programmatic copy from `shared/authors-registry.json`; never hand-type values that appear as `[REDACTED]` in tool output.
+- Add a one-line check script or doctor assertion: schema author.sameAs must equal registry for `author_id`.
+- Note in pitfalls: redacted tool views are not source-of-truth strings for secrets/URLs.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py` (optional schema↔registry assert)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-2130-geo-qa-utility-pain-outcome-markers-wiped
 status: open
 run_date: 2026-10-31

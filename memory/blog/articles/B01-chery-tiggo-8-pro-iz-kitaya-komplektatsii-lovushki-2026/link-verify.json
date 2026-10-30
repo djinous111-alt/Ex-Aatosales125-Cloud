@@ -1,11 +1,11 @@
 {
-  "source": "memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "source": "/workspace/memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/article.html",
   "total_links": 2,
   "failed_count": 0,
   "verdict": "pass",
   "links": [
     {
-      "url": "${CATALOG_URL}",
+      "url": "https://avto-sales125.ru/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +14,7 @@
       "skipped": false
     },
     {
-      "url": "${TELEGRAM_URL}",
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",

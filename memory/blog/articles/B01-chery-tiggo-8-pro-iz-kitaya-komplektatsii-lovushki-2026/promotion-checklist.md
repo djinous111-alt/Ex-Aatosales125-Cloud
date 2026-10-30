@@ -1,7 +1,7 @@
 # Promotion checklist — B01 chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: (pending publish)  
-Live URL: /chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-30  
+Live URL: ${PUBLIC_SITE_URL}/2026/10/30/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Сверьте кВт в документах с порогом утиля до разговора о цене
 • Чек-лист из 12 пунктов: VIN, опции, маршрут до СВХ Владивосток
 
-Читать: /chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/
+Читать: ${PUBLIC_SITE_URL}/2026/10/30/chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply` выполнен; opportunities_found=0.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` с relative `/blog/{slug}/` (CLI без `--blog-path`; `--site-base ""`).
-- Publish ещё не выполнен.
+- Publish PASS: WP post 4681; featured 4682; inline 4683/4684/4685; schema_meta ok; HEAD 200.

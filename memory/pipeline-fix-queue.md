@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261030-1737-publish-siteenv-paramiko-missing
+status: open
+run_date: 2026-10-30
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-chery-tiggo-8-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` was missing at publish start (Cloud Secrets were present in process env, but file expected by contract/skill was absent).
+- `paramiko` was not installed in the runtime image (`ModuleNotFoundError`).
+- `SSH_ROOT` unset while `SSH_PATH` pointed at an absolute panel path; publish-patterns require `SSH_ROOT=.` for this host.
+- `upsert_publish_ledger` wrote a raw absolute site URL into `shared/published-articles.md` (secret-scan / commit hygiene risk) instead of `${PUBLIC_SITE_URL}` placeholder.
+
+### How the agent recovered this run
+- Created gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (no secret values recorded here).
+- Installed `paramiko` via `pip install --break-system-packages`.
+- Dry-run + publish succeeded: SSH upload OK, HTTP trigger OK (~2 min), no WebFetch; WP post 4681 / featured 4682 / inline 4683-4685; HEAD 200.
+- Redacted ledger + `wp-publish-result.json` permalink/raw_output to `${PUBLIC_SITE_URL}` before commit.
+
+### Durable fix needed before next run
+- Ensure Cloud install/image always includes `paramiko` (requirements + Dockerfile + cloud-agent-install).
+- Seed or generate `memory/site.env.local` in preflight/doctor when Cloud Secrets exist; default `SSH_ROOT=.` when only `SSH_PATH` is set.
+- Make `upsert_publish_ledger` (and result writer) emit `${PUBLIC_SITE_URL}` placeholders automatically.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 
 ## INC-20261030-1730-cover-prompt-hoodie-lock-regression
 status: open

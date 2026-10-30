@@ -1,0 +1,122 @@
+{
+  "article": "memory/blog/articles/B01-changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 16,
+  "verified_facts_count": 4,
+  "unverified_facts_count": 12,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "оло 233–245 л.с. тем более не про льготу. С 01.01.2026 коммерческие коэффициенты утиля выросли; без шильд",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "т. Соберите чек-лист до депозита: VIN, документы, 180 дней Готовность кинуть деньги по красивому объявлению",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ка в КНР – несколько дней; море порт–порт часто 4–10 дней; цикл до порта/СВХ нередко 15–25 дней; таможня –",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "25 дней",
+      "kind": "metric_or_duration",
+      "context": "орт часто 4–10 дней; цикл до порта/СВХ нередко 15–25 дней; таможня – ориентир 3–10 дней; дальше СБКТС и ЭПТ",
+      "verified": true,
+      "reason": "Numerical value '25' matched in fact-bank context"
+    },
+    {
+      "fact": "20 дней",
+      "kind": "metric_or_duration",
+      "context": "нтра РФ часто 1,5–3 месяца. Обещание \"под ключ за 20 дней\" без разбивки – красный флаг. Детали по машине ут",
+      "verified": true,
+      "reason": "Numerical value '20' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "а с кВт: порог льготного утильсбора – 117,68 кВт (160 л.с.), а китайский 1.5T около 192 л.с. уже выше. С",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "192",
+      "kind": "large_number",
+      "context": "а – 117,68 кВт (160 л.с.), а китайский 1.5T около 192 л.с. уже выше. Смету \"под ключ\" считайте в каталог",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "235",
+      "kind": "large_number",
+      "context": "фицированный CS75 Plus NEW с полным приводом 2.0T 235 л.с., 8AT и дилерской сетью. В линейке РФ – Люкс и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "390",
+      "kind": "large_number",
+      "context": "р) Смотреть карточку, не заголовок 2.0T 235 л.с., 390 Н·м 1.5T 181 л.с., 280 Н·м КПП / привод По карточк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "181",
+      "kind": "large_number",
+      "context": "арточку, не заголовок 2.0T 235 л.с., 390 Н·м 1.5T 181 л.с., 280 Н·м КПП / привод По карточке 8AT Aisin,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "280",
+      "kind": "large_number",
+      "context": "е заголовок 2.0T 235 л.с., 390 Н·м 1.5T 181 л.с., 280 Н·м КПП / привод По карточке 8AT Aisin, полный при",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "числе, на ДВС до 117,68 кВт (160 л.с.) и объём до 3000 см³. Выше порога – другая логика ставок. Неприятны",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "141",
+      "kind": "large_number",
+      "context": "ный факт: китайский 1.5T около 192 л.с. (примерно 141 кВт) уже выше льготного порога. \"Маленький мотор\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "245",
+      "kind": "large_number",
+      "context": "не равен \"дешёвому утилю\". Версии 2.0T около 233–245 л.с. тем более не про льготу. С 01.01.2026 коммерч",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "т. Соберите чек-лист до депозита: VIN, документы, 180 дней Готовность кинуть деньги по красивому объявле",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "0 235",
+      "kind": "large_number",
+      "context": "ерьте китайский trim с эталоном РФ (Люкс/Техно: 2.0 235, 8AT, AWD), чтобы понять, что именно покупаете. З",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -20,6 +20,10 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 Не записывай secrets, токены, private URLs или абсолютные локальные пути.
 
+## Cloud launch
+
+Если typed Task `excalibur-blog-geo-qa` недоступен — Директор запускает эту же роль через `Task(generalPurpose)` с путями `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`. Это нормальный first-class path, не workaround.
+
 ## Твои задачи
 
 1. Проверить, что `research-notes-gate.json` существует и `status: PASS`.

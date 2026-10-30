@@ -20,12 +20,18 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+# CTA hrefs must stay ${CATALOG_URL}/${TELEGRAM_URL}/${MAX_URL} in committed HTML.
+# link_verify expands them from os.environ and redacts live URLs in the JSON report.
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base "$PUBLIC_SITE_URL"
 
-python scripts/excalibur_blog_html_linter.py \
+# Before git commit (Cloud secret-name pollution):
+#   eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+#   bash scripts/excalibur_git.sh commit -m "..."
+
+python3 scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/html-linter-report.json
 ```

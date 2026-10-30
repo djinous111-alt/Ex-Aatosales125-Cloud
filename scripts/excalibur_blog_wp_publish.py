@@ -21,6 +21,9 @@ def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+DEFAULT_HTTP_TIMEOUT_SEC = 300
+
+
 PUBLISH_ENV_KEYS = {
     "PUBLIC_SITE_URL",
     "WP_HOME",
@@ -32,6 +35,10 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    # CTA / sameAs hosts — expand ${VAR} in schema.jsonld / HTML at publish time only
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
 
 
@@ -58,6 +65,20 @@ def load_env(root: Path) -> dict[str, str]:
     return env
 
 
+def http_timeout_sec(env: dict[str, str] | None = None) -> float:
+    raw = ""
+    if env:
+        raw = str(env.get("EXCALIBUR_PUBLISH_HTTP_TIMEOUT") or "").strip()
+    if not raw:
+        raw = str(os.environ.get("EXCALIBUR_PUBLISH_HTTP_TIMEOUT") or "").strip()
+    if not raw:
+        return float(DEFAULT_HTTP_TIMEOUT_SEC)
+    try:
+        return max(30.0, float(raw))
+    except ValueError:
+        return float(DEFAULT_HTTP_TIMEOUT_SEC)
+
+
 def validate_publish_env(env: dict[str, str]) -> list[str]:
     missing: list[str] = []
     if not env.get("SSH_HOST"):
@@ -69,6 +90,35 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     if not (env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")):
         missing.append("PUBLIC_SITE_URL")
     return missing
+
+
+def expand_env_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand git-safe placeholders like env:PUBLIC_SITE_URL or ${PUBLIC_SITE_URL}.
+
+    Committed schema.jsonld / HTML keep placeholders so Cloud secret-scan passes.
+    Publish expands in-memory before WP meta/content upload; never rewrite the file.
+    """
+    import re
+
+    def env_value(key: str) -> str:
+        return (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+
+    def repl_env_colon(match: re.Match[str]) -> str:
+        key = match.group(1)
+        suffix = match.group(2) or ""
+        value = env_value(key)
+        if not value:
+            return match.group(0)
+        return value + suffix
+
+    def repl_dollar(match: re.Match[str]) -> str:
+        key = match.group(1)
+        value = env_value(key)
+        return value if value else match.group(0)
+
+    text = re.sub(r"\benv:([A-Z][A-Z0-9_]*)(/[^\s\"'<>]*)?", repl_env_colon, text)
+    text = re.sub(r"\$\{([A-Z][A-Z0-9_]*)\}", repl_dollar, text)
+    return text
 
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
@@ -467,42 +517,124 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def reconstruct_publish_output_from_rest(public_base: str, slug: str, *, timeout: float = 30.0) -> str | None:
+    """If HTTP client timed out but WP already published, rebuild OK lines from REST.
+
+    Never re-triggers bootstrap when slug is already LIVE (avoids duplicate *-1.png media).
+    """
+    import json as _json
+    import urllib.error as _ue
+    import urllib.parse as _up
+    import urllib.request as _ur
+
+    base = public_base.rstrip("/")
+    if not base or not slug:
+        return None
+    api = f"{base}/wp-json/wp/v2/posts?slug={_up.quote(slug)}&per_page=1&_embed=1"
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        req = _ur.Request(api, headers={"User-Agent": "ExcaliburBlogPublish/1.0", "Accept": "application/json"})
+        with _ur.urlopen(req, timeout=timeout) as resp:
+            posts = _json.loads(resp.read().decode("utf-8", errors="replace"))
+    except (_ue.URLError, TimeoutError, OSError, ValueError) as exc:
+        print(f"WARN reconstruct REST failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if not isinstance(posts, list) or not posts:
+        return None
+    post = posts[0]
+    post_id = post.get("id")
+    link = (post.get("link") or "").strip()
+    if not post_id or not link:
+        return None
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        f"permalink={link}",
+        "# reconstruct: HTTP client timeout; REST confirmed LIVE; NO second trigger",
+    ]
+    # Best-effort featured media id
+    featured = post.get("featured_media")
+    if featured:
+        lines.insert(1, f"OK featured_image={featured}")
+    print(
+        f"WARN: HTTP trigger timed out but slug already LIVE (post={post_id}). "
+        "Reconstructed output; will NOT re-trigger bootstrap.",
+        file=sys.stderr,
+    )
+    return "\n".join(lines) + "\n"
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    timeout: float = DEFAULT_HTTP_TIMEOUT_SEC,
+    public_base: str = "",
+    slug: str = "",
+) -> str:
+    try:
+        print(f"Triggering HTTP publish on {url} (timeout={int(timeout)}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=timeout,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
+        # Prefer REST reconstruct over a second HTTP trigger when publish likely finished server-side.
+        if slug and public_base:
+            reconstructed = reconstruct_publish_output_from_rest(public_base, slug)
+            if reconstructed:
+                fallback_file = root / "memory" / "webfetch-response.txt"
+                fallback_file.parent.mkdir(parents=True, exist_ok=True)
+                fallback_file.write_text(reconstructed, encoding="utf-8")
+                return reconstructed
+
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "Waiting for cloud-agent to write response to memory/webfetch-response.txt...\n"
+            "IMPORTANT: open FALLBACK URL in parallel as soon as this line prints. If REST already shows the slug LIVE, do NOT open FALLBACK URL again "
+            "(duplicate media *-1.png). Reconstruct OK lines instead."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        wait_rounds = max(60, int(timeout))
+        for _ in range(wait_rounds):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
+            # Re-check LIVE periodically during wait
+            if slug and public_base and _ % 15 == 14:
+                reconstructed = reconstruct_publish_output_from_rest(public_base, slug)
+                if reconstructed:
+                    fallback_file.unlink(missing_ok=True)
+                    return reconstructed
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {wait_rounds} seconds. Please trigger manually "
+            "(only if slug is not already LIVE)."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, *, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
     root = project_root()
+    timeout = http_timeout_sec(env)
 
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(
+            url,
+            root,
+            timeout=timeout,
+            public_base=public_base,
+            slug=slug,
+        )
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -569,6 +701,12 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
+    env = load_env(root)
+    if args.public_base:
+        env["PUBLIC_SITE_URL"] = args.public_base
+    # Expand ${PUBLIC_SITE_URL}/${CATALOG_URL}/… in schema+HTML in-memory only.
+    payload["schema_jsonld"] = expand_env_placeholders(payload.get("schema_jsonld") or "", env)
+    payload["content"] = expand_env_placeholders(payload.get("content") or "", env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +714,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
@@ -588,7 +725,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

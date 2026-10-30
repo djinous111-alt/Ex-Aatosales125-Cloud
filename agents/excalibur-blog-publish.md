@@ -31,7 +31,7 @@ is_background: false
 ## Твои задачи (строго по порядку)
 
 1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
-2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
+2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run` (скрипт expand'ит `${PUBLIC_SITE_URL}`/CTA placeholders в schema/HTML in-memory).
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
 4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
 5. **Ledger:** обновить `shared/published-articles.md`.

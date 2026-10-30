@@ -77,6 +77,19 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 ---
 
+## Git commit (Cloud secret-name filter)
+
+Если pre-commit падает с `invalid variable name` на `${!SECRET_NAME}`:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit ...
+# или:
+bash scripts/excalibur_git.sh commit -m "..."
+```
+
+Причина: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` иногда попадает URL как «имя». Dashboard: только identifier-имена (`CATALOG_URL`), URL — value. Не печатай secret values.
+
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.

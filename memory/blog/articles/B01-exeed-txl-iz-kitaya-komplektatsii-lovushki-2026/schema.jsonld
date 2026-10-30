@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Exeed TXL из Китая: как выбрать комплектацию и не попасть в ловушки до депозита",
+      "description": "Как выбрать Exeed TXL из Китая: Prestige/Flagship vs Lingyun 300T/400T, привод, смета по строкам и чеклист до депозита. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${CATALOG_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${CATALOG_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "как выбрать exeed txl из китая",
+        "exeed txl комплектации",
+        "эксид тхл отзывы",
+        "exeed txl 1.6",
+        "exeed txl 2.0"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какая комплектация Exeed TXL лучше для России?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сначала решите про привод и сценарий езды. Нужны полный привод и сервис дилера – смотрите РФ Prestige/Flagship IOV. Из Китая – выпишите 两驱 или 四驱, мотор и КПП в одну строку и только потом сравнивайте цену."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем 1.6 отличается от 2.0 у TXL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В РФ Prestige – 1.6 с роботом 7DCT, Flagship – 2.0 с автоматом 8AT, оба с полным приводом. В Китае у 300T/400T цифры и привод могут отличаться. Перед выбором оцените обгоны и зиму: робот 1.6 в отзывах чаще спорят."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита при заказе TXL из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полный VIN, заводскую спеку, фото табличек, привод 两驱/四驱, смету по строкам и договор. Нет пакета – нет перевода. Давление \"платите сегодня\" – стоп-сигнал."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужны ли СБКТС и ЭПТС на авто из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Порядок: таможня → СБКТС (лаборатория из РАЛ) → утильсбор → ЭПТС \"Действующий\" → ОСАГО и ГИБДД. Суммы уточните в каталоге под мощность в кВт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Будет ли у ввезённого TXL Exeed Connect как у дилера?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не рассчитывайте автоматически. Китайская прошивка часто отличается. Спросите про мультимедиа, язык интерфейса и гарантию на ввоз до оплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где посчитать TXL под ключ без \"одной цифры\" в чате?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте каталог Авто-Сейлс и запросите смету строками. Детали по карточке – в Telegram avtosales125. Форм на странице блога нет."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию Exeed TXL из Китая и не попасть в ловушки до депозита",
+      "description": "Пошаговый чеклист до депозита: задача на листе, сверка Lingyun vs Prestige/Flagship, VIN и таблички, смета по строкам, отзывы 1.6/2.0 и решение stop/go.",
+      "totalTime": "PT60M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Таблица CN Lingyun 300T/400T vs РФ Prestige/Flagship IOV"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Заводская спека / PDF trim + фото табличек"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Смета по строкам и договор до депозита"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Лист задачи: город выдачи, привод, бюджет вилкой, ожидания по мультимедиа"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Папка до депозита: VIN, привод 两驱/四驱, объём/кВт, строки сметы, stop/go"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксируйте задачу на листе до чата с продавцом",
+          "text": "Выпишите город выдачи, нужен ли полный привод, сценарий езды, бюджет под ключ вилкой и ожидания по мультимедиа. Не пишите продавцу одно «TXL 2.0» — слишком широко.",
+          "url": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-задачу-на-листе-до-чата-с-продавцом"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сравните комплектации: Prestige/Flagship и Lingyun 300T/400T",
+          "text": "Сверьте РФ Prestige/Flagship IOV с CN Lingyun 300T/400T по мотору, КПП и приводу 两驱/四驱. Выпишите одну строку: рынок + мотор + кВт/л.с. + КПП + привод.",
+          "url": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#сравните-комплектации-prestige-flagship-и-lingyun-300t-400t"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Запросите VIN, спеку и фото табличек до предоплаты",
+          "text": "Получите заводскую спеку, полный VIN (17 символов) и фото табличек мотора/привода. Сверьте с листом задачи; депозит — только после совпадения.",
+          "url": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#запросите-vin-спеку-и-фото-табличек-до-предоплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Соберите смету по строкам и отсейте красные флаги",
+          "text": "Запросите смету таблицей: авто, логистика, таможня, утиль, СБКТС/ЭПТС, доставка. Стоп при одной цифре «под ключ», переводе на карту физлица или давлении «сегодня последнее место».",
+          "url": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#соберите-смету-по-строкам-и-отсейте-красные-флаги"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Учтите отзывы: робот 1.6, расход и мультимедиа",
+          "text": "Сверьте сценарий езды с веткой 1.6 DCT vs 2.0 AT, заложите расход и проверьте ожидания по Exeed Connect / китайской прошивке до оплаты.",
+          "url": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#учтите-отзывы-робот-1-6-расход-и-мультимедиа"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Когда сравнить с дилером и соседними кроссоверами",
+          "text": "Сравнивайте полный контур (машина + логистика + таможня + утиль + документы + сервис), а не только прайс лота. Дилер IOV — если нужны Connect и гарантия; CN Lingyun — если готовы сверять привод через Владивосток.",
+          "url": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#когда-сравнить-с-дилером-и-соседними-кроссоверами"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Соберите папку «до депозита» и зафиксируйте stop или go",
+          "text": "Сведите VIN/спеку, привод, объём/кВт и строки сметы в один лист. Запишите stop / go / спросить и дату; депозит по договору — только после go.",
+          "url": "${PUBLIC_SITE_URL}/exeed-txl-iz-kitaya-komplektatsii-lovushki-2026/#соберите-папку-до-депозита-и-зафиксируйте-stop-или-go"
+        }
+      ]
+    }
+  ]
+}

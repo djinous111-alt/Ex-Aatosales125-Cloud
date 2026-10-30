@@ -56,22 +56,26 @@ category: docs
 
 ### What went wrong
 - Tool/UI redaction showed `authors-registry.json` `sameAs` / `avatar_url` as the literal token `[REDACTED]`.
-- First schema draft wrote that display token into `schema.jsonld`, so author E-E-A-T URLs no longer matched the registry byte-for-byte.
+- First schema draft wrote that display token into `schema.jsonld`, so author E-E-A-T URLs no longer matched the registry.
+- Second draft copied registry URLs verbatim; pre-commit secret scan blocked commit because `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` values appeared in added lines (AS09 pattern no longer commit-safe).
 
 ### How the agent recovered this run
-- Regenerated `schema.jsonld` in Python: load registry JSON and copy `sameAs` / `avatar_url` / author fields verbatim; FAQ answers scraped from `article.html`.
-- Validated equality `schema.author.sameAs == registry.sameAs` without printing secret hosts.
+- Regenerated `schema.jsonld` in Python from registry + `article.html` FAQ.
+- Mapped registry/site URLs to `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` placeholders (article CTA style); kept public Instagram/2GIS absolute.
+- Validated JSON + FAQ/HowTo counts; confirmed raw secret values absent from schema file.
 
 ### Durable fix needed before next run
-- In schema skill/agent: mandate programmatic copy from `shared/authors-registry.json`; never hand-type values that appear as `[REDACTED]` in tool output.
-- Add a one-line check script or doctor assertion: schema author.sameAs must equal registry for `author_id`.
-- Note in pitfalls: redacted tool views are not source-of-truth strings for secrets/URLs.
+- Schema skill: never hand-type UI-redacted `[REDACTED]`; map secret hosts via env→placeholder; document placeholder contract.
+- Publish must expand `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` inside `schema.jsonld` before WP meta write (today dumps raw).
+- Optional doctor assert: schema has placeholders or allowlisted public hosts only; no raw secret values.
+- Pitfalls: redacted tool views ≠ source strings; registry absolute URLs fail secret scan on new schema files.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
 - `skills/schema-excalibur-blog/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
-- `scripts/excalibur_blog_doctor.py` (optional schema↔registry assert)
+- `scripts/excalibur_blog_wp_publish.py` (schema placeholder expansion)
+- `scripts/excalibur_blog_doctor.py` (optional schema secret/placeholder assert)
 
 ### Secrets
 - none recorded

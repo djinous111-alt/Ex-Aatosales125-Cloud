@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Changan CS75 Plus из Китая: комплектации и ловушки до депозита",
+      "description": "Changan CS75 комплектации: Plus vs Pro, кВт на шильдике и утиль, чек-лист до депозита и маршрут через Владивосток. Расчёт – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-30",
+      "dateModified": "2026-10-30",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "changan cs75 комплектации",
+        "чанган 75 плюс",
+        "комплектация чанган 75 плюс",
+        "changan cs75 plus комплектации",
+        "changan cs75 plus из китая"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем CS75 Plus отличается от CS75 Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это разные модели. Plus NEW в РФ – 2.0T 235 л.с., 8AT и полный привод. Pro – отдельная машина с 1.5T 181 л.с., 7DCT и передним приводом, есть версии на 7 мест. Не сравнивайте цены, пока не сверили линейку в карточке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли полный привод для России?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для зимы, дворов и регионов с рыхлым снегом AWD часто must-have. Если берёте Plus NEW в салоне РФ – полный привод уже в базе линейки. В китайском объявлении привод читайте отдельно и фиксируйте до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита за CS75 Plus из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Минимум: точная линейка, VIN, фото шильдика с кВт, сверка с порогом 117,68 кВт, учёт/правило около 180 дней, договор и понятный маршрут до Владивостока. Нет пакета – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько ждать доставку через Владивосток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентир: море часто 4–10 дней, цикл до порта/СВХ нередко 15–25 дней, таможня 3–10 дней, плюс СБКТС и ЭПТС. До центра РФ суммарно часто 1,5–3 месяца. Просите разбивку по этапам, а не одну \"магическую\" цифру."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли считать утиль по \"лошадям\" из объявления?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Смотрите киловатты на шильдике (и далее в ОТТС/СБКТС). Китайский 1.5T около 192 л.с. уже выше льготного порога 160 л.с. Смету берите в каталоге, не из чата."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда лучше взять салон, а когда Китай?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Салон – если нужен сертифицированный Plus NEW 4WD быстро и с дилерской сетью. Китай – если нужна другая модификация и вы готовы к проверкам и срокам логистики. Решение фиксируйте после чек-листа, не после эмоций от цены на скрине."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Changan CS75 Plus из Китая: комплектации и ловушки до депозита",
+      "description": "Пошаговый чек-лист до депозита: развести Plus/Pro, проверить кВт на шильдике, собрать документы и пройти маршрут через СВХ Владивосток.",
+      "totalTime": "PT60M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Фото шильдика с мощностью в кВт и полный VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Карточка комплектации: линейка, мотор, КПП, привод"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Смета под ключ в каталоге Авто-Сейлс"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Стоп-лист до депозита: линейка, кВт, VIN, 180 дней, договор"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Маршрут выкуп → порт → СВХ Владивосток → СБКТС → ЭПТС"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Сравните путь: салон РФ или заказ из Китая",
+          "text": "Запишите сценарий (город/зима/семья) и нужен ли полный привод. Не выбирайте Китай только потому, что скрин красивее прайса салона.",
+          "url": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#сравните-путь-салон-рф-или-заказ-из-китая"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Разведите линейки CS75 / Plus / Pro до оплаты",
+          "text": "Выпишите из карточки точное имя линейки, мотор, коробку, привод и число мест. Не считайте Pro улучшенным Plus — это другая машина.",
+          "url": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#разведите-линейки-cs75-plus-pro-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверьте мощность на шильдике: ловушка утильсбора",
+          "text": "До депозита запросите фото шильдика с кВт и сверьте с порогом 117,68 кВт (160 л.с.). Не верьте скрину «1.5T, утиль льготный» без таблички.",
+          "url": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#проверьте-мощность-на-шильдике-ловушка-утильсбора"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Соберите чек-лист до депозита: VIN, документы, 180 дней",
+          "text": "Соберите VIN, фото шильдика, учёт/правило около 180 дней, договор/инвойс и смету в каталоге. Депозит только после пакета проверок.",
+          "url": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#соберите-чек-лист-до-депозита-vin-документы-180-дней"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройдите маршрут: выкуп → СВХ Владивосток → СБКТС и ЭПТС",
+          "text": "Просите сроки по этапам: выкуп → порт → море → СВХ → таможня → СБКТС → ЭПТС. Не планируйте получение по одной «магической» цифре.",
+          "url": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#пройдите-маршрут-выкуп-свх-владивосток-сбктс-и-эптс"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Отсейте красные флаги комплектаций",
+          "text": "Стоп при отказе в шильдике/VIN, путанице Plus/Pro, оплате на личную карту или обещании льготного утиля без кВт. Ставьте лот на паузу.",
+          "url": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#отсейте-красные-флаги-комплектаций"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Что дальше: какой результат вы получите",
+          "text": "Заполните стоп-лист и только потом обсуждайте депозит. Актуальный расчёт и подбор — в каталоге Авто-Сейлс.",
+          "url": "https://avtosales125.ru/changan-cs75-iz-kitaya-komplektatsii-lovushki-2026/#что-дальше-какой-результат-вы-получите"
+        }
+      ]
+    }
+  ]
+}

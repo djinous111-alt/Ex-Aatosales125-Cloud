@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20261030-0932-indexer-llms-hardcoded-blog-prefix
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-indexer
 topic_id: B01
@@ -42,11 +42,30 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Restored `--blog-path` (default `/`) on llms generator + interlinker; URLs are `{site_base}{blog_path}{slug}/`.
+- Canonical relative mode: `--site-base "" --blog-path /` → `/{slug}/` (no hardcoded `/blog/`).
+- Updated indexer agent/skill examples and doctor asserts.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- dry-run llms `--site-base "" --blog-path /` and legacy `/blog/`
+commit: pending
+
 
 
 ## INC-20261030-0930-cover-prompt-builder-hoodie-lock
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-cover
 topic_id: B01
@@ -77,11 +96,28 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Removed hardcoded white-hoodie outfit lock; `outfit_lock_from_hero()` uses blog-hero outfit_rule + weather + scene_hint with NO hoodie/cap.
+- Added `validate_non_toxic_prompt` + doctor check forbidding hoodie lock without override.
+- Documented in cover skill + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- outfit_lock_from_hero rain scene → olive/NO hoodie; banned lock rejected
+- doctor hoodie check OK
+commit: pending
+
 
 
 ## INC-20261030-0921-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -111,11 +147,26 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Documented first-class generalPurpose fallback for missing typed Task `excalibur-blog-geo-qa` (no typed retries).
+- Noted Cloud catalog registration still desired; docs keep GP path until verified green.
+- Cannot register Cloud Task types from repo alone.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for geo-qa generalPurpose fallback guidance
+commit: pending
+
 
 
 ## INC-20261030-0920-writer-editorial-policy-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-writer
 topic_id: B01
@@ -149,11 +200,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Confirmed `memory/brief/editorial-policy.json` has `_markers_pinned` + pain/outcome lists + min counts.
+- Kept utility-gate default-list fallback; doctor now FAIL if markers missing/unpinned.
+- Writer skill documents restore-before-write if template wipe.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified pinned)
+- `scripts/excalibur_blog_utility_gate.py` (fallback retained)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor editorial-policy pain/outcome/_markers_pinned OK
+commit: pending
+
 
 
 ## INC-20261030-0910-research-tech-markers-ii-false-positive
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-research
 topic_id: B01
@@ -187,11 +254,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- TECH_MARKERS short tokens use word-boundary `_marker_in_blob`; «комплектации» no longer forces technical_topic.
+- Technical detection uses topic card fields (+ H1 line), not full notes body (avoids github_evidence false flag).
+- Research skill documents `accessed_at:` and pain_solution_map keyword requirements.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit asserts: комплектации → not technical; mcp agent → technical
+- doctor word-boundary check OK
+commit: pending
+
 
 
 ## INC-20261030-0905-director-llms-blog-path-doctor
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-director
 topic_id: B01
@@ -221,7 +304,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Restored `--blog-path` CLI on llms generator (and interlinker); doctor assert passes.
+- Canonical indexer invocation documented for relative `/{slug}/`.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- indexer agent/skill (see INC-0932)
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-path`
+- doctor SUMMARY errors=0
+commit: pending
+
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -470,7 +567,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261030-0923-schema-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-schema
 topic_id: B01
@@ -499,10 +596,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Added `scripts/excalibur_blog_filter_commit_secret_env.sh` + `scripts/excalibur_git.sh` to drop non-identifier names (e.g. `[REDACTED]`) before pre-commit `${!NAME}`.
+- Documented in pitfalls; doctor asserts scripts present.
+- Dashboard still should remove non-identifier entries from injected secret-name lists (ops hygiene); repo path is durable.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` → no invalid names
+- doctor filter script checks OK
+commit: pending
+
 
 ## INC-20261030-0940-publish-http-remotedisconnect-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-publish
 topic_id: B01
@@ -537,7 +650,22 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- `trigger_bootstrap_http` default timeout 300s via `EXCALIBUR_PUBLISH_HTTP_TIMEOUT`; on disconnect tries REST reconstruct-by-slug before WebFetch wait.
+- Parallel WebFetch guidance + no second-trigger when LIVE; periodic REST re-check during wait.
+- Publish skill + pitfalls updated. LIVE post 4669 not touched.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- doctor reconstruct check OK
+commit: pending
+
 
 
 ## Fixed incidents

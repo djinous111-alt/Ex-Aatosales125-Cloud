@@ -57,18 +57,19 @@ category: docs
 ### What went wrong
 - Tool/UI redaction showed `authors-registry.json` `sameAs` / `avatar_url` as the literal token `[REDACTED]`.
 - First schema draft wrote that display token into `schema.jsonld`, so author E-E-A-T URLs no longer matched the registry.
-- Second draft copied registry URLs verbatim; pre-commit secret scan blocked commit because `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` values appeared in added lines (AS09 pattern no longer commit-safe).
+- Second draft copied registry URLs verbatim; would trip secret scan on those env values in added lines (AS09 pattern).
+- Pre-commit also crashed: `CLOUD_AGENT_INJECTED_SECRET_NAMES` included one non-bash-identifier name → `${!SECRET_NAME}` → `invalid variable name` (hook line ~270).
 
 ### How the agent recovered this run
 - Regenerated `schema.jsonld` in Python from registry + `article.html` FAQ.
 - Mapped registry/site URLs to `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` placeholders (article CTA style); kept public Instagram/2GIS absolute.
-- Validated JSON + FAQ/HowTo counts; confirmed raw secret values absent from schema file.
+- Filtered invalid secret name from `CLOUD_AGENT_INJECTED_SECRET_NAMES` for one commit so the hook could run; validated JSON + FAQ/HowTo counts.
 
 ### Durable fix needed before next run
 - Schema skill: never hand-type UI-redacted `[REDACTED]`; map secret hosts via env→placeholder; document placeholder contract.
 - Publish must expand `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` inside `schema.jsonld` before WP meta write (today dumps raw).
 - Optional doctor assert: schema has placeholders or allowlisted public hosts only; no raw secret values.
-- Pitfalls: redacted tool views ≠ source strings; registry absolute URLs fail secret scan on new schema files.
+- Pitfalls: redacted tool views ≠ source strings; registry absolute URLs need placeholders; Cloud hook must skip non `[A-Za-z_][A-Za-z0-9_]*` secret names.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
@@ -76,6 +77,7 @@ category: docs
 - `shared/agent-pipeline-pitfalls.md`
 - `scripts/excalibur_blog_wp_publish.py` (schema placeholder expansion)
 - `scripts/excalibur_blog_doctor.py` (optional schema secret/placeholder assert)
+- Cloud pre-commit secret-name injection (platform)
 
 ### Secrets
 - none recorded

@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — B01 Chery Tiggo 8 Pro 2026-10-30 fixer closed all open items below as fixed._
+
+
 ## INC-20261030-1737-publish-siteenv-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-publish
 topic_id: B01
@@ -43,12 +46,31 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- `paramiko` pinned in `requirements.txt`, `.cursor/Dockerfile`, `.cursor/cloud-agent-install.sh`; doctor checks module.
+- `ensure_site_env_local` seeds gitignored `memory/site.env.local` from Cloud Secrets; `SSH_PATH` → `SSH_ROOT=.`.
+- Ledger + `wp-publish-result.json` emit `${PUBLIC_SITE_URL}` via `commit_safe_public_url`; expand `${VAR}` placeholders before WP upload.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/site.env.local.example`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check`
+commit: pending-parent-commit
 
 
 
 ## INC-20261030-1730-cover-prompt-hoodie-lock-regression
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-cover
 topic_id: B01
@@ -82,11 +104,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Restored `outfit_lock_from_hero` + `FORBIDDEN_OUTFIT_LOCKS` in cover prompt builder; toxic lemmas validated, not listed as positive examples.
+- Doctor asserts no positive white-hoodie outfit lock and presence of `outfit_lock_from_hero`.
+- Cover skill pinned to Kie-first + outfit_lock_from_hero.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- doctor cover hoodie assertion PASS
+- `rg` no positive `Outfit lock: thick heavyweight white hoodie`
+commit: pending-parent-commit
 
 
 ## INC-20261030-1725-schema-precommit-secret-name-url
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-schema
 topic_id: B01
@@ -119,11 +157,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Added `scripts/excalibur_git.sh` + filter helpers; public URL secret names excluded from scan by default.
+- Schema skill documents `// pragma: allowlist secret`; publish strips before WP meta.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash -n scripts/excalibur_git.sh`
+- filter dry-run drops URL / CATALOG_URL / PUBLIC_SITE_URL tokens
+- doctor git wrapper present
+commit: pending-parent-commit
 
 
 ## INC-20261030-1721-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -151,11 +206,23 @@ category: orchestration
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Documented canonical `Task(generalPurpose)` fallback for `excalibur-blog-geo-qa` in director skill, CLOUD-AUTOMATION, pitfalls (no typed-type retries).
+- Typed catalog registration remains optional Cloud Dashboard work (docs note).
+files_changed:
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` geo-qa generalPurpose guidance present
+commit: pending-parent-commit
 
 
 ## INC-20261030-1721-geo-qa-utility-markers-wiped
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -186,11 +253,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Pinned `_markers_pinned` + pain/outcome lists in `editorial-policy.json`; doctor FAIL if missing/empty.
+- Writing contract + writer skill: thematic insight label (no TL;DR / Быстрый инсайт).
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- doctor editorial marker asserts PASS
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
 
 
 ## INC-20261030-1718-writer-cta-secret-scan-allowlist
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-writer
 topic_id: B01
@@ -221,12 +302,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Writer skill: CTA lines need `<!-- // pragma: allowlist secret -->`; use `excalibur_git.sh` / filter before commit; no `[REDACTED]` hrefs.
+- Filter excludes public marketing URL secret names by default.
+files_changed:
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter dry-run excludes CATALOG_URL
+- `rg` pragma guidance in writer skill
+commit: pending-parent-commit
 
 
 
 ## INC-20261030-1715-research-wordstat-empty-payload
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-research
 topic_id: B01
@@ -254,11 +349,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Research skill: empty `{}` / unexpected format / `totalCount`-only on how-to = low-result; parent cluster fallback OK if marked; do not invent volumes.
+- Pitfalls Scout/Research Wordstat section updated.
+files_changed:
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` empty-payload / parent fallback guidance
+commit: pending-parent-commit
 
 
 ## INC-20261030-1716-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-research
 topic_id: B01
@@ -285,11 +391,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- `TECH_MARKERS` short tokens use word-boundary `_marker_in_blob`; scan topic card fields (+ H1 line), not full notes body.
+- Doctor asserts word-boundary tech markers helper present.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: комплектации / Chery how-to → technical_topic=false
+- doctor research gate assertion PASS
+commit: pending-parent-commit
 
 
 ## INC-20261030-1703-llms-blog-path-missing
-status: open
+status: fixed
 run_date: 2026-10-30
 role: director
 topic_id: B01
@@ -322,11 +440,27 @@ category: scripts
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-30
+fix_summary:
+- Restored `--blog-path` on `excalibur_blog_llms_generator.py` + interlinker; `--site-base "" --blog-path /` → `/{slug}/`.
+- Doctor asserts `--blog-path` for llms + interlinker; indexer skill aligned.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+checks_run:
+- doctor llms/interlinker `--blog-path` PASS
+- dry-run llms URLs `/{slug}/`
+commit: pending-parent-commit
 
 
 ## INC-20261030-1705-scout-precommit-secret-name-url
-status: open
+status: fixed
 run_date: 2026-10-30
 role: excalibur-blog-scout
 topic_id: B01

@@ -69,3 +69,10 @@ permalink=https://avtosales125.ru/...
 ## Skill
 
 `skills/publish-excalibur-blog/SKILL.md`
+
+## Durable publish notes
+
+- `paramiko` required; image installs via `requirements.txt` / cloud-agent-install.
+- Missing `memory/site.env.local` → auto-bootstrap from Cloud Secrets (no quotes); `SSH_PATH`→`SSH_ROOT`.
+- Schema/HTML `env:VAR` / `${VAR}` hydrated in-memory before WP meta write; keep placeholders on disk.
+- Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check`.

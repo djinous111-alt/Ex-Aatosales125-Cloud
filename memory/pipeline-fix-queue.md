@@ -65,7 +65,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check`
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 
@@ -120,7 +120,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - doctor cover hoodie assertion PASS
 - `rg` no positive `Outfit lock: thick heavyweight white hoodie`
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 ## INC-20261030-1725-schema-precommit-secret-name-url
@@ -174,7 +174,7 @@ checks_run:
 - `bash -n scripts/excalibur_git.sh`
 - filter dry-run drops URL / CATALOG_URL / PUBLIC_SITE_URL tokens
 - doctor git wrapper present
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 ## INC-20261030-1721-geo-qa-typed-task-unavailable
@@ -218,7 +218,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` geo-qa generalPurpose guidance present
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 ## INC-20261030-1721-geo-qa-utility-markers-wiped
@@ -267,7 +267,7 @@ files_changed:
 checks_run:
 - doctor editorial marker asserts PASS
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 ## INC-20261030-1718-writer-cta-secret-scan-allowlist
@@ -316,7 +316,7 @@ files_changed:
 checks_run:
 - filter dry-run excludes CATALOG_URL
 - `rg` pragma guidance in writer skill
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 
@@ -360,7 +360,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` empty-payload / parent fallback guidance
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 ## INC-20261030-1716-research-tech-markers-false-positive
@@ -403,7 +403,7 @@ files_changed:
 checks_run:
 - unit: комплектации / Chery how-to → technical_topic=false
 - doctor research gate assertion PASS
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 ## INC-20261030-1703-llms-blog-path-missing
@@ -456,7 +456,7 @@ files_changed:
 checks_run:
 - doctor llms/interlinker `--blog-path` PASS
 - dry-run llms URLs `/{slug}/`
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 ## INC-20261030-1705-scout-precommit-secret-name-url
@@ -539,7 +539,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 502e5e2b
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -590,7 +590,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 502e5e2b
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -631,7 +631,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 502e5e2b
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -678,7 +678,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 502e5e2b
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -732,7 +732,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 502e5e2b
 
 ## Fixed incidents
 

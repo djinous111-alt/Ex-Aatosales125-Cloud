@@ -1,0 +1,656 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-31",
+    "today_ru": "31.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-02",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-31 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "vw-tharu-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать фольксваген тару из китая",
+    "secondary_queries": [
+      "фольксваген тару из китая",
+      "фольксваген тару комплектации",
+      "volkswagen tharu комплектации",
+      "фольксваген тару хр из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать фольксваген тару из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Фольксваген Тару 2026: как выбрать и привезти под ключ",
+          "url": "https://tamx.ru/journal/folksvagen-taru-2026-kak-vybrat-i-privezti-pod-klyuch-7946",
+          "snippet": ""
+        },
+        {
+          "title": "Volkswagen из Китая 2026: все модели и реальные цены под ключ",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/vw-iz-kitaya-vse-modeli-ceny-2026/",
+          "snippet": "Фольксваген Тару 2026 под заказ: откуда привезти, цена от 2 500 000 ₽ под ключ, что проверять перед покупкой и кому подходит модель."
+        },
+        {
+          "title": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: отзывы, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/volkswagen-tharu-iz-kitaya-2026",
+          "snippet": "Фольксваген из Китая 2026: модели и цены под ключ ... Цены — реальные диапазоны под ключ по годам и комплектациям, не рекламное «от»."
+        },
+        {
+          "title": "Купить Volkswagen Tharu 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/volkswagen/tharu",
+          "snippet": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: чем отличаются, какой мотор проходит льготу, отзывы владельцев, болячки DSG и цена под ключ на двух наших лотах."
+        },
+        {
+          "title": "Volkswagen Tharu XR 2026: подробный разбор компактного кроссовера из Китая",
+          "url": "https://dzen.ru/a/acrLd8oITQpFyDva",
+          "snippet": "Volkswagen Tharu (Фольксваген Tharu) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 2.7 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        },
+        {
+          "title": "Volkswagen Tharu из Китая: разбор самого популярного кроссовера 2026 ...",
+          "url": "https://jckauto.ru/blog/vw-tharu-import-china",
+          "snippet": "В Россию он попадает исключительно по параллельному импорту и в 2026 году привлекает внимание благодаря немецкой эргономике, качественной сборке и относительно доступной цене."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать фольксваген тару из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Фольксваген Тару 2026: как выбрать и привезти под ключ",
+          "url": "https://tamx.ru/journal/folksvagen-taru-2026-kak-vybrat-i-privezti-pod-klyuch-7946",
+          "snippet": ""
+        },
+        {
+          "title": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: отзывы, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/volkswagen-tharu-iz-kitaya-2026",
+          "snippet": "Цена «под ключ» включает автомобиль, доставку, растаможку и утильсбор. Из Южной Кореи и Китая Volkswagen Taro 2026 года и новее мы не возим."
+        },
+        {
+          "title": "Volkswagen из Китая 2026: все модели и реальные цены под ключ",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/vw-iz-kitaya-vse-modeli-ceny-2026/",
+          "snippet": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: чем отличаются, какой мотор проходит льготу, отзывы владельцев, болячки DSG и цена под ключ на двух наших лотах."
+        },
+        {
+          "title": "Volkswagen Tharu из Китая: разбор самого популярного кроссовера 2026 ...",
+          "url": "https://jckauto.ru/blog/vw-tharu-import-china",
+          "snippet": "Фольксваген из Китая 2026: модели и цены под ключ ... Цены — реальные диапазоны под ключ по годам и комплектациям, не рекламное «от»."
+        },
+        {
+          "title": "Тару / Тхару XR (Volkswagen Tharu) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/tharu-cena-komplektacii-smeta/",
+          "snippet": "Полный обзор Volkswagen Tharu из Китая: почему он стал лидером импорта в 2026 году, реальные отзывы владельцев, расчёт стоимости под ключ и история модели, которая заменила Taos и Tiguan."
+        },
+        {
+          "title": "Какой Volkswagen можно привезти из Китая в 2026 = ТОП VW с льготным ...",
+          "url": "https://vc.ru/transport/2949636-volkswagen-iz-kitaya-top-modeli-s-vygodnym-utilom",
+          "snippet": "Цена на Фольксваген Тару из Китая у брокеров встречается и дешевле, и дороже этого диапазона — зависит от года, пробега, комплектации и мотора конкретной машины."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать фольксваген тару из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: отзывы, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/volkswagen-tharu-iz-kitaya-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Volkswagen Tharu из Китая: разбор самого популярного кроссовера 2026 ...",
+          "url": "https://jckauto.ru/blog/vw-tharu-import-china",
+          "snippet": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: чем отличаются, какой мотор проходит льготу, отзывы владельцев, болячки DSG и цена под ключ на двух наших лотах."
+        },
+        {
+          "title": "Тару / Тхару XR (Volkswagen Tharu) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/tharu-cena-komplektacii-smeta/",
+          "snippet": "Полный обзор Volkswagen Tharu из Китая: почему он стал лидером импорта в 2026 году, реальные отзывы владельцев, расчёт стоимости под ключ и история модели, которая заменила Taos и Tiguan."
+        },
+        {
+          "title": "Volkswagen из Китая 2026: все модели и реальные цены под ключ",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/vw-iz-kitaya-vse-modeli-ceny-2026/",
+          "snippet": "Самый доступный немецкий кроссовер из Китая в нашем каталоге — компактнее и дешевле Tiguan L и Touran L. Считаем не до Владивостока, а до Москвы — с итоговой суммой, а не только формулой."
+        },
+        {
+          "title": "Volkswagen Tharu из Китая: новый кроссовер до 3 млн с льготным ...",
+          "url": "https://www.drive2.ru/b/727326118213855909/",
+          "snippet": "Фольксваген из Китая 2026: модели и цены под ключ ... Цены — реальные диапазоны под ключ по годам и комплектациям, не рекламное «от»."
+        },
+        {
+          "title": "Фольксваген Тару из Китая: почему это один из лучших вариантов к ...",
+          "url": "https://drivedrom.ru/interesnoe/folksvagen-taru-iz-kitaya-pochemu-eto-odin-iz-luchshih-variantov-k-pokupke-v-2026-godu.html",
+          "snippet": "Volkswagen Tharu — как раз такой случай. Компактный кроссовер, который в Китае продаётся под названием 途岳 (Tharu), а в Европе его нет."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать фольксваген тару из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "docs/favicon.svg at main · yinlei1126/docs · GitHub",
+          "url": "https://github.com/yinlei1126/docs/blob/main/favicon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "Witchlight/icon.svg at main · Bernartik/Witchlight · GitHub",
+          "url": "https://github.com/Bernartik/Witchlight/blob/main/icon.svg",
+          "snippet": "Contribute to yinlei1126/docs development by creating an account on GitHub."
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "A game made for the Pirate Software Jam #15. Contribute to Bernartik/Witchlight development by creating an account on GitHub."
+        },
+        {
+          "title": "FAQ по Shadowsocks/XRay/XTLS/Reality/Nekobox/etc. для обхода блокировок",
+          "url": "https://gist.github.com/rz6agx/d2541b01dca62eddee8b39fee99652e8",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "JetPave/JetPave_logo.png at main · JetPave/JetPave · GitHub",
+          "url": "https://github.com/JetPave/JetPave/blob/main/JetPave_logo.png",
+          "snippet": "Как выбрать сайт, под который стоит маскироваться с XTLS-Reality? Лучше всего выбирать что-нибудь из сети того же хостера, каким пользуетесь вы."
+        },
+        {
+          "title": "InvoiceGenerator/example_with_vat.png at master · by-cx ...",
+          "url": "https://github.com/by-cx/InvoiceGenerator/blob/master/example_with_vat.png",
+          "snippet": "Contribute to JetPave/JetPave development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать фольксваген тару из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: отзывы, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/volkswagen-tharu-iz-kitaya-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Фольксваген Тару 2026: как выбрать и привезти под ключ",
+          "url": "https://tamx.ru/journal/folksvagen-taru-2026-kak-vybrat-i-privezti-pod-klyuch-7946",
+          "snippet": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: чем отличаются, какой мотор проходит льготу, отзывы владельцев, болячки DSG и цена под ключ на двух наших лотах."
+        },
+        {
+          "title": "Volkswagen из Китая 2026: все модели и реальные цены под ключ",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/vw-iz-kitaya-vse-modeli-ceny-2026/",
+          "snippet": "Цена «под ключ» включает автомобиль, доставку, растаможку и утильсбор. Из Южной Кореи и Китая Volkswagen Taro 2026 года и новее мы не возим."
+        },
+        {
+          "title": "Фольксваген Тхару 2026: полный обзор, характеристики, цены и новые ...",
+          "url": "https://www.guazicar.ru/News-details/folksvagen-tharu-2026-polnyj-obzor-harakteristiki-tseny-i-novye-funktsii.html",
+          "snippet": "Фольксваген из Китая 2026: модели и цены под ключ ... Цены — реальные диапазоны под ключ по годам и комплектациям, не рекламное «от»."
+        },
+        {
+          "title": "Тару / Тхару XR (Volkswagen Tharu) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/tharu-cena-komplektacii-smeta/",
+          "snippet": "В этом материале мы представили полный обзор Фольксваген Тхару 2026 на основе практических тестов нашей команды в 2026 году. Вы узнаете обо всех обновлениях модели, технических характеристиках, преимуществах покупки у официального дилера и ответы на самые распространенные вопросы покупателей."
+        },
+        {
+          "title": "Volkswagen без утильсбора: T-Roc, Tharu XR, T-Cross - сравнение 2026",
+          "url": "https://volkswagen-russia.ru/blog/volkswagen-bez-utilsbora-t-roc-tharu-xr-t-crosssravnenie-2026",
+          "snippet": "Цена на Фольксваген Тару из Китая у брокеров встречается и дешевле, и дороже этого диапазона — зависит от года, пробега, комплектации и мотора конкретной машины."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать фольксваген тару из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Volkswagen Tharu из Китая. Все этапы — Volkswagen Tharu бензин, 1,4 л ...",
+          "url": "https://www.drive2.ru/l/724635338382794240/",
+          "snippet": ""
+        },
+        {
+          "title": "Volkswagen без утильсбора: T-Roc, Tharu XR, T-Cross - сравнение 2026",
+          "url": "https://volkswagen-russia.ru/blog/volkswagen-bez-utilsbora-t-roc-tharu-xr-t-crosssravnenie-2026",
+          "snippet": "Решил описать этапы покупки с цифрами привоза машины из Китая. Думал покупать Б/У китайского европейца или нового китайца из салона. На руках примерно 2.4 млн руб. Походив по салонам (Джили, Черри, Джитур и ГАК) я понял, что мне хватало на авто в отсрочу по 0,01%."
+        },
+        {
+          "title": "Отзывы владельцев Volkswagen Tharu XR с ФОТО",
+          "url": "https://www.drom.ru/reviews/volkswagen/tharu_xr/",
+          "snippet": "Volkswagen без повышенного утильсбора в России: T-Roc, Tharu XR и T-Cross в 2026 году. Что выбрать? Volkswagen из Китая предлагает три компактных кроссовера — T-Roc, Tharu XR и T-Cross — с моторами до 160 сил, которые попадают под льготные ставки и остаются выгодными по цене."
+        },
+        {
+          "title": "Фольксваген Тхару 2026: полный обзор, характеристики, цены и новые ...",
+          "url": "https://www.guazicar.ru/News-details/folksvagen-tharu-2026-polnyj-obzor-harakteristiki-tseny-i-novye-funktsii.html",
+          "snippet": "Машина приобретена в Китае в 2025 году, растаможена до 1 декабря, так что обошлась со всеми расходами в 2,6 млн. руб. в полной комплектации, с защитой картера, сеткой для решетки радиатора, оклейкой в плёнку. Из плюсов: очень резвый двигатель, машина прямо подхватывает любое настроение водителя и..."
+        },
+        {
+          "title": "Volkswagen Tharu или Taos: что выбрать в 2026 году — сравнение ...",
+          "url": "https://verticalauto.ru/articles/volkswagen-tharu-ili-taos-cto-vybrat-v-2026-godu-sravnenie-kitaiskoi-i-kaluzskoi-sborki",
+          "snippet": "В этом материале мы представили полный обзор Фольксваген Тхару 2026 на основе практических тестов нашей команды в 2026 году. Вы узнаете обо всех обновлениях модели, технических характеристиках, преимуществах покупки у официального дилера и ответы на самые распространенные вопросы покупателей."
+        },
+        {
+          "title": "Бортжурнал Volkswagen Tharu - клуб, форум о Фольксваген Тару на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/volkswagen/tharu/",
+          "snippet": "В этом материале — честное сравнение моторов, багажников, мультимедиа и зимней адаптации. Немецкие корни с разной пропиской. Главная интрига 2026 года. Volkswagen Taos и Tharu — два кроссовера-близнеца на платформе MQB, созданные для разных рынков."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "фольксваген тару из китая 2026",
+      "purpose": "вторичный запрос: фольксваген тару из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тару / Тхару XR (Volkswagen Tharu) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/tharu-cena-komplektacii-smeta/",
+          "snippet": ""
+        },
+        {
+          "title": "Volkswagen Tharu XR 2026 купить — цена Фольксваген Тару ХР",
+          "url": "https://revocars.ru/volkswagen/Volkswagen-Tharu-XR-2026/",
+          "snippet": "Цена на Фольксваген Тару из Китая у брокеров встречается и дешевле, и дороже этого диапазона — зависит от года, пробега, комплектации и мотора конкретной машины."
+        },
+        {
+          "title": "Volkswagen Tharu из Китая: разбор самого популярного кроссовера 2026 ...",
+          "url": "https://jckauto.ru/blog/vw-tharu-import-china",
+          "snippet": "Фольксваген Тару ХР (Volkswagen Tharu XR 2026) из Китая под ключ: 7 версий, мотор 1,5 л на 110 или 160 л.с., передний привод, расход по WLTC от 5,7 л. ЭПТС."
+        },
+        {
+          "title": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: отзывы, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/volkswagen-tharu-iz-kitaya-2026",
+          "snippet": "Полный обзор Volkswagen Tharu из Китая: почему он стал лидером импорта в 2026 году, реальные отзывы владельцев, расчёт стоимости под ключ и история модели, которая заменила Taos и Tiguan."
+        },
+        {
+          "title": "Фольксваген Тару ХР 2026 технические характеристики. Volkswagen Tharu ...",
+          "url": "https://www.drom.ru/catalog/volkswagen/tharu_xr/2026/",
+          "snippet": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: чем отличаются, какой мотор проходит льготу, отзывы владельцев, болячки DSG и цена под ключ на двух наших лотах."
+        },
+        {
+          "title": "2026'Volkswagen Tharu: фото, минусы и плюсы, цены и характеристики",
+          "url": "https://ironhorse.ru/vw/tharu/",
+          "snippet": "Подробно расписан модельный ряд Volkswagen Tharu XR 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "фольксваген тару комплектации 2026",
+      "purpose": "вторичный запрос: фольксваген тару комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Фольксваген Тару 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/volkswagen-tharu-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Фольксваген Тару ХР 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/volkswagen/tharu_xr/2026/",
+          "snippet": "Для Фольксваген Тару 2026 заявлены несколько комплектаций, отличающихся оснащением, ценой и типом трансмиссии, а фото автомобиля в новом кузове демонстрируют более агрессивную ..."
+        },
+        {
+          "title": "Фольксваген Тару 2026 новый кузов, цены, комплектации, фото, видео тест ...",
+          "url": "https://naavtotrasse.ru/volkswagen/volkswagen-tharu-2026.html",
+          "snippet": "Подробно расписан модельный ряд Volkswagen Tharu XR 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Фольксваген Тару ХР 2026 между собой."
+        },
+        {
+          "title": "Фольксваген Тару технические характеристики. Volkswagen Tharu ...",
+          "url": "https://www.drom.ru/catalog/volkswagen/tharu/",
+          "snippet": "Фольксваген Тару 2026 - компактный кроссовер с отличной динамикой, достойным оснащением и экономичными моторами. Цены и конкуренты модели"
+        },
+        {
+          "title": "Фольксваген Туарег 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/volkswagen-touareg-2026/",
+          "snippet": "Подробно расписан модельный ряд Volkswagen Tharu: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Фольксваген Тару между собой."
+        },
+        {
+          "title": "Новый Volkswagen Tharu 2026. В Топовой Комплектации. Обзор И Тест-драйв",
+          "url": "https://rutube.ru/video/543ac9b528b273153da5f935ef246db9/",
+          "snippet": "Фольксваген Туарег 2026 — это крупный премиальный кроссовер, который сочетает высокий комфорт, тяговитые моторы и серьезные возможности вне асфальта. Модель предлагается в нескольких исполнениях по цене от 6 500 000 до 9 000 000 рублей, то есть от условно базовых версий до богатых вариантов с V6."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "volkswagen tharu комплектации 2026",
+      "purpose": "вторичный запрос: volkswagen tharu комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Фольксваген Тару ХР 2026 технические характеристики. Volkswagen Tharu ...",
+          "url": "https://www.drom.ru/catalog/volkswagen/tharu_xr/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Volkswagen Tharu 2026: комплектации, цены, характеристики",
+          "url": "https://motorved.ru/obzor-volkswagen-tharu-2026-kompaktnyj-krossover-iz-podnebesnoj-s-nemeckim-harakterom/",
+          "snippet": "Подробно расписан модельный ряд Volkswagen Tharu XR 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Новый Volkswagen Tharu 2026. В Топовой Комплектации. Обзор И Тест-драйв",
+          "url": "https://rutube.ru/video/543ac9b528b273153da5f935ef246db9/",
+          "snippet": "Полный обзор Volkswagen Tharu 2026: тест-драйв, характеристики, комплектации и цены. Разбираем дизайн, салон, моторы 1.5 л и 1.5 TSI, поведение на дороге."
+        },
+        {
+          "title": "Volkswagen Tharu XR 2026: характеристики, комплектации, отличия",
+          "url": "https://ruliauto-zakaz.ru/stati/volkswagen-tharu-xr-2026-cena-versii",
+          "snippet": "В топовой комплектации. Обзор и тест-драйв» на канале «KujiraAuto» в хорошем качестве и бесплатно, опубликованное 25 октября 2026 года в 11:41, длительностью 00:17:08, на видеохостинге RUTUBE."
+        },
+        {
+          "title": "Фольксваген Тару технические характеристики. Volkswagen Tharu ...",
+          "url": "https://www.drom.ru/catalog/volkswagen/tharu/",
+          "snippet": "Volkswagen Tharu XR — не рестайлинг обычного Tharu, а отдельная модель SAIC-Volkswagen на платформе T-Cross. Чем машины отличаются технически, что дают версии на 110 и 160 л.с., комплектации Sharp и Ruixiang Edition."
+        },
+        {
+          "title": "Комплектации Volkswagen Tharu 2026 года — сравнение характеристик всех ...",
+          "url": "https://chinaautozone.ru/specs.php?series=4745",
+          "snippet": "Подробно расписан модельный ряд Volkswagen Tharu: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Фольксваген Тару между собой."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "фольксваген тару хр из китая 2026",
+      "purpose": "вторичный запрос: фольксваген тару хр из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Фольксваген Тару ХР 2026 технические характеристики. Volkswagen Tharu ...",
+          "url": "https://www.drom.ru/catalog/volkswagen/tharu_xr/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: отзывы, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/volkswagen-tharu-iz-kitaya-2026",
+          "snippet": "Фольксваген Тару ХР 2026 комплектации и цены, фото. Подробно расписан модельный ряд Volkswagen Tharu XR 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался ..."
+        },
+        {
+          "title": "Под льготный утиль! Новый Volkswagen THARU XR 2026. Обзор и тест-драйв",
+          "url": "https://rutube.ru/video/e85549939bfb231d6bb7d9abb74bc1a3/",
+          "snippet": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: чем отличаются, какой мотор проходит льготу, отзывы владельцев, болячки DSG и цена под ключ на двух наших лотах."
+        },
+        {
+          "title": "Volkswagen Tharu XR 2026 купить — цена Фольксваген Тару ХР",
+          "url": "https://revocars.ru/volkswagen/Volkswagen-Tharu-XR-2026/",
+          "snippet": "Сегодня я Вам расскажу про Новый Volkswagen THARU HR 2026. Автомобиль приехал из Китая, где представлен в 3 комплектациях. На обзоре максимальная версия с турбомотором 1.5 160 л.с (ПРОХОДНОЙ!) в паре с DSG."
+        },
+        {
+          "title": "Тару / Тхару XR (Volkswagen Tharu) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/tharu-cena-komplektacii-smeta/",
+          "snippet": "Фольксваген Тару ХР (Volkswagen Tharu XR 2026) из Китая под ключ: 7 версий, мотор 1,5 л на 110 или 160 л.с., передний привод, расход по WLTC от 5,7 л. ЭПТС."
+        },
+        {
+          "title": "Цена нового Volkswagen Tharu XR из Китая. Расчет стоимости Фольксваген ...",
+          "url": "https://vkvideo.ru/video-187582471_456240429",
+          "snippet": "Цена на Фольксваген Тару из Китая у брокеров встречается и дешевле, и дороже этого диапазона — зависит от года, пробега, комплектации и мотора конкретной машины."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Volkswagen Tharu 2026: комплектации, цены, характеристики",
+          "url": "https://motorved.ru/obzor-volkswagen-tharu-2026-kompaktnyj-krossover-iz-podnebesnoj-s-nemeckim-harakterom/",
+          "snippet": ""
+        },
+        {
+          "title": "Volkswagen Tharu из Китая: разбор самого популярного кроссовера 2026 ...",
+          "url": "https://jckauto.ru/blog/vw-tharu-import-china",
+          "snippet": "Полный обзор Volkswagen Tharu 2026: тест-драйв, характеристики, комплектации и цены. Разбираем дизайн, салон, моторы 1.5 л и 1.5 TSI, поведение на дороге."
+        },
+        {
+          "title": "Volkswagen Tharu XR из Китая 2026 — сравнение комплектаций",
+          "url": "https://www.drive2.ru/o/b/746040080996511098/",
+          "snippet": "Полный обзор Volkswagen Tharu из Китая: почему он стал лидером импорта в 2026 году, реальные отзывы владельцев, расчёт стоимости под ключ и история модели, которая заменила Taos и Tiguan."
+        },
+        {
+          "title": "Volkswagen Tharu 2026 (SAIC-VW, китайский аналог T-Roc): обзор ...",
+          "url": "https://goodtrade.by/blog/volkswagen-tharu-obzor-komplektatsii/",
+          "snippet": "Комплектации Volkswagen Tharu XR 2026 с мотором 1.5 и автоматом для заказа через DSS: сравнение безопасности, подогревов, климата и фото салонов. Короткий ответ"
+        },
+        {
+          "title": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: отзывы, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/volkswagen-tharu-iz-kitaya-2026",
+          "snippet": "Подробный обзор Volkswagen Tharu 2026 (SAIC-VW, Tharu): 1.5L атмо 110 л.с. и 1.5T 160 л.с. на платформе MQB, 5 комплектаций, цены в CNY и USD, экспортные поставки."
+        },
+        {
+          "title": "Volkswagen Tharu из Китая: цена и доставка — Блог Кармэн",
+          "url": "https://blog.carmancars.ru/blog/volkswagen-tharu-iz-kitaya",
+          "snippet": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: чем отличаются, какой мотор проходит льготу, отзывы владельцев, болячки DSG и цена под ключ на двух наших лотах."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://tamx.ru/journal/folksvagen-taru-2026-kak-vybrat-i-privezti-pod-klyuch-7946",
+      "title": "Фольксваген Тару 2026: как выбрать и привезти под ключ",
+      "from_query": "как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/vw-iz-kitaya-vse-modeli-ceny-2026/",
+      "title": "Volkswagen из Китая 2026: все модели и реальные цены под ключ",
+      "from_query": "как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/volkswagen-tharu-iz-kitaya-2026",
+      "title": "Фольксваген Тару (VW Tharu) и Тару ХР из Китая: отзывы, цена",
+      "from_query": "как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://easy.car/car/china/2026/volkswagen/tharu",
+      "title": "Купить Volkswagen Tharu 2026 из Китая под ключ — EASY.CAR",
+      "from_query": "как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/acrLd8oITQpFyDva",
+      "title": "Volkswagen Tharu XR 2026: подробный разбор компактного кроссовера из Китая",
+      "from_query": "как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/vw-tharu-import-china",
+      "title": "Volkswagen Tharu из Китая: разбор самого популярного кроссовера 2026 ...",
+      "from_query": "как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/nemetskie/iz-kitaya/tharu-cena-komplektacii-smeta/",
+      "title": "Тару / Тхару XR (Volkswagen Tharu) из Китая: цена под ключ 2026",
+      "from_query": "как выбрать фольксваген тару из китая октябрь 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/2949636-volkswagen-iz-kitaya-top-modeli-s-vygodnym-utilom",
+      "title": "Какой Volkswagen можно привезти из Китая в 2026 = ТОП VW с льготным ...",
+      "from_query": "как выбрать фольксваген тару из китая октябрь 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/727326118213855909/",
+      "title": "Volkswagen Tharu из Китая: новый кроссовер до 3 млн с льготным ...",
+      "from_query": "как выбрать фольксваген тару из китая новости 2026"
+    },
+    {
+      "url": "https://drivedrom.ru/interesnoe/folksvagen-taru-iz-kitaya-pochemu-eto-odin-iz-luchshih-variantov-k-pokupke-v-2026-godu.html",
+      "title": "Фольксваген Тару из Китая: почему это один из лучших вариантов к ...",
+      "from_query": "как выбрать фольксваген тару из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/yinlei1126/docs/blob/main/favicon.svg",
+      "title": "docs/favicon.svg at main · yinlei1126/docs · GitHub",
+      "from_query": "site:github.com как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://github.com/Bernartik/Witchlight/blob/main/icon.svg",
+      "title": "Witchlight/icon.svg at main · Bernartik/Witchlight · GitHub",
+      "from_query": "site:github.com как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/rz6agx/d2541b01dca62eddee8b39fee99652e8",
+      "title": "FAQ по Shadowsocks/XRay/XTLS/Reality/Nekobox/etc. для обхода блокировок",
+      "from_query": "site:github.com как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://github.com/JetPave/JetPave/blob/main/JetPave_logo.png",
+      "title": "JetPave/JetPave_logo.png at main · JetPave/JetPave · GitHub",
+      "from_query": "site:github.com как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://github.com/by-cx/InvoiceGenerator/blob/master/example_with_vat.png",
+      "title": "InvoiceGenerator/example_with_vat.png at master · by-cx ...",
+      "from_query": "site:github.com как выбрать фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://www.guazicar.ru/News-details/folksvagen-tharu-2026-polnyj-obzor-harakteristiki-tseny-i-novye-funktsii.html",
+      "title": "Фольксваген Тхару 2026: полный обзор, характеристики, цены и новые ...",
+      "from_query": "как выбрать фольксваген тару из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://volkswagen-russia.ru/blog/volkswagen-bez-utilsbora-t-roc-tharu-xr-t-crosssravnenie-2026",
+      "title": "Volkswagen без утильсбора: T-Roc, Tharu XR, T-Cross - сравнение 2026",
+      "from_query": "как выбрать фольксваген тару из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/724635338382794240/",
+      "title": "Volkswagen Tharu из Китая. Все этапы — Volkswagen Tharu бензин, 1,4 л ...",
+      "from_query": "как выбрать фольксваген тару из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/volkswagen/tharu_xr/",
+      "title": "Отзывы владельцев Volkswagen Tharu XR с ФОТО",
+      "from_query": "как выбрать фольксваген тару из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://verticalauto.ru/articles/volkswagen-tharu-ili-taos-cto-vybrat-v-2026-godu-sravnenie-kitaiskoi-i-kaluzskoi-sborki",
+      "title": "Volkswagen Tharu или Taos: что выбрать в 2026 году — сравнение ...",
+      "from_query": "как выбрать фольксваген тару из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/volkswagen/tharu/",
+      "title": "Бортжурнал Volkswagen Tharu - клуб, форум о Фольксваген Тару на Авто.ру",
+      "from_query": "как выбрать фольксваген тару из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://revocars.ru/volkswagen/Volkswagen-Tharu-XR-2026/",
+      "title": "Volkswagen Tharu XR 2026 купить — цена Фольксваген Тару ХР",
+      "from_query": "фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/volkswagen/tharu_xr/2026/",
+      "title": "Фольксваген Тару ХР 2026 технические характеристики. Volkswagen Tharu ...",
+      "from_query": "фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://ironhorse.ru/vw/tharu/",
+      "title": "2026'Volkswagen Tharu: фото, минусы и плюсы, цены и характеристики",
+      "from_query": "фольксваген тару из китая 2026"
+    },
+    {
+      "url": "https://cenyavto.com/volkswagen-tharu-2026/",
+      "title": "Фольксваген Тару 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "фольксваген тару комплектации 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/volkswagen/volkswagen-tharu-2026.html",
+      "title": "Фольксваген Тару 2026 новый кузов, цены, комплектации, фото, видео тест ...",
+      "from_query": "фольксваген тару комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/volkswagen/tharu/",
+      "title": "Фольксваген Тару технические характеристики. Volkswagen Tharu ...",
+      "from_query": "фольксваген тару комплектации 2026"
+    },
+    {
+      "url": "https://cenyavto.com/volkswagen-touareg-2026/",
+      "title": "Фольксваген Туарег 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "фольксваген тару комплектации 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/543ac9b528b273153da5f935ef246db9/",
+      "title": "Новый Volkswagen Tharu 2026. В Топовой Комплектации. Обзор И Тест-драйв",
+      "from_query": "фольксваген тару комплектации 2026"
+    },
+    {
+      "url": "https://motorved.ru/obzor-volkswagen-tharu-2026-kompaktnyj-krossover-iz-podnebesnoj-s-nemeckim-harakterom/",
+      "title": "Volkswagen Tharu 2026: комплектации, цены, характеристики",
+      "from_query": "volkswagen tharu комплектации 2026"
+    },
+    {
+      "url": "https://ruliauto-zakaz.ru/stati/volkswagen-tharu-xr-2026-cena-versii",
+      "title": "Volkswagen Tharu XR 2026: характеристики, комплектации, отличия",
+      "from_query": "volkswagen tharu комплектации 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/specs.php?series=4745",
+      "title": "Комплектации Volkswagen Tharu 2026 года — сравнение характеристик всех ...",
+      "from_query": "volkswagen tharu комплектации 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/e85549939bfb231d6bb7d9abb74bc1a3/",
+      "title": "Под льготный утиль! Новый Volkswagen THARU XR 2026. Обзор и тест-драйв",
+      "from_query": "фольксваген тару хр из китая 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/video-187582471_456240429",
+      "title": "Цена нового Volkswagen Tharu XR из Китая. Расчет стоимости Фольксваген ...",
+      "from_query": "фольксваген тару хр из китая 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/746040080996511098/",
+      "title": "Volkswagen Tharu XR из Китая 2026 — сравнение комплектаций",
+      "from_query": "Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://goodtrade.by/blog/volkswagen-tharu-obzor-komplektatsii/",
+      "title": "Volkswagen Tharu 2026 (SAIC-VW, китайский аналог T-Roc): обзор ...",
+      "from_query": "Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://blog.carmancars.ru/blog/volkswagen-tharu-iz-kitaya",
+      "title": "Volkswagen Tharu из Китая: цена и доставка — Блог Кармэн",
+      "from_query": "Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

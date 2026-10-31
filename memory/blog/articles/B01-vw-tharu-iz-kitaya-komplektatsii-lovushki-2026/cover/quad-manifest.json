@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Tharu XR за красивую цену — а по VIN другая платформа?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у кроссовера VW Tharu на фоне порта Владивостока, плашка до депозита",
+      "scene_hint": "Vladivostok rainy port fog; modern VW Tharu crossover hintergrund; host action selfie in dark olive rain softshell over charcoal crewneck (NO white hoodie, NO cap, NO hood); fake phone catalog card Tharu vs Tharu XR with VIN mismatch sticky; torn paper + scotch tape; yellow highlight on «VIN»; shocked meme cutout; corner footer avto-sales125.ru catalog ONLY; NO Wordstat NO Metrika NO Telegram",
+      "meme_caption_ru": "Сверь Tharu до депозита"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разведите две машины под одним именем",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Cyrillic comparison table UI: колонки Tharu XR vs большой Tharu — платформа, колёсная база, моторы; sticky «не путать имя»; tape corner; NO host face",
+      "alt": "Таблица сравнения Tharu XR и большого Tharu: платформа и имя модели"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите мотор по киловаттам, а не по \"лошадям\"",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Numbered workflow: кВт в ПТС → порог 117,68 → утильсбор льгота/коммерция → депозит; marker arrow; mini sticky «не по лошадям»; NO host face",
+      "alt": "Схема выбора мотора VW Tharu по киловаттам до порога утильсбора"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните комплектации XR без китайского тумана",
+      "visual_type": "checklist_board",
+      "scene_hint": "Clipboard checklist XR trim: мультимедиа CNS3.0, русификация, пакет опций, VIN/фото; red pen ticks; tape; NO host face NO toxic slang",
+      "alt": "Чеклист комплектаций Tharu XR: мультимедиа, русификация, опции до депозита"
+    }
+  }
+}

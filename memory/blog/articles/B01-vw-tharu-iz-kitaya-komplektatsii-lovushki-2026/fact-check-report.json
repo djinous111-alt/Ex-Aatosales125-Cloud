@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B01-vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "Сергей нашёл \"Tharu XR 2022\" за красивую цену и почти кинул депозит – а по VI",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "аголовок \"Tharu XR 2022\" – XR в продаже с августа 2024, более ранний год почти всегда красный флаг. Полн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "з \"округления в вашу пользу\". Версия XR (ориентир 2026) Мощность Коробка Под льготу по кВт? 1.5L (DRZ) 8",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ями порога 117,68 кВт и ред. ПП РФ №1713 (с 01.12.2025), отзывами Drive2/Drom по CNS3.0 и коробкам, плюс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": ": перепутать Tharu и Tharu XR, оплатить турбо \"на 160 сил\" с коммерческим утильсбором и только потом уви",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "118",
+      "kind": "large_number",
+      "context": "Вт, \"ровно 160 л.с.\" у XR 1.5T часто записано как 118 кВт и льготу не проходит. Русификацию заложите в б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4355",
+      "kind": "large_number",
+      "context": "тнее (MQB A0 / уровень T-Cross/Taos): длина около 4355 мм, багажник 445–1443 л. Сделайте так: проверьте т",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1443",
+      "kind": "large_number",
+      "context": "T-Cross/Taos): длина около 4355 мм, багажник 445–1443 л. Сделайте так: проверьте точное имя модели, год",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "110",
+      "kind": "large_number",
+      "context": "ть Коробка Под льготу по кВт? 1.5L (DRZ) 81 кВт / 110 л.с. 6AT (классический автомат) Да, по порогу кВт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "26, разъяснениями порога 117,68 кВт и ред. ПП РФ №1713 (с 01.12.2025), отзывами Drive2/Drom по CNS3.0 и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

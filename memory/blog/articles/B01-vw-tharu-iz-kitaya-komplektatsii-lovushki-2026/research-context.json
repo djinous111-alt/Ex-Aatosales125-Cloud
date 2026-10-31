@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-31",
+    "today_ru": "31.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-02",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-31 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "vw-tharu-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать фольксваген тару из китая",
+    "secondary_queries": [
+      "фольксваген тару из китая",
+      "фольксваген тару комплектации",
+      "volkswagen tharu комплектации",
+      "фольксваген тару хр из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать фольксваген тару из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать фольксваген тару из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать фольксваген тару из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать фольксваген тару из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать фольксваген тару из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать фольксваген тару из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "фольксваген тару из китая 2026",
+      "purpose": "вторичный запрос: фольксваген тару из китая"
+    },
+    {
+      "id": "secondary_2",
+      "query": "фольксваген тару комплектации 2026",
+      "purpose": "вторичный запрос: фольксваген тару комплектации"
+    },
+    {
+      "id": "secondary_3",
+      "query": "volkswagen tharu комплектации 2026",
+      "purpose": "вторичный запрос: volkswagen tharu комплектации"
+    },
+    {
+      "id": "secondary_4",
+      "query": "фольксваген тару хр из китая 2026",
+      "purpose": "вторичный запрос: фольксваген тару хр из китая"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-vw-tharu-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

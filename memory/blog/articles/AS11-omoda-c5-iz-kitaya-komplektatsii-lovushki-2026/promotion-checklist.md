@@ -1,7 +1,7 @@
 # Promotion checklist — AS11 omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-31  
-Live URL: ${PUBLIC_SITE_URL}/omoda-c5-iz-kitaya-komplektatsii-lovushki-2026/
+Live URL: ${PUBLIC_SITE_URL}/2026/10/31/omoda-c5-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,3 +47,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 ## Notes
 
 - Indexer 2026-10-31: interlink count 0; llms.txt/llms-full.txt regenerated with blog_path=/ workaround (CLI без --blog-path).
+
+## Publish
+
+- WP post_id **4717**; featured **4718**; inline **4719/4720/4721**; HEAD 200.

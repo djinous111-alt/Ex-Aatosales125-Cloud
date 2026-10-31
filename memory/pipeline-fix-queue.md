@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1744-publish-ssh-path-root-and-paramiko
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-publish
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing in Cloud workspace (gitignored); publish relies on Cloud Secrets overlay.
+- Cloud Secrets expose `SSH_PATH` (absolute non-dot) but not `SSH_ROOT`; script only reads `SSH_ROOT`, so without mapping the root is unset and dot-fallback chain is disabled.
+- With `SSH_PATH` mapped to `SSH_ROOT`, bootstrap upload hit ENOENT on configured root then auto-retried at `.` (expected script path; warning every run until Secrets updated).
+- `paramiko` missing from runtime image (`ModuleNotFoundError`) until `pip install --break-system-packages paramiko`.
+- `schema.jsonld` still had `${PUBLIC_SITE_URL}`/`${CATALOG_URL}`/`${TELEGRAM_URL}`/`${MAX_URL}` placeholders; publish script does not hydrate — temporary expand then restore required.
+
+### How the agent recovered this run
+- Recreated gitignored `memory/site.env.local` from Cloud Secrets; mapped `SSH_PATH`→`SSH_ROOT` so ENOENT→`.` fallback could run.
+- Installed `paramiko`; hydrated schema for payload then restored placeholders for commit hygiene.
+- Publish PASS: post 4717 / featured 4718 / inline 4719-4721; HTTP OK (~130s); HEAD 200; denylist untouched.
+
+### Durable fix needed before next run
+- Set Cloud Secret `SSH_ROOT=.` (or align `SSH_PATH` to `.`) so ENOENT warning stops.
+- Ensure `paramiko` in environment install (`requirements.txt` / cloud-agent-install / Dockerfile snapshot).
+- Optionally map `SSH_PATH`→`SSH_ROOT` inside `load_env()` when `SSH_ROOT` empty.
+- Hydrate `${…}` schema/CTA placeholders in `excalibur_blog_wp_publish.py` (or document pre-publish expand).
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT`)
+- `scripts/excalibur_blog_wp_publish.py` (`load_env` PATH→ROOT; schema hydrate)
+- `.cursor/environment.json` / install scripts for `paramiko`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-1738-indexer-precommit-secret-names
 status: open
 run_date: 2026-10-31

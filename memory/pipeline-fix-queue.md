@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-0928-indexer-llms-blog-path-rebrand-wipe
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-vw-tharu-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- Doctor FAIL: `llms generator supports --blog-path` — flag missing from working tree.
+- Rebrand/sync again wiped durable fix from commit `599ab029` that added `--blog-path` to `excalibur_blog_llms_generator.py` and `excalibur_blog_interlinker.py` for `/{slug}/` URLs.
+- Without the flag scripts hardcode `/blog/{slug}/`, which mismatches skill/doctor contract (`--site-base "" --blog-path /` → `/{slug}/`).
+
+### How the agent recovered this run
+- Restored both scripts from `599ab029`.
+- Ran interlinker with `--blog-path /` (0 opportunities for B01 vs AS08/AS09).
+- Ran llms generator with `--site-base "" --blog-path / --out-dir memory/blog` → URLs `/{slug}/`; doctor blog-path check OK, errors=0.
+
+### Durable fix needed before next run
+- Pin `--blog-path` presence in doctor (already checked) plus regression test that empty site-base + `--blog-path /` yields `/{slug}/`.
+- Document in `shared/agent-pipeline-pitfalls.md`: never drop `--blog-path`; rebrand sync must not restore hardcoded `/blog/{slug}/`.
+- Ensure fixer re-applies `599ab029` URL helpers if wipe recurs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-0924-cover-outfit-lock-rebrand-wipe
 status: open
 run_date: 2026-10-31

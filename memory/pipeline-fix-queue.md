@@ -55,7 +55,7 @@ checks_run:
 - doctor errors=0
 - filter smoke (URL tail dropped)
 - fixer_regression_smoke OK
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 
@@ -102,7 +102,7 @@ files_changed:
 checks_run:
 - doctor cover hoodie lock OK
 - fixer_regression_smoke OK
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 ## INC-20261031-1339-cover-outfit-lock-white-hoodie
@@ -151,7 +151,7 @@ files_changed:
 checks_run:
 - fixer_regression_smoke OK
 - doctor cover prompt builder forbids white-hoodie lock
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 ## INC-20261031-1340-cover-missing-corner-brand
@@ -194,7 +194,7 @@ files_changed:
 checks_run:
 - py_compile stamp/apply
 - fixer_regression_smoke checks stamp wiring
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 ## INC-20261031-1331-schema-secret-scan-jsonld
@@ -241,7 +241,7 @@ files_changed:
 - `scripts/excalibur_blog_filter_commit_secret_env.sh`
 checks_run:
 - filter smoke excludes PUBLIC_SITE_URL/CATALOG_URL by default
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 
@@ -292,7 +292,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg geo-qa generalPurpose fallback in AGENTS/director
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 
@@ -342,7 +342,7 @@ files_changed:
 checks_run:
 - filter smoke URL tail → SSH_HOST only
 - doctor git helper present
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 
@@ -385,7 +385,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg empty payload / WORDSTAT NOTE guidance
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 ## INC-20261031-1316-research-gate-ai-in-pain-false-tech
@@ -428,7 +428,7 @@ checks_run:
 - fixer_regression_smoke OK
 - PYTHONPATH smoke auto_tech=False real_tech=True
 - doctor research notes gate word-boundary OK
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 ## INC-20261031-1304-director-asb-regex-wipe
@@ -481,7 +481,7 @@ checks_run:
 - doctor errors=0 warnings=0
 - fixer_regression_smoke OK
 - today needs_scout (AS pool published)
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 ## INC-20261031-1305-director-stale-topic-ledger
@@ -526,7 +526,7 @@ files_changed:
 checks_run:
 - today.py EXCALIBUR_TOPIC_SELECTION=needs_scout
 - ledger lists AS01–AS10 published
-commit: pending-fixer-commit
+commit: 692cda2a
 
 
 
@@ -830,6 +830,6 @@ checks_run:
 - py_compile wp_publish
 - doctor SSH env configured / allow_publish
 - fixer_regression_smoke SSH_PATH alias
-commit: pending-fixer-commit
+commit: 692cda2a
 
 

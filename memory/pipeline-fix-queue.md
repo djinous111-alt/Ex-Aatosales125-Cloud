@@ -61,7 +61,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - hydrate unit smoke; doctor errors=0
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20261031-1738-indexer-precommit-secret-names
 status: fixed
@@ -102,7 +102,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` → zero non-identifier names
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20261031-1737-indexer-llms-blog-path-missing
 status: fixed
@@ -151,7 +151,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-path`
 - smoke `--blog-path /` has no `/blog/{slug}/`
 - doctor errors=0
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20261031-1735-cover-missing-corner-brand
 status: fixed
@@ -194,7 +194,7 @@ files_changed:
 checks_run:
 - demo canvas corner stamp smoke
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20261031-1736-cover-outfit-lock-white-hoodie
 status: fixed
@@ -236,7 +236,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - AS11 prompt rebuild <=3500 chars; no thick heavyweight white hoodie
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20261031-1730-schema-url-placeholders-undocumented
 status: fixed
@@ -288,7 +288,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - hydrate unit smoke; doctor errors=0
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20261031-1718-writer-utility-pain-outcome-markers-missing
 status: fixed
@@ -334,7 +334,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - policy marker counts 12/10; py_compile utility_gate
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20261031-1715-research-tech-markers-false-positive
 status: fixed
@@ -382,7 +382,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit asserts for ii/ai false positives; AS Omoda context not technical
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20261031-2006-scout-helper-as-b-regression
 status: fixed
@@ -432,7 +432,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - --suggest-next returns AS12, pool=10
-commit: d7f66a9d+docs
+commit: d7f66a9d / 3e78d936 / 210a8d8d
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

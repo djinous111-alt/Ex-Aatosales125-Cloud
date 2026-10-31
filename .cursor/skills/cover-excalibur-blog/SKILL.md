@@ -58,7 +58,7 @@ inject <figure> after H2 in article.html
 
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
 **Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
-**Запрет:** кепка, капюшон.  
+**Запрет:** кепка, капюшон, **hardcoded white hoodie** (prompt builder = `outfit_lock_from_hero` + scene_hint WEATHER+OUTFIT).  
 **Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
 **Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
 
@@ -122,23 +122,33 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image (prefer Kie async)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Предпочтительно (Cloud):** прямой Kie API — избегает MCP client `-32001`:
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+`preferred_image_flow` уже в `cover/quad-mcp-batch.json`.
+
+**Legacy fallback:** sync MCP `gpt-image-2` один раз. HTTP MCP `-32001` Request timed out **не** финальный blocker:
+1. Ищи URL/task_id в expanded tool response / MCP logs.
+2. Если нет — сразу Kie script выше (createTask → recordInfo).
+3. Не создавай второй sync MCP job вслепую.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+По умолчанию после split штампует угол `avto-sales125.ru` (`excalibur_blog_cover_corner_stamp.py`). Отключить: `--no-stamp-corner-brand`.  
+Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html. Не запускай второй image job из-за отсутствующего corner brand.
 
 ### Шаг 6 — fragment
 

@@ -37,6 +37,18 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## Commit preflight
+
+Cloud `CLOUD_AGENT_INJECTED_SECRET_NAMES` иногда содержит raw URL → bash `invalid variable name` в pre-commit.
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+# или:
+bash scripts/excalibur_git.sh commit -m "writer(...): ..."
+```
+
+CTA href с site/catalog/Telegram URL — оставляй `<!-- pragma: allowlist secret -->` на той же строке.
+
 ## Blockers
 
 - нет research-notes.md

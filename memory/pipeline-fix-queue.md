@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — AS10 2026-10-31 incidents closed below as fixed)_
+
+
 ## INC-20261031-1342-indexer-secret-names-url-tail
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -37,11 +40,27 @@ related: INC-20261031-1325-writer-secret-names-url-tail
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored `scripts/excalibur_blog_filter_commit_secret_env.sh` and `scripts/excalibur_git.sh`.
+- Indexer skill documents commit preflight via filter/git wrapper.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- doctor errors=0
+- filter smoke (URL tail dropped)
+- fixer_regression_smoke OK
+commit: pending-fixer-commit
+
 
 
 ## INC-20261031-1338-cover-mcp-timeout-kie-fallback
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-cover
 topic_id: AS10
@@ -71,10 +90,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Cover skill prefers Kie async API; first MCP -32001 is recovery path, not blocker.
+- Batch `preferred_image_flow` already pins Kie script; pitfalls updated.
+files_changed:
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor cover hoodie lock OK
+- fixer_regression_smoke OK
+commit: pending-fixer-commit
+
 
 ## INC-20261031-1339-cover-outfit-lock-white-hoodie
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-cover
 topic_id: AS10
@@ -105,10 +137,25 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored `outfit_lock_from_hero` + FORBIDDEN_OUTFIT_LOCKS in cover prompt builder.
+- Default cover scene_hint no longer hardcodes white hoodie.
+- Doctor + regression smoke assert no white-hoodie lock.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- fixer_regression_smoke OK
+- doctor cover prompt builder forbids white-hoodie lock
+commit: pending-fixer-commit
+
 
 ## INC-20261031-1340-cover-missing-corner-brand
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-cover
 topic_id: AS10
@@ -134,10 +181,24 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored `scripts/excalibur_blog_cover_corner_stamp.py`.
+- `quad_apply` stamps corner brand by default after split (`--no-stamp-corner-brand` to skip).
+files_changed:
+- `scripts/excalibur_blog_cover_corner_stamp.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- py_compile stamp/apply
+- fixer_regression_smoke checks stamp wiring
+commit: pending-fixer-commit
+
 
 ## INC-20261031-1331-schema-secret-scan-jsonld
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-schema
 topic_id: AS10
@@ -168,11 +229,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Schema skill documents one-line schema.jsonld + root `_scan: pragma: allowlist secret`.
+- Commit filter excludes public URL secret names from scan expansion.
+files_changed:
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+checks_run:
+- filter smoke excludes PUBLIC_SITE_URL/CATALOG_URL by default
+commit: pending-fixer-commit
+
 
 
 ## INC-20261031-1327-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -204,11 +278,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Documented mandatory generalPurpose fallback for missing typed geo-qa Task enum.
+- AGENTS.md + director skill + geo-qa agent note: one GP Task = one role with contract paths.
+files_changed:
+- `AGENTS.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg geo-qa generalPurpose fallback in AGENTS/director
+commit: pending-fixer-commit
+
 
 
 ## INC-20261031-1325-writer-secret-names-url-tail
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-writer
 topic_id: AS10
@@ -240,11 +329,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored secret-name filter + `excalibur_git.sh` commit wrapper.
+- Writer skill documents commit preflight.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- filter smoke URL tail → SSH_HOST only
+- doctor git helper present
+commit: pending-fixer-commit
+
 
 
 ## INC-20261031-1315-research-wordstat-empty-primary
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-research
 topic_id: AS10
@@ -272,10 +375,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Research skill treats empty `{}` / truncated Wordstat as soft-fail with WORDSTAT NOTE + parent/secondary fallback.
+files_changed:
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg empty payload / WORDSTAT NOTE guidance
+commit: pending-fixer-commit
+
 
 ## INC-20261031-1316-research-gate-ai-in-pain-false-tech
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-research
 topic_id: AS10
@@ -302,10 +416,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored word-boundary TECH_MARKERS (`_marker_in_blob`); scan topic card fields not full notes body.
+- Regression smoke asserts pain/комплектации is not technical; MCP topics still are.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+checks_run:
+- fixer_regression_smoke OK
+- PYTHONPATH smoke auto_tech=False real_tech=True
+- doctor research notes gate word-boundary OK
+commit: pending-fixer-commit
+
 
 ## INC-20261031-1304-director-asb-regex-wipe
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-director
 topic_id: n/a
@@ -337,10 +464,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Pinned AS|B regex in today/scout; llms/interlinker `--blog-path`; utility markers; doctor pins; fixer_regression_smoke.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `memory/brief/editorial-policy.json`
+checks_run:
+- doctor errors=0 warnings=0
+- fixer_regression_smoke OK
+- today needs_scout (AS pool published)
+commit: pending-fixer-commit
+
 
 ## INC-20261031-1305-director-stale-topic-ledger
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-director
 topic_id: n/a
@@ -369,7 +514,20 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Synced `shared/published-articles.md` with AS01–AS07 live denylist slugs + AS08–AS10.
+- Marked AS01–AS07 status_note published in blog-topics; today returns needs_scout.
+files_changed:
+- `shared/published-articles.md`
+- `memory/topics/blog-topics.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- today.py EXCALIBUR_TOPIC_SELECTION=needs_scout
+- ledger lists AS01–AS10 published
+commit: pending-fixer-commit
+
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -622,7 +780,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261031-1348-publish-ssh-root-enoent
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-publish
 topic_id: AS10
@@ -656,5 +814,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored paramiko in `.cursor/cloud-agent-install.sh` / requirements.txt.
+- Publish `load_env` maps `SSH_PATH`→`SSH_ROOT`; ENOENT→`.` fallback kept; skill documents env-check + Cloud Secret `.`.
+- Ops still should set Cloud Secret SSH_ROOT/SSH_PATH to `.` to silence warning (non-blocking).
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile wp_publish
+- doctor SSH env configured / allow_publish
+- fixer_regression_smoke SSH_PATH alias
+commit: pending-fixer-commit
+
 

@@ -130,6 +130,16 @@ Task(excalibur-blog-geo-qa)
 
 Промпт: «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»
 
+Если Cloud API **не принимает** typed `excalibur-blog-geo-qa` (нет в Task enum) — **обязательный** fallback:
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+Один Task = одна роль GEO QA. Не стартуй cover/schema/publish из этой роли.
+```
+
+Нельзя писать GEO QA самому parent-агентом. Один `generalPurpose` = одна роль.
+
 **Gate:** QA PASS, link-verify pass, **research notes gate PASS**, **utility gate статьи PASS**, **human voice gate PASS**. Статья должна явно решать боль читателя и давать результат. Без PASS **не** идти к шагу 4.
 
 ### Шаг 4 — ПАРАЛЛЕЛЬНО (два Task в одном сообщении)

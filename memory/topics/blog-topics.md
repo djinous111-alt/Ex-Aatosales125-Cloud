@@ -18,6 +18,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS01 — Растаможка авто из Кореи
 
 - **priority:** P0
+- **status_note:** published live (ledger AS01; denylist — do not republish)
 - **slug:** rastamozhka-avto-iz-korei-2026
 - **h1:** Растаможка авто из Кореи: реальные сроки и этапы через Владивосток в 2026
 - **primary_query:** растаможка авто из кореи
@@ -41,6 +42,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS02 — Encar на русском
 
 - **priority:** P0
+- **status_note:** published live (ledger AS02; denylist — do not republish)
 - **slug:** encar-na-russkom-kak-chitat
 - **h1:** Encar на русском: как читать объявления и не купить «кота в мешке»
 - **primary_query:** encar на русском
@@ -61,6 +63,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS03 — Корея или Япония
 
 - **priority:** P0
+- **status_note:** published live (ledger AS03; denylist — do not republish)
 - **slug:** avto-iz-korei-ili-yaponii-2026
 - **h1:** Авто из Кореи или Японии: что выгоднее под полную пошлину в 2026
 - **primary_query:** авто из кореи или японии
@@ -81,6 +84,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS04 — Утильсбор 2026
 
 - **priority:** P0
+- **status_note:** published live (ledger AS04; denylist — do not republish)
 - **slug:** utilsbor-na-avto-2026
 - **h1:** Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии
 - **primary_query:** утильсбор на авто 2026
@@ -101,6 +105,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS05 — СВХ Владивосток
 
 - **priority:** P0
+- **status_note:** published live (ledger AS05; denylist — do not republish)
 - **slug:** svh-vladivostok-2026
 - **h1:** СВХ Владивосток в 2026: транзит авто из трёх стран без переплат
 - **primary_query:** свх владивосток
@@ -122,6 +127,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS06 — Растаможка из Японии
 
 - **priority:** P1
+- **status_note:** published live (ledger AS06; denylist — do not republish)
 - **slug:** rastamozhka-avto-iz-yaponii-2026
 - **h1:** Растаможка авто из Японии: обновлённый чек-лист на 2026
 - **primary_query:** растаможка авто из японии
@@ -137,6 +143,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS07 — Документы авто из Китая
 
 - **priority:** P1
+- **status_note:** published live (ledger AS07; denylist — do not republish)
 - **slug:** dokumenty-na-avto-iz-kitaya
 - **h1:** Документы на авто из Китая: как отличить подделку до оплаты
 - **primary_query:** документы на авто из китая

@@ -43,6 +43,10 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
+  - Если вызов вернул пустой `{}`, truncated `totalCount`-only или нет top phrases (не HTTP 401):
+    - Это **soft-fail**, не блокер. Один retry, затем parent/secondary cluster.
+    - Запиши `WORDSTAT NOTE: empty/truncated payload for «…»; used parent/secondary tables; do not invent primary volumes.`
+    - Таблицы спроса строй по verified parent/secondary; LSI бери из широкого кластера.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.

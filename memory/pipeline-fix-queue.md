@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1738-indexer-precommit-secret-names
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-indexer
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed: Cloud Agent pre-commit secrets scanner (`pre-commit.cursor` line ~270) aborted with `invalid variable name` while expanding `${!SECRET_NAME}`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` included at least one non-identifier token after the comma-separated list (hook uses `IFS=',' read -ra`), so the scanner never ran and commits could not land.
+
+### How the agent recovered this run
+- Re-exported both env vars as a comma-separated list of `.isidentifier()` names only, then re-ran the hook (exit 0) and committed indexer artifacts.
+
+### Durable fix needed before next run
+- Platform/env: ensure injected secret-name lists contain only valid bash identifiers (no empty/trailing commas, no non-identifier tokens).
+- Optionally harden `pre-commit.cursor` to skip non-identifier names instead of aborting the whole commit.
+
+### Suggested files to inspect/change
+- Cloud Agent secret injection / `CLOUD_AGENT_INJECTED_SECRET_NAMES`
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform; document in pitfalls if unfixable in-repo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-1737-indexer-llms-blog-path-missing
 status: open
 run_date: 2026-10-31

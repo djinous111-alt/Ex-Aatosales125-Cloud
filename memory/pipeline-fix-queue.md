@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-0915-writer-utility-markers-wiped
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-vw-tharu-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` after rebrand/sync wipe.
+- Current `scripts/excalibur_blog_utility_gate.py` also lost the empty-list guard, so missing marker arrays defaulted `min_pain`/`min_outcome` to 2/3 and would BLOCK every article with count 0.
+
+### How the agent recovered this run
+- Restored marker lists synced with `excalibur_blog_human_voice_gate.py` PAIN/OUTCOME markers and `min_pain_markers`/`min_outcome_markers` in `article_required_signals`.
+- Re-applied empty-list skip guard in `excalibur_blog_utility_gate.py`.
+- Writer selfcheck: html_linter PASS, utility PASS, human_voice PASS, char_count 9010.
+
+### Durable fix needed before next run
+- Pin `pain_markers_ru` / `outcome_markers_ru` as required keys in editorial-policy schema or doctor check.
+- Keep empty-list guard in utility gate permanently; add regression test that empty arrays do not BLOCK.
+- Document wipe risk after rebrand sync in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-0905-research-wordstat-empty-and-tech-markers
 status: open
 run_date: 2026-10-31

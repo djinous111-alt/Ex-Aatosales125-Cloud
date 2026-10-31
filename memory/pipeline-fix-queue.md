@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-0916-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-vw-tharu-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Task enum does not accept typed Task `excalibur-blog-geo-qa`; official fallback is `Task(generalPurpose)` with agent+skill paths.
+
+### How the agent recovered this run
+- Ran GEO QA as generalPurpose role with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- All gates PASS; article-qa verdict PASS (score 87).
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud Task enum / automation Task types, or keep documented generalPurpose fallback in AGENTS.md / director skill as the default path.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-0915-writer-utility-markers-wiped
 status: open
 run_date: 2026-10-31

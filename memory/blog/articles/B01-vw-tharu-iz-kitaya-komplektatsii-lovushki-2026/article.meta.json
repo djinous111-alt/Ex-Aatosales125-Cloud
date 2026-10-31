@@ -12,7 +12,7 @@
     "volkswagen tharu комплектации",
     "фольксваген тару хр из китая"
   ],
-  "char_count": 9010,
+  "char_count": 9009,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,12 +29,19 @@
     "description_aeo": "Как выбрать VW Tharu из Китая: отличить Tharu XR, проверить мощность в кВт до 117,68, комплектации и русификацию до депозита."
   },
   "geo_qa": {
-    "score": 0,
-    "verdict": "PENDING",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-31",
-    "html_linter": "PENDING",
-    "slop_score": "PENDING",
-    "cannibalization": "PENDING"
+    "core_eeat": "18/20",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "utility": "PASS",
+    "human_voice": "PASS",
+    "link_verify": "PASS",
+    "fact_check": "PASS",
+    "research_notes_gate": "PASS",
+    "beginner_fit": "PASS"
   },
   "cover_family": "brand_collage"
 }

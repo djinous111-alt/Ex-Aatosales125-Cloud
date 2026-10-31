@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-0924-cover-outfit-lock-rebrand-wipe
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-vw-tharu-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- After rebrand/sync wipe, `scripts/excalibur_blog_cover_quad_prompt.py` again hardcodes `Outfit lock: thick heavyweight white hoodie`.
+- Durable fix from commit `599ab029` (`outfit_lock_from_hero` + toxic lemma validator) was lost from working tree.
+
+### How the agent recovered this run
+- Restored `outfit_lock_from_hero` / `validate_non_toxic_prompt` from commit `599ab029` into `scripts/excalibur_blog_cover_quad_prompt.py` before prompt+batch.
+- Forced HTTPS `reference_url_hosted` in `memory/cover/blog-hero.json` (HTTP historically caused Kie 500).
+- Generated ONE Kie async i2i quad; split PASS; inject ok.
+
+### Durable fix needed before next run
+- Pin `outfit_lock_from_hero` + hoodie/toxic validators in doctor or unit test so rebrand sync cannot silently restore white-hoodie lock.
+- Document in `shared/agent-pipeline-pitfalls.md`: never hardcode white hoodie; use blog-hero weather/outfit_rule.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-0916-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-31

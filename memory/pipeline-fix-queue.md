@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1737-indexer-llms-blog-path-missing
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-indexer
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` FAIL: expects `llms generator supports --blog-path`, but `scripts/excalibur_blog_llms_generator.py` has no `--blog-path` CLI flag.
+- Generator hardcodes URLs as `{site_base}/blog/{slug}/` while `memory/brief/site-brief.md` sets `blog_path: /` (canonical live URLs are `/{slug}/`).
+- Skill/agent shell examples still pass `--blog-path /`, so indexer docs and doctor contract drift from the actual script.
+
+### How the agent recovered this run
+- Ran generator with actual CLI: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Post-processed `memory/blog/llms.txt` and `memory/blog/llms-full.txt`: normalized hardcoded `/blog/{slug}/` to `/{slug}/` (blog_path=/); kept relative paths for commit hygiene; verified AS11.
+
+### Durable fix needed before next run
+- Add `--blog-path` (default `/` from site-brief) to `excalibur_blog_llms_generator.py` and build URLs as `{site_base}{blog_path}{slug}/` with normalized slashes (blog_path `/` → `/{slug}/`; `/blog` → `/blog/{slug}/`).
+- Align doctor check, indexer skill/agent shell examples, and pitfalls doc with the real CLI.
+- Regression: with `--blog-path /`, output must not contain `/blog/{slug}/`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-1735-cover-missing-corner-brand
 status: open
 run_date: 2026-10-31

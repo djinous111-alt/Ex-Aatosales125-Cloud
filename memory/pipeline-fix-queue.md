@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1342-indexer-secret-names-url-tail
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-haval-m6-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: env
+related: INC-20261031-1325-writer-secret-names-url-tail
+
+### What went wrong
+- First `git commit` of indexer artifacts failed: pre-commit secret scan expands `CLOUD_AGENT_INJECTED_SECRET_NAMES` and hits a non-identifier URL tail → bash `invalid variable name`.
+- Same env defect already reported by writer (`INC-20261031-1325`); helper scripts still missing from workspace.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers (14 names), then re-ran commit successfully (`ef59fb92`).
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_blog_filter_commit_secret_env.sh` / `scripts/excalibur_git.sh` and wire indexer/writer/publish commit docs to use them.
+- Stop injecting raw URL values into `*_SECRET_NAMES` lists in Cloud secret injection.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (restore)
+- `scripts/excalibur_git.sh` (restore)
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md` (commit preflight note)
+- Cloud env / secret injection config (ops)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-1338-cover-mcp-timeout-kie-fallback
 status: open
 run_date: 2026-10-31

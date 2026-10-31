@@ -1,0 +1,204 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита",
+      "description": "Чек-лист VW Tharu из Китая до депозита: Tharu vs XR, моторы по кВт под льготу, комплектации, русификация CNS3.0 и путь через Владивосток.",
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "как выбрать фольксваген тару из китая",
+        "фольксваген тару из китая",
+        "фольксваген тару комплектации",
+        "volkswagen tharu комплектации"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Tharu отличается от Tharu XR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это разные машины и платформы, а не \"просто комплектация\". XR компактнее и новее (с августа 2024). Перед депозитом сверьте имя модели, год и VIN – не заголовок объявления."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли брать XR ради льготного утильсбора?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Смотрите кВт в документах. Ориентир льготы физлица – до 117,68 кВт. Версия 1.5L на 81 кВт обычно проходит по мощности, 300TSI на 118 кВт – уже за порогом. Точную сумму утильсбора считайте в каталоге под лот."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до перевода депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Модель (Tharu vs XR), год XR, VIN, мощность в кВт, коробку, зимние опции по фото и бюджет русификации. Нет VIN и кВт – депозит не переводите."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько этапов от Китая до выдачи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Коротко: проверка лота → расчёт → контракт → море → СВХ во Владивостоке → платежи → СБКТС/ЭПТС → выдача. Параллельно закладывайте адаптацию мультимедиа, если ГУ китайская."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "CarPlay из коробки заменяет русификацию?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. CarPlay помогает со смартфоном, но приборка и штатное меню могут остаться на китайском. Заранее решите минимум (приборка + CarPlay) или полный путь адаптации."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой мотор спокойнее для города и зимы?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если важна плавность – чаще смотрят 1.5L с классическим 6AT. Турбо с роботом даёт динамику, но характер коробки другой. Выберите сценарий сначала, мотор – вторым шагом, и снова сверьте кВт."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать VW Tharu из Китая до депозита: комплектации и ловушки",
+      "description": "Пошаговый чек-лист до перевода депозита: отличить Tharu от Tharu XR, проверить кВт под льготу, комплектации, русификацию CNS3.0 и путь через Владивосток.",
+      "totalTime": "PT90M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "VIN лота и документы мощности в кВт (ОТТС/СБКТС/бирка)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото/спека опций: подогревы, ACC, панорама"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Расчёт платежей в каталоге Авто-Сейлс под конкретный лот"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Точное имя модели: большой Tharu или Tharu XR"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Бюджет русификации CNS3.0 отдельно от цены лота"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чеклист must-have опций под климат и сценарий"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Разведите две машины под одним именем",
+          "text": "На пальцах: \"Tharu\" у SAIC Volkswagen – семейство, не одна комплектация. Большой Tharu ближе к платформе вроде Tiguan (MQB A). Tharu XR компактнее (MQB A0 / уровень T-Cross/Taos): длина около 4355 мм, багажник 445–1443 л.",
+          "url": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#разведите-две-машины-под-одним-именем"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выберите мотор по киловаттам, а не по \"лошадям\"",
+          "text": "Утильсбор – это платёж при ввозе авто в РФ. Для физлица льготный режим завязан на мощность и другие условия постановления; важный ориентир – порог 117,68 кВт. Лошадиные силы в рекламе округляют красиво, а таможня смотрит кВт в документах без \"округления в вашу пользу\".",
+          "url": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#выберите-мотор-по-киловаттам-а-не-по-лошадям"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Сравните комплектации XR без китайского тумана",
+          "text": "В Китае уровни зовут Ruijin, Ruiyi, Ruiyi Plus, Ruixiang. Переведите на must-have для РФ: подогрев сидений и руля, климат, камеры, адаптивный круиз (ACC), панорама по желанию. База беднее по теплу; топ ближе к \"зимнему\" набору.",
+          "url": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#сравните-комплектации-xr-без-китайского-тумана"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Обойдите ловушки до депозита",
+          "text": "Типичная ошибка – верить красивой цене и идти сразу на перевод. Вот что ломает сделку уже на берегу:",
+          "url": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#обойдите-ловушки-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Заложите русификацию заранее, а не после выдачи",
+          "text": "Китайская мультимедиа CNS3.0 – \"мозг\" экрана и меню. В штатной прошивке русского часто нет, навигация вне Китая по GPS мертвая или сыплет попапами. CarPlay помогает со смартфоном, но не заменяет русскую приборку.",
+          "url": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#заложите-русификацию-заранее-а-не-после-выдачи"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Сверьте карточку лота до оплаты",
+          "text": "Перед переводом денег пройдите короткий сценарий – так вы отсеете \"не тот Tharu\" и странные опции:",
+          "url": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#сверьте-карточку-лота-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Пройдите путь Китай → Владивосток без сюрпризов по этапам",
+          "text": "Схема на пальцах:",
+          "url": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#пройдите-путь-китай-владивосток-без-сюрпризов-по-этапам"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Соберите чеклист перед первым депозитом",
+          "text": "Когда чеклист заполнен, вы получите понятный результат: либо лот живой, либо уходите без перевода. Используйте пункты ниже как финальный фильтр:",
+          "url": "https://avtosales125.ru/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/#соберите-чеклист-перед-первым-депозитом"
+        }
+      ]
+    }
+  ]
+}

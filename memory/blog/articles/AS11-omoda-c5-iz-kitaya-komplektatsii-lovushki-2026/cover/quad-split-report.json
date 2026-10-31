@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1285,
+      725
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 725,
+        "end": 756
+      },
+      "v_gutter_px": {
+        "start": 1285,
+        "end": 1302
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1285,
+          "bottom": 725
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1285,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс сверяет комплектацию Omoda C5 до депозита у порта Владивосток",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1302,
+          "top": 8,
+          "right": 2560,
+          "bottom": 716
+        },
+        "raw_box_px": {
+          "left": 1302,
+          "top": 0,
+          "right": 2560,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: задача и бюджет до разговора о лоте Omoda C5",
+        "h2_anchor": "Зафиксируйте задачу до разговора о лоте"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 34,
+          "top": 756,
+          "right": 1250,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 756,
+          "right": 1285,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема сверки словаря Актив/Драйв/Стиль с китайской спекой Omoda C5",
+        "h2_anchor": "Сверьте словарь Актив / Драйв / Стиль с китайской спекой"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1323,
+          "top": 756,
+          "right": 2539,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1302,
+          "top": 756,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист мотор и коробка Omoda C5 до предоплаты",
+        "h2_anchor": "Сравните мотор и коробку до любой предоплаты"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу до разговора о лоте",
+    "injected inline_2 after H2 — Сверьте словарь Актив / Драйв / Стиль с китайской спекой",
+    "injected inline_3 after H2 — Сравните мотор и коробку до любой предоплаты"
+  ]
+}

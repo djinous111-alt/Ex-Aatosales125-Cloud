@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS11",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "«Драйв» по скрину — а в лоте база?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс сверяет комплектацию Omoda C5 до депозита у порта Владивосток",
+      "scene_hint": "EXACT face+glasses from reference; CHANGE clothes: charcoal softshell jacket over navy henley (NOT white hoodie, NOT tank top from reference), cool autumn Vladivostok port air; action selfie holding phone with fake Omoda C5 China lot card (Актив/Драйв/Стиль trim labels vs options list); torn paper strip with red highlight on word «Драйв»; clear scotch tape; pink sticky note «сверь до депозита»; shocked cat meme cutout; Cyrillic plaque hook; tiny corner brand avto-sales125.ru catalog (NOT Telegram); no toxic words, no Wordstat/Metrika",
+      "meme_caption_ru": "Сначала спека"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу до разговора о лоте",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 comparison table UI (NO hero face): columns «Задача / Бюджет / Привод / Срок» vs «лот из Китая»; sticky note «до звонка»; tape corner; Cyrillic labels only; Omoda C5 import checklist vibe",
+      "alt": "Таблица: задача и бюджет до разговора о лоте Omoda C5"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте словарь Актив / Драйв / Стиль с китайской спекой",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram 16:9 (NO hero): Актив → Драйв → Стиль mapped to China option codes / equipment list; arrows «название ≠ дилерская машина»; mini catalog card inset; sticky «спека»; tape; Cyrillic only",
+      "alt": "Схема сверки словаря Актив/Драйв/Стиль с китайской спекой Omoda C5"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните мотор и коробку до любой предоплаты",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board 16:9 (NO hero): checkboxes Мотор / CVT vs робот / привод / VIN / предоплата стоп; red X on «оплата по названию trim»; highlighter on «до депозита»; scotch tape; Cyrillic only",
+      "alt": "Чеклист мотор и коробка Omoda C5 до предоплаты"
+    }
+  }
+}

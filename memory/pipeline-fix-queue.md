@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1735-cover-missing-corner-brand
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-cover
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- Kie i2i quad canvas for AS11 omitted corner catalog brand `avto-sales125.ru` despite prompt + `blog-hero.json` `cover_corner_brand`.
+- No durable stamp helper in `excalibur_blog_quad_apply.py` / split (AS10 claimed "corner stamp" durable, but script still missing).
+
+### How the agent recovered this run
+- One-shot PIL overlay on `cover/cover.png` (+ top-left panel of `canvas-quad.png`): navy pill + `avto-sales125.ru`. No second image job.
+
+### Durable fix needed before next run
+- Add default corner stamp step in `excalibur_blog_cover_quad_split.py` or `excalibur_blog_quad_apply.py` reading `memory/cover/blog-hero.json` → `cover_corner_brand.text`.
+- Skip stamp only if OCR/heuristic already detects brand string.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261031-1736-cover-outfit-lock-white-hoodie
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-cover
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie` in the assembled prompt, conflicting with agent `scene_hint` (charcoal softshell / navy henley for Vladivostok port) and `blog-hero.json` `outfit_rule`.
+- AS10 fixer claimed outfit_lock fix, but the white-hoodie string remains in the prompt builder.
+
+### How the agent recovered this run
+- Explicit anti-hoodie scene_hint won this generation (charcoal softshell visible). No re-gen.
+
+### Durable fix needed before next run
+- Remove hardcoded white hoodie outfit lock; build outfit line from `blog-hero.json` outfit_rule + cover `scene_hint` weather/topic only.
+- Regression test: prompt must not contain `white hoodie` unless scene_hint requests it.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-1730-schema-url-placeholders-undocumented
 status: open
 run_date: 2026-10-31

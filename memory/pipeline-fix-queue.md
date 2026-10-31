@@ -6,6 +6,102 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1338-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-haval-m6-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync Cursor MCP `gpt-image-2` (i2i, 16:9, 2K, input_urls) returned HTTP MCP -32001 Request timed out with no URL/task_id in the tool response.
+- No recoverable URL in local MCP/tool logs within the poll window.
+
+### How the agent recovered this run
+- Used preferred batch path `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → recordInfo poll).
+- Kie task_id `7c9c92190a03be43220d8e45fc07a712` → success URL → `quad_apply.py --inject-html` PASS.
+
+### Durable fix needed before next run
+- Prefer Kie async for Cloud cover by default (already noted in `quad-mcp-batch.json`); document in cover skill that first -32001 is not a blocker and Kie script is the recovery path.
+- If MCP gains async create/status tools, wire cover agent to them before sync gpt-image-2.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy / preferred_image_flow)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261031-1339-cover-outfit-lock-white-hoodie
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-haval-m6-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcoded `Outfit lock: thick heavyweight white hoodie`, conflicting with `blog-hero.json` outfit_rule (weather/topic) and cover agent instruction not to hardcode white hoodie.
+- `excalibur_blog_quad_manifest.py` default `scene_hint` also defaults to «белое плотное худи».
+
+### How the agent recovered this run
+- Patched prompt builder to require scene_hint WEATHER+OUTFIT / blog-hero outfit_rule and explicitly forbid default white hoodie.
+- Set AS10 cover scene_hint to charcoal softshell over navy henley (Vladivostok port rain/fog).
+
+### Durable fix needed before next run
+- Align `quad_manifest.py` default cover scene_hint with outfit_rule (no white hoodie default).
+- Add doctor/check that generated prompt does not contain hardcoded `white hoodie` lock when scene_hint provides OUTFIT.
+- Sync `.cursor/skills` / agent docs with weather+topic outfit rule.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261031-1340-cover-missing-corner-brand
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-haval-m6-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: qa
+
+### What went wrong
+- Generated cover panel lacked readable corner footer `avto-sales125.ru` after Kie i2i split.
+
+### How the agent recovered this run
+- PIL overlay of subtle catalog footer pill `avto-sales125.ru` onto `cover/cover.png` (no second image job).
+
+### Durable fix needed before next run
+- Strengthen prompt corner-brand requirement and/or add post-split optional PIL brand stamp in `quad_apply` / split when OCR/heuristic detects missing corner brand.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `memory/cover/cover-design-code.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261031-1331-schema-secret-scan-jsonld
 status: open
 run_date: 2026-10-31

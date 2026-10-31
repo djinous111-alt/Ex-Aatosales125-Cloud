@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "«Максималка» без сверки — лотерея",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с чек-листом Haval M6: крючок про лотерею «максималки» до депозита",
+      "scene_hint": "WEATHER: rainy grey Vladivostok port fog; OUTFIT: matte charcoal softshell over navy henley (NOT white hoodie, NOT reference tank), NO cap NO hood, glasses on; reference EXACT face; holds phone with fake catalog card Haval M6 Plus + torn checklist scrap taped; Cyrillic plaque ««Максималка» без сверки — лотерея» yellow highlight on «лотерея»; sticky «до депозита»; shocked meme + facepalm sticker; corner ONLY avto-sales125.ru; NEVER Wordstat NEVER Metrika",
+      "meme_caption_ru": "Сначала чеклист"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните российскую Оптимум и китайскую M6 Plus до заказа",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns РФ Оптимум | CN M6 Plus; rows линейка/кВт/КПП/опции/экран/гарантия; yellow highlight row «не копия»; pink sticky «сверь»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: российская Haval M6 Оптимум vs китайская M6 Plus до заказа"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте мощность в кВт и условия льготного утильсбора",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU checklist board: паспорт кВт → порог 117,68 → льготный утиль да/нет → стоп если красный; red stamp «без кВт — стоп»; sticky «110 кВт?»; mini customs scrap; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист мощности в кВт и льготного утильсбора для Haval M6"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите механику или робот до заказа",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "2-branch workflow diagram RU: 6MT ←лот→ 7DCT; notes город/трасса/сервис; arrow «решить до депозита»; sticky «КПП в ПТС»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема выбора КПП Haval M6: механика 6MT или робот 7DCT до заказа"
+    }
+  }
+}

@@ -52,7 +52,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → pool=9, unwritten AS01/AS03–AS07
 - `python3 scripts/excalibur_blog_today.py` → EXCALIBUR_TOPIC_SELECTION=ready, SUGGESTED=AS01
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
-commit: pending-parent-commit
+commit: d1dc94e9
 
 
 
@@ -116,7 +116,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py` (hydrate+redact unit)
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check`
 - `python3 scripts/excalibur_blog_doctor.py` → paramiko OK
-commit: pending-parent-commit
+commit: d1dc94e9
 
 ## INC-20261101-2128-indexer-llms-blog-path-doctor-drift
 status: fixed
@@ -172,7 +172,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows both flags
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
 - `rg` no stale `--blog-path /` in indexer skill/agent
-commit: pending-parent-commit
+commit: d1dc94e9
 
 ## INC-20261101-0024-cover-mcp-timeout-kie-fallback
 status: fixed
@@ -225,7 +225,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - `rg` no `Outfit lock: thick heavyweight white hoodie`
 - `rg` -32001/Kie guidance in cover skill
-commit: pending-parent-commit
+commit: d1dc94e9
 
 
 ## INC-20261101-0016-geo-qa-typed-task-unavailable
@@ -269,7 +269,7 @@ files_changed:
 - `.cursor/skills/director-excalibur-blog/SKILL.md`
 checks_run:
 - `rg` generalPurpose + geo-qa guidance in AGENTS/pitfalls/director skill
-commit: pending-parent-commit
+commit: d1dc94e9
 
 ## INC-20261101-0016-geo-qa-utility-markers-rebrand-wipe
 status: fixed
@@ -317,7 +317,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` markers OK
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
-commit: pending-parent-commit
+commit: d1dc94e9
 
 ## INC-20261101-2107-research-wordstat-gate-quirks
 status: fixed
@@ -369,7 +369,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/AS02-encar-na-russkom-kak-chitat` PASS technical=False
 - `rg` cluster-first/totalCount/N/A in research+scout skills
-commit: pending-parent-commit
+commit: d1dc94e9
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1718-writer-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-writer
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_utility_gate.py` counts `pain_markers_ru` / `outcome_markers_ru` from `memory/brief/editorial-policy.json`.
+- Policy file has neither list, so counts stay 0 and article gate always ERROR (`pain_markers=0 < 2`, `outcome_markers=0 < 3`) even when human-voice markers are present.
+- Same BLOCK reproduces on previously published AS09 article.html in this workspace.
+
+### How the agent recovered this run
+- Relied on `excalibur_blog_human_voice_gate.py` PASS (hardcoded PAIN/OUTCOME markers) + html_linter/slop PASS.
+- Did not invent fake policy keys mid-writer; left durable fix for fixer.
+- Article AS11 delivered with char_count in range and human-voice grounded in research-notes.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` arrays to `memory/brief/editorial-policy.json` (align with human_voice lists or shared constants).
+- Or make utility gate fall back to the same marker tuples as human_voice when policy lists are empty.
+- Document in pitfalls so Writer/GEO QA do not treat empty-policy BLOCK as content failure.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-1715-research-tech-markers-false-positive
 status: open
 run_date: 2026-10-31

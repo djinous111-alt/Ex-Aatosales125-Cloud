@@ -7,10 +7,12 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 from asset_download import download_url_bytes
 from excalibur_repo_paths import repo_relative
@@ -32,7 +34,47 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
+
+# Placeholder forms used in schema.jsonld / meta: ${PUBLIC_SITE_URL} or ${A|B}.
+_ENV_PLACEHOLDER_RE = re.compile(r"\$\{([A-Z0-9_]+(?:\|[A-Z0-9_]+)*)\}")
+
+
+def hydrate_env_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand ${ENV} / ${A|B} in-memory. Does not mutate files on disk."""
+
+    def repl(match: Any) -> str:
+        for key in match.group(1).split("|"):
+            key = key.strip()
+            value = (env.get(key) or os.environ.get(key) or "").strip()
+            if value:
+                return value
+        return match.group(0)
+
+    return _ENV_PLACEHOLDER_RE.sub(repl, text)
+
+
+def redact_public_site_url(url: str, public_base: str) -> str:
+    """Rewrite absolute public host to ${PUBLIC_SITE_URL}/… for ledger/git hygiene."""
+    url = (url or "").strip()
+    base = (public_base or "").rstrip("/")
+    if not url:
+        return url
+    if base and url.startswith(base):
+        return "${PUBLIC_SITE_URL}" + url[len(base) :]
+    parts = urlsplit(url)
+    base_parts = urlsplit(base) if base else None
+    if base_parts and parts.netloc and parts.netloc == base_parts.netloc:
+        suffix = parts.path or "/"
+        if parts.query:
+            suffix += "?" + parts.query
+        if parts.fragment:
+            suffix += "#" + parts.fragment
+        return "${PUBLIC_SITE_URL}" + suffix
+    return url
 
 
 def _read_env_file(path: Path) -> dict[str, str]:
@@ -192,7 +234,6 @@ def load_article(article_dir: Path) -> dict:
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:
@@ -511,7 +552,13 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     return out
 
 
-def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
+def upsert_publish_ledger(
+    root: Path,
+    payload: dict[str, Any],
+    permalink: str,
+    *,
+    public_base: str = "",
+) -> None:
     if not permalink:
         return
     ledger_path = root / "shared" / "published-articles.md"
@@ -528,7 +575,8 @@ def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -
 
     topic_id = str(payload.get("topic_id") or "").upper()
     slug = str(payload.get("slug") or "")
-    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
+    safe_url = redact_public_site_url(permalink, public_base)
+    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {safe_url} | published |"
     lines = ledger_path.read_text(encoding="utf-8").splitlines()
     replaced = False
     for index, line in enumerate(lines):
@@ -568,15 +616,30 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
+    env = load_env(root)
     payload = load_article(article_dir)
+    # Hydrate schema ${ENV} placeholders in-memory only — never rewrite schema.jsonld on disk.
+    if payload.get("schema_jsonld"):
+        payload["schema_jsonld"] = hydrate_env_placeholders(str(payload["schema_jsonld"]), env)
     php = build_php(payload)
 
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
+        unresolved = _ENV_PLACEHOLDER_RE.findall(str(payload.get("schema_jsonld") or ""))
+        print(
+            json.dumps(
+                {
+                    "dry_run": True,
+                    "slug": payload["slug"],
+                    "title": payload["title"],
+                    "schema_placeholders_unresolved": unresolved,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
@@ -596,18 +659,21 @@ def main() -> int:
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+    safe_permalink = redact_public_site_url(permalink, public)
+    # Keep raw_output free of absolute PUBLIC host for secret-scan / git hygiene.
+    safe_out = out.replace(public.rstrip("/"), "${PUBLIC_SITE_URL}") if public else out
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
-        "permalink": permalink,
+        "permalink": safe_permalink,
         "publish_method": "ssh",
         "cover_evidence": payload.get("cover_evidence", {}),
-        "raw_output": out,
+        "raw_output": safe_out,
         "verdict": "pass" if "OK post=" in out else "fail",
     }
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if result["verdict"] == "pass":
-        upsert_publish_ledger(root, payload, permalink)
+        upsert_publish_ledger(root, payload, permalink, public_base=public)
     return 0 if result["verdict"] == "pass" else 1
 
 

@@ -122,19 +122,31 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE MCP (с Kie fallback)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
+`CallMcpTool` → MCP-KV / `gpt-image-2`  
 Аргументы = `jobs[0].mcp_args` из batch.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
+**Outfit:** prompt builder и `scene_hint` / `blog-hero.outfit_rule` задают одежду под погоду+тему. **Не** фиксировать white hoodie — это конфликтует со scene_hint.
+
+**MCP `-32001` / Request timed out (без URL в ответе/логе):**
+1. Не ждать 5+ минут пустого polling и не делать apply/split без URL.
+2. Сразу durable fallback — async Kie API из того же `cover/quad-mcp-batch.json`:
+   ```bash
+   python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+     --article-dir memory/blog/articles/<topic_id>-<slug>
+   ```
+3. После success → `excalibur_blog_quad_apply.py --url … --inject-html`.
+4. Максимум 1 sync MCP попытка → Kie; не спамить sync retry на `-32001`.
+
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<MCP or Kie result url>" \
   --inject-html
 ```
 
@@ -179,6 +191,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - нет reference_url_hosted
 - MCP text-only (без input_urls)
 - 4 отдельные генерации
+- MCP `-32001` **и** Kie fallback тоже fail / нет URL
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
 

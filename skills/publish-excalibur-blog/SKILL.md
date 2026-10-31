@@ -19,21 +19,34 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | QA PASS | `article-qa.md` → verdict PASS |
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
-| Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Schema | `schema.jsonld` (может содержать `${PUBLIC_SITE_URL}` / `${CATALOG_URL|…}` — hydrate in-memory) |
+| Credentials | `memory/site.env.local` **или** Cloud Secrets → bootstrap (SSH_*, PUBLIC_SITE_URL). Legacy FTP_* не использовать. |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| Deps | `paramiko` (requirements.txt + cloud-agent-install.sh) |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+## Env bootstrap (Cloud)
+
+Если `memory/site.env.local` отсутствует:
+
+```bash
+python3 scripts/excalibur_blog_site_env_bootstrap.py
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Файл gitignored; значения не печатать. `SSH_PATH` мапится в `SSH_ROOT` (часто `.`). Не коммитить `site.env.local`.
 
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "${PUBLIC_SITE_URL}"
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
@@ -41,25 +54,27 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
 
-Проверь: slug, title, размер PHP payload без ошибок.
+Проверь: slug, title, размер PHP payload; `schema_placeholders_unresolved` должен быть пуст после hydrate из env.
 
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
 Скрипт:
+- гидрирует `${ENV}` / `${A|B}` в schema **in-memory** (не переписывает `schema.jsonld` на диске);
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
-- пишет post meta `_excalibur_blog_schema_jsonld`.
+- пишет post meta `_excalibur_blog_schema_jsonld`;
+- в ledger / `wp-publish-result.json` пишет URL как `${PUBLIC_SITE_URL}/…` (redaction helper).
 
 ### 4. Cloud WebFetch Fallback
 

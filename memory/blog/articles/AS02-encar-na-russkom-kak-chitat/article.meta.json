@@ -1,0 +1,43 @@
+{
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "title": "Encar на русском: как читать объявления и не купить кота в мешке",
+  "h1": "Encar на русском: как читать объявления и не купить \"кота в мешке\"",
+  "description": "Encar на русском: как читать карточку encar.com – цена в 만원, 연식, схема X/W, страховая история и стоп до депозита. Чеклист новичка от Авто-Сейлс.",
+  "cover_alt": "Герой Авто-Сейлс со смартфоном и карточкой Encar, ирония кот в мешке, Владивосток",
+  "primary_query": "encar на русском",
+  "secondary_queries": [
+    "как читать encar",
+    "проверка авто корея",
+    "encar com на русском"
+  ],
+  "char_count": 8959,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как читать объявления Encar на русском",
+    "чеклист карточки encar.com до депозита",
+    "проверка авто из Кореи по схеме Encar"
+  ],
+  "meta_ab": {
+    "title_seo": "Encar на русском: как читать объявления без ошибок",
+    "title_ctr": "🚗 Encar на русском: как не купить кота в мешке по красивому переводу?",
+    "title_aeo": "Как читать Encar на русском и проверить объявление до депозита?",
+    "description_seo": "Encar на русском: чеклист карточки encar.com – цена в 만원, 연식, схема X/W, страховая история и стоп-правила до депозита. Гайд Авто-Сейлс.",
+    "description_ctr": "⚡ Красивый перевод не равен проверке. Цена в вонах, схема кузова и Carhistory до предоплаты – короткий чеклист внутри.",
+    "description_aeo": "Encar на русском читают через перевод encar.com: умножают 만원 на 10 000, сверяют 연식 с выпуском и схему X/W до депозита."
+  },
+  "geo_qa": {
+    "score": 88,
+    "verdict": "PASS",
+    "date": "2026-11-01",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "core_eeat": "19/20",
+    "beginner_fit": "PASS"
+  },
+  "cover_family": "brand_collage"
+}

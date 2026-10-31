@@ -1,6 +1,8 @@
 # Excalibur BLOG — карта задач и субагентов
 
-Директор **не** Task. Все роли ниже — `Task(<name>)`.
+Директор **не** Task. Все роли ниже — ideally `Task(<name>)`.
+
+**Cloud reality:** typed `excalibur-blog-*` часто недоступны → канон `Task(generalPurpose)` + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` (см. AGENTS.md). Это относится и к `excalibur-blog-geo-qa`.
 
 ## Схема
 

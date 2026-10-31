@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "VIN и документам. На практике машина может быть \"2021\" в карточке, а по выпуску ближе к другой границе",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "90 дней",
+      "kind": "metric_or_duration",
+      "context": "читается ограниченное время – в гайде площадки до 90 дней после покупки отчёта. Старый скрин не доказательс",
+      "verified": true,
+      "reason": "Numerical value '90' matched in fact-bank context"
+    },
+    {
+      "fact": "20 минут",
+      "kind": "metric_or_duration",
+      "context": "реальном заказе из Кореи этот чеклист занимает 15–20 минут на лот. Если перевод коверкает техполе – смотрите",
+      "verified": true,
+      "reason": "Numerical value '20' matched in fact-bank context"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "исла сверяйте с корейским текстом. Цена N만원 = N × 10 000 вон без доставки и таможни. \"무사고 / без ДТП\" часто",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "24 500 000",
+      "kind": "large_number",
+      "context": "сло на 10 000 – получите воны. Например, 2450만원 = 24 500 000 ₩. Это цена лота в Корее, без логистики и растамо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2450",
+      "kind": "large_number",
+      "context": "огистики и растаможки. Типичная ошибка – принять \"2450\" за рубли или \"две тысячи\" и уже торговаться. цен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 200",
+      "kind": "large_number",
+      "context": "тчёт по страховым случаям платный (ориентир около 2 200 ₩ с НДС). ДТП без извещения страховой туда не поп",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

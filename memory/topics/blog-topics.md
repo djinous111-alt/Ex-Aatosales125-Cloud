@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — VW Tharu из Китая
+
+- **priority:** P0
+- **slug:** vw-tharu-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать VW Tharu из Китая: комплектации и ловушки до депозита
+- **primary_query:** как выбрать фольксваген тару из китая
+- **secondary_queries:** фольксваген тару из китая, фольксваген тару комплектации, volkswagen tharu комплектации, фольксваген тару хр из китая
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Tharu / Tharu XR и чем они отличаются на бумаге
+  2. Какие комплектации и моторы реально вывозят из Китая в 2026
+  3. Ловушки до депозита: мощность под утиль, экспортная версия, русификация
+  4. Что сверить в карточке и фото до оплаты (пробег, опции, VIN-логика)
+  5. Путь через Владивосток: СВХ, документы, когда считать пошлину в каталоге
+  6. Чек-лист новичка перед первым депозитом
+- **faq_hints:** чем Tharu отличается от Tharu XR; можно ли брать версию ради льготного утильсбора; что проверить до перевода депозита; сколько roughly этапов от Китая до выдачи
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у кроссовера VW Tharu на фоне порта Владивостока, плашка «до депозита», угол avto-sales125.ru
+- **wordstat_signal:** parent RU «фольксваген тару» 44349; EN «volkswagen tharu» 30501 / «vw tharu» 9354; mid «из китая» 2719 / «комплектации» 1171; narrow how-to totalCount-only/`{}` (low-result)
+- **live_check:** slug FREE; dedicated Tharu utility post absent on PUBLIC_SITE_URL REST 2026-10-31

@@ -620,3 +620,41 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261031-1348-publish-ssh-root-enoent
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-haval-m6-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: env
+
+### What went wrong
+- Cloud Secret `SSH_PATH`/`SSH_ROOT` points to a remote path that does not exist in the SSH login cwd (`ENOENT` on bootstrap upload).
+- Publish script warned and retried at `.` (existing durable fallback); Cloud Secret still not set to `.`.
+- `memory/site.env.local` was missing at start of publish; rebuilt from process env / Cloud Secrets (gitignored).
+- `paramiko` missing in image until `pip install --break-system-packages paramiko`.
+
+### How the agent recovered this run
+- Recreated `memory/site.env.local` from env (no quotes); mapped `SSH_PATH` → `SSH_ROOT`.
+- Installed paramiko; dry-run OK (~6.7MB PHP).
+- Publish succeeded via SSH + HTTP (post 4711); auto-fallback to `.` handled ENOENT; no WebFetch needed; HEAD 200.
+- Denylist LIVE posts (4699/4687/4681/4675/4669/4663+) not touched; new slug was FREE.
+
+### Durable fix needed before next run
+- Set Cloud Secret publish root to `.` (or remove invalid panel path) so fallback warning stops.
+- Ensure `paramiko` is in the environment image / install script so publish does not need ad-hoc pip.
+- Keep documenting that committed ledger/result URLs use `${PUBLIC_SITE_URL}` placeholder.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` / `SSH_PATH` only; no values recorded)
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py` (fallback already present)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

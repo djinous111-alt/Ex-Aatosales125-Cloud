@@ -1,7 +1,7 @@
 # Promotion checklist — AS10 haval-m6-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: (pending publish)  
-Live URL: /haval-m6-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-31  
+Live URL: ${PUBLIC_SITE_URL}/2026/10/31/haval-m6-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • 110 кВт и порог 117,68: редкий льготный случай среди Haval из Китая
 • Китайский экран / нет гарантии РФ — стоп до депозита
 
-Читать: /haval-m6-iz-kitaya-komplektatsii-lovushki-2026/
+Читать: ${PUBLIC_SITE_URL}/2026/10/31/haval-m6-iz-kitaya-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply` для AS10 — opportunities_found=0.
 - llms.txt / llms-full.txt: `--site-base "" --blog-path /` → URL вида `/{slug}/`.
-- Publish: не запускался (зона publish-агента).
+- Publish: PASS — WP post_id=4711; featured=4712; inline=4713/4714/4715; schema_meta=ok; HEAD=200.

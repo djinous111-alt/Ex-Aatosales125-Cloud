@@ -33,6 +33,10 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 - cover, schema, publish, полный рерайт без FIX-цикла writer.
 
+## Cloud Task fallback
+
+Если Директор запускает эту роль как `Task(generalPurpose)` (typed `excalibur-blog-geo-qa` нет в Cloud enum) — всё равно читай этот agent-md + skill и выполняй только GEO QA. Не стартуй cover/schema/publish из этой роли.
+
 ## Skill
 
 `skills/excalibur-geo-qa/SKILL.md`

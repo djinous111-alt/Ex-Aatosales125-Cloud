@@ -1,0 +1,696 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-31",
+    "today_ru": "31.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-02",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-31 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "haval-m6-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Haval M6 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать хавал м6 из китая",
+    "secondary_queries": [
+      "хавал м6 комплектации",
+      "хавал м6 двигатель",
+      "хавал м6 2026",
+      "хавал м6 механика"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать хавал м6 из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval M6 из Китая: цены, заказ и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/haval-m6-iz-kitaya/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval из Китая: цены, отзывы, как купить и пригнать в 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/m/ma/mashina-kitaj-khaval.html",
+          "snippet": "Закажите Haval M6 из Китая с выгодой до 600 тыс. ₽. Обзор характеристик, цены в 2026 году и доставка под ключ. Рассчитайте стоимость авто!"
+        },
+        {
+          "title": "Продажа Haval M6 из Китая | Цены на Хавейл М6 в Китае",
+          "url": "https://www.drom.ru/world/china/haval/m6/",
+          "snippet": "В этой статье разберём все легальные способы приобретения Haval из Китая в 2026 году, сравним популярные модели и расскажем, как избежать подводных камней."
+        },
+        {
+          "title": "Продажа Haval из Китая | Статистика цен на Хавейл в Китае",
+          "url": "https://www.drom.ru/world/china/haval/",
+          "snippet": "Актуальные предложения Haval M6 под заказ из Китая с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости Haval M6 с доставкой в Россию."
+        },
+        {
+          "title": "Купить Haval M6 из Китая — от 1 301 000 ₽, 100 авто — EncarRus",
+          "url": "https://encarrus-china.ru/haval/haval-m6/",
+          "snippet": "Актуальные предложения Haval под заказ из Китая с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости Haval с доставкой в Россию."
+        },
+        {
+          "title": "Хавал М6 2026: полные ТТХ, цены и сравнение с конкурентами",
+          "url": "https://asia-motors-hub.vercel.app/articles/t/tt/ttkh-khaval-m6-2024.html",
+          "snippet": "Другие Каталог Haval M6 из Китая: 100 авто от 1 301 000 ₽ под ключ — с растаможкой, ЭПТС и доставкой по России."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать хавал м6 из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval M6 из Китая: цены, заказ и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/haval-m6-iz-kitaya/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval из Китая: цены, отзывы, как купить и пригнать в 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/m/ma/mashina-kitaj-khaval.html",
+          "snippet": "Закажите Haval M6 из Китая с выгодой до 600 тыс. ₽. Обзор характеристик, цены в 2026 году и доставка под ключ. Рассчитайте стоимость авто!"
+        },
+        {
+          "title": "Продажа Haval M6 из Китая | Цены на Хавейл М6 в Китае",
+          "url": "https://www.drom.ru/world/china/haval/m6/",
+          "snippet": "В этой статье разберём все легальные способы приобретения Haval из Китая в 2026 году, сравним популярные модели и расскажем, как избежать подводных камней."
+        },
+        {
+          "title": "Купить Haval M6 из Китая — от 1 301 000 ₽, 100 авто — EncarRus",
+          "url": "https://encarrus-china.ru/haval/haval-m6/",
+          "snippet": "Актуальные предложения Haval M6 под заказ из Китая с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости Haval M6 с доставкой в Россию."
+        },
+        {
+          "title": "Автомобили Haval из Китая — цена с доставкой Japan Life",
+          "url": "https://jplife.ru/china/haval/",
+          "snippet": "Haval M6 из Китая: что сейчас продаётся На 25.10.2026 в каталоге EncarRus 100 автомобилей Haval M6 2021-2024 годов, цена под ключ от 1 301 000 до 1 934 000 ₽."
+        },
+        {
+          "title": "Купить Haval M6 из Китая — цена, подбор и доставка под заказ | АТП.АВТО",
+          "url": "https://atp-auto.ru/avto-iz-kitaya/haval/m6/",
+          "snippet": "Каталог помогает быстро выбрать подходящий автомобиль. Перед покупкой менеджер проверит наличие, комплектацию и рассчитает итоговую цену с доставкой, пошлиной, утильсбором и оформлением."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать хавал м6 из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval из Китая: цены, отзывы, как купить и пригнать в 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/m/ma/mashina-kitaj-khaval.html",
+          "snippet": ""
+        },
+        {
+          "title": "Haval M6 из Китая: цены, заказ и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/haval-m6-iz-kitaya/",
+          "snippet": "В этой статье разберём все легальные способы приобретения Haval из Китая в 2026 году, сравним популярные модели и расскажем, как избежать подводных камней."
+        },
+        {
+          "title": "Хавал M6: Полные Характеристики 2026, Плюсы И Минусы",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-m6-kharakteristiki.html",
+          "snippet": "Закажите Haval M6 из Китая с выгодой до 600 тыс. ₽. Обзор характеристик, цены в 2026 году и доставка под ключ. Рассчитайте стоимость авто!"
+        },
+        {
+          "title": "Haval M6 2026: новый кроссовер дешевле миллиона рублей? Разбираем ...",
+          "url": "https://auto.yuga.ru/articles/2609.html",
+          "snippet": "В этом материале мы подробно разберём все технические характеристики Haval M6 — от габаритов и клиренса до особенностей подвески и мультимедийной системы."
+        },
+        {
+          "title": "Haval M6 2026: Цены И Комплектации Нового Кузова — Обзор Модели",
+          "url": "https://stokoney-haval.ru/about/media/haval-m6-2026-tseny-komplektatsii-i-chestnyi-obzor-novinki/",
+          "snippet": "Представьте: компактный SUV с турбомотором, просторным салоном и багажником на 800 литров — и всё это заметно дешевле, чем Jolion. Звучит как фантастика? А вот и нет. Haval M6 2026 — модель, давно обкатанная в Китае, а летом 2025 года получившая локализованное производство в Калужской области."
+        },
+        {
+          "title": "Haval M6 2026 обзор: что изменилось, характеристики и стоит ли брать",
+          "url": "https://haval-dynamica35.ru/blog/haval-m6-2026-obzor",
+          "snippet": "Подробный обзор HAVAL M6 2026: новые опции, светодиодная оптика, разбор комплектаций Comfort, Tech и Lux. Реальный расход топлива, гарантия и ответы на частые вопросы."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать хавал м6 из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ufis/DE09/2026/M6 at master · kolei/ufis · GitHub",
+          "url": "https://github.com/kolei/ufis/tree/master/DE09/2026/M6",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - Anton111111/haval_m6: Скрипт для установки дополнительных ...",
+          "url": "https://github.com/Anton111111/haval_m6",
+          "snippet": "Contribute to kolei/ufis development by creating an account on GitHub."
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "Скрипт для установки дополнительных приложений и функций на головное устройство (ГУ) автомобиля Haval M6. Автор скрипта не несет ответственности за выход из строя головного устройства. Все действия выполняются на ваш страх и риск."
+        },
+        {
+          "title": "ufis/articles/de2026_example.md at master · kolei/ufis · GitHub",
+          "url": "https://github.com/kolei/ufis/blob/master/articles/de2026_example.md",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "ws2812b/doc/image/logo.svg at main · libdriver/ws2812b · GitHub",
+          "url": "https://github.com/libdriver/ws2812b/blob/main/doc/image/logo.svg",
+          "snippet": "Я этот архив распаковал и включил в этот репозиторий в каталог DE09/2026/M1. Модуль 2. Разработка базы данных на основании ER-диаграммы. Создайте базу данных на основании разработанной ER-диаграммы, используя предпочтительную платформу, на сервере баз данных, который вам предоставлен."
+        },
+        {
+          "title": "FMCW_Radar_Ake/polar_fft.png at master · ake1999/FMCW_Radar_Ake · GitHub",
+          "url": "https://github.com/ake1999/FMCW_Radar_Ake/blob/master/polar_fft.png",
+          "snippet": "WS2812B full-featured driver library for general-purpose MCU and Linux. - libdriver/ws2812b"
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать хавал м6 из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval из Китая: цены, отзывы, как купить и пригнать в 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/m/ma/mashina-kitaj-khaval.html",
+          "snippet": ""
+        },
+        {
+          "title": "Хавал М6 2026: полные ТТХ, цены и сравнение с конкурентами",
+          "url": "https://asia-motors-hub.vercel.app/articles/t/tt/ttkh-khaval-m6-2024.html",
+          "snippet": "В этой статье разберём все легальные способы приобретения Haval из Китая в 2026 году, сравним популярные модели и расскажем, как избежать подводных камней."
+        },
+        {
+          "title": "Инструкции Для Владельцев Haval - Руководства По Эксплуатации",
+          "url": "https://haval.ru/owners/instructions/",
+          "snippet": "В этом материале мы детально разберём все ТТХ Haval M6 2026 — от габаритов и клиренса до особенностей подвески и электронных помощников."
+        },
+        {
+          "title": "Haval M6 из Китая: цены, заказ и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/haval-m6-iz-kitaya/",
+          "snippet": "Скачайте инструкции и руководства по эксплуатации автомобилей HAVAL. Подробные рекомендации, советы и информация для правильного ухода за авто."
+        },
+        {
+          "title": "Модельный Ряд Haval (Хавейл) В России",
+          "url": "https://haval.ru/models/",
+          "snippet": "Закажите Haval M6 из Китая с выгодой до 600 тыс. ₽. Обзор характеристик, цены в 2026 году и доставка под ключ. Рассчитайте стоимость авто!"
+        },
+        {
+          "title": "Какую модель Хавал М6 лучше выбрать — обзор и сравнение",
+          "url": "https://dynamica-trade.ru/news/kakoy-khaval-m6-luchshe-sravneniye-modeley-i-pokoleniy",
+          "snippet": "Оцените технологичные кроссоверы и внедорожники HAVAL, адаптированные к российским условиям. Цена обновленного автомобиля HAVAL M6 с двигателем Оптимум, MT 143, 2026 модельного года 2026 года производства. Предложение ограничено, не является офертой и действует с 17.08.2026 года."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать хавал м6 из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval M6 Club - Хавал Клуб Форум | Haval Club (Хавейл)",
+          "url": "https://haval-clubs.ru/forums/forum/569-haval-m6-club/",
+          "snippet": ""
+        },
+        {
+          "title": "Всё про Haval M6 - Хавал Клуб Форум | Haval Club (Хавейл)",
+          "url": "https://haval-clubs.ru/forums/forum/570-vse-pro-haval-m6/",
+          "snippet": "Haval M6 Club Форумы Всё про Haval M6 Разные темы Haval M6 Выбор, комплектации и цены Haval M6 Тех. характеристики и опции Haval M6 Обзоры и отзывы Haval M6 ПРОБЛЕМЫ / косяки Haval M6 367 сообщений"
+        },
+        {
+          "title": "Хавал М6: честные отзывы владельцев 2026 года — Asia Motors",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-o-avtomobile-khaval-m6.html",
+          "snippet": "Прежде чем создать новую тему, найдите раздел форума или воспользуйтесь поиском с названием модели! Пример: Шины Haval f7."
+        },
+        {
+          "title": "Хавал М6: реальные отзывы владельцев 2026 года — Asia Motors",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-pro-khaval-m6.html",
+          "snippet": "Эта статья собрала честные отзывы о Haval M6 — от восторженных до критичных, — а также проанализировала типичные проблемы, с которыми сталкиваются водители."
+        },
+        {
+          "title": "Бортжурнал Haval M6 - клуб, форум о Хавэйл М6 на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/haval/m6/",
+          "snippet": "Честные отзывы о Haval M6 от владельцев: плюсы и минусы, проблемы, сравнение с конкурентами. Фото, видео, экспертный анализ."
+        },
+        {
+          "title": "Хавейл М6 2025 - 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/haval/m6/5kopeek/breakages/?year1=2025&year2=2026",
+          "snippet": "Бортжурнал Haval M6: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хавал м6 комплектации 2026",
+      "purpose": "вторичный запрос: хавал м6 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавейл М6 2026 технические характеристики. Haval M6 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/haval/m6/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Haval M6 (Хавейл М6) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-m6/",
+          "snippet": "Подробно расписан модельный ряд Haval M6 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл М6 2026 между собой."
+        },
+        {
+          "title": "Haval M6 2026: цены, комплектации и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-m6/",
+          "snippet": "Технические характеристики актуальны для автомобилей HAVAL M6 2026 модельного года."
+        },
+        {
+          "title": "Haval M6 цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/haval/m6/",
+          "snippet": "В прайс-листе 2026 года одна комплектация — Оптимум — в двух исполнениях: с механикой за 2 099 000 ₽ и с роботом за 2 349 000 ₽ (МЦП, предложение актуально с 14.08.2026) [2]. Мотор — 1,5 л с турбонаддувом, 143 л.с. и 202 Нм [2]."
+        },
+        {
+          "title": "Haval M6 (Хавейл М6) технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/haval/m6/",
+          "snippet": "Haval M6: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        },
+        {
+          "title": "Комплектации и цены Haval M6 2026 в Москве - официальный дилер Аванта",
+          "url": "https://avantaauto.ru/cars/haval/m6/komplektacii/",
+          "snippet": "Подробно расписан модельный ряд Haval M6: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл М6 между собой."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "хавал м6 двигатель 2026",
+      "purpose": "вторичный запрос: хавал м6 двигатель",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Технические характеристики Haval M6 Оптимум (2026) (1.5 AMT, 143 л.с ...",
+          "url": "https://auto.ru/catalog/cars/haval/m6/23583329/23583420/specifications/23583420_25019088_23583557/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Haval M6 (Хавейл М6) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-m6/",
+          "snippet": "Haval M6 Оптимум (2026) (1.5 AMT, 143 л.с.), 2 поколение (2021 - н.в.), Внедорожник 5 дв. - технические характеристики на сайте Авто.ру: сравнение моделей, описание модификаций."
+        },
+        {
+          "title": "Haval M6 2026 — Технические Характеристики, Двигатель 143 Л.с., Цены И ...",
+          "url": "http://pandatransit.ru/haval/haval-m6/haval-m6-2026-tehnicheskie-harakteristiki-obnovlyonnogo-krossovera-2/",
+          "snippet": "Технические характеристики актуальны для автомобилей HAVAL M6 2026 модельного года."
+        },
+        {
+          "title": "Haval M6 2026 — Технические Характеристики, Двигатель 143 Л.с. И Цены",
+          "url": "https://pandatransit.ru/haval/haval-m6/haval-m6-2026-tehnicheskie-harakteristiki-obnovlyonnogo-krossovera/",
+          "snippet": "Технические характеристики HAVAL M6 2026: 1.5-литровый турбомотор 143 л.с., 6МТ и 7DCT, передний привод, клиренс 170 мм, багажник 808 л. Обновления, цены на комплектацию «Оптимум» в России."
+        },
+        {
+          "title": "Haval M6 2026: цены, комплектации и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-m6/",
+          "snippet": "Технические характеристики HAVAL M6 2026: 1.5-литровый турбомотор 143 л.с., 6МТ и 7DCT, передний привод, клиренс 170 мм, багажник 808 л. Обновления, комплектации и цены в России."
+        },
+        {
+          "title": "Хавейл М6 2026 технические характеристики. Haval M6 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/haval/m6/2026/",
+          "snippet": "В прайс-листе 2026 года одна комплектация — Оптимум — в двух исполнениях: с механикой за 2 099 000 ₽ и с роботом за 2 349 000 ₽ (МЦП, предложение актуально с 14.08.2026) [2]. Мотор — 1,5 л с турбонаддувом, 143 л.с. и 202 Нм [2]."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "хавал м6 2026 2026",
+      "purpose": "вторичный запрос: хавал м6 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Haval M6 (Хавейл М6) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-m6/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Haval M6 2026 года по цене от 1 469 299 рублей - более 2 315 ...",
+          "url": "https://auto.ru/cars/haval/m6/2026-year/all/",
+          "snippet": "Вместительный, удобный и безопасный. HAVAL M6 отвечает всем современным требованиям к технологичности и обладает яркой, запоминающейся внешностью."
+        },
+        {
+          "title": "Хавейл М6 2026 технические характеристики. Haval M6 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/haval/m6/2026/",
+          "snippet": "Полный модельный ряд Haval M6 2026 года по цене от 1 469 299 рублей - более 2 315 Хавэйл М6, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Haval M6 2026: цены, комплектации и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-m6/",
+          "snippet": "Подробно расписан модельный ряд Haval M6 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Haval M6 1.5T DCT Оптимум (2026 м.г.) (04.2026 - н ... - Дром",
+          "url": "https://www.drom.ru/catalog/haval/m6/551313/",
+          "snippet": "Haval M6 2026: два исполнения Оптимум за 2 099 000 и 2 349 000 ₽ по прайсу с 14.08.2026, мотор 1,5 турбо 143 л.с., механика или робот, передний привод."
+        },
+        {
+          "title": "Купить новые Haval M6 II 2026 года по цене от 1 469 300 рублей - более ...",
+          "url": "https://auto.ru/cars/haval/m6/2026-year/23583329/new/",
+          "snippet": "В каталоге содержатся технические характеристики и фотографии Haval M6 1.5T DCT Оптимум (2026 м.г.) (04.2026 - н.в.). Подробно расписаны модификации автомобилей Haval M6 1.5T DCT Оптимум (2026 м.г.): все технические спецификации, полная ..."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "хавал м6 механика 2026",
+      "purpose": "вторичный запрос: хавал м6 механика",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval M6 2026: сравнение робота и механики — надежность, расход и ...",
+          "url": "https://inycar.ru/blog/haval-m6-2026-sravnenie-robota-i-mehaniki-nadezhnost-rashod-i-realnaya-stoimost-ekspluatatsii",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Haval M6 (Хавейл М6) 2026 В России - Цены, Характеристики",
+          "url": "https://haval.ru/models/haval-m6/",
+          "snippet": "Узнайте, какой агрегат лучше: робот или механика на Haval M6 2026? Честный разбор надёжности, реального расхода топлива и итоговой стоимости владения. Выбирайте осознанно!"
+        },
+        {
+          "title": "Haval M6 2026: цены, комплектации и характеристики | haval-auto.com",
+          "url": "https://haval-auto.com/models/haval-m6/",
+          "snippet": "Технические характеристики актуальны для автомобилей HAVAL M6 2026 модельного года."
+        },
+        {
+          "title": "Хавейл М6 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/haval/m6/5kopeek/?year1=2025&year2=2026",
+          "snippet": "В прайс-листе 2026 года одна комплектация — Оптимум — в двух исполнениях: с механикой за 2 099 000 ₽ и с роботом за 2 349 000 ₽ (МЦП, предложение актуально с 14.08.2026) [2]. Мотор — 1,5 л с турбонаддувом, 143 л.с. и 202 Нм [2]."
+        },
+        {
+          "title": "Отзывы владельцев Haval M6 механика на Авто.ру",
+          "url": "https://auto.ru/logbook/reviews/cars/haval/m6/transmission-mechanical/",
+          "snippet": "Отзывы владельцев Хавейл М6 2025 - 2026: все минусы и плюсы, недостатки, поломки. Опыт эксплуатации реальных владельцев автомобилей Хавейл М6: плюсы и минусы."
+        },
+        {
+          "title": "Haval M6 2026 обзор: что изменилось, характеристики и стоит ли брать",
+          "url": "https://haval-dynamica35.ru/blog/haval-m6-2026-obzor",
+          "snippet": "Отзывы реальных владельцев о Haval M6 механика, плюсы и минусы (достоинства и недостатки). Хавэйл М6 механика: отзывы с фото, опыт эксплуатации и обслуживания на Авто.ру"
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Haval M6 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval M6 2026: точные цены, комплектации, габариты, расход и ...",
+          "url": "https://inycar.ru/blog/haval-m6-2026-tochnye-tseny-komplektatsii-gabarity-rashod-i-optimalnyj-vybor-versii",
+          "snippet": ""
+        },
+        {
+          "title": "Haval M6 2026: полные характеристики, комплектации, цены, расход и ...",
+          "url": "https://inycar.ru/blog/haval-m6-2026-polnye-harakteristiki-komplektatsii-tseny-rashod-i-fakty-ekspluatatsii",
+          "snippet": "Разбираем Haval M6 2026 модельного года — по полочкам, без рекламной мишуры. Вы найдёте здесь реальные заводские цены, разницу между версиями, точные цифры по двигателю и коробке."
+        },
+        {
+          "title": "Haval M6 2026: Цены И Комплектации Нового Кузова — Обзор Модели",
+          "url": "https://stokoney-haval.ru/about/media/haval-m6-2026-tseny-komplektatsii-i-chestnyi-obzor-novinki/",
+          "snippet": "Ищете Haval M6 2026? Подробный разбор: технические характеристики, цены и комплектации, реальный расход топлива и советы по эксплуатации. Всё в одном материале!"
+        },
+        {
+          "title": "Haval M6 из Китая: цены, заказ и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/haval-m6-iz-kitaya/",
+          "snippet": "Подробный обзор HAVAL M6 2026: новые опции, светодиодная оптика, разбор комплектаций Comfort, Tech и Lux. Реальный расход топлива, гарантия и ответы на частые вопросы."
+        },
+        {
+          "title": "Haval M6 — купить из Китая под ключ, цена в России 2026",
+          "url": "https://chinaautozone.ru/catalog/haval/haval_m6/",
+          "snippet": "Закажите Haval M6 из Китая с выгодой до 600 тыс. ₽. Обзор характеристик, цены в 2026 году и доставка под ключ. Рассчитайте стоимость авто!"
+        },
+        {
+          "title": "Haval M6 в Китае: все комплектации 2026 года с ценами и особенностями",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/ko/komplektatsii-khaval-m6-v-kitae.html",
+          "snippet": "Купить Haval M6 из Китая под ключ: цена в России от 0,97 млн ₽ с растаможкой и доставкой. Комплектации, характеристики, гарантия. Точный расчёт за 1 день."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://ezzhev.ru/how-buy-car/haval-m6-iz-kitaya/",
+      "title": "Haval M6 из Китая: цены, заказ и доставка",
+      "from_query": "как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/m/ma/mashina-kitaj-khaval.html",
+      "title": "Haval из Китая: цены, отзывы, как купить и пригнать в 2026",
+      "from_query": "как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/haval/m6/",
+      "title": "Продажа Haval M6 из Китая | Цены на Хавейл М6 в Китае",
+      "from_query": "как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/haval/",
+      "title": "Продажа Haval из Китая | Статистика цен на Хавейл в Китае",
+      "from_query": "как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://encarrus-china.ru/haval/haval-m6/",
+      "title": "Купить Haval M6 из Китая — от 1 301 000 ₽, 100 авто — EncarRus",
+      "from_query": "как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/t/tt/ttkh-khaval-m6-2024.html",
+      "title": "Хавал М6 2026: полные ТТХ, цены и сравнение с конкурентами",
+      "from_query": "как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://jplife.ru/china/haval/",
+      "title": "Автомобили Haval из Китая — цена с доставкой Japan Life",
+      "from_query": "как выбрать хавал м6 из китая октябрь 2026"
+    },
+    {
+      "url": "https://atp-auto.ru/avto-iz-kitaya/haval/m6/",
+      "title": "Купить Haval M6 из Китая — цена, подбор и доставка под заказ | АТП.АВТО",
+      "from_query": "как выбрать хавал м6 из китая октябрь 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-m6-kharakteristiki.html",
+      "title": "Хавал M6: Полные Характеристики 2026, Плюсы И Минусы",
+      "from_query": "как выбрать хавал м6 из китая новости 2026"
+    },
+    {
+      "url": "https://auto.yuga.ru/articles/2609.html",
+      "title": "Haval M6 2026: новый кроссовер дешевле миллиона рублей? Разбираем ...",
+      "from_query": "как выбрать хавал м6 из китая новости 2026"
+    },
+    {
+      "url": "https://stokoney-haval.ru/about/media/haval-m6-2026-tseny-komplektatsii-i-chestnyi-obzor-novinki/",
+      "title": "Haval M6 2026: Цены И Комплектации Нового Кузова — Обзор Модели",
+      "from_query": "как выбрать хавал м6 из китая новости 2026"
+    },
+    {
+      "url": "https://haval-dynamica35.ru/blog/haval-m6-2026-obzor",
+      "title": "Haval M6 2026 обзор: что изменилось, характеристики и стоит ли брать",
+      "from_query": "как выбрать хавал м6 из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/kolei/ufis/tree/master/DE09/2026/M6",
+      "title": "ufis/DE09/2026/M6 at master · kolei/ufis · GitHub",
+      "from_query": "site:github.com как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://github.com/Anton111111/haval_m6",
+      "title": "GitHub - Anton111111/haval_m6: Скрипт для установки дополнительных ...",
+      "from_query": "site:github.com как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://github.com/kolei/ufis/blob/master/articles/de2026_example.md",
+      "title": "ufis/articles/de2026_example.md at master · kolei/ufis · GitHub",
+      "from_query": "site:github.com как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://github.com/libdriver/ws2812b/blob/main/doc/image/logo.svg",
+      "title": "ws2812b/doc/image/logo.svg at main · libdriver/ws2812b · GitHub",
+      "from_query": "site:github.com как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://github.com/ake1999/FMCW_Radar_Ake/blob/master/polar_fft.png",
+      "title": "FMCW_Radar_Ake/polar_fft.png at master · ake1999/FMCW_Radar_Ake · GitHub",
+      "from_query": "site:github.com как выбрать хавал м6 из китая 2026"
+    },
+    {
+      "url": "https://haval.ru/owners/instructions/",
+      "title": "Инструкции Для Владельцев Haval - Руководства По Эксплуатации",
+      "from_query": "как выбрать хавал м6 из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://haval.ru/models/",
+      "title": "Модельный Ряд Haval (Хавейл) В России",
+      "from_query": "как выбрать хавал м6 из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://dynamica-trade.ru/news/kakoy-khaval-m6-luchshe-sravneniye-modeley-i-pokoleniy",
+      "title": "Какую модель Хавал М6 лучше выбрать — обзор и сравнение",
+      "from_query": "как выбрать хавал м6 из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://haval-clubs.ru/forums/forum/569-haval-m6-club/",
+      "title": "Haval M6 Club - Хавал Клуб Форум | Haval Club (Хавейл)",
+      "from_query": "как выбрать хавал м6 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://haval-clubs.ru/forums/forum/570-vse-pro-haval-m6/",
+      "title": "Всё про Haval M6 - Хавал Клуб Форум | Haval Club (Хавейл)",
+      "from_query": "как выбрать хавал м6 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-o-avtomobile-khaval-m6.html",
+      "title": "Хавал М6: честные отзывы владельцев 2026 года — Asia Motors",
+      "from_query": "как выбрать хавал м6 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-pro-khaval-m6.html",
+      "title": "Хавал М6: реальные отзывы владельцев 2026 года — Asia Motors",
+      "from_query": "как выбрать хавал м6 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/haval/m6/",
+      "title": "Бортжурнал Haval M6 - клуб, форум о Хавэйл М6 на Авто.ру",
+      "from_query": "как выбрать хавал м6 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/haval/m6/5kopeek/breakages/?year1=2025&year2=2026",
+      "title": "Хавейл М6 2025 - 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "как выбрать хавал м6 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/m6/2026/",
+      "title": "Хавейл М6 2026 технические характеристики. Haval M6 2026 комплектации и ...",
+      "from_query": "хавал м6 комплектации 2026"
+    },
+    {
+      "url": "https://haval.ru/models/haval-m6/",
+      "title": "Купить Haval M6 (Хавейл М6) 2026 В России - Цены, Характеристики",
+      "from_query": "хавал м6 комплектации 2026"
+    },
+    {
+      "url": "https://haval-auto.com/models/haval-m6/",
+      "title": "Haval M6 2026: цены, комплектации и характеристики | haval-auto.com",
+      "from_query": "хавал м6 комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/haval/m6/",
+      "title": "Haval M6 цены и комплектации 2026 - carmaps.ru",
+      "from_query": "хавал м6 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/m6/",
+      "title": "Haval M6 (Хавейл М6) технические характеристики, комплектации и цены",
+      "from_query": "хавал м6 комплектации 2026"
+    },
+    {
+      "url": "https://avantaauto.ru/cars/haval/m6/komplektacii/",
+      "title": "Комплектации и цены Haval M6 2026 в Москве - официальный дилер Аванта",
+      "from_query": "хавал м6 комплектации 2026"
+    },
+    {
+      "url": "https://auto.ru/catalog/cars/haval/m6/23583329/23583420/specifications/23583420_25019088_23583557/",
+      "title": "Технические характеристики Haval M6 Оптимум (2026) (1.5 AMT, 143 л.с ...",
+      "from_query": "хавал м6 двигатель 2026"
+    },
+    {
+      "url": "http://pandatransit.ru/haval/haval-m6/haval-m6-2026-tehnicheskie-harakteristiki-obnovlyonnogo-krossovera-2/",
+      "title": "Haval M6 2026 — Технические Характеристики, Двигатель 143 Л.с., Цены И ...",
+      "from_query": "хавал м6 двигатель 2026"
+    },
+    {
+      "url": "https://pandatransit.ru/haval/haval-m6/haval-m6-2026-tehnicheskie-harakteristiki-obnovlyonnogo-krossovera/",
+      "title": "Haval M6 2026 — Технические Характеристики, Двигатель 143 Л.с. И Цены",
+      "from_query": "хавал м6 двигатель 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/haval/m6/2026-year/all/",
+      "title": "Купить Haval M6 2026 года по цене от 1 469 299 рублей - более 2 315 ...",
+      "from_query": "хавал м6 2026 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/m6/551313/",
+      "title": "Haval M6 1.5T DCT Оптимум (2026 м.г.) (04.2026 - н ... - Дром",
+      "from_query": "хавал м6 2026 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/haval/m6/2026-year/23583329/new/",
+      "title": "Купить новые Haval M6 II 2026 года по цене от 1 469 300 рублей - более ...",
+      "from_query": "хавал м6 2026 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/haval-m6-2026-sravnenie-robota-i-mehaniki-nadezhnost-rashod-i-realnaya-stoimost-ekspluatatsii",
+      "title": "Haval M6 2026: сравнение робота и механики — надежность, расход и ...",
+      "from_query": "хавал м6 механика 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/haval/m6/5kopeek/?year1=2025&year2=2026",
+      "title": "Хавейл М6 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "хавал м6 механика 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/reviews/cars/haval/m6/transmission-mechanical/",
+      "title": "Отзывы владельцев Haval M6 механика на Авто.ру",
+      "from_query": "хавал м6 механика 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/haval-m6-2026-tochnye-tseny-komplektatsii-gabarity-rashod-i-optimalnyj-vybor-versii",
+      "title": "Haval M6 2026: точные цены, комплектации, габариты, расход и ...",
+      "from_query": "Как выбрать Haval M6 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/haval-m6-2026-polnye-harakteristiki-komplektatsii-tseny-rashod-i-fakty-ekspluatatsii",
+      "title": "Haval M6 2026: полные характеристики, комплектации, цены, расход и ...",
+      "from_query": "Как выбрать Haval M6 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/catalog/haval/haval_m6/",
+      "title": "Haval M6 — купить из Китая под ключ, цена в России 2026",
+      "from_query": "Как выбрать Haval M6 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/ko/komplektatsii-khaval-m6-v-kitae.html",
+      "title": "Haval M6 в Китае: все комплектации 2026 года с ценами и особенностями",
+      "from_query": "Как выбрать Haval M6 из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

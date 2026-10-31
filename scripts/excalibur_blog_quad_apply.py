@@ -27,6 +27,17 @@ def main() -> int:
     ap.add_argument("--url", default="", help="MCP result URL (or read cover/quad-mcp-result.json)")
     ap.add_argument("--inject-html", action="store_true")
     ap.add_argument("--output-size", default="1200x675")
+    ap.add_argument(
+        "--stamp-corner-brand",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="After split, PIL-stamp catalog corner brand on cover.png (default: on; use --no-stamp-corner-brand to skip)",
+    )
+    ap.add_argument(
+        "--corner-brand-text",
+        default="",
+        help="Optional override for corner brand stamp text",
+    )
     args = ap.parse_args()
 
     root = project_root()
@@ -66,7 +77,23 @@ def main() -> int:
     if args.inject_html:
         cmd.append("--inject-html")
     proc = subprocess.run(cmd, cwd=str(root))
-    return proc.returncode
+    if proc.returncode != 0:
+        return proc.returncode
+
+    if args.stamp_corner_brand:
+        stamp_cmd = [
+            sys.executable,
+            str(root / "scripts" / "excalibur_blog_cover_corner_stamp.py"),
+            "--article-dir",
+            str(article_dir),
+            "--force",
+        ]
+        if args.corner_brand_text.strip():
+            stamp_cmd.extend(["--text", args.corner_brand_text.strip()])
+        stamp_proc = subprocess.run(stamp_cmd, cwd=str(root))
+        if stamp_proc.returncode != 0:
+            return stamp_proc.returncode
+    return 0
 
 
 if __name__ == "__main__":

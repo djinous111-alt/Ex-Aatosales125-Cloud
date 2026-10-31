@@ -26,3 +26,15 @@ python3 scripts/excalibur_blog_llms_generator.py \
 - обновлённый `article.html` (контекстные ссылки)
 - `memory/blog/llms.txt`, `memory/blog/llms-full.txt`
 - `promotion-checklist.md` из `skills/excalibur/references/promotion-checklist-template.md`
+
+## Commit preflight
+
+Перед `git commit` артефактов indexer:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+# или:
+bash scripts/excalibur_git.sh commit -m "indexer(...): ..."
+```
+
+Иначе URL-хвост в `CLOUD_AGENT_INJECTED_SECRET_NAMES` даёт `invalid variable name` в pre-commit.

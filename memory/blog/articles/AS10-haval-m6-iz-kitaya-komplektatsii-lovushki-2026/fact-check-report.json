@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/AS10-haval-m6-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ируйте. Депозит – только когда чеклист зелёный. В 2026 в РФ M6 продают в линейке \"Оптимум\", а из Китая ча",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "ействует на дату растаможки (в обзорах 2026 часто 12 месяцев). Суммы утиля и пошлин здесь не публикуем – счита",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "с завода\"? Проверьте правило учёта в Китае около 180 дней. Если срок короче – нужно письмо завода. Иначе эк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "110",
+      "kind": "large_number",
+      "context": "иком. До депозита сверьте мощность в кВт (типично 110 кВт у GW4G15M – кандидат на льготный утиль при вво",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "143",
+      "kind": "large_number",
+      "context": "/ Supreme и аналоги) Мотор (ориентир) 1.5, около 143 л.с. Часто GW4G15M 1.5, 110 кВт / ~150 л.с., 218 Н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "1.5, около 143 л.с. Часто GW4G15M 1.5, 110 кВт / ~150 л.с., 218 Н·м Коробка 6MT или 7DCT Те же типы – см",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "218",
+      "kind": "large_number",
+      "context": "143 л.с. Часто GW4G15M 1.5, 110 кВт / ~150 л.с., 218 Н·м Коробка 6MT или 7DCT Те же типы – смотрите кон",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "с завода\"? Проверьте правило учёта в Китае около 180 дней. Если срок короче – нужно письмо завода. Инач",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

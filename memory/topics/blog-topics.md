@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS10 — Haval M6 из Китая
+
+- **priority:** P0
+- **slug:** haval-m6-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Haval M6 из Китая: комплектации и ловушки до депозита
+- **primary_query:** как выбрать хавал м6 из китая
+- **secondary_queries:** хавал м6 комплектации, хавал м6 двигатель, хавал м6 2026, хавал м6 механика
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит M6 и чем он отличается от Jolion до заказа
+  2. Какие версии мотора и КПП реально везут из Китая в 2026
+  3. Как проверить мощность и не попасть на полный утильсбор
+  4. Комплектации: что смотреть в карточке и на фото до депозита
+  5. Красные флаги пробега, кузова и «салонных» перекупов
+  6. Чек-лист перед переводом депозита через Владивосток
+- **faq_hints:** какой двигатель у Haval M6 и сколько л.с.; чем отличаются комплектации Optimum/Family; механика или робот для РФ; можно ли взять M6 под льготный утиль
+- **internal_links:** [REDACTED]
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** компактный кроссовер Haval M6 у терминала Владивостока, герой с чек-листом на смартфоне, плашка «до депозита», без чужих логотипов дилеров
+- **wordstat_signal:** parent «хавал м6» ~303k; «хавал м6 комплектации» ~2.9k; «хавал м6 двигатель» ~9.2k; узкий how-to totalCount=50 без top phrases → LSI из широкого кластера
+- **live_wp_dedupe:** slug FREE; title search «Хавал М6 из Китая» / «Haval M6» без model-checklist дубля (есть только listicles); Jolion checklist не пересекается

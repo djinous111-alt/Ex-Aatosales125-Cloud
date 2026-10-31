@@ -187,6 +187,19 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
 
     pain_markers = policy.get("pain_markers_ru") or []
     outcome_markers = policy.get("outcome_markers_ru") or []
+    if not pain_markers or not outcome_markers:
+        # Fall back to human-voice constants so empty policy lists cannot always BLOCK.
+        try:
+            from excalibur_blog_human_voice_gate import OUTCOME_MARKERS, PAIN_MARKERS
+
+            if not pain_markers:
+                pain_markers = list(PAIN_MARKERS)
+                warnings.append("editorial-policy.json missing pain_markers_ru — using human_voice defaults")
+            if not outcome_markers:
+                outcome_markers = list(OUTCOME_MARKERS)
+                warnings.append("editorial-policy.json missing outcome_markers_ru — using human_voice defaults")
+        except Exception:  # noqa: BLE001
+            pass
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

@@ -61,8 +61,37 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
-def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def normalize_blog_path(blog_path: str) -> str:
+    """Normalize site-brief blog_path for URL join.
+
+    `/` → `/` (articles at site root: /{slug}/)
+    `/blog` or `/blog/` → `/blog/`
+    `` → `/`
+    """
+    raw = (blog_path or "/").strip() or "/"
+    if not raw.startswith("/"):
+        raw = "/" + raw
+    if raw != "/":
+        raw = raw.rstrip("/") + "/"
+    return raw
+
+
+def article_public_url(site_base: str, blog_path: str, slug: str) -> str:
+    base = site_base.rstrip("/")
+    path = normalize_blog_path(blog_path)
+    slug = str(slug or "").strip().strip("/")
+    if path == "/":
+        return f"{base}/{slug}/"
+    return f"{base}{path}{slug}/"
+
+
+def build_llms_txt(
+    site_name: str,
+    site_desc: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    blog_path: str = "/",
+) -> str:
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -71,14 +100,18 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
         ""
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_public_url(site_base, blog_path, a["slug"])
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
-def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def build_llms_full_txt(
+    site_name: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    blog_path: str = "/",
+) -> str:
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -88,7 +121,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_public_url(site_base, blog_path, a["slug"])
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -103,12 +136,38 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     return "\n".join(lines)
 
 
+def default_blog_path(root: Path) -> str:
+    brief = root / "memory/brief/site-brief.md"
+    if brief.is_file():
+        text = brief.read_text(encoding="utf-8")
+        match = re.search(r"\*\*blog_path:\*\*\s*(\S+)", text)
+        if match:
+            return match.group(1).strip()
+    return "/"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
-    ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-desc",
+        type=str,
+        default=(
+            "Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, "
+            "растаможка и доставка через Владивосток."
+        ),
+    )
+    ap.add_argument("--site-base", type=str, default="[REDACTED]")
+    ap.add_argument(
+        "--blog-path",
+        type=str,
+        default=None,
+        help=(
+            "URL path prefix for posts (from site-brief blog_path). "
+            "`/` → /{slug}/; `/blog` → /blog/{slug}/"
+        ),
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -121,11 +180,14 @@ def main() -> int:
     if not out_dir.is_absolute():
         out_dir = root / out_dir
 
+    blog_path = args.blog_path if args.blog_path is not None else default_blog_path(root)
+
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
+    print(f"blog_path={normalize_blog_path(blog_path)}")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base, blog_path)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base, blog_path)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS11",
+  "slug": "omoda-c5-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс сверяет комплектацию Omoda C5 до депозита у порта Владивосток",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-31T17:33:19+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс сверяет комплектацию Omoda C5 до депозита у порта Владивосток",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: задача и бюджет до разговора о лоте Omoda C5",
+      "h2_anchor": "Зафиксируйте задачу до разговора о лоте",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема сверки словаря Актив/Драйв/Стиль с китайской спекой Omoda C5",
+      "h2_anchor": "Сверьте словарь Актив / Драйв / Стиль с китайской спекой",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист мотор и коробка Omoda C5 до предоплаты",
+      "h2_anchor": "Сравните мотор и коробку до любой предоплаты",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

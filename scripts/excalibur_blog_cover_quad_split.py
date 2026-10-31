@@ -376,6 +376,121 @@ def inject_figures(article_html: Path, split_info: dict[str, Any], dry_run: bool
     return changes
 
 
+def load_corner_brand(root: Path, manifest: dict[str, Any]) -> str:
+    hero_rel = manifest.get("blog_hero") or "memory/cover/blog-hero.json"
+    hero_path = root / hero_rel
+    if not hero_path.is_file():
+        return "avto-sales125.ru"
+    try:
+        hero = load_json(hero_path)
+    except json.JSONDecodeError:
+        return "avto-sales125.ru"
+    corner = hero.get("cover_corner_brand") or {}
+    text = str(corner.get("text") or "").strip()
+    return text or "avto-sales125.ru"
+
+
+def cover_already_has_brand(image, brand: str) -> bool:
+    """Heuristic: skip stamp if brand-looking dark pixels already occupy bottom-right pill area.
+
+    Full OCR is intentionally avoided; agents may still stamp manually. We only skip when a
+    previous run left a near-navy rectangle in the expected footer zone.
+    """
+    if image.mode != "RGBA":
+        image = image.convert("RGBA")
+    width, height = image.size
+    # Sample bottom-right footer band for navy-ish pixels (stamp color ~#0B1F3A).
+    left = int(width * 0.55)
+    top = int(height * 0.82)
+    region = image.crop((left, top, width - 4, height - 4))
+    pixels = list(region.getdata())
+    if not pixels:
+        return False
+    navy = 0
+    for r, g, b, a in pixels:
+        if a < 200:
+            continue
+        if r < 40 and g < 50 and b < 90 and b > g and b > r:
+            navy += 1
+    # Dense navy cluster ≈ prior stamp; brand string itself is not OCR'd here.
+    return (navy / max(len(pixels), 1)) > 0.08 and brand.lower() in ("avto-sales125.ru", "avtosales125.ru")
+
+
+def stamp_corner_brand(image_path: Path, brand: str, force: bool = False) -> bool:
+    """Draw navy pill + catalog brand on cover PNG bottom-right. Returns True if stamped."""
+    from PIL import Image, ImageDraw, ImageFont
+
+    if not brand:
+        return False
+    with Image.open(image_path) as src:
+        img = src.convert("RGBA")
+        if not force and cover_already_has_brand(img, brand):
+            return False
+        draw = ImageDraw.Draw(img)
+        width, height = img.size
+        font_size = max(14, int(height * 0.045))
+        try:
+            font = ImageFont.truetype("DejaVuSans.ttf", font_size)
+        except OSError:
+            try:
+                font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", font_size)
+            except OSError:
+                font = ImageFont.load_default()
+        bbox = draw.textbbox((0, 0), brand, font=font)
+        text_w = bbox[2] - bbox[0]
+        text_h = bbox[3] - bbox[1]
+        pad_x, pad_y = max(8, font_size // 2), max(4, font_size // 3)
+        pill_w = text_w + pad_x * 2
+        pill_h = text_h + pad_y * 2
+        margin = max(10, int(min(width, height) * 0.03))
+        x1 = width - margin - pill_w
+        y1 = height - margin - pill_h
+        x2 = width - margin
+        y2 = height - margin
+        radius = max(6, pill_h // 3)
+        draw.rounded_rectangle((x1, y1, x2, y2), radius=radius, fill=(11, 31, 58, 230))
+        text_x = x1 + pad_x
+        text_y = y1 + pad_y - (bbox[1])
+        draw.text((text_x, text_y), brand, fill=(255, 255, 255, 255), font=font)
+        img.save(image_path, format="PNG", optimize=True)
+    return True
+
+
+def stamp_cover_and_canvas(
+    cover_dir: Path,
+    canvas_path: Path,
+    brand: str,
+    cover_box: dict[str, int] | None,
+) -> dict[str, Any]:
+    """Stamp cover.png and matching top-left panel of canvas-quad.png."""
+    result: dict[str, Any] = {"brand": brand, "cover_stamped": False, "canvas_stamped": False}
+    cover_path = cover_dir / "cover.png"
+    if cover_path.is_file():
+        result["cover_stamped"] = stamp_corner_brand(cover_path, brand)
+    if canvas_path.is_file() and cover_box:
+        # Stamp only the cover quadrant of the quad canvas (same relative footer).
+        from PIL import Image
+
+        with Image.open(canvas_path) as src:
+            canvas = src.convert("RGBA")
+            left = int(cover_box["left"])
+            top = int(cover_box["top"])
+            right = int(cover_box["right"])
+            bottom = int(cover_box["bottom"])
+            panel = canvas.crop((left, top, right, bottom))
+            tmp = cover_dir / "_corner_stamp_panel.png"
+            panel.save(tmp, format="PNG")
+            stamped = stamp_corner_brand(tmp, brand, force=True)
+            if stamped:
+                with Image.open(tmp) as stamped_panel:
+                    canvas.paste(stamped_panel.convert("RGBA"), (left, top))
+                canvas.save(canvas_path, format="PNG", optimize=True)
+                result["canvas_stamped"] = True
+            if tmp.is_file():
+                tmp.unlink()
+    return result
+
+
 def create_demo_canvas(path: Path, style_label: str) -> None:
     from PIL import Image, ImageDraw
 
@@ -491,7 +606,13 @@ def main() -> int:
     except ValueError as exc:
         print(f"❌ QUAD SPLIT BLOCKER: {exc}", file=sys.stderr)
         return 1
+
+    brand = load_corner_brand(root, manifest)
+    cover_box = (split_info.get("outputs") or {}).get("cover", {}).get("box_px")
+    stamp_info = stamp_cover_and_canvas(cover_dir, canvas_path, brand, cover_box)
+
     registry = build_registry(article_dir, manifest, split_info)
+    registry["corner_brand"] = stamp_info
     save_json(cover_dir / "cover-registry.json", registry)
 
     report = {
@@ -499,6 +620,7 @@ def main() -> int:
         "status": "PASS",
         "manifest": str(manifest_path.relative_to(article_dir)).replace("\\", "/"),
         "split": split_info,
+        "corner_brand": stamp_info,
     }
     if args.inject_html:
         report["html_inject"] = inject_figures(article_dir / "article.html", split_info, dry_run=False)
@@ -507,6 +629,7 @@ def main() -> int:
     print(f"OK cover={cover_dir / 'cover.png'}")
     for slot_key in ("inline_1", "inline_2", "inline_3"):
         print(f"OK {slot_key}={cover_dir / INLINE_FILES[slot_key]}")
+    print(f"OK corner_brand={stamp_info}")
     print(f"OK registry={cover_dir / 'cover-registry.json'}")
     print(f"OK report={cover_dir / 'quad-split-report.json'}")
     return 0

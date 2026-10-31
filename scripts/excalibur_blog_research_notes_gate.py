@@ -73,14 +73,41 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_matches(blob: str, marker: str) -> bool:
+    """Word/token match so short markers do not hit Russian inflection noise.
+
+    False positives this prevents:
+    - ``ии`` inside «комплектации»
+    - ``ai`` inside field name ``reader_pain`` / word «pain»
+    """
+    marker = marker.lower()
+    if len(marker) <= 3:
+        return bool(
+            re.search(
+                rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])",
+                blob,
+                flags=re.IGNORECASE,
+            )
+        )
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Topic card fields only — do not scan research field names (reader_pain etc.).
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Notes body without YAML-ish keys that embed false-positive substrings.
+    notes_scan = re.sub(
+        r"\b(reader_pain|reader_outcome|success_criteria|voice_angle|pain_solution_map)\b",
+        " ",
+        notes[:2000],
+        flags=re.IGNORECASE,
+    ).lower()
+    blob = f"{blob} {notes_scan}"
+    return any(_marker_matches(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

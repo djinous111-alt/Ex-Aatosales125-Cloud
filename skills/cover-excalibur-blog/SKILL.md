@@ -108,19 +108,21 @@ python scripts/excalibur_blog_quad_manifest.py \
 
 - `cover_hook` — провокация
 - `slots.cover.meme_caption_ru` — 2–6 слов
-- `slots.cover.scene_hint` — fake скрины + мемы + outfit агента
+- `slots.cover.scene_hint` — fake скрины + мемы + outfit агента (погода/тема; **не** white hoodie по умолчанию)
 - `slots.inline_*.scene_hint` — конкретика H2
 - `alt` — осмысленные, не «seo картинка»
+
+Outfit берётся из `memory/cover/blog-hero.json` → `outfit_rule` (prompt builder). После split скрипт штампует corner brand `cover_corner_brand.text` (`avto-sales125.ru`).
 
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
 
-Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
+Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст. Prompt **не** должен содержать `white hoodie`, если scene_hint этого не просит.
 
 ### Шаг 4 — ONE MCP
 

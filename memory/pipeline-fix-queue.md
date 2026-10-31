@@ -6,8 +6,56 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_All 2026-10-31 Tharu run incidents closed by fixer below (status: fixed)._
+
+
+## INC-20261031-0940-today-scout-as-topic-regex
+status: fixed
+run_date: 2026-10-31
+role: excalibur-blog-fixer
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- today.py / scout_helper matched only B-digit topic ids, so AS* P0 topics were ignored and selection became false needs_scout when the B-pool was empty.
+
+### How the agent recovered this run
+- Not hit mid-article (B01 reserved), but known drift after rebrand wipe of AS|B helpers.
+
+### Durable fix needed before next run
+- Restore topic regex ((?:AS|B)\d+) in today + scout_helper; document in pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- today.py + scout_helper now match ((?:AS|B)\d+) for article dirs and topic cards; today selection returns AS01 ready when B-pool empty.
+- Pitfalls document the false needs_scout failure mode.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+checks_run:
+- `python3 -m py_compile` on restored scripts
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → OK
+- `python3 scripts/excalibur_blog_research_notes_gate.py` on B01 Tharu → PASS technical=false
+- `rg` / bash -n on git filter wrappers
+commit: pending-parent-commit
+
 ## INC-20261031-0935-publish-http-remotedisconnected-webfetch
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-publish
 topic_id: B01
@@ -40,11 +88,29 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored reconstruct_publish_output_from_rest + REST-before-FALLBACK + EXCALIBUR_PUBLISH_HTTP_TIMEOUT (default 300s) in excalibur_blog_wp_publish.py.
+- Cloud install installs/verifies paramiko from requirements.txt.
+- Publish skill + pitfalls: RemoteDisconnected → REST LIVE check before WebFetch; no second bootstrap when slug LIVE.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `python3 -m py_compile` on restored scripts
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → OK
+- `python3 scripts/excalibur_blog_research_notes_gate.py` on B01 Tharu → PASS technical=false
+- `rg` / bash -n on git filter wrappers
+commit: pending-parent-commit
 
 ## INC-20261031-0928-indexer-llms-blog-path-rebrand-wipe
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-indexer
 topic_id: B01
@@ -78,10 +144,31 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Verified --blog-path on llms + interlinker; doctor asserts both; regression smoke checks empty site-base + / → /{slug}/.
+- Indexer agent/skill canonical CLI uses --site-base "" --blog-path /; pitfalls warn against rebrand wipe of the flag.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py` (verified)
+- `scripts/excalibur_blog_interlinker.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` on restored scripts
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → OK
+- `python3 scripts/excalibur_blog_research_notes_gate.py` on B01 Tharu → PASS technical=false
+- `rg` / bash -n on git filter wrappers
+commit: pending-parent-commit
 
 ## INC-20261031-0924-cover-outfit-lock-rebrand-wipe
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-cover
 topic_id: B01
@@ -112,10 +199,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Verified outfit_lock_from_hero + FORBIDDEN_OUTFIT_LOCKS; doctor fails if white-hoodie lock returns without helper.
+- Cover skill + pitfalls: never hardcode white hoodie; outfit from blog-hero weather/outfit_rule.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+checks_run:
+- `python3 -m py_compile` on restored scripts
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → OK
+- `python3 scripts/excalibur_blog_research_notes_gate.py` on B01 Tharu → PASS technical=false
+- `rg` / bash -n on git filter wrappers
+commit: pending-parent-commit
 
 ## INC-20261031-0916-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -143,10 +248,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Documented geo-qa typed Task gap → immediate Task(generalPurpose) fallback in AGENTS.md, director skill, CLOUD-AUTOMATION.md, pipeline-task-map, pitfalls.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile` on restored scripts
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → OK
+- `python3 scripts/excalibur_blog_research_notes_gate.py` on B01 Tharu → PASS technical=false
+- `rg` / bash -n on git filter wrappers
+commit: pending-parent-commit
 
 ## INC-20261031-0915-writer-utility-markers-wiped
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-writer
 topic_id: B01
@@ -178,10 +300,29 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Pinned _markers_pinned + non-empty pain_markers_ru/outcome_markers_ru in editorial-policy; doctor asserts them.
+- Utility gate restores default marker lists when policy arrays are missing/empty (no empty-list BLOCK).
+- Writer skill warns to verify markers before writing.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` on restored scripts
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → OK
+- `python3 scripts/excalibur_blog_research_notes_gate.py` on B01 Tharu → PASS technical=false
+- `rg` / bash -n on git filter wrappers
+commit: pending-parent-commit
 
 ## INC-20261031-0905-research-wordstat-empty-and-tech-markers
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-research
 topic_id: B01
@@ -213,7 +354,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- TECH_MARKERS use _marker_in_blob word-boundary for short tokens; scan topic card (+ H1) only so комплектации/field labels do not force GitHub quota.
+- Research skill documents empty {} / totalCount-only Wordstat as low-result → parent/mid without retry loops; pain_solution_map keyword rows required.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+checks_run:
+- `python3 -m py_compile` on restored scripts
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → OK
+- `python3 scripts/excalibur_blog_research_notes_gate.py` on B01 Tharu → PASS technical=false
+- `rg` / bash -n on git filter wrappers
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -465,7 +624,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261031-0920-schema-precommit-hook
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-schema
 topic_id: B01
@@ -490,5 +649,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored scripts/excalibur_git.sh + filter_commit_secret_env + filter_secret_names to sanitize invalid CLOUD_AGENT_*_SECRET_NAMES before commit.
+- Pitfalls: prefer filter/wrapper over --no-verify for schema and other commits when hook fails on indirect expansion.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` on restored scripts
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → OK
+- `python3 scripts/excalibur_blog_research_notes_gate.py` on B01 Tharu → PASS technical=false
+- `rg` / bash -n on git filter wrappers
+commit: pending-parent-commit

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-2107-research-wordstat-gate-quirks
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` for secondary phrases `как читать encar` and `как читать отчет encar` returned unexpected payloads (`{"totalCount":"7"}` or `{}`) without phrase list; Research skill still expects a full top table for every secondary query.
+- First `research-notes-gate` run BLOCKed after a structurally complete brief: counter `accessed_at` only matched the `accessed_at:` label form (plain table dates `2026-11-01` did not count), and `pain_solution_map` row regex required the literals боль/pain/решение/solution/result/результат inside every data row, not only in the header.
+- Gate marked the auto-import how-to as `technical_topic=true` because notes contain `github` / repo names under `github_evidence`, then warned about missing `/docs|help.` URLs even though official Encar/Carhistory pages were cited.
+
+### How the agent recovered this run
+- Kept Wordstat rows for failed phrases as `N/A` with the raw shape note; did not invent impressions. Relied on successful clusters: `encar на русском`, `проверка авто корея`, `trust encar`, `carhistory`.
+- Rewrote `source_table` cells to `accessed_at: 2026-11-01` and prefixed pain-map cells with `боль:` / `решение:` / `результат:`; re-ran gate to PASS.
+- Left the technical-topic warning as non-blocking; GitHub rows kept as optional market signal with beginner-fit N/A note.
+
+### Durable fix needed before next run
+- Mirror Scout cluster-first Wordstat guidance into Research skill: on `totalCount`-only / empty payload, broaden phrase and record N/A without retry spam.
+- Document research-notes gate expectations: ≥5 lines with `accessed_at:` label; each pain_solution_map data row must contain pain/solution/result keywords; or relax the gate regexes to count header+URL rows.
+- Exclude the `## github_evidence` section (and common auto-domain words) from `is_technical_topic()` so consumer niches are not forced into developer-docs heuristics.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

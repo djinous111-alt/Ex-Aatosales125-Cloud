@@ -23,6 +23,7 @@ category: env
 - Executed GEO QA as generalPurpose with explicit paths: `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
 - Ran full script suite (research-notes, fact-check, link-verify, html-linter, slop, cannibalization, utility, human-voice); overall article-qa PASS.
 - Did not start cover/schema/publish from this role.
+- Commit workaround: filter `CLOUD_AGENT_INJECTED_SECRET_NAMES` to comma-separated valid identifiers; add `pragma: allowlist secret` on `link-verify.json` URL lines (same pattern as article.html CTA).
 
 ### Durable fix needed before next run
 - Register/restore typed Cloud Task type `excalibur-blog-geo-qa` (and sibling pipeline roles) in Cloud automation config.

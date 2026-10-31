@@ -29,16 +29,18 @@
     "description_aeo": "Как выбрать Haval M6 из Китая: сверить 110 кВт и порог 117,68, опции по фото вместо слова максималка, КПП и язык ГУ до депозита."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-10-31",
     "html_linter": "PASS",
-    "slop_score": "WARNING",
-    "cannibalization": "pending",
-    "fact_check": "pending",
-    "link_verify": "pending",
-    "utility_gate": "pending",
-    "core_eeat": null
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "fact_check": "PASS",
+    "link_verify": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

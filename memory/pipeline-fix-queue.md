@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1327-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-haval-m6-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API did not accept typed Task `excalibur-blog-geo-qa`; Director launched `Task(generalPurpose)` fallback for GEO QA.
+- Same Cloud Task typing gap can force single-agent risk if Director skips role contracts.
+
+### How the agent recovered this run
+- Executed GEO QA as generalPurpose with explicit paths: `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Ran full script suite (research-notes, fact-check, link-verify, html-linter, slop, cannibalization, utility, human-voice); overall article-qa PASS.
+- Did not start cover/schema/publish from this role.
+
+### Durable fix needed before next run
+- Register/restore typed Cloud Task type `excalibur-blog-geo-qa` (and sibling pipeline roles) in Cloud automation config.
+- Keep AGENTS.md / director skill fallback text that one generalPurpose Task = one role with contract paths mandatory.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- Cloud automation / Task type registry (ops)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-1325-writer-secret-names-url-tail
 status: open
 run_date: 2026-10-31

@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-2133-publish-env-paramiko-schema-hydrate
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` отсутствовал в runtime (только `site.env.local.example`); publish без ручной сборки из Cloud Secrets не стартует.
+- `paramiko` не установлен в образе (`ModuleNotFoundError`) несмотря на упоминание в requirements/install docs.
+- `schema.jsonld` с `${PUBLIC_SITE_URL|CATALOG_URL|TELEGRAM_URL|MAX_URL}` — скрипт publish не гидрирует placeholders in-memory; без ручного expand meta schema уходит с литералами `${…}`.
+- Ledger `upsert_publish_ledger` пишет абсолютный `PUBLIC_SITE_URL` host → secret-scan / git hygiene noise.
+
+### How the agent recovered this run
+- Собрал gitignored `memory/site.env.local` из env (без quotes), `SSH_ROOT=.` (SSH_PATH сохранён).
+- `pip install --break-system-packages paramiko`.
+- Hydrate schema → publish → restore placeholders из backup.
+- Redact host в `wp-publish-result.json` / ledger / log до `${PUBLIC_SITE_URL}` перед commit.
+- Publish PASS: WP 3394 (same-slug update), featured 4724, inline 4725–4727, HEAD 200; denylist LIVE posts не трогались.
+
+### Durable fix needed before next run
+- Bootstrap `site.env.local` из Cloud Secrets в cloud-agent-install / doctor `--env-check` helper (без печати секретов).
+- Гарантировать paramiko в environment image / install script.
+- Hydrate `${ENV}` / `env:VAR` в `excalibur_blog_wp_publish.py` in-memory (не мутировать committed schema).
+- Ledger URL писать как `${PUBLIC_SITE_URL}/…` или relative path.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-2128-indexer-llms-blog-path-doctor-drift
 status: open
 run_date: 2026-11-01

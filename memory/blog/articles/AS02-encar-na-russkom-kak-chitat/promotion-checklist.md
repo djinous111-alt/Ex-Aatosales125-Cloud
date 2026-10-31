@@ -1,13 +1,13 @@
 # Promotion checklist — AS02 encar-na-russkom-kak-chitat
 
-Дата публикации: 2026-11-01 (план; live после publish)  
-Live URL: /blog/encar-na-russkom-kak-chitat/
+P26-11-01
+Live URL: ${PUBLIC_SITE_URL}/2026/07/18/encar-na-russkom-kak-chitat/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)

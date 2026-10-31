@@ -1,0 +1,48 @@
+{
+  "slug": "encar-na-russkom-kak-chitat",
+  "topic_id": "AS02",
+  "permalink": "${PUBLIC_SITE_URL}/2026/07/18/encar-na-russkom-kak-chitat/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1176419,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3394 slug=encar-na-russkom-kak-chitat\nOK featured_image=4724\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4725 src=cover/inline-01.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-01-8.png\nOK inline_image_upload=4726 src=cover/inline-02.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-02-8.png\nOK inline_image_upload=4727 src=cover/inline-03.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-03-8.png\npermalink=${PUBLIC_SITE_URL}/2026/07/18/encar-na-russkom-kak-chitat/\n",
+  "verdict": "pass",
+  "post_id": 3394,
+  "featured_image": 4724,
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "inline_images": [
+    {
+      "id": 4725,
+      "src": "cover/inline-01.png",
+      "url": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-01-8.png"
+    },
+    {
+      "id": 4726,
+      "src": "cover/inline-02.png",
+      "url": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-02-8.png"
+    },
+    {
+      "id": 4727,
+      "src": "cover/inline-03.png",
+      "url": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-03-8.png"
+    }
+  ],
+  "head_status": 200,
+  "publish_date": "2026-11-01",
+  "denylist_untouched": [
+    4717,
+    4711,
+    4699,
+    4687,
+    4681,
+    4675,
+    4669,
+    4663
+  ]
+}

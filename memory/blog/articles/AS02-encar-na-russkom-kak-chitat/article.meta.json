@@ -28,12 +28,16 @@
     "description_aeo": "Encar на русском читают через перевод encar.com: умножают 만원 на 10 000, сверяют 연식 с выпуском и схему X/W до депозита."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-11-01",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "core_eeat": "19/20",
+    "beginner_fit": "PASS"
   },
   "cover_family": "brand_collage"
 }

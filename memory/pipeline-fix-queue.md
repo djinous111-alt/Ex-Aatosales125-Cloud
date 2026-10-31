@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-0016-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa`; Director запускает роль через `Task(generalPurpose)` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнил GEO QA как generalPurpose по контракту агента/skill; артефакты и handoff-маркер стандартные.
+
+### Durable fix needed before next run
+- Зафиксировать в Cloud/automation docs, что typed `excalibur-blog-*` Task types могут быть недоступны и канонический путь — generalPurpose + agent/skill paths (уже в AGENTS.md / pitfalls); при появлении typed types — вернуть их в Task map.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/pipeline-task-map.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261101-0016-geo-qa-utility-markers-rebrand-wipe
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и при отсутствии ключей берёт `[]`, но `min_pain_markers`/`min_outcome_markers` дефолтятся в 2/3 → любой article gate всегда BLOCK (`pain_markers=0`, `outcome_markers=0`).
+- После rebrand AVTO SALES эти списки и `_markers_pinned` были стёрты из policy (ранее pin в fixer-коммите dbd8b556); AS09 utility report ещё без pain/outcome metrics — старая версия скрипта.
+
+### How the agent recovered this run
+- Не правил `article.html`. Восстановил `pain_markers_ru`, `outcome_markers_ru`, `_markers_pinned=true` и mins в `article_required_signals` из известного pin-коммита; re-run utility → PASS (pain 5 / outcome 5). Human-voice уже PASS на том же тексте.
+
+### Durable fix needed before next run
+- Закрепить маркеры в policy + doctor/regression smoke на `_markers_pinned` и non-empty pain/outcome lists; не допускать rebrand wipe этих ключей.
+- Опционально: если списки пусты — не применять min_pain/min_outcome (fail-open или явный config error), чтобы пустой policy не выглядел как провал контента Writer.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-2107-research-wordstat-gate-quirks
 status: open
 run_date: 2026-11-01

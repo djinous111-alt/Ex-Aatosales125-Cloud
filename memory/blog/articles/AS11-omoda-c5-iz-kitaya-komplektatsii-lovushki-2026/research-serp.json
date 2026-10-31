@@ -1,0 +1,641 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-31",
+    "today_ru": "31.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-02",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-31 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS11",
+    "priority": "P0",
+    "slug": "omoda-c5-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "омода с5 комплектации",
+    "secondary_queries": [
+      "омода с5 2026 комплектации",
+      "омода с5 актив комплектация",
+      "омода с5 драйв комплектация",
+      "какие комплектации у омода с5"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "омода с5 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA C5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Омода С5 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/omoda-c5-2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA S5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Omoda C5 Рестайлинг (New 2026) Комплектации, Цены, Купить Новые Омода ...",
+          "url": "https://www.major-omoda.ru/models/c5/",
+          "snippet": "Омода С5 2026 с \"космическим\" дизайном, турбомоторами, богатыми комплектациями и низкой ценой уже вышел на рынок. Детальный разбор модели."
+        },
+        {
+          "title": "Омода С5 (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/omoda/c5",
+          "snippet": "OMODA C5 рестайлинг (NEW 2026) года в Москве по лучшей цене от официального дилера Major. На сайте доступны технические характеристики, комплектации и цены новой модели ОМОДА Ц5."
+        },
+        {
+          "title": "Omoda C5: Все Комплектации 2026 Года С Ценами И Сравнением",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/om/omoda-s5-komplektatsii.html",
+          "snippet": "Всё про автомобиль Омода С5 2026 года: цена в России, фотографии кузова и салона, характеристики, информация про двигатели."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "омода с5 комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA C5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Омода С5 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/omoda-c5-2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA S5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Omoda C5 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/omoda/c5/",
+          "snippet": "Омода С5 2026 с \"космическим\" дизайном, турбомоторами, богатыми комплектациями и низкой ценой уже вышел на рынок. Детальный разбор модели."
+        },
+        {
+          "title": "Омода С5 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/omoda/omoda-c5-2026.html",
+          "snippet": "Omoda C5: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Модельный ряд и цены Омода - все модели, комплектации и цены Omoda 2026 ...",
+          "url": "https://cars-omoda.ru/models/",
+          "snippet": "Производитель предлагает несколько комплектаций с цифровым кокпитом и продвинутой мультимедиа системой. Цена в основном зависит от оснащения. На фото особенно выделяются необычная решётка радиатора, узкая светодиодная оптика и стильный интерьер модели. OMODA предлагает две силовые установки."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "омода с5 комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA S5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Омода С5 2026 после рестайлинга с новыми ценами и комплектациями",
+          "url": "https://mediaspeak.ru/auto/drive/omoda-c5-tsena-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд OMODA C5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Омода С5 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/omoda-c5-2026/",
+          "snippet": "После рестайлинга комплектации Омода С5 2026 претерпели незначительные изменения, чтобы сохранить приемлемую стоимость и лидерство среди самых продаваемых китайских кроссоверов. Одним из таких изменений стала сокращенная палитра цветов кузова и минимизация интерьерной подсветки в салоне."
+        },
+        {
+          "title": "Омода С5 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/omoda/omoda-c5-2026.html",
+          "snippet": "Омода С5 2026 вызывает интерес прежде всего из-за сочетания эффектной внешности и разнообразных комплектаций и доступной цены. Модель получила новый кузов весной 2026 года. Вместе с этим производитель пересмотрел технические характеристики кроссовера. В этой статье рассмотрим фото второго поколения."
+        },
+        {
+          "title": "Омода С5 (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/omoda/c5",
+          "snippet": "Производитель предлагает несколько комплектаций с цифровым кокпитом и продвинутой мультимедиа системой. Цена в основном зависит от оснащения. На фото особенно выделяются необычная решётка радиатора, узкая светодиодная оптика и стильный интерьер модели. OMODA предлагает две силовые установки."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com омода с5 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "D2Runner/logo.png at master · niesoft/D2Runner · GitHub",
+          "url": "https://github.com/niesoft/D2Runner/blob/master/logo.png",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - unclebob/ub-mode",
+          "url": "https://github.com/unclebob/ub-mode",
+          "snippet": "Contribute to niesoft/D2Runner development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub - daveebbelaar/bama: BAMA: Build Any Mac App. Agent skills to ...",
+          "url": "https://github.com/daveebbelaar/bama",
+          "snippet": "ub-mode is an agent skill that enforces disciplined software engineering principles when writing or changing code. It is loosely based on portions of @poteto 's rules (poteto-mode / pstack), reduced and paired with deterministic quality-gate tools:"
+        },
+        {
+          "title": "First-game/icon.svg at main · Basmahx/First-game · GitHub",
+          "url": "https://github.com/Basmahx/First-game/blob/main/icon.svg",
+          "snippet": "Quick start · How it works · Skills · Specs · Install. Then ask your agent: Screenshot every screen, write the user stories, and build milestone 1. Not sure where to start? Type /bama. It looks at your project and picks the next skill. 1. Clone. Your agent opens the app you like and screenshots every screen. It writes a screen index. 2. Plan."
+        },
+        {
+          "title": "UUPMediaCreator/Assets/logo.png at main · OSTooling/UUPMediaCreator",
+          "url": "https://github.com/OSTooling/UUPMediaCreator/blob/main/Assets/logo.png",
+          "snippet": "Contribute to Basmahx/First-game development by creating an account on GitHub."
+        },
+        {
+          "title": "PyChem-Pro/assets/icon.svg at main - GitHub",
+          "url": "https://github.com/vijaymasand/PyChem-Pro/blob/main/assets/icon.svg",
+          "snippet": "An utility to create Windows Media files (.ISO, .WIM, .VHD) from Unified Update Platform files - OSTooling/UUPMediaCreator"
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "омода с5 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA C5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Omoda S5 2026: Комплектации И Цены В России, Сравнение Версий",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/om/omoda-s-5-komplektatsiya-i-tseny.html",
+          "snippet": "Подробно расписан модельный ряд OMODA S5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Omoda C5 Комплектации, Цены И Технические Характеристики",
+          "url": "https://omoda-leaderavto.ru/models/modelc5/komplektatsii/",
+          "snippet": "Актуальные цены на OMODA S5 2026 года с подробным разбором всех комплектаций. Сравнение двигателей, опций и стоимости в салонах. Отзывы владельцев и советы по выбору."
+        },
+        {
+          "title": "Omoda S5 2026 Комплектации, Цены, Купить Новые Омода S5 Из Наличия ...",
+          "url": "https://www.major-omoda.ru/models/s5/",
+          "snippet": "Узнайте всё о комплектациях, ценах, технических характеристиках и габаритах нового кроссовера OMODA C5. Исследуйте разнообразные варианты этой модели и выберите идеальную конфигурацию."
+        },
+        {
+          "title": "Комплектации И Цены Omoda S5 (Омода S5)",
+          "url": "https://omoda-tmn.ru/models/models5/komplektatsii-i-tseny/",
+          "snippet": "OMODA S5 2026 года в Москве по лучшей цене от официального дилера Major. На сайте доступны технические характеристики, комплектации и цены новой модели ОМОДА S5."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "омода с5 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Отзывы Владельцев О Марке Omoda (Омода)",
+          "url": "https://autospot.ru/brands/omoda/review/",
+          "snippet": ""
+        },
+        {
+          "title": "Бортжурнал Omoda S5 - клуб, форум о Омода С5 на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/omoda/s5/",
+          "snippet": "Читайте реальные отзывы владельцев обо всех моделях Омода (OMODA). Опыт эксплуатации, плюсы и минусы автомобилей марки на 2026 год на сайте autospot.ru."
+        },
+        {
+          "title": "Обзор Omoda S5 2026: опыт эксплуатации, реальный ресурс и скрытые ...",
+          "url": "https://journal.carso.ru/articles/obzor-omoda-s5-2026-opyt-ekspluatatsii-realnyy-resurs-i-skrytye-problemy-bestsellera",
+          "snippet": "В этом выпуске новостей обсуждаем масштабное обновление Лада Веста 2026 года и тотальные проблемы с надежностью новой Нивы Бронто, которая ржавеет и ломается на первой тысяче километров."
+        },
+        {
+          "title": "Отзывы Владельцев Omoda S5, 2024-2026 Годов С Фото",
+          "url": "https://www.drom.ru/reviews/omoda/s5/new/",
+          "snippet": "Стоит ли покупать Omoda S5 в 2026 году? Детальный разбор надежности двигателя и вариатора, устойчивость кузова к коррозии и опыт владения самым массовым китайским седаном в России."
+        },
+        {
+          "title": "Omoda C5 клуб и форум",
+          "url": "https://omoda-c5-forum.ru/",
+          "snippet": "Отзывы владельцев OMODA S5, 2024-2026 годов. Надежность Омода С5. Достоинства и недостатки OMODA S5. Опыт эксплуатации автомобилей Омода С5."
+        },
+        {
+          "title": "Omoda S5 Клуб и Форум",
+          "url": "https://omoda-s5-club.ru/",
+          "snippet": "Здравствуйте, купил не давно с5 на роботе. Переключение со 2 на 1 передачу происходит пинком."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "омода с5 2026 комплектации 2026",
+      "purpose": "вторичный запрос: омода с5 2026 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA C5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Омода С5 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/omoda-c5-2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA S5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Омода С5 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/omoda/omoda-c5-2026.html",
+          "snippet": "Омода С5 2026 вызывает интерес прежде всего из-за сочетания эффектной внешности и разнообразных комплектаций и доступной цены. Модель получила новый кузов весной 2026 года. Вместе с этим производитель пересмотрел технические характеристики кроссовера. В этой статье рассмотрим фото второго поколения."
+        },
+        {
+          "title": "Omoda C5 Рестайлинг (New 2026) Комплектации, Цены, Купить Новые Омода ...",
+          "url": "https://www.major-omoda.ru/models/c5/",
+          "snippet": "Производитель предлагает несколько комплектаций с цифровым кокпитом и продвинутой мультимедиа системой. Цена в основном зависит от оснащения. На фото особенно выделяются необычная решётка радиатора, узкая светодиодная оптика и стильный интерьер модели. OMODA предлагает две силовые установки."
+        },
+        {
+          "title": "Омода С5 (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/omoda/c5",
+          "snippet": "OMODA C5 рестайлинг (NEW 2026) года в Москве по лучшей цене от официального дилера Major. На сайте доступны технические характеристики, комплектации и цены новой модели ОМОДА Ц5."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "омода с5 актив комплектация 2026",
+      "purpose": "вторичный запрос: омода с5 актив комплектация",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA C5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить Омода C5 2026 В Комплектации Актив По Цене От 1 499 900 ₽ В ...",
+          "url": "https://adom.ru/omoda/c5/aktiv",
+          "snippet": "Подробно расписан модельный ряд OMODA S5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Omoda C5 Active комплектация 2026: цена, фото, оборудование и аксессуары",
+          "url": "https://carmaps.ru/omoda/c5/com-active/",
+          "snippet": "А зачем? C5 в наличии и представлен в нашем автосалоне. Предлагаем Вам пощупать отделку салона, подержать кожаный руль своими руками и почувствовать запах нового автомобиля."
+        },
+        {
+          "title": "Омода С5 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/omoda-c5-2026/",
+          "snippet": "Цена, фото, стандартное и дополнительное оборудование Omoda C5 в комплектации Active: оборудование, аксессуары, системы безопасности и характеристики."
+        },
+        {
+          "title": "Омода С5 (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/omoda/c5",
+          "snippet": "Омода С5 2026 с \"космическим\" дизайном, турбомоторами, богатыми комплектациями и низкой ценой уже вышел на рынок. Детальный разбор модели."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "омода с5 драйв комплектация 2026",
+      "purpose": "вторичный запрос: омода с5 драйв комплектация",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA C5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Омода С5 2026 после рестайлинга с новыми ценами и комплектациями",
+          "url": "https://mediaspeak.ru/auto/drive/omoda-c5-tsena-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд OMODA S5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Купить Omoda C5 Rest 2026 в комплектации Drive по цене от 1560000 руб ...",
+          "url": "https://carso.ru/omoda/c5-new/kit/drive",
+          "snippet": "Омода С5 2026 года после рестайлинга: цена, комплектации, характеристики, плюсы, минусы, конкуренты и многое другое"
+        },
+        {
+          "title": "Омода С5 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/omoda-c5-2026/",
+          "snippet": "Купить Омода С5 Рестайлинг Drive по цене от 1560000 руб. Trade-in, рассрочка, экспресс кредит. Omoda C5 Rest в комплектации Drive в автосалоне, Москва."
+        },
+        {
+          "title": "Омода С5 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/omoda/omoda-c5-2026.html",
+          "snippet": "Омода С5 2026 вызывает интерес прежде всего из-за сочетания эффектной внешности и разнообразных комплектаций и доступной цены. Модель получила новый кузов весной 2026 года. Вместе с этим производитель пересмотрел технические характеристики кроссовера. В этой статье рассмотрим фото второго поколения."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "какие комплектации у омода с5 2026",
+      "purpose": "вторичный запрос: какие комплектации у омода с5",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+          "snippet": "Подробно расписан модельный ряд OMODA C5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Omoda C5 Комплектации, Цены И Технические Характеристики",
+          "url": "https://omoda-leaderavto.ru/models/modelc5/komplektatsii/",
+          "snippet": "Подробно расписан модельный ряд OMODA S5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Омода С5 2026 между собой."
+        },
+        {
+          "title": "Omoda C5 Рестайлинг (New 2026) Комплектации, Цены, Купить Новые Омода ...",
+          "url": "https://www.major-omoda.ru/models/c5/",
+          "snippet": "Узнайте всё о комплектациях, ценах, технических характеристиках и габаритах нового кроссовера OMODA C5. Исследуйте разнообразные варианты этой модели и выберите идеальную конфигурацию."
+        },
+        {
+          "title": "Омода С5 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/omoda-c5-2026/",
+          "snippet": "OMODA C5 рестайлинг (NEW 2026) года в Москве по лучшей цене от официального дилера Major. На сайте доступны технические характеристики, комплектации и цены новой модели ОМОДА Ц5."
+        },
+        {
+          "title": "Omoda C5: Все Комплектации 2026 Года С Ценами И Сравнением",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/om/omoda-s5-komplektatsii.html",
+          "snippet": "15 июня 2023 года в продажу поступил обновленный модельный ряд, куда вошли комплектации Xinchao, Xinchao Plus, Xinchao Pro и Xinchao Max. Позднее к ним добавили версию Xindong."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Omoda C5: Все Комплектации 2026 Года - Сравнение И Выбор",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/om/omoda-c5-komplektatsii.html",
+          "snippet": ""
+        },
+        {
+          "title": "Omoda C5: все комплектации 2026 года — сравнение и выбор",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/ko/komplektatsii-omoda-c5.html",
+          "snippet": "В этой статье мы детально разберём все доступные модификации OMODA C5, их технические нюансы, скрытые плюсы и минусы, а также поможем определиться, какая комплектация подойдёт именно вам."
+        },
+        {
+          "title": "Omoda C5 2026: официальные цены, комплектации, технические ...",
+          "url": "https://inycar.ru/blog/omoda-c5-2026-ofitsialnye-tseny-komplektatsii-tehnicheskie-harakteristiki-i-fakty",
+          "snippet": "В этой статье мы детально разберём все доступные версии Omoda C5 2026 года, сравним их оснащение, цены и поможем определиться с оптимальным вариантом."
+        },
+        {
+          "title": "Omoda C5: обзор, комплектации и отзывы владельцев 2026",
+          "url": "https://silenkoautocratia.ru/blog/omoda-c5-obzor/",
+          "snippet": "Рассказываем про Omoda C5 2026 года — от цены и комплектаций до того, как он ведёт себя на дорогах и сколько стоит содержать."
+        },
+        {
+          "title": "Все О Новой Omoda C5: Ультимативный Гайд Для Покупателя В 2026 Году",
+          "url": "https://www.metronews.ru/partners/press/reviews/vse-o-novoy-omoda-c5-ultimativnyy-gayd-dlya-pokupatelya-v-2026-godu-2192093/",
+          "snippet": "Omoda C5 в 2026 году: двигатель 1.5T, комплектации, реальный расход, отзывы владельцев, сравнение с Chery Tiggo 4 Pro и расчёт стоимости под ключ из Китая."
+        },
+        {
+          "title": "OMODA C5 — цены, комплектации и выгоды 2026 | CarGPT",
+          "url": "https://cargpt.io/catalog/omoda/c5/",
+          "snippet": "Новый Omoda C5 - это не просто автомобиль с большим экраном. Это машина, в которой несколько технологий работают вместе, создавая ощущение чего-то заметно дороже своего класса."
+        }
+      ],
+      "searched_at": "2026-10-31"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/omoda/c5/2026/",
+      "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+      "from_query": "омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/omoda/s5/2026/",
+      "title": "Омода С5 2026 технические характеристики, комплектации и цены",
+      "from_query": "омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://cenyavto.com/omoda-c5-2026/",
+      "title": "Омода С5 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://www.major-omoda.ru/models/c5/",
+      "title": "Omoda C5 Рестайлинг (New 2026) Комплектации, Цены, Купить Новые Омода ...",
+      "from_query": "омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://wroom.ru/cars/omoda/c5",
+      "title": "Омода С5 (2026) — цена, характеристики, фото",
+      "from_query": "омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/om/omoda-s5-komplektatsii.html",
+      "title": "Omoda C5: Все Комплектации 2026 Года С Ценами И Сравнением",
+      "from_query": "омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://carsdo.ru/omoda/c5/",
+      "title": "Omoda C5 › Цена и комплектации 2026 - CarsDo.ru",
+      "from_query": "омода с5 комплектации октябрь 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/omoda/omoda-c5-2026.html",
+      "title": "Омода С5 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "омода с5 комплектации октябрь 2026"
+    },
+    {
+      "url": "https://cars-omoda.ru/models/",
+      "title": "Модельный ряд и цены Омода - все модели, комплектации и цены Omoda 2026 ...",
+      "from_query": "омода с5 комплектации октябрь 2026"
+    },
+    {
+      "url": "https://mediaspeak.ru/auto/drive/omoda-c5-tsena-komplektatsii.html",
+      "title": "Омода С5 2026 после рестайлинга с новыми ценами и комплектациями",
+      "from_query": "омода с5 комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/niesoft/D2Runner/blob/master/logo.png",
+      "title": "D2Runner/logo.png at master · niesoft/D2Runner · GitHub",
+      "from_query": "site:github.com омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/unclebob/ub-mode",
+      "title": "GitHub - unclebob/ub-mode",
+      "from_query": "site:github.com омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/daveebbelaar/bama",
+      "title": "GitHub - daveebbelaar/bama: BAMA: Build Any Mac App. Agent skills to ...",
+      "from_query": "site:github.com омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/Basmahx/First-game/blob/main/icon.svg",
+      "title": "First-game/icon.svg at main · Basmahx/First-game · GitHub",
+      "from_query": "site:github.com омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/OSTooling/UUPMediaCreator/blob/main/Assets/logo.png",
+      "title": "UUPMediaCreator/Assets/logo.png at main · OSTooling/UUPMediaCreator",
+      "from_query": "site:github.com омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/vijaymasand/PyChem-Pro/blob/main/assets/icon.svg",
+      "title": "PyChem-Pro/assets/icon.svg at main - GitHub",
+      "from_query": "site:github.com омода с5 комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/om/omoda-s-5-komplektatsiya-i-tseny.html",
+      "title": "Omoda S5 2026: Комплектации И Цены В России, Сравнение Версий",
+      "from_query": "омода с5 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://omoda-leaderavto.ru/models/modelc5/komplektatsii/",
+      "title": "Omoda C5 Комплектации, Цены И Технические Характеристики",
+      "from_query": "омода с5 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://www.major-omoda.ru/models/s5/",
+      "title": "Omoda S5 2026 Комплектации, Цены, Купить Новые Омода S5 Из Наличия ...",
+      "from_query": "омода с5 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://omoda-tmn.ru/models/models5/komplektatsii-i-tseny/",
+      "title": "Комплектации И Цены Omoda S5 (Омода S5)",
+      "from_query": "омода с5 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://autospot.ru/brands/omoda/review/",
+      "title": "Отзывы Владельцев О Марке Omoda (Омода)",
+      "from_query": "омода с5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/omoda/s5/",
+      "title": "Бортжурнал Omoda S5 - клуб, форум о Омода С5 на Авто.ру",
+      "from_query": "омода с5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://journal.carso.ru/articles/obzor-omoda-s5-2026-opyt-ekspluatatsii-realnyy-resurs-i-skrytye-problemy-bestsellera",
+      "title": "Обзор Omoda S5 2026: опыт эксплуатации, реальный ресурс и скрытые ...",
+      "from_query": "омода с5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/omoda/s5/new/",
+      "title": "Отзывы Владельцев Omoda S5, 2024-2026 Годов С Фото",
+      "from_query": "омода с5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://omoda-c5-forum.ru/",
+      "title": "Omoda C5 клуб и форум",
+      "from_query": "омода с5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://omoda-s5-club.ru/",
+      "title": "Omoda S5 Клуб и Форум",
+      "from_query": "омода с5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://adom.ru/omoda/c5/aktiv",
+      "title": "Купить Омода C5 2026 В Комплектации Актив По Цене От 1 499 900 ₽ В ...",
+      "from_query": "омода с5 актив комплектация 2026"
+    },
+    {
+      "url": "https://carmaps.ru/omoda/c5/com-active/",
+      "title": "Omoda C5 Active комплектация 2026: цена, фото, оборудование и аксессуары",
+      "from_query": "омода с5 актив комплектация 2026"
+    },
+    {
+      "url": "https://carso.ru/omoda/c5-new/kit/drive",
+      "title": "Купить Omoda C5 Rest 2026 в комплектации Drive по цене от 1560000 руб ...",
+      "from_query": "омода с5 драйв комплектация 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/om/omoda-c5-komplektatsii.html",
+      "title": "Omoda C5: Все Комплектации 2026 Года - Сравнение И Выбор",
+      "from_query": "Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/ko/komplektatsii-omoda-c5.html",
+      "title": "Omoda C5: все комплектации 2026 года — сравнение и выбор",
+      "from_query": "Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/omoda-c5-2026-ofitsialnye-tseny-komplektatsii-tehnicheskie-harakteristiki-i-fakty",
+      "title": "Omoda C5 2026: официальные цены, комплектации, технические ...",
+      "from_query": "Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://silenkoautocratia.ru/blog/omoda-c5-obzor/",
+      "title": "Omoda C5: обзор, комплектации и отзывы владельцев 2026",
+      "from_query": "Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://www.metronews.ru/partners/press/reviews/vse-o-novoy-omoda-c5-ultimativnyy-gayd-dlya-pokupatelya-v-2026-godu-2192093/",
+      "title": "Все О Новой Omoda C5: Ультимативный Гайд Для Покупателя В 2026 Году",
+      "from_query": "Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://cargpt.io/catalog/omoda/c5/",
+      "title": "OMODA C5 — цены, комплектации и выгоды 2026 | CarGPT",
+      "from_query": "Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

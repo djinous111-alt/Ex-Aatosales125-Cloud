@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None open after AS11 fixer run — resolutions recorded on each INC below._
+
+
 ## INC-20261031-1744-publish-ssh-path-root-and-paramiko
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-publish
 topic_id: AS11
@@ -43,11 +46,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- `load_env()` maps `SSH_PATH`→`SSH_ROOT` when ROOT empty.
+- Publish hydrates `${PUBLIC_SITE_URL}`/`${CATALOG_URL}`/`${TELEGRAM_URL}`/`${MAX_URL}` in schema payload.
+- `.cursor/cloud-agent-install.sh` installs `requirements.txt` (includes paramiko).
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- hydrate unit smoke; doctor errors=0
+commit: d7f66a9d+docs
 
 ## INC-20261031-1738-indexer-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-indexer
 topic_id: AS11
@@ -74,10 +91,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Added `scripts/excalibur_blog_filter_commit_secret_env.sh` + `scripts/excalibur_git.sh` to drop non-bash-identifier tokens from CLOUD_AGENT_*_SECRET_NAMES before commit hooks.
+- Documented in pitfalls (platform pre-commit.cursor still unfixable in-repo).
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` → zero non-identifier names
+commit: d7f66a9d+docs
 
 ## INC-20261031-1737-indexer-llms-blog-path-missing
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-indexer
 topic_id: AS11
@@ -111,10 +139,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Added `--blog-path` to `excalibur_blog_llms_generator.py` (default from site-brief); `/` → `/{slug}/`.
+- Doctor check now PASS.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-path`
+- smoke `--blog-path /` has no `/blog/{slug}/`
+- doctor errors=0
+commit: d7f66a9d+docs
 
 ## INC-20261031-1735-cover-missing-corner-brand
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-cover
 topic_id: AS11
@@ -142,10 +182,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- `excalibur_blog_cover_quad_split.py` stamps navy pill + `cover_corner_brand.text` on cover.png and canvas top-left after split.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- demo canvas corner stamp smoke
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
+commit: d7f66a9d+docs
 
 ## INC-20261031-1736-cover-outfit-lock-white-hoodie
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-cover
 topic_id: AS11
@@ -173,11 +225,21 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Removed hardcoded Outfit lock thick heavyweight white hoodie; prompt uses compact blog-hero outfit_rule + explicit NO default white hoodie.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- AS11 prompt rebuild <=3500 chars; no thick heavyweight white hoodie
+commit: d7f66a9d+docs
 
 ## INC-20261031-1730-schema-url-placeholders-undocumented
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-schema
 topic_id: AS11
@@ -210,11 +272,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Documented PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL placeholder commit hygiene in schema skill/agent + writing contract.
+- Publish hydrates placeholders; git filter helper shipped for secret-name lists.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- hydrate unit smoke; doctor errors=0
+commit: d7f66a9d+docs
 
 ## INC-20261031-1718-writer-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-writer
 topic_id: AS11
@@ -246,11 +323,21 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Confirmed pain_markers_ru/outcome_markers_ru present in editorial-policy.json (aligned with human_voice).
+- utility_gate.py falls back to human_voice PAIN/OUTCOME constants if policy lists empty.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified present)
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- policy marker counts 12/10; py_compile utility_gate
+commit: d7f66a9d+docs
 
 ## INC-20261031-1715-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-research
 topic_id: AS11
@@ -286,10 +373,19 @@ category: script
 - none recorded (secret name/value not logged)
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- is_technical_topic uses word-boundary for short markers; strips research field names before scan so комплектации/reader_pain no longer force technical.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit asserts for ii/ai false positives; AS Omoda context not technical
+commit: d7f66a9d+docs
 
 ## INC-20261031-2006-scout-helper-as-b-regression
-status: open
+status: fixed
 run_date: 2026-10-31
 role: excalibur-blog-scout
 topic_id: AS11
@@ -324,7 +420,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-31
+fix_summary:
+- Restored dual-prefix AS|B topic ID parsing in scout_helper + today.py; --suggest-next prefers AS when AS cards exist (AS12 on current pool, not B01).
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- --suggest-next returns AS12, pool=10
+commit: d7f66a9d+docs
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1325-writer-secret-names-url-tail
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-haval-m6-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: env
+
+### What went wrong
+- Pre-commit secret scan failed: `CLOUD_AGENT_INJECTED_SECRET_NAMES` ends with a raw catalog URL instead of a valid env var name.
+- Bash `${!SECRET_NAME}` then errors with "invalid variable name"; `git commit` aborts even when article CTA lines already use `<!-- pragma: allowlist secret -->`.
+- Helper scripts referenced in memory (`scripts/excalibur_blog_filter_commit_secret_env.sh`, `scripts/excalibur_git.sh`) are missing from this workspace snapshot.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to only valid `[A-Za-z_][A-Za-z0-9_]*` identifiers before commit.
+- Kept CTA hrefs from env with allowlist pragma; did not print secrets.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_blog_filter_commit_secret_env.sh` (or equivalent) that strips non-identifier entries from injected secret-name lists before any git hook.
+- Ensure Cloud secret injection never appends URL values into `*_SECRET_NAMES` lists.
+- Re-add `scripts/excalibur_git.sh` wrapper used by prior writer runs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (restore)
+- `scripts/excalibur_git.sh` (restore)
+- `.cursor/skills/writer-excalibur-blog/SKILL.md` (commit preflight note)
+- Cloud env / secret injection config (ops)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-1315-research-wordstat-empty-primary
 status: open
 run_date: 2026-10-31

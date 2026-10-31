@@ -1,7 +1,7 @@
 # Promotion checklist — B01 vw-tharu-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-31 (ожидается после publish)  
-Live URL: /vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-31  
+Live URL: ${PUBLIC_SITE_URL}/2026/10/31/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -48,3 +48,12 @@ Tharu XR за красивую цену — а по VIN другая платф�
 - Indexer: interlinker `--apply --article-dir …/B01-vw-tharu-iz-kitaya-komplektatsii-lovushki-2026 --site-base $PUBLIC_SITE_URL --blog-path /` — **0** links applied.
 - llms.txt / llms-full.txt: `memory/blog/` с `--site-base "" --blog-path /` → URLs `/{slug}/` (3 статьи).
 - Cover+Schema готовы; GEO QA PASS; publish — следующий шаг директора.
+
+
+## Publish result
+
+- wp_post_id: 4699
+- featured_id: 4704
+- inline_ids: 4705, 4708, 4709
+- HEAD: 200
+- permalink: ${PUBLIC_SITE_URL}/2026/10/31/vw-tharu-iz-kitaya-komplektatsii-lovushki-2026/

@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-0935-publish-http-remotedisconnected-webfetch
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-vw-tharu-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First publish attempt failed before SSH upload: `ModuleNotFoundError: No module named 'paramiko'` (runtime image missing dep despite requirements/docs).
+- After paramiko install, SSH upload of ~7.5MB bootstrap OK, but local HTTP trigger failed with `RemoteDisconnected`; Cloud WebFetch/urllib fallback required.
+- Fallback re-triggered the same bootstrap URL; inline media landed as `*-inline-0N-1.png` (duplicate upload naming). Post itself is single LIVE id 4699.
+
+### How the agent recovered this run
+- `pip install --break-system-packages paramiko`.
+- Background watcher wrote `memory/webfetch-response.txt` from FALLBACK_TRIGGER_URL; publish script returned OK post/featured/inline/schema.
+- Verified REST slug LIVE, HEAD 200; confirmed foreign post 4687 (TXL) untouched; ledger/log/promotion/handoff updated; no second publish.
+
+### Durable fix needed before next run
+- Ensure `paramiko` is present in Cloud environment image / install script (requirements already list it).
+- Honor longer HTTP timeout or treat RemoteDisconnected + REST-by-slug reconstruct before second bootstrap trigger (avoid `-1.png` duplicates).
+- Document: if FALLBACK fires after RemoteDisconnected, first check `wp-json/wp/v2/posts?slug=` for OK post before re-fetching bootstrap.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` timeout + REST reconstruct-before-fallback)
+- `.cursor/cloud-agent-install.sh` / `requirements.txt` (paramiko pin in image)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-0928-indexer-llms-blog-path-rebrand-wipe
 status: open
 run_date: 2026-10-31

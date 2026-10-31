@@ -24,6 +24,7 @@ category: docs
 - Relied on `excalibur_blog_human_voice_gate.py` PASS (hardcoded PAIN/OUTCOME markers) + html_linter/slop PASS.
 - Did not invent fake policy keys mid-writer; left durable fix for fixer.
 - Article AS11 delivered with char_count in range and human-voice grounded in research-notes.
+- Commit: filter `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash ids (comma-separated); CTA href lines use `<!-- pragma: allowlist secret -->` (prefer `scripts/excalibur_git.sh` / `excalibur_blog_filter_commit_secret_env.sh`).
 
 ### Durable fix needed before next run
 - Add `pain_markers_ru` and `outcome_markers_ru` arrays to `memory/brief/editorial-policy.json` (align with human_voice lists or shared constants).

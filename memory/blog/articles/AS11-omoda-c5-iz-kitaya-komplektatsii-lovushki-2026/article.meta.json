@@ -12,7 +12,7 @@
     "омода с5 драйв комплектация",
     "какие комплектации у омода с5"
   ],
-  "char_count": 8903,
+  "char_count": 8900,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,12 +29,15 @@
     "description_aeo": "До депозита за Omoda C5 из Китая сверьте мотор, коробку, привод, зимний пакет и VIN со словарём Актив/Драйв/Стиль. Название trim не равно дилерской машине."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-10-31",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility": "PASS",
+    "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

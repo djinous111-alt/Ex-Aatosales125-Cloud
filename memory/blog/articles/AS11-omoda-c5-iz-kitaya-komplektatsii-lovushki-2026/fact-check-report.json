@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": ". Коротко до депозита: В РФ у нового поколения C5 2026 официально три русские комплектации – Актив, Драйв",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "147",
+      "kind": "large_number",
+      "context": "кие комплектации – Актив, Драйв и Стиль – на 1.5T 147 л.с. с роботом DCT6. Из Китая часто едут другие св",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "156",
+      "kind": "large_number",
+      "context": "Китая часто едут другие связки: 1.5T с CVT около 156 л.с. или 1.6 TGDI около 197 л.с. Название \"как у д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "197",
+      "kind": "large_number",
+      "context": "зки: 1.5T с CVT около 156 л.с. или 1.6 TGDI около 197 л.с. Название \"как у дилера\" не гарантирует ту же",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "д ключ\": льготный утиль ориентирован на машины до 160 л.с. Схема сверки железа: Карточка лота → Мотор и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

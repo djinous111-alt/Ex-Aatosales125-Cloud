@@ -21,15 +21,14 @@ category: docs
 - Same BLOCK reproduces on previously published AS09 article.html in this workspace.
 
 ### How the agent recovered this run
-- Relied on `excalibur_blog_human_voice_gate.py` PASS (hardcoded PAIN/OUTCOME markers) + html_linter/slop PASS.
-- Did not invent fake policy keys mid-writer; left durable fix for fixer.
+- Writer: Relied on `excalibur_blog_human_voice_gate.py` PASS (hardcoded PAIN/OUTCOME markers) + html_linter/slop PASS; left durable fix for later.
+- GEO QA (AS11): added `pain_markers_ru` / `outcome_markers_ru` to `memory/brief/editorial-policy.json` (aligned with human_voice) → utility PASS; noted in `shared/agent-pipeline-pitfalls.md` QA section.
 - Article AS11 delivered with char_count in range and human-voice grounded in research-notes.
 - Commit: filter `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash ids (comma-separated); CTA href lines use `<!-- pragma: allowlist secret -->` (prefer `scripts/excalibur_git.sh` / `excalibur_blog_filter_commit_secret_env.sh`).
 
 ### Durable fix needed before next run
-- Add `pain_markers_ru` and `outcome_markers_ru` arrays to `memory/brief/editorial-policy.json` (align with human_voice lists or shared constants).
-- Or make utility gate fall back to the same marker tuples as human_voice when policy lists are empty.
-- Document in pitfalls so Writer/GEO QA do not treat empty-policy BLOCK as content failure.
+- Policy arrays already added by GEO QA; fixer should confirm they stay in sync with human_voice constants (or make utility gate fall back when policy lists are empty).
+- Optional: shared constants module so policy and human_voice cannot drift.
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`

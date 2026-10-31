@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-1730-schema-url-placeholders-undocumented
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-schema
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Schema skill/agent point to live `PUBLIC_SITE_URL` / registry `sameAs` URLs, but Cloud pre-commit secret-scan blocks committing those values in `schema.jsonld`.
+- First draft with hydrated URLs failed commit; had to rewrite to `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` placeholders (publish-time expand), matching prior B01 Exeed TXL pattern undocumented in current schema skill.
+- Separately: `CLOUD_AGENT_INJECTED_SECRET_NAMES` still contains one non-bash identifier that breaks pre-commit `${!SECRET_NAME}` until filtered.
+
+### How the agent recovered this run
+- Rewrote `schema.jsonld` with env placeholders; Instagram/2GIS left as public URLs.
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers before commit (no `--no-verify`).
+
+### Durable fix needed before next run
+- Document required URL placeholders + publish hydration in `skills/schema-excalibur-blog/SKILL.md` and `.cursor/skills/schema-excalibur-blog/SKILL.md`.
+- Add pitfalls note: never commit live PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL in schema.jsonld.
+- Ship `scripts/excalibur_git.sh` (or filter helper) so every role filters invalid secret names before commit.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md` (schema section)
+- `scripts/excalibur_git.sh` (missing but referenced)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261031-1718-writer-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-10-31

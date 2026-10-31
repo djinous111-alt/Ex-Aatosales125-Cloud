@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-2128-indexer-llms-blog-path-doctor-drift
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-indexer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` still asserts `--blog-path` in `excalibur_blog_llms_generator.py --help`, but the generator CLI only exposes `--blog-dir` / `--site-base` / `--out-dir` (no `--blog-path`).
+- Indexer skill/agent examples still show `--blog-path /`, so a naive copy-paste fails argparse.
+- Absolute `${PUBLIC_SITE_URL}` in committed `llms*.txt` / interlink JSON triggers Cloud secret-scan noise; prior runs use empty `--site-base` + relative `/blog/<slug>/`.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` (working flags from `--help`).
+- Interlinker used env site-base for apply, then redacted `site_base` in `memory/blog/interlink-suggestions.json` before commit.
+- AS02 appears in `llms.txt` / `llms-full.txt` with relative URL `/blog/encar-na-russkom-kak-chitat/`.
+
+### Durable fix needed before next run
+- Align doctor check with actual generator CLI (`--blog-dir`), or restore `--blog-path` alias in the generator.
+- Update indexer skill/agent shell examples to drop stale `--blog-path` and document empty/`""` site-base for committed relative URLs.
+- Add pitfalls note: never commit absolute PUBLIC host in llms/interlink artifacts.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-0024-cover-mcp-timeout-kie-fallback
 status: open
 run_date: 2026-11-01

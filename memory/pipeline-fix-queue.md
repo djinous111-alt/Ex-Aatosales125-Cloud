@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-0024-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- Sync Cursor MCP `gpt-image-2` (MCP-KV) вернул HTTP `-32001 Request timed out` на ONE quad i2i job.
+- В локальных MCP-логах VM не нашёлся result URL для polling (нет файла/trace с URL после timeout).
+
+### How the agent recovered this run
+- Не делал apply/split без URL.
+- Вторая попытка через durable fallback `scripts/excalibur_blog_kie_gpt_image2_api.py` из `cover/quad-mcp-batch.json` (тот же prompt + `input_urls`).
+- Kie task `6c3f8167761b90778ecfea07921012e9` → success → `excalibur_blog_quad_apply.py --inject-html` PASS (split + 3 figures).
+- Перед Kie вручную укоротил/переписал `mcp_args.prompt`, чтобы снять конфликт style-preset `Outfit lock: white hoodie` с scene_hint navy softshell.
+
+### Durable fix needed before next run
+- Cover skill/docs: после MCP `-32001` без URL в логе → сразу Kie async fallback (не ждать 5 мин пустого polling).
+- Prompt builder: `outfit_lock` white hoodie не должен перебивать `scene_hint`/blog-hero outfit_rule; убрать hardcoded white hoodie из style preset prefix.
+- Опционально: MCP client увеличить timeout для 2K i2i или вернуть async task id в ошибке -32001.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-0016-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-11-01

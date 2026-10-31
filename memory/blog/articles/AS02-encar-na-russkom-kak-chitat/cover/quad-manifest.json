@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый перевод — и кот в мешке?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс со смартфоном и карточкой Encar, ирония «кот в мешке», Владивосток",
+      "scene_hint": "reference face + glasses EXACT; outfit: navy softshell jacket over charcoal merino turtleneck (cool Vladivostok evening mist, port lights behind — NOT reference t-shirt, no cap no hood); selfie angle holding smartphone with fake Encar auction card UI (Korean fields soft, Cyrillic sticky note «перевод ≠ проверка»); torn paper strip with cat-in-a-bag irony meme cutout (cute cartoon cat peeking from sack — ironic not toxic); highlighter on «кот в мешке»; scotch tape; corner brand avto-sales125.ru; shocked reaction sticker; no Wordstat/Metrika",
+      "meme_caption_ru": "Перевод ≠ проверка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте официальный encar.com, а не клон из выдачи",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Widescreen 16:9 UI mock: browser address bar encar.com vs clone URL side-by-side; green check on official domain, red X on lookalike; sticky note «сверьте домен»; tape corner; NO hero face; Cyrillic labels only",
+      "alt": "Сравнение официального encar.com и клона в адресной строке браузера"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как читать цену в 만원 и пять базовых полей",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI: column 만원 → ×10000 → цена в вонах; five base fields rows (цена, год модели, пробег, топливо, КПП) with Cyrillic headers; yellow marker on multiply tip; mini sticky «×10 000»; no hero",
+      "alt": "Таблица: как перевести цену в 만원 и пять базовых полей карточки Encar"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Разделите 연식 и дату выпуска",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "3-step workflow diagram: 연식 (модельный год) → дата выпуска → сверка с ПТС/карточкой; arrows left-to-right; calendar vs badge icons; small note «не путать»; tape; no hero face",
+      "alt": "Схема: разделение 연식 (модельный год) и даты выпуска авто"
+    }
+  }
+}

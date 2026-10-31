@@ -12,11 +12,14 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ```bash
 python3 scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --site-base "" \
+  --blog-path /
 
+# Relative /{slug}/ (canonical). Empty site-base + --blog-path / .
+# Legacy /blog/{slug}/ only with --blog-path /blog/
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
+  --site-base "" \
   --blog-path / \
   --out-dir memory/blog
 ```

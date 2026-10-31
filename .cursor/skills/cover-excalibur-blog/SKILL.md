@@ -41,6 +41,8 @@ inject <figure> after H2 in article.html
 | `memory/cover/inline-visual-types.json` | типы inline-панелей |
 | `memory/brief/site-brief.md` | blog_hero_id, обложка = крючок |
 
+**Outfit:** `excalibur_blog_cover_quad_prompt.py` берёт одежду из `outfit_rule` + weather examples + `scene_hint`. Запрещён хардкод `white hoodie` / hoodie lock. Sanitize batch после `--write-batch` — только временный workaround.
+
 ---
 
 ## Панели quad 2×2

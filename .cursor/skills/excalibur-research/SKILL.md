@@ -46,6 +46,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - **Empty / low-result payload:** `{}`, `totalCount`-only или пустой top-list на узкий how-to — это **ожидаемый** low-result, не fatal API error. Сразу расширь до parent/mid (`фольксваген тару`, бренд+модель, «из китая») и запиши warning в notes **без** retry-loop на ту же узкую фразу. Не выдумывай показы.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
@@ -61,6 +62,13 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+
+## research-notes-gate (точные требования)
+
+- В source table у каждой строки даты доступа пиши токен `accessed_at: YYYY-MM-DD` (≥5 штук).
+- Строки `pain_solution_map` должны содержать слова боль|pain|решение|solution|result|результат (иначе map «too thin»).
+- Technical topic (GitHub ≥3 + docs warning) включается word-boundary маркерами (`ии`/`ai`/`mcp`…). Подстрока в «комплектации»/«Японии» **не** делает авто how-to technical — не тащи лишние github.com ради ложного маркера.
+- Gate CLI: `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir <dir> -o research-notes-gate.json` (`-o` относительный → внутри article_dir).
 
 ## Blockers
 

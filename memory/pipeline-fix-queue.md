@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261031-2006-scout-helper-as-b-regression
+status: open
+run_date: 2026-10-31
+role: excalibur-blog-scout
+topic_id: AS11
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py` again parses only `B\d+` topic IDs (article dirs, `blog-topics.md` headings, `--suggest-next`).
+- On AVTO SALES pool (`AS01`–`AS11`) `--suggest-next` returns fake `B01` and `Total topics in pool: 0`, so check-query also skips all AS cards.
+- Prior scout notes already warned about AS|B restore; regression reappeared and wasted a forced manual ID override (`AS11`).
+
+### How the agent recovered this run
+- Ignored helper `B01`; used Director contract next ID `AS11`.
+- LIVE dedup via `PUBLIC_SITE_URL` REST (`wp/v2/posts`, Cyrillic `urllib.parse.quote`), not MCP wordpress.
+- Cannibalization judged against LIVE posts + existing `## AS*` cards in `memory/topics/blog-topics.md`.
+- Still ran `--check-query` (returned clean only because helper sees zero AS topics).
+- Appended utility-only AS11 Omoda C5 card; `excalibur_blog_utility_gate.py --topic-id AS11` PASS.
+
+### Durable fix needed before next run
+- Restore dual-prefix regex `(?:AS|B)\d+` in scout helper for dirs, topic cards, suggest-next max, and overlap loading.
+- Add regression test/fixture with at least one `## AS10` card so `--suggest-next` cannot return `B01` on an AS-only pool.
+- Optionally document in scout skill: never trust helper alone for AVTO SALES; always LIVE REST + AS cards.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

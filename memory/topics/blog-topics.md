@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS11 — Omoda C5 из Китая
+
+- **priority:** P0
+- **slug:** omoda-c5-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Omoda C5 из Китая: комплектации и ловушки до депозита
+- **primary_query:** омода с5 комплектации
+- **secondary_queries:** омода с5 2026 комплектации, омода с5 актив комплектация, омода с5 драйв комплектация, какие комплектации у омода с5
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого везут Omoda C5 из Китая и чего ждать по классу
+  2. Как читать китайские комплектации: Актив, Драйв, Стиль и полный набор
+  3. Что проверить до депозита: мотор, комплектация, документы, VIN
+  4. Типичные ловушки при заказе через Владивосток
+  5. Чек-лист перед оплатой и мягкий следующий шаг в каталог
+- **faq_hints:** какие комплектации у омода с5; чем актив отличается от драйв; стоит ли брать максимальную комплектацию из Китая
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у компактного китайского кроссовера Omoda C5, порт Владивостока, плашка «комплектации до депозита», угол avto-sales125.ru
+- **wordstat_note:** parent «омода с5» ~173373; «омода с5 комплектации» ~2742/2685; узкий «как выбрать омода с5» totalCount-only 9 (LSI из parent/cluster)
+- **live_dedup:** REST PUBLIC_SITE_URL 2026-10-31 — slug FREE; search «омода с5 комплектации» / «как выбрать омода с5» = 0 dedicated; brand listicle Chery/Omoda/Exeed не считается дублем модели
+- **alts_still_free:** Jetour T2, Chery Tiggo 7, Jaecoo J7, Toyota Sienta

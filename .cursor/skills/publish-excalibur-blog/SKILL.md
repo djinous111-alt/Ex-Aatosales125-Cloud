@@ -59,7 +59,10 @@ python scripts/excalibur_blog_wp_publish.py \
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
+- гидратит `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` в schema payload (файл на диске не трогает);
 - пишет post meta `_excalibur_blog_schema_jsonld`.
+
+Env: `SSH_ROOT` (или alias `SSH_PATH` → ROOT). Нужен `paramiko`. Commits: `bash scripts/excalibur_git.sh commit …`.
 
 ### 4. Cloud WebFetch Fallback
 

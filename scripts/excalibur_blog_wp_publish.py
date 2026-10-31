@@ -31,8 +31,21 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",  # Cloud Secrets alias → mapped to SSH_ROOT when ROOT empty
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
+
+SCHEMA_PLACEHOLDERS = (
+    "PUBLIC_SITE_URL",
+    "WP_HOME",
+    "WP_SITE_URL",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+)
 
 
 def _read_env_file(path: Path) -> dict[str, str]:
@@ -55,7 +68,36 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Cloud Secrets often expose SSH_PATH but not SSH_ROOT — map alias so ENOENT→`.` fallback works.
+    if not (env.get("SSH_ROOT") or "").strip() and (env.get("SSH_PATH") or "").strip():
+        env["SSH_ROOT"] = env["SSH_PATH"].strip()
     return env
+
+
+def hydrate_schema_placeholders(schema_raw: str, env: dict[str, str], public_base: str = "") -> str:
+    """Expand ${PUBLIC_SITE_URL}/${CATALOG_URL}/… for WP meta; keep file on disk placeholder-safe."""
+    if not schema_raw or "${" not in schema_raw:
+        return schema_raw
+    public = (
+        public_base
+        or env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or env.get("WP_SITE_URL")
+        or ""
+    ).rstrip("/")
+    mapping = {
+        "${PUBLIC_SITE_URL}": public,
+        "${WP_HOME}": (env.get("WP_HOME") or public).rstrip("/"),
+        "${WP_SITE_URL}": (env.get("WP_SITE_URL") or public).rstrip("/"),
+        "${CATALOG_URL}": (env.get("CATALOG_URL") or public).rstrip("/"),
+        "${TELEGRAM_URL}": (env.get("TELEGRAM_URL") or "").rstrip("/"),
+        "${MAX_URL}": (env.get("MAX_URL") or "").rstrip("/"),
+    }
+    out = schema_raw
+    for token, value in mapping.items():
+        if value:
+            out = out.replace(token, value)
+    return out
 
 
 def validate_publish_env(env: dict[str, str]) -> list[str]:
@@ -168,7 +210,7 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def load_article(article_dir: Path, env: dict[str, str] | None = None, public_base: str = "") -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -187,6 +229,8 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        if env is not None:
+            schema_raw = hydrate_schema_placeholders(schema_raw, env, public_base=public_base)
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -568,15 +612,19 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or ""
+    payload = load_article(article_dir, env=env, public_base=public)
     php = build_php(payload)
 
     if args.dry_run:
         print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
         print("PHP bytes:", len(php.encode("utf-8")))
+        remaining = [tok for tok in SCHEMA_PLACEHOLDERS if f"${{{tok}}}" in payload.get("schema_jsonld", "")]
+        if remaining:
+            print(f"WARN schema placeholders still unresolved: {', '.join(remaining)}")
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
@@ -584,7 +632,6 @@ def main() -> int:
     if missing:
         print(f"BLOCKER: missing publish env: {', '.join(missing)}", file=sys.stderr)
         return 2
-    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or ""
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2

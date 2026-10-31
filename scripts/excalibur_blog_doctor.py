@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -113,6 +114,7 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available", errors, warnings, warn=not args.publish)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,9 +134,51 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    # Canonical flag is --blog-dir; --blog-path is a supported alias.
+    has_blog_dir = "--blog-dir" in llms_help.stdout
+    has_blog_path = "--blog-path" in llms_help.stdout
+    check(
+        has_blog_dir or has_blog_path,
+        "llms generator supports --blog-dir (or --blog-path alias)",
+        errors,
+        warnings,
+    )
+    if has_blog_dir and not has_blog_path:
+        check(True, "llms generator --blog-dir present", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            policy = {}
+            check(False, "editorial-policy.json parses as JSON", errors, warnings)
+        else:
+            check(True, "editorial-policy.json parses as JSON", errors, warnings)
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(bool(policy.get("_markers_pinned")), "editorial-policy _markers_pinned=true", errors, warnings)
+            check(isinstance(pain, list) and len(pain) >= 5, "editorial-policy pain_markers_ru non-empty (≥5)", errors, warnings)
+            check(
+                isinstance(outcome, list) and len(outcome) >= 5,
+                "editorial-policy outcome_markers_ru non-empty (≥5)",
+                errors,
+                warnings,
+            )
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
 
     env = merged_publish_env(root)
+    local_env = root / "memory/site.env.local"
+    check(
+        local_env.is_file()
+        or bool(env.get("SSH_HOST"))
+        or bool(os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL")),
+        "site.env.local or Cloud publish env present",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))
     check(has_public, "PUBLIC_SITE_URL/WP_SITE_URL configured", errors, warnings, warn=not args.publish)
     check(bool(env.get("SSH_HOST")), "SSH host configured", errors, warnings, warn=not args.publish)

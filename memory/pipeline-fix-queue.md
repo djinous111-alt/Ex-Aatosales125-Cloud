@@ -6,8 +6,58 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none (2026-11-01 fixer closed AS02 run incidents)_
+
+
+## INC-20261101-2104-director-as-topic-regex-today-scout
+status: fixed
+run_date: 2026-11-01
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` only match `B\d+` topic cards/dirs, so the AS* pool in `memory/topics/blog-topics.md` yields `EXCALIBUR_TOPIC_SELECTION=needs_scout` and `Next available topic ID: B01` with `Total topics in pool: 0` even when AS02–AS07 are unwritten and utility-passable.
+- `load_active_article_topics` also ignores `AS\d+-` article dirs.
+
+### How the agent recovered this run
+- Director manually selected AS02 after `utility_gate` PASS and ran `research_start.py --topic-id AS02` (research_start already accepts AS* cards).
+
+### Durable fix needed before next run
+- Unify topic ID regex to accept both `AS\d+` and `B\d+` in today.py, scout_helper.py, and any active-dir scanners; update doctor or docs if needed.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- today.py + scout_helper accept AS*|B* topic cards and article dirs
+- scout --suggest-next prefers next AS* id after Autosales rebrand
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → pool=9, unwritten AS01/AS03–AS07
+- `python3 scripts/excalibur_blog_today.py` → EXCALIBUR_TOPIC_SELECTION=ready, SUGGESTED=AS01
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
+commit: pending-parent-commit
+
+
+
 ## INC-20261101-2133-publish-env-paramiko-schema-hydrate
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-publish
 topic_id: AS02
@@ -45,10 +95,31 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- in-memory `${ENV}` / `${A|B}` hydrate in wp_publish (no disk mutate of schema.jsonld)
+- ledger/result URL redaction to `${PUBLIC_SITE_URL}/…`
+- site.env.local bootstrap from Cloud Secrets + paramiko in install/requirements/doctor
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_site_env_bootstrap.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `memory/site.env.local.example`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py scripts/excalibur_blog_site_env_bootstrap.py`
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` (hydrate+redact unit)
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check`
+- `python3 scripts/excalibur_blog_doctor.py` → paramiko OK
+commit: pending-parent-commit
 
 ## INC-20261101-2128-indexer-llms-blog-path-doctor-drift
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-indexer
 topic_id: AS02
@@ -83,10 +154,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- llms generator: `--blog-path` alias for `--blog-dir`; default empty `--site-base` for relative URLs
+- doctor accepts --blog-dir or --blog-path
+- indexer skill/agent examples drop stale `--blog-path /` absolute-host copy-paste
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows both flags
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+- `rg` no stale `--blog-path /` in indexer skill/agent
+commit: pending-parent-commit
 
 ## INC-20261101-0024-cover-mcp-timeout-kie-fallback
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-cover
 topic_id: AS02
@@ -120,11 +209,27 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Cover skill/agent: MCP -32001 without URL → immediate Kie async fallback
+- Removed hardcoded white hoodie outfit lock from prompt builder (scene_hint/outfit_rule wins)
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- `rg` no `Outfit lock: thick heavyweight white hoodie`
+- `rg` -32001/Kie guidance in cover skill
+commit: pending-parent-commit
 
 
 ## INC-20261101-0016-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -151,10 +256,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Documented typed Task unavailable as expected Cloud reality; generalPurpose per role is canonical (incl. geo-qa)
+files_changed:
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/pipeline-task-map.md`
+- `CLOUD-AUTOMATION.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- `rg` generalPurpose + geo-qa guidance in AGENTS/pitfalls/director skill
+commit: pending-parent-commit
 
 ## INC-20261101-0016-geo-qa-utility-markers-rebrand-wipe
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -184,10 +302,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Kept/pinned pain_markers_ru + outcome_markers_ru + _markers_pinned in editorial-policy
+- utility_gate CONFIG error on empty marker lists (not false article BLOCK)
+- doctor + fixer_regression_smoke assert markers durable
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` markers OK
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
+commit: pending-parent-commit
 
 ## INC-20261101-2107-research-wordstat-gate-quirks
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-research
 topic_id: AS02
@@ -221,7 +354,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Research/Scout skills: Wordstat cluster-first + totalCount/{} → N/A without retry spam
+- research-notes gate: accessed_at labels or ISO in source rows; pain_map section row counter; technical_topic word-boundary + ignore github_evidence
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/AS02-encar-na-russkom-kak-chitat` PASS technical=False
+- `rg` cluster-first/totalCount/N/A in research+scout skills
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

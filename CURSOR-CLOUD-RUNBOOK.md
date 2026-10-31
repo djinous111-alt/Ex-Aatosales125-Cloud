@@ -55,6 +55,15 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+Если `memory/site.env.local` отсутствует в runtime Cloud Agent, install/bootstrap создаёт его из Secrets:
+
+```bash
+python3 scripts/excalibur_blog_site_env_bootstrap.py
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Нужен пакет `paramiko` (см. `requirements.txt`). Schema `${ENV}` гидрируется publish-скриптом in-memory; ledger URL пишет `${PUBLIC_SITE_URL}/…`.
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

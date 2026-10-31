@@ -37,15 +37,17 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 ## Обязательное использование Yandex Wordstat MCP и WebSearch Курсора
 
-1. **Анализ спроса через Wordstat API:**
-  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
-  - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
+1. **Анализ спроса через Wordstat API (cluster-first):**
+  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` / MCP-KV для анализа спроса:
+  - Сначала широкий parent-кластер (`encar на русском`, не узкий how-to), затем 1–2 secondary.
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
-  - Если вызов успешен:
+  - Если ответ `{"totalCount":…}` / `{}` **без списка фраз** — это low-result signal, не fatal. Расширь фразу один раз; при повторном пустом payload запиши строку `N/A` + raw shape note. **Не** выдумывай показы и **не** спамь retry.
+  - Если вызов успешен (есть top phrases):
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - Gate ожидает ≥5 меток `accessed_at: YYYY-MM-DD` (предпочтительно явный label, не голая дата в ячейке) и pain_solution_map с ≥3 data-rows.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).

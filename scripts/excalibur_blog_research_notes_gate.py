@@ -73,14 +73,41 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def notes_without_github_evidence(notes: str) -> str:
+    """Drop ## github_evidence section so optional market-signal repos don't force tech heuristics."""
+    return re.sub(
+        r"##\s*\d*\.?\s*github[_\s-]*evidence\b[\s\S]*?(?=\n##\s|\Z)",
+        "\n",
+        notes,
+        flags=re.I,
+    )
+
+
+def _tech_marker_hit(blob: str, marker: str) -> bool:
+    # Short markers like "ai"/"ии" must not match inside reader_pain / "отличить".
+    if len(marker) <= 3:
+        return bool(
+            re.search(
+                rf"(?<![0-9a-zA-Zа-яА-ЯёЁ_]){re.escape(marker)}(?![0-9a-zA-Zа-яА-ЯёЁ_])",
+                blob,
+                flags=re.I,
+            )
+        )
+    return marker.lower() in blob.lower()
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Topic-card hit alone is enough (developer niches).
+    if any(_tech_marker_hit(blob, marker) for marker in TECH_MARKERS):
+        return True
+    # Notes: ignore github_evidence; require a real word-boundary hit for short tokens.
+    cleaned = notes_without_github_evidence(notes)[:2000].lower()
+    return any(_tech_marker_hit(cleaned, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,9 +157,49 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Prefer explicit `accessed_at:` labels; also count ISO dates in source-table URL rows.
+    accessed_labeled = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    iso_in_source_rows = 0
+    if today_iso:
+        for row in re.findall(r"^\s*\|.*https?://.*$", text, flags=re.M):
+            if today_iso in row:
+                iso_in_source_rows += 1
+    accessed_count = max(accessed_labeled, iso_in_source_rows)
+
+    pain_section = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    pain_body = pain_section.group(1) if pain_section else ""
+    # Count non-separator data rows; keyword literals in cells are preferred but not required
+    # when the section header already declares pain/solution/result columns.
+    pain_map_rows = 0
+    for row in re.findall(r"^\s*\|.+\|\s*$", pain_body, flags=re.M):
+        cells = [c.strip() for c in row.strip().strip("|").split("|")]
+        if not cells or all(re.fullmatch(r":?-{3,}:?", c or "") for c in cells):
+            continue
+        headerish = all(
+            re.search(r"(боль|pain|решение|solution|result|результат|reader|#)", c, flags=re.I)
+            for c in cells
+            if c
+        ) and not any(len(c) > 40 for c in cells)
+        if headerish and len(cells) <= 4:
+            continue
+        pain_map_rows += 1
+    # Fallback: legacy keyword-in-row counter if section parse yielded nothing.
+    if pain_map_rows < 3:
+        pain_map_rows = max(
+            pain_map_rows,
+            len(
+                re.findall(
+                    r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                    text_lower,
+                    flags=re.M,
+                )
+            ),
+        )
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

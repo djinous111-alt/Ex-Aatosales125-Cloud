@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-11-01 — AS12 jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4740
+- **permalink:** `${PUBLIC_SITE_URL}/2026/11/01/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/`
+- **featured_image:** 4741
+- **inline_images:** 4742 (`inline-01.png`), 4743 (`inline-02.png`), 4744 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload (`SSH_ROOT=.`) + HTTP trigger OK (~131s, no WebFetch)
+- **note:** first attempt failed (`ModuleNotFoundError: paramiko`); installed via pip; slug was FREE → new post 4740; denylist IDs untouched
+- **HEAD:** 200
+- **result:** `memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/wp-publish-result.json`

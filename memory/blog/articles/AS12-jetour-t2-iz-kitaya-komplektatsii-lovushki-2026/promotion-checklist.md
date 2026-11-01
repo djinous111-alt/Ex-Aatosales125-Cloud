@@ -1,7 +1,7 @@
 # Promotion checklist — AS12 jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-11-01  
-Live URL: /2026/11/01/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/
+Live URL: ${PUBLIC_SITE_URL}/2026/11/01/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Discovery на витрине ≠ железо в лоте
 
 - Indexer: interlinker `--apply --article-dir … --site-base $PUBLIC_SITE_URL` — opportunities_found=0; report `memory/blog/interlink-suggestions.json` (site_base emptied for commit-safe).
 - llms.txt / llms-full.txt: `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` → relative `/blog/<slug>/` (нет `--blog-path` / `--relative-urls` в текущем CLI; known INC-20261101-1302).
-- Publish: не запускался Indexer’ом.
+- Publish: PASS — WP post **4740**; featured **4741**; inline **4742/4743/4744**; schema_meta ok; HEAD 200.

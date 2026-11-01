@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1335-publish-paramiko-missing
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-publish
+topic_id: AS12
+article_dir: memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First AS12 publish attempt crashed before SSH upload: `ModuleNotFoundError: No module named 'paramiko'`.
+- Env-check / dry-run already passed; failure only appeared on live SSH transport import.
+- Image/runtime did not have paramiko despite docs pointing at `requirements.txt` + cloud-agent-install/Dockerfile.
+
+### How the agent recovered this run
+- Installed `paramiko` via `python3 -m pip install --break-system-packages paramiko`.
+- Re-ran publish once; SSH upload + HTTP trigger OK (~131s); new post id 4740; no WebFetch fallback needed.
+- Did not touch denylist LIVE posts.
+
+### Durable fix needed before next run
+- Ensure paramiko is present in the Cloud Agent environment build / install script so publish does not depend on a one-off pip workaround.
+- Optionally make `--env-check` fail closed when `import paramiko` fails.
+
+### Suggested files to inspect/change
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json` / Dockerfile used by the Cloud environment build
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check` import probe)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-1326-cover-missing-corner-brand
 status: open
 run_date: 2026-11-01

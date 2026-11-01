@@ -58,7 +58,7 @@ checks_run:
 - `python3 -c 'import paramiko'`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
 - `python3 scripts/excalibur_blog_doctor.py` → paramiko OK
-commit: pending-parent-commit
+commit: 04ac5a88
 
 ## INC-20261101-1326-cover-missing-corner-brand
 status: fixed
@@ -107,7 +107,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_{prompt,split}.py`
 - AS12 dry `--write-batch` prompt contains corner brand avto-sales125.ru
-commit: pending-parent-commit
+commit: 04ac5a88
 
 
 ## INC-20261101-1323-schema-secret-scan-blocks-hydrated-jsonld
@@ -154,7 +154,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` hydrate_env_placeholders / `${PUBLIC_SITE_URL}` in schema skill + publish
-commit: pending-parent-commit
+commit: 04ac5a88
 
 ## INC-20261101-1322-cover-outfit-lock-white-hoodie
 status: fixed
@@ -200,7 +200,7 @@ files_changed:
 checks_run:
 - `rg` no 'Outfit lock: thick heavyweight white hoodie'
 - AS12 dry prompt: weather/topic outfit + NO default white hoodie
-commit: pending-parent-commit
+commit: 04ac5a88
 
 
 ## INC-20261101-1319-geo-qa-typed-task-fallback
@@ -247,7 +247,7 @@ files_changed:
 - `agents/excalibur-blog-geo-qa.md`
 checks_run:
 - `rg` first-class geo-qa generalPurpose fallback in director/CLOUD/task-map
-commit: pending-parent-commit
+commit: 04ac5a88
 
 ## INC-20261101-1316-writer-utility-pain-outcome-markers-restored
 status: fixed
@@ -292,7 +292,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → editorial-policy pins OK
-commit: pending-parent-commit
+commit: 04ac5a88
 
 ## INC-20261101-1316-writer-human-voice-o-relative-path-nest
 status: fixed
@@ -335,7 +335,7 @@ files_changed:
 - `skills/excalibur-geo-qa/SKILL.md`
 checks_run:
 - resolve_gate_output bare/nested unit assert
-commit: pending-parent-commit
+commit: 04ac5a88
 
 ## INC-20261101-1312-research-precommit-invalid-secret-name
 status: fixed
@@ -378,7 +378,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - scripts present and executable; pitfalls mention filter
-commit: pending-parent-commit
+commit: 04ac5a88
 
 ## INC-20261101-1310-research-notes-gate-accessed-at-pain-map
 status: fixed
@@ -428,7 +428,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - AS12 research-notes-gate PASS; technical_topic=false; accessed_at=12; pain_rows=7
-commit: pending-parent-commit
+commit: 04ac5a88
 
 ## INC-20261101-1302-director-today-scout-as-b-regression
 status: fixed
@@ -476,7 +476,7 @@ files_changed:
 checks_run:
 - `scout --suggest-next` → AS13
 - `doctor` errors=0; today/scout AS|B OK; llms --blog-path/--relative-urls OK
-commit: pending-parent-commit
+commit: 04ac5a88
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита",
+      "description": "Чек-лист Chery Tiggo 7 Pro из Китая до депозита: Pro vs Pro Max, Jaecoo и 7L, мотор 1.5/1.6, опции по VIN и документы 180 дней. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${PUBLIC_SITE_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${PUBLIC_SITE_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "как выбрать тигго 7 про из китая",
+        "тигго 7 про комплектации",
+        "чери тигго 7 про из китая",
+        "чери тигго 7 про макс комплектации"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Tiggo 7 Pro отличается от Pro Max?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На практике Pro чаще ближе к китайскому \"просто Tiggo 7\" (часто 1.5T CVT), а Pro Max – к более старшей ветке / Plus с другими моторами и пакетами. До депозита сравнивайте VIN и шильдик, а не ярлык в заголовке объявления."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить списку опций в объявлении без VIN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Требуйте VIN, свежие фото/видео этой машины и перечень заводских функций в договоре без \"или аналог\". Нет VIN – нет разговора о предоплате."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита при заказе из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Соберите пакет: VIN, мотор/коробка/привод с документа, опции на видео, скан китайского ПТС с датой, фото VIN-таблички и условия возврата депозита. Без трёх из пяти базовых документов – стоп."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Путают ли Tiggo 7 Pro с Jaecoo J7?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, особенно через ярлык High Energy / Tansuo 06. Это другая линия. Если нужна именно семёрка Pro, прямо напишите отказ от Jaecoo и китайского 7L на базе Omoda C7."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "CVT или \"автомат\" – как не ошибиться?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Выпишите тип коробки с листа машины: CVT или 7DCT. Слово \"автомат\" в рекламе не используйте как факт. Занесите тип в таблицу \"заявлено vs факт\" до оплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Это тот же гайд, что про Tiggo 8 Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Tiggo 8 Pro – другой класс и другая статья. Здесь фокус на ловушках имён и комплектаций именно у семёрки до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда обратиться, если нет времени разбирать китайские карточки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Передайте сверку VIN и документов команде до оплаты. В Авто-Сейлс это подбор через avto-sales125.ru и Telegram avtosales125 – без форм на странице блога и без перевода вслепую."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Chery Tiggo 7 Pro из Китая до депозита",
+      "description": "Пошаговый чек-лист до депозита: задача и бюджет, отсев Jaecoo/7L, VIN и силовой агрегат, опции на видео, пакет 180 дней и смета под ключ.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "VIN конкретной машины и шильдик мотора/коробки"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Свежие фото/видео салона с VIN в кадре"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Скан китайского ПТС с датой регистрации"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Задача и бюджет одной фразой"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Таблица «заявлено vs факт»"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Пакет документов по правилу 180 дней"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выпишите задачу и бюджет одной фразой",
+          "text": "Шаг 1: выпишите задачу – привод, тип коробки, потолок бюджета.",
+          "url": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-задачу-и-бюджет-до-поиска-лота"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Назовите целевую модель и отсеките чужие ярлыки",
+          "text": "Шаг 2: назовите целевую модель одной фразой и отсеките чужие ярлыки.",
+          "url": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#отделите-семёрку-pro-от-jaecoo-high-energy-и-китайского-7l"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Запросите VIN и лист силового агрегата",
+          "text": "Шаг 3: запросите VIN и лист силового агрегата.",
+          "url": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#сверьте-мотор-и-коробку-по-vin-а-не-по-слову-автомат"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверьте опции на видео и соберите пакет 180 дней",
+          "text": "Шаг 4: сверьте опции на видео и соберите пакет 180 дней.",
+          "url": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#проверьте-опции-на-фото-и-видео-именно-этого-vin"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Сведите таблицу «заявлено vs факт» до депозита",
+          "text": "Шаг 5: сведите таблицу \"заявлено vs факт\" и только потом обсуждайте депозит.",
+          "url": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#пройдите-чеклист-перед-депозитом-и-сметой-под-ключ"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Уточните смету под ключ в каталоге Авто-Сейлс",
+          "text": "Шаг 6: уточните смету под ключ в каталоге avto-sales125.ru.",
+          "url": "${PUBLIC_SITE_URL}/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

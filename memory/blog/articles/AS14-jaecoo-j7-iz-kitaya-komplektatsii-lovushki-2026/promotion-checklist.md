@@ -1,15 +1,15 @@
 # Promotion checklist — AS14 jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-11-02 (planned; pre-publish)  
-Live URL: /blog/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-11-02  
+Live URL: ${PUBLIC_SITE_URL}/2026/11/02/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
-- [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
-- [ ] Проверить internal links из статьи (200)
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; WP post 4758)
+- [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin; meta `_excalibur_blog_schema_jsonld` set)
+- [x] Проверить internal links из статьи (200; link-verify pass)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Сначала привод 2WD 150 или 4WD 186 и trim Актив/Комфорт/Престиж
 • Деньги — только после договора, сметы и VIN
 
-Читать: /blog/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/
+Читать: ${PUBLIC_SITE_URL}/2026/11/02/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -45,6 +45,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Notes
 
-- Indexer: interlinker `--apply --article-dir …AS14…` — opportunities_found=0.
-- llms.txt / llms-full.txt: `memory/blog/` с relative URLs `/blog/<slug>/` (workaround: `--site-base ""`; `--blog-path` / `--relative-urls` aliases missing).
-- Publish: next step (yes).
+- Publish PASS: post_id=4758 NEW; featured=4759; inline=4760/4761/4762; schema_meta ok; HEAD 200.
+- Foreign denylist untouched (4746/4740/3430/3394/4717/4711/4699/…).
+- Indexer: interlinker `--apply` — opportunities_found=0.
+- llms.txt / llms-full.txt: `memory/blog/` relative URLs.

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-2134-publish-paramiko-missing-as14
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-publish
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Fresh Cloud image still lacked `paramiko` at publish time (`ModuleNotFoundError`), same class as AS12/AS13 runs.
+- `excalibur_blog_wp_publish.py --env-check` does not import-probe paramiko, so the gap is invisible until SSH upload.
+- Container `date.today()` was 2026-11-01 UTC while `EXCALIBUR_RUN_DATE=2026-11-02`, so auto ledger row needed a manual date fix.
+
+### How the agent recovered this run
+- Installed `paramiko` via `python3 -m pip install --break-system-packages paramiko`.
+- Created gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (no quoted values).
+- Forced ledger date to `2026-11-02` after publish upsert.
+- Publish itself succeeded on first HTTP trigger (~164s); NEW post 4758; denylist untouched.
+
+### Durable fix needed before next run
+- Ensure environment build / install script always installs `paramiko` before publish agents run.
+- Extend `--env-check` to import-probe `paramiko` and fail early with a clear blocker.
+- Prefer `EXCALIBUR_RUN_DATE` (or WP post date) over `date.today()` when upserting `shared/published-articles.md`.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json` / Dockerfile / requirements.txt
+- `scripts/excalibur_blog_wp_publish.py` (`publish_env_check_report`, `upsert_publish_ledger`)
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261102-2122-schema-jsonld-secret-allowlist
 status: open
 run_date: 2026-11-02

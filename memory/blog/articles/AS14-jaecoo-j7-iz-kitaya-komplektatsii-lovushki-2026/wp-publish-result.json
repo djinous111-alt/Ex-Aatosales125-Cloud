@@ -1,0 +1,23 @@
+{
+  "slug": "jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "AS14",
+  "permalink": "${PUBLIC_SITE_URL}/2026/11/02/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1217592,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4758 slug=jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026\nOK featured_image=4759\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4760 src=cover/inline-01.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/11/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026-inline-01.png\nOK inline_image_upload=4761 src=cover/inline-02.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/11/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026-inline-02.png\nOK inline_image_upload=4762 src=cover/inline-03.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/11/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026-inline-03.png\npermalink=${PUBLIC_SITE_URL}/2026/11/02/jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass",
+  "post_id": 4758,
+  "featured_image": 4759,
+  "inline_images": [
+    4760,
+    4761,
+    4762
+  ],
+  "schema_meta": "ok"
+}

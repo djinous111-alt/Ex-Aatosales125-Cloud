@@ -25,7 +25,7 @@
       "_scan": "pragma: allowlist secret; env placeholders for commit hygiene"
     },
     {
-      "url": "/2026/10/17/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/",
+      "url": "${PUBLIC_SITE_URL}/2026/10/17/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/",
       "status": 200,
       "ok": true,
       "method": "HEAD",

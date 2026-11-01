@@ -8,6 +8,10 @@ is_background: false
 
 **Язык:** русский. **Шаг пайплайна:** ③
 
+## Cloud Task registration
+
+Каноническое имя: `excalibur-blog-geo-qa`. Если typed Task отсутствует в Cloud enum — Директор запускает `Task(generalPurpose)` с этим файлом + `.cursor/skills/excalibur-geo-qa/SKILL.md` (не parent-agent).
+
 ## Incident memory (обязательно)
 
 Если во время задачи был blocker, retry, tool/API error, ручной workaround, переписывание артефакта из-за неясного контракта или любое исправление, которое нужно не повторять в следующем run, допиши incident в `memory/pipeline-fix-queue.md` по `shared/pipeline-incident-fix-contract.md`.

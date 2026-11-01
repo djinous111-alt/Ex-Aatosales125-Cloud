@@ -104,10 +104,15 @@
 
 ### ③ GEO QA
 
+Typed Task: `excalibur-blog-geo-qa`. Если Cloud enum его не принимает — `Task(generalPurpose)` с теми же agent/skill путями (first-class fallback).
+
 ```text
 Ты excalibur-blog-geo-qa. topic_id: {ID}.
-Прочитай agents/excalibur-blog-geo-qa.md + skills/excalibur-geo-qa/SKILL.md.
-Запусти все QA-скрипты + excalibur_blog_research_notes_gate.py + excalibur_blog_utility_gate.py + excalibur_blog_human_voice_gate.py. article-qa.md verdict PASS обязателен.
+Прочитай agents/excalibur-blog-geo-qa.md + skills/excalibur-geo-qa/SKILL.md
+  (Cloud: .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md).
+Запусти все QA-скрипты + excalibur_blog_research_notes_gate.py + excalibur_blog_utility_gate.py + excalibur_blog_human_voice_gate.py.
+human-voice / research-notes gate: -o <bare-filename.json> (не repo-relative nested path).
+article-qa.md verdict PASS обязателен.
 Блок === EXCALIBUR BLOG GEO QA ===. Не делай cover/schema.
 ```
 

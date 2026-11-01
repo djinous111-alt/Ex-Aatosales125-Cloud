@@ -43,4 +43,4 @@ verdict: PASS | BLOCKER
 
 ## Выход
 
-`schema.jsonld`
+`schema.jsonld` with `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` placeholders (no live secret hosts). Publish hydrates at upload time.

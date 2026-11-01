@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — AS12 fixer closed all open incidents below as fixed._
+
+## Recently fixed (AS12 2026-11-01)
+
 ## INC-20261101-1335-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-publish
 topic_id: AS12
@@ -39,10 +43,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- paramiko added to `.cursor/Dockerfile` + `.cursor/cloud-agent-install.sh` (already in requirements.txt).
+- `--env-check` fail-closed when `import paramiko` fails; doctor warns if module missing.
+files_changed:
+- `requirements.txt`
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `python3 -c 'import paramiko'`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
+- `python3 scripts/excalibur_blog_doctor.py` → paramiko OK
+commit: pending-parent-commit
 
 ## INC-20261101-1326-cover-missing-corner-brand
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-cover
 topic_id: AS12
@@ -75,11 +94,24 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Prompt builder injects mandatory corner catalog brand from blog-hero cover_corner_brand.
+- `cover_quad_split.py` auto-stamps `avto-sales125.ru` on cover (+ canvas panel) when missing.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_{prompt,split}.py`
+- AS12 dry `--write-batch` prompt contains corner brand avto-sales125.ru
+commit: pending-parent-commit
 
 
 ## INC-20261101-1323-schema-secret-scan-blocks-hydrated-jsonld
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-schema
 topic_id: AS12
@@ -110,10 +142,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Schema skill: commit `${PUBLIC_SITE_URL}`/`${CATALOG_URL}`/`${TELEGRAM_URL}`/`${MAX_URL}` placeholders.
+- Publish hydrates `${ENV}` in-memory; does not rewrite committed schema.jsonld.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` hydrate_env_placeholders / `${PUBLIC_SITE_URL}` in schema skill + publish
+commit: pending-parent-commit
 
 ## INC-20261101-1322-cover-outfit-lock-white-hoodie
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-cover
 topic_id: AS12
@@ -144,11 +188,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Removed hardcoded white hoodie outfit lock; derive outfit from blog-hero outfit_rule + scene_hint.
+- Explicit negative: no default white hoodie.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `rg` no 'Outfit lock: thick heavyweight white hoodie'
+- AS12 dry prompt: weather/topic outfit + NO default white hoodie
+commit: pending-parent-commit
 
 
 ## INC-20261101-1319-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-geo-qa
 topic_id: AS12
@@ -177,10 +233,24 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Documented first-class generalPurpose fallback when typed excalibur-blog-geo-qa missing from Cloud Task enum.
+- Director / CLOUD-AUTOMATION / pipeline-task-map / geo-qa agent registration note updated.
+files_changed:
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/pipeline-task-map.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `agents/excalibur-blog-geo-qa.md`
+checks_run:
+- `rg` first-class geo-qa generalPurpose fallback in director/CLOUD/task-map
+commit: pending-parent-commit
 
 ## INC-20261101-1316-writer-utility-pain-outcome-markers-restored
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-writer
 topic_id: AS12
@@ -209,10 +279,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Pinned pain_markers_ru / outcome_markers_ru + `_markers_pinned` in editorial-policy.json.
+- Doctor fails if lists empty / pin missing while min_pain/min_outcome required.
+- utility_gate falls back to human_voice markers if policy lists empty.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → editorial-policy pins OK
+commit: pending-parent-commit
 
 ## INC-20261101-1316-writer-human-voice-o-relative-path-nest
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-writer
 topic_id: AS12
@@ -239,10 +322,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- `resolve_gate_output`: bare filename → article_dir; repo-relative path → project root (no nested article_dir/memory/...).
+- Wired into human_voice_gate + research_notes_gate; skills document bare `-o` filename.
+files_changed:
+- `scripts/excalibur_repo_paths.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- resolve_gate_output bare/nested unit assert
+commit: pending-parent-commit
 
 ## INC-20261101-1312-research-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-research
 topic_id: AS12
@@ -271,10 +367,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Added `scripts/excalibur_git.sh` + `excalibur_blog_filter_commit_secret_env.sh` to filter CLOUD_AGENT_*_SECRET_NAMES to bash identifiers before pre-commit.
+- Pitfalls document the workaround; Dashboard should still rename non-identifier secret names when possible.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- scripts present and executable; pitfalls mention filter
+commit: pending-parent-commit
 
 ## INC-20261101-1310-research-notes-gate-accessed-at-pain-map
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-research
 topic_id: AS12
@@ -308,10 +415,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- accessed_at counts labels (incl. *_accessed_at:), table column+ISO, and ISO in source-table URL rows.
+- pain_solution_map counts data rows under the section (keywords optional).
+- technical_topic from topic card only; github removed from TECH_MARKERS.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- AS12 research-notes-gate PASS; technical_topic=false; accessed_at=12; pain_rows=7
+commit: pending-parent-commit
 
 ## INC-20261101-1302-director-today-scout-as-b-regression
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-director
 topic_id: n/a
@@ -342,7 +462,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Restored `(?:AS|B)\d+` in today.py + scout_helper; suggest-next prefers AS##.
+- llms generator: `--blog-path` alias + `--relative-urls`; doctor asserts both.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+checks_run:
+- `scout --suggest-next` → AS13
+- `doctor` errors=0; today/scout AS|B OK; llms --blog-path/--relative-urls OK
+commit: pending-parent-commit
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

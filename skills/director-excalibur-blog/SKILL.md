@@ -128,7 +128,17 @@ Task(excalibur-blog-writer)
 Task(excalibur-blog-geo-qa)
 ```
 
-Промпт: «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»
+Если Cloud API **не принимает** typed `excalibur-blog-geo-qa` (нет в Task enum) — сразу first-class fallback:
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+topic_id / article_dir из handoff. Запусти все QA-скрипты. article-qa.md PASS.
+human-voice: -o human-voice-report.json (bare filename).
+Блок === EXCALIBUR BLOG GEO QA ===.
+```
+
+Промпт (typed): «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»
 
 **Gate:** QA PASS, link-verify pass, **research notes gate PASS**, **utility gate статьи PASS**, **human voice gate PASS**. Статья должна явно решать боль читателя и давать результат. Без PASS **не** идти к шагу 4.
 

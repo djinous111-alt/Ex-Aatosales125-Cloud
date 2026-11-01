@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS13 — Chery Tiggo 7 Pro из Китая
+
+- **priority:** P0
+- **slug:** chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита
+- **primary_query:** как выбрать тигго 7 про из китая
+- **secondary_queries:** тигго 7 про комплектации, чери тигго 7 про из китая, чери тигго 7 про макс комплектации
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зафиксируйте задачу и бюджет до поиска лота Tiggo 7 Pro / Pro Max
+  2. Сверьте комплектацию по VIN: мотор 1.5/1.6, привод, пакет (Active/Prestige/Elite и аналоги)
+  3. Отделите Pro от Pro Max и от «российской» версии Jaecoo/дилерской поставки
+  4. Проверьте документы, пробег и фото до депозита — типичные подмены опций
+  5. Соберите смету под ключ через Владивосток без «магической» цены в объявлении
+  6. Чек-лист перед переводом депозита: что подтвердить письменно
+- **faq_hints:** чем Tiggo 7 Pro отличается от Pro Max; можно ли верить списку опций в объявлении без VIN; что проверить до депозита при заказе из Китая; путают ли Tiggo 7 Pro с Jaecoo J7
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс в smart casual у серебристого Chery Tiggo 7 Pro на фоне порта Владивостока, смартфон с чек-листом комплектаций, плашка «до депозита», угол avto-sales125.ru
+- **wordstat_signal:** parent «тигго 7 про» ~256396; cluster «тигго 7 про комплектации» ~1749; «тигго 7 про из китая» ~148; narrow «как выбрать тигго 7 про» totalCount-only 24 (low-result)
+- **live_wp_check:** exact slug FREE; соседний Tiggo 8 Pro (4681) — другая модель, не каннибал

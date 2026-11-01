@@ -56,7 +56,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available=true
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: 0c266e04
 
 
 ## INC-20261101-1731-indexer-llms-blog-path-alias-missing-as13
@@ -154,7 +154,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Kie recovery / -32001 in cover skill + mcp contract
-commit: pending-parent-commit
+commit: 0c266e04
 
 ## INC-20261101-1722-cover-outfit-lock-white-hoodie-as13
 status: fixed
@@ -239,7 +239,7 @@ files_changed:
 checks_run:
 - stamp_corner_brand force smoke on blank 1200x675 PNG
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
-commit: pending-parent-commit
+commit: 0c266e04
 
 ## INC-20261101-1718-geo-qa-tldr-label-contract-conflict-as13
 status: fixed
@@ -334,7 +334,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy pin OK
 - JSON parse editorial-policy
-commit: pending-parent-commit
+commit: 0c266e04
 
 ## INC-20261101-1708-research-wordstat-empty-primary-as13
 status: fixed
@@ -435,7 +435,7 @@ files_changed:
 checks_run:
 - doctor AS|B + llms aliases OK; scout --suggest-next → AS14
 - today.py SELECTION=ready
-commit: pending-parent-commit
+commit: 0c266e04
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

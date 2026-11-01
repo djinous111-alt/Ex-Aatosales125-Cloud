@@ -521,3 +521,37 @@ category: prompt
 
 ### Fixer resolution
 - pending
+
+## INC-20261102-2127-indexer-llms-aliases-missing
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-indexer
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- Indexer skill / doctor expect `excalibur_blog_llms_generator.py` flags `--blog-path` and optionally `--relative-urls`; this workspace only exposes `--blog-dir` / `--site-base` / `--out-dir` (related: INC-20261102-0003-director-llms-blog-path).
+- Canonical skill command with `--blog-path /` cannot run as documented.
+
+### How the agent recovered this run
+- Generated llms with available flags: `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog`.
+- Empty `--site-base` yields relative URLs `/blog/<slug>/` in `memory/blog/llms.txt` and `llms-full.txt`.
+- Interlinker ran with `--apply`; opportunities_found=0 (no HTML edits needed).
+
+### Durable fix needed before next run
+- Restore `--blog-path` alias (and `--relative-urls` if required) in `scripts/excalibur_blog_llms_generator.py` so doctor + indexer skill match CLI.
+- Document empty-site-base relative-URL workaround in indexer skill until aliases land.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

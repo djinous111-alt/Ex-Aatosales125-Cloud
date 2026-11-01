@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1731-indexer-llms-blog-path-alias-missing-as13
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-indexer
+topic_id: AS13
+article_dir: memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_llms_generator.py` на ветке AS13 снова без CLI `--blog-path` (alias к `--blog-dir`) и `--relative-urls`, хотя doctor и контракт Indexer их требуют.
+- Директор ожидал aliases уже в ветке; `excalibur_blog_doctor.py` FAIL: `llms generator supports --blog-path`.
+- Частичный helper `article_url(..., relative_urls)` был в файле, но argparse/main не прокидывали флаги (регресс после AS12 fixer claims).
+
+### How the agent recovered this run
+- Восстановил durable pin из AS04 (`40b7dbab`) для `--blog-path` + `--relative-urls` + relative `/blog/<slug>/` при пустом site-base.
+- Запустил генератор: `--blog-dir memory/blog/articles --blog-path memory/blog/articles --site-base "" --relative-urls --out-dir memory/blog`.
+- Doctor: errors=0; AS13 попал в `memory/blog/llms.txt` и `llms-full.txt`.
+
+### Durable fix needed before next run
+- Закрепить `--blog-path`/`--relative-urls` в скрипте и не терять при rebrand/merge; добавить regression check в doctor (уже есть) + pitfalls note что Indexer без aliases = FAIL.
+- Убедиться, что fixer AS12 pin реально попал в канонический `scripts/` этой линии веток.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-1724-cover-mcp-timeout-kie-fallback-as13
 status: open
 run_date: 2026-11-01

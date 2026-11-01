@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита",
+      "description": "Как отличить Люкс, Престиж и Премиум Jetour T2 от китайских Exploration/Discovery: мотор, 7DCT или 8AT, FWD/AWD и чеклист до депозита без калькулятора цен.",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "джетур т2 комплектации",
+        "джетур т2 купить",
+        "джетур т2 2026",
+        "джетур т2 комплектации и цены",
+        "jetour t2",
+        "джетур т2 сравнение комплектаций"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем отличаются комплектации Jetour T2 в России?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте актуальную матрицу Люкс / Престиж / Премиум: все три – 2.0T и полный привод; Люкс и Престиж идут с 7DCT, Премиум – с 8AT и более богатым списком опций. Сверьте не название, а коробку и пакет ассистентов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли ориентироваться только на слово Discovery или Престиж?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не делайте этого. В РФ \"Дискавери\" – устаревшее имя топа, в Китае Discovery – пакет Traveller с другим контекстом. Выберите железо: мотор, КПП, привод, опции – и только потом сравнивайте ценники."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита при заказе Jetour T2 из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте VIN/лот, китайское имя версии, 1.5T или 2.0T, FWD или AWD/XWD, 7DCT или 8AT, фото must-have опций, юрлицо ввозчика, смету по статьям и условия возврата предоплаты. Нет пакета – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Любой T2 из Китая полный привод, как у дилера?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. В РФ официальные комплектации AWD 2.0T, а в Китае Exploration часто 1.5T передний. Зафиксируйте привод отдельной строкой договора, иначе \"почти как у дилера\" останется только на словах."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем 7DCT отличается от 8AT простыми словами?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "7DCT – робот с двумя сцеплениями, 8AT – классический гидроавтомат. Если хотите именно 8AT, напишите \"8AT\" в договоре. Слово \"автомат\" в объявлении сюда не подходит."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где получить расчёт под ключ без калькулятора в статье?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Соберите бриф из чеклиста выше и откройте каталог avto-sales125.ru. Так вы получите смету под ваш мотор и маршрут, а не чужую цифру из блога."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию Jetour T2 из Китая до депозита",
+      "description": "Пошаговый чек-лист до оплаты: сверка РФ Люкс/Престиж/Премиум с китайскими пакетами Traveller, фиксация мотора/КПП/привода, фото опций, VIN и смета под ключ.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Матрица комплектаций РФ: Люкс / Престиж / Премиум"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Китайские имена пакетов Traveller: Exploration / Discovery / Traverse / Conquest / C-DM"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото must-have опций и шильдиков + VIN/лот"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Одностраничный бриф: мотор, КПП, привод, опции"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Договорные строки железа + смета по статьям + юрлицо ввозчика"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выпишите цель",
+          "text": "Выпишите цель: город/зима, нужен ли полный привод, важны ли 8AT и панорама.",
+          "url": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#остановите-депозит-пока-витринное-имя-не-сверено-с-железом"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Отметьте целевой РФ-ориентир",
+          "text": "Отметьте целевой РФ-ориентир: Люкс, Престиж или Премиум – только как шпаргалка по железу.",
+          "url": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#сверьте-люкс-престиж-премиум-и-китайские-имена-пакетов"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Если смотрите Китай, запишите китайское имя пакета",
+          "text": "Если смотрите Китай, запишите китайское имя пакета: Exploration, Discovery, Traverse, Conquest или C-DM.",
+          "url": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#сверьте-люкс-престиж-премиум-и-китайские-имена-пакетов"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Занесите мотор, КПП и привод четырьмя отдельными строками.",
+          "text": "Занесите мотор, КПП и привод четырьмя отдельными строками.",
+          "url": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-в-договоре-мотор-коробку-и-привод"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Добавьте must-have опции и попросите фото дисков, панорамы, селектора, запаски, экранов и шильдиков.",
+          "text": "Добавьте must-have опции и попросите фото дисков, панорамы, селектора, запаски, экранов и шильдиков.",
+          "url": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#соберите-чек-лист-фото-и-документов-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Запросите VIN/лот, осмотр, реквизиты юрлица и смету по статьям.",
+          "text": "Запросите VIN/лот, осмотр, реквизиты юрлица и смету по статьям.",
+          "url": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#соберите-чек-лист-фото-и-документов-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Сверьте договор",
+          "text": "Сверьте договор: те же строки железа + сроки + возврат предоплаты.",
+          "url": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-в-договоре-мотор-коробку-и-привод"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Финальная самопроверка",
+          "text": "Финальная самопроверка: если завтра приедет другая машина – по каким трём строкам договора вы это докажете?",
+          "url": "https://avtosales125.ru/jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/#отправьте-бриф-за-расчетом-под-ключ-без-прайса-из-статьи"
+        }
+      ]
+    }
+  ]
+}

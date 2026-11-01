@@ -27,5 +27,7 @@
     "description_ctr": "⚡ Депозит без VIN – лотерея. Сверьте мотор, коробку, опции и пакет 180 дней до перевода. Стоп-правила внутри.",
     "description_aeo": "До депозита за Chery Tiggo 7 Pro из Китая нужны VIN, сверка мотора и коробки, список опций и документы по правилу 180 дней."
   },
-  "cover_family": "brand_collage"
+  "cover_family": "brand_collage",
+  "wp_post_id": 4746,
+  "permalink_template": "${PUBLIC_SITE_URL}/2026/11/01/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/"
 }

@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20261101-1740-publish-http-timeout-webfetch-paramiko-as13
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-publish
+topic_id: AS13
+article_dir: memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: tooling
+
+### What went wrong
+- Image missing `paramiko` (`ModuleNotFoundError`) despite publish env-check not probing the import.
+- Bootstrap HTTP trigger hard-timeout 120s on ~6.8MB payload → `TimeoutError`; Cloud WebFetch/urllib fallback once succeeded.
+- Inline media landed as `*-1.png` (partial first HTTP attempt + fallback), known side-effect.
+
+### What should happen instead
+- Env image / install must include `paramiko`; `--env-check` should import-probe SSH transport deps.
+- Honor longer HTTP timeout for large payloads OR prefer fallback earlier without duplicate media.
+
+### Evidence
+- Publish stdout: SSH upload OK; Local HTTP TimeoutError; FALLBACK_TRIGGER_URL once; `OK post=4746`.
+- REST `posts?slug=chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026` → id 4746; HEAD 200.
+- Workaround: `python3 -m pip install --break-system-packages paramiko`; background urllib watcher wrote `memory/webfetch-response.txt`.
+
+### Proposed durable fix
+- Add paramiko to cloud install + `--env-check` import probe.
+- Make `trigger_bootstrap_http` timeout configurable (e.g. 300s) and/or detect first-byte progress.
+- Document single-fallback rule to avoid `*-1.png` duplicates.
+
+### Secrets
+- none recorded
+
+
 ## INC-20261101-1731-indexer-llms-blog-path-alias-missing-as13
 status: open
 run_date: 2026-11-01

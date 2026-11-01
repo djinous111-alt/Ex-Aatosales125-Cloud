@@ -1,13 +1,13 @@
 # Promotion checklist — AS13 chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-11-01 (pending publish)  
-Live URL: /blog/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-11-01  
+Live URL: ${PUBLIC_SITE_URL}/2026/11/01/chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200; post 4746; featured 4752) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -49,3 +49,12 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (relative `/blog/<slug>/`, AS13 listed).
 - Restored durable CLI `--blog-path` alias + `--relative-urls` in `scripts/excalibur_blog_llms_generator.py` (doctor PASS).
 - Publish: не запускался Indexer'ом.
+
+## Publish result
+
+- post_id: **4746**
+- featured_image: **4752**
+- inline: **4754 / 4755 / 4756**
+- schema_meta / skip_theme_faq: ok
+- method: SSH + WebFetch fallback after HTTP TimeoutError
+- Publish: PASS — do not republish.

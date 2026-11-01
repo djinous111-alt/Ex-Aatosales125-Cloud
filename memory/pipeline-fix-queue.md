@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-0925-writer-human-voice-o-path-and-five-list-regex
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-writer
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_human_voice_gate.py -o memory/blog/.../human-voice-report.json` (relative path) resolves as `article_dir / relative`, writing a nested file and leaving a stale BLOCK report at the expected path.
+- `exactly_five_lists` regex `<ol>...(li){5}</ol>` matches across list boundaries and counts ol with ≥5 items plus false extras; forced writer to keep a single `<ol>` to clear WARN.
+
+### How the agent recovered this run
+- Wrote report with `-o human-voice-report.json` (relative to article_dir) / verified PASS contents.
+- Kept one numbered `<ol>` (6 items); converted other step blocks to `<ul>` while preserving `шаг ` markers in text.
+
+### Durable fix needed before next run
+- Resolve `-o` relative to CWD or treat paths under article_dir as absolute-ish; document in skill.
+- Fix exactly-five detector to count `<li>` only within each `<ol>` and warn on 2+ ols with exactly 5 items.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-0915-research-wordstat-totalcount-only
 status: open
 run_date: 2026-11-01

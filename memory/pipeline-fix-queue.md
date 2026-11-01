@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1715-writer-editorial-pain-outcome-markers-wiped-as13
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-writer
+topic_id: AS13
+article_dir: memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` on this branch again lacked `pain_markers_ru` / `outcome_markers_ru` and `min_pain_markers` / `min_outcome_markers`.
+- `excalibur_blog_utility_gate.py` defaults empty marker lists to count=0 but still requires min_pain=2 / min_outcome=3 → any article BLOCKs until policy restored (repeat of rebrand wipe / AS12 INC-1316).
+
+### How the agent recovered this run
+- Restored marker lists and mins from commit `6dce299e` pattern into `editorial-policy.json`.
+- Rewrote article recommendations to policy verbs (`Сделайте` / `Не делайте` / `чеклист` / `шаг `) so action-marker count ≥8.
+- Self-check: html_linter PASS, human_voice PASS, utility PASS; char_count in 8500–9500.
+
+### Durable fix needed before next run
+- Pin `pain_markers_ru` / `outcome_markers_ru` + mins in editorial-policy and add a doctor/unit check that fails if lists missing while mins > 0.
+- Optionally change utility_gate: if marker lists empty, skip pain/outcome checks or warn instead of hard BLOCK.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-1708-research-wordstat-empty-primary-as13
 status: open
 run_date: 2026-11-01

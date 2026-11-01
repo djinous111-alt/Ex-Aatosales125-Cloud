@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS04",
+  "slug": "utilsbor-na-avto-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс с пачкой документов и планшетом-калькулятором утильсбора, плашка 2026 без сумм, угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-01T09:29:04+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс с пачкой документов и планшетом-калькулятором утильсбора, плашка 2026 без сумм, угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Схема из шести полей: статус, возраст, объём, мощность кВт, тип мотора, источник цифры",
+      "h2_anchor": "Разберите, от чего зависит утильсбор в 2026",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица сравнения Корея–Китай–Япония: одна формула, разные ловушки документов",
+      "h2_anchor": "Сравните Корею, Китай и Японию: где разница есть",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист льготного утильсбора: статус, объём, мощность, срок владения — до депозита",
+      "h2_anchor": "Пройдите чеклист льготы 3 400 / 5 200",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

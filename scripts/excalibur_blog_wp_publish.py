@@ -25,14 +25,29 @@ PUBLISH_ENV_KEYS = {
     "PUBLIC_SITE_URL",
     "WP_HOME",
     "WP_SITE_URL",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
     "SSH_HOST",
     "SSH_PORT",
     "SSH_USER",
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "EXCALIBUR_PUBLISH_HTTP_TIMEOUT",
+    "PUBLISH_HTTP_TIMEOUT",
 }
+
+SCHEMA_PLACEHOLDER_KEYS = (
+    "PUBLIC_SITE_URL",
+    "WP_HOME",
+    "WP_SITE_URL",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+)
 
 
 def _read_env_file(path: Path) -> dict[str, str]:
@@ -47,7 +62,39 @@ def _read_env_file(path: Path) -> dict[str, str]:
     return env
 
 
+def ensure_site_env_local(root: Path) -> Path:
+    """Create gitignored memory/site.env.local from process env when missing."""
+    path = root / "memory" / "site.env.local"
+    if path.is_file():
+        return path
+    lines: list[str] = ["# auto-generated from process env by excalibur_blog_wp_publish.py"]
+    wrote = False
+    for key in sorted(PUBLISH_ENV_KEYS):
+        value = os.environ.get(key)
+        if value:
+            lines.append(f"{key}={value}")
+            wrote = True
+    if wrote:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        print("WARN created memory/site.env.local from process env (gitignored)")
+    return path
+
+
+def hydrate_env_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand ${PUBLIC_SITE_URL}-style placeholders for publish payload only."""
+    import re
+
+    def repl(match: "re.Match[str]") -> str:
+        key = match.group(1)
+        value = (env.get(key) or os.environ.get(key) or "").strip()
+        return value if value else match.group(0)
+
+    return re.sub(r"\$\{([A-Z][A-Z0-9_]*)\}", repl, text)
+
+
 def load_env(root: Path) -> dict[str, str]:
+    ensure_site_env_local(root)
     env = _read_env_file(root / "memory/site.env.local")
     for key in PUBLISH_ENV_KEYS:
         value = os.environ.get(key)
@@ -55,6 +102,9 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Alias: some Cloud Secrets use SSH_PATH for the login cwd root.
+    if not env.get("SSH_ROOT") and env.get("SSH_PATH"):
+        env["SSH_ROOT"] = env["SSH_PATH"]
     return env
 
 
@@ -168,7 +218,7 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def load_article(article_dir: Path, env: dict[str, str] | None = None) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -187,6 +237,9 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        # Hydrate ${ENV} placeholders in-memory for WP meta; keep committed file untouched.
+        if env:
+            schema_raw = hydrate_env_placeholders(schema_raw, env)
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -467,12 +520,29 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def publish_http_timeout_seconds(env: dict[str, str] | None = None) -> int:
+    env = env or {}
+    raw = (
+        env.get("EXCALIBUR_PUBLISH_HTTP_TIMEOUT")
+        or env.get("PUBLISH_HTTP_TIMEOUT")
+        or os.environ.get("EXCALIBUR_PUBLISH_HTTP_TIMEOUT")
+        or os.environ.get("PUBLISH_HTTP_TIMEOUT")
+        or "180"
+    )
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        timeout = int(str(raw).strip())
+    except ValueError:
+        timeout = 180
+    return max(30, timeout)
+
+
+def trigger_bootstrap_http(url: str, root: Path, env: dict[str, str] | None = None) -> str:
+    timeout = publish_http_timeout_seconds(env)
+    try:
+        print(f"Triggering HTTP publish on {url} (timeout={timeout}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=timeout,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
@@ -483,14 +553,17 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        wait_rounds = max(timeout, 120)
+        for _ in range(wait_rounds):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {wait_rounds} seconds. Please trigger manually."
+        )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
@@ -502,7 +575,7 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, env)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -568,7 +641,8 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    payload = load_article(article_dir, env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +650,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

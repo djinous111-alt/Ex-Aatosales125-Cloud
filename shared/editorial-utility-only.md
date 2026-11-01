@@ -46,8 +46,11 @@ Research-агент **отклоняет** угол без практики. В 
 - `reader_outcome`: одно предложение — какой первый результат сможет сделать новичок
 - `success_criteria`: как новичок поймёт, что проблема решена
 - `voice_angle`, `reader_story`, `surprising_fact`: материал для человеческого lead/H2
-- `pain_solution_map`: таблица pain → solution → proof/source → reader_result
+- `pain_solution_map`: таблица pain → solution → proof/source → reader_result; в каждой строке явно слова `pain`/`solution`/`result` или `боль`/`решение`/`результат` (иначе research-notes gate BLOCK)
+- `accessed_at:` — ≥5 явных лейблов в notes (даты в markdown-таблице без `accessed_at:` не считаются)
 - `action_outline`: 5–9 шагов или чеклист-пунктов
+- Техническая тема (`technical_topic`) определяется **только** по полям topic card (h1/primary_query/…), не по boilerplate GitHub/Wordstat в notes
+- Официальные docs evidence: `/docs` **или** `nalog.gov` / `consultant.ru` / `garant.ru` / `gov.ru` / `customs.gov`
 
 Машинный gate:
 

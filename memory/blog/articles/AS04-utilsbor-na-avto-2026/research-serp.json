@@ -1,0 +1,576 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-01",
+    "today_ru": "01.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-03",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-01 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS04",
+    "priority": "P0",
+    "slug": "utilsbor-na-avto-2026",
+    "h1": "Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии",
+    "primary_query": "утильсбор на авто 2026",
+    "secondary_queries": [
+      "утильсбор корея китай япония",
+      "расчет утильсбора"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "утильсбор на авто 2026 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Калькулятор утильсбора 2026",
+          "url": "https://calcus.ru/kalkulyator-utilsbora",
+          "snippet": ""
+        },
+        {
+          "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+          "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+          "snippet": "Рассчитайте размер утилизационного сбора для вашего автомобиля по актуальным ставкам 2026 года. Калькулятор для точного расчета утилизационного сбора с актуальными ставками и коэфициентами. Утилизационный сбор — это обязательный платеж, который взимается при ввозе транспортного средства на территорию РФ или его производстве внутри страны."
+        },
+        {
+          "title": "Утильсбор на авто в 2026 году: ставки, кто платит и калькулятор",
+          "url": "https://auto.rambler.ru/navigator/56473671-utilsbor-na-avto-v-2026-godu-stavki-kto-platit-i-kalkulyator/",
+          "snippet": "С 1 декабря 2025 года в России действуют новые правила расчета утильсбора, а с 1 апреля 2026-го— закрыта и «обходная схема» при ввозе автомобилей из стран ЕАЭС."
+        },
+        {
+          "title": "Калькулятор утиль сбора: онлайн расчёт 2026",
+          "url": "https://calculatorov.ru/kalkulyator-util-sbora/",
+          "snippet": "Давайте разбираться и смотреть на конкретных примерах: кто и когда платит утильсбор, какие действуют ставки, и как быстро рассчитать сумму через калькулятор."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+          "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+          "snippet": "Онлайн-калькулятор утилизационного сбора на 2026 год. Рассчитайте точную сумму для легковых авто, электромобилей и грузовиков с учётом льгот для физлиц."
+        },
+        {
+          "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+          "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+          "snippet": "Рассчитайте утилизационный сбор на автомобиль в 2026 году: для физлиц (личное пользование) и юрлиц, по объёму, мощности двигателя (л.с.) и возрасту. Льготный утильсбор 3 400 / 5 200 ₽ и полные ставки по ПП РФ № 1713 с формулой ..."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "утильсбор на авто 2026 ноябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор на авто в 2026 году: ставки, кто платит и калькулятор",
+          "url": "https://auto.rambler.ru/navigator/56473671-utilsbor-na-avto-v-2026-godu-stavki-kto-platit-i-kalkulyator/",
+          "snippet": ""
+        },
+        {
+          "title": "Калькулятор утильсбора 2026",
+          "url": "https://calcus.ru/kalkulyator-utilsbora",
+          "snippet": "Давайте разбираться и смотреть на конкретных примерах: кто и когда платит утильсбор, какие действуют ставки, и как быстро рассчитать сумму через калькулятор."
+        },
+        {
+          "title": "Утильсбор на авто с 1 января 2026 года — таблица ставок - Encar",
+          "url": "https://encar-russia.ru/utilsbor/",
+          "snippet": "Рассчитайте размер утилизационного сбора для вашего автомобиля по актуальным ставкам 2026 года. Калькулятор для точного расчета утилизационного сбора с актуальными ставками и коэфициентами. Утилизационный сбор — это обязательный платеж, который взимается при ввозе транспортного средства на территорию РФ или его производстве внутри страны."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+          "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+          "snippet": "Собрали ставки утилизационного сбора в удобные таблицы: отдельно для электромобилей, последовательных гибридов и автомобилей с ДВС по объёму двигателя, мощности и возрасту."
+        },
+        {
+          "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+          "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+          "snippet": "Рассчитайте утилизационный сбор на автомобиль в 2026 году: для физлиц (личное пользование) и юрлиц, по объёму, мощности двигателя (л.с.) и возрасту."
+        },
+        {
+          "title": "Утильсбор на авто в 2026 году: ставки, кто платит и калькулятор",
+          "url": "https://avtocod.ru/blog/post/utilsbor-na-avto-stavki-kto-platit-i-kalkulyator",
+          "snippet": "Теперь утильсбор рассчитывается по двумерной матрице: мощность × объём двигателя. С 1 января 2026 года все коэффициенты индексированы на 20%. Базовая ставка (Б) = 20 000 ₽."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "утильсбор на авто 2026 новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор 2026 в России: все изменения, последние новости и прогноз до ...",
+          "url": "https://blog.kmgexport.com/avto-novosti/utilsbor-2026-v-rossii-vse-izmenenija-poslednie-novosti/",
+          "snippet": ""
+        },
+        {
+          "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+          "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+          "snippet": "Утильсбор в 2026 году — главная тема российского авторынка. За восемь месяцев правила менялись трижды: декабрь 2025, январь 2026, и апрельские изменения для ЕАЭС, которые в итоге перенесли ..."
+        },
+        {
+          "title": "Утильсбор 2026: Что Изменилось — Хронология | Carto",
+          "url": "https://carto-auto.ru/blog/utilsbor-chto-izmenilos-2026-hronologiya/",
+          "snippet": "Утильсбор в 2026 году: льготные ставки 3 400-5 200 ₽ для авто до 160 л.с. и коммерческая 2D-матрица до 6,3 млн ₽ для мощных машин. Полные таблицы и примеры расчёта по ПП РФ №1713."
+        },
+        {
+          "title": "Утильсбор поднимут на 100 тысяч рублей с 1 января 2027 года - 31 ...",
+          "url": "https://76.ru/text/auto/2026/10/31/76737074/",
+          "snippet": "Что изменилось в утильсборе в 2026: индексация с 1 января, унификация правил ввоза через ЕАЭС с 1 апреля, статус отмены и как проверять актуальность ставок."
+        },
+        {
+          "title": "Утильсбор 2026: таблица ставок, порог 160 л.с. и что на самом деле ...",
+          "url": "https://ai-import.ru/stati/utilsbor-2026",
+          "snippet": "В России уже в седьмой раз повышается утилизационный сбор на автомобили — очередная корректировка состоится 1 января 2027 - Авто - 31 октября 2026 | 76.ру"
+        },
+        {
+          "title": "Утильсбор: свежие новости 2026 - Рамблер/авто",
+          "url": "https://auto.rambler.ru/tag/utilsbor/",
+          "snippet": "Утильсбор 2026: таблица ставок, порог 160 л.с. и что на самом деле изменилось Льготные 3 400 и 5 200 ₽ живут ровно до 117,68 кВт. Шагнули за порог — сбор считают по коммерческой ставке, и это сотни тысяч рублей. Разбираем таблицу ..."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com утильсбор на авто 2026 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - timoff99/liquid-car-kg-bot",
+          "url": "https://github.com/timoff99/liquid-car-kg-bot",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - yarg0/Auto-Sawnoff-: Автоматический сбор патронов с аксессуара ...",
+          "url": "https://github.com/yarg0/Auto-Sawnoff-",
+          "snippet": "Для машин старше трёх лет используется утильсбор 1 282,02 BYN, действующий для физлица с 29 апреля 2026 года. Курс USD/BYN бот обновляет через официальный API НБРБ."
+        },
+        {
+          "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+          "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+          "snippet": "Автоматический сбор патронов с аксессуара обрез. Команда: /asawnoff || Для принудительного сбора обрезов /usesawnoff. Автоматический сбор патронов с аксессуара обрез. Команда: /asawnoff || Для принудительного сбора обрезов /usesawnoff - yarg0/Auto-Sawnoff-"
+        },
+        {
+          "title": "Beholden/icon.svg at main · Lugh-o/Beholden · GitHub",
+          "url": "https://github.com/Lugh-o/Beholden/blob/main/icon.svg",
+          "snippet": "Май 2026. Полный разбор: почему Steam стал медленнее, как падает пинг в CS2, Dota 2, PUBG, и что делать чтобы пятничный вечер не превращался в борьбу с лагами."
+        },
+        {
+          "title": "Jailbreak Script DROP FARM AUTO FARM.lua - GitHub",
+          "url": "https://github.com/retpirato/Roblox-Scripts/blob/master/Jailbreak%20Script%20DROP%20FARM%20AUTO%20FARM.lua",
+          "snippet": "Contribute to Lugh-o/Beholden development by creating an account on GitHub."
+        },
+        {
+          "title": "scripts/your-bizarre-adventure.lua at main · TrixAde/scripts",
+          "url": "https://github.com/TrixAde/scripts/blob/main/your-bizarre-adventure.lua",
+          "snippet": "A collection of every roblox script ive aquired. Contribute to retpirato/Roblox-Scripts development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "утильсбор на авто 2026 official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор и оплата премиального авто в 2026: чек-лист",
+          "url": "https://avtonds.ru/news/utilsbor-oplata-premium-avto-2026-risk-check",
+          "snippet": ""
+        },
+        {
+          "title": "Утильсбор на авто 2026: калькулятор и таблица для физлиц",
+          "url": "https://vvezi.ru/utilsbor/",
+          "snippet": "Как проверить утильсбор, документы и оплату премиального автомобиля под заказ в 2026 году: чек-лист до аванса и безопасный маршрут сделки."
+        },
+        {
+          "title": "Утильсбор, оплата и документы: как не сломать сделку в 2026",
+          "url": "https://avtonds.ru/news/utilsbor-oplata-dokumenty-premium-avto-2026",
+          "snippet": "Рассчитайте утильсбор на автомобиль в 2026 году: льготный для физлиц и коммерческий, по объёму, мощности и возрасту. Таблицы ставок по постановлению № 1291."
+        },
+        {
+          "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+          "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+          "snippet": "Как проверить утильсбор, документы и порядок оплаты премиального автомобиля под заказ в 2026 году: чек-лист до сделки."
+        },
+        {
+          "title": "Утильсбор на автомобиль в 2026 году — калькулятор и правила для физлиц ...",
+          "url": "https://forum-autoimport.ru/utilsbor-2026/",
+          "snippet": "С 1 декабря 2025 года в России действуют новые правила расчета утильсбора, а с 1 апреля 2026-го— закрыта и «обходная схема» при ввозе автомобилей из стран ЕАЭС. Все подробности — в гайде портала «АвтоВзгляд». С 2012 года, когда утильсбор был введён, он стал мощным регулятором автомобильного рынка."
+        },
+        {
+          "title": "Утильсбор на авто 2026: льготные ставки для физлиц и новые правила расчета",
+          "url": "https://avtovoz.clever-logistics.ru/articles/utilsbor-na-avto-raschet-lgoty-polnyj-gajd",
+          "snippet": "В 2026 году для физлиц действуют разные пороги для бензина/дизеля, электромобилей и гибридов. Разбираем правила и считаем в калькуляторе."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор 2026: Что Изменилось — Хронология | Carto",
+          "url": "https://carto-auto.ru/blog/utilsbor-chto-izmenilos-2026-hronologiya/",
+          "snippet": ""
+        },
+        {
+          "title": "Утильсбор 2026: авто подорожают на 800 000₽. Что делать и как успеть ...",
+          "url": "https://www.drive2.ru/b/737393246677767405/",
+          "snippet": "Что изменилось в утильсборе в 2026: индексация с 1 января, унификация правил ввоза через ЕАЭС с 1 апреля, статус отмены и как проверять актуальность ставок."
+        },
+        {
+          "title": "Утильсбор на автомобиль в 2026 году — калькулятор и правила для физлиц ...",
+          "url": "https://forum-autoimport.ru/utilsbor-2026/",
+          "snippet": "С 1 октября 2026 года в России вступает в силу новое повышение утилизационного сбора, которое может увеличить стоимость авто на 300-800 тысяч рублей. Уже сейчас автодилеры фиксируют ажиотажный спрос: люди скупают машины, боясь повышения цен. Разбираемся, что происходит, кого это коснётся и что делать. 📊 Что такое утильсбор и почему он растёт?"
+        },
+        {
+          "title": "Утильсбор 2026: новые правила расчета и как сэкономить на ввозе авто",
+          "url": "https://peregonpro.ru/poleznoe/izmeneniya-v-raschete-utilsbora-v-2026-godu-chto-zhdat-i-kak-gotovitsya/",
+          "snippet": "В 2026 году для физлиц действуют разные пороги для бензина/дизеля, электромобилей и гибридов. Разбираем правила и считаем в калькуляторе."
+        },
+        {
+          "title": "Утильсбор-2026 — всё, что нужно знать перед покупкой авто В",
+          "url": "https://auto.ru/logbook/utilsbor-2026-vse-chto-nuzhno-znat-pered-pokupkoy-avto-v-2026-godu-na_1447c5cd-40aa-4d67-bb4b-bb0c2d755804/",
+          "snippet": "Изменения в расчете утильсбора в 2026 году: что ждать и как готовиться? Конец 2025 и начало 2026 года стали настоящим испытанием для тех, кто планировал ввоз автомобиля из-за рубежа."
+        },
+        {
+          "title": "Утильсбор в 2026 году: отмена, провал сбора в 1,1 трлн и что ждёт ...",
+          "url": "https://dzen.ru/a/ahiuSJ0-9WTbNDnY",
+          "snippet": "В 2026 году правила игры на авторынке снова изменились. Утилизационный сбор проиндексировали, а лазейки для экономии закрыли. Рассказываю, что это значит для обычного покупателя. Что такое утильсбор и зачем он нужен."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "утильсбор корея китай япония 2026",
+      "purpose": "вторичный запрос: утильсбор корея китай япония",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор 2026 на авто из Китая, Кореи и Японии: ставки и расчёт",
+          "url": "https://asiaexpressauto.ru/blog/utilsbor-2026-skolko-platit-i-kak-schitaetsya/",
+          "snippet": ""
+        },
+        {
+          "title": "Калькулятор утильсбора 2026 — авто из Кореи, Китая и Японии | EncarRus",
+          "url": "https://encarrus.ru/calculator-utilsbora/",
+          "snippet": "Утильсбор 2026 на авто из Китая, Кореи и Японии: сколько платить и как считается"
+        },
+        {
+          "title": "Калькулятор утильсбора 2026: расчёт онлайн для физлиц с примерами",
+          "url": "https://autoprofiasia.ru/blog/kalkulyator-utilsbora-2026-online",
+          "snippet": "Рассчитайте утилизационный сбор: ставки 2026 года по возрасту и объёму двигателя, отдельно для физических лиц и компаний. Готовая сумма и пояснения, что входит в цену авто под ключ."
+        },
+        {
+          "title": "Утильсбор при ввозе авто из Китая, Кореи, Японии в 2026",
+          "url": "https://tnved-spravochnik.ru/blog/utilsbor-pri-vvoze-avto-iz-kitaya",
+          "snippet": "Считаем утильсбор на авто из Японии, Кореи и Китая по новым ставкам 2026. Льготы до 160 л.с., примеры расчёта для 12 моделей, таблица коэффициентов."
+        },
+        {
+          "title": "Япония, Корея или Китай: откуда выгоднее везти авто в 2026 с новым ...",
+          "url": "https://autoprofiasia.ru/blog/yaponiya-koreya-kitay-otkuda-vygodnee-2026",
+          "snippet": "Утилизационный сбор при ввозе авто из Китая, Кореи и Японии в 2026: льготные 3400 и 5200 ₽, порог 160 л.с., расчёт и связь с растаможкой."
+        },
+        {
+          "title": "Утильсбор на авто 2026: расчет для машин из Кореи, Китая и Японии",
+          "url": "https://example-site.invalid2026/06/26/utilsbor-na-avto-2026-raschet-dlya-mashin-iz-korei-kitaya-i-yaponii/",
+          "snippet": "Короткий ответ Если нужен максимум выбора машин под льготный утильсбор — Япония. Если важен свежий возраст и комплектации — Корея."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "расчет утильсбора 2026",
+      "purpose": "вторичный запрос: расчет утильсбора",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Калькулятор утильсбора 2026",
+          "url": "https://calcus.ru/kalkulyator-utilsbora",
+          "snippet": ""
+        },
+        {
+          "title": "Калькулятор утиль сбора: онлайн расчёт 2026",
+          "url": "https://calculatorov.ru/kalkulyator-util-sbora/",
+          "snippet": "Рассчитайте размер утилизационного сбора для вашего автомобиля по актуальным ставкам 2026 года. Калькулятор для точного расчета утилизационного сбора с актуальными ставками и коэфициентами. Утилизационный сбор — это обязательный платеж, который взимается при ввозе транспортного средства на территорию РФ или его производстве внутри страны."
+        },
+        {
+          "title": "Калькулятор утильсбора авто 2026 — онлайн расчет",
+          "url": "https://lab-td.ru/calc/",
+          "snippet": "Онлайн-калькулятор утилизационного сбора на 2026 год. Рассчитайте точную сумму для легковых авто, электромобилей и грузовиков с учётом льгот для физлиц."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+          "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+          "snippet": "Выберите модель — и вы увидите полный расчёт всех обязательных платежей: таможенных пошлин, утильсбора и итоговой стоимости ввоза."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026 — Рассчитать утильсбор онлайн",
+          "url": "https://calculate-util.vercel.app/",
+          "snippet": "Рассчитайте утилизационный сбор на автомобиль в 2026 году: для физлиц (личное пользование) и юрлиц, по объёму, мощности двигателя (л.с.) и возрасту. Льготный утильсбор 3 400 / 5 200 ₽ и полные ставки по ПП РФ № 1713 с формулой ..."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026 — авто из Кореи, Китая и Японии | EncarRus",
+          "url": "https://encarrus.ru/calculator-utilsbora/",
+          "snippet": "Бесплатный калькулятор утильсбора 2026. Рассчитайте стоимость утилизационного сбора для легковых авто, электромобилей и гибридов по новым ставкам."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор на авто в 2026 году: ставки, кто платит и калькулятор",
+          "url": "https://auto.rambler.ru/navigator/56473671-utilsbor-na-avto-v-2026-godu-stavki-kto-platit-i-kalkulyator/",
+          "snippet": ""
+        },
+        {
+          "title": "Калькулятор утильсбора авто 2026 — онлайн расчет",
+          "url": "https://lab-td.ru/calc/",
+          "snippet": "С 1 января 2026 года, как и задумано, базовые ставки и коэффициенты были увеличены. Особенно это заметили покупатели мощных импортных машин, а в 2026-м - еще и любители электромобилей и гибридов.Утильсбор на авто 2026 - это не фиксированная величина, он зависит от типа и мощности авто."
+        },
+        {
+          "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+          "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+          "snippet": "Выберите модель — и вы увидите полный расчёт всех обязательных платежей: таможенных пошлин, утильсбора и итоговой стоимости ввоза."
+        },
+        {
+          "title": "Калькулятор Утильсбора 2026 — Расчёт Для Авто | Azway",
+          "url": "https://azway.ru/kalkulyator-utilizacionnogo-sbora",
+          "snippet": "Утильсбор в 2026 году: льготные ставки 3 400-5 200 ₽ для авто до 160 л.с. и коммерческая 2D-матрица до 6,3 млн ₽ для мощных машин. Полные таблицы и примеры расчёта по ПП РФ №1713."
+        },
+        {
+          "title": "Как рассчитать утильсбор в 2026 году: одна формула, три параметра и ...",
+          "url": "https://vc.ru/transport/3218261-kak-rasschitat-utilsbor-dlya-avtomobiley",
+          "snippet": "Рассчитайте утильсбор на авто онлайн: по возрасту, объёму, мощности, типу двигателя и ввозу. Покажем льготную или коммерческую ставку 2026 года."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026: расчёт онлайн для физлиц с примерами",
+          "url": "https://autoprofiasia.ru/blog/kalkulyator-utilsbora-2026-online",
+          "snippet": "Утильсбор для автомобилей, расчет по формуле, параметры: объем, мощность, возраст, льготные ставки, ошибки при расчете, примеры для машин из Кореи и Китая."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://calcus.ru/kalkulyator-utilsbora",
+      "title": "Калькулятор утильсбора 2026",
+      "from_query": "утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+      "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+      "from_query": "утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://auto.rambler.ru/navigator/56473671-utilsbor-na-avto-v-2026-godu-stavki-kto-platit-i-kalkulyator/",
+      "title": "Утильсбор на авто в 2026 году: ставки, кто платит и калькулятор",
+      "from_query": "утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://calculatorov.ru/kalkulyator-util-sbora/",
+      "title": "Калькулятор утиль сбора: онлайн расчёт 2026",
+      "from_query": "утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+      "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+      "from_query": "утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+      "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+      "from_query": "утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://encar-russia.ru/utilsbor/",
+      "title": "Утильсбор на авто с 1 января 2026 года — таблица ставок - Encar",
+      "from_query": "утильсбор на авто 2026 ноябрь 2026"
+    },
+    {
+      "url": "https://avtocod.ru/blog/post/utilsbor-na-avto-stavki-kto-platit-i-kalkulyator",
+      "title": "Утильсбор на авто в 2026 году: ставки, кто платит и калькулятор",
+      "from_query": "утильсбор на авто 2026 ноябрь 2026"
+    },
+    {
+      "url": "https://blog.kmgexport.com/avto-novosti/utilsbor-2026-v-rossii-vse-izmenenija-poslednie-novosti/",
+      "title": "Утильсбор 2026 в России: все изменения, последние новости и прогноз до ...",
+      "from_query": "утильсбор на авто 2026 новости 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/utilsbor-chto-izmenilos-2026-hronologiya/",
+      "title": "Утильсбор 2026: Что Изменилось — Хронология | Carto",
+      "from_query": "утильсбор на авто 2026 новости 2026"
+    },
+    {
+      "url": "https://76.ru/text/auto/2026/10/31/76737074/",
+      "title": "Утильсбор поднимут на 100 тысяч рублей с 1 января 2027 года - 31 ...",
+      "from_query": "утильсбор на авто 2026 новости 2026"
+    },
+    {
+      "url": "https://ai-import.ru/stati/utilsbor-2026",
+      "title": "Утильсбор 2026: таблица ставок, порог 160 л.с. и что на самом деле ...",
+      "from_query": "утильсбор на авто 2026 новости 2026"
+    },
+    {
+      "url": "https://auto.rambler.ru/tag/utilsbor/",
+      "title": "Утильсбор: свежие новости 2026 - Рамблер/авто",
+      "from_query": "утильсбор на авто 2026 новости 2026"
+    },
+    {
+      "url": "https://github.com/timoff99/liquid-car-kg-bot",
+      "title": "GitHub - timoff99/liquid-car-kg-bot",
+      "from_query": "site:github.com утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://github.com/yarg0/Auto-Sawnoff-",
+      "title": "GitHub - yarg0/Auto-Sawnoff-: Автоматический сбор патронов с аксессуара ...",
+      "from_query": "site:github.com утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+      "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+      "from_query": "site:github.com утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://github.com/Lugh-o/Beholden/blob/main/icon.svg",
+      "title": "Beholden/icon.svg at main · Lugh-o/Beholden · GitHub",
+      "from_query": "site:github.com утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://github.com/retpirato/Roblox-Scripts/blob/master/Jailbreak%20Script%20DROP%20FARM%20AUTO%20FARM.lua",
+      "title": "Jailbreak Script DROP FARM AUTO FARM.lua - GitHub",
+      "from_query": "site:github.com утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://github.com/TrixAde/scripts/blob/main/your-bizarre-adventure.lua",
+      "title": "scripts/your-bizarre-adventure.lua at main · TrixAde/scripts",
+      "from_query": "site:github.com утильсбор на авто 2026 2026"
+    },
+    {
+      "url": "https://avtonds.ru/news/utilsbor-oplata-premium-avto-2026-risk-check",
+      "title": "Утильсбор и оплата премиального авто в 2026: чек-лист",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://vvezi.ru/utilsbor/",
+      "title": "Утильсбор на авто 2026: калькулятор и таблица для физлиц",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://avtonds.ru/news/utilsbor-oplata-dokumenty-premium-avto-2026",
+      "title": "Утильсбор, оплата и документы: как не сломать сделку в 2026",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://forum-autoimport.ru/utilsbor-2026/",
+      "title": "Утильсбор на автомобиль в 2026 году — калькулятор и правила для физлиц ...",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://avtovoz.clever-logistics.ru/articles/utilsbor-na-avto-raschet-lgoty-polnyj-gajd",
+      "title": "Утильсбор на авто 2026: льготные ставки для физлиц и новые правила расчета",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/737393246677767405/",
+      "title": "Утильсбор 2026: авто подорожают на 800 000₽. Что делать и как успеть ...",
+      "from_query": "утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://peregonpro.ru/poleznoe/izmeneniya-v-raschete-utilsbora-v-2026-godu-chto-zhdat-i-kak-gotovitsya/",
+      "title": "Утильсбор 2026: новые правила расчета и как сэкономить на ввозе авто",
+      "from_query": "утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/utilsbor-2026-vse-chto-nuzhno-znat-pered-pokupkoy-avto-v-2026-godu-na_1447c5cd-40aa-4d67-bb4b-bb0c2d755804/",
+      "title": "Утильсбор-2026 — всё, что нужно знать перед покупкой авто В",
+      "from_query": "утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/ahiuSJ0-9WTbNDnY",
+      "title": "Утильсбор в 2026 году: отмена, провал сбора в 1,1 трлн и что ждёт ...",
+      "from_query": "утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asiaexpressauto.ru/blog/utilsbor-2026-skolko-platit-i-kak-schitaetsya/",
+      "title": "Утильсбор 2026 на авто из Китая, Кореи и Японии: ставки и расчёт",
+      "from_query": "утильсбор корея китай япония 2026"
+    },
+    {
+      "url": "https://encarrus.ru/calculator-utilsbora/",
+      "title": "Калькулятор утильсбора 2026 — авто из Кореи, Китая и Японии | EncarRus",
+      "from_query": "утильсбор корея китай япония 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/kalkulyator-utilsbora-2026-online",
+      "title": "Калькулятор утильсбора 2026: расчёт онлайн для физлиц с примерами",
+      "from_query": "утильсбор корея китай япония 2026"
+    },
+    {
+      "url": "https://tnved-spravochnik.ru/blog/utilsbor-pri-vvoze-avto-iz-kitaya",
+      "title": "Утильсбор при ввозе авто из Китая, Кореи, Японии в 2026",
+      "from_query": "утильсбор корея китай япония 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/yaponiya-koreya-kitay-otkuda-vygodnee-2026",
+      "title": "Япония, Корея или Китай: откуда выгоднее везти авто в 2026 с новым ...",
+      "from_query": "утильсбор корея китай япония 2026"
+    },
+    {
+      "url": "https://example-site.invalid2026/06/26/utilsbor-na-avto-2026-raschet-dlya-mashin-iz-korei-kitaya-i-yaponii/",
+      "title": "Утильсбор на авто 2026: расчет для машин из Кореи, Китая и Японии",
+      "from_query": "утильсбор корея китай япония 2026"
+    },
+    {
+      "url": "https://lab-td.ru/calc/",
+      "title": "Калькулятор утильсбора авто 2026 — онлайн расчет",
+      "from_query": "расчет утильсбора 2026"
+    },
+    {
+      "url": "https://calculate-util.vercel.app/",
+      "title": "Калькулятор утильсбора 2026 — Рассчитать утильсбор онлайн",
+      "from_query": "расчет утильсбора 2026"
+    },
+    {
+      "url": "https://azway.ru/kalkulyator-utilizacionnogo-sbora",
+      "title": "Калькулятор Утильсбора 2026 — Расчёт Для Авто | Azway",
+      "from_query": "Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/3218261-kak-rasschitat-utilsbor-dlya-avtomobiley",
+      "title": "Как рассчитать утильсбор в 2026 году: одна формула, три параметра и ...",
+      "from_query": "Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии 2026"
+    }
+  ]
+}

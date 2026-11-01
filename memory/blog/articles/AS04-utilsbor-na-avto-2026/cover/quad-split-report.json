@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS04-utilsbor-na-avto-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1270,
+      731
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 731,
+        "end": 762
+      },
+      "v_gutter_px": {
+        "start": 1270,
+        "end": 1289
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 8,
+          "right": 1270,
+          "bottom": 722
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1270,
+          "bottom": 731
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс с пачкой документов и планшетом-калькулятором утильсбора, плашка 2026 без сумм, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1289,
+          "top": 8,
+          "right": 2560,
+          "bottom": 723
+        },
+        "raw_box_px": {
+          "left": 1289,
+          "top": 0,
+          "right": 2560,
+          "bottom": 731
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема из шести полей: статус, возраст, объём, мощность кВт, тип мотора, источник цифры",
+        "h2_anchor": "Разберите, от чего зависит утильсбор в 2026"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 32,
+          "top": 762,
+          "right": 1237,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 762,
+          "right": 1270,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения Корея–Китай–Япония: одна формула, разные ловушки документов",
+        "h2_anchor": "Сравните Корею, Китай и Японию: где разница есть"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1322,
+          "top": 762,
+          "right": 2527,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1289,
+          "top": 762,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист льготного утильсбора: статус, объём, мощность, срок владения — до депозита",
+        "h2_anchor": "Пройдите чеклист льготы 3 400 / 5 200"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите, от чего зависит утильсбор в 2026",
+    "injected inline_2 after H2 — Сравните Корею, Китай и Японию: где разница есть",
+    "injected inline_3 after H2 — Пройдите чеклист льготы 3 400 / 5 200"
+  ]
+}

@@ -82,7 +82,7 @@ def parse_topic_card(topics_path: Path, topic_id: str) -> dict[str, Any]:
         raise FileNotFoundError(f"topics file not found: {topics_path}")
 
     text = topics_path.read_text(encoding="utf-8")
-    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]\d+|\Z)"
+    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
     match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
     if not match:
         raise ValueError(f"topic_id {topic_id!r} not found in {topics_path}")
@@ -361,14 +361,16 @@ def run_research_start(
         "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md",
     }
 
-    payload_serp = {
-        "agent": "excalibur-blog",
-        "date_context": ctx,
-        "topic": topic,
-        "searches": serp_runs,
-        "errors": errors,
-        "unique_urls": _unique_urls(serp_runs),
-    }
+    payload_serp = redact_secret_hosts(
+        {
+            "agent": "excalibur-blog",
+            "date_context": ctx,
+            "topic": topic,
+            "searches": serp_runs,
+            "errors": errors,
+            "unique_urls": _unique_urls(serp_runs),
+        }
+    )
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"
@@ -402,6 +404,64 @@ def _unique_urls(serp_runs: list[dict[str, Any]]) -> list[dict[str, str]]:
                 seen.add(url)
                 out.append({"url": url, "title": row.get("title") or "", "from_query": run.get("query") or ""})
     return out
+
+
+def _secret_host_redactions() -> list[tuple[str, str]]:
+    """Replace live Cloud Secret hosts in SERP JSON so commits pass secret scan."""
+    import os
+    from urllib.parse import urlparse
+
+    replacements: list[tuple[str, str]] = []
+    keys = (
+        "PUBLIC_SITE_URL",
+        "WP_SITE_URL",
+        "WP_HOME",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+    )
+    for key in keys:
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        parsed = urlparse(raw if "://" in raw else f"https://{raw}")
+        host = (parsed.netloc or parsed.path.split("/")[0] or "").lower()
+        if host and len(host) >= 4 and host not in {"example.com", "example-site.invalid"}:
+            replacements.append((host, "example-site.invalid"))
+            if raw.startswith("http"):
+                replacements.append((raw.rstrip("/"), "https://example-site.invalid"))
+    # Longer needles first so full URLs win over bare hosts.
+    replacements.sort(key=lambda pair: len(pair[0]), reverse=True)
+    return replacements
+
+
+def redact_secret_hosts(payload: Any) -> Any:
+    redactions = _secret_host_redactions()
+    if not redactions:
+        return payload
+
+    def scrub(value: Any) -> Any:
+        if isinstance(value, dict):
+            return {k: scrub(v) for k, v in value.items()}
+        if isinstance(value, list):
+            return [scrub(v) for v in value]
+        if isinstance(value, str):
+            out = value
+            for needle, repl in redactions:
+                out = out.replace(needle, repl)
+                # case-insensitive host swap for common Title-Case SERP hits
+                out_lower = out.lower()
+                needle_lower = needle.lower()
+                if needle_lower in out_lower and needle not in out:
+                    idx = out_lower.find(needle_lower)
+                    while idx >= 0:
+                        out = out[:idx] + repl + out[idx + len(needle) :]
+                        out_lower = out.lower()
+                        idx = out_lower.find(needle_lower)
+            return out
+        return value
+
+    return scrub(payload)
 
 
 def main() -> int:

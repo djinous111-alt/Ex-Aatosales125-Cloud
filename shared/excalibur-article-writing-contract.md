@@ -348,6 +348,8 @@ Excalibur BLOG следует этому контракту для каждой 
 
 Все поля должны быть валидными по валидаторам Schema.org / Google Rich Results. Валидный JSON-LD, без разрывов строк внутри строк, экранирование кавычек.
 
+**Commit hygiene:** site/social URLs, которые хранятся как Cloud Secrets (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`), в committed `schema.jsonld` пиши как `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}`. Publish hydrates placeholders in-memory before WP meta write; do not commit live secret hosts.
+
 ## Чеклист перед сдачей
 
 1. Первый абзац 350–500 символов, ответ по сути (GEO)

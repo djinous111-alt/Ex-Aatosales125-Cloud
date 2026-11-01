@@ -386,3 +386,37 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261102-2115-writer-editorial-pain-outcome-markers-wiped-as14
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-writer
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again missing `pain_markers_ru` / `outcome_markers_ru` and `min_pain_markers` / `min_outcome_markers` at writer start for AS14 (recurrence after AS13 fixer pin).
+- Without restore, `excalibur_blog_utility_gate.py` would BLOCK on empty marker lists (`pain_markers=0 < 2`).
+
+### How the agent recovered this run
+- Restored marker lists + min counts from known-good utility pin (AS02/6dce299e pattern) before selfcheck.
+- Article selfcheck: html_linter PASS, utility PASS, human_voice PASS, slop WARNING only.
+
+### Durable fix needed before next run
+- Pin `pain_markers_ru` / `outcome_markers_ru` and mins in editorial-policy so rebrand/sync cannot wipe them; doctor should fail if keys missing/empty.
+- Align writer skill reminder: restore markers before utility selfcheck if wiped.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

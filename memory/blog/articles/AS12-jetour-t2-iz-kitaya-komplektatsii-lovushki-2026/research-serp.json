@@ -1,0 +1,701 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-01",
+    "today_ru": "01.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-03",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-01 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS12",
+    "priority": "P0",
+    "slug": "jetour-t2-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "джетур т2 комплектации",
+    "secondary_queries": [
+      "джетур т2 купить",
+      "джетур т2 2026",
+      "джетур т2 комплектации и цены",
+      "jetour t2",
+      "джетур т2 сравнение комплектаций"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "джетур т2 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джетур Т2 2026 технические характеристики. Jetour T2 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": "Подробно расписан модельный ряд Jetour T2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джетур Т2 2026 между собой."
+        },
+        {
+          "title": "Jetour T2 цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/jetour/t2/",
+          "snippet": "Обзор автомобиля JETOUR T2 2025-2026 года на официальном сайте JETOUR в России: цены и комплектации, технические характеристики, фото интерьера и экстерьера. Запись на тест-драйв. Поиск официального ..."
+        },
+        {
+          "title": "Джетур Т2 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/jetour-t2-2026/",
+          "snippet": "Jetour T2: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        },
+        {
+          "title": "Jetour T2 — цена 2026, комплектации | под заказ 30 дней",
+          "url": "https://weilin.ru/catalog/jetour/t2/",
+          "snippet": "Джетур Т2 2026: брутальный кроссовер с полным приводом, гибридной установкой и версией на семь мест в салоне. Детальный разбор новинки."
+        },
+        {
+          "title": "Комплектации Jetour T2 2026 — обзор версий и оснащения",
+          "url": "https://jetourcars.ru/modeli/jetour-t2/komplektacii/",
+          "snippet": "Jetour T2 (Джетур T2): цены всех комплектаций в рублях, поставка под заказ за 30 дней, салоны в НН и СПб. Фиксация цены в договоре, бронь 50 000 ₽, оплата по этапам."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "джетур т2 комплектации ноябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джетур Т2 2026 технические характеристики. Jetour T2 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": "Подробно расписан модельный ряд Jetour T2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джетур Т2 2026 между собой."
+        },
+        {
+          "title": "Комплектации Jetour T2 2026 — обзор версий и оснащения",
+          "url": "https://jetourcars.ru/modeli/jetour-t2/komplektacii/",
+          "snippet": "Обзор автомобиля JETOUR T2 2025-2026 года на официальном сайте JETOUR в России: цены и комплектации, технические характеристики, фото интерьера и экстерьера. Запись на тест-драйв. Поиск официального ..."
+        },
+        {
+          "title": "Jetour T2: все комплектации 2026 года, цены и отличия",
+          "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-komplektatsii.html",
+          "snippet": "Комплектации Jetour T2 2026: состав оснащения, опции и отличия версий. Подробный обзор у дилера в Москве."
+        },
+        {
+          "title": "Джетур Т2 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/jetour-t2-2026/",
+          "snippet": "В этой статье мы детально разберем все доступные версии Jetour T2 2026 года, их технические особенности, реальные отличия и поможем определиться, какая комплектация подойдет именно вам."
+        },
+        {
+          "title": "Jetour T2 — цена 2026, комплектации | под заказ 30 дней",
+          "url": "https://weilin.ru/catalog/jetour/t2/",
+          "snippet": "Джетур Т2 2026: брутальный кроссовер с полным приводом, гибридной установкой и версией на семь мест в салоне. Детальный разбор новинки."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "джетур т2 комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джетур Т2 2026 технические характеристики. Jetour T2 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": "Подробно расписан модельный ряд Jetour T2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джетур Т2 2026 между собой."
+        },
+        {
+          "title": "Джетур Т2 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/jetour-t2-2026/",
+          "snippet": "Обзор автомобиля JETOUR T2 2025-2026 года на официальном сайте JETOUR в России: цены и комплектации, технические характеристики, фото интерьера и экстерьера. Запись на тест-драйв. Поиск официального ..."
+        },
+        {
+          "title": "Джетур Т2 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/jetour/jetour-t2-2026.html",
+          "snippet": "Джетур Т2 2026: брутальный кроссовер с полным приводом, гибридной установкой и версией на семь мест в салоне. Детальный разбор новинки."
+        },
+        {
+          "title": "Комплектации Jetour T2 2026 — обзор версий и оснащения",
+          "url": "https://jetourcars.ru/modeli/jetour-t2/komplektacii/",
+          "snippet": "Джетур Т2 2026 (на домашнем рынке известен как Jetour Traveler) — «кубический» SUV для тех, кто хочет брутальную внешность и реальный запас по тяге/приводу без ухода в тяжёлые рамники."
+        },
+        {
+          "title": "Jetour T2 2026: комплектации, цены и характеристики",
+          "url": "https://motorved.ru/obzor-jetour-t2-2026-brutalnyj-shkaf-kotoryj-nauchili-maneram/",
+          "snippet": "Комплектации Jetour T2 2026: состав оснащения, опции и отличия версий. Подробный обзор у дилера в Москве."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com джетур т2 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "AcFANcom (AcFAN) · GitHub",
+          "url": "https://github.com/AcFANcom",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - IPTVRU2026/IPTVMIR: DropTV — 9000+ рабочих IPTV каналов ...",
+          "url": "https://github.com/IPTVRU2026/IPTVMIR",
+          "snippet": "ACFAN是一个免费面向二次元用户、动漫爱好者与漫画阅读用户的内容平台，聚合动漫推荐、漫画内容、追番资讯、热门更新、分类浏览与同好分享等板块社区。 官网地址：https://acpcssr.47u3j9k8.work/ - AcFANcom."
+        },
+        {
+          "title": "GitHub - yatri21/Connect_Four: AI based project",
+          "url": "https://github.com/yatri21/Connect_Four",
+          "snippet": "Каждый проверен личным IPTV чекером. 🌐 Сайт · 📥 Скачать плейлист · 🔍 Checker. Скопируйте и вставьте в любой IPTV плеер. Если плейлист временно не работает — подождите следующего обновления. Последнее обновление: 27.02.2026."
+        },
+        {
+          "title": "UUPMediaCreator/Assets/logo.png at main · OSTooling/UUPMediaCreator",
+          "url": "https://github.com/OSTooling/UUPMediaCreator/blob/main/Assets/logo.png",
+          "snippet": "AI based project. Contribute to yatri21/Connect_Four development by creating an account on GitHub."
+        },
+        {
+          "title": "Memoh/assets/logo.png at main · felinics/Memoh · GitHub",
+          "url": "https://github.com/felinics/Memoh/blob/main/assets/logo.png",
+          "snippet": "An utility to create Windows Media files (.ISO, .WIM, .VHD) from Unified Update Platform files - OSTooling/UUPMediaCreator"
+        },
+        {
+          "title": "PyChem-Pro/assets/icon.svg at main - GitHub",
+          "url": "https://github.com/vijaymasand/PyChem-Pro/blob/main/assets/icon.svg",
+          "snippet": "The open-source multi-agent platform. Every agent gets its own computer, desktop, network, and long-term memory. You can bring your own key, or host your coding agent like Claude Code, Codex and so on. - Memoh/assets/logo.png at main · felinics/Memoh."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "джетур т2 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": ""
+        },
+        {
+          "title": "Джетур Т2 2026 технические характеристики. Jetour T2 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+          "snippet": "Обзор автомобиля JETOUR T2 2025-2026 года на официальном сайте JETOUR в России: цены и комплектации, технические характеристики, фото интерьера и экстерьера. Запись на тест-драйв. Поиск официального ..."
+        },
+        {
+          "title": "Комплектации Jetour T2 2026 — обзор версий и оснащения",
+          "url": "https://jetourcars.ru/modeli/jetour-t2/komplektacii/",
+          "snippet": "Подробно расписан модельный ряд Jetour T2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джетур Т2 2026 между собой."
+        },
+        {
+          "title": "Jetour T2: все комплектации 2026 года, цены и отличия",
+          "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-komplektatsii.html",
+          "snippet": "Комплектации Jetour T2 2026: состав оснащения, опции и отличия версий. Подробный обзор у дилера в Москве."
+        },
+        {
+          "title": "Jetour T2: все комплектации 2026 года — сравнение и цены",
+          "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-kakie-komplektatsii.html",
+          "snippet": "В этой статье мы детально разберем все доступные версии Jetour T2 2026 года, их технические особенности, реальные отличия и поможем определиться, какая комплектация подойдет именно вам."
+        },
+        {
+          "title": "Джетур Т2 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/jetour-t2-2026/",
+          "snippet": "В этой статье мы детально разберём все актуальные комплектации Jetour T2 2026 года, сравним их технические характеристики, цены и поможем определиться с выбором."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "джетур т2 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Jetour T2 | Jetour Клуб И Форум",
+          "url": "https://jetour-forum.ru/forums/jetour-t2.19/",
+          "snippet": ""
+        },
+        {
+          "title": "Jetour T2 форум: обсуждение, отзывы и опыт владельцев",
+          "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-forum.html",
+          "snippet": "JETOUR T2 - среднеразмерный внедорожник, выпускающийся подразделением Jetour компании Chery Automobile с сентября 2023 года. Внедорожник для путешествий."
+        },
+        {
+          "title": "Jetour T2 клуб Джетур Т2 отзывы форум - VK",
+          "url": "https://vk.ru/jetour_t2",
+          "snippet": "Полный гид по Jetour T2 форум: реальные отзывы, проблемы, доработки и советы по эксплуатации рамного внедорожника. Актуальные данные 2026."
+        },
+        {
+          "title": "Jetour T2 форум владельцев: отзывы, проблемы и решения",
+          "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-forum-vladeltsev.html",
+          "snippet": "Если у вас перестало складываться зеркало, ( моторчик начинает работать, а движений никаких) сразу не поникуйте. Проблема там в фиксаторе. Делайте следующее , сначала помогите зеркалу сложиться рукой. Затем берите очиститель карбюратора в аэрозоле и промойте поворотный вал , шток или как хотите его называйте . Затем , для понимания, тонкой."
+        },
+        {
+          "title": "Эксплуатация, обслуживание, ремонт T2 | Jetour Club / Джетур Клуб",
+          "url": "https://jetour-club.ru/forums/%D0%AD%D0%BA%D1%81%D0%BF%D0%BB%D1%83%D0%B0%D1%82%D0%B0%D1%86%D0%B8%D1%8F-%D0%BE%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82-t2.45/",
+          "snippet": "Мы рассмотрим типичные проблемы, скрытые функции и реальные впечатления от поездок, которые формируют общественное мнение об этом автомобиле."
+        },
+        {
+          "title": "Недостатки Джетур Т2 2026: отзывы владельцев - все минусы и плюсы",
+          "url": "https://www.allcarz.ru/jetour-t2-nedostatki/",
+          "snippet": "Что у вас уже сломалось на Jetour T2? Блокировка автомобиля при аварии кто сталкивался? Установка приложений на Jetour T2. Вывод на приборную панель навигатора с JCarTools. Андрей!!"
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "джетур т2 купить 2026",
+      "purpose": "вторичный запрос: джетур т2 купить",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Jetour T2 2026 года по цене от 3 114 299 рублей - более 710 ...",
+          "url": "https://auto.ru/cars/jetour/t2/2026-year/all/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить новые Jetour T2 2026 года по цене от 3 091 585 рублей - более ...",
+          "url": "https://auto.ru/cars/jetour/t2/2026-year/new/",
+          "snippet": "Полный модельный ряд Jetour T2 2026 года по цене от 3 114 299 рублей - более 710 Джетур Т2, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": "Полный модельный ряд новых Jetour T2 2026 года по цене от 3 091 585 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Jetour T2 2025-2026 В Наличии | Цены У Официального Дистрибьютора ...",
+          "url": "https://jetour-ru.com/cars/new/jetour/t2",
+          "snippet": "Обзор автомобиля JETOUR T2 2025-2026 года на официальном сайте JETOUR в России: цены и комплектации, технические характеристики, фото интерьера и экстерьера. Запись на тест-драйв. Поиск официального ..."
+        },
+        {
+          "title": "Купить Джетур Т2 2026 в России: продажа Jetour T2 2026 года с пробегом ...",
+          "url": "https://auto.drom.ru/jetour/t2/year-2026/",
+          "snippet": "Цены на автомобили Джетур T2 в наличии на сайте официального дистрибьютора в России. Купить новый автомобиль JETOUR T2 2025-2026 года Комплектации Запись на тест-драйв Кредит."
+        },
+        {
+          "title": "Jetour T2 в наличии в Москве, купить Джетур Т2 | Major Jetour ...",
+          "url": "https://www.jetour-major.ru/cars/t2/",
+          "snippet": "133 объявления о продаже Джетур Т2 2026 б/у и новых в России от 3 650 000 рублей - частные объявления. Узнать стоимость Jetour T2 2026 года и купить с пробегом на Дроме."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "джетур т2 2026 2026",
+      "purpose": "вторичный запрос: джетур т2 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джетур Т2 2026 технические характеристики. Jetour T2 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Jetour T2 2026 года по цене от 3 114 299 рублей - более 710 ...",
+          "url": "https://auto.ru/cars/jetour/t2/2026-year/all/",
+          "snippet": "Подробно расписан модельный ряд Jetour T2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джетур Т2 2026 между собой."
+        },
+        {
+          "title": "Купить новые Jetour T2 2026 года по цене от 3 091 585 рублей - более ...",
+          "url": "https://auto.ru/cars/jetour/t2/2026-year/new/",
+          "snippet": "Полный модельный ряд Jetour T2 2026 года по цене от 3 114 299 рублей - более 710 Джетур Т2, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": "Полный модельный ряд новых Jetour T2 2026 года по цене от 3 091 585 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Джетур Т2 2026 - фото, цена, комплектация, характеристики в России",
+          "url": "https://www.allcarz.ru/jetour-t2/",
+          "snippet": "Обзор автомобиля JETOUR T2 2025-2026 года на официальном сайте JETOUR в России: цены и комплектации, технические характеристики, фото интерьера и экстерьера. Запись на тест-драйв. Поиск официального ..."
+        },
+        {
+          "title": "Jetour T2 2026 купить в Москве | Официальный дилер Джетур АвтоГЕРМЕС",
+          "url": "https://www.avtogermes.ru/sale/jetour/t2/",
+          "snippet": "Здесь я написал обзор нового Jetour T2 2026 года для России. Комплектации и цены, технические характеристики, фото китайского внедорожника в стиле Дефендера."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "джетур т2 комплектации и цены 2026",
+      "purpose": "вторичный запрос: джетур т2 комплектации и цены",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джетур Т2 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": "Подробно расписан модельный ряд Jetour T2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Jetour T2 цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/jetour/t2/",
+          "snippet": "Обзор автомобиля JETOUR T2 2025-2026 года на официальном сайте JETOUR в России: цены и комплектации, технические характеристики, фото интерьера и экстерьера. Запись на тест-драйв. Поиск официального ..."
+        },
+        {
+          "title": "Jetour T2 — цена 2026, комплектации | под заказ 30 дней",
+          "url": "https://weilin.ru/catalog/jetour/t2/",
+          "snippet": "Jetour T2: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        },
+        {
+          "title": "Джетур Т2 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/jetour-t2-2026/",
+          "snippet": "Jetour T2 (Джетур T2): цены всех комплектаций в рублях, поставка под заказ за 30 дней, салоны в НН и СПб. Фиксация цены в договоре, бронь 50 000 ₽, оплата по этапам."
+        },
+        {
+          "title": "Jetour T2 2026: комплектации, цены и характеристики",
+          "url": "https://motorved.ru/obzor-jetour-t2-2026-brutalnyj-shkaf-kotoryj-nauchili-maneram/",
+          "snippet": "В зависимости от комплектации меняется и оснащение авто, а также соответственно цена. В данном обзоре представлены официальные фото авто."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "jetour t2 2026",
+      "purpose": "вторичный запрос: jetour t2",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джетур Т2 2026 технические характеристики. Jetour T2 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Jetour T2",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": "Подробно расписан модельный ряд Jetour T2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джетур Т2 2026 между собой."
+        },
+        {
+          "title": "Купить новые Jetour T2 2026 года по цене от 3 091 585 рублей - более ...",
+          "url": "https://auto.ru/cars/jetour/t2/2026-year/new/",
+          "snippet": "Новый JETOUR T2 обеспечивает большую вместительность и повышенный комфорт для водителя и всех пассажиров."
+        },
+        {
+          "title": "Рестайлинговый Jetour Shanhai T2 2026 появился в базе MIIT Китая",
+          "url": "https://chinacardrive.ru/hybrids-in-russia/hybrid-avto/restaylingovyy-krossover-jetour-shanhai-t2-2026-poluchil-pererabotannyy-dizayn-i-novuyu-sistemu-pomoschi-voditelyu",
+          "snippet": "Полный модельный ряд новых Jetour T2 2026 года по цене от 3 091 585 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями. Новые авто продаются здесь! Скидки и специальные предложения от ..."
+        },
+        {
+          "title": "Jetour T2 2024, 2025, 2026, джип/suv 5 дв., 1 ... - Дром",
+          "url": "https://www.drom.ru/catalog/jetour/t2/g_2024_19959/",
+          "snippet": "В базе Минпромторга Китая появился рестайлинговый кроссовер Jetour Shanhai T2 2026. Главными изменениями стали: переработанный дизайн и новейшая система помощи водителю."
+        },
+        {
+          "title": "2026 Jetour T2 Specs and Prices | Syarah Guide",
+          "url": "https://syarah.com/carsguide/en/2026-jetour-t2/",
+          "snippet": "Подробно расписаны модификации автомобилей Jetour T2 2024: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_5",
+      "query": "джетур т2 сравнение комплектаций 2026",
+      "purpose": "вторичный запрос: джетур т2 сравнение комплектаций",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сравнение комплектаций Jetour T2 2023-2026",
+          "url": "https://auto.ru/cars/new/group/jetour/t2/23843690-23843730/options/compare/",
+          "snippet": ""
+        },
+        {
+          "title": "Джетур Т2 2026 технические характеристики. Jetour T2 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+          "snippet": "Сравнение комплектаций Jetour T2 2023-2026, внедорожник 5-дверный на Авто.ру. Список и сравнения опций. Информация из официальных источников."
+        },
+        {
+          "title": "Jetour T2 2026: разбор комплектаций, реальные цены, отличия и истории ...",
+          "url": "https://inycar.ru/blog/jetour-t2-2026-razbor-komplektatsij-realnye-tseny-otlichiya-i-istorii-vladeltsev",
+          "snippet": "Подробно расписан модельный ряд Jetour T2 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джетур Т2 2026 между собой."
+        },
+        {
+          "title": "Jetour T2 Сравнение Комплектаций - Джетур Яр-премиум",
+          "url": "https://jetour-yar.ru/news/jetour-t2-sravnenie-komplektacij",
+          "snippet": "Jetour T2 2026: какие комплектации стоит брать? Сравнение версий, реальные цены и ключевые отличия. Читайте отзывы и истории эксплуатации от владельцев."
+        },
+        {
+          "title": "Сравнение комплектаций и цен нового Jetour T2 2026 в Перми",
+          "url": "https://perm.autovsalone.ru/cars/jetour/t2/compare",
+          "snippet": "JETOUR T2 - кроссовер повышенной проходимости, представленный в России с 2024 года. В 2026 году для сравнения актуальны три основные комплектации: Voyage, Expedition и Discovery."
+        },
+        {
+          "title": "Jetour T2: все комплектации 2026 года, цены и отличия",
+          "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-komplektatsii.html",
+          "snippet": "Самое полное и удобное сравнение комплектаций и цен новых Джетур Т2 2026 в Перми. Выбери свою новую машину!"
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Jetour T2 2026: комплектации, обвесы, запаска и тюнинг — выбор для ...",
+          "url": "https://inycar.ru/blog/jetour-t2-2026-komplektatsii-obvesy-zapaska-i-tyuning-vybor-dlya-goroda-i-ekspeditsij",
+          "snippet": ""
+        },
+        {
+          "title": "Jetour T2 2026: цены и комплектации в России",
+          "url": "https://heartcar.ru/news/jetour-t2-2026-ceny-komplektacii-i-realnye-predlozeniia-na-avtoru",
+          "snippet": "Jetour T2 2026: подробный разбор всех комплектаций, актуальные обвесы и системы крепления запаски. Как выбрать тюнинг для города и экспедиций? Полный гид по выбору!"
+        },
+        {
+          "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+          "url": "https://jetour-ru.com/models/t2",
+          "snippet": "Для 2026 года доступны три основные комплектации: Люкс, Престиж и Премиум. Базовая Люкс стоит 4 649 000 рублей без скидок. Престиж — самая распространённая версия, её цена варьируется от 4 289 000 до 4 499 000 рублей в зависимости от дилера и наличия дополнительных опций."
+        },
+        {
+          "title": "Комплектации Jetour T2 2026 — обзор версий и оснащения",
+          "url": "https://jetourcars.ru/modeli/jetour-t2/komplektacii/",
+          "snippet": "Если вы планируете купить Джетур Т2, запишитесь на тест-драйв прямо сейчас, выберите ближайший автосалон официального дилера JETOUR и убедитесь во всех преимуществах этой модели лично!"
+        },
+        {
+          "title": "Jetour T2 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/jetour/t2/",
+          "snippet": "Комплектации Jetour T2 2026: состав оснащения, опции и отличия версий. Подробный обзор у дилера в Москве."
+        },
+        {
+          "title": "Jetour T2 2026: комплектации, цены и характеристики",
+          "url": "https://motorved.ru/obzor-jetour-t2-2026-brutalnyj-shkaf-kotoryj-nauchili-maneram/",
+          "snippet": "Jetour T2: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/jetour/t2/2026/",
+      "title": "Джетур Т2 2026 технические характеристики. Jetour T2 2026 комплектации ...",
+      "from_query": "джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://jetour-ru.com/models/t2",
+      "title": "Jetour T2 — Цены, Комплектации И Характеристики Модели — Купить Джетур ...",
+      "from_query": "джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/jetour/t2/",
+      "title": "Jetour T2 цены и комплектации 2026 - carmaps.ru",
+      "from_query": "джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://cenyavto.com/jetour-t2-2026/",
+      "title": "Джетур Т2 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://weilin.ru/catalog/jetour/t2/",
+      "title": "Jetour T2 — цена 2026, комплектации | под заказ 30 дней",
+      "from_query": "джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://jetourcars.ru/modeli/jetour-t2/komplektacii/",
+      "title": "Комплектации Jetour T2 2026 — обзор версий и оснащения",
+      "from_query": "джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-komplektatsii.html",
+      "title": "Jetour T2: все комплектации 2026 года, цены и отличия",
+      "from_query": "джетур т2 комплектации ноябрь 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/jetour/jetour-t2-2026.html",
+      "title": "Джетур Т2 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "джетур т2 комплектации новости 2026"
+    },
+    {
+      "url": "https://motorved.ru/obzor-jetour-t2-2026-brutalnyj-shkaf-kotoryj-nauchili-maneram/",
+      "title": "Jetour T2 2026: комплектации, цены и характеристики",
+      "from_query": "джетур т2 комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/AcFANcom",
+      "title": "AcFANcom (AcFAN) · GitHub",
+      "from_query": "site:github.com джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/IPTVRU2026/IPTVMIR",
+      "title": "GitHub - IPTVRU2026/IPTVMIR: DropTV — 9000+ рабочих IPTV каналов ...",
+      "from_query": "site:github.com джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/yatri21/Connect_Four",
+      "title": "GitHub - yatri21/Connect_Four: AI based project",
+      "from_query": "site:github.com джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/OSTooling/UUPMediaCreator/blob/main/Assets/logo.png",
+      "title": "UUPMediaCreator/Assets/logo.png at main · OSTooling/UUPMediaCreator",
+      "from_query": "site:github.com джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/felinics/Memoh/blob/main/assets/logo.png",
+      "title": "Memoh/assets/logo.png at main · felinics/Memoh · GitHub",
+      "from_query": "site:github.com джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/vijaymasand/PyChem-Pro/blob/main/assets/icon.svg",
+      "title": "PyChem-Pro/assets/icon.svg at main - GitHub",
+      "from_query": "site:github.com джетур т2 комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-kakie-komplektatsii.html",
+      "title": "Jetour T2: все комплектации 2026 года — сравнение и цены",
+      "from_query": "джетур т2 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://jetour-forum.ru/forums/jetour-t2.19/",
+      "title": "Jetour T2 | Jetour Клуб И Форум",
+      "from_query": "джетур т2 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-forum.html",
+      "title": "Jetour T2 форум: обсуждение, отзывы и опыт владельцев",
+      "from_query": "джетур т2 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vk.ru/jetour_t2",
+      "title": "Jetour T2 клуб Джетур Т2 отзывы форум - VK",
+      "from_query": "джетур т2 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/j/je/jetour-t2-forum-vladeltsev.html",
+      "title": "Jetour T2 форум владельцев: отзывы, проблемы и решения",
+      "from_query": "джетур т2 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://jetour-club.ru/forums/%D0%AD%D0%BA%D1%81%D0%BF%D0%BB%D1%83%D0%B0%D1%82%D0%B0%D1%86%D0%B8%D1%8F-%D0%BE%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82-t2.45/",
+      "title": "Эксплуатация, обслуживание, ремонт T2 | Jetour Club / Джетур Клуб",
+      "from_query": "джетур т2 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/jetour-t2-nedostatki/",
+      "title": "Недостатки Джетур Т2 2026: отзывы владельцев - все минусы и плюсы",
+      "from_query": "джетур т2 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/jetour/t2/2026-year/all/",
+      "title": "Купить Jetour T2 2026 года по цене от 3 114 299 рублей - более 710 ...",
+      "from_query": "джетур т2 купить 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/jetour/t2/2026-year/new/",
+      "title": "Купить новые Jetour T2 2026 года по цене от 3 091 585 рублей - более ...",
+      "from_query": "джетур т2 купить 2026"
+    },
+    {
+      "url": "https://jetour-ru.com/cars/new/jetour/t2",
+      "title": "Jetour T2 2025-2026 В Наличии | Цены У Официального Дистрибьютора ...",
+      "from_query": "джетур т2 купить 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/jetour/t2/year-2026/",
+      "title": "Купить Джетур Т2 2026 в России: продажа Jetour T2 2026 года с пробегом ...",
+      "from_query": "джетур т2 купить 2026"
+    },
+    {
+      "url": "https://www.jetour-major.ru/cars/t2/",
+      "title": "Jetour T2 в наличии в Москве, купить Джетур Т2 | Major Jetour ...",
+      "from_query": "джетур т2 купить 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/jetour-t2/",
+      "title": "Джетур Т2 2026 - фото, цена, комплектация, характеристики в России",
+      "from_query": "джетур т2 2026 2026"
+    },
+    {
+      "url": "https://www.avtogermes.ru/sale/jetour/t2/",
+      "title": "Jetour T2 2026 купить в Москве | Официальный дилер Джетур АвтоГЕРМЕС",
+      "from_query": "джетур т2 2026 2026"
+    },
+    {
+      "url": "https://chinacardrive.ru/hybrids-in-russia/hybrid-avto/restaylingovyy-krossover-jetour-shanhai-t2-2026-poluchil-pererabotannyy-dizayn-i-novuyu-sistemu-pomoschi-voditelyu",
+      "title": "Рестайлинговый Jetour Shanhai T2 2026 появился в базе MIIT Китая",
+      "from_query": "jetour t2 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/jetour/t2/g_2024_19959/",
+      "title": "Jetour T2 2024, 2025, 2026, джип/suv 5 дв., 1 ... - Дром",
+      "from_query": "jetour t2 2026"
+    },
+    {
+      "url": "https://syarah.com/carsguide/en/2026-jetour-t2/",
+      "title": "2026 Jetour T2 Specs and Prices | Syarah Guide",
+      "from_query": "jetour t2 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/new/group/jetour/t2/23843690-23843730/options/compare/",
+      "title": "Сравнение комплектаций Jetour T2 2023-2026",
+      "from_query": "джетур т2 сравнение комплектаций 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/jetour-t2-2026-razbor-komplektatsij-realnye-tseny-otlichiya-i-istorii-vladeltsev",
+      "title": "Jetour T2 2026: разбор комплектаций, реальные цены, отличия и истории ...",
+      "from_query": "джетур т2 сравнение комплектаций 2026"
+    },
+    {
+      "url": "https://jetour-yar.ru/news/jetour-t2-sravnenie-komplektacij",
+      "title": "Jetour T2 Сравнение Комплектаций - Джетур Яр-премиум",
+      "from_query": "джетур т2 сравнение комплектаций 2026"
+    },
+    {
+      "url": "https://perm.autovsalone.ru/cars/jetour/t2/compare",
+      "title": "Сравнение комплектаций и цен нового Jetour T2 2026 в Перми",
+      "from_query": "джетур т2 сравнение комплектаций 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/jetour-t2-2026-komplektatsii-obvesy-zapaska-i-tyuning-vybor-dlya-goroda-i-ekspeditsij",
+      "title": "Jetour T2 2026: комплектации, обвесы, запаска и тюнинг — выбор для ...",
+      "from_query": "Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://heartcar.ru/news/jetour-t2-2026-ceny-komplektacii-i-realnye-predlozeniia-na-avtoru",
+      "title": "Jetour T2 2026: цены и комплектации в России",
+      "from_query": "Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://carsdo.ru/jetour/t2/",
+      "title": "Jetour T2 › Цена и комплектации 2026 - CarsDo.ru",
+      "from_query": "Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

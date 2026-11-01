@@ -1,0 +1,107 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-01",
+    "today_ru": "01.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-03",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-01 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS12",
+    "priority": "P0",
+    "slug": "jetour-t2-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "джетур т2 комплектации",
+    "secondary_queries": [
+      "джетур т2 купить",
+      "джетур т2 2026",
+      "джетур т2 комплектации и цены",
+      "jetour t2",
+      "джетур т2 сравнение комплектаций"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS12",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "джетур т2 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "джетур т2 комплектации ноябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "джетур т2 комплектации новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com джетур т2 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "джетур т2 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "джетур т2 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "джетур т2 купить 2026",
+      "purpose": "вторичный запрос: джетур т2 купить"
+    },
+    {
+      "id": "secondary_2",
+      "query": "джетур т2 2026 2026",
+      "purpose": "вторичный запрос: джетур т2 2026"
+    },
+    {
+      "id": "secondary_3",
+      "query": "джетур т2 комплектации и цены 2026",
+      "purpose": "вторичный запрос: джетур т2 комплектации и цены"
+    },
+    {
+      "id": "secondary_4",
+      "query": "jetour t2 2026",
+      "purpose": "вторичный запрос: jetour t2"
+    },
+    {
+      "id": "secondary_5",
+      "query": "джетур т2 сравнение комплектаций 2026",
+      "purpose": "вторичный запрос: джетур т2 сравнение комплектаций"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

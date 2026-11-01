@@ -11,9 +11,10 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
-from excalibur_repo_paths import repo_relative
+from excalibur_repo_paths import repo_relative, resolve_gate_output
 
 
+# Intentionally excludes "github": notes always have ## github_evidence.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -24,7 +25,6 @@ TECH_MARKERS = (
     "cursor",
     "make",
     "n8n",
-    "github",
     "docker",
     "rag",
     "workflow",
@@ -73,14 +73,37 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str, marker: str) -> bool:
+    # Short markers like "ai"/"ии" must not match inside reader_pain / "отличить".
+    if len(marker) <= 3:
+        return bool(
+            re.search(
+                rf"(?<![0-9a-zA-Zа-яА-ЯёЁ_]){re.escape(marker)}(?![0-9a-zA-Zа-яА-ЯёЁ_])",
+                blob,
+                flags=re.I,
+            )
+        )
+    return marker.lower() in blob.lower()
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Classify from topic card fields only.
+
+    Research notes always mention github/mcp/api in evidence/Wordstat sections,
+    so scanning the notes body caused false ``technical_topic=true`` on auto-import
+    utility topics (Jetour, customs, etc.).
+    """
+    del notes  # notes are intentionally ignored for classification
     topic = context.get("topic") or {}
+    secondary = topic.get("secondary_queries") or ""
+    if isinstance(secondary, list):
+        secondary = " ".join(str(x) for x in secondary)
     blob = " ".join(
         str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+        for key in ("h1", "primary_query", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    blob = f"{blob} {str(secondary).lower()}"
+    return any(_tech_marker_hit(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -89,6 +112,12 @@ def field_present(text_lower: str, field: str) -> bool:
     if field in {"action_outline", "github_evidence", "pain_solution_map"}:
         field_pattern = re.escape(field).replace("_", r"[_\s-]")
         return bool(re.search(rf"^\s*##\s*\d*\.?\s*{field_pattern}\b", text_lower, flags=re.I | re.M))
+    if field == "accessed_at":
+        # Label form, compound keys (source_*_accessed_at:), or markdown table column.
+        return bool(
+            re.search(r"(?<![a-z0-9])accessed_at\s*:", text_lower)
+            or re.search(r"\|\s*accessed_at\s*\|", text_lower)
+        )
     field_pattern = re.escape(field).replace("_", r"[_\s-]")
     return bool(re.search(rf"\b{field_pattern}\b\s*:", text_lower, flags=re.I))
 
@@ -130,9 +159,53 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Labels (incl. compound source_*_accessed_at:), ISO dates in source-table URL rows.
+    accessed_labeled = len(re.findall(r"(?<![a-z0-9])accessed_at\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    iso_in_source_rows = 0
+    if today_iso:
+        for row in re.findall(r"^\s*\|.*https?://.*$", text, flags=re.M):
+            if today_iso in row:
+                iso_in_source_rows += 1
+    # Table column `| accessed_at |` + ISO date cells in later rows of the same table.
+    table_accessed = 0
+    if re.search(r"\|\s*accessed_at\s*\|", text_lower):
+        table_accessed = len(re.findall(r"\|\s*20\d{2}-\d{2}-\d{2}\s*\|", text_lower))
+    accessed_count = max(accessed_labeled, iso_in_source_rows, table_accessed)
+
+    pain_section = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    pain_body = pain_section.group(1) if pain_section else ""
+    # Count non-separator data rows; keyword literals in cells are preferred but not required
+    # when the section header already declares pain/solution/result columns.
+    pain_map_rows = 0
+    for row in re.findall(r"^\s*\|.+\|\s*$", pain_body, flags=re.M):
+        cells = [c.strip() for c in row.strip().strip("|").split("|")]
+        if not cells or all(re.fullmatch(r":?-{3,}:?", c or "") for c in cells):
+            continue
+        headerish = all(
+            re.search(r"(боль|pain|решение|solution|result|результат|reader|#)", c, flags=re.I)
+            for c in cells
+            if c
+        ) and not any(len(c) > 40 for c in cells)
+        if headerish and len(cells) <= 4:
+            continue
+        pain_map_rows += 1
+    # Fallback: legacy keyword-in-row counter if section parse yielded nothing.
+    if pain_map_rows < 3:
+        pain_map_rows = max(
+            pain_map_rows,
+            len(
+                re.findall(
+                    r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                    text_lower,
+                    flags=re.M,
+                )
+            ),
+        )
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:
@@ -205,7 +278,7 @@ def main() -> int:
     report = validate_research_notes(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        output = resolve_gate_output(args.output, article_dir, root)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

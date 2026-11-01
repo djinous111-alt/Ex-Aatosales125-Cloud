@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026 год",
+      "kind": "date_or_year",
+      "context": "и китайские имена пакетов Официальный ряд в РФ на 2026 год (JETOUR RU / прайс T2): Люкс и Престиж – 2.0T 245",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "омат\" в объявлении – типичная ошибка. Ориентир РФ 2026 Китай Traveller (бензин) Что писать в бриф База /",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "245",
+      "kind": "large_number",
+      "context": "год (JETOUR RU / прайс T2): Люкс и Престиж – 2.0T 245 л.с., 7DCT, полный привод; Премиум – тот же мотор,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "220",
+      "kind": "large_number",
+      "context": "ра, 245 л.с., АИ-95. Клиренс в прайсе порядка 208–220 мм, брод до 700 мм – это не \"маленький городской\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "700",
+      "kind": "large_number",
+      "context": "-95. Клиренс в прайсе порядка 208–220 мм, брод до 700 мм – это не \"маленький городской\" пакет по умолчан",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "по мощности: у РФ T2 245 л.с., и для ДВС сильнее 160 л.с. льготный утиль физлица на ввозе не применяетс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

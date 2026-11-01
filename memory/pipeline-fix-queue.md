@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-0927-schema-secret-scanner-env-placeholders
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-schema
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner blocked commit of `schema.jsonld` when BlogPosting/`sameAs`/`image` contained live `PUBLIC_SITE_URL`, `TELEGRAM_URL`, `CATALOG_URL`, `MAX_URL` values (pattern used by older AS08/AS09 schemas).
+- Hook error surfaced as invalid variable name during secret iteration; root cause was secret values present in the staged JSON-LD.
+
+### How the agent recovered this run
+- Rewrote AS04 `schema.jsonld` to use `${PUBLIC_SITE_URL}`, `${TELEGRAM_URL}`, `${CATALOG_URL}`, `${MAX_URL}` placeholders; kept public Instagram/2GIS sameAs as-is.
+- Re-validated BlogPosting + FAQPage + HowTo structure and FAQ text match to HTML.
+
+### Durable fix needed before next run
+- Document in schema skill/agent that committed `schema.jsonld` must use `${ENV}` placeholders for site/social URLs that are Cloud Secrets; publish step resolves them before WP meta write (or keep placeholders if theme expands).
+- Optionally add a small schema helper that builds JSON-LD from meta+registry+env map without embedding raw secret values.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `shared/excalibur-article-writing-contract.md` (schema section)
+- `scripts/excalibur_blog_wp_publish.py` (resolve placeholders on publish if not already)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-0925-writer-human-voice-o-path-and-five-list-regex
 status: open
 run_date: 2026-11-01

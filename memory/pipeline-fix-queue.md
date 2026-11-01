@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1326-cover-missing-corner-brand
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-cover
+topic_id: AS12
+article_dir: memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- One-shot Kie quad canvas succeeded (Jetour T2 port scene, hook, non-toxic stickers), but the generated cover panel still omitted the required catalog corner brand `avto-sales125.ru` despite scene_hint / design-code / blog-hero corner rules.
+- Same class of miss previously seen on AS11 cover runs.
+
+### How the agent recovered this run
+- Did not create a second image job.
+- PIL-stamped subtle corner footer `avto-sales125.ru` onto `cover/cover.png` and the matching top-left panel of `cover/canvas-quad.png` after split.
+- Inline panels left untouched (utility UI already OK; no hero face).
+
+### Durable fix needed before next run
+- Strengthen prompt/design-code so corner brand is mandatory and visually prioritized.
+- Optionally add a post-split cover QA helper that fails or auto-stamps when `avto-sales125.ru` OCR/pixel check misses on cover.png.
+- Keep Telegram / `avtosales125` handle forbidden on corner.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `memory/cover/cover-design-code.json`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-1323-schema-secret-scan-blocks-hydrated-jsonld
 status: open
 run_date: 2026-11-01

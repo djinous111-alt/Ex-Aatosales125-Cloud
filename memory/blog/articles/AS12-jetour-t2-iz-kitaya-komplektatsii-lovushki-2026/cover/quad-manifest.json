@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS12",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Discovery на витрине — а в лоте база?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Jetour T2 в порту Владивостока: крючок про сверку комплектации до депозита",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey sea mist, ro-ro terminal hint; OUTFIT: charcoal softshell jacket over navy henley (NOT white hoodie, NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie next to modern Jetour T2 crossover (boxy China SUV, dark color); phone in hand shows fake trim card «Люкс / Престиж / Премиум» vs sticky «Discovery ≠ 8AT»; torn paper Cyrillic hook plaque «Discovery на витрине — а в лоте база?» with yellow highlighter on «база»; shocked meme cutout + small facepalm sticker (different formats, NO insults, NO toxic words); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала спека"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Остановите депозит, пока витринное имя не сверено с железом",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Витринное имя | Железо в лоте | Риск; rows Discovery vs 1.5T FWD, Премиум vs 2.0T AWD 8AT, «на фото» vs VIN; red stop stamp «депозит стоп»; pink sticky «сверить»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: витринное имя Jetour T2 vs железо в лоте — стоп депозита до сверки"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте Люкс, Престиж, Премиум и китайские имена пакетов",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps: 1) Люкс/Престиж/Премиум РФ 2) китайские Exploration/Discovery 3) сверка мотор/КПП/привод 4) фиксация в договоре; arrows; sticky «имена ≠ железо»; mini catalog card Jetour T2; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: Люкс Престиж Премиум vs китайские имена пакетов Jetour T2"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Зафиксируйте в договоре мотор, коробку и привод",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board before deposit: ☐ 2.0T или 1.5T ☐ 7DCT или 8AT ☐ FWD или AWD ☐ опции по VIN ☐ фото двигателя/шильдиков; red stamp «в договоре»; yellow highlight «привод»; tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист договора: мотор, коробка и привод Jetour T2 до оплаты"
+    }
+  }
+}

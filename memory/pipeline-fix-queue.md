@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1319-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-geo-qa
+topic_id: AS12
+article_dir: memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: handoff
+
+### What went wrong
+- Cloud API did not accept typed Task `excalibur-blog-geo-qa`; Director launched `generalPurpose` fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Executed GEO QA as generalPurpose using `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Ran full script suite; `article-qa.md` PASS score 88; human-voice `-o human-voice-report.json` (filename-only, no nested path).
+
+### Durable fix needed before next run
+- Restore typed Task registration for `excalibur-blog-geo-qa` in Cloud automation / Task map, or keep documented generalPurpose fallback as first-class path in director skill.
+- Confirm human-voice `-o` docs stay filename-only (paired with writer INC-20261101-1316).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-1316-writer-utility-pain-outcome-markers-restored
 status: open
 run_date: 2026-11-01

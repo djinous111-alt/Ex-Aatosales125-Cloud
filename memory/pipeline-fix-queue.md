@@ -488,3 +488,36 @@ category: qa
 
 ### Fixer resolution
 - pending
+
+## INC-20261102-2125-cover-outfit-lock-white-hoodie-as14
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie` in `build_prompt()`, conflicting with `blog-hero.json` outfit_rule and prior AS12/AS13 fixer pins that clothes must follow scene weather/topic.
+- Auto-generated `quad-mcp-prompt.txt` / batch would have forced white hoodie again despite manifest scene_hint (olive softshell / foggy Vladivostok port).
+
+### How the agent recovered this run
+- Manually replaced the outfit-lock sentence in `cover/quad-mcp-prompt.txt` and synced `cover/quad-mcp-batch.json` mcp_args/api_args before Kie i2i.
+- Generated canvas shows olive field jacket (not white hoodie); corner brand `avto-sales125.ru` present; no toxic stickers.
+
+### Durable fix needed before next run
+- Remove white-hoodie outfit lock from `excalibur_blog_cover_quad_prompt.py`; pull outfit guidance from `blog-hero.json` prompt_fragment / outfit_rule and cover `scene_hint`.
+- Add regression note in cover skill/pitfalls: never reintroduce fixed hoodie lock.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

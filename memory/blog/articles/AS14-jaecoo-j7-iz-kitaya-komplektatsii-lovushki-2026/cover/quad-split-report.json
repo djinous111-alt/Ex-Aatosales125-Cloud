@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 742
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1315
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Jaecoo J7 у роллкера Владивостока, герой Авто-Сейлс со смартфоном и чеклистом комплектаций до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1315,
+          "top": 10,
+          "right": 2560,
+          "bottom": 710
+        },
+        "raw_box_px": {
+          "left": 1315,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: Explore 06 = J7 и сравнение привода 2WD 150 vs 4WD 186",
+        "h2_anchor": "Зафиксируйте задачу: Explore 06 = J7 и нужный привод"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 20,
+          "top": 742,
+          "right": 1261,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 742,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: сверка Актив / Комфорт / Престиж с паспортом лота",
+        "h2_anchor": "Сверьте комплектацию Актив / Комфорт / Престиж по паспорту лота"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1315,
+          "top": 742,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1315,
+          "top": 742,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап паспорта лота: красные флаги trim, язык ПО, VIN и инвойс",
+        "h2_anchor": "Пройдите красные флаги: trim, язык ПО, VIN и инвойс"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу: Explore 06 = J7 и нужный привод",
+    "injected inline_2 after H2 — Сверьте комплектацию Актив / Комфорт / Престиж по паспорту лота",
+    "injected inline_3 after H2 — Пройдите красные флаги: trim, язык ПО, VIN и инвойс"
+  ]
+}

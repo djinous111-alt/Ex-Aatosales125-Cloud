@@ -184,3 +184,29 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS12 — Jetour T2 из Китая
+
+- **priority:** P0
+- **slug:** jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Jetour T2 из Китая: комплектации и ловушки до депозита
+- **primary_query:** джетур т2 комплектации
+- **secondary_queries:** джетур т2 купить, джетур т2 2026, джетур т2 комплектации и цены, jetour t2, джетур т2 сравнение комплектаций
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем сверять trim до депозита, а не по красивому названию
+  2. Как отличить Люкс / Престиж / Премиум и китайские имена пакетов
+  3. Мотор, коробка и полный привод: что зафиксировать в договоре
+  4. Ловушки 2026: дилерский РФ-пакет vs заказ из Китая, опции "на фото"
+  5. Чек-лист документов и фото до оплаты
+  6. Куда идти за расчётом под ключ без прайса в статье
+- **faq_hints:** чем отличаются комплектации Jetour T2; что проверить до депозита при заказе из Китая; можно ли ориентироваться только на название Престиж или Discovery
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой у кроссовера Jetour T2 в портовой зоне Владивостока, плашка "до депозита", угол avto-sales125.ru
+- **wordstat_signal:** parent "джетур т2" ~57149; cluster "джетур т2 комплектации" ~848 (топ "комплектации джетур т2" 811); узкий "как выбрать джетур т2" totalCount-only 8 (soft LSI)
+- **wp_slug_check:** exact FREE; search jetour-t2 / cyrillic "джетур т2 комплектации" / "как выбрать джетур т2" = 0
+- **metrika_signal:** China crossover gap после AS10/AS11; модель в FREE-кандидатах Director

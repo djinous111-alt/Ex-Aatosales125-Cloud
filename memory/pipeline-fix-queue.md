@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1302-director-today-scout-as-b-regression
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` next_p0_topic / active_article_topic_ids again match only `B\d+`, so `EXCALIBUR_TOPIC_SELECTION=needs_scout` despite AS06/AS07 utility PASS in blog-topics.
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` reports pool 0 / Next ID B01 because topic parser is B-only (regression after prior AS|B fixer).
+- Doctor FAIL: checks `--blog-path` in llms generator help, but `excalibur_blog_llms_generator.py` only exposes `--blog-dir`.
+
+### How the agent recovered this run
+- Did not reuse LIVE AS01–AS07 slugs; launched Scout for next AS12 AvtoSales model topic after WP REST denylist check.
+- Filed this incident for Fixer after PIPELINE DONE.
+
+### Durable fix needed before next run
+- Restore `(?:AS|B)\d+` parsing in today.py, scout_helper.py, and any related topic/article id regex.
+- Align doctor check with llms CLI: accept `--blog-dir` and/or add `--blog-path` alias + `--relative-urls` per prior durable pin.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

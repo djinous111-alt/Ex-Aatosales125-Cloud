@@ -1,0 +1,565 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-01",
+    "today_ru": "01.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-03",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-01 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS13",
+    "priority": "P0",
+    "slug": "chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать тигго 7 про из китая",
+    "secondary_queries": [
+      "тигго 7 про комплектации",
+      "чери тигго 7 про из китая",
+      "чери тигго 7 про макс комплектации"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать тигго 7 про из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: стоит ли везти в 2026 году",
+          "url": "https://jckauto.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: популярный кроссовер, цены и растаможка в 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": "Разбираем Chery Tiggo 7 Pro с китайского рынка: версии, цены, отличия от российской сборки, расчёт стоимости под ключ и сравнение с конкурентами."
+        },
+        {
+          "title": "Chery Tiggo из Китая: цены, отзывы и особенности в 2026 году",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-iz-kitaya.html",
+          "snippet": "Chery Tiggo 7 Pro — один из самых популярных китайских кроссоверов в России, и это неслучайно. Современный дизайн, широкая линейка двигателей, богатое оснащение даже в базовых версиях и относительно доступная стоимость в Китае."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/chery-tiggo-7-pro",
+          "snippet": "В этой статье разберём Chery Tiggo 7 Pro, Tiggo 8 Pro и другие популярные версии: их технические характеристики, реальные отзывы владельцев, подводные камни при покупке из Китая и альтернативы."
+        },
+        {
+          "title": "Chery Tiggo из Китая: версии и цена под ключ в 2026",
+          "url": "https://avto-pod-zakaz.com/chery-tiggo-iz-kitaya-cena-pod-klyuch-2026/",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Chery Tiggo 7 Pro: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        },
+        {
+          "title": "Аналоги Chery Tiggo 7 PRO Max из Китая 2026: сравнение",
+          "url": "https://ezzhev.ru/chinese-cars/analogi-chery-tiggo-7-pro-max/",
+          "snippet": "Chery Tiggo 4, 7 Pro, 8 Pro и 9 с внутреннего рынка Китая: чем отличаются от российских версий, из чего складывается цена под ключ и что проверить до выкупа."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать тигго 7 про из китая ноябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: стоит ли везти в 2026 году",
+          "url": "https://jckauto.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: популярный кроссовер, цены и растаможка в 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": "Разбираем Chery Tiggo 7 Pro с китайского рынка: версии, цены, отличия от российской сборки, расчёт стоимости под ключ и сравнение с конкурентами."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/chery-tiggo-7-pro",
+          "snippet": "Chery Tiggo 7 Pro — один из самых популярных китайских кроссоверов в России, и это неслучайно. Современный дизайн, широкая линейка двигателей, богатое оснащение даже в базовых версиях и относительно доступная стоимость в Китае."
+        },
+        {
+          "title": "Chery Tiggo из Китая: цены, отзывы и особенности в 2026 году",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-iz-kitaya.html",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Chery Tiggo 7 Pro: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        },
+        {
+          "title": "Chery Tiggo из Китая: версии и цена под ключ в 2026",
+          "url": "https://avto-pod-zakaz.com/chery-tiggo-iz-kitaya-cena-pod-klyuch-2026/",
+          "snippet": "В этой статье разберём Chery Tiggo 7 Pro, Tiggo 8 Pro и другие популярные версии: их технические характеристики, реальные отзывы владельцев, подводные камни при покупке из Китая и альтернативы."
+        },
+        {
+          "title": "Купить Чери Тигго: как выбрать Tiggo из Китая и посчитать цену под ключ",
+          "url": "https://tamx.ru/journal/kupit-cheri-tiggo-kak-vybrat-tiggo-iz-kitaya-i-poschitat-tsenu-pod-klyuch-7707",
+          "snippet": "Chery Tiggo - самый частый запрос среди китайских кроссоверов: люди сравнивают то, что продаётся у российских дилеров, с тем, что стоит на внутреннем рынке Китая. Разбираем, чем версии различаются, из чего складывается цена под ключ и сколько стоят машины того же класса по нашим карточкам."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать тигго 7 про из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: стоит ли везти в 2026 году",
+          "url": "https://jckauto.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: популярный кроссовер, цены и растаможка в 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": "Разбираем Chery Tiggo 7 Pro с китайского рынка: версии, цены, отличия от российской сборки, расчёт стоимости под ключ и сравнение с конкурентами."
+        },
+        {
+          "title": "Chery Tiggo из Китая: цены, отзывы и особенности в 2026 году",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-iz-kitaya.html",
+          "snippet": "Chery Tiggo 7 Pro — один из самых популярных китайских кроссоверов в России, и это неслучайно. Современный дизайн, широкая линейка двигателей, богатое оснащение даже в базовых версиях и относительно доступная стоимость в Китае."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro 2026: честный обзор, цены и недостатки",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/ob/obzor-cheri-7-pro.html",
+          "snippet": "В этой статье разберём Chery Tiggo 7 Pro, Tiggo 8 Pro и другие популярные версии: их технические характеристики, реальные отзывы владельцев, подводные камни при покупке из Китая и альтернативы."
+        },
+        {
+          "title": "Chery Tiggo из Китая: версии и цена под ключ в 2026",
+          "url": "https://avto-pod-zakaz.com/chery-tiggo-iz-kitaya-cena-pod-klyuch-2026/",
+          "snippet": "В этом обзоре мы разберём технические характеристики, проанализируем реальные отзывы владельцев, сравним с основными конкурентами и ответим на главный вопрос: стоит ли покупать Tiggo 7 Pro ..."
+        },
+        {
+          "title": "Chery Tiggo 7 в 2026 году: актуальные цены, на что обратить внимание ...",
+          "url": "https://avto-zhurnal.ru/article/chery-tiggo-7-kupit/",
+          "snippet": "Chery Tiggo 4, 7 Pro, 8 Pro и 9 с внутреннего рынка Китая: чем отличаются от российских версий, из чего складывается цена под ключ и что проверить до выкупа."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать тигго 7 про из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "moli-stealth/assets/moli-game.jpg at main · Stravia-AI/moli-stealth",
+          "url": "https://github.com/Stravia-AI/moli-stealth/blob/main/assets/moli-game.jpg",
+          "snippet": ""
+        },
+        {
+          "title": "chatai-plugin/image/image2.png at main · XxxXTeam/chatai-plugin",
+          "url": "https://github.com/XxxXTeam/chatai-plugin/blob/main/image/image2.png",
+          "snippet": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust - moli-stealth/assets/moli-game.jpg at main · Stravia-AI/moli-stealth."
+        },
+        {
+          "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+          "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+          "snippet": "Contribute to XxxXTeam/chatai-plugin development by creating an account on GitHub."
+        },
+        {
+          "title": "Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/save ...",
+          "url": "https://github.com/Ryuge-Kisaki/Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/blob/main/save_figures/stanford_cars-B/PR_bit_16.png",
+          "snippet": "Коротко — OpenAI блокирует пользователей из России, Беларуси, Ирана, Северной Кореи, Кубы и Сирии на уровне IP."
+        },
+        {
+          "title": "GitHub - ThinkPadThink/Thinkpadthinkpad: Гайд по покупке Б/У ноутов ...",
+          "url": "https://github.com/ThinkPadThink/Thinkpadthinkpad",
+          "snippet": "This this the source code for Deep Hashing with Semantic Hash Centers for Image Retrieval - Ryuge-Kisaki/Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval"
+        },
+        {
+          "title": "wri-bounds/us_miller.svg at master · wri/wri-bounds · GitHub",
+          "url": "https://github.com/wri/wri-bounds/blob/master/us_miller.svg",
+          "snippet": "При определенном знании языка там можно найти ответ на любой вопрос о том, как правильно эукслуатировать батареи, как заряжать и разряжать и много чего интересного."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать тигго 7 про из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: стоит ли везти в 2026 году",
+          "url": "https://jckauto.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Чери Тигго 7 Про: технические характеристики 2026 года",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-7-pro-tekhnicheskie-kharakteristiki.html",
+          "snippet": "Разбираем Chery Tiggo 7 Pro с китайского рынка: версии, цены, отличия от российской сборки, расчёт стоимости под ключ и сравнение с конкурентами."
+        },
+        {
+          "title": "Chery Tiggo 7 рестайлинг 2024, 2025, 2026 ... - Дром",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_7/g_2024_21800/",
+          "snippet": "В этом материале мы разберём все технические характеристики Chery Tiggo 7 Pro — от габаритов и клиренса до особенностей трансмиссии и электроники."
+        },
+        {
+          "title": "Chery Tiggo 7 в 2026 году: актуальные цены, на что обратить внимание ...",
+          "url": "https://avto-zhurnal.ru/article/chery-tiggo-7-kupit/",
+          "snippet": "Подробно расписаны модификации автомобилей Chery Tiggo 7 рестайлинг 2024: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего ..."
+        },
+        {
+          "title": "Чери Тигго 7 Про: комплектации 2026, цены и сравнение",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/ko/komplektatsii-cheri-tiggo-7-pro.html",
+          "snippet": "Этот материал поможет разобраться в линейке, сопоставить варианты и понять, на чём можно сэкономить, не потеряв в качестве. В продаже одновременно представлены три модели с одинаковым названием, но разной начинкой и габаритами."
+        },
+        {
+          "title": "Chery Tiggo 7 (Чери Тигго 7) технические ... - Дром",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_7/",
+          "snippet": "Но как не потеряться в многообразии комплектаций и выбрать оптимальную версию? В этом материале мы детально разберём все доступные модификации модели, сравним их технические ..."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать тигго 7 про из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Тигго 7 Про: реальные отзывы владельцев 2026 — Asia Motors",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-7-pro-otzyvy-realnykh.html",
+          "snippet": ""
+        },
+        {
+          "title": "Тигго 7 Про: честные отзывы владельцев 2026 года",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-o-tiggo-7-pro-ot-vladeltsev.html",
+          "snippet": "Честные отзывы о Chery Tiggo 7 Pro: плюсы и минусы, проблемы, опыт эксплуатации от реальных владельцев. Фото, тест-драйвы, сравнение с конкурентами."
+        },
+        {
+          "title": "Бортжурнал Chery Tiggo 7 Pro - клуб, форум о Чери Тигго 7 Про на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/chery/tiggo_7_pro/",
+          "snippet": "Мы проанализировали более 200 отзывов от владельцев Tiggo 7 Pro 2022-2026 годов выпуска, включая модели с бензиновыми двигателями 1.5T и 1.6T, а также гибридные версии."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: стоит ли везти в 2026 году",
+          "url": "https://jckauto.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": "Бортжурнал Chery Tiggo 7 Pro: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        },
+        {
+          "title": "Отзывы Чери Тигго 7 Pro: опыт владельцев, особенности эксплуатации",
+          "url": "https://chinacardrive.ru/istoriya/otzyvy-plyusy-i-minusy-chery-tiggo-7-pro",
+          "snippet": "Разбираем Chery Tiggo 7 Pro с китайского рынка: версии, цены, отличия от российской сборки, расчёт стоимости под ключ и сравнение с конкурентами."
+        },
+        {
+          "title": "Плюсы и минусы Chery Tiggo 7 Pro / Pro Max, цены на подержанные ...",
+          "url": "https://auto.ru/mag/article/podbor-chery-tiggo-7-pro-nadezhnost-ceny/",
+          "snippet": "Сегодня мы хотим поговорить о плюсах и минусах одного из самых популярных китайских авто Chery Tiggo 7 Pro, который оборудован 1,5-литровым турбомотор на 147 л.с., сочетающийся с вариатором."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "тигго 7 про комплектации 2026",
+      "purpose": "вторичный запрос: тигго 7 про комплектации",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "чери тигго 7 про из китая 2026",
+      "purpose": "вторичный запрос: чери тигго 7 про из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: стоит ли везти в 2026 году",
+          "url": "https://jckauto.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: популярный кроссовер, цены и растаможка в 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": "Разбираем Chery Tiggo 7 Pro с китайского рынка: версии, цены, отличия от российской сборки, расчёт стоимости под ключ и сравнение с конкурентами."
+        },
+        {
+          "title": "Чери Тигго 7 2026 технические характеристики. Chery Tiggo 7 2026 ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_7/2026/",
+          "snippet": "Chery Tiggo 7 Pro — один из самых популярных китайских кроссоверов в России, и это неслучайно. Современный дизайн, широкая линейка двигателей, богатое оснащение даже в базовых версиях и относительно доступная стоимость в Китае."
+        },
+        {
+          "title": "Чери Тигго 7 Про: технические характеристики и отзывы 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/kh/kharakteristiki-cheri-tiggo-7-pro.html",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 7 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/chery-tiggo-7-pro",
+          "snippet": "Полный обзор характеристик Chery Tiggo 7 Pro: двигатели, трансмиссия, расход топлива, габариты и комплектации. Сравнение с конкурентами и реальные отзывы владельцев."
+        },
+        {
+          "title": "Чери Тигго 7 Про: технические характеристики 2026 года",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-7-pro-tekhnicheskie-kharakteristiki.html",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Chery Tiggo 7 Pro: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "чери тигго 7 про макс комплектации 2026",
+      "purpose": "вторичный запрос: чери тигго 7 про макс комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Тигго 7 Про Макс 2026 технические характеристики. Chery Tiggo 7 ...",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_7_pro_max/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Чери Тигго 7 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/tiggo_7/2026/",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 7 Pro Max 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Чери Тигго 7 Про Макс 2026 после рестайлинга: фото, комплектации и цены",
+          "url": "https://mediaspeak.ru/auto/drive/chery-tiggo-7-pro-max-restayling-komplektatsii-tseny.html",
+          "snippet": "Подробно расписан модельный ряд Chery Tiggo 7 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro Max New 2026, купить Чери Тигго 7 Про Макс Новый в ...",
+          "url": "https://www.major-chery.ru/models/new-tiggo-7-pro-max/",
+          "snippet": "Обновленный Чери Тигго 7 Про Макс 2026 года: фото интерьера и экстерьера после рестайлинга, комплектации и цены, технические характеристики и многое другое"
+        },
+        {
+          "title": "Чери Тигго 7 Про Макс (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/chery/tiggo7pro",
+          "snippet": "Новый Чери Тигго 7 Про Макс представлен в нескольких комплектациях, каждая из которых разработана для удовлетворения различных потребностей и предпочтений водителей. Все комплектации предлагают высокий уровень комфорта, современные технологии и передовые системы безопасности."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro Max цены и комплектации 2026",
+          "url": "https://carmaps.ru/chery/tiggo-7-pro-max/",
+          "snippet": "Всё про автомобиль Чери Тигго 7 Про Макс 2026 года: цена в России, фотографии кузова и салона, характеристики, информация про двигатели."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: стоит ли везти в 2026 году",
+          "url": "https://jckauto.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Tiggo 7 Pro из Китая: популярный кроссовер, цены и растаможка в 2026",
+          "url": "https://onlyjpcars.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+          "snippet": "Разбираем Chery Tiggo 7 Pro с китайского рынка: версии, цены, отличия от российской сборки, расчёт стоимости под ключ и сравнение с конкурентами."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro: Обзор, цены и комплектации 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/t/to/to-40000-cheri-tiggo-7-pro.html",
+          "snippet": "Chery Tiggo 7 Pro — один из самых популярных китайских кроссоверов в России, и это неслучайно. Современный дизайн, широкая линейка двигателей, богатое оснащение даже в базовых версиях и относительно доступная стоимость в Китае."
+        },
+        {
+          "title": "Chery Tiggo 7 Pro (2024-2026): Характеристики, цены, регламент ТО и ...",
+          "url": "https://inycar.ru/blog/chery-tiggo-7-pro-20242026-harakteristiki-tseny-reglament-to-i-vybor-komplektatsii",
+          "snippet": "Рынок кроссоверов в России переживает настоящую трансформацию, и Chery Tiggo 7 Pro стал одним из тех автомобилей, которые задали новую планку ожиданий для покупателей."
+        },
+        {
+          "title": "Chery Tiggo 7 в 2026 году: актуальные цены, на что обратить внимание ...",
+          "url": "https://avto-zhurnal.ru/article/chery-tiggo-7-kupit/",
+          "snippet": "Полный гид по Chery Tiggo 7 Pro (2024-2026): технические характеристики, актуальные цены, официальный регламент ТО и сравнение комплектаций. Узнайте всё для правильного выбора!"
+        },
+        {
+          "title": "Исследование Chery Tiggo 7 Pro и Max 2023-2026: точный расчёт стоимости ...",
+          "url": "https://inycar.ru/blog/issledovanie-chery-tiggo-7-pro-i-max-20232026-tochnyj-raschyot-stoimosti-vladeniya-i-podbor-komplektatsii",
+          "snippet": "Сравнение цен на Chery Tiggo 7, Pro и Pro Max у дилеров и в параллельном импорте, разбор комплектаций и рекомендации по выбору."
+        }
+      ],
+      "searched_at": "2026-11-01"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://jckauto.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+      "title": "Chery Tiggo 7 Pro из Китая: стоит ли везти в 2026 году",
+      "from_query": "как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/chery-tiggo-7-pro-iz-kitaya",
+      "title": "Chery Tiggo 7 Pro из Китая: популярный кроссовер, цены и растаможка в 2026",
+      "from_query": "как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-iz-kitaya.html",
+      "title": "Chery Tiggo из Китая: цены, отзывы и особенности в 2026 году",
+      "from_query": "как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/catalog/chery-tiggo-7-pro",
+      "title": "Chery Tiggo 7 Pro из Китая — цена под ключ · калькулятор 2026",
+      "from_query": "как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://avto-pod-zakaz.com/chery-tiggo-iz-kitaya-cena-pod-klyuch-2026/",
+      "title": "Chery Tiggo из Китая: версии и цена под ключ в 2026",
+      "from_query": "как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/chinese-cars/analogi-chery-tiggo-7-pro-max/",
+      "title": "Аналоги Chery Tiggo 7 PRO Max из Китая 2026: сравнение",
+      "from_query": "как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://tamx.ru/journal/kupit-cheri-tiggo-kak-vybrat-tiggo-iz-kitaya-i-poschitat-tsenu-pod-klyuch-7707",
+      "title": "Купить Чери Тигго: как выбрать Tiggo из Китая и посчитать цену под ключ",
+      "from_query": "как выбрать тигго 7 про из китая ноябрь 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/ob/obzor-cheri-7-pro.html",
+      "title": "Chery Tiggo 7 Pro 2026: честный обзор, цены и недостатки",
+      "from_query": "как выбрать тигго 7 про из китая новости 2026"
+    },
+    {
+      "url": "https://avto-zhurnal.ru/article/chery-tiggo-7-kupit/",
+      "title": "Chery Tiggo 7 в 2026 году: актуальные цены, на что обратить внимание ...",
+      "from_query": "как выбрать тигго 7 про из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/Stravia-AI/moli-stealth/blob/main/assets/moli-game.jpg",
+      "title": "moli-stealth/assets/moli-game.jpg at main · Stravia-AI/moli-stealth",
+      "from_query": "site:github.com как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://github.com/XxxXTeam/chatai-plugin/blob/main/image/image2.png",
+      "title": "chatai-plugin/image/image2.png at main · XxxXTeam/chatai-plugin",
+      "from_query": "site:github.com как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+      "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+      "from_query": "site:github.com как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://github.com/Ryuge-Kisaki/Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/blob/main/save_figures/stanford_cars-B/PR_bit_16.png",
+      "title": "Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/save ...",
+      "from_query": "site:github.com как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://github.com/ThinkPadThink/Thinkpadthinkpad",
+      "title": "GitHub - ThinkPadThink/Thinkpadthinkpad: Гайд по покупке Б/У ноутов ...",
+      "from_query": "site:github.com как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://github.com/wri/wri-bounds/blob/master/us_miller.svg",
+      "title": "wri-bounds/us_miller.svg at master · wri/wri-bounds · GitHub",
+      "from_query": "site:github.com как выбрать тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-7-pro-tekhnicheskie-kharakteristiki.html",
+      "title": "Чери Тигго 7 Про: технические характеристики 2026 года",
+      "from_query": "как выбрать тигго 7 про из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_7/g_2024_21800/",
+      "title": "Chery Tiggo 7 рестайлинг 2024, 2025, 2026 ... - Дром",
+      "from_query": "как выбрать тигго 7 про из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/ko/komplektatsii-cheri-tiggo-7-pro.html",
+      "title": "Чери Тигго 7 Про: комплектации 2026, цены и сравнение",
+      "from_query": "как выбрать тигго 7 про из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_7/",
+      "title": "Chery Tiggo 7 (Чери Тигго 7) технические ... - Дром",
+      "from_query": "как выбрать тигго 7 про из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/cheri-tiggo-7-pro-otzyvy-realnykh.html",
+      "title": "Чери Тигго 7 Про: реальные отзывы владельцев 2026 — Asia Motors",
+      "from_query": "как выбрать тигго 7 про из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-o-tiggo-7-pro-ot-vladeltsev.html",
+      "title": "Тигго 7 Про: честные отзывы владельцев 2026 года",
+      "from_query": "как выбрать тигго 7 про из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/chery/tiggo_7_pro/",
+      "title": "Бортжурнал Chery Tiggo 7 Pro - клуб, форум о Чери Тигго 7 Про на Авто.ру",
+      "from_query": "как выбрать тигго 7 про из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://chinacardrive.ru/istoriya/otzyvy-plyusy-i-minusy-chery-tiggo-7-pro",
+      "title": "Отзывы Чери Тигго 7 Pro: опыт владельцев, особенности эксплуатации",
+      "from_query": "как выбрать тигго 7 про из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/mag/article/podbor-chery-tiggo-7-pro-nadezhnost-ceny/",
+      "title": "Плюсы и минусы Chery Tiggo 7 Pro / Pro Max, цены на подержанные ...",
+      "from_query": "как выбрать тигго 7 про из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_7/2026/",
+      "title": "Чери Тигго 7 2026 технические характеристики. Chery Tiggo 7 2026 ...",
+      "from_query": "чери тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/kh/kharakteristiki-cheri-tiggo-7-pro.html",
+      "title": "Чери Тигго 7 Про: технические характеристики и отзывы 2026",
+      "from_query": "чери тигго 7 про из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/tiggo_7_pro_max/2026/",
+      "title": "Чери Тигго 7 Про Макс 2026 технические характеристики. Chery Tiggo 7 ...",
+      "from_query": "чери тигго 7 про макс комплектации 2026"
+    },
+    {
+      "url": "https://mediaspeak.ru/auto/drive/chery-tiggo-7-pro-max-restayling-komplektatsii-tseny.html",
+      "title": "Чери Тигго 7 Про Макс 2026 после рестайлинга: фото, комплектации и цены",
+      "from_query": "чери тигго 7 про макс комплектации 2026"
+    },
+    {
+      "url": "https://www.major-chery.ru/models/new-tiggo-7-pro-max/",
+      "title": "Chery Tiggo 7 Pro Max New 2026, купить Чери Тигго 7 Про Макс Новый в ...",
+      "from_query": "чери тигго 7 про макс комплектации 2026"
+    },
+    {
+      "url": "https://wroom.ru/cars/chery/tiggo7pro",
+      "title": "Чери Тигго 7 Про Макс (2026) — цена, характеристики, фото",
+      "from_query": "чери тигго 7 про макс комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/chery/tiggo-7-pro-max/",
+      "title": "Chery Tiggo 7 Pro Max цены и комплектации 2026",
+      "from_query": "чери тигго 7 про макс комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/t/to/to-40000-cheri-tiggo-7-pro.html",
+      "title": "Chery Tiggo 7 Pro: Обзор, цены и комплектации 2026",
+      "from_query": "Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/chery-tiggo-7-pro-20242026-harakteristiki-tseny-reglament-to-i-vybor-komplektatsii",
+      "title": "Chery Tiggo 7 Pro (2024-2026): Характеристики, цены, регламент ТО и ...",
+      "from_query": "Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/issledovanie-chery-tiggo-7-pro-i-max-20232026-tochnyj-raschyot-stoimosti-vladeniya-i-podbor-komplektatsii",
+      "title": "Исследование Chery Tiggo 7 Pro и Max 2023-2026: точный расчёт стоимости ...",
+      "from_query": "Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

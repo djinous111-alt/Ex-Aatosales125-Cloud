@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "url": "https://tempfile.aiquickdraw.com/a2/87e38540a279150974bd31cd1f313ba1_1793553950730.png",
+  "provider": "kie-async-api",
+  "mcp_mode": "image-to-image",
+  "recovery_from": "mcp-kv/gpt-image-2 HTTP -32001 timeout; MCP log unavailable",
+  "task_id": "87e38540a279150974bd31cd1f313ba1",
+  "input_urls": [
+    "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
+  ],
+  "corner_brand_stamp": "avto-sales125.ru via PIL post-process"
+}

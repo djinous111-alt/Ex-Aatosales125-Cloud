@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 771
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1327
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у Chery Tiggo 7 Pro в порту Владивостока с плашкой «до депозита» и чек-листом комплектаций",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1327,
+          "top": 13,
+          "right": 2560,
+          "bottom": 707
+        },
+        "raw_box_px": {
+          "left": 1327,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица фиксации задачи и бюджета до поиска лота Tiggo 7 Pro",
+        "h2_anchor": "Зафиксируйте задачу и бюджет до поиска лота"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 46,
+          "top": 771,
+          "right": 1235,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 771,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема отсева Jaecoo, High Energy и китайского 7L от линии Tiggo 7 Pro",
+        "h2_anchor": "Отделите \"семёрку Pro\" от Jaecoo, High Energy и китайского 7L"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1349,
+          "top": 771,
+          "right": 2538,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1327,
+          "top": 771,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин сверки мотора и коробки по VIN против слова автомат",
+        "h2_anchor": "Сверьте мотор и коробку по VIN, а не по слову \"автомат\""
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу и бюджет до поиска лота",
+    "injected inline_2 after H2 — Отделите \"семёрку Pro\" от Jaecoo, High Energy и китайского 7L",
+    "injected inline_3 after H2 — Сверьте мотор и коробку по VIN, а не по слову \"автомат\""
+  ]
+}

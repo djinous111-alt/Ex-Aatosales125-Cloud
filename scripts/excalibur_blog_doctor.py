@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -133,6 +135,56 @@ def main() -> int:
         check=False,
     )
     check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check(
+        "--relative-urls" in llms_help.stdout,
+        "llms generator supports --relative-urls",
+        errors,
+        warnings,
+    )
+
+    today_src = (root / "scripts/excalibur_blog_today.py").read_text(encoding="utf-8")
+    scout_src = (root / "scripts/excalibur_blog_scout_helper.py").read_text(encoding="utf-8")
+    as_b_token = r"((?:AS|B)\d+)"
+    as_b_composed = 'TOPIC_ID_PREFIX_RE = r"(?:AS|B)"' in scout_src and "TOPIC_ID_RE" in scout_src
+    check(as_b_token in today_src, "today.py topic regex includes AS|B", errors, warnings)
+    check(
+        as_b_token in scout_src or as_b_composed,
+        "scout_helper topic regex includes AS|B",
+        errors,
+        warnings,
+    )
+
+    topics_path = root / "memory/topics/blog-topics.md"
+    if topics_path.is_file():
+        topic_ids = re.findall(
+            r"##\s+((?:AS|B)\d+)\s+—",
+            topics_path.read_text(encoding="utf-8"),
+        )
+        check(bool(topic_ids), "blog-topics.md yields AS|B topic ids", errors, warnings)
+        check(
+            any(tid.upper().startswith("AS") for tid in topic_ids),
+            "blog-topics.md discovers at least one AS* topic",
+            errors,
+            warnings,
+        )
+    else:
+        check(False, "memory/topics/blog-topics.md exists", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        pain = policy.get("pain_markers_ru") or []
+        outcome = policy.get("outcome_markers_ru") or []
+        check(bool(policy.get("_markers_pinned")), "editorial-policy _markers_pinned", errors, warnings)
+        check(len(pain) >= 5, "editorial-policy pain_markers_ru pinned (≥5)", errors, warnings)
+        check(len(outcome) >= 5, "editorial-policy outcome_markers_ru pinned (≥5)", errors, warnings)
+        req = policy.get("article_required_signals") or {}
+        check("min_pain_markers" in req, "editorial-policy min_pain_markers present", errors, warnings)
+        check("min_outcome_markers" in req, "editorial-policy min_outcome_markers present", errors, warnings)
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
+
+    check(module_available("paramiko"), "paramiko available", errors, warnings, warn=True)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

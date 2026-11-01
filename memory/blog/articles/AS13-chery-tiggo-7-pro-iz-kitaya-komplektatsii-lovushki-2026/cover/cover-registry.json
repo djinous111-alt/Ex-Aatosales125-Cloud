@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS13",
+  "slug": "chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у Chery Tiggo 7 Pro в порту Владивостока с плашкой «до депозита» и чек-листом комплектаций",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-01T17:27:41+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у Chery Tiggo 7 Pro в порту Владивостока с плашкой «до депозита» и чек-листом комплектаций",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица фиксации задачи и бюджета до поиска лота Tiggo 7 Pro",
+      "h2_anchor": "Зафиксируйте задачу и бюджет до поиска лота",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема отсева Jaecoo, High Energy и китайского 7L от линии Tiggo 7 Pro",
+      "h2_anchor": "Отделите \"семёрку Pro\" от Jaecoo, High Energy и китайского 7L",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Скрин сверки мотора и коробки по VIN против слова автомат",
+      "h2_anchor": "Сверьте мотор и коробку по VIN, а не по слову \"автомат\"",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

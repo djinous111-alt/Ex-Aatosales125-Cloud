@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-01",
+    "today_ru": "01.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-03",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-01 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS13",
+    "priority": "P0",
+    "slug": "chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать тигго 7 про из китая",
+    "secondary_queries": [
+      "тигго 7 про комплектации",
+      "чери тигго 7 про из китая",
+      "чери тигго 7 про макс комплектации"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS13",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать тигго 7 про из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать тигго 7 про из китая ноябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать тигго 7 про из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать тигго 7 про из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать тигго 7 про из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать тигго 7 про из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "тигго 7 про комплектации 2026",
+      "purpose": "вторичный запрос: тигго 7 про комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "чери тигго 7 про из китая 2026",
+      "purpose": "вторичный запрос: чери тигго 7 про из китая"
+    },
+    {
+      "id": "secondary_3",
+      "query": "чери тигго 7 про макс комплектации 2026",
+      "purpose": "вторичный запрос: чери тигго 7 про макс комплектации"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Chery Tiggo 7 Pro из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

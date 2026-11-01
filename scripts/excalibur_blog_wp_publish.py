@@ -7,10 +7,11 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
-from typing import Any
+from typing import Any, Match
 
 from asset_download import download_url_bytes
 from excalibur_repo_paths import repo_relative
@@ -19,6 +20,9 @@ from image_validate import sniff_image_format, validate_image_file
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+DEFAULT_HTTP_TIMEOUT_SEC = 300
 
 
 PUBLISH_ENV_KEYS = {
@@ -31,7 +35,11 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
 
 
@@ -47,7 +55,34 @@ def _read_env_file(path: Path) -> dict[str, str]:
     return env
 
 
+def ensure_site_env_local(root: Path) -> bool:
+    """Write gitignored memory/site.env.local from process env when missing."""
+    path = root / "memory/site.env.local"
+    if path.is_file():
+        return False
+    lines = ["# Auto-written by excalibur_blog_wp_publish from Cloud Secrets / process env"]
+    wrote = False
+    for key in sorted(PUBLISH_ENV_KEYS):
+        value = os.environ.get(key, "").strip()
+        if not value:
+            continue
+        if key == "SSH_ROOT" and value in {"", "/"}:
+            value = "."
+        lines.append(f"{key}={value}")
+        wrote = True
+    if not wrote:
+        return False
+    if not any(line.startswith("SSH_ROOT=") for line in lines):
+        ssh_path = os.environ.get("SSH_PATH", "").strip()
+        lines.append(f"SSH_ROOT={ssh_path or '.'}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("OK wrote missing memory/site.env.local from process env (gitignored)", file=sys.stderr)
+    return True
+
+
 def load_env(root: Path) -> dict[str, str]:
+    ensure_site_env_local(root)
     env = _read_env_file(root / "memory/site.env.local")
     for key in PUBLISH_ENV_KEYS:
         value = os.environ.get(key)
@@ -55,7 +90,79 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Map SSH_PATH → SSH_ROOT when Cloud Secrets only expose SSH_PATH.
+    if not (env.get("SSH_ROOT") or "").strip():
+        ssh_path = (env.get("SSH_PATH") or os.environ.get("SSH_PATH") or "").strip()
+        env["SSH_ROOT"] = ssh_path or "."
+    elif (env.get("SSH_ROOT") or "").strip() in {"", "/"}:
+        env["SSH_ROOT"] = "."
     return env
+
+
+def paramiko_available() -> bool:
+    try:
+        import importlib.util
+
+        return importlib.util.find_spec("paramiko") is not None
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def expand_env_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand git-safe placeholders like env:PUBLIC_SITE_URL or ${PUBLIC_SITE_URL}.
+
+    Schema/HTML in git must not embed secret host URLs; publish expands before WP upload.
+    On-disk article artifacts keep placeholders for secret-scan.
+    """
+
+    def env_value(key: str) -> str:
+        return (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+
+    def repl_env_colon(match: Match[str]) -> str:
+        key = match.group(1)
+        suffix = match.group(2) or ""
+        value = env_value(key)
+        if not value:
+            return match.group(0)
+        return value + suffix
+
+    def repl_dollar(match: Match[str]) -> str:
+        key = match.group(1)
+        value = env_value(key)
+        return value if value else match.group(0)
+
+    text = re.sub(r"\benv:([A-Z][A-Z0-9_]*)(/[^\s\"'<>]*)?", repl_env_colon, text)
+    text = re.sub(r"\$\{([A-Z][A-Z0-9_]*)\}", repl_dollar, text)
+    return text
+
+
+def commit_safe_public_url(url: str, env: dict[str, str] | None = None) -> str:
+    """Replace absolute public site origin with ${PUBLIC_SITE_URL} for git artifacts."""
+    env = env or {}
+    bases = [
+        (env.get("PUBLIC_SITE_URL") or os.environ.get("PUBLIC_SITE_URL") or "").strip().rstrip("/"),
+        (env.get("WP_HOME") or os.environ.get("WP_HOME") or "").strip().rstrip("/"),
+        (env.get("WP_SITE_URL") or os.environ.get("WP_SITE_URL") or "").strip().rstrip("/"),
+    ]
+    out = url or ""
+    for base in bases:
+        if base and base in out:
+            out = out.replace(base, "${PUBLIC_SITE_URL}")
+    return out
+
+
+def http_timeout_sec(env: dict[str, str] | None = None) -> float:
+    raw = ""
+    if env:
+        raw = str(env.get("EXCALIBUR_PUBLISH_HTTP_TIMEOUT") or "").strip()
+    if not raw:
+        raw = str(os.environ.get("EXCALIBUR_PUBLISH_HTTP_TIMEOUT") or "").strip()
+    if not raw:
+        return float(DEFAULT_HTTP_TIMEOUT_SEC)
+    try:
+        return max(30.0, float(raw))
+    except ValueError:
+        return float(DEFAULT_HTTP_TIMEOUT_SEC)
 
 
 def validate_publish_env(env: dict[str, str]) -> list[str]:
@@ -73,9 +180,14 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    has_paramiko = paramiko_available()
+    if not has_paramiko:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": has_paramiko,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -83,7 +195,7 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -186,7 +298,13 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        # Strip Cloud secret-scan allowlist EOL comments so WP meta stays valid JSON-LD.
+        schema_raw = re.sub(
+            r"[ \t]*//\s*pragma:\s*allowlist secret\s*$",
+            "",
+            schema_path.read_text(encoding="utf-8"),
+            flags=re.M,
+        ).strip()
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -467,42 +585,124 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def reconstruct_publish_output_from_rest(public_base: str, slug: str, *, timeout: float = 30.0) -> str | None:
+    """If HTTP client timed out but WP already published, rebuild OK lines from REST.
+
+    Never re-triggers bootstrap when slug is already LIVE (avoids duplicate *-1.png media).
+    """
+    import json as _json
+    import urllib.error as _ue
+    import urllib.parse as _up
+    import urllib.request as _ur
+
+    base = public_base.rstrip("/")
+    if not base or not slug:
+        return None
+    api = f"{base}/wp-json/wp/v2/posts?slug={_up.quote(slug)}&per_page=1&_embed=1"
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        req = _ur.Request(api, headers={"User-Agent": "ExcaliburBlogPublish/1.0", "Accept": "application/json"})
+        with _ur.urlopen(req, timeout=timeout) as resp:
+            posts = _json.loads(resp.read().decode("utf-8", errors="replace"))
+    except (_ue.URLError, TimeoutError, OSError, ValueError) as exc:
+        print(f"WARN reconstruct REST failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if not isinstance(posts, list) or not posts:
+        return None
+    post = posts[0]
+    post_id = post.get("id")
+    link = (post.get("link") or "").strip()
+    if not post_id or not link:
+        return None
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        f"permalink={link}",
+        "# reconstruct: HTTP client timeout; REST confirmed LIVE; NO second trigger",
+    ]
+    # Best-effort featured media id
+    featured = post.get("featured_media")
+    if featured:
+        lines.insert(1, f"OK featured_image={featured}")
+    print(
+        f"WARN: HTTP trigger timed out but slug already LIVE (post={post_id}). "
+        "Reconstructed output; will NOT re-trigger bootstrap.",
+        file=sys.stderr,
+    )
+    return "\n".join(lines) + "\n"
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    timeout: float = DEFAULT_HTTP_TIMEOUT_SEC,
+    public_base: str = "",
+    slug: str = "",
+) -> str:
+    try:
+        print(f"Triggering HTTP publish on {url} (timeout={int(timeout)}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=timeout,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
+        # Prefer REST reconstruct over a second HTTP trigger when publish likely finished server-side.
+        if slug and public_base:
+            reconstructed = reconstruct_publish_output_from_rest(public_base, slug)
+            if reconstructed:
+                fallback_file = root / "memory" / "webfetch-response.txt"
+                fallback_file.parent.mkdir(parents=True, exist_ok=True)
+                fallback_file.write_text(reconstructed, encoding="utf-8")
+                return reconstructed
+
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "Waiting for cloud-agent to write response to memory/webfetch-response.txt...\n"
+            "IMPORTANT: open FALLBACK URL in parallel as soon as this line prints. If REST already shows the slug LIVE, do NOT open FALLBACK URL again "
+            "(duplicate media *-1.png). Reconstruct OK lines instead."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        wait_rounds = max(60, int(timeout))
+        for _ in range(wait_rounds):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
+            # Re-check LIVE periodically during wait
+            if slug and public_base and _ % 15 == 14:
+                reconstructed = reconstruct_publish_output_from_rest(public_base, slug)
+                if reconstructed:
+                    fallback_file.unlink(missing_ok=True)
+                    return reconstructed
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {wait_rounds} seconds. Please trigger manually "
+            "(only if slug is not already LIVE)."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, *, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
     root = project_root()
+    timeout = http_timeout_sec(env)
 
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(
+            url,
+            root,
+            timeout=timeout,
+            public_base=public_base,
+            slug=slug,
+        )
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -511,7 +711,12 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     return out
 
 
-def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
+def upsert_publish_ledger(
+    root: Path,
+    payload: dict[str, Any],
+    permalink: str,
+    env: dict[str, str] | None = None,
+) -> None:
     if not permalink:
         return
     ledger_path = root / "shared" / "published-articles.md"
@@ -528,7 +733,8 @@ def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -
 
     topic_id = str(payload.get("topic_id") or "").upper()
     slug = str(payload.get("slug") or "")
-    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
+    safe_permalink = commit_safe_public_url(permalink, env)
+    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {safe_permalink} | published |"
     lines = ledger_path.read_text(encoding="utf-8").splitlines()
     replaced = False
     for index, line in enumerate(lines):
@@ -569,9 +775,12 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
-    php = build_php(payload)
 
     if args.dry_run:
+        dry_env = load_env(root)
+        payload["schema_jsonld"] = expand_env_placeholders(payload.get("schema_jsonld") or "", dry_env)
+        payload["content"] = expand_env_placeholders(payload.get("content") or "", dry_env)
+        php = build_php(payload)
         print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
@@ -581,6 +790,8 @@ def main() -> int:
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
     missing = validate_publish_env(env)
+    if not paramiko_available():
+        missing = [*missing, "paramiko"]
     if missing:
         print(f"BLOCKER: missing publish env: {', '.join(missing)}", file=sys.stderr)
         return 2
@@ -588,7 +799,12 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    # Expand env:VAR / ${VAR} placeholders in schema/HTML before SSH/WP upload
+    # (on-disk git artifacts keep placeholders / pragma comments for secret-scan).
+    payload["schema_jsonld"] = expand_env_placeholders(payload.get("schema_jsonld") or "", env)
+    payload["content"] = expand_env_placeholders(payload.get("content") or "", env)
+    php = build_php(payload)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"
@@ -596,18 +812,20 @@ def main() -> int:
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+    safe_permalink = commit_safe_public_url(permalink, env)
+    safe_raw = commit_safe_public_url(out, env)
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
-        "permalink": permalink,
+        "permalink": safe_permalink,
         "publish_method": "ssh",
         "cover_evidence": payload.get("cover_evidence", {}),
-        "raw_output": out,
+        "raw_output": safe_raw,
         "verdict": "pass" if "OK post=" in out else "fail",
     }
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if result["verdict"] == "pass":
-        upsert_publish_ledger(root, payload, permalink)
+        upsert_publish_ledger(root, payload, permalink, env)
     return 0 if result["verdict"] == "pass" else 1
 
 

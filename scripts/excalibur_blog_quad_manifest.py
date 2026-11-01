@@ -85,14 +85,23 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
 
 def scene_hint_for_type(type_id: str, h2: str) -> str:
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
+        "comparison_table_ui": f"Таблица сравнения комплектаций/рынков — «{h2}»",
+        "workflow_diagram": f"Пошаговый workflow до депозита — «{h2}»",
+        "checklist_board": f"Чеклист перед оплатой/депозитом — «{h2}»",
         "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
+        "tool_screenshot": f"Скрин Encar/аукцион/карточка авто — «{h2}»",
+        "infographic_card": f"Карточка фактов по модели — «{h2}»",
     }
     return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
+
+
+def compact_hook(text: str, limit: int = 90) -> str:
+    hook = re.sub(r"\s+", " ", str(text or "")).strip()
+    if not hook:
+        return "До депозита проверь комплектацию — иначе дорогой сюрприз"
+    if len(hook) <= limit:
+        return hook
+    return hook[: limit - 1].rstrip() + "…"
 
 
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
@@ -114,8 +123,12 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
         "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        or (
+            "WEATHER+OUTFIT from article topic (change clothes; NEVER default white hoodie); "
+            "reference face+glasses; new pose/gesture; NO cap/hood; NO headphones; "
+            "fake catalog/checklist UI + meme; corner avto-sales125.ru; NEVER Wordstat/Metrika"
+        ),
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or "Стой. До депозита.",
     }
 
     used: set[str] = set()
@@ -133,7 +146,9 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    # Prefer article hook from meta/H1 over legacy SEO default (auto-import topics).
+    default_hook = compact_hook(meta.get("title_seo") or meta.get("h1") or article_topic)
+    cover_hook = (preserve or {}).get("cover_hook") or default_hook
 
     return {
         "topic_id": topic_id,

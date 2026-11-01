@@ -254,3 +254,68 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261102-0003-director-as-b-regex
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` match only `## B\d+` topic cards.
+- Current `memory/topics/blog-topics.md` uses `AS01`–`AS09`, so today returns `needs_scout` and scout helper reports `Total topics in pool: 0` even though AS cards exist.
+- Prior durable pin (AS13 fixer INC-1701) for AS|B regex is missing from this workspace (sanitized/public template branch).
+
+### How the agent recovered this run
+- Director launched Scout to append a new utility card with AS14 (or Bxx if required) instead of blocking the whole cron run.
+- Will not invent article content in parent; Scout+Research Tasks handle topic selection.
+
+### Durable fix needed before next run
+- Restore AS|B topic-id regex in `excalibur_blog_today.py`, `excalibur_blog_scout_helper.py`, and any active-article dir parsers (`(AS|B)\d+`).
+- Align scout helper `--suggest-next` with AS-series numbering when pool uses AS*.
+- Re-sync ledger rows for recently published AS10–AS13 WP posts to avoid false-free topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/published-articles.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-0003-director-llms-blog-path
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: `llms generator supports --blog-path` (errors=1).
+- `scripts/excalibur_blog_llms_generator.py --help` has `--blog-dir` / `--site-base` / `--out-dir` but no `--blog-path` (and prior AS13 pin for aliases is missing here).
+
+### How the agent recovered this run
+- Continued pipeline; Indexer/Fixer will need durable restore of `--blog-path` alias or doctor check update.
+
+### Durable fix needed before next run
+- Restore `--blog-path` alias (and `--relative-urls` if required by indexer skill) in `excalibur_blog_llms_generator.py`, matching doctor + indexer contracts.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

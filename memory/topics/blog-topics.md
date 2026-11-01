@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS14 — Jaecoo J7 из Китая
+
+- **priority:** P0
+- **slug:** jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Jaecoo J7 из Китая: комплектации и ловушки до депозита
+- **primary_query:** как выбрать jaecoo j7 из китая
+- **secondary_queries:** jaecoo j7 комплектации, джейку j7 комплектации, jaecoo j7 из китая под заказ
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зафиксировать задачу: CN-имя Explore 06 vs дилерский J7, 2WD 150 л.с. или 4WD 186 л.с.
+  2. Сверить комплектацию до депозита: Актив / Комфорт / Престиж и список опций по паспорту лота
+  3. Красные флаги: trim по скрину, язык ПО, зимний пакет, несовпадение VIN и инвойса
+  4. Как сравнить «под ключ» с дилерским прайсом без магической цены
+  5. Чек-лист документов и оплаты до перевода депозита через Владивосток
+- **faq_hints:** чем CN Explore 06 отличается от Jaecoo J7 в РФ; какую комплектацию брать 2WD или 4WD; что проверить до депозита на лоте из Китая
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** кроссовер Jaecoo J7 у причала/роллкера Владивостока, герой Авто-Сейлс со смартфоном и чек-листом комплектаций, плашка «до депозита», без цен на картинке
+- **wordstat_signal:** parent «авто из китая» ~122361; «jaecoo j7» ~87336; «джейку j7» ~17943; «jaecoo j7 комплектации» ~1792; «jaecoo j7 из китая» ~99; узкий «как выбрать jaecoo j7» totalCount-only 4 (low-result, не fatal)
+- **dedupe_note:** LIVE WP slug FREE; не пересекается с AS10–AS13 (Haval M6 / Omoda C5 / Jetour T2 / Tiggo 7 Pro) и соседними China how-to

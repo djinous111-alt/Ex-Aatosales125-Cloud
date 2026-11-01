@@ -6,6 +6,68 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1316-writer-utility-pain-outcome-markers-restored
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-writer
+topic_id: AS12
+article_dir: memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` blocked AS12 article with `pain_markers=0` / `outcome_markers=0` because `memory/brief/editorial-policy.json` had no `pain_markers_ru` / `outcome_markers_ru` (same class as AS11 INC-20261031-1718; durable pin listed in automation memory was missing from policy).
+
+### How the agent recovered this run
+- Restored `pain_markers_ru`, `outcome_markers_ru`, and min counts in `editorial-policy.json` aligned with `excalibur_blog_human_voice_gate.py`.
+- Re-ran utility gate → PASS; article body already had human-voice pain/outcome language.
+
+### Durable fix needed before next run
+- Fixer should confirm policy markers stay committed and add a doctor/regression check that fails if lists are empty while min_pain/min_outcome > 0.
+- Optionally document the pin in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261101-1316-writer-human-voice-o-relative-path-nest
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-writer
+topic_id: AS12
+article_dir: memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_human_voice_gate.py` joins a relative `-o` path under `article_dir`, so `-o memory/blog/articles/.../human-voice-report.json` creates a nested `article_dir/memory/blog/...` tree instead of writing beside `article.html`.
+
+### How the agent recovered this run
+- Called `-o human-voice-report.json` (filename only) and removed the accidental nested directory.
+
+### Durable fix needed before next run
+- Resolve `-o` against CWD / absolute path first; only use bare filename relative to `article_dir`.
+- Document CLI in writer/GEO QA skills.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-1312-research-precommit-invalid-secret-name
 status: open
 run_date: 2026-11-01

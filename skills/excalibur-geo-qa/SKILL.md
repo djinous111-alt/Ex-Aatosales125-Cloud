@@ -20,10 +20,12 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base "$PUBLIC_SITE_URL"
+# JSON on disk redacts PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL → ${ENV}.
+# Commit via: bash scripts/excalibur_git.sh commit -m "qa(...)"
 
 python scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
@@ -55,3 +57,9 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Cloud Task
+
+Если typed `Task(excalibur-blog-geo-qa)` недоступен в Cloud — Director запускает
+`Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` +
+`.cursor/skills/excalibur-geo-qa/SKILL.md`. Parent не делает QA сам.

@@ -75,6 +75,16 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
 
+Topic IDs: `AS##` (AVTO SALES) или `B##` (legacy). Helper `--suggest-next` предпочитает
+следующий `AS` когда пул уже AS*. Commits только через:
+
+```bash
+bash scripts/excalibur_git.sh commit -m "Scout ASxx: ..."
+```
+
+`excalibur_git.sh` фильтрует `CLOUD_AGENT_INJECTED_SECRET_NAMES` до bash-идентификаторов
+(иначе pre-commit падает на `invalid variable name`, если в списке оказался URL).
+
 ---
 
 ## Блокеры скаута

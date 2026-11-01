@@ -122,23 +122,33 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (MCP sync → Kie async)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Предпочтительно async MCP (`gpt-image-2-create`/`status`) если есть в Available Tools. Иначе **один** sync `CallMcpTool` → `user-mcp-kv` / `gpt-image-2` с `jobs[0].mcp_args`.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
-### Шаг 5 — apply
+**Recovery (не blocker):** при `-32001 Request timed out`, отсутствии URL в tool log и отсутствии async status tools — **не** blind-retry sync create. Запиши pending в `cover/quad-mcp-result.json` и запусти:
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+(тот же prompt/`input_urls` из batch). Контракт: `shared/mcp-image-async-contract.md`.
+
+### Шаг 5 — apply + corner brand
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Требует Pillow. Split автоматически stamp’ит угол cover `avto-sales125.ru`, если brand нечитаем. Выход: cover, inline PNG, registry, inject в article.html.
+
+**Outfit:** prompt builder берёт weather/topic из `blog-hero.json` — **запрещён** hardcoded white hoodie lock.
 
 ### Шаг 6 — fragment
 

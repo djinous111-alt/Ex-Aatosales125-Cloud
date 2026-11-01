@@ -319,3 +319,36 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261102-0010-scout-commit-secret-env
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-scout
+topic_id: AS14
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit hook: `invalid variable name` while iterating `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- One injected secret name is not a valid bash identifier (bracketed/non-identifier token), so the hook aborts before creating the commit.
+- `scripts/excalibur_git.sh` / filter helper are missing on this sanitized branch.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` in-process, then re-ran `git commit` successfully and pushed AS14 topic card.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` (or `excalibur_blog_filter_commit_secret_env.sh`) that always filters secret-name env before commits.
+- Document the filter step in scout/publish skills and AGENTS git hygiene so Cloud runs do not stall on staged files.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

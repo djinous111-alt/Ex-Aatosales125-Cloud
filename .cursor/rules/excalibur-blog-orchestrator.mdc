@@ -17,6 +17,7 @@ alwaysApply: false
 
 - **Директор** — чат (не Task): `agents/excalibur-blog-director.md`, skill `director-excalibur-blog`.
 - **Субагенты** — `Task(<name>)`, см. [agents/FOR-AGENTS.md](agents/FOR-AGENTS.md).
+- Если typed `excalibur-blog-*` unavailable → `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill (в т.ч. geo-qa). Single-agent pipeline запрещён.
 
 ## Пайплайн
 

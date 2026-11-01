@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none_
+
+## Fixed incidents
+
 ## INC-20261101-0937-publish-ssh-http-remotedisconnect-webfetch
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-publish
 topic_id: AS04
@@ -45,11 +49,26 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- HTTP bootstrap timeout читает EXCALIBUR_PUBLISH_HTTP_TIMEOUT/PUBLISH_HTTP_TIMEOUT (default 180s).
+- load_article гидратирует ${ENV} placeholders schema in-memory; committed файл не трогает.
+- ensure_site_env_local + SSH_PATH→SSH_ROOT; paramiko в cloud-agent-install.sh/requirements.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/cloud-agent-install.sh`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `smoke: hydrate_env_placeholders + publish_http_timeout_seconds`
+- `doctor: paramiko available`
+commit: pending-parent-commit
 
 ## INC-20261101-0932-indexer-llms-site-base-commit-hygiene
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-indexer
 topic_id: AS04
@@ -80,11 +99,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- llms generator: --relative-urls; default relative URLs when --out-dir under memory/.
+- Indexer skill documents commit-safe /blog/<slug>/ vs runtime PUBLIC_SITE_URL.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `llms --relative-urls smoke (no absolute hosts)`
+- `doctor: --relative-urls flag present`
+commit: pending-parent-commit
 
 ## INC-20261101-0927-schema-secret-scanner-env-placeholders
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-schema
 topic_id: AS04
@@ -118,11 +149,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Schema skill/agent + writing contract: committed schema uses ${ENV} placeholders.
+- Publish hydrates placeholders before WP meta; CLOUD_AGENT_INJECTED_SECRET_NAMES identifiers documented in pitfalls.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `smoke hydrate_env_placeholders`
+- `rg placeholders guidance in schema skill`
+commit: pending-parent-commit
 
 ## INC-20261101-0925-writer-human-voice-o-path-and-five-list-regex
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-writer
 topic_id: AS04
@@ -151,10 +197,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- resolve_gate_output: bare -o → article_dir; repo-relative -o → project root (no nesting).
+- exactly_five_lists counts <li> within each <ol> only.
+files_changed:
+- `scripts/excalibur_repo_paths.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `smoke resolve_gate_output + human_voice -o repo-relative`
+- `smoke exactly_five_lists counter == 2 for two 5-item ols`
+commit: pending-parent-commit
 
 ## INC-20261101-0915-research-wordstat-totalcount-only
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-research
 topic_id: AS04
@@ -182,10 +243,20 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Research skill + pitfalls: totalCount-only Wordstat = soft warning / cluster-first, not blocker.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg totalCount soft warning in research skill + pitfalls`
+commit: pending-parent-commit
 
 ## INC-20261101-0918-research-commit-secret-screen
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-research
 topic_id: AS04
@@ -214,10 +285,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- research_start redact_secret_hosts before writing research-serp.json.
+- Pitfalls: CLOUD_AGENT_INJECTED_SECRET_NAMES must be bash identifiers.
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `smoke redact_secret_hosts`
+- `python3 -m py_compile scripts/excalibur_blog_research_start.py`
+commit: pending-parent-commit
 
 ## INC-20261101-0916-research-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-research
 topic_id: AS04
@@ -246,10 +329,22 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- technical_topic from topic card only; short TECH_MARKERS use word-boundary (ии ∉ Китая).
+- Official docs hosts: nalog/consultant/garant/gov/customs; pain_solution_map/accessed_at documented.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `shared/editorial-utility-only.md`
+checks_run:
+- `smoke AS04 is_technical_topic False`
+- `smoke MCP/API topic card still True`
+commit: pending-parent-commit
 
 ## INC-20261101-0901-director-as-topic-regex-regression
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-director
 topic_id: AS04
@@ -277,10 +372,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Verified AS|B regex in today.py + scout_helper; doctor asserts regex + AS* discovery.
+- topic card parsers in research_start/utility_gate use (?:AS|B) lookahead.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_research_start.py`
+- `scripts/excalibur_blog_utility_gate.py`
+checks_run:
+- `doctor: today/scout AS|B + AS* discovery PASS`
+commit: pending-parent-commit
 
 ## INC-20261101-0901-director-llms-blog-path-alias
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-director
 topic_id: AS04
@@ -305,7 +413,17 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Verified --blog-path alias; doctor + indexer skill document it; kept stable with --relative-urls.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `doctor: llms generator supports --blog-path PASS`
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -553,7 +671,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261101-0919-geo-qa-generalpurpose-fallback
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-geo-qa
 topic_id: AS04
@@ -579,10 +697,20 @@ category: other
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Documented typed geo-qa unavailable → Task(generalPurpose) in AGENTS.md, pitfalls, orchestrator rule.
+files_changed:
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/rules/excalibur-blog-orchestrator.mdc`
+checks_run:
+- `rg geo-qa generalPurpose fallback in AGENTS.md/pitfalls`
+commit: pending-parent-commit
 
 ## INC-20261101-0919-geo-qa-utility-pain-outcome-policy-gap
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-geo-qa
 topic_id: AS04
@@ -614,8 +742,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-## Fixed incidents
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Restored/pinned pain_markers_ru + outcome_markers_ru + mins in editorial-policy; doctor asserts pins.
+- utility_gate: skip empty lists; policy_min_int honors explicit 0; RU recommendation aliases.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/editorial-utility-only.md`
+checks_run:
+- `doctor editorial-policy pain/outcome pins PASS`
+- `smoke policy_min_int(0)`
+commit: pending-parent-commit
 
 Handled above; commit is pending Director review.

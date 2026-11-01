@@ -20,8 +20,9 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / `memory/site.env.local` (SSH_* + `PUBLIC_SITE_URL`; `SSH_PATH`→`SSH_ROOT`; auto-created from env if missing) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| Schema | committed `${ENV}` placeholders OK — publish hydrates in-memory |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
@@ -63,13 +64,17 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / `RemoteDisconnected` / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
 2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
 3. Скрипт продолжает и читает ответ из файла.
 
+HTTP timeout: `EXCALIBUR_PUBLISH_HTTP_TIMEOUT` / `PUBLISH_HTTP_TIMEOUT` (default **180s**). Крупный PHP payload (~nginx 120s class) часто даёт `RemoteDisconnected` — это ожидаемый путь в WebFetch fallback, не silent fail.
+
 **Не останавливайся** на первом timeout — используй fallback.
+
+Перед commit publish-артефактов замени live host на `${PUBLIC_SITE_URL}` / `[REDACTED]`.
 
 ### 5. Post-publish артефакты
 

@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20261102-2134-publish-paramiko-missing-as14
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-publish
 topic_id: AS14
@@ -42,10 +42,30 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Cloud install/Dockerfile/requirements always install paramiko; doctor warns if missing.
+- --env-check import-probes paramiko and lists it in missing when absent.
+- Ledger upsert prefers EXCALIBUR_RUN_DATE over container date.today().
+- HTTP publish timeout default 300s + REST reconstruct path restored from AS13 pin.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile wp_publish
+- --env-check paramiko_available true
+- doctor SUMMARY errors=0 warnings=0
+commit: pending-parent-commit
 
 ## INC-20261102-2122-schema-jsonld-secret-allowlist
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-schema
 topic_id: AS14
@@ -77,7 +97,22 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Schema skill documents ${ENV} placeholders + publish in-memory hydrate; pragma allowlist as fallback.
+- excalibur_git.sh filters invalid CLOUD_AGENT_INJECTED_SECRET_NAMES before commit.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg schema skill placeholders/allowlist
+- filter smoke URL token stripped
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -329,7 +364,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261102-0003-director-as-b-regex
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-director
 topic_id: n/a
@@ -361,10 +396,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- today.py + scout_helper parse ((?:AS|B) digit) topic ids; suggest-next prefers AS series.
+- Doctor asserts AS|B regex + discovers AS* topics.
+- Ledger re-synced AS02/AS04/AS10-AS14 LIVE rows (placeholders only; no republish).
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/published-articles.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` -> AS15
+- `python3 scripts/excalibur_blog_today.py` topic_selection=ready
+- doctor AS|B checks OK
+commit: pending-parent-commit
 
 ## INC-20261102-0003-director-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-director
 topic_id: n/a
@@ -391,10 +442,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- llms generator restores --blog-path alias + --relative-urls; doctor smoke PASS.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-path/--relative-urls
+- doctor llms checks OK
+commit: pending-parent-commit
 
 ## INC-20261102-0010-scout-commit-secret-env
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-scout
 topic_id: AS14
@@ -424,10 +487,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Restored scripts/excalibur_git.sh + filter helper; scout/publish/geo-qa skills document commit via wrapper.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke strips URL-like secret-name tokens
+commit: pending-parent-commit
 
 ## INC-20261102-2112-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-research
 topic_id: AS14
@@ -458,10 +533,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- TECH_MARKERS short tokens use word-boundary; technical_topic scans topic card only (not notes/reader_pain).
+- Auto how-to with комплектации no longer forces github_urls>=3.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- PYTHONPATH=scripts smoke: комплектации -> technical_topic=false; mcp agent api -> true
+commit: pending-parent-commit
 
 ## INC-20261102-2115-writer-editorial-pain-outcome-markers-wiped-as14
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-writer
 topic_id: AS14
@@ -491,11 +578,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Pinned pain/outcome markers + _markers_pinned in editorial-policy; doctor fails if wiped.
+- Utility gate skips pain/outcome when lists empty; writer skill reminds restore-before-selfcheck.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- doctor editorial-policy pin checks OK
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
 
 
 ## INC-20261102-2119-geo-qa-link-verify-secret-placeholders
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-geo-qa
 topic_id: AS14
@@ -525,10 +626,23 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- link_verify.py writes commit-safe JSON with ${PUBLIC_SITE_URL}/${CATALOG_URL}/${TELEGRAM_URL}/${MAX_URL} redaction.
+- GEO QA skill + pitfalls document redact + excalibur_git commit.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh`
+checks_run:
+- redact smoke: live hosts -> ${ENV} placeholders in commit_safe_report
+commit: pending-parent-commit
 
 ## INC-20261102-2125-cover-outfit-lock-white-hoodie-as14
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-cover
 topic_id: AS14
@@ -558,10 +672,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Removed hardcoded white-hoodie outfit lock; builder uses blog-hero outfit_rule + NO default white hoodie.
+- Cover skill/pitfalls: never reintroduce fixed hoodie lock.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg no 'thick heavyweight white hoodie'
+- outfit_lock_line smoke
+commit: pending-parent-commit
 
 ## INC-20261102-2127-indexer-llms-aliases-missing
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-indexer
 topic_id: AS14
@@ -592,4 +719,57 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Same durable CLI restore as director-llms incident: --blog-path/--relative-urls + indexer skill command.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor llms --blog-path/--relative-urls OK
+commit: pending-parent-commit
+
+
+## INC-20261102-2140-director-geo-qa-typed-task-missing
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: AS14
+article_dir: n/a
+severity: low
+category: docs
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` is unavailable in Cloud Task catalog for this workspace; Director must use generalPurpose fallback.
+
+### How the agent recovered this run
+- Pipeline used generalPurpose / available Task path for GEO QA (AS14 PASS).
+
+### Durable fix needed before next run
+- Document geo-qa-specific generalPurpose fallback in pitfalls + director/geo-qa skills (not parent-agent).
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Pitfalls + director step 3 + geo-qa skill document typed geo-qa missing -> Task(generalPurpose) with agent/skill paths.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- rg geo-qa generalPurpose fallback in pitfalls/director/geo-qa skill
+commit: pending-parent-commit

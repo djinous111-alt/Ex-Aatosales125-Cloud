@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS04",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Чужой скрин утиля — и бюджет в огне?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с пачкой документов и планшетом-калькулятором утильсбора, плашка 2026 без сумм, угол avto-sales125.ru",
+      "scene_hint": "Vladivostok customs/docs vibe, soft daylight through window; blog host EXACT face+glasses from reference; CHANGE outfit to smart-casual navy shirt + charcoal light jacket (office/docs theme, NO tank top from reference, NO cap/hood); holds stack of car documents (ОТТС/СБКТС-style papers, blank amounts) + tablet showing abstract calculator UI as metaphor (sliders/fields only, NO ruble totals, NO 3400/5200 numbers); fake catalog card + sticky note «сверь кВт»; torn paper + clear tape; shocked meme cutout; huge Cyrillic hook with yellow highlight on «скрин»; corner footer avto-sales125.ru; NO Wordstat/Metrika; NO toxic stickers",
+      "meme_caption_ru": "Скрин ≠ ваш утиль"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, от чего зависит утильсбор в 2026",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Clean 16:9 workflow board WITHOUT hero face: 6 field cards in a pipeline — статус → возраст → объём см³ → мощность кВт → тип мотора → источник цифры; arrows between cards; small tape corner + sticky «из документов»; soft human DIY layer; readable Cyrillic labels; no ruble totals",
+      "alt": "Схема из шести полей: статус, возраст, объём, мощность кВт, тип мотора, источник цифры"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните Корею, Китай и Японию: где разница есть",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI mock WITHOUT hero: columns Корея / Китай / Япония; rows формула одна / где смотрят лот / частая ловушка / что меняет сумму; green check on «формула та же»; pink sticky «не ставка страны»; tape; no money amounts on cells",
+      "alt": "Таблица сравнения Корея–Китай–Япония: одна формула, разные ловушки документов"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Пройдите чеклист льготы 3 400 / 5 200",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board WITHOUT hero and WITHOUT writing ruble sums: items физлицо для себя / объём ≤3000 / мощность ≤160 л.с. / срок владения / один льготный ввоз; empty checkbox UI; stamp zone «льгота / коммерция»; mini sticky «до депозита»; no 3400 or 5200 digits on stickers",
+      "alt": "Чеклист льготного утильсбора: статус, объём, мощность, срок владения — до депозита"
+    }
+  }
+}

@@ -17,14 +17,16 @@ category: env
 
 ### What went wrong
 - Pre-commit secrets scanner blocked commit of `schema.jsonld` when BlogPosting/`sameAs`/`image` contained live `PUBLIC_SITE_URL`, `TELEGRAM_URL`, `CATALOG_URL`, `MAX_URL` values (pattern used by older AS08/AS09 schemas).
-- Hook error surfaced as invalid variable name during secret iteration; root cause was secret values present in the staged JSON-LD.
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes one entry that is a bare site URL (not a bash identifier). Hook then fails with `invalid variable name` on `${!SECRET_NAME}` even after placeholders are fixed.
 
 ### How the agent recovered this run
 - Rewrote AS04 `schema.jsonld` to use `${PUBLIC_SITE_URL}`, `${TELEGRAM_URL}`, `${CATALOG_URL}`, `${MAX_URL}` placeholders; kept public Instagram/2GIS sameAs as-is.
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` names for the commit command only.
 - Re-validated BlogPosting + FAQPage + HowTo structure and FAQ text match to HTML.
 
 ### Durable fix needed before next run
 - Document in schema skill/agent that committed `schema.jsonld` must use `${ENV}` placeholders for site/social URLs that are Cloud Secrets; publish step resolves them before WP meta write (or keep placeholders if theme expands).
+- Fix Cloud Secrets config: secret *names* must be identifiers, not URL values; or harden pre-commit.cursor to skip non-identifier names.
 - Optionally add a small schema helper that builds JSON-LD from meta+registry+env map without embedding raw secret values.
 
 ### Suggested files to inspect/change
@@ -33,6 +35,7 @@ category: env
 - `agents/excalibur-blog-schema.md`
 - `shared/excalibur-article-writing-contract.md` (schema section)
 - `scripts/excalibur_blog_wp_publish.py` (resolve placeholders on publish if not already)
+- Cursor Cloud Secrets / pre-commit.cursor secret-name loading
 
 ### Secrets
 - none recorded

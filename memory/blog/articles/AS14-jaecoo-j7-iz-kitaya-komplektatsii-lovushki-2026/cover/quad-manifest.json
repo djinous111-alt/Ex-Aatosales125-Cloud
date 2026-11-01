@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS14",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "J7 «Престиж» по скрину — а привод 2WD?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Jaecoo J7 у роллкера Владивостока, герой Авто-Сейлс со смартфоном и чеклистом комплектаций до депозита",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey mist over roll-on/roll-off pier; OUTFIT: olive softshell over charcoal henley (NOT white hoodie, NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding phone with fake trim checklist Explore 06=J7 + 2WD 150 vs 4WD 186 sticky; modern Jaecoo J7 crossover silhouette behind at pier (no prices); torn paper hook plaque Cyrillic «J7 «Престиж» по скрину — а привод 2WD?» with yellow highlighter on «2WD»; sticky note «до депозита»; shocked meme cutout + cat meme sticker (different formats, max one Drake if any); DIY zine collage; corner footer ONLY tiny avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic/insult sticker text (no лох/лохов)",
+      "meme_caption_ru": "Сначала спека"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу: Explore 06 = J7 и нужный привод",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: rows Explore 06 / Tansuo 06 = Jaecoo J7; columns 2WD 150 vs 4WD 186 + clearance note; highlight «сначала задача»; pink sticky «привод»; tape corner; NO hero face; NO Wordstat/Metrika; no prices",
+      "alt": "Таблица: Explore 06 = J7 и сравнение привода 2WD 150 vs 4WD 186"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте комплектацию Актив / Комфорт / Престиж по паспорту лота",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps: Актив → Комфорт → Престиж → сверка с паспортом лота/VIN; arrows; sticky «CN-trim ≠ РФ-имя»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: сверка Актив / Комфорт / Престиж с паспортом лота"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Пройдите красные флаги: trim, язык ПО, VIN и инвойс",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake phone/desktop screenshot of lot passport: VIN field, trim line, RU/CN language of UI software, invoice stub; red flags stamps «без VIN», «скрин ≠ trim»; sticky «стоп»; NO hero face; NO Wordstat/Metrika; no toxic labels",
+      "alt": "Мокап паспорта лота: красные флаги trim, язык ПО, VIN и инвойс"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "нс (ориентир) около 196 мм около 186 мм РФ-уровни 2026 Актив, Престиж Комфорт, Престиж Не путать с PHEV \"",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "60 дней",
+      "kind": "metric_or_duration",
+      "context": "ков у разных импортёров часто называют порядка 30–60 дней \"под ключ\" – проверяйте цифру в договоре, не как",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "ешних рынках – это Jaecoo J7. Выберите бензин 2WD 150 л.с. или 4WD 186 л.с. и уровень Актив / Комфорт /",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "186",
+      "kind": "large_number",
+      "context": "о Jaecoo J7. Выберите бензин 2WD 150 л.с. или 4WD 186 л.с. и уровень Актив / Комфорт / Престиж по списку",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "196",
+      "kind": "large_number",
+      "context": "ожный просвет обычно около 186 мм против примерно 196 мм у 2WD. Плюс гибрид SHS / PHEV на многих рынках",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "540",
+      "kind": "large_number",
+      "context": "ий пакет – да / нет / без чего отказываюсь Камеры 540 или аналог – нужно / не критично Люк и вентиляция",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

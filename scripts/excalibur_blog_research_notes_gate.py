@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
-from excalibur_repo_paths import repo_relative
+from excalibur_repo_paths import repo_relative, resolve_gate_output
 
 
 TECH_MARKERS = (
@@ -73,14 +73,37 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_in_blob(marker: str, blob: str) -> bool:
+    """Substring for long markers; word-boundary for short ones (``ии`` ∈ «Китая»)."""
+    if len(marker) <= 3:
+        return bool(
+            re.search(
+                rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])",
+                blob,
+                flags=re.IGNORECASE,
+            )
+        )
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Classify from topic card fields only.
+
+    Research notes always mention github/mcp/api in evidence/Wordstat sections,
+    so scanning the notes body caused false ``technical_topic=true`` on auto-import
+    utility topics (утильсбор, customs, etc.).
+    """
+    del notes  # notes are intentionally ignored for classification
     topic = context.get("topic") or {}
+    secondary = topic.get("secondary_queries") or ""
+    if isinstance(secondary, list):
+        secondary = " ".join(str(x) for x in secondary)
     blob = " ".join(
         str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+        for key in ("h1", "primary_query", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    blob = f"{blob} {str(secondary).lower()}"
+    return any(_marker_in_blob(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -125,10 +148,19 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     urls = extract_urls(text)
     domains = Counter(urlparse(url).netloc.lower().removeprefix("www.") for url in urls)
     github_urls = [url for url in urls if "github.com" in url.lower()]
+    official_doc_hosts = (
+        "nalog.gov",
+        "consultant.ru",
+        "garant.ru",
+        "gov.ru",
+        "customs.gov",
+        "minfin.gov",
+    )
     official_doc_urls = [
         url
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
+        or any(host in url.lower() for host in official_doc_hosts)
     ]
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
@@ -205,7 +237,7 @@ def main() -> int:
     report = validate_research_notes(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        output = resolve_gate_output(args.output, article_dir, root)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

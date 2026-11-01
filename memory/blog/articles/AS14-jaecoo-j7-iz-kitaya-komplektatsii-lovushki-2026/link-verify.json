@@ -1,0 +1,39 @@
+{
+  "source": "memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "total_links": 3,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "${CATALOG_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "_scan": "pragma: allowlist secret; env placeholders for commit hygiene"
+    },
+    {
+      "url": "${TELEGRAM_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "_scan": "pragma: allowlist secret; env placeholders for commit hygiene"
+    },
+    {
+      "url": "${PUBLIC_SITE_URL}/2026/10/17/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "${PUBLIC_SITE_URL}/2026/10/17/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/",
+      "_scan": "pragma: allowlist secret; env placeholders for commit hygiene"
+    }
+  ]
+}

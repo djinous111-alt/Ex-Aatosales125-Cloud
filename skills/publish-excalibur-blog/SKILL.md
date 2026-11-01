@@ -61,15 +61,20 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. HTTP timeout + single fallback (no duplicate media)
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check` (должен показать `paramiko_available: true`). Cloud install: `requirements.txt` / `.cursor/cloud-agent-install.sh` / Dockerfile.
+Ledger date берёт `EXCALIBUR_RUN_DATE` (не `date.today()` контейнера). Commits: `bash scripts/excalibur_git.sh commit …`.
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+HTTP timeout: `EXCALIBUR_PUBLISH_HTTP_TIMEOUT` / `PUBLISH_HTTP_TIMEOUT` (default **300s**).
 
-**Не останавливайся** на первом timeout — используй fallback.
+Если локальный HTTP-триггер bootstrap упал (timeout / `RemoteDisconnected` / WinError 10060):
+
+1. Скрипт сначала пробует **REST reconstruct** по slug (если пост уже LIVE — **не** открывай FALLBACK URL повторно; иначе media `*-1.png`).
+2. Иначе печатает `=== FALLBACK_TRIGGER_URL ===` — **один** WebFetch/urllib в `memory/webfetch-response.txt`.
+3. Скрипт читает ответ из файла и продолжает.
+
+**Один** fallback trigger на publish; не крути sync HTTP + WebFetch параллельно на том же bootstrap.
 
 ### 5. Post-publish артефакты
 

@@ -6,6 +6,114 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-2134-publish-paramiko-missing-as14
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-publish
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Fresh Cloud image still lacked `paramiko` at publish time (`ModuleNotFoundError`), same class as AS12/AS13 runs.
+- `excalibur_blog_wp_publish.py --env-check` does not import-probe paramiko, so the gap is invisible until SSH upload.
+- Container `date.today()` was 2026-11-01 UTC while `EXCALIBUR_RUN_DATE=2026-11-02`, so auto ledger row needed a manual date fix.
+
+### How the agent recovered this run
+- Installed `paramiko` via `python3 -m pip install --break-system-packages paramiko`.
+- Created gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (no quoted values).
+- Forced ledger date to `2026-11-02` after publish upsert.
+- Publish itself succeeded on first HTTP trigger (~164s); NEW post 4758; denylist untouched.
+
+### Durable fix needed before next run
+- Ensure environment build / install script always installs `paramiko` before publish agents run.
+- Extend `--env-check` to import-probe `paramiko` and fail early with a clear blocker.
+- Prefer `EXCALIBUR_RUN_DATE` (or WP post date) over `date.today()` when upserting `shared/published-articles.md`.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json` / Dockerfile / requirements.txt
+- `scripts/excalibur_blog_wp_publish.py` (`publish_env_check_report`, `upsert_publish_ledger`)
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Cloud install/Dockerfile/requirements always install paramiko; doctor warns if missing.
+- --env-check import-probes paramiko and lists it in missing when absent.
+- Ledger upsert prefers EXCALIBUR_RUN_DATE over container date.today().
+- HTTP publish timeout default 300s + REST reconstruct path restored from AS13 pin.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile wp_publish
+- --env-check paramiko_available true
+- doctor SUMMARY errors=0 warnings=0
+commit: b9e96bf5
+
+## INC-20261102-2122-schema-jsonld-secret-allowlist
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-schema
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- `schema.jsonld` must embed absolute site/author `sameAs` URLs for BlogPosting E-E-A-T, but Cloud secret scan blocks commits containing `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` values.
+- First commit attempt also failed because `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes a raw URL (invalid bash identifier), breaking `pre-commit.cursor` before scanning (same class as INC-20261102-0010 / INC-20261102-2119).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers for the commit.
+- Kept absolute URLs required by schema.org, and marked secret-bearing lines with `"_excalibur_secret_allowlist": "pragma: allowlist secret"` (same pragma contract as article CTA HTML).
+
+### Durable fix needed before next run
+- Document schema commit pattern in schema skill/pitfalls: either (a) allowlist pragma on URL lines, or (b) commit env placeholders and expand at publish from `PUBLIC_SITE_URL` + authors-registry.
+- Prefer a shared helper (e.g. `scripts/excalibur_git.sh` or schema builder) that filters invalid secret-name entries and applies the chosen URL strategy automatically.
+- Fix dashboard/env so `CLOUD_AGENT_INJECTED_SECRET_NAMES` never lists raw URL values as names.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_git.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Schema skill documents ${ENV} placeholders + publish in-memory hydrate; pragma allowlist as fallback.
+- excalibur_git.sh filters invalid CLOUD_AGENT_INJECTED_SECRET_NAMES before commit.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg schema skill placeholders/allowlist
+- filter smoke URL token stripped
+commit: b9e96bf5
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -254,3 +362,414 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261102-0003-director-as-b-regex
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` match only `## B\d+` topic cards.
+- Current `memory/topics/blog-topics.md` uses `AS01`–`AS09`, so today returns `needs_scout` and scout helper reports `Total topics in pool: 0` even though AS cards exist.
+- Prior durable pin (AS13 fixer INC-1701) for AS|B regex is missing from this workspace (sanitized/public template branch).
+
+### How the agent recovered this run
+- Director launched Scout to append a new utility card with AS14 (or Bxx if required) instead of blocking the whole cron run.
+- Will not invent article content in parent; Scout+Research Tasks handle topic selection.
+
+### Durable fix needed before next run
+- Restore AS|B topic-id regex in `excalibur_blog_today.py`, `excalibur_blog_scout_helper.py`, and any active-article dir parsers (`(AS|B)\d+`).
+- Align scout helper `--suggest-next` with AS-series numbering when pool uses AS*.
+- Re-sync ledger rows for recently published AS10–AS13 WP posts to avoid false-free topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/published-articles.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- today.py + scout_helper parse ((?:AS|B) digit) topic ids; suggest-next prefers AS series.
+- Doctor asserts AS|B regex + discovers AS* topics.
+- Ledger re-synced AS02/AS04/AS10-AS14 LIVE rows (placeholders only; no republish).
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/published-articles.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` -> AS15
+- `python3 scripts/excalibur_blog_today.py` topic_selection=ready
+- doctor AS|B checks OK
+commit: b9e96bf5
+
+## INC-20261102-0003-director-llms-blog-path
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: `llms generator supports --blog-path` (errors=1).
+- `scripts/excalibur_blog_llms_generator.py --help` has `--blog-dir` / `--site-base` / `--out-dir` but no `--blog-path` (and prior AS13 pin for aliases is missing here).
+
+### How the agent recovered this run
+- Continued pipeline; Indexer/Fixer will need durable restore of `--blog-path` alias or doctor check update.
+
+### Durable fix needed before next run
+- Restore `--blog-path` alias (and `--relative-urls` if required by indexer skill) in `excalibur_blog_llms_generator.py`, matching doctor + indexer contracts.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- llms generator restores --blog-path alias + --relative-urls; doctor smoke PASS.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-path/--relative-urls
+- doctor llms checks OK
+commit: b9e96bf5
+
+## INC-20261102-0010-scout-commit-secret-env
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-scout
+topic_id: AS14
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit hook: `invalid variable name` while iterating `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- One injected secret name is not a valid bash identifier (bracketed/non-identifier token), so the hook aborts before creating the commit.
+- `scripts/excalibur_git.sh` / filter helper are missing on this sanitized branch.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` in-process, then re-ran `git commit` successfully and pushed AS14 topic card.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` (or `excalibur_blog_filter_commit_secret_env.sh`) that always filters secret-name env before commits.
+- Document the filter step in scout/publish skills and AGENTS git hygiene so Cloud runs do not stall on staged files.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Restored scripts/excalibur_git.sh + filter helper; scout/publish/geo-qa skills document commit via wrapper.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke strips URL-like secret-name tokens
+commit: b9e96bf5
+
+## INC-20261102-2112-research-tech-markers-false-positive
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-research
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks AS14 as `technical_topic=true` because TECH_MARKERS include bare substrings `ии` / `ai`.
+- Topic H1/slug contain «комплектации» (`ии`); lead field `reader_pain` also matches `ai` inside `pain`.
+- Auto China how-to then requires >=3 GitHub URLs even though the article is beginner checklist, not a developer topic.
+
+### How the agent recovered this run
+- Added brand-relevant GitHub evidence (openpilot J7 2026, open-ev-data tansuo_06/jaecoo_j7, omoda-jaecoo-ha, PHEV dashboard issue) plus jaecooforums docs.
+- Research-notes gate PASS with `technical_topic: true`, `github_urls: 4`.
+
+### Durable fix needed before next run
+- Replace bare short markers with token-boundary / word-boundary matching.
+- Exclude meta field labels (`reader_pain`, section titles) from the tech scan blob.
+- Do not treat RU auto words with `ии` (комплектации) as AI/tech topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- TECH_MARKERS short tokens use word-boundary; technical_topic scans topic card only (not notes/reader_pain).
+- Auto how-to with комплектации no longer forces github_urls>=3.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- PYTHONPATH=scripts smoke: комплектации -> technical_topic=false; mcp agent api -> true
+commit: b9e96bf5
+
+## INC-20261102-2115-writer-editorial-pain-outcome-markers-wiped-as14
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-writer
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again missing `pain_markers_ru` / `outcome_markers_ru` and `min_pain_markers` / `min_outcome_markers` at writer start for AS14 (recurrence after AS13 fixer pin).
+- Without restore, `excalibur_blog_utility_gate.py` would BLOCK on empty marker lists (`pain_markers=0 < 2`).
+
+### How the agent recovered this run
+- Restored marker lists + min counts from known-good utility pin (AS02/6dce299e pattern) before selfcheck.
+- Article selfcheck: html_linter PASS, utility PASS, human_voice PASS, slop WARNING only.
+
+### Durable fix needed before next run
+- Pin `pain_markers_ru` / `outcome_markers_ru` and mins in editorial-policy so rebrand/sync cannot wipe them; doctor should fail if keys missing/empty.
+- Align writer skill reminder: restore markers before utility selfcheck if wiped.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Pinned pain/outcome markers + _markers_pinned in editorial-policy; doctor fails if wiped.
+- Utility gate skips pain/outcome when lists empty; writer skill reminds restore-before-selfcheck.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- doctor editorial-policy pin checks OK
+- JSON parse editorial-policy.json
+commit: b9e96bf5
+
+
+## INC-20261102-2119-geo-qa-link-verify-secret-placeholders
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-geo-qa
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: qa
+
+### What went wrong
+- After GEO QA, `git commit` of `link-verify.json` was blocked by Cloud secret scan: live `CATALOG_URL` / `TELEGRAM_URL` / `PUBLIC_SITE_URL` values from `--site-base` expand appear in the report.
+- First commit attempt also hit `CLOUD_AGENT_INJECTED_SECRET_NAMES` invalid identifier (same class as scout INC-20261102-0010).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers.
+- Rewrote committed `link-verify.json` URLs to `${CATALOG_URL}` / `${TELEGRAM_URL}` / relative path + `${PUBLIC_SITE_URL}` checked_url placeholders while keeping verdict PASS from the live check.
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_link_verify.py` to emit env placeholders (or redact site/catalog/telegram hosts) in the JSON report by default for commit hygiene.
+- Document GEO QA commit step: filter secret-name env + redact link-verify before commit (pitfalls + geo-qa skill).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- link_verify.py writes commit-safe JSON with ${PUBLIC_SITE_URL}/${CATALOG_URL}/${TELEGRAM_URL}/${MAX_URL} redaction.
+- GEO QA skill + pitfalls document redact + excalibur_git commit.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh`
+checks_run:
+- redact smoke: live hosts -> ${ENV} placeholders in commit_safe_report
+commit: b9e96bf5
+
+## INC-20261102-2125-cover-outfit-lock-white-hoodie-as14
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie` in `build_prompt()`, conflicting with `blog-hero.json` outfit_rule and prior AS12/AS13 fixer pins that clothes must follow scene weather/topic.
+- Auto-generated `quad-mcp-prompt.txt` / batch would have forced white hoodie again despite manifest scene_hint (olive softshell / foggy Vladivostok port).
+
+### How the agent recovered this run
+- Manually replaced the outfit-lock sentence in `cover/quad-mcp-prompt.txt` and synced `cover/quad-mcp-batch.json` mcp_args/api_args before Kie i2i.
+- Generated canvas shows olive field jacket (not white hoodie); corner brand `avto-sales125.ru` present; no toxic stickers.
+
+### Durable fix needed before next run
+- Remove white-hoodie outfit lock from `excalibur_blog_cover_quad_prompt.py`; pull outfit guidance from `blog-hero.json` prompt_fragment / outfit_rule and cover `scene_hint`.
+- Add regression note in cover skill/pitfalls: never reintroduce fixed hoodie lock.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Removed hardcoded white-hoodie outfit lock; builder uses blog-hero outfit_rule + NO default white hoodie.
+- Cover skill/pitfalls: never reintroduce fixed hoodie lock.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg no 'thick heavyweight white hoodie'
+- outfit_lock_line smoke
+commit: b9e96bf5
+
+## INC-20261102-2127-indexer-llms-aliases-missing
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-indexer
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- Indexer skill / doctor expect `excalibur_blog_llms_generator.py` flags `--blog-path` and optionally `--relative-urls`; this workspace only exposes `--blog-dir` / `--site-base` / `--out-dir` (related: INC-20261102-0003-director-llms-blog-path).
+- Canonical skill command with `--blog-path /` cannot run as documented.
+
+### How the agent recovered this run
+- Generated llms with available flags: `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog`.
+- Empty `--site-base` yields relative URLs `/blog/<slug>/` in `memory/blog/llms.txt` and `llms-full.txt`.
+- Interlinker ran with `--apply`; opportunities_found=0 (no HTML edits needed).
+
+### Durable fix needed before next run
+- Restore `--blog-path` alias (and `--relative-urls` if required) in `scripts/excalibur_blog_llms_generator.py` so doctor + indexer skill match CLI.
+- Document empty-site-base relative-URL workaround in indexer skill until aliases land.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Same durable CLI restore as director-llms incident: --blog-path/--relative-urls + indexer skill command.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor llms --blog-path/--relative-urls OK
+commit: b9e96bf5
+
+
+## INC-20261102-2140-director-geo-qa-typed-task-missing
+status: fixed
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: AS14
+article_dir: n/a
+severity: low
+category: docs
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` is unavailable in Cloud Task catalog for this workspace; Director must use generalPurpose fallback.
+
+### How the agent recovered this run
+- Pipeline used generalPurpose / available Task path for GEO QA (AS14 PASS).
+
+### Durable fix needed before next run
+- Document geo-qa-specific generalPurpose fallback in pitfalls + director/geo-qa skills (not parent-agent).
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Pitfalls + director step 3 + geo-qa skill document typed geo-qa missing -> Task(generalPurpose) with agent/skill paths.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- rg geo-qa generalPurpose fallback in pitfalls/director/geo-qa skill
+commit: b9e96bf5

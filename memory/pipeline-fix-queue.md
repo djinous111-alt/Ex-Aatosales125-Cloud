@@ -37,6 +37,37 @@ category: api
 ### Fixer resolution
 - pending
 
+## INC-20261101-0918-research-commit-secret-screen
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-research
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scan failed twice: (1) `CLOUD_AGENT_INJECTED_SECRET_NAMES` included a bare site URL as a "secret name", breaking bash `${!SECRET_NAME}`; (2) `research-serp.json` contained the PUBLIC_SITE_URL host from own-site SERP hit.
+
+### How the agent recovered this run
+- Filtered injected secret names to valid bash identifiers for the commit env.
+- Replaced PUBLIC_SITE_URL host in research-serp.json with `https://example-site.invalid` before commit.
+
+### Durable fix needed before next run
+- Stop injecting URL values into CLOUD_AGENT_INJECTED_SECRET_NAMES; map site URL via PUBLIC_SITE_URL only.
+- research_start / SERP writer: redact PUBLIC_SITE_URL / catalog host from research-serp.json automatically.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud Secrets / env injection config (outside git if needed)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-0916-research-gate-false-technical
 status: open
 run_date: 2026-11-01

@@ -107,7 +107,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → llms --blog-path/--relative-urls OK
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: pending-parent-commit
+commit: 0c266e04
 
 ## INC-20261101-1724-cover-mcp-timeout-kie-fallback-as13
 status: fixed
@@ -199,7 +199,7 @@ files_changed:
 checks_run:
 - `rg` no 'Outfit lock: thick heavyweight white hoodie'
 - `python3 -m py_compile` cover prompt/manifest
-commit: pending-parent-commit
+commit: 0c266e04
 
 ## INC-20261101-1728-cover-missing-corner-brand-as13
 status: fixed
@@ -289,7 +289,7 @@ files_changed:
 checks_run:
 - human_voice AS13 PASS
 - `rg` banned TL;DR example removed from writing-contract
-commit: pending-parent-commit
+commit: 0c266e04
 
 ## INC-20261101-1715-writer-editorial-pain-outcome-markers-wiped-as13
 status: fixed
@@ -385,7 +385,7 @@ files_changed:
 checks_run:
 - is_technical_topic auto-import False; MCP topic True
 - `python3 -m py_compile` research gate
-commit: pending-parent-commit
+commit: 0c266e04
 
 ## INC-20261101-1701-director-as-prefix-and-llms-alias
 status: fixed

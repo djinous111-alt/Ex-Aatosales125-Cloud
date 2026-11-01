@@ -6,6 +6,106 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1724-cover-mcp-timeout-kie-fallback-as13
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-cover
+topic_id: AS13
+article_dir: memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) returned HTTP `-32001 Request timed out` on first ONE quad i2i call.
+- Agent MCP tool log / expanded response with generated URL was unavailable after ~60s polling (15–30s cadence).
+- No async MCP status/result tools in Available Tools catalog (only sync `gpt-image-2`).
+
+### How the agent recovered this run
+- Recorded pending `cover/quad-mcp-result.json`, did not blind-retry sync MCP create.
+- Used documented Kie async path `scripts/excalibur_blog_kie_gpt_image2_api.py` (same batch `input_urls` + prompt) → task success → URL → `quad_apply --inject-html` PASS.
+
+### Durable fix needed before next run
+- Prefer Kie async (or MCP async create/status) as primary Cloud cover path; document in cover skill that `-32001` + missing MCP log → Kie recovery, not COVER blocker.
+- Optionally expose `gpt-image-2-create`/`status` on MCP-KV per `shared/mcp-image-async-contract.md`.
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/mcp-image-async-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261101-1722-cover-outfit-lock-white-hoodie-as13
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-cover
+topic_id: AS13
+article_dir: memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie` despite `blog-hero.json` outfit_rule and prior AS10–AS12 incidents.
+- Auto scene defaults from merge also suggested white hoodie / SEO Wordstat scene for non-SEO topic until agent override.
+
+### How the agent recovered this run
+- Patched `cover/quad-mcp-prompt.txt` + `cover/quad-mcp-batch.json` before generation: olive rain jacket + grey sweatshirt, forbidden white hoodie lock.
+- Manifest `scene_hint` set to Vladivostok port / Tiggo 7 Pro / «до депозита».
+
+### Durable fix needed before next run
+- Remove white-hoodie Outfit lock from prompt assembler; use weather/topic outfit from `scene_hint` / `blog-hero.json`.
+- Stop SEO default cover_hook/scene when topic is auto-import (seed from article.meta + research hints).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261101-1728-cover-missing-corner-brand-as13
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-cover
+topic_id: AS13
+article_dir: memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- Generated cover panel lacked readable corner catalog brand `avto-sales125.ru` (repeat of AS10–AS12).
+
+### How the agent recovered this run
+- PIL post-stamp on `cover/cover.png` bottom-right navy plaque with `avto-sales125.ru` after split PASS.
+
+### Durable fix needed before next run
+- Add automatic corner-brand stamp step in `excalibur_blog_quad_apply.py` / split pipeline when brand text missing/illegible.
+- Strengthen prompt requirement already present; keep PIL fallback as default post-process.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-1718-geo-qa-tldr-label-contract-conflict-as13
 status: open
 run_date: 2026-11-01

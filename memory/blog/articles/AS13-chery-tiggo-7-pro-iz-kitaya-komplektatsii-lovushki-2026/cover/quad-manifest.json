@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS13",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Tiggo 7 Pro «топ» — а VIN чужой?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Chery Tiggo 7 Pro в порту Владивостока с плашкой «до депозита» и чек-листом комплектаций",
+      "scene_hint": "Гиперреалистичный action selfie героя Авто-Сейлс (лицо и очки строго с reference): порт Владивостока, туман/мокрый асфальт, на фоне современный Chery Tiggo 7 Pro кроссовер у контейнеров. Одежда агента: тёмно-оливковая непромокаемая куртка + серый свитшот, БЕЗ белого худи, без кепки/капюшона. Плашка кириллицей «до депозита», жёлтый маркер на слове «депозита». Fake UI: рваная карточка каталога avto-sales125.ru с Tiggo 7 Pro + чеклист «Pro / Pro Max / VIN», стикер «стоп без VIN», скотч, shocked-face мем. Угол: avto-sales125.ru. Без Wordstat/Метрики/Telegram.",
+      "meme_caption_ru": "Стоп — без VIN!"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу и бюджет до поиска лота",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистый UI-мокап таблицы «задача vs бюджет до лота»: колонки город/семья/привод/коробка/потолок ₽; строка «депозит» зачёркнута красным маркером до заполнения; стикер «сначала бумага», скотч на углу. Без лица героя, без SEO-дашбордов.",
+      "alt": "Таблица фиксации задачи и бюджета до поиска лота Tiggo 7 Pro"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Отделите \"семёрку Pro\" от Jaecoo, High Energy и китайского 7L",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема-фильтр ярлыков: стрелки Pro → OK; Jaecoo J7 / High Energy / китайский 7L → стоп красным крестом; карточки имён на рваной бумаге. Без лица героя, полезный workflow, лёгкий sticky note «не то же самое».",
+      "alt": "Схема отсева Jaecoo, High Energy и китайского 7L от линии Tiggo 7 Pro"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте мотор и коробку по VIN, а не по слову \"автомат\"",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake скрин карточки VIN/шильдика: поля 1.5T / 1.6, CVT25 vs 7DCT, FWD/AWD; рядом объявление со словом «автомат» перечёркнуто; мини-чеклист «заявлено vs факт». Без лица героя, без Wordstat.",
+      "alt": "Скрин сверки мотора и коробки по VIN против слова автомат"
+    }
+  }
+}

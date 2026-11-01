@@ -420,3 +420,36 @@ category: docs
 ### Fixer resolution
 - pending
 
+
+## INC-20261102-2119-geo-qa-link-verify-secret-placeholders
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-geo-qa
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: qa
+
+### What went wrong
+- After GEO QA, `git commit` of `link-verify.json` was blocked by Cloud secret scan: live `CATALOG_URL` / `TELEGRAM_URL` / `PUBLIC_SITE_URL` values from `--site-base` expand appear in the report.
+- First commit attempt also hit `CLOUD_AGENT_INJECTED_SECRET_NAMES` invalid identifier (same class as scout INC-20261102-0010).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers.
+- Rewrote committed `link-verify.json` URLs to `${CATALOG_URL}` / `${TELEGRAM_URL}` / relative path + `${PUBLIC_SITE_URL}` checked_url placeholders while keeping verdict PASS from the live check.
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_link_verify.py` to emit env placeholders (or redact site/catalog/telegram hosts) in the JSON report by default for commit hygiene.
+- Document GEO QA commit step: filter secret-name env + redact link-verify before commit (pitfalls + geo-qa skill).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

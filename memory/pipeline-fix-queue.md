@@ -62,7 +62,7 @@ checks_run:
 - py_compile wp_publish
 - --env-check paramiko_available true
 - doctor SUMMARY errors=0 warnings=0
-commit: pending-parent-commit
+commit: b9e96bf5
 
 ## INC-20261102-2122-schema-jsonld-secret-allowlist
 status: fixed
@@ -112,7 +112,7 @@ files_changed:
 checks_run:
 - rg schema skill placeholders/allowlist
 - filter smoke URL token stripped
-commit: pending-parent-commit
+commit: b9e96bf5
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -412,7 +412,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` -> AS15
 - `python3 scripts/excalibur_blog_today.py` topic_selection=ready
 - doctor AS|B checks OK
-commit: pending-parent-commit
+commit: b9e96bf5
 
 ## INC-20261102-0003-director-llms-blog-path
 status: fixed
@@ -454,7 +454,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-path/--relative-urls
 - doctor llms checks OK
-commit: pending-parent-commit
+commit: b9e96bf5
 
 ## INC-20261102-0010-scout-commit-secret-env
 status: fixed
@@ -499,7 +499,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter smoke strips URL-like secret-name tokens
-commit: pending-parent-commit
+commit: b9e96bf5
 
 ## INC-20261102-2112-research-tech-markers-false-positive
 status: fixed
@@ -545,7 +545,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - PYTHONPATH=scripts smoke: комплектации -> technical_topic=false; mcp agent api -> true
-commit: pending-parent-commit
+commit: b9e96bf5
 
 ## INC-20261102-2115-writer-editorial-pain-outcome-markers-wiped-as14
 status: fixed
@@ -592,7 +592,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy pin checks OK
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: b9e96bf5
 
 
 ## INC-20261102-2119-geo-qa-link-verify-secret-placeholders
@@ -639,7 +639,7 @@ files_changed:
 - `scripts/excalibur_git.sh`
 checks_run:
 - redact smoke: live hosts -> ${ENV} placeholders in commit_safe_report
-commit: pending-parent-commit
+commit: b9e96bf5
 
 ## INC-20261102-2125-cover-outfit-lock-white-hoodie-as14
 status: fixed
@@ -685,7 +685,7 @@ files_changed:
 checks_run:
 - rg no 'thick heavyweight white hoodie'
 - outfit_lock_line smoke
-commit: pending-parent-commit
+commit: b9e96bf5
 
 ## INC-20261102-2127-indexer-llms-aliases-missing
 status: fixed
@@ -730,7 +730,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor llms --blog-path/--relative-urls OK
-commit: pending-parent-commit
+commit: b9e96bf5
 
 
 ## INC-20261102-2140-director-geo-qa-typed-task-missing
@@ -772,4 +772,4 @@ files_changed:
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
 checks_run:
 - rg geo-qa generalPurpose fallback in pitfalls/director/geo-qa skill
-commit: pending-parent-commit
+commit: b9e96bf5

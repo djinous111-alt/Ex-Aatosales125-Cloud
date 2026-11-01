@@ -1,0 +1,115 @@
+{
+  "article": "memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 15,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 13,
+  "facts": [
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "т Jaecoo, High Energy и китайского 7L Вот сюрприз 2026 года: в Китае имя Tiggo 7L – другая машина на базе Omo",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "у словами. Классическая карта имён (Дром и обзоры 2026): российский Pro часто = китайский \"просто Tiggo",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "а: имя модели, силовой агрегат, опции и документы 180 дней. Результат: таблица \"заявлено vs факт\" и стоп, по",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "а: имя модели, силовой агрегат, опции и документы 180 дней. Результат: таблица \"заявлено vs факт\" и стоп",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2720",
+      "kind": "large_number",
+      "context": "угая машина на базе Omoda C7 (колёсная база около 2720 мм), а российский Tiggo 7L / Tenet T7 ближе к лини",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "79 900",
+      "kind": "large_number",
+      "context": "2026-11-01 – три комплектации 1.5T CVT, ориентир 79 900–91 900 CNY, габариты около 4530×1862×1695, база 2",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "91 900",
+      "kind": "large_number",
+      "context": "1-01 – три комплектации 1.5T CVT, ориентир 79 900–91 900 CNY, габариты около 4530×1862×1695, база 2670 мм.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4530",
+      "kind": "large_number",
+      "context": "T CVT, ориентир 79 900–91 900 CNY, габариты около 4530×1862×1695, база 2670 мм. Это якорь \"просто семёрк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1862",
+      "kind": "large_number",
+      "context": ", ориентир 79 900–91 900 CNY, габариты около 4530×1862×1695, база 2670 мм. Это якорь \"просто семёрки\", н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1695",
+      "kind": "large_number",
+      "context": "ентир 79 900–91 900 CNY, габариты около 4530×1862×1695, база 2670 мм. Это якорь \"просто семёрки\", не сос",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2670",
+      "kind": "large_number",
+      "context": "0–91 900 CNY, габариты около 4530×1862×1695, база 2670 мм. Это якорь \"просто семёрки\", не соседних ярлыко",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "156",
+      "kind": "large_number",
+      "context": "тайской 1.5T линейки в карточках 2026 часто около 156 л.с. / 115 кВт – цифру берёте с документа машины.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "115",
+      "kind": "large_number",
+      "context": "T линейки в карточках 2026 часто около 156 л.с. / 115 кВт – цифру берёте с документа машины. У Pro Max н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "197",
+      "kind": "large_number",
+      "context": "машины. У Pro Max на CN часто мелькает 1.6 около 197 л.с., а российские дилерские цифры по той же ветке",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "360",
+      "kind": "large_number",
+      "context": "панорама и шторка – на видео этого салона; камеры 360 и парктроники – без заглушек в бампере; подогревы,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1718-geo-qa-tldr-label-contract-conflict-as13
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-geo-qa
+topic_id: AS13
+article_dir: memory/blog/articles/AS13-chery-tiggo-7-pro-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Writer следовал примеру в `shared/excalibur-article-writing-contract.md` (`<b>TL;DR / Быстрый инсайт:</b>`).
+- Skill GEO QA запрещает шаблонный ярлык `TL;DR` / фразу `Быстрый инсайт` в инсайт-блоке; html-linter и human-voice gate это не ловят автоматически.
+- Typed Task `excalibur-blog-geo-qa` недоступен в Cloud → fallback `generalPurpose` (повтор среды).
+
+### How the agent recovered this run
+- Точечная правка ярлыка → `Инсайт до депозита:`; повтор human-voice / html-linter / utility PASS.
+- Обновлён `article.meta.json` char_count=9484; `article-qa.md` verdict PASS score 88.
+
+### Durable fix needed before next run
+- Синхронизировать writing-contract пример инсайт-блока со skill GEO QA (убрать TL;DR из примера или ослабить запрет в skill).
+- Опционально: human_voice/html_linter warning на `TL;DR` / `Быстрый инсайт` в первом blockquote.
+- Зафиксировать Cloud Task type `excalibur-blog-geo-qa` или явно документировать generalPurpose fallback в director skill.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/director-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-1715-writer-editorial-pain-outcome-markers-wiped-as13
 status: open
 run_date: 2026-11-01

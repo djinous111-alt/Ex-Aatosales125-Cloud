@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-0932-indexer-llms-site-base-commit-hygiene
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-indexer
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Indexer skill/agent require `--site-base ${PUBLIC_SITE_URL}` for llms generator; that embeds absolute host URLs into `memory/blog/llms.txt` and `llms-full.txt`.
+- Committed HEAD of those files uses relative `/blog/<slug>/` paths; absolute site host is treated as a Cloud Secret and can fail pre-commit secret scan (same class as schema/publish URL incidents).
+
+### How the agent recovered this run
+- Ran generator once with `$PUBLIC_SITE_URL` (functional OK, 3 articles including AS04).
+- Regenerated commit artifacts with `--site-base ""` so URLs stay relative `/blog/…`; cleared `site_base` in `interlink-suggestions.json`.
+
+### Durable fix needed before next run
+- Document in indexer skill: runtime may use PUBLIC_SITE_URL; **committed** llms/interlink reports must use relative `/blog/` paths (or `${PUBLIC_SITE_URL}` placeholders), never raw secret host.
+- Optionally teach `excalibur_blog_llms_generator.py` a `--relative-urls` / default empty site-base for out-dir under memory/blog.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-0927-schema-secret-scanner-env-placeholders
 status: open
 run_date: 2026-11-01

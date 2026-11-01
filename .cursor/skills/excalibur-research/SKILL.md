@@ -46,6 +46,11 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - Если ответ = пустой объект `{}`, «unexpected format», или только `{"totalCount":"N"}` без top phrases / impressions rows:
+    - Это **soft warning / low-result signal**, не blocker и не «сломанный MCP».
+    - **Не ретрай** узкий how-to primary бесконечно.
+    - Запиши warning в Wordstat-секцию notes (`{}` empty / not verified); **не выдумывай** impressions.
+    - Cluster-first сразу: parent brand/model + secondary (комплектации / из китая / …), LSI из рабочих фраз (как Scout).
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
@@ -61,6 +66,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. Research-notes gate: в строках `pain_solution_map` явно пиши `pain`/`solution`/`result` или `боль`/`решение`/`результат`; добавь ≥5 лейблов `accessed_at:` (даты в таблице без лейбла не считаются). `technical_topic` берётся только из topic card, не из GitHub/Wordstat boilerplate в notes. Official docs evidence: `/docs` **или** `nalog.gov` / `consultant.ru` / `garant.ru` / `gov.ru`.
+9. Не коммить live `PUBLIC_SITE_URL` host в `research-serp.json` — `research_start` редактирует secret hosts автоматически; при ручном SERP тоже замени на `https://example-site.invalid`.
 
 ## Blockers
 

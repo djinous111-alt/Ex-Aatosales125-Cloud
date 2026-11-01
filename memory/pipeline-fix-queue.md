@@ -6,9 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none (AS13 2026-11-01 closed by fixer)_
 
 ## INC-20261101-1740-publish-http-timeout-webfetch-paramiko-as13
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-publish
 topic_id: AS13
@@ -38,9 +39,28 @@ category: tooling
 ### Secrets
 - none recorded
 
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- paramiko in Dockerfile + cloud-agent-install + requirements; --env-check import-probes paramiko_available
+- HTTP timeout default 300s via EXCALIBUR_PUBLISH_HTTP_TIMEOUT; REST reconstruct before second trigger to avoid *-1.png
+- publish skill documents single-fallback rule
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available=true
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: pending-parent-commit
+
 
 ## INC-20261101-1731-indexer-llms-blog-path-alias-missing-as13
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-indexer
 topic_id: AS13
@@ -72,11 +92,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Verified `--blog-path` / `--relative-urls` present in llms generator; doctor asserts both
+- Indexer skill examples updated for commit-safe relative URLs
+- Pitfalls: Indexer without aliases = doctor FAIL
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → llms --blog-path/--relative-urls OK
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+commit: pending-parent-commit
 
 ## INC-20261101-1724-cover-mcp-timeout-kie-fallback-as13
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-cover
 topic_id: AS13
@@ -108,11 +142,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Cover skill + mcp-image-async-contract: -32001 / missing async status → Kie recovery, not COVER blocker
+- No blind sync MCP retry; pending result JSON before recovery
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/mcp-image-async-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Kie recovery / -32001 in cover skill + mcp contract
+commit: pending-parent-commit
 
 ## INC-20261101-1722-cover-outfit-lock-white-hoodie-as13
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-cover
 topic_id: AS13
@@ -141,11 +186,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Removed hardcoded white-hoodie Outfit lock; prompt uses blog-hero outfit_rule/weather+topic
+- quad_manifest defaults no longer SEO Wordstat / white hoodie for auto-import topics
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` no 'Outfit lock: thick heavyweight white hoodie'
+- `python3 -m py_compile` cover prompt/manifest
+commit: pending-parent-commit
 
 ## INC-20261101-1728-cover-missing-corner-brand-as13
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-cover
 topic_id: AS13
@@ -172,11 +229,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- cover_quad_split stamps avto-sales125.ru corner brand when missing/illegible (PIL post-process)
+files_changed:
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- stamp_corner_brand force smoke on blank 1200x675 PNG
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
+commit: pending-parent-commit
 
 ## INC-20261101-1718-geo-qa-tldr-label-contract-conflict-as13
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-geo-qa
 topic_id: AS13
@@ -209,11 +275,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Writing contract + writer skill: topical insight label; ban TL;DR / Быстрый инсайт
+- human_voice_gate errors on banned insight labels; GEO QA skill already forbids them
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- human_voice AS13 PASS
+- `rg` banned TL;DR example removed from writing-contract
+commit: pending-parent-commit
 
 ## INC-20261101-1715-writer-editorial-pain-outcome-markers-wiped-as13
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-writer
 topic_id: AS13
@@ -243,11 +322,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Pinned pain/outcome markers + `_markers_pinned` in editorial-policy; doctor asserts pin
+- utility_gate skips pain/outcome when marker lists empty instead of hard BLOCK
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- doctor editorial-policy pin OK
+- JSON parse editorial-policy
+commit: pending-parent-commit
 
 ## INC-20261101-1708-research-wordstat-empty-primary-as13
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-research
 topic_id: AS13
@@ -280,10 +370,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- Research skill: empty `{}` / unexpected format = low-result → cluster-first, no endless primary retry
+- research_notes_gate: TECH_MARKERS word-boundary + topic-card-only (no notes false positive on комплектации/ии)
+- excalibur_git.sh + filter_commit_secret_env.sh filter invalid bash secret names for commits
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+checks_run:
+- is_technical_topic auto-import False; MCP topic True
+- `python3 -m py_compile` research gate
+commit: pending-parent-commit
 
 ## INC-20261101-1701-director-as-prefix-and-llms-alias
-status: open
+status: fixed
 run_date: 2026-11-01
 role: excalibur-blog-director
 topic_id: n/a
@@ -316,7 +421,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-01
+fix_summary:
+- today/scout_helper topic regex (AS|B); scout suggest-next prefers AS##
+- llms --blog-path/--relative-urls + doctor asserts; ledger synced AS02/AS04/AS10–AS13 with ${PUBLIC_SITE_URL} (no LIVE overwrite)
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/published-articles.md`
+checks_run:
+- doctor AS|B + llms aliases OK; scout --suggest-next → AS14
+- today.py SELECTION=ready
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

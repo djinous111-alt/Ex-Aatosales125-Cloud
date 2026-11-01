@@ -22,8 +22,10 @@ Cover agent:
 
 - предпочитает async tools, если они есть в Cursor `Available Tools`;
 - sync `gpt-image-2` вызывает только один раз, если async tools недоступны;
-- после `HTTP MCP -32001 Request timed out` не делает blind retry sync create;
-- если нет `url`, `task_id` и status/result tool — возвращает `COVER MCP ASYNC BLOCKER`.
+- после `HTTP MCP -32001 Request timed out` **не** делает blind retry sync create;
+- если нет `url`, `task_id` и status/result tool в каталоге — **не** COVER blocker: сразу documented Kie async recovery  
+  `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` с тем же `prompt` + `input_urls` из `cover/quad-mcp-batch.json`, затем `quad_apply --inject-html`;
+- записывает `cover/quad-mcp-result.json` (pending/url) до повторных вызовов, чтобы не плодить jobs.
 
 ## Why
 

@@ -16,10 +16,14 @@ python3 scripts/excalibur_blog_interlinker.py --apply \
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --blog-path memory/blog/articles \
+  --site-base "" \
+  --relative-urls \
   --out-dir memory/blog
 ```
+
+`--blog-path` = alias `--blog-dir` (doctor smoke). Для committed index — `--relative-urls` / пустой `--site-base` → `/blog/<slug>/`.
+
 
 ## Выход
 

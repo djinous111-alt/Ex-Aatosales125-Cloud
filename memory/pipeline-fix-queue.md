@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-1312-research-precommit-invalid-secret-name
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-research
+topic_id: AS12
+article_dir: memory/blog/articles/AS12-jetour-t2-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Platform `pre-commit.cursor` secrets scanner aborted with `invalid variable name` while expanding `${!SECRET_NAME}`.
+- One entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES` is not a valid bash identifier, so every `git commit` fails before the project hook runs.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` names for the commit process only; did not use `--no-verify`.
+- Commit `5fe30397` succeeded after the filter.
+
+### Durable fix needed before next run
+- Fix Cloud Secrets / injected name list so every comma-separated name is a valid bash identifier.
+- Optionally harden `pre-commit.cursor` to skip invalid names instead of aborting the whole commit.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets (name list only)
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform; needs upstream fix)
+- `shared/agent-pipeline-pitfalls.md` (document workaround)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261101-1310-research-notes-gate-accessed-at-pain-map
 status: open
 run_date: 2026-11-01

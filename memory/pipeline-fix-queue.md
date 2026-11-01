@@ -405,6 +405,70 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261101-0919-geo-qa-generalpurpose-fallback
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-geo-qa
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: low
+category: other
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` unavailable in Cloud; role executed via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Ran full GEO QA script set as generalPurpose worker; did not start cover/schema/publish; returned FAIL + FIX to director.
+
+### Durable fix needed before next run
+- Prefer typed Task registration for `excalibur-blog-*` roles when Cloud API supports it; keep generalPurpose fallback documented in AGENTS.md / pitfalls.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/rules/excalibur-blog-orchestrator.mdc`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261101-0919-geo-qa-utility-pain-outcome-policy-gap
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-geo-qa
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always checks `pain_markers_ru` / `outcome_markers_ru` with defaults `min_pain_markers=2` and `min_outcome_markers=3`.
+- `memory/brief/editorial-policy.json` has neither marker lists nor min overrides → counts stay 0 → **every article utility gate BLOCK**, independent of writer copy.
+- Separately AS04 also has real writer gap: `recommendation_markers_ru` hits 5&lt;8 (`Делать/Не делать` / `чек-лист` ≠ policy tokens `сделайте`/`не делайте`/`чеклист`).
+
+### How the agent recovered this run
+- Did not rewrite article.html; wrote FAIL `article-qa.md` with writer FIX for action/human-voice markers and flagged durable policy/script gap for fixer.
+- Human-voice BLOCK is legitimate content gap (outcome lexicon 2&lt;3).
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` to editorial-policy (aligned with human-voice gate lexicons) **or** skip pain/outcome checks when lists are empty.
+- Replace `int(req.get("min_pain_markers") or 2)` / `or 3` so explicit `0` works if needed.
+- Optionally accept `делать`/`не делать`/`чек-лист` as aliases of recommendation markers for RU mode-B copy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

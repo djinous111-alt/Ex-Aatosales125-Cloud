@@ -1,0 +1,115 @@
+{
+  "article": "memory/blog/articles/AS04-utilsbor-na-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "warning",
+  "total_extracted_facts": 15,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 13,
+  "facts": [
+    {
+      "fact": "5 200 рублей",
+      "kind": "price_or_currency",
+      "context": "акции. Какие условия льготного утильсбора 3 400 и 5 200 рублей? Физлицо, личное пользование, объём до 3 000 см³,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "тавку. Боль типичная: посчитать утильсбор на авто 2026 \"на глаз\" и переплатить из-за одной лишней л.с. Н",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ого заголовка. Что уже в силе: ПП № 1713 от 01.11.2025 к № 1291 действует с 01.12.2025 и усиливает роль к",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "и коммерческий / перекупный сценарий. Возраст: до 3 лет или старше – от этого льготные коэффициенты 0,17",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": ". / 58,84 кВт. Не больше одного льготного ввоза в 12 месяцев. Не продавать раньше 12 месяцев с даты ТПО (тамож",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ка выбрал \"почти ту же\" Camry или Santa Fe мощнее 160 л.с.: мол, из Кореи и Японии утильсбор один. В бюд",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "ти в кВт из документов. Льгота физлица – ориентир 3 400 / 5 200 ₽ при личном пользовании, объёме до 3 000",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "из документов. Льгота физлица – ориентир 3 400 / 5 200 ₽ при личном пользовании, объёме до 3 000 см³ и м",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 000",
+      "kind": "large_number",
+      "context": "3 400 / 5 200 ₽ при личном пользовании, объёме до 3 000 см³ и мощности до 160 л.с. (117,68 кВт). До депози",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "20 000",
+      "kind": "large_number",
+      "context": "оформлении машины в России. Для легковых M1 база 20 000 ₽ умножается на коэффициент. Коэффициент зависит",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "161",
+      "kind": "large_number",
+      "context": "т до депозита. Не делать: надеяться на льготу при 161 л.с. Избегайте ошибок мощности, гибрида и \"продам",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "220",
+      "kind": "large_number",
+      "context": "ибрида и \"продам через полгода\" Например, баннер \"220 л.с.\" принимают за строку расчёта. В 2026 ориентир",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "елки из-за чужого заголовка. Что уже в силе: ПП № 1713 от 01.11.2025 к № 1291 действует с 01.12.2025 и ус",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "овка. Что уже в силе: ПП № 1713 от 01.11.2025 к № 1291 действует с 01.12.2025 и усиливает роль кВт. Переч",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10006",
+      "kind": "large_number",
+      "context": ".2026) и № 1713 от 01.11.2025, письмом ФНС СД-4-3/10006@ о мощности в кВт, сигналом Минпромторга через Ин",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

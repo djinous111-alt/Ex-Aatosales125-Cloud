@@ -6,6 +6,48 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261101-0937-publish-ssh-http-remotedisconnect-webfetch
+status: open
+run_date: 2026-11-01
+role: excalibur-blog-publish
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: publish
+
+### What went wrong
+- `memory/site.env.local` missing in Cloud workspace; only Cloud Secrets present. `paramiko` not installed in image until pip.
+- Schema JSON-LD still had `${ENV}` placeholders; publish script does not hydrate in-memory.
+- Local HTTP bootstrap trigger hit `RemoteDisconnected` after SSH upload of ~7.3MB PHP payload (known 120s/nginx class).
+- Slug `utilsbor-na-avto-2026` already LIVE as WP **3430** (same-slug intentional update, not foreign denylist).
+
+### How the agent recovered this run
+- Recreated gitignored `memory/site.env.local` from Cloud Secrets; mapped `SSH_ROOT=.` (login cwd); installed `paramiko`.
+- Hydrated schema placeholders for publish, then restored `${ENV}` placeholders for commit hygiene.
+- Set `wp_post_id=3430` so update targets same-slug LIVE post (denylist 4717/4711/4699/4687/4681/4675/4669/4663/3394 untouched).
+- Background urllib watcher fetched `FALLBACK_TRIGGER_URL` once → `memory/webfetch-response.txt`; publish verdict PASS (featured 4733; inline 4734/4736/4738); HEAD 200.
+- Ledger/log/result redacted to `${PUBLIC_SITE_URL}` before commit.
+
+### Durable fix needed before next run
+- Honor longer HTTP timeout env in `trigger_bootstrap_http` (still hardcoded 120s).
+- Hydrate `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}` inside publish payload builder without rewriting committed schema file.
+- Auto-create `memory/site.env.local` from process env when missing; map `SSH_PATH`→`SSH_ROOT` and prefer `.` when configured root ENOENT.
+- Ensure Cloud image includes `paramiko` via install script/Dockerfile.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/cloud-agent-install.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261101-0932-indexer-llms-site-base-commit-hygiene
 status: open
 run_date: 2026-11-01

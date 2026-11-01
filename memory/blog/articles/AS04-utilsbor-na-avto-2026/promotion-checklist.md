@@ -1,13 +1,13 @@
 # Promotion checklist — AS04 utilsbor-na-avto-2026
 
 Дата публикации: 2026-11-01  
-Live URL: /blog/utilsbor-na-avto-2026/
+Live URL: ${PUBLIC_SITE_URL}/2026/07/18/utilsbor-na-avto-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — HEAD 200; featured_media=4733; post=3430
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Считайте от статуса, возраста, объёма и мощности в кВт (порог 160 л.с.)
 • Цифру по лоту — в каталоге до депозита, не со скрина соседа
 
-Читать: /blog/utilsbor-na-avto-2026/
+Читать: ${PUBLIC_SITE_URL}/2026/07/18/utilsbor-na-avto-2026/
 ```
 
 ## Перелинковка

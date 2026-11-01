@@ -352,3 +352,37 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261102-2112-research-tech-markers-false-positive
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-research
+topic_id: AS14
+article_dir: memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks AS14 as `technical_topic=true` because TECH_MARKERS include bare substrings `ии` / `ai`.
+- Topic H1/slug contain «комплектации» (`ии`); lead field `reader_pain` also matches `ai` inside `pain`.
+- Auto China how-to then requires >=3 GitHub URLs even though the article is beginner checklist, not a developer topic.
+
+### How the agent recovered this run
+- Added brand-relevant GitHub evidence (openpilot J7 2026, open-ev-data tansuo_06/jaecoo_j7, omoda-jaecoo-ha, PHEV dashboard issue) plus jaecooforums docs.
+- Research-notes gate PASS with `technical_topic: true`, `github_urls: 4`.
+
+### Durable fix needed before next run
+- Replace bare short markers with token-boundary / word-boundary matching.
+- Exclude meta field labels (`reader_pain`, section titles) from the tech scan blob.
+- Do not treat RU auto words with `ии` (комплектации) as AI/tech topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

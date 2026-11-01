@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-02",
+    "today_ru": "02.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-04",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-02 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS14",
+    "priority": "P0",
+    "slug": "jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Jaecoo J7 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать jaecoo j7 из китая",
+    "secondary_queries": [
+      "jaecoo j7 комплектации",
+      "джейку j7 комплектации",
+      "jaecoo j7 из китая под заказ"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS14",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать jaecoo j7 из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать jaecoo j7 из китая ноябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать jaecoo j7 из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать jaecoo j7 из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать jaecoo j7 из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать jaecoo j7 из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "jaecoo j7 комплектации 2026",
+      "purpose": "вторичный запрос: jaecoo j7 комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "джейку j7 комплектации 2026",
+      "purpose": "вторичный запрос: джейку j7 комплектации"
+    },
+    {
+      "id": "secondary_3",
+      "query": "jaecoo j7 из китая под заказ 2026",
+      "purpose": "вторичный запрос: jaecoo j7 из китая под заказ"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Jaecoo J7 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS14-jaecoo-j7-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

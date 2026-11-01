@@ -65,7 +65,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `smoke: hydrate_env_placeholders + publish_http_timeout_seconds`
 - `doctor: paramiko available`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0932-indexer-llms-site-base-commit-hygiene
 status: fixed
@@ -112,7 +112,7 @@ files_changed:
 checks_run:
 - `llms --relative-urls smoke (no absolute hosts)`
 - `doctor: --relative-urls flag present`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0927-schema-secret-scanner-env-placeholders
 status: fixed
@@ -165,7 +165,7 @@ files_changed:
 checks_run:
 - `smoke hydrate_env_placeholders`
 - `rg placeholders guidance in schema skill`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0925-writer-human-voice-o-path-and-five-list-regex
 status: fixed
@@ -212,7 +212,7 @@ files_changed:
 checks_run:
 - `smoke resolve_gate_output + human_voice -o repo-relative`
 - `smoke exactly_five_lists counter == 2 for two 5-item ols`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0915-research-wordstat-totalcount-only
 status: fixed
@@ -253,7 +253,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg totalCount soft warning in research skill + pitfalls`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0918-research-commit-secret-screen
 status: fixed
@@ -297,7 +297,7 @@ files_changed:
 checks_run:
 - `smoke redact_secret_hosts`
 - `python3 -m py_compile scripts/excalibur_blog_research_start.py`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0916-research-gate-false-technical
 status: fixed
@@ -341,7 +341,7 @@ files_changed:
 checks_run:
 - `smoke AS04 is_technical_topic False`
 - `smoke MCP/API topic card still True`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0901-director-as-topic-regex-regression
 status: fixed
@@ -385,7 +385,7 @@ files_changed:
 - `scripts/excalibur_blog_utility_gate.py`
 checks_run:
 - `doctor: today/scout AS|B + AS* discovery PASS`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0901-director-llms-blog-path-alias
 status: fixed
@@ -423,7 +423,7 @@ files_changed:
 - `skills/indexer-excalibur-blog/SKILL.md`
 checks_run:
 - `doctor: llms generator supports --blog-path PASS`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -707,7 +707,7 @@ files_changed:
 - `.cursor/rules/excalibur-blog-orchestrator.mdc`
 checks_run:
 - `rg geo-qa generalPurpose fallback in AGENTS.md/pitfalls`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 ## INC-20261101-0919-geo-qa-utility-pain-outcome-policy-gap
 status: fixed
@@ -756,6 +756,6 @@ files_changed:
 checks_run:
 - `doctor editorial-policy pain/outcome pins PASS`
 - `smoke policy_min_int(0)`
-commit: pending-parent-commit
+commit: 40b7dbab
 
 Handled above; commit is pending Director review.

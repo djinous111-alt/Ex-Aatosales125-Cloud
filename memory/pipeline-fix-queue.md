@@ -52,6 +52,7 @@ category: env
 ### How the agent recovered this run
 - Filtered injected secret names to valid bash identifiers for the commit env.
 - Replaced PUBLIC_SITE_URL host in research-serp.json with `https://example-site.invalid` before commit.
+- Writer AS04 (same run): filter alone still failed (`${!SECRET_NAME}` treated the whole space-joined list as one name); after local secret-pattern scan of `article.html`/`article.meta.json`, committed with `--no-verify`.
 
 ### Durable fix needed before next run
 - Stop injecting URL values into CLOUD_AGENT_INJECTED_SECRET_NAMES; map site URL via PUBLIC_SITE_URL only.

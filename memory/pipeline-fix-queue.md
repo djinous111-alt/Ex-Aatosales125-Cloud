@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-2115-writer-editorial-pain-outcome-markers
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` after rebrand/sanitizer history.
+- `excalibur_blog_utility_gate.py` defaults `min_pain_markers=2` and `min_outcome_markers=3`, so empty lists make every article BLOCK even when the text is fine.
+- Same class of regression as prior AS02/AS10/AS12–AS14 writer/QA restores.
+
+### How the agent recovered this run
+- Restored marker lists from commit `8a4dd5db` into `memory/brief/editorial-policy.json` before final utility gate.
+- Article AS02 written and utility/html/human-voice gates PASS.
+
+### Durable fix needed before next run
+- Pin `pain_markers_ru` and `outcome_markers_ru` (and preferably `min_pain_markers` / `min_outcome_markers`) in editorial-policy so rebrand/sanitizer cannot wipe them.
+- Add doctor or fixer smoke that fails if those keys are missing.
+- Document in pitfalls: utility gate needs these lists or Writer/QA will keep restoring them ad hoc.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/fixer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261103-0003-director-as-topic-selection
 status: open
 run_date: 2026-11-03

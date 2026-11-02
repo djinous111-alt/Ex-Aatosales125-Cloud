@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-2147-publish-ssh-tcp22-timeout
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: env
+
+### What went wrong
+- Beget SSH hostname DNS resolves, but TCP:22 times out from Cloud (~25s TimeoutError).
+- `SSH_HOST_IP` unset; PUBLIC_SITE_URL HTTPS also times out (egress/firewall).
+- Publish preflight link-verify FAIL on indexer-added internal AS09 URL (site SSL handshake timeout); catalog soft_pass only covers catalog host, not public site internals.
+- Recurrence of prior AS02 publish SSH TCP/22 blocker pattern; no WP write this run.
+
+### How the agent recovered this run
+- Rebuilt gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (no quoted values).
+- Installed missing `paramiko` via pip workaround.
+- Ran `--env-check` (config PASS), `--dry-run` (payload PASS ~7.2MB).
+- Probed DNS/TCP/SSH explicitly; stopped on TCP timeout without inventing IP/creds or uploading bootstrap.
+- Set ledger `publish_blocked`; wrote `wp-publish-result.json` fail; denylist untouched.
+
+### Durable fix needed before next run
+- Restore Beget SSH TCP/22 reachability from Cloud egress, or set verified `SSH_HOST_IP` (human) after reachability check.
+- Optional: soft-pass public-site SSL/timeout for internal_relative checks (parity with `catalog_ssl`) so indexer links do not false-fail publish preflight when egress is flaky.
+- Keep `--env-check` from claiming connectivity; document that config PASS ≠ TCP PASS.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (env-check connectivity probe)
+- `scripts/excalibur_blog_link_verify.py` (`site_ssl` soft-pass)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- Cursor Dashboard Cloud Secrets (`SSH_HOST_IP` only after verified)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261102-2136-cover-mcp-kv-unavailable-kie-fallback
 status: open
 run_date: 2026-11-02

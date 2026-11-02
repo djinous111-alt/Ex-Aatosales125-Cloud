@@ -31,3 +31,20 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-11-03 — AS02 encar-na-russkom-kak-chitat
+
+- **verdict:** FAIL / ❌ PUBLISH BLOCKER
+- **post_id:** none (no WP write)
+- **permalink:** none
+- **featured_image:** none
+- **inline_images:** none
+- **schema_meta:** n/a
+- **env-check:** PASS (ALLOW=yes; SSH fields present; SSH_ROOT=.)
+- **dry-run:** PASS (~7.2MB PHP payload; slug/title OK)
+- **blocker:** SSH TCP:22 Connection timed out after ~25s (DNS OK; `SSH_HOST_IP` unset). PUBLIC HTTPS also timed out from Cloud.
+- **link-verify:** FAIL (internal AS09 site SSL handshake timeout; catalog soft_pass; Telegram 200)
+- **recovery:** no invented IP/creds; no bootstrap upload; denylist untouched (4758/4746/4740/3430/3394/4717/4711)
+- **ledger:** `publish_blocked`
+- **result:** `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20261102-2147-publish-ssh-tcp22-timeout`

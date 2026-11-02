@@ -1,0 +1,39 @@
+{
+  "verdict": "fail",
+  "status": "publish_blocked",
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "article_dir": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat",
+  "publish_date": "2026-11-03",
+  "post_id": null,
+  "permalink": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": null,
+  "blockers": [
+    "SSH TCP:22 Connection timed out (DNS OK; SSH_HOST_IP unset)",
+    "PUBLIC_SITE_URL HTTPS timeout from Cloud egress",
+    "link-verify FAIL on internal AS09 (site SSL handshake timeout); catalog soft_pass; Telegram 200"
+  ],
+  "env_check": {
+    "allow_publish": true,
+    "ssh_config": "present",
+    "ssh_root": "."
+  },
+  "dry_run": {
+    "ok": true,
+    "php_bytes": 7196048,
+    "slug": "encar-na-russkom-kak-chitat"
+  },
+  "denylist_untouched": [
+    4758,
+    4746,
+    4740,
+    3430,
+    3394,
+    4717,
+    4711
+  ],
+  "raw_output": "tcp22_fail TimeoutError; no bootstrap upload; no WP write",
+  "checked_at": "2026-11-02T21:48:32.517201+00:00"
+}

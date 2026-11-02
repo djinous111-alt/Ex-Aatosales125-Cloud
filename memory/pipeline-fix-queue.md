@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-0951-schema-git-commit-secret-env
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-schema
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of AS10 `schema.jsonld` failed in Cloud pre-commit: `invalid variable name` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` contain a non-bash-identifier token.
+- Same root cause as scout/writer incidents this run; `scripts/excalibur_git.sh` and `scripts/excalibur_blog_filter_commit_secret_env.sh` are still missing on this branch.
+
+### How the agent recovered this run
+- Filtered both secret-name env lists to `^[A-Za-z_][A-Za-z0-9_]*$` in the shell before commit; commit `085e11ee` succeeded.
+- Did not expand schema role into restoring durable scripts (deferred to fixer).
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` + `scripts/excalibur_blog_filter_commit_secret_env.sh` from prior AS11/AS14 fixer commits.
+- Document schema/cover/indexer agents to commit via `bash scripts/excalibur_git.sh commit`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing — recreate)
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (missing — recreate)
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261102-0942-geo-qa-catalog-dns-soft
 status: open
 run_date: 2026-11-02

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -13,6 +14,16 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
+
+# Env keys whose live values must not land in committed link-verify.json.
+_SECRET_URL_ENV_KEYS = (
+    "PUBLIC_SITE_URL",
+    "WP_HOME",
+    "WP_SITE_URL",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+)
 
 
 class LinkExtractor(HTMLParser):
@@ -119,10 +130,8 @@ def classify_link(href: str, site_base: str | None) -> str:
 
 def _env_site_hosts() -> set[str]:
     """Hosts from Cloud env CTA/site URLs — DNS can flake in agent egress."""
-    import os
-
     hosts: set[str] = set()
-    for key in ("CATALOG_URL", "PUBLIC_SITE_URL", "TELEGRAM_URL", "MAX_URL"):
+    for key in ("CATALOG_URL", "PUBLIC_SITE_URL", "TELEGRAM_URL", "MAX_URL", "WP_HOME", "WP_SITE_URL"):
         raw = (os.environ.get(key) or "").strip()
         if not raw:
             continue
@@ -160,6 +169,38 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
             "gaierror",
         )
     )
+
+
+def _env_url_replacements() -> list[tuple[str, str]]:
+    """Longest-first (base, ${ENV}) pairs for commit-safe report redaction."""
+    pairs: list[tuple[str, str]] = []
+    for key in _SECRET_URL_ENV_KEYS:
+        value = (os.environ.get(key) or "").strip().rstrip("/")
+        if not value or not value.startswith(("http://", "https://")):
+            continue
+        # Prefer canonical secret names in placeholders.
+        placeholder_key = {
+            "WP_HOME": "PUBLIC_SITE_URL",
+            "WP_SITE_URL": "PUBLIC_SITE_URL",
+        }.get(key, key)
+        pairs.append((value, f"${{{placeholder_key}}}"))
+    pairs.sort(key=lambda item: len(item[0]), reverse=True)
+    return pairs
+
+
+def redact_secret_urls(text: str) -> str:
+    """Replace live Cloud-secret host URLs with ${ENV} placeholders for git."""
+    out = text
+    for base, placeholder in _env_url_replacements():
+        if base in out:
+            out = out.replace(base, placeholder)
+    return out
+
+
+def commit_safe_report(report: dict[str, Any]) -> dict[str, Any]:
+    """Deep-copy report with secret host URLs replaced by env placeholders."""
+    raw = json.dumps(report, ensure_ascii=False)
+    return json.loads(redact_secret_urls(raw))
 
 
 def verify_article(
@@ -244,10 +285,13 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
+    # Console may show live check targets; committed JSON is redacted by default.
+    safe_report = commit_safe_report(report)
     text = json.dumps(report, ensure_ascii=False, indent=2)
+    safe_text = json.dumps(safe_report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(text + "\n", encoding="utf-8")
+        args.output.write_text(safe_text + "\n", encoding="utf-8")
     print(text)
     return 0 if report["verdict"] == "pass" else 1
 

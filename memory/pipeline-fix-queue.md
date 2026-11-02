@@ -569,3 +569,89 @@ category: handoff
 
 ### Fixer resolution
 - pending
+
+## INC-20261102-1738-cover-mcp-kv-unavailable-kie-fallback
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- Namespace `MCP-KV` returned namespaceStatus=error (live tool discovery failed); sync `gpt-image-2` MCP unavailable.
+
+### How the agent recovered this run
+- Used durable Kie async path: `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → poll recordInfo) with ONE i2i job from `cover/quad-mcp-batch.json`.
+
+### Durable fix needed before next run
+- Keep cover skill / Cloud runbook MCP-KV→Kie-first when discovery fails; ensure MCP-KV server health is monitored.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- MCP-KV Cursor integration / secrets
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1738-cover-hero-wp-unreachable-kie-upload
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- `reference_url_hosted` WP media timed out from Cloud; `--force` catbox returned HTTP 412; 0x0 returned HTTP 503.
+
+### How the agent recovered this run
+- Uploaded local `memory/cover/assets/blog-hero-reference.png` via Kie `file-base64-upload` (redpanda tempfile) and patched `jobs[0].mcp_args.input_urls` before Kie createTask.
+
+### Durable fix needed before next run
+- Add helper script `excalibur_blog_hero_kie_upload.py` (or extend hero_reference_url.py) for Kie file-base64 when WP/catbox/0x0 fail; allow tempfile host in prompt batch when WP unreachable; prefer real face media URL over winter-cars blueprint PNG.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (REQUIRED_REFERENCE_HOST gate)
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1743-cover-corner-brand-pil-stamp
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: qa
+
+### What went wrong
+- Generated cover corner brand risked Telegram-style `avtosales125` / missing hyphenated catalog domain.
+
+### How the agent recovered this run
+- PIL overlay stamp `avto-sales125.ru` on `cover/cover.png` after split (no second image MCP).
+
+### Durable fix needed before next run
+- Ship `scripts/excalibur_blog_cover_corner_brand.py` called from quad_apply; reinforce prompt corner brand lock.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `memory/cover/cover-design-code.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

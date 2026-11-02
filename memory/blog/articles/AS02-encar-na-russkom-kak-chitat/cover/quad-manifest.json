@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый перевод — и кот в мешке?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с телефоном Encar и плашкой «кот в мешке», Владивосток",
+      "scene_hint": "reference face + glasses ONLY; CHANGE outfit: navy puffer jacket over charcoal turtleneck, neat casual for Encar/auction reading, Vladivostok cool weather, NO cap NO hood NO headphones; action selfie holding phone with fake Encar card UI (Korean labels + browser translate overlay «без аварий» highlighted); torn paper hook plaque with yellow marker on «кот в мешке»; sticky note «жиза»; shocked cat meme cutout; scotch tape; corner brand avto-sales125.ru NOT Telegram; NEVER Wordstat NEVER Metrika",
+      "meme_caption_ru": "Перевод ≠ проверка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте официальный Encar, а не посредника из выдачи",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Split phone UI: left green check encar.com address bar + lot card; right red X clone domains like trust-encar.ru / encar-russia.ru with sticky «не официал»; tape corner; NO hero face; NO Wordstat",
+      "alt": "Сравнение UI: официальный encar.com против клонов из выдачи"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выпишите пять полей до любого чата о депозите",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Checklist board / table UI with 5 rows: VIN, цена манвон, пробег км, General vs Lease/Rental, Performance Check дата; marker arrow «до депозита»; mini sticky «выпиши»; NO hero; NO SEO analytics",
+      "alt": "Таблица-чеклист пяти полей карточки Encar до депозита"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как читать Performance Check: коды X и W на схеме",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Body diagram workflow: panels with codes X=замена W=правка; force elements (лонжерон/стойка) marked STOP red; cosmetic panels yellow caution; flood/fire flags; arrow flow «схема → решение»; tape + sticky «смотри силовые»; NO hero face",
+      "alt": "Схема Performance Check: коды X/W на кузове и стоп по силовым"
+    }
+  }
+}

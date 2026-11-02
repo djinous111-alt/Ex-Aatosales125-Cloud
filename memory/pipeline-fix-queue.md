@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-0911-scout-git-commit-secret-env
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit hook: `invalid variable name` when Cloud env lists `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` are present.
+- `scripts/excalibur_git.sh` (durable filter from prior AS14 fixer) is missing on this branch/main.
+
+### How the agent recovered this run
+- Unset the two `CLOUD_AGENT_*_SECRET_NAMES` vars for the commit shell, then recommitted AS10 scout files successfully.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` (filter invalid secret-name env) on this repo/branch and document scout/director to use it for commits.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing — recreate)
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud pre-commit hook interaction with `CLOUD_AGENT_*_SECRET_NAMES`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261102-0910-scout-wordstat-mcp-kv-unavailable
 status: open
 run_date: 2026-11-02

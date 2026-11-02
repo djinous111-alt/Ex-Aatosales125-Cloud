@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "пектора. Слово Hybrid звучит умно, но с 9 августа 2023 полноценный гибрид из Японии в РФ прямым маршрутом",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "Третье поколение в продажах в Японии с 23 августа 2022; длина около 4260 мм, ширина 1695 мм. Мы в Авто-С",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2015",
+      "kind": "date_or_year",
+      "context": "одов. Поколение Код кузова Мотор Что помнить 2-е (2015–2022) NSP170G Бензин Чаще проще по прямому маршру",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "1.9 л) – это пресс METI, не байка чата. Практика 2026: бензин до 1.9 л обычно идёт прямее во Владивосто",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": ", не через табличку. Мощность и возрастное окно 3–5 лет проверены как рабочий фильтр. Аукционный лист пер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4260",
+      "kind": "large_number",
+      "context": "продажах в Японии с 23 августа 2022; длина около 4260 мм, ширина 1695 мм. Мы в Авто-Сейлс во Владивосток",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1695",
+      "kind": "large_number",
+      "context": "ии с 23 августа 2022; длина около 4260 мм, ширина 1695 мм. Мы в Авто-Сейлс во Владивостоке ведём такие за",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "120",
+      "kind": "large_number",
+      "context": "е важна батарея 3-е (с 2022) MXPC10G Бензин 1.5 / 120 PS Прямой контур логистики чаще доступен 3-е MXPL1",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "льготного контура физлица смотрите ориентир около 160 л.с. (117,68 кВт). У смешанных гибридов для утильс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

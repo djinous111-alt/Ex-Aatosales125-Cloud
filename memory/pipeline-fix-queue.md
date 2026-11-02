@@ -6,6 +6,101 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-0930-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` unavailable in this Cloud run; Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Repeat of prior AS10 (Haval) pattern; durable docs from earlier fixer did not restore typed Task registration in Cloud API.
+
+### How the agent recovered this run
+- Executed GEO QA role via generalPurpose contract; ran all gates; wrote `article-qa.md` FAIL + handoff block.
+
+### Durable fix needed before next run
+- Ensure Cloud Task type `excalibur-blog-geo-qa` is registered/accepted, or keep explicit generalPurpose fallback wording in Director/AGENTS without relying on typed Task alone.
+- Confirm `.cursor/agents/excalibur-blog-geo-qa.md` remains the single contract for fallback prompts.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-0930-geo-qa-utility-pain-outcome-policy
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` requires `pain_markers_ru` / `outcome_markers_ru` with defaults min 2 / 3, but `memory/brief/editorial-policy.json` had neither list → every article got false BLOCK on pain/outcome=0 (AS08/AS09 also BLOCK on re-run).
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` aligned with `excalibur_blog_human_voice_gate.py` marker sets.
+- Re-ran utility: AS08/AS09 PASS; AS10 only remaining utility error = action_markers 4 < 8 (legitimate writer FIX).
+
+### Durable fix needed before next run
+- Keep policy lists in sync with human-voice markers; add regression test or doctor check that policy defines non-empty pain/outcome lists when mins > 0.
+- Optionally skip pain/outcome errors when lists are empty (defensive).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-0930-geo-qa-writer-literal-redacted-href
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Writer committed `article.html` with three literal `href="[REDACTED]"` and zero `https` URLs → link-verify FAIL.
+- Likely secret-scrubbing during writer write replaced live `CATALOG_URL`/`TELEGRAM_URL` inside the HTML file.
+
+### How the agent recovered this run
+- Did not rewrite article (writer FIX cycle); documented exact FIX in `article-qa.md`; noted DNS for catalog host also fails in this env.
+
+### Durable fix needed before next run
+- Writer skill: inject CTA URLs from env at write time without embedding secret-looking strings that get scrubbed into literal `[REDACTED]`; verify with `python3 -c` https-count before commit.
+- Document pitfall: never leave placeholder `[REDACTED]` in published HTML.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261102-0924-writer-git-commit-secret-env
 status: open
 run_date: 2026-11-02

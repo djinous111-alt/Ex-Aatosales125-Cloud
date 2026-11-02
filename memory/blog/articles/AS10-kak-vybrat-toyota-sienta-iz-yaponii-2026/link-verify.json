@@ -1,0 +1,18 @@
+{
+  "source": "memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026/article.html",
+  "total_links": 1,
+  "failed_count": 1,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "https://avtosales125.ru/[REDACTED]",
+      "status": null,
+      "ok": false,
+      "method": "GET",
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://avtosales125.ru/[REDACTED]"
+    }
+  ]
+}

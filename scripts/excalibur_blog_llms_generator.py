@@ -105,15 +105,26 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
-    ap.add_argument("--blog-dir", type=Path, default=None)
+    ap.add_argument("--blog-dir", type=Path, default=None, help="Path to memory/blog/articles")
+    ap.add_argument(
+        "--blog-path",
+        type=Path,
+        default=None,
+        help="Alias for --blog-dir (doctor/indexer copy-paste compatibility)",
+    )
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="",
+        help='Public site base. Prefer "" so committed llms*.txt keep relative /blog/<slug>/ URLs',
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
     root = project_root()
-    blog_dir = args.blog_dir or root / "memory/blog/articles"
+    blog_dir = args.blog_dir or args.blog_path or root / "memory/blog/articles"
     if not blog_dir.is_absolute():
         blog_dir = root / blog_dir
 

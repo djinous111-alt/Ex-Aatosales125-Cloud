@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/"
+      },
+      "headline": "Encar на русском: как читать объявления и не купить \"кота в мешке\"",
+      "description": "Encar на русском: перевод браузера на encar.com, манвоны, 무사고, схема X/W и чеклист до депозита. Гайд Авто-Сейлс для новичков.",
+      "datePublished": "2026-11-03",
+      "dateModified": "2026-11-03",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${CATALOG_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${CATALOG_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "encar на русском",
+        "как читать encar",
+        "проверка авто корея",
+        "схема кузова encar",
+        "манвоны encar"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Есть ли официальный Encar на русском?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полноценной русской версии encar.com нет. Используйте перевод браузера на самом encar.com или global.encar.com для экспортного контура. Сайты из выдачи \"encar на русском\" чаще посредники – читайте карточку в первоисточнике до любой предоплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что значит 무사고 / \"без аварий\" на Encar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это про отсутствие ремонта силового каркаса. Простой ремонт навесных панелей при ярлыке \"без аварий\" допустим по корейским правилам. Проверьте схему кузова: смотрите X и W на каркасе, а не только слоган в шапке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить пробегу в Encar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте пробег в объявлении, в листе Performance Check и в страховой сводке / CarHistory. Расхождение или пометки проката/коммерции – повод отложить лот. Один красивый пробег в шапке ещё не доказательство."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое Trust Encar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В русскоязычном поиске Trust Encar часто означает компанию-посредника и логистику, а не кнопку внутри encar.com. Не путайте его с CarHistory (KIDI) и с бейджем Encar Diagnosis. Требуйте VIN и первоисточники отчётов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Encar Diagnosis отличается от обязательного листа?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обязательный лист 성능·상태점검기록부 пишет инспекция. Diagnosis – отдельный бейдж дополнительной проверки каркаса от Encar. Бейдж полезен, но не заменяет чтение схемы и живой осмотр до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда уже можно вносить депозит?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только после мини-чеклиста: скрин карточки, VIN, свежая дата листа, схема без X/W на каркасе, понятная страховая сводка. Если флаги есть или термины всё ещё сложно – передайте лот подборщику Авто-Сейлс через каталог или Telegram, не торопите перевод."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#howto",
+      "name": "Как читать Encar на русском и собрать чеклист до депозита",
+      "description": "Пошаговое чтение карточки encar.com через перевод браузера: манвоны, VIN, схема X/W, страховая сводка и решение по депозиту за 15–20 минут.",
+      "totalTime": "PT20M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Браузер с переводом страницы (Chrome / Яндекс.Браузер)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Карточка encar.com: Performance Check и страховая сводка"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Ориентир CarHistory (KIDI) по VIN"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Ссылка на лот encar.com и полный VIN"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Мини-чеклист: цена, схема X/W, страховая сводка, красные флаги"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Откройте карточку на encar.com и включите перевод страницы",
+          "text": "Откройте карточку на encar.com и включите перевод страницы.",
+          "url": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#откройте-encar-com-а-не-чужой-сайт-из-выдачи"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выпишите цену в вонах, год/месяц, пробег, топливо, объём, коробку, цвет, номер и VIN",
+          "text": "Выпишите цену в вонах, год/месяц, пробег, топливо, объём, коробку, цвет, номер и VIN.",
+          "url": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#выпишите-цену-год-и-vin-до-восторга-от-фото"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Откройте лист проверки: сверьте VIN и дату осмотра",
+          "text": "Откройте лист проверки: сверьте VIN и дату осмотра.",
+          "url": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#прочитайте-схему-кузова-без-аварий-не-идеал"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "На схеме сначала отметьте силовые зоны, потом навесные; запомните X и W",
+          "text": "На схеме сначала отметьте силовые зоны, потом навесные; запомните X и W.",
+          "url": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#прочитайте-схему-кузова-без-аварий-не-идеал"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Прочитайте страховую сводку; при доступном VIN сверьте ориентир CarHistory",
+          "text": "Прочитайте страховую сводку; при доступном VIN сверьте ориентир CarHistory.",
+          "url": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#сверьте-пробег-прокат-и-страховую-сводку"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Отметьте красные флаги: отказ в VIN, X/W на каркасе, 침수/화재 (утопленник/пожар), такси/пр…",
+          "text": "Отметьте красные флаги: отказ в VIN, X/W на каркасе, 침수/화재 (утопленник/пожар), такси/прокат без адекватной цены, старый лист, противоречие \"무사고\" и крупных выплат.",
+          "url": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#соберите-чеклист-до-депозита-за-15-20-минут"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Только после этого решайте: копать дальше, отложить или передать лот подборщику",
+          "text": "Только после этого решайте: копать дальше, отложить или передать лот подборщику.",
+          "url": "${PUBLIC_SITE_URL}/encar-na-russkom-kak-chitat/#когда-отдать-проверку-подборщику-во-владивостоке"
+        }
+      ]
+    }
+  ]
+}

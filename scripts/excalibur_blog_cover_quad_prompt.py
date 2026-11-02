@@ -12,6 +12,13 @@ from pathlib import Path
 
 MAX_MCP_PROMPT_CHARS = 3500
 REQUIRED_REFERENCE_HOST = "avtosales125.ru"
+# When WP media is unreachable from Cloud egress, hero_reference_url may host
+# the face on Kie tempfile / redpanda upload CDN for a single i2i job.
+ALLOWED_FALLBACK_REFERENCE_HOST_SUFFIXES = (
+    "tempfile.redpandaai.co",
+    "redpandaai.co",
+    "kieai.redpandaai.co",
+)
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
@@ -48,10 +55,21 @@ def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
 
 
 def validate_reference_url(ref_url: str) -> bool:
-    if REQUIRED_REFERENCE_HOST in ref_url:
+    text = (ref_url or "").strip()
+    if not text.startswith(("http://", "https://")):
+        print(
+            f"❌ COVER HERO BLOCKER: reference_url_hosted must be https URL, got: {ref_url}",
+            file=sys.stderr,
+        )
+        return False
+    if REQUIRED_REFERENCE_HOST in text:
+        return True
+    lower = text.lower()
+    if any(host in lower for host in ALLOWED_FALLBACK_REFERENCE_HOST_SUFFIXES):
         return True
     print(
-        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} WordPress media URL, got: {ref_url}",
+        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} "
+        f"WordPress media URL or Kie tempfile fallback ({', '.join(ALLOWED_FALLBACK_REFERENCE_HOST_SUFFIXES)}), got: {ref_url}",
         file=sys.stderr,
     )
     return False
@@ -69,6 +87,21 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def outfit_lock_line(hero: dict, cover: dict) -> str:
+    """Build compact outfit guidance from blog-hero.json — never hardcode white hoodie."""
+    # Keep short: full outfit_rule blows the 3500 MCP prompt budget.
+    outfit_rule = compact(hero.get("outfit_rule") or "", 120)
+    parts = [
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe.",
+        "Outfit lock: match scene WEATHER+TOPIC (blog-hero outfit_rule); do not copy reference clothes;",
+        "NO default white hoodie; NO cap/hood; no headphones/headset/earbuds;",
+        "Vary pose, gesture, angle, expression, props every cover.",
+    ]
+    if outfit_rule:
+        parts.append(f"Rule: {outfit_rule}")
+    return " ".join(parts)
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -77,6 +110,8 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
 
     cover = slot("cover")
     i1, i2, i3 = slot("inline_1"), slot("inline_2"), slot("inline_3")
+    corner = hero.get("cover_corner_brand") or {}
+    corner_text = compact(corner.get("text") or "avto-sales125.ru", 40)
 
     lines = [
         "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine/trash-design: torn paper, scotch tape, pink notes, marker arrows, fake RU UI screenshots, meme cutouts. DESIGN.md-inspired bold readable Cyrillic; rotate hot accents (hot pink/purple/blue/orange); keep stickers/memes/collage; no price badges. Not corporate, not stock.",
@@ -86,15 +121,15 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_lock_line(hero, cover),
         "",
-        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
+        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts; subtle corner catalog brand "{corner_text}" (NOT Telegram).',
         "",
         f"Top-right inline: {inline_panel_prompt(i1, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         f"Bottom-left inline: {inline_panel_prompt(i2, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         f"Bottom-right inline: {inline_panel_prompt(i3, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         "",
-        "Inline panels must NOT be plain whiteboards or clean SaaS slides. Negative: beige/cream/off-white paper background, gray background, gradients, grunge background, headphones, headset, earbuds, English/Latin UI, watermark, logo, vertical 9:16, corporate stock banner, unreadable text, extra faces on inline panels.",
+        "Inline panels must NOT be plain whiteboards or clean SaaS slides. Negative: beige/cream/off-white paper background, gray background, gradients, grunge background, headphones, headset, earbuds, English/Latin UI, watermark, logo, vertical 9:16, corporate stock banner, unreadable text, extra faces on inline panels, white hoodie default.",
     ]
     return "\n".join(line for line in lines if line)
 

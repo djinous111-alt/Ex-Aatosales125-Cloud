@@ -38,7 +38,9 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 ## Обязательное использование Yandex Wordstat MCP и WebSearch Курсора
 
 1. **Анализ спроса через Wordstat API:**
-  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
+  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` / `MCP-KV` для анализа спроса:
+  - Сначала `GetDynamicTools` для namespace. Если `namespaceStatus: error` / tools empty → **не** invent impressions.
+    Запиши `WORDSTAT UNAVAILABLE` + ссылку на OAuth refresh и продолжай deep research через WebSearch/WebFetch.
   - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
@@ -61,6 +63,10 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. **Gate quirks (`excalibur_blog_research_notes_gate.py`):**
+   - Source table: предпочтительно `accessed_at: YYYY-MM-DD` (≥5) **или** ISO-дата текущего дня в URL-строках таблицы.
+   - `## pain_solution_map`: достаточно ≥3 data-rows markdown-таблицы; literals `pain|solution|result|боль|решение|результат` желательны, но не обязательны в каждой клетке после section-parse fix.
+   - Запрещено выдумывать Wordstat monthly impressions при UNAVAILABLE/auth warning.
 
 ## Blockers
 

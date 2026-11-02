@@ -7,22 +7,31 @@ Excalibur BLOG готовит артефакты локально; публик�
 - `article.html`, `article.meta.json`, `article-qa.md` (verdict PASS)
 - `schema.jsonld`
 - `cover/cover.png` + `cover-registry.json` (alt)
-- `link-verify.json` (verdict pass)
-- `memory/site.env.local` — FTP + `FTP_ROOT` (корень WP, где `wp-load.php`) + `PUBLIC_SITE_URL` + `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`
+- `link-verify.json` (verdict pass; catalog DNS soft-pass allowed)
+- Publish transport: **SSH** (`SSH_HOST` / optional `SSH_HOST_IP`, `SSH_USER`, `SSH_PASS`/`SSH_PASSWORD`, `SSH_ROOT` or `SSH_PATH`)
+- `PUBLIC_SITE_URL` + `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`
+- `paramiko` installed (pinned via `requirements.txt` / cloud-agent-install)
 
 ## Скрипт
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
-  memory/blog/articles/B01-slug/article.html \
-  -o memory/blog/articles/B01-slug/link-verify.json \
-  --site-base https://avtosales125.ru
+python3 scripts/excalibur_blog_link_verify.py \
+  memory/blog/articles/AS02-slug/article.html \
+  -o memory/blog/articles/AS02-slug/link-verify.json \
+  --site-base "${PUBLIC_SITE_URL}"
 
-python scripts/excalibur_blog_wp_publish.py \
-  --article-dir memory/blog/articles/B01-slug
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+python3 scripts/excalibur_blog_wp_publish.py \
+  --article-dir memory/blog/articles/AS02-slug \
+  --dry-run
+python3 scripts/excalibur_blog_wp_publish.py \
+  --article-dir memory/blog/articles/AS02-slug
 ```
 
-`--dry-run` — проверка payload без FTP.
+`--env-check` probes SSH DNS (`getaddrinfo`) / `SSH_HOST_IP` and `paramiko` without printing secrets.
+If DNS fails and `SSH_HOST_IP` is unset → publish blocker (human restores Beget DNS or adds IP secret with TCP/22).
+Never use `PUBLIC_SITE_URL` resolved IP as SSH fallback.
+`--dry-run` — проверка payload без LIVE write.
 
 ## Что делает publish
 

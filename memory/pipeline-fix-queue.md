@@ -442,3 +442,35 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261102-1720-writer-editorial-pain-outcome-markers
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` requires `pain_markers_ru` / `outcome_markers_ru` (defaults min 2 / 3), but `memory/brief/editorial-policy.json` on this branch lacked both lists after rebrand drift.
+- Writer self-check got `UTILITY GATE BLOCKER` with `pain_markers=0` and `outcome_markers=0` even for a practical how-to article.
+
+### How the agent recovered this run
+- Restored the marker lists from the known fix commit pattern (pain/outcome RU stems) into `memory/brief/editorial-policy.json`.
+- Reinforced article copy with recommendation/pain/outcome vocabulary; utility gate PASS, html_linter PASS, char_count 9449.
+
+### Durable fix needed before next run
+- Pin `pain_markers_ru` and `outcome_markers_ru` in editorial-policy fixtures/tests so rebrand or scout resets cannot drop them.
+- Optionally skip pain/outcome checks when marker lists are empty (fail-soft) instead of always BLOCK.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

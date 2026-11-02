@@ -59,7 +59,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → dns resolved, tcp22 timeout / missing=ssh_tcp22
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: pending
+commit: cb2ae65b
 reason:
 - Cloud egress cannot open Beget TCP/22; code cannot invent host IP or open firewall.
 needed_decision_or_secret:
@@ -106,7 +106,7 @@ files_changed:
 checks_run:
 - `rg` Kie-first / MCP-KV fallback in cover skill
 - doctor cover tempfile pin OK
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261102-2136-cover-hero-wp-unreachable-kie-upload
 status: fixed
@@ -154,7 +154,7 @@ files_changed:
 checks_run:
 - validate_reference_url unit: WP + tempfile OK, foreign host FAIL
 - doctor pins Kie file-base64 + tempfile hosts
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-2123-geo-qa-catalog-softpass-regression
 status: fixed
@@ -202,7 +202,7 @@ files_changed:
 checks_run:
 - doctor link_verify pins OK
 - fixer regression smoke link_verify soft-pass pin OK
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-2123-geo-qa-insight-tldr-label
 status: fixed
@@ -247,7 +247,7 @@ files_changed:
 checks_run:
 - doctor human_voice TL;DR ban pin
 - smoke human_voice TL;DR ban
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-2123-geo-qa-typed-task-unavailable
 status: fixed
@@ -288,7 +288,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose / geo-qa typed caveat in director + task-map
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-2116-writer-pre-commit-hook-invalid-var
 status: fixed
@@ -331,7 +331,7 @@ files_changed:
 checks_run:
 - filter smoke drops URL-like tokens from CLOUD_AGENT_INJECTED_SECRET_NAMES
 - doctor pins git.sh + filter script
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-2115-writer-editorial-pain-outcome-markers
 status: fixed
@@ -378,7 +378,7 @@ files_changed:
 checks_run:
 - doctor markers pins OK
 - smoke editorial markers pinned
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-0003-director-as-topic-selection
 status: fixed
@@ -424,7 +424,7 @@ checks_run:
 - today.py TOPIC_SELECTION=ready with AS*
 - scout_helper pool>0
 - smoke AS|B OK
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-0003-director-llms-blog-path
 status: fixed
@@ -464,7 +464,7 @@ files_changed:
 checks_run:
 - `--help` shows --blog-path
 - doctor llms --blog-path OK
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-2108-research-mcp-kv-wordstat-down
 status: fixed
@@ -509,7 +509,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` WORDSTAT UNAVAILABLE / discovery in research skill
-commit: pending
+commit: cb2ae65b
 
 ## INC-20261103-2108-research-notes-gate-tech-markers
 status: fixed
@@ -550,7 +550,7 @@ files_changed:
 checks_run:
 - unit: reader_pain «боль» → technical=False; MCP/AI topic → True
 - doctor _tech_marker_hit pin
-commit: pending
+commit: cb2ae65b
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

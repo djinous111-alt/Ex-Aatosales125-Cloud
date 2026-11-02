@@ -23,10 +23,11 @@
    - `title_aeo`: 35–90 симв, сформулирован как вопрос ИИ-поисковику (начинается с "Как", "Что", "Почему" или содержит "?").
    - `description_seo`: 100–180 симв.
 10. Подзаголовки H2 должны начинаться с **глаголов действия** (создайте, настройте, проверьте) или содержать **маркеры действия** (как, чеклист, сравнение, выбор, пошагово). Минимум 3 H2 должны быть активными.
-11. **RSS И ДЗЕН-СОВМЕСТИМОСТЬ (КРИТИЧЕСКИ):** Тело статьи `article.html` должно быть чистым, семантическим HTML без JS-кнопок, инлайновых стилей `style="..."` или кастомных тегов. Выжимки TL;DR оборачивай строго в тег `<blockquote>` (он нативно рендерится Дзеном как цитата), а блоки кода/JSON — строго в `<pre><code>код_здесь</code></pre>` без дополнительных кастомных элементов.
-12. **СТРУКТУРНЫЕ ЭЛЕМЕНТЫ (TL;DR, EEAT — без оглавления):** 
-    - Сразу после Lead-абзаца вставляй блок `<blockquote>` с выжимкой ключевых инсайтов (**AEO TL;DR Box**).
-    - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.
+11. **RSS И ДЗЕН-СОВМЕСТИМОСТЬ (КРИТИЧЕСКИ):** Тело статьи `article.html` должно быть чистым, семантическим HTML без JS-кнопок, инлайновых стилей `style="..."` или кастомных тегов. Инсайт-выжимку оборачивай строго в тег `<blockquote>` (Дзен рендерит как цитату). Код/шаблоны — whitelist-safe (`<blockquote><p>...<br>...</p></blockquote>` / table / list), не `<pre><code>` пока linter не расширен.
+12. **СТРУКТУРНЫЕ ЭЛЕМЕНТЫ (инсайт-блок, EEAT — без оглавления):** 
+    - Сразу после Lead-абзаца вставляй блок `<blockquote>` с выжимкой (**AEO insight box**) и **тематическим** ярлыком (`Инсайт до депозита:`, …).
+    - **Запрещены** шаблонные ярлыки `TL;DR` / `Быстрый инсайт` (GEO QA + human-voice).
+    - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после инсайт-блока. После blockquote идёт контекстный `<p>`, затем первый `<h2>`.
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
 
@@ -37,10 +38,29 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## Editorial markers (utility selfcheck)
+
+Перед `excalibur_blog_utility_gate.py` проверь `memory/brief/editorial-policy.json`:
+
+- есть непустые `pain_markers_ru` / `outcome_markers_ru` (≥5 каждый);
+- `article_required_signals.min_pain_markers` / `min_outcome_markers`;
+- `_markers_pinned: true` (doctor FAIL если pin стёрт rebrand/sync).
+
+Если markers wipe'нуты — восстанови pin из known-good utility policy **до** selfcheck,
+не правь статью под пустые списки.
+
+## CTA URLs (secret-scan safe)
+
+- Вставляй `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` из env в `href` как живые `https://…`.
+- **Запрещено** оставлять literal `href="[REDACTED]"` / ноль `https` URL в `article.html` (secret scrub → QA FAIL).
+- Перед commit: `python3 -c "import pathlib; t=pathlib.Path('…/article.html').read_text(); assert t.count('https://')>=1 and '[REDACTED]' not in t"`.
+- Git commits: `bash scripts/excalibur_git.sh commit …` (фильтр `CLOUD_AGENT_*_SECRET_NAMES`).
+
 ## Blockers
 
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- literal `[REDACTED]` в CTA href
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

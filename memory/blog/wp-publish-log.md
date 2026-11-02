@@ -6,6 +6,20 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 
 Лог публикаций начинается с нуля после перенастройки под AVTO SALES (2026-07-17).
 
+## 2026-11-02 — AS10 kak-vybrat-toyota-sienta-iz-yaponii-2026
+
+- **verdict:** FAIL / ❌ PUBLISH BLOCKER
+- **post_id:** (none — not published)
+- **permalink:** (none)
+- **featured_image / inline_images / schema_meta:** not uploaded
+- **slug:** `kak-vybrat-toyota-sienta-iz-yaponii-2026` (NEW; denylist-safe — did not touch WP 4711 Haval M6)
+- **preflight:** link-verify pass; env-check allow=true; dry-run PHP ~6324760 bytes; `wp_post_id` absent in meta
+- **method attempted:** SSH bootstrap only (`SSH_ROOT=.`); paramiko installed via pip workaround
+- **error:** `socket.gaierror` resolving `SSH_HOST` (`*.beget.tech`) — empty/SERVFAIL A globally (check-host empty A); site IP has no :22
+- **ledger:** left `in_progress` (not marked published)
+- **result:** `memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20261102-1035-publish-ssh-host-dns-empty-as10`
+
 ## 2026-07-17 — AS08 samye-komfortnye-avto-myagkaya-podveska-2026
 
 - **verdict:** PASS

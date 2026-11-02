@@ -40,9 +40,10 @@ Append new Topic Card to blog-topics.md
 * Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
+Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` / `MCP-KV`.
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+* **MCP-KV unavailable / namespaceStatus:error:** продолжай через WebSearch 2026 evidence + LSI; в notes карточки явно `Wordstat unavailable`; **не выдумывай** точные показы.
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
@@ -75,9 +76,19 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
 
+Topic IDs: `AS##` (AVTO SALES) или `B##` (legacy). Helper `--suggest-next` предпочитает
+следующий `AS` когда пул уже AS*. Commits только через:
+
+```bash
+bash scripts/excalibur_git.sh commit -m "Scout ASxx: ..."
+```
+
+`excalibur_git.sh` фильтрует `CLOUD_AGENT_INJECTED_SECRET_NAMES` до bash-идентификаторов
+(иначе pre-commit падает на `invalid variable name`, если в списке оказался URL).
+
 ---
 
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
-* Выдумывание цифр спроса без вызова Wordstat API.
+* Выдумывание цифр спроса без вызова Wordstat API (или без явной пометки Wordstat unavailable).

@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS10 — Toyota Sienta из Японии
+
+- **priority:** P0
+- **slug:** kak-vybrat-toyota-sienta-iz-yaponii-2026
+- **h1:** Как выбрать Toyota Sienta из Японии: бензин, гибрид и цена под ключ в 2026
+- **primary_query:** как выбрать toyota sienta из японии
+- **secondary_queries:** toyota sienta под ключ, toyota sienta из японии цена, toyota sienta бензин или гибрид, toyota sienta или honda freed
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Sienta: семья, детские кресла, город и парковка
+  2. Бензин или гибрид: прямой маршрут из Японии vs дольше/дороже
+  3. Что смотреть в аукционном листе до ставки (оценка, пробег, комплектация, 5/7 мест)
+  4. Из чего складывается цена «под ключ» во Владивостоке без магических цифр
+  5. Сравнение с ближайшими альтернативами (Freed / компактвэны) — таблица выбора
+  6. Чек-лист перед депозитом: год 3–5 лет, мощность ≤160 л.с., руль, документы
+- **faq_hints:** сколько roughly ждать бензиновую Sienta до Владивостока; можно ли везти гибрид Sienta напрямую; чем Sienta отличается от Freed для семьи с детьми; что проверить в листе до оплаты
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** семейный компактвэн Toyota Sienta у причала Владивостока, сдвижная дверь приоткрыта, герой Авто-Сейлс с планшетом-расчётом «под ключ», плашка без конкретных сумм
+- **notes:** Wordstat MCP-KV unavailable this run — demand via WebSearch 2026 (активные how-to/сравнения Sienta под ключ, бензин vs гибрид, конкуренция с Freed). LIVE WP historically used AS10 for Haval M6 — publish only new slug, do not overwrite post 4711. Alts deferred: Arrizo 8, GAC GS3, Hongqi HS5. Avoid Jaecoo/Tiggo/Jetour/Omoda denylist.

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1284,
+      725
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 725,
+        "end": 750
+      },
+      "v_gutter_px": {
+        "start": 1284,
+        "end": 1302
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1284,
+          "bottom": 725
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1284,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у компактвэна Toyota Sienta у причала Владивостока с планшетом сметы под ключ и плашкой про Hybrid",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1302,
+          "top": 8,
+          "right": 2560,
+          "bottom": 716
+        },
+        "raw_box_px": {
+          "left": 1302,
+          "top": 0,
+          "right": 2560,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сценариев семьи 5 vs 7 мест до выбора мотора Toyota Sienta",
+        "h2_anchor": "Зафиксируйте сценарий семьи до выбора мотора"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 28,
+          "top": 750,
+          "right": 1255,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 750,
+          "right": 1284,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора поколения и кода кузова Toyota Sienta NSP170 / MXPC10 / MXPL10",
+        "h2_anchor": "Выберите поколение и код кузова, а не \"просто Sienta\""
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1317,
+          "top": 750,
+          "right": 2544,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1302,
+          "top": 750,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист бензин vs гибрид Sienta через маршрут до Владивостока, не через табличку Hybrid",
+        "h2_anchor": "Сравните бензин и гибрид через маршрут, не через табличку"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте сценарий семьи до выбора мотора",
+    "injected inline_2 after H2 — Выберите поколение и код кузова, а не \"просто Sienta\"",
+    "injected inline_3 after H2 — Сравните бензин и гибрид через маршрут, не через табличку"
+  ]
+}

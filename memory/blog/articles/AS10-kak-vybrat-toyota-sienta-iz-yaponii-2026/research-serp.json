@@ -1,0 +1,615 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-02",
+    "today_ru": "02.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-04",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-02 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "kak-vybrat-toyota-sienta-iz-yaponii-2026",
+    "h1": "Как выбрать Toyota Sienta из Японии: бензин, гибрид и цена под ключ в 2026",
+    "primary_query": "как выбрать toyota sienta из японии",
+    "secondary_queries": [
+      "toyota sienta под ключ",
+      "toyota sienta из японии цена",
+      "toyota sienta бензин или гибрид",
+      "toyota sienta или honda freed"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать toyota sienta из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Sienta из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Sienta из Японии: компактный минивэн на 7 мест за 1-1,8 млн ₽",
+          "url": "https://onlyjpcars.ru/blog/toyota-sienta-iz-yaponii",
+          "snippet": "Sienta мягче, дешевле в обслуживании и прячет третий ряд под второй. Freed динамичнее, просторнее по высоте, предлагает полный привод на бензине и гибрид GP3 без санкций."
+        },
+        {
+          "title": "Toyota Sienta из Японии: цена под ключ и растаможка 2026",
+          "url": "https://atletauto.ru/yaponiya/toyota-sienta.html",
+          "snippet": "Toyota Sienta (NCP/NHP175, 2015-2022) из японских аукционов — 7 мест, гибрид, цены и растаможка 2026."
+        },
+        {
+          "title": "Toyota Sienta из Японии: купить, цена под ключ | AZWAY",
+          "url": "https://azway.ru/model/toyota-sienta",
+          "snippet": "Toyota Sienta с японских аукционов: реальный расчёт под ключ по курсу ЦБ, поколения и моторы, что смотреть в аукционном листе, доставка из Владивостока по России."
+        },
+        {
+          "title": "Toyota Sienta, Voxy, Noah и Esquire 2026: компактные и средние японские ...",
+          "url": "https://carto-auto.ru/blog/toyota-sienta-voxy-noah-esquire-2026-yaponskie-miniv%D1%8Dny-pod-klyuch/",
+          "snippet": "Подберём Toyota Sienta Выберите подходящую версию и оставьте один контакт. Проверим доступные автомобили и пришлём полную смету."
+        },
+        {
+          "title": "Toyota из Японии 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+          "snippet": "Подробный обзор японских минивэнов Toyota 2026: компактный Sienta (1.5 Hybrid), средний Noah/Voxy 90 серии и Esquire с гибридом 2.0. Цены под ключ 2.5-3.5 млн ₽, что выбрать для семьи."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать toyota sienta из японии ноябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Sienta из Японии: купить, цена под ключ | AZWAY",
+          "url": "https://azway.ru/model/toyota-sienta",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Sienta из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-iz-yaponii-2026",
+          "snippet": "Перед выбором стоит проверить не формальную вместимость, а свой сценарий: детские кресла, коляску, доступ назад и количество багажа в отпуске. Названия и опции зависят от рынка и даты выпуска. Поэтому сверяем не заголовок объявления, а VIN или номер кузова, заводскую карточку и фактическое оснащение. 1.5 бензин или Hybrid."
+        },
+        {
+          "title": "Toyota Sienta из Японии: компактный минивэн на 7 мест за 1-1,8 млн ₽",
+          "url": "https://onlyjpcars.ru/blog/toyota-sienta-iz-yaponii",
+          "snippet": "Sienta мягче, дешевле в обслуживании и прячет третий ряд под второй. Freed динамичнее, просторнее по высоте, предлагает полный привод на бензине и гибрид GP3 без санкций."
+        },
+        {
+          "title": "Toyota Sienta из Японии — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/toyota-sienta-mxpl10",
+          "snippet": "Toyota Sienta (NCP/NHP175, 2015-2022) из японских аукционов — 7 мест, гибрид, цены и растаможка 2026."
+        },
+        {
+          "title": "Toyota Sienta из Японии: цена под ключ и растаможка 2026",
+          "url": "https://atletauto.ru/yaponiya/toyota-sienta.html",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Toyota Sienta: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        },
+        {
+          "title": "Toyota из Японии 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+          "snippet": "Toyota Sienta с японских аукционов: реальный расчёт под ключ по курсу ЦБ, поколения и моторы, что смотреть в аукционном листе, доставка из Владивостока по России."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать toyota sienta из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Sienta из Японии: компактный минивэн на 7 мест за 1-1,8 млн",
+          "url": "https://onlyjpcars.ru/blog/toyota-sienta-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Sienta из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-iz-yaponii-2026",
+          "snippet": "Найти семиместный автомобиль за разумные деньги в России становится всё сложнее. Toyota Sienta второго поколения — редкий вариант, где семь посадочных мест помещаются в кузов длиной всего 4 260 мм."
+        },
+        {
+          "title": "Toyota Sienta, Voxy, Noah и Esquire 2026: компактные и средние японские ...",
+          "url": "https://carto-auto.ru/blog/toyota-sienta-voxy-noah-esquire-2026-yaponskie-miniv%D1%8Dny-pod-klyuch/",
+          "snippet": "Toyota Sienta из Японии: второе или третье поколение, почему везут бензин 1.5, а не гибрид, салон на 7 мест и болячки по пробегу. Четыре лота от 1,1 млн ₽."
+        },
+        {
+          "title": "Японская Toyota Sienta теперь доступна по параллельному импорту от ₽1,8 ...",
+          "url": "https://dzen.ru/a/anwiCWni3D3wOQHk",
+          "snippet": "Подробный обзор японских минивэнов Toyota 2026: компактный Sienta (1.5 Hybrid), средний Noah/Voxy 90 серии и Esquire с гибридом 2.0. Цены под ключ 2.5-3.5 млн ₽, что выбрать для семьи."
+        },
+        {
+          "title": "Дешевле многих кроссоверов: Toyota Sienta из Японии добралась до России ...",
+          "url": "https://www.pravda.ru/news/auto/2410486-toyota-sienta-grey-market/",
+          "snippet": "Статья автора «REGIONS.RU» в Дзене : В 2026 году ассортимент семиместных компактвэнов из Японии, поставляемых по параллельному импорту, пополнился моделью Toyota Sienta."
+        },
+        {
+          "title": "Toyota Sienta из Японии: цена под ключ и растаможка 2026",
+          "url": "https://atletauto.ru/yaponiya/toyota-sienta.html",
+          "snippet": "Узнайте актуальные цены на Toyota Sienta на сером рынке, варианты комплектаций с турбомотором и гибридом, а также скрытые расходы при покупке."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать toyota sienta из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "MinerU-Diffusion/assets/decode.png at main · opendatalab/MinerU ...",
+          "url": "https://github.com/opendatalab/MinerU-Diffusion/blob/main/assets/decode.png",
+          "snippet": ""
+        },
+        {
+          "title": "finalpetagamedev/icon.svg at main · lopezcycy515-maker ... - GitHub",
+          "url": "https://github.com/lopezcycy515-maker/finalpetagamedev/blob/main/icon.svg",
+          "snippet": "[ECCV 2026] A diffusion-based framework for document OCR that replaces autoregressive decoding with block-level parallel diffusion decoding. - MinerU-Diffusion/assets/decode.png at main · opendatalab/MinerU-Diffusion."
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "Contribute to lopezcycy515-maker/finalpetagamedev development by creating an account on GitHub."
+        },
+        {
+          "title": "mythos-router/assets/demo.png at main · thewaltero/mythos-router",
+          "url": "https://github.com/thewaltero/mythos-router/blob/main/assets/demo.png",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "FMCW_Radar_Ake/polar_fft.png at master · ake1999/FMCW_Radar_Ake · GitHub",
+          "url": "https://github.com/ake1999/FMCW_Radar_Ake/blob/master/polar_fft.png",
+          "snippet": "Zero-drift coding with Strict Write Discipline and adaptive Claude Opus 5 thinking. Mythos - mythos-router/assets/demo.png at main · thewaltero/mythos-router."
+        },
+        {
+          "title": "Awesome-IDEs/Resources/Icons/void.png at main · zeelsheladiya/Awesome ...",
+          "url": "https://github.com/zeelsheladiya/Awesome-IDEs/blob/main/Resources/Icons/void.png",
+          "snippet": "Contribute to ake1999/FMCW_Radar_Ake development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать toyota sienta из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Sienta: все модификации 2026 года — сравнение и особенности",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-sienta-modifikatsii.html",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Sienta из Японии: компактный минивэн на 7 мест за 1-1,8 млн ₽",
+          "url": "https://onlyjpcars.ru/blog/toyota-sienta-iz-yaponii",
+          "snippet": "Подробный обзор всех модификаций Toyota Sienta: технические характеристики, комплектации, цены и советы по выбору. Актуальные данные на 2026 год."
+        },
+        {
+          "title": "Toyota Sienta из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-iz-yaponii-2026",
+          "snippet": "Toyota Sienta (NCP/NHP175, 2015-2022) из японских аукционов — 7 мест, гибрид, цены и растаможка 2026."
+        },
+        {
+          "title": "Toyota Sienta, Voxy, Noah и Esquire 2026: компактные и средние японские ...",
+          "url": "https://carto-auto.ru/blog/toyota-sienta-voxy-noah-esquire-2026-yaponskie-miniv%D1%8Dny-pod-klyuch/",
+          "snippet": "Toyota Sienta из Японии: второе или третье поколение, почему везут бензин 1.5, а не гибрид, салон на 7 мест и болячки по пробегу. Четыре лота от 1,1 млн ₽."
+        },
+        {
+          "title": "Дешевле многих кроссоверов: Toyota Sienta из Японии добралась до России ...",
+          "url": "https://www.pravda.ru/news/auto/2410486-toyota-sienta-grey-market/",
+          "snippet": "Подробный обзор японских минивэнов Toyota 2026: компактный Sienta (1.5 Hybrid), средний Noah/Voxy 90 серии и Esquire с гибридом 2.0. Цены под ключ 2.5-3.5 млн ₽, что выбрать для семьи."
+        },
+        {
+          "title": "Новая Toyota Sienta 2026: цены, комплектации и отзывы владельцев",
+          "url": "https://toyotabase.vercel.app/articles/n/no/novaya-tojota-sienta.html",
+          "snippet": "Узнайте актуальные цены на Toyota Sienta на сером рынке, варианты комплектаций с турбомотором и гибридом, а также скрытые расходы при покупке."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать toyota sienta из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Sienta из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Семь проверок Toyota Sienta перед покупкой из Японии",
+          "url": "https://www.32cars.ru/articles/id449-sem-proverok-toyota-sienta-pered-pokupkoj-iz-japonii",
+          "snippet": "Toyota Sienta из Японии: второе или третье поколение, почему везут бензин 1.5, а не гибрид, салон на 7 мест и болячки по пробегу. Четыре лота от 1,1 млн ₽."
+        },
+        {
+          "title": "Toyota Sienta, Voxy, Noah и Esquire 2026: компактные и средние японские ...",
+          "url": "https://carto-auto.ru/blog/toyota-sienta-voxy-noah-esquire-2026-yaponskie-miniv%D1%8Dny-pod-klyuch/",
+          "snippet": "Перед покупкой разумно проверить семь вещей: оригинальную японскую историю и VIN, выполнение отзывных и сервисных кампаний Toyota, состояние высоковольтной батареи, холодный запуск двигателя, механический CVT на бензиновой машине, обе сдвижные двери и состояние кузова с полом салона."
+        },
+        {
+          "title": "Бортжурнал Toyota Sienta - клуб, форум о Тойота Сиента на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/toyota/sienta/",
+          "snippet": "Подробный обзор японских минивэнов Toyota 2026: компактный Sienta (1.5 Hybrid), средний Noah/Voxy 90 серии и Esquire с гибридом 2.0. Цены под ключ 2.5-3.5 млн ₽, что выбрать для семьи."
+        },
+        {
+          "title": "Toyota Sienta из Японии: компактный минивэн на 7 мест за 1-1,8 млн ₽",
+          "url": "https://onlyjpcars.ru/blog/toyota-sienta-iz-yaponii",
+          "snippet": "Бюджет от полутора до двух миллионов рублей в 2026 году остается самым востребованным при выборе автомобиля из Японии. Согласно статистике поставок, именно в этом ценовом диапазоне чаще всего приобретают надежные семейные универсалы, вместительные минивэны и практичные городские кроссоверы."
+        },
+        {
+          "title": "Question to all the Sienta owners : r/japanlife - Reddit",
+          "url": "https://www.reddit.com/r/japanlife/comments/zkkvt4/question_to_all_the_sienta_owners/",
+          "snippet": "Toyota Sienta (NCP/NHP175, 2015-2022) из японских аукционов — 7 мест, гибрид, цены и растаможка 2026. Найти семиместный автомобиль за разумные деньги в России становится всё сложнее. Toyota Sienta второго поколения — редкий вариант, где семь посадочных мест помещаются в кузов длиной всего 4 260 мм."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "toyota sienta под ключ 2026",
+      "purpose": "вторичный запрос: toyota sienta под ключ",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Sienta из Японии под ключ: цена и растаможка | AZWAY",
+          "url": "https://azway.ru/cars-160hp/toyota-sienta",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Sienta, 2026 — 2 600 000 ₽ под ключ — 1.5 Hybrid, Зелёный",
+          "url": "https://ruliauto-zakaz.ru/cars/toyota-sienta-2026",
+          "snippet": "Toyota Sienta из Японии под ключ: 109-120 л.с., растаможка и утильсбор 2026 в цене. Доставка в любой город РФ за 30-45 дней. Цена от 922 665 ₽. Расчёт за 15…"
+        },
+        {
+          "title": "Toyota Sienta из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-iz-yaponii-2026",
+          "snippet": "Toyota Sienta 2026 — 2 600 000 ₽ под ключ в Москве. Это конечная сумма: выкуп автомобиля, доставка до России, таможенные платежи, утильсбор, оформление документов и постановка на учёт уже внутри."
+        },
+        {
+          "title": "Toyota Sienta, Voxy, Noah и Esquire 2026: компактные и средние японские ...",
+          "url": "https://carto-auto.ru/blog/toyota-sienta-voxy-noah-esquire-2026-yaponskie-miniv%D1%8Dny-pod-klyuch/",
+          "snippet": "Toyota Sienta из Японии: второе или третье поколение, почему везут бензин 1.5, а не гибрид, салон на 7 мест и болячки по пробегу. Четыре лота от 1,1 млн ₽."
+        },
+        {
+          "title": "Toyota из Японии: модельный ряд и цены под ключ в 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+          "snippet": "Подробный обзор японских минивэнов Toyota 2026: компактный Sienta (1.5 Hybrid), средний Noah/Voxy 90 серии и Esquire с гибридом 2.0. Цены под ключ 2.5-3.5 млн ₽, что выбрать для семьи."
+        },
+        {
+          "title": "Toyota из Японии — купить с аукциона под ключ | Encarrus",
+          "url": "https://encarrus.ru/japan/toyota/",
+          "snippet": "Какую Toyota привезти из Японии в 2026: девять моделей с годом и пробегом лота, Roomy и Sienta для семьи, Raize и Harrier, почему Camry и RAV4 без льготы."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "toyota sienta из японии цена 2026",
+      "purpose": "вторичный запрос: toyota sienta из японии цена",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Toyota Sienta 2026 года из Японии | Статистика цен на авто от JpStar",
+          "url": "https://jpstar.ru/statistika/toyota/sienta/?year_from=2026&year_to=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Sienta из Японии под ключ: цена и растаможка | AZWAY",
+          "url": "https://azway.ru/cars-160hp/toyota-sienta",
+          "snippet": "Схема работы, сроки и цены — на странице авто из Японии под заказ. Доставляем в Москву, Санкт-Петербург, Новосибирск, Екатеринбург, Иркутск, Красноярск и любой регион России."
+        },
+        {
+          "title": "Toyota Sienta 2026 Г., Лот № 55606536 Из Японии, Цены С Доставкой",
+          "url": "https://jpstar.ru/japan-oneprice/toyota/sienta/1884307671/",
+          "snippet": "Toyota Sienta из Японии под ключ: 109-120 л.с., растаможка и утильсбор 2026 в цене. Доставка в любой город РФ за 30-45 дней. Цена от 922 665 ₽. Расчёт за 15…"
+        },
+        {
+          "title": "Toyota Sienta из Японии — купить с доставкой в Россию 2026 | Azway | AZWAY",
+          "url": "https://azway.ru/import/yaponiya/toyota-sienta",
+          "snippet": "TOYOTA SIENTA 2026 г. из Японии: обзор цен и комплектаций, полный расчет с доставкой, понятная схема покупки, отслеживание этапов покупки авто в личном кабинете, низкая комиссия!"
+        },
+        {
+          "title": "Toyota Sienta из Японии: компактный минивэн на 7 мест за 1-1,8 млн ₽",
+          "url": "https://onlyjpcars.ru/blog/toyota-sienta-iz-yaponii",
+          "snippet": "Купить Toyota Sienta из Японии под ключ. 1.5 Dynamic Force / 1.5 Hybrid, 120 л.с. (гибрид — 116 л.с.). Цена от 1.8 до 2.5 млн ₽ под ключ. Доставка по всей России, растаможка, СБКТС, ЭПТС."
+        },
+        {
+          "title": "Toyota Sienta из Японии: цена под ключ и растаможка 2026",
+          "url": "https://atletauto.ru/yaponiya/toyota-sienta.html",
+          "snippet": "Toyota Sienta (NCP/NHP175, 2015-2022) из японских аукционов — 7 мест, гибрид, цены и растаможка 2026."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "toyota sienta бензин или гибрид 2026",
+      "purpose": "вторичный запрос: toyota sienta бензин или гибрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Sienta 1.5 Hybrid G 5-Seater (08.2026 - н.в ... - Дром",
+          "url": "https://www.drom.ru/catalog/toyota/sienta/561292/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Sienta 1.5 Hybrid Z 7-Seater 4WD (08.2026 - Дром",
+          "url": "https://www.drom.ru/catalog/toyota/sienta/561290/",
+          "snippet": "Какой бензин заливать в Toyota Sienta 6AA-MXPL10G 2026 1.5 Hybrid G 5-Seater? В Toyota Sienta 6AA-MXPL10G 2026 1.5 Hybrid G 5-Seater нужно заливать Бензин Regular (АИ-92, АИ-95) по рекомендации производителя."
+        },
+        {
+          "title": "Toyota Sienta 2026: технические характеристики, двигатели, расход ...",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-sienta-tekhnicheskie-kharakteristiki.html",
+          "snippet": "Какой бензин заливать в Toyota Sienta 6AA-MXPL15G 2026 1.5 Hybrid Z 7-Seater 4WD? В Toyota Sienta 6AA-MXPL15G 2026 1.5 Hybrid Z 7-Seater 4WD нужно заливать Бензин Regular (АИ-92, АИ-95) по рекомендации производителя."
+        },
+        {
+          "title": "Toyota Sienta из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-iz-yaponii-2026",
+          "snippet": "Подробный обзор технических характеристик Toyota Sienta: габариты, двигатели 1.5/1.8, трансмиссия, расход топлива, подвеска и особенности гибридной версии. Сравнение с конкурентами и советы по ..."
+        },
+        {
+          "title": "Toyota Sienta 2026: плюсы и минусы, отзывы владельцев, недостатки",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-sienta-plyusy-i-minusy.html",
+          "snippet": "У третьего поколения бензин бывает только с передним приводом, полный привод есть лишь у гибрида. У второго поколения полноприводный бензин был, но с более слабым мотором 1.5 1NZ-FE. Гибридная Sienta заманчива на бумаге: по японскому циклу она тратит около 3,5 литра на сотню против 5,4 у бензиновой."
+        },
+        {
+          "title": "Toyota Sienta, Voxy, Noah и Esquire 2026: компактные и средние японские ...",
+          "url": "https://carto-auto.ru/blog/toyota-sienta-voxy-noah-esquire-2026-yaponskie-miniv%D1%8Dny-pod-klyuch/",
+          "snippet": "В этой статье мы разберём все плюсы и минусы Toyota Sienta на основе отзывов владельцев, технических характеристик и сравнения с аналогами."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "toyota sienta или honda freed 2026",
+      "purpose": "вторичный запрос: toyota sienta или honda freed",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Sienta или Honda Freed 2026: что выбрать",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-ili-honda-freed-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Freed vs Toyota Sienta: сравнение 2026 года — что выбрать?",
+          "url": "https://toyotabase.vercel.app/articles/k/kh/khonda-frid-i-tojota-sienta-sravnenie.html",
+          "snippet": "Toyota Sienta или Honda Freed: моторы, третий ряд и багажник, подвеска, полный привод, гибрид без санкций и обслуживание. Отличия в цифрах японских каталогов."
+        },
+        {
+          "title": "Honda Freed или Toyota Sienta: полное сравнение 2026",
+          "url": "https://toyotabase.vercel.app/articles/s/sr/sravnit-khonda-frid-i-tojota-sienta.html",
+          "snippet": "Подробное сравнение Honda Freed и Toyota Sienta: габариты, двигатели, расход топлива, цены и отзывы владельцев. Какая машина лучше для семьи?"
+        },
+        {
+          "title": "Война за семейное счастье — Toyota Sienta против Honda Freed",
+          "url": "https://avtoimport1.ru/blog/voyna-za-semeynoe-schaste-toyota-sienta-protiv-honda-freed/",
+          "snippet": "Сравниваем Honda Freed и Toyota Sienta: расход, надежность, салон. Какой компактвэн выбрать для семьи и города? Экспертный разбор моделей."
+        },
+        {
+          "title": "Cравнение Honda Freed или Toyota Sienta: два японских минивэна для семьи",
+          "url": "https://avtoservis.online/honda/cravnenie-honda-freed-ili-toyota-sienta/",
+          "snippet": "Если вы ищете компактный минивэн с раздвижными дверями, экономичный и маневренный для города, то в 2026 году выбор, как и прежде, стоит между двумя японскими бестселлерами: Toyota Sienta и Honda Freed. Обе машины получили обновления к 2026 году, но их идеология осталась прежней."
+        },
+        {
+          "title": "Toyota Sienta или Honda Freed, что выбрать, сравнение",
+          "url": "https://auto.ru/logbook/toyota-sienta-ili-honda-freed-chto-vybrat-sravnenie_786fe8b5-dcba-4464-a10a-49e7095740e7/",
+          "snippet": "Honda Freed и Toyota Sienta — два компактных японских минивэна которые японцы называют идеальными городскими семейными автомобилями."
+        }
+      ],
+      "searched_at": "2026-11-02"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Sienta из Японии: бензин, гибрид и цена под ключ в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-11-02"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-iz-yaponii-2026",
+      "title": "Toyota Sienta из Японии 2026: болячки и цена",
+      "from_query": "как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/toyota-sienta-iz-yaponii",
+      "title": "Toyota Sienta из Японии: компактный минивэн на 7 мест за 1-1,8 млн ₽",
+      "from_query": "как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://atletauto.ru/yaponiya/toyota-sienta.html",
+      "title": "Toyota Sienta из Японии: цена под ключ и растаможка 2026",
+      "from_query": "как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://azway.ru/model/toyota-sienta",
+      "title": "Toyota Sienta из Японии: купить, цена под ключ | AZWAY",
+      "from_query": "как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/toyota-sienta-voxy-noah-esquire-2026-yaponskie-miniv%D1%8Dny-pod-klyuch/",
+      "title": "Toyota Sienta, Voxy, Noah и Esquire 2026: компактные и средние японские ...",
+      "from_query": "как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+      "title": "Toyota из Японии 2026: модельный ряд и цены",
+      "from_query": "как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/catalog/toyota-sienta-mxpl10",
+      "title": "Toyota Sienta из Японии — цена под ключ · калькулятор 2026",
+      "from_query": "как выбрать toyota sienta из японии ноябрь 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/anwiCWni3D3wOQHk",
+      "title": "Японская Toyota Sienta теперь доступна по параллельному импорту от ₽1,8 ...",
+      "from_query": "как выбрать toyota sienta из японии новости 2026"
+    },
+    {
+      "url": "https://www.pravda.ru/news/auto/2410486-toyota-sienta-grey-market/",
+      "title": "Дешевле многих кроссоверов: Toyota Sienta из Японии добралась до России ...",
+      "from_query": "как выбрать toyota sienta из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/opendatalab/MinerU-Diffusion/blob/main/assets/decode.png",
+      "title": "MinerU-Diffusion/assets/decode.png at main · opendatalab/MinerU ...",
+      "from_query": "site:github.com как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://github.com/lopezcycy515-maker/finalpetagamedev/blob/main/icon.svg",
+      "title": "finalpetagamedev/icon.svg at main · lopezcycy515-maker ... - GitHub",
+      "from_query": "site:github.com как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://github.com/thewaltero/mythos-router/blob/main/assets/demo.png",
+      "title": "mythos-router/assets/demo.png at main · thewaltero/mythos-router",
+      "from_query": "site:github.com как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://github.com/ake1999/FMCW_Radar_Ake/blob/master/polar_fft.png",
+      "title": "FMCW_Radar_Ake/polar_fft.png at master · ake1999/FMCW_Radar_Ake · GitHub",
+      "from_query": "site:github.com как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://github.com/zeelsheladiya/Awesome-IDEs/blob/main/Resources/Icons/void.png",
+      "title": "Awesome-IDEs/Resources/Icons/void.png at main · zeelsheladiya/Awesome ...",
+      "from_query": "site:github.com как выбрать toyota sienta из японии 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-sienta-modifikatsii.html",
+      "title": "Toyota Sienta: все модификации 2026 года — сравнение и особенности",
+      "from_query": "как выбрать toyota sienta из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/n/no/novaya-tojota-sienta.html",
+      "title": "Новая Toyota Sienta 2026: цены, комплектации и отзывы владельцев",
+      "from_query": "как выбрать toyota sienta из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.32cars.ru/articles/id449-sem-proverok-toyota-sienta-pered-pokupkoj-iz-japonii",
+      "title": "Семь проверок Toyota Sienta перед покупкой из Японии",
+      "from_query": "как выбрать toyota sienta из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/sienta/",
+      "title": "Бортжурнал Toyota Sienta - клуб, форум о Тойота Сиента на Авто.ру",
+      "from_query": "как выбрать toyota sienta из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/japanlife/comments/zkkvt4/question_to_all_the_sienta_owners/",
+      "title": "Question to all the Sienta owners : r/japanlife - Reddit",
+      "from_query": "как выбрать toyota sienta из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://azway.ru/cars-160hp/toyota-sienta",
+      "title": "Toyota Sienta из Японии под ключ: цена и растаможка | AZWAY",
+      "from_query": "toyota sienta под ключ 2026"
+    },
+    {
+      "url": "https://ruliauto-zakaz.ru/cars/toyota-sienta-2026",
+      "title": "Toyota Sienta, 2026 — 2 600 000 ₽ под ключ — 1.5 Hybrid, Зелёный",
+      "from_query": "toyota sienta под ключ 2026"
+    },
+    {
+      "url": "https://encarrus.ru/japan/toyota/",
+      "title": "Toyota из Японии — купить с аукциона под ключ | Encarrus",
+      "from_query": "toyota sienta под ключ 2026"
+    },
+    {
+      "url": "https://jpstar.ru/statistika/toyota/sienta/?year_from=2026&year_to=2026",
+      "title": "Купить Toyota Sienta 2026 года из Японии | Статистика цен на авто от JpStar",
+      "from_query": "toyota sienta из японии цена 2026"
+    },
+    {
+      "url": "https://jpstar.ru/japan-oneprice/toyota/sienta/1884307671/",
+      "title": "Toyota Sienta 2026 Г., Лот № 55606536 Из Японии, Цены С Доставкой",
+      "from_query": "toyota sienta из японии цена 2026"
+    },
+    {
+      "url": "https://azway.ru/import/yaponiya/toyota-sienta",
+      "title": "Toyota Sienta из Японии — купить с доставкой в Россию 2026 | Azway | AZWAY",
+      "from_query": "toyota sienta из японии цена 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/sienta/561292/",
+      "title": "Toyota Sienta 1.5 Hybrid G 5-Seater (08.2026 - н.в ... - Дром",
+      "from_query": "toyota sienta бензин или гибрид 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/sienta/561290/",
+      "title": "Toyota Sienta 1.5 Hybrid Z 7-Seater 4WD (08.2026 - Дром",
+      "from_query": "toyota sienta бензин или гибрид 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-sienta-tekhnicheskie-kharakteristiki.html",
+      "title": "Toyota Sienta 2026: технические характеристики, двигатели, расход ...",
+      "from_query": "toyota sienta бензин или гибрид 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-sienta-plyusy-i-minusy.html",
+      "title": "Toyota Sienta 2026: плюсы и минусы, отзывы владельцев, недостатки",
+      "from_query": "toyota sienta бензин или гибрид 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-sienta-ili-honda-freed-2026",
+      "title": "Toyota Sienta или Honda Freed 2026: что выбрать",
+      "from_query": "toyota sienta или honda freed 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/kh/khonda-frid-i-tojota-sienta-sravnenie.html",
+      "title": "Honda Freed vs Toyota Sienta: сравнение 2026 года — что выбрать?",
+      "from_query": "toyota sienta или honda freed 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/s/sr/sravnit-khonda-frid-i-tojota-sienta.html",
+      "title": "Honda Freed или Toyota Sienta: полное сравнение 2026",
+      "from_query": "toyota sienta или honda freed 2026"
+    },
+    {
+      "url": "https://avtoimport1.ru/blog/voyna-za-semeynoe-schaste-toyota-sienta-protiv-honda-freed/",
+      "title": "Война за семейное счастье — Toyota Sienta против Honda Freed",
+      "from_query": "toyota sienta или honda freed 2026"
+    },
+    {
+      "url": "https://avtoservis.online/honda/cravnenie-honda-freed-ili-toyota-sienta/",
+      "title": "Cравнение Honda Freed или Toyota Sienta: два японских минивэна для семьи",
+      "from_query": "toyota sienta или honda freed 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/toyota-sienta-ili-honda-freed-chto-vybrat-sravnenie_786fe8b5-dcba-4464-a10a-49e7095740e7/",
+      "title": "Toyota Sienta или Honda Freed, что выбрать, сравнение",
+      "from_query": "toyota sienta или honda freed 2026"
+    }
+  ]
+}

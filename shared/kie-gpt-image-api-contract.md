@@ -71,8 +71,19 @@ Terminal states:
 - `fail`: stop with `KIE API BLOCKER`
 - timeout without URL: stop with `KIE API BLOCKER`
 
+## Hero reference hosting
+
+If WordPress media / catbox / 0x0 cannot host the local hero PNG for Cloud egress:
+
+```bash
+python3 scripts/excalibur_blog_hero_reference_url.py --provider kie --force
+```
+
+Uses `POST https://kieai.redpandaai.co/api/file-base64-upload` with `KIE_API_KEY` and writes HTTPS `tempfile.redpandaai.co` URL into `memory/cover/blog-hero.json`. Patch `cover/quad-mcp-batch.json` `input_urls` before createTask. Do not invent alternate hosts or paste unreachable WP media URLs.
+
 ## Guardrails
 
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+- MCP-KV unavailable → Kie async is the canonical Cloud cover path (same batch JSON).

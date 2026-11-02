@@ -1,0 +1,30 @@
+{
+  "slug": "kak-vybrat-toyota-sienta-iz-yaponii-2026",
+  "topic_id": "AS10",
+  "permalink": "",
+  "post_id": null,
+  "publish_method": "ssh",
+  "verdict": "fail",
+  "blockers": [
+    "SSH_HOST (*.beget.tech) has empty/SERVFAIL A records globally — socket.gaierror Temporary failure in name resolution",
+    "Site A 45.130.41.165 has :443/:80 open but :22/:21/:222 closed — cannot pin SSH to web IP",
+    "No FTP_/WP app-password alternate transport in env; skill requires SSH only",
+    "Denylist untouched: did not overwrite WP 4711 (Haval M6) or other LIVE ids"
+  ],
+  "preflight": {
+    "allow_publish": true,
+    "link_verify": "pass",
+    "env_check": "pass",
+    "dry_run_slug": "kak-vybrat-toyota-sienta-iz-yaponii-2026",
+    "dry_run_php_bytes": 6324760,
+    "wp_post_id_in_meta": null,
+    "paramiko": "installed via pip --break-system-packages (was missing)"
+  },
+  "raw_output": "socket.gaierror: [Errno -3] Temporary failure in name resolution (paramiko.Transport getaddrinfo SSH_HOST)",
+  "evidence": {
+    "check_host_report": "https://check-host.net/check-report/551107fekbc",
+    "google_doh_status": 2,
+    "nslookup_io_rcode": "NOERROR empty A",
+    "attempt_exit": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "design_code": "memory/cover/cover-design-code.json",
+  "cover_hook": "Hybrid на табличке — ещё не выгода",
+  "mcp_note": "ONE gpt-image-2 i2i with input_urls=[reference_url_hosted], then split; Kie async if MCP sync unavailable",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у компактвэна Toyota Sienta у причала Владивостока с планшетом сметы под ключ и плашкой про Hybrid",
+      "scene_hint": "Cool misty Vladivostok port morning (damp air, grey sea, roll-on ferry cranes). Blog host EXACT face+glasses from reference; OUTFIT: charcoal softshell jacket over navy henley and dark jeans — NOT white hoodie, NOT hoodie, NO cap/hood. Pose: action selfie pointing at fake auction catalog card of Toyota Sienta compact MPV with sliding door + sticky note 'маршрут?'. Huge Cyrillic hook plaque: «Hybrid на табличке — ещё не выгода» with yellow highlight on «Hybrid». Torn paper, scotch tape, shocked-cat meme cutout, handwritten arrow «сначала лист». Corner brand avto-sales125.ru. No Wordstat/Metrika. No toxic/insult stickers (no лох).",
+      "meme_caption_ru": "Сначала маршрут"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте сценарий семьи до выбора мотора",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI comparison table: columns Семья 5 мест / Семья 7 мест / Парковка+город; rows детские кресла, третий ряд, багаж коляски, бензин vs гибрид later. Sticky note «сценарий → мотор». No hero face. Light tape corner.",
+      "alt": "Таблица сценариев семьи 5 vs 7 мест до выбора мотора Toyota Sienta"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите поколение и код кузова, а не \"просто Sienta\"",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram: 2-е поколение NSP170G/NHP170G → 3-е MXPC10G бензин / MXPL10G гибрид → сверка кода в заказе. Labels in Russian Cyrillic. Mini auction code chips. No hero. Small sticky «не просто Sienta».",
+      "alt": "Схема выбора поколения и кода кузова Toyota Sienta NSP170 / MXPC10 / MXPL10"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните бензин и гибрид через маршрут, не через табличку",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board: бензин 1.5 прямой ролкер JP→Владивосток vs гибрид через третью страну (METI); items: тип мотора, маршрут, срок, фрахт, утиль-ориентир. Mini map Japan→Vladivostok. No hero face. Marker checkmarks.",
+      "alt": "Чеклист бензин vs гибрид Sienta через маршрут до Владивостока, не через табличку Hybrid"
+    }
+  }
+}

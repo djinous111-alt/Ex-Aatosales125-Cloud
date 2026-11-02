@@ -207,3 +207,4 @@ summary: ...
 - `memory/cover/quad-style-digital-meme-collage-ru.json`
 - `shared/blog-visual-pipeline-contract.md` → redirect на quad contract
 
+Git commits: `bash scripts/excalibur_git.sh commit …` (фильтр `CLOUD_AGENT_*_SECRET_NAMES`).

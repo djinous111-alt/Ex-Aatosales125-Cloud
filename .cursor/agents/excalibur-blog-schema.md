@@ -37,6 +37,9 @@ verdict: PASS | BLOCKER
 
 - cover MCP, правка longread, publish.
 
+
+Git commits: `bash scripts/excalibur_git.sh commit …` (фильтр `CLOUD_AGENT_*_SECRET_NAMES`).
+
 ## Skill
 
 `skills/schema-excalibur-blog/SKILL.md`

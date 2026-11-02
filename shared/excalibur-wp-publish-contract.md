@@ -28,8 +28,9 @@ python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/AS02-slug
 ```
 
-`--env-check` probes SSH DNS (`getaddrinfo`) / `SSH_HOST_IP` and `paramiko` without printing secrets.
+`--env-check` probes SSH DNS (`getaddrinfo`) / `SSH_HOST_IP`, TCP/22 connect, and `paramiko` without printing secrets.
 If DNS fails and `SSH_HOST_IP` is unset → publish blocker (human restores Beget DNS or adds IP secret with TCP/22).
+If DNS OK but TCP/22 times out → publish blocker `ssh_tcp22` (human restores firewall/allowlist or sets a reachable `SSH_HOST_IP`; never invent IP from `PUBLIC_SITE_URL`).
 Never use `PUBLIC_SITE_URL` resolved IP as SSH fallback.
 `--dry-run` — проверка payload без LIVE write.
 

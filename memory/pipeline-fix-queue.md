@@ -254,3 +254,162 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261102-1708-director-today-as-ids
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` match only `B\d+` topic cards, so with AS01–AS09 P0 pool they report `needs_scout` / `Total topics in pool: 0` even though unwritten AS topics exist.
+- `active_article_topic_ids` also ignores `AS\d+` article dirs.
+
+### How the agent recovered this run
+- Manually selected AS02 after utility gate PASS (`python3 scripts/excalibur_blog_utility_gate.py --topic-id AS02`) and ran `research_start.py --topic-id AS02`.
+
+### Durable fix needed before next run
+- Teach today/scout helpers to accept both `AS\d+` and `B\d+` (and active dirs `AS\d+-` / `B\d+-`).
+- Prefer next free P0 from blog-topics.md that is not in ledger status published|in_progress|draft_ready.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1708-director-llms-blog-path
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` requires `--blog-path` in llms generator help, but `excalibur_blog_llms_generator.py` only exposes `--blog-dir`. Doctor summary: errors=1.
+- Indexer skill documents `--blog-path /` for llms generator.
+
+### How the agent recovered this run
+- Proceeded with pipeline; Indexer must use supported CLI or wait for fixer alias.
+
+### Durable fix needed before next run
+- Add `--blog-path` as alias/compat flag for llms generator (and keep `--blog-dir`), or align doctor + indexer skill to one flag name.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1708-director-ssh-dns
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: env
+
+### What went wrong
+- Preflight DNS resolve of SSH_HOST failed with Temporary failure in name resolution; `SSH_HOST_IP` is unset.
+- Prior automation memory also recorded Beget SSH DNS publish blocker; denylist must not overwrite foreign WP IDs.
+
+### How the agent recovered this run
+- Continued article pipeline; expect Publish step to return explicit PUBLISH BLOCKER if DNS still broken. No LIVE write attempted from Director shell.
+
+### Durable fix needed before next run
+- Document/env-check path for `SSH_HOST_IP` fallback when DNS fails; keep publish from inventing hosts.
+- Human must restore Beget DNS or set `SSH_HOST_IP` with TCP/22 reachability.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1713-research-wordstat-mcp-unavailable
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` failed live tool discovery (`namespaceStatus: error`); `wordstat_get_top_requests` was unavailable (not a clean 401).
+- Research could not collect exact Wordstat impressions for `encar на русском` / secondary queries.
+
+### How the agent recovered this run
+- Recorded `wordstat` status UNAVAILABLE in `research-notes.md` with explicit no-invented-numbers rule and optional auth URL for future 401.
+- Continued deep research via WebSearch/WebFetch; research-notes gate PASS without fabricated impressions.
+
+### Durable fix needed before next run
+- Restore MCP-KV / Wordstat connectivity for Cloud runs; document UNAVAILABLE fallback in research skill (distinct from 401 AUTH WARNING).
+- Preflight doctor should surface MCP-KV discovery health before Research step.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- MCP config for `MCP-KV` / `user-mcp-kv`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1713-research-notes-gate-accessed-at-pain-rows
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: qa
+
+### What went wrong
+- First `research-notes.md` draft matched the human table template (date-only `accessed_at` column; pain map rows without literal `pain`/`solution`/`result` tokens) but gate BLOCK: `accessed_at=1 < 5` and `pain_solution_map too thin`.
+- Gate counts literal `accessed_at:` occurrences and table rows containing pain|solution|result|боль|решение|результат; skill format example does not spell this out.
+
+### How the agent recovered this run
+- Rewrote source_table cells to `accessed_at: 2026-11-02` and prefixed pain_solution_map cells with боль/решение/результат; re-ran gate to PASS.
+
+### Durable fix needed before next run
+- Align research skill template with gate: show `accessed_at: YYYY-MM-DD` in each source row and require pain/solution/result tokens in map data rows (or relax gate to count date column + any map body rows).
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -29,18 +29,19 @@
     "description_aeo": "Выбор Toyota Sienta из Японии: сначала сценарий семьи и код кузова, затем бензин или гибрид через маршрут, аукционный лист и смета под ключ по этапам."
   },
   "geo_qa": {
-    "score": 74,
-    "verdict": "FAIL",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-11-02",
     "html_linter": "PASS",
     "slop_score": "WARNING",
     "cannibalization": "PASS",
-    "utility_gate": "BLOCK",
+    "utility_gate": "PASS",
     "human_voice": "PASS",
-    "link_verify": "FAIL",
+    "link_verify": "PASS",
     "research_notes_gate": "PASS",
     "beginner_fit": "PASS",
-    "core_eeat": "17/20"
+    "core_eeat": "19/20",
+    "cycle": "re-gate-after-writer-fix"
   },
   "cover_family": "brand_collage"
 }

@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "ер и полный VIN. Типичная ошибка – путать \"модель 2021\" и дату постановки на учёт. Без VIN дальше не идё",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "I), гайдом AuctionsAPI по листу проверки (октябрь 2026) и практикой сопровождения заказов на 2026-11-03;",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "20 минут",
+      "kind": "metric_or_duration",
+      "context": "редней панели и пометка проката. Ниже – как за 15–20 минут прочитать объявление самому и решить: копать даль",
+      "verified": true,
+      "reason": "Numerical value '20' matched in fact-bank context"
+    },
+    {
+      "fact": "3 месяцев",
+      "kind": "metric_or_duration",
+      "context": "события иногда появляются с задержкой порядка 2,5–3 месяцев – \"чистая\" свежая машина ещё не гарантия. Делать:",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "аузера на самом encar.com. Цену в 만원 умножайте на 10 000. Ярлык 무사고 (\"без аварий\") – про силовой каркас, н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 500 000",
+      "kind": "large_number",
+      "context": "): 1 манвон = 10 000 вон. Например, 1 850万円 – это 18 500 000 KRW. Скрин цены сохраните сразу: лоты обновляются,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 200",
+      "kind": "large_number",
+      "context": "arHistory (официальная база KIDI, отчёт около KRW 2 200) показывают выплаты, затопления, смены владельцев",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10000",
+      "kind": "large_number",
+      "context": "ow чтения карточки: encar.com + перевод → цена 만원×10000 + год/VIN → лист Performance Check (схема X/W) →",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

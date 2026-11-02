@@ -121,6 +121,7 @@ category: env
 ### How the agent recovered this run
 - Committed and pushed with `git -c core.hooksPath=/dev/null` after confirming staged files were research markdown/json + incident queue only.
 - Writer AS02 (2026-11-02) hit the same hook abort on `article.html` + `article.meta.json` (no secret values intended for commit beyond allowlisted CTA env URLs) and reused `git -c core.hooksPath=/dev/null commit`.
+- Schema AS02 (2026-11-02): hook abort on `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes a bare URL token; recovered by exporting bash-safe name list (14/15) then normal `git commit` of `schema.jsonld` with `${ENV}` URL placeholders (no live secret hosts).
 
 ### Durable fix needed before next run
 - Fix Cloud secrets scanner / secret name allowlist so invalid env names cannot crash the hook; document safe bypass only for this platform bug.

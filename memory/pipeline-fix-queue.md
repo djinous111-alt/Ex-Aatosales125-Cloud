@@ -630,6 +630,123 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261102-0950-cover-mcp-kv-unavailable-kie-fallback
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV namespaceStatus=error on live discovery; sync `gpt-image-2` unavailable.
+- Cover used Kie async HTTP API (`excalibur_blog_kie_gpt_image2_api.py`) as primary path.
+
+### How the agent recovered this run
+- Generated `cover/quad-mcp-batch.json` then ran Kie createTask/poll → success task `6e305cf27a9178bb54c90925974a0fdf`.
+
+### Durable fix needed before next run
+- Restore MCP-KV connection for image tools OR document Kie-first as canonical Cloud cover path in skill when MCP-KV is error.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- MCP-KV server config / secrets
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-0955-cover-hero-wp-fetch-fail-kie-upload
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: high
+category: api
+
+### What went wrong
+- First Kie task failed: `failCode=400 image fetch failed` for WP media `avtosales125.ru/.../best-winter-cars-top-...png` (egress HEAD 000 from cloud).
+- catbox upload returned HTTP 412; 0x0.st returned HTTP 503; litterbox also 412.
+
+### How the agent recovered this run
+- Uploaded local `memory/cover/assets/blog-hero-reference.png` via Kie `file-base64-upload` → tempfile.redpandaai.co URL; patched `input_urls`; second Kie task succeeded.
+
+### Durable fix needed before next run
+- Extend `excalibur_blog_hero_reference_url.py` with Kie file-upload provider fallback when catbox/0x0/WP fail.
+- Optionally bake auto-rehost into `excalibur_blog_kie_gpt_image2_api.py` before createTask when HEAD/fetch of `input_urls` fails.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/kie-gpt-image-api-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-0951-cover-outfit-lock-white-hoodie-as10
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie` despite blog-hero outfit_rule and prior AS14 incident.
+
+### How the agent recovered this run
+- Patched generated `quad-mcp-prompt.txt` + batch prompt to charcoal softshell + navy henley; forbidden hoodie/cap; cover QA shows softshell (not white hoodie).
+
+### Durable fix needed before next run
+- Remove white-hoodie outfit lock from prompt builder; derive outfit from manifest `scene_hint` / blog-hero `outfit_rule`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1001-cover-missing-corner-brand-pil
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: low
+category: prompt
+
+### What went wrong
+- Generated cover lacked reliable corner brand `avto-sales125.ru` (had Excalibur Blog stamp instead).
+
+### How the agent recovered this run
+- PIL overlay of `avto-sales125.ru` on bottom-right of `cover/cover.png` (no second image gen).
+
+### Durable fix needed before next run
+- Add optional post-split corner brand stamp helper in `excalibur_blog_quad_apply.py` / small script; reinforce prompt corner brand.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `memory/cover/cover-design-code.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

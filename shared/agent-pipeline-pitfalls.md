@@ -34,6 +34,8 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- `link_verify`: catalog soft-pass (`catalog_dns` / `catalog_5xx` / `catalog_ssl`) + URL redact to `${ENV}` — не удалять при sanitizer/rebrand; Cloud egress к каталогу часто timeout/SSL.
+- Инсайт-блок: не ярлыки `TL;DR` / `Быстрый инсайт` (geo-qa skill); пример в writing-contract устаревает — предпочитай `Короткий разбор`.
 
 ## Cover
 

@@ -6,6 +6,98 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-0910-scout-wordstat-mcp-kv-unavailable
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned `namespaceStatus: error` during live tool discovery; `wordstat_get_top_requests` unavailable for demand validation on AS10.
+- Scout could not attach Wordstat show counts / top phrases for primary or parent cluster.
+
+### How the agent recovered this run
+- Continued with WebSearch 2026 evidence for Toyota Sienta (под ключ / бензин vs гибрид / vs Freed) + LSI without invented exact Wordstat frequencies.
+- Documented Wordstat gap in topic card `notes` and handoff; utility gate AS10 PASS; `--check-query` clean.
+
+### Durable fix needed before next run
+- Restore MCP-KV / Wordstat connectivity for Cloud Automation (auth or server health).
+- Optionally add scout fallback checklist in skill: when Wordstat MCP down, require WebSearch + explicit notes, never invent shows.
+
+### Suggested files to inspect/change
+- `.cursor/mcp.json` / Cloud MCP secrets for MCP-KV
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-0906-director-as-b-regex
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` `next_p0_topic` and `active_article_topic_ids` only match `B\d+`, so with AS-only pool `EXCALIBUR_TOPIC_SELECTION=needs_scout` even though AS01–AS07 are free P0 cards.
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` likewise counts only `B\d+` → reports pool=0 / next B01.
+- Same class of bug was closed on a prior automation branch (AS14 fixer INC-0003) but those durable changes are not on current main.
+
+### How the agent recovered this run
+- Logged incident; launching Scout to append AS10 utility topic for Авто-Сейлс; will use AS topic_id explicitly for research_start.
+
+### Durable fix needed before next run
+- Make today.py / scout_helper accept both `AS\d+` and `B\d+` topic IDs (and article dir prefixes).
+- Ensure doctor or unit check covers AS topic suggestion on this repo.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-0906-director-llms-blog-path
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` requires `--blog-path` in `excalibur_blog_llms_generator.py --help`, but generator only exposes `--blog-dir` → doctor SUMMARY errors=1.
+
+### How the agent recovered this run
+- Continued pipeline; indexer will use actual `--blog-dir` CLI. Incident for fixer.
+
+### Durable fix needed before next run
+- Align doctor check with real CLI (`--blog-dir`) and/or add `--blog-path` alias + `--relative-urls` if required by indexer contract.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

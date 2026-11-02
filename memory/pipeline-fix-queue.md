@@ -342,6 +342,7 @@ category: script
 
 ### How the agent recovered this run
 - Continued preflight with known doctor FAIL; Indexer/Fixer must add alias or update doctor/docs before relying on green doctor.
+- Indexer AS02 (2026-11-02): confirmed CLI has only `--blog-dir` (no `--blog-path`); ran `excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` successfully. Did not invent mid-run alias.
 
 ### Durable fix needed before next run
 - Add `--blog-path` as alias of `--blog-dir` in `excalibur_blog_llms_generator.py` (or align doctor + indexer skills to `--blog-dir`).

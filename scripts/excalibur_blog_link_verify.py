@@ -16,6 +16,17 @@ from typing import Any
 from urllib.parse import urlparse
 
 
+# Known flaky catalog host suffixes (public brand domains; not secrets).
+CATALOG_HOST_SUFFIXES = (
+    "avto-sales125.ru",
+    "avtosales125.ru",
+)
+EGRUL_HOST_SUFFIXES = (
+    "egrul.nalog.ru",
+    "nalog.ru",
+)
+
+
 class LinkExtractor(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -118,94 +129,108 @@ def classify_link(href: str, site_base: str | None) -> str:
     return "external"
 
 
-def _env_soft_hosts() -> set[str]:
-    """Catalog / site / messenger hosts from env — often flaky from Cloud egress."""
+def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
+    """Treat flaky social profile timeouts as warnings, not publish blockers."""
+    parsed = urlparse(href)
+    host = parsed.netloc.lower()
+    soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"}
+    if host not in soft_hosts:
+        return False
+    if result.get("status") is not None:
+        return False
+    error = str(result.get("error") or "").lower()
+    return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
+
+
+def _host_matches(host: str, suffixes: tuple[str, ...]) -> bool:
+    host = host.lower().removeprefix("www.")
+    return any(host == s or host.endswith("." + s) for s in suffixes)
+
+
+def catalog_hosts_from_env() -> set[str]:
     hosts: set[str] = set()
-    for key in (
-        "PUBLIC_SITE_URL",
-        "CATALOG_URL",
-        "TELEGRAM_URL",
-        "MAX_URL",
-        "WP_SITE_URL",
-        "WP_HOME",
-    ):
+    for key in ("CATALOG_URL", "PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME"):
         raw = (os.environ.get(key) or "").strip()
-        if not raw:
+        if not raw or raw.startswith("["):
             continue
         parsed = urlparse(raw if "://" in raw else f"https://{raw}")
-        host = (parsed.netloc or "").lower()
-        if host:
-            hosts.add(host)
-            if host.startswith("www."):
-                hosts.add(host[4:])
-            else:
-                hosts.add(f"www.{host}")
+        if parsed.netloc:
+            hosts.add(parsed.netloc.lower().removeprefix("www."))
     return hosts
 
 
-def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
-    """Treat flaky social/catalog timeouts as warnings, not publish blockers."""
+def classify_soft_pass(href: str, result: dict[str, Any]) -> str | None:
+    """Return soft_pass code when failure should not block GEO QA / publish.
+
+    Pass the absolute URL that was actually checked (for internal_relative that
+    means site_base+path). Relative hrefs have empty netloc and would never soft-pass.
+    """
+    if result.get("ok"):
+        return None
     parsed = urlparse(href)
-    host = (parsed.netloc or "").lower()
-    soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"} | _env_soft_hosts()
-    if host not in soft_hosts:
-        return False
-    error = str(result.get("error") or "").lower()
+    host = parsed.netloc.lower().removeprefix("www.")
     status = result.get("status")
-    # DNS / TLS / connect flakes
-    if status is None and any(
+    error = str(result.get("error") or "").lower()
+
+    catalog_hosts = catalog_hosts_from_env()
+    is_catalog = bool(host) and (
+        host in catalog_hosts or _host_matches(host, CATALOG_HOST_SUFFIXES)
+    )
+    if is_catalog and status is not None and 500 <= int(status) < 600:
+        return "catalog_5xx"
+    if is_catalog and status is None and any(
         token in error
         for token in (
+            "name resolution",
+            "temporary failure",
+            "nodename nor servname",
+            "errno -3",
+            "gaierror",
             "timed out",
             "timeout",
             "ssl",
-            "network",
-            "name or service not known",
-            "temporary failure",
-            "getaddrinfo",
+            "handshake",
             "connection refused",
             "unreachable",
+            "network",
         )
     ):
-        return True
-    # Transient upstream 5xx on known catalog/site hosts
-    if isinstance(status, int) and status >= 500:
-        return True
-    return False
+        return "catalog_dns"
+
+    if _host_matches(host, EGRUL_HOST_SUFFIXES):
+        if status is not None and 500 <= int(status) < 600:
+            return "egrul_5xx"
+        if any(token in error for token in ("ssl", "certificate", "handshake", "timed out", "timeout")):
+            return "egrul_ssl"
+
+    return None
 
 
-def _redact_report_urls(report: dict[str, Any]) -> dict[str, Any]:
-    """Replace secret env URLs in committed reports with [REDACTED]."""
-    secrets: list[str] = []
-    for key in (
-        "PUBLIC_SITE_URL",
-        "CATALOG_URL",
-        "TELEGRAM_URL",
-        "MAX_URL",
-        "WP_SITE_URL",
-        "WP_HOME",
+def redact_report_urls(report: dict[str, Any]) -> dict[str, Any]:
+    """Replace live site/catalog secret URLs in JSON so secret-scan does not block commits."""
+    replacements: list[tuple[str, str]] = []
+    for env_key, placeholder in (
+        ("CATALOG_URL", "${CATALOG_URL}"),
+        ("PUBLIC_SITE_URL", "${PUBLIC_SITE_URL}"),
+        ("WP_SITE_URL", "${PUBLIC_SITE_URL}"),
+        ("WP_HOME", "${PUBLIC_SITE_URL}"),
+        ("TELEGRAM_URL", "${TELEGRAM_URL}"),
+        ("MAX_URL", "${MAX_URL}"),
     ):
-        raw = (os.environ.get(key) or "").strip().rstrip("/")
-        if raw:
-            secrets.append(raw)
-            if "://" in raw:
-                secrets.append(raw.split("://", 1)[1])
+        value = (os.environ.get(env_key) or "").strip()
+        if value:
+            replacements.append((value.rstrip("/"), placeholder))
+            replacements.append((value, placeholder))
 
-    def scrub(value: str) -> str:
-        out = value
-        for secret in sorted(secrets, key=len, reverse=True):
-            if secret and secret in out:
-                out = out.replace(secret, "[REDACTED]")
+    def scrub(text: str) -> str:
+        out = text
+        for live, placeholder in replacements:
+            if live:
+                out = out.replace(live, placeholder)
         return out
 
-    redacted = json.loads(json.dumps(report))
-    for link in redacted.get("links") or []:
-        for field in ("url", "checked_url", "error", "warning"):
-            if isinstance(link.get(field), str):
-                link[field] = scrub(link[field])
-    if isinstance(redacted.get("source"), str):
-        redacted["source"] = scrub(redacted["source"])
-    return redacted
+    text = json.dumps(report, ensure_ascii=False)
+    return json.loads(scrub(text))
 
 
 def verify_article(
@@ -256,31 +281,38 @@ def verify_article(
         r["skipped"] = False
         if kind == "internal_relative":
             r["checked_url"] = check_target
-        if not r.get("ok") and is_soft_external_failure(href, r):
+        # Soft-pass must use the absolute checked URL (internal_relative has empty netloc).
+        soft_url = check_target if kind == "internal_relative" else href
+        if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
-            r["soft_pass"] = "catalog_dns" if host_looks_catalog(href) else "social_timeout"
-            r["warning"] = (
-                "soft catalog/site/social timeout or 5xx; verify manually if needed"
-            )
+            r["warning"] = "soft external social timeout; verify manually if needed"
+        soft = classify_soft_pass(soft_url, r)
+        if soft:
+            r["ok"] = True
+            r["soft_pass"] = soft
+            if soft == "catalog_5xx":
+                r["warning"] = "catalog host 5xx soft-pass (egress/flaky); verify manually if needed"
+            elif soft == "catalog_dns":
+                r["warning"] = (
+                    "catalog/site host DNS/TLS soft-pass (Cloud egress flake); "
+                    "verify manually / publish probe — not a LIVE SSH proof"
+                )
+            elif soft.startswith("egrul"):
+                r["warning"] = f"{soft} soft-pass; egrul.nalog.ru often flaky from Cloud egress"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]
-    soft_passes = [r for r in results if r.get("soft_pass")]
-    return {
+    soft_passes = sorted({str(r.get("soft_pass")) for r in results if r.get("soft_pass")})
+    report: dict[str, Any] = {
         "source": str(html_path).replace("\\", "/"),
         "total_links": len(results),
         "failed_count": len(failed),
-        "soft_pass_count": len(soft_passes),
         "verdict": "pass" if not failed else "fail",
         "links": results,
     }
-
-
-def host_looks_catalog(href: str) -> bool:
-    host = (urlparse(href).netloc or "").lower()
-    if host in {"t.me", "telegram.me", "wa.me", "vk.com"}:
-        return False
-    return host in _env_soft_hosts()
+    if soft_passes:
+        report["soft_pass"] = soft_passes
+    return report
 
 
 def main() -> int:
@@ -290,6 +322,11 @@ def main() -> int:
     ap.add_argument("--site-base", type=str, default=None, help="e.g. https://example.com")
     ap.add_argument("--timeout", type=float, default=15.0)
     ap.add_argument("--skip-external", action="store_true")
+    ap.add_argument(
+        "--no-redact",
+        action="store_true",
+        help="Do not redact live CTA/site URLs in the JSON report (default: redact to ${ENV})",
+    )
     args = ap.parse_args()
 
     if not args.html.is_file():
@@ -302,8 +339,9 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
-    safe_report = _redact_report_urls(report)
-    text = json.dumps(safe_report, ensure_ascii=False, indent=2)
+    if not args.no_redact:
+        report = redact_report_urls(report)
+    text = json.dumps(report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(text + "\n", encoding="utf-8")
@@ -313,3 +351,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

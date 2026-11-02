@@ -95,10 +95,10 @@ def main() -> int:
     ok("link-verify catalog_dns soft-pass present")
 
     pub = (r / "scripts/excalibur_blog_wp_publish.py").read_text(encoding="utf-8")
-    for needle in ("probe_ssh_dns", "SSH_HOST_IP", "paramiko"):
+    for needle in ("probe_ssh_dns", "probe_ssh_tcp22", "SSH_HOST_IP", "paramiko", "ssh_tcp22_timeout"):
         if needle not in pub:
             fail(f"publish script missing {needle}")
-    ok("publish SSH DNS probe + SSH_HOST_IP + paramiko present")
+    ok("publish SSH DNS + TCP/22 probe + SSH_HOST_IP + paramiko present")
 
     # 6) research gate counts table rows under pain_solution_map
     gate = (r / "scripts/excalibur_blog_research_notes_gate.py").read_text(encoding="utf-8")
@@ -124,6 +124,23 @@ def main() -> int:
     if not dns_ip.get("resolved") or dns_ip.get("resolver") != "SSH_HOST_IP":
         fail(f"probe_ssh_dns SSH_HOST_IP override failed: {dns_ip}")
     ok("publish probe_ssh_dns unit checks")
+
+    tcp_skip = pubmod.probe_ssh_tcp22({}, dns_missing)
+    if tcp_skip.get("blocker") != "ssh_dns_unresolved":
+        fail(f"probe_ssh_tcp22 should skip when DNS unresolved: {tcp_skip}")
+    ok("publish probe_ssh_tcp22 unit checks")
+
+    # 9) utility gate skips empty marker lists
+    util = (r / "scripts/excalibur_blog_utility_gate.py").read_text(encoding="utf-8")
+    if "if pain_markers and pain_count" not in util:
+        fail("utility gate must skip empty pain_markers_ru")
+    ok("utility gate empty-marker fail-soft present")
+
+    # 10) cover prompt allows Kie tempfile hosts
+    cover_prompt = (r / "scripts/excalibur_blog_cover_quad_prompt.py").read_text(encoding="utf-8")
+    if "ALLOWED_REFERENCE_HOST_SUFFIXES" not in cover_prompt or "redpandaai.co" not in cover_prompt:
+        fail("cover prompt must allow Kie tempfile reference hosts")
+    ok("cover prompt allows Kie tempfile hosts")
 
     print("SUMMARY smoke PASS")
     return 0

@@ -199,6 +199,12 @@ def main() -> int:
         errors,
         warnings,
     )
+    check(
+        "probe_ssh_tcp22" in publish_src and "ssh_tcp22_timeout" in publish_src,
+        "publish --env-check probes SSH TCP/22 reachability",
+        errors,
+        warnings,
+    )
 
     check(
         (root / "scripts/excalibur_git.sh").is_file(),

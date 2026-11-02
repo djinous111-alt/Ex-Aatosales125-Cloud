@@ -128,9 +128,61 @@ def probe_ssh_dns(env: dict[str, str]) -> dict[str, object]:
     return report
 
 
+def probe_ssh_tcp22(env: dict[str, str], dns: dict[str, object] | None = None) -> dict[str, object]:
+    """Non-auth TCP connect probe to SSH port (default 22).
+
+    Detects DNS-OK but firewall/egress timeout before LIVE paramiko upload.
+    Never invents IPs; uses only SSH_HOST_IP or addresses from probe_ssh_dns.
+    """
+    dns = dns or probe_ssh_dns(env)
+    port = int(dns.get("port") or int((env.get("SSH_PORT") or "22").strip() or "22"))
+    report: dict[str, object] = {
+        "probed": False,
+        "reachable": False,
+        "port": port,
+        "error": None,
+        "blocker": None,
+        "hint": None,
+    }
+    if dns.get("blocker") or not dns.get("resolved"):
+        report["blocker"] = "ssh_dns_unresolved"
+        report["hint"] = dns.get("hint") or (
+            "Resolve SSH_HOST or set SSH_HOST_IP before TCP/22 probe."
+        )
+        return report
+    addrs = list(dns.get("addrs") or [])
+    if not addrs:
+        report["blocker"] = "ssh_no_addrs"
+        return report
+    # Probe first resolved address only (keep env-check fast).
+    target = str(addrs[0])
+    report["probed"] = True
+    try:
+        with socket.create_connection((target, port), timeout=8.0):
+            report["reachable"] = True
+    except TimeoutError as exc:
+        report["error"] = f"TimeoutError: {exc}"
+        report["blocker"] = "ssh_tcp22_timeout"
+        report["hint"] = (
+            "DNS resolved but TCP/%s timed out from Cloud egress. "
+            "Restore Beget SSH allowlist/firewall OR set SSH_HOST_IP to a "
+            "TCP/22-reachable address (not PUBLIC_SITE_URL HTTP IP). Do not invent IP."
+            % port
+        )
+    except OSError as exc:
+        report["error"] = f"{type(exc).__name__}: {exc}"
+        report["blocker"] = "ssh_tcp22_unreachable"
+        report["hint"] = (
+            "TCP/%s not reachable from Cloud. Human must fix network/SSH_HOST_IP; "
+            "agents must not invent alternate hosts." % port
+        )
+    return report
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
     dns = probe_ssh_dns(env)
+    tcp = probe_ssh_tcp22(env, dns)
     paramiko_ok = True
     try:
         import paramiko  # noqa: F401
@@ -141,6 +193,8 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
         missing = list(missing) + ["paramiko"]
     if dns.get("blocker") and "ssh_dns" not in missing:
         missing = list(missing) + ["ssh_dns"]
+    if tcp.get("blocker") in {"ssh_tcp22_timeout", "ssh_tcp22_unreachable"} and "ssh_tcp22" not in missing:
+        missing = list(missing) + ["ssh_tcp22"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
@@ -159,6 +213,14 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
                 "error": dns.get("error"),
                 "blocker": dns.get("blocker"),
                 "hint": dns.get("hint"),
+            },
+            "tcp22": {
+                "probed": tcp.get("probed"),
+                "reachable": tcp.get("reachable"),
+                "port": tcp.get("port"),
+                "error": tcp.get("error"),
+                "blocker": tcp.get("blocker"),
+                "hint": tcp.get("hint"),
             },
         },
         "missing": missing,

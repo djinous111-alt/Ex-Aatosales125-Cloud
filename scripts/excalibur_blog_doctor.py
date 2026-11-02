@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -52,11 +53,13 @@ def merged_publish_env(root: Path) -> dict[str, str]:
         "WP_HOME",
         "WP_SITE_URL",
         "SSH_HOST",
+        "SSH_HOST_IP",
         "SSH_PORT",
         "SSH_USER",
         "SSH_PASS",
         "SSH_PASSWORD",
         "SSH_ROOT",
+        "SSH_PATH",
         "EXCALIBUR_BLOG_ALLOW_PUBLISH",
     }
     env = read_env_file(root / "memory/site.env.local")
@@ -66,6 +69,8 @@ def merged_publish_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    if not (env.get("SSH_ROOT") or "").strip() and (env.get("SSH_PATH") or "").strip():
+        env["SSH_ROOT"] = env["SSH_PATH"].strip()
     return env
 
 
@@ -113,6 +118,7 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available", errors, warnings, warn=not args.publish)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,9 +138,113 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    # Canonical flag is --blog-dir; --blog-path is a supported alias.
+    has_blog_dir = "--blog-dir" in llms_help.stdout
+    has_blog_path = "--blog-path" in llms_help.stdout
+    check(
+        has_blog_dir and has_blog_path,
+        "llms generator supports --blog-dir and --blog-path alias",
+        errors,
+        warnings,
+    )
+
+    today_src = (root / "scripts/excalibur_blog_today.py").read_text(encoding="utf-8")
+    scout_src = (root / "scripts/excalibur_blog_scout_helper.py").read_text(encoding="utf-8")
+    check("AS|B" in today_src and "AS|B" in scout_src, "today/scout accept AS|B topic IDs", errors, warnings)
+
+    split_src = (root / "scripts/excalibur_blog_cover_quad_split.py").read_text(encoding="utf-8")
+    check(
+        "stamp_corner_brand" in split_src or "ensure_corner_brand" in split_src,
+        "cover quad split stamps corner brand",
+        errors,
+        warnings,
+    )
+
+    link_src = (root / "scripts/excalibur_blog_link_verify.py").read_text(encoding="utf-8")
+    check(
+        "catalog_dns" in link_src and "CATALOG_HOST_SUFFIXES" in link_src,
+        "link-verify soft-pass catalog_dns pinned",
+        errors,
+        warnings,
+    )
+
+    utility_src = (root / "scripts/excalibur_blog_utility_gate.py").read_text(encoding="utf-8")
+    check(
+        "if pain_markers and pain_count" in utility_src or "if pain_markers and" in utility_src,
+        "utility gate skips empty pain/outcome marker lists",
+        errors,
+        warnings,
+    )
+
+    research_gate_src = (root / "scripts/excalibur_blog_research_notes_gate.py").read_text(encoding="utf-8")
+    check(
+        "pain_section" in research_gate_src or r"pain[_\s-]*solution" in research_gate_src,
+        "research-notes gate counts pain_solution_map table rows",
+        errors,
+        warnings,
+    )
+
+    kie_src = (root / "scripts/excalibur_blog_kie_gpt_image2_api.py").read_text(encoding="utf-8")
+    check(
+        "file-base64-upload" in kie_src and "ensure_reachable_input_urls" in kie_src,
+        "kie api auto-rehosts local hero via file-base64",
+        errors,
+        warnings,
+    )
+
+    publish_src = (root / "scripts/excalibur_blog_wp_publish.py").read_text(encoding="utf-8")
+    check(
+        "probe_ssh_dns" in publish_src and "SSH_HOST_IP" in publish_src,
+        "publish --env-check probes SSH DNS / SSH_HOST_IP",
+        errors,
+        warnings,
+    )
+
+    check(
+        (root / "scripts/excalibur_git.sh").is_file(),
+        "scripts/excalibur_git.sh present (secret-name filter wrapper)",
+        errors,
+        warnings,
+    )
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            policy = {}
+            check(False, "editorial-policy.json parses as JSON", errors, warnings)
+        else:
+            check(True, "editorial-policy.json parses as JSON", errors, warnings)
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(bool(policy.get("_markers_pinned")), "editorial-policy _markers_pinned=true", errors, warnings)
+            check(
+                isinstance(pain, list) and len(pain) >= 5,
+                "editorial-policy pain_markers_ru non-empty (≥5)",
+                errors,
+                warnings,
+            )
+            check(
+                isinstance(outcome, list) and len(outcome) >= 5,
+                "editorial-policy outcome_markers_ru non-empty (≥5)",
+                errors,
+                warnings,
+            )
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
 
     env = merged_publish_env(root)
+    local_env = root / "memory/site.env.local"
+    check(
+        local_env.is_file()
+        or bool(env.get("SSH_HOST"))
+        or bool(os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL")),
+        "site.env.local or Cloud publish env present",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))
     check(has_public, "PUBLIC_SITE_URL/WP_SITE_URL configured", errors, warnings, warn=not args.publish)
     check(bool(env.get("SSH_HOST")), "SSH host configured", errors, warnings, warn=not args.publish)
@@ -152,6 +262,14 @@ def main() -> int:
         errors,
         warnings,
         warn=not args.publish,
+    )
+
+    # Soft note: MCP-KV / Wordstat cannot be probed offline; warn only.
+    check(
+        True,
+        "MCP-KV/Wordstat: verify live discovery before Research/Cover (offline doctor skip)",
+        errors,
+        warnings,
     )
 
     print(f"SUMMARY errors={len(errors)} warnings={len(warnings)}")

@@ -1,0 +1,54 @@
+{
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс в очках со смартфоном Encar, ирония «кот в мешке», плашка читать карточку до депозита",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-02T13:42:33+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar, ирония «кот в мешке», плашка читать карточку до депозита",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9",
+      "corner_brand_overlay": true,
+      "corner_brand": "avto-sales125.ru"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнение официального encar.com и зеркала-посредника из выдачи",
+      "h2_anchor": "Откройте официальный Encar, а не чужой сайт из выдачи",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица перевода манвонов и даты регистрации на Encar",
+      "h2_anchor": "Переведите цену и год сами: манвоны и дата регистрации",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема кузова Encar: метки X/W и ловушка «без аварий»",
+      "h2_anchor": "Прочитайте схему кузова: \"без аварий\" не значит \"не чинили\"",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "corner_brand_overlay": true,
+  "corner_brand": "avto-sales125.ru"
+}

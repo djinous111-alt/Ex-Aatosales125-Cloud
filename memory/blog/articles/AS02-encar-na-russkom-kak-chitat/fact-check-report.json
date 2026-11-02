@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "к дату регистрации (연식), часто вроде 21/05식 – май 2021. Рядом выпишите пробег в км, топливо, объём и кор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": ", Carhistory (RU) и практикой заказов из Кореи на 2026-11-02; актуальные расчёты и подбор – в каталоге.",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "Ниже – как читать Encar на русском самому и за 10–15 минут решить: копать дальше, отложить или звать подборщ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "на чужом сайте из выдачи. Цена в 만원 умножайте на 10 000. Пометка 무사고 (\"без аварий\") значит \"не чинили сил",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 500 000",
+      "kind": "large_number",
+      "context": "1 манвон = 10 000 вон. Если видите 1 850만원 – это 18 500 000 KRW. Скрин цены сохраняйте сразу: лоты обновляются",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

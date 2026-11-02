@@ -48,3 +48,5 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer 2026-11-02: interlink_count=1; llms.txt + llms-full.txt regenerated.
 - llms generator: used `--blog-dir` (no `--blog-path` in script; known INC-20261102-1708-director-llms-blog-path).
 - Publish не запускался Indexer'ом.
+
+- Publish 2026-11-02: ❌ BLOCKER SSH TCP/22 timeout; no LIVE write; denylist preserved.

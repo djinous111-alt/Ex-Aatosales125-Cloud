@@ -1,9 +1,9 @@
 {
   "source": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
-  "total_links": 5,
-  "failed_count": 0,
+  "total_links": 6,
+  "failed_count": 1,
   "soft_pass_count": 1,
-  "verdict": "pass",
+  "verdict": "fail",
   "links": [
     {
       "url": "https://www.encar.com",
@@ -31,6 +31,16 @@
       "error": null,
       "kind": "external",
       "skipped": false
+    },
+    {
+      "url": "[REDACTED]/blog/trust-encar-carhistory-proverka-do-depozita/",
+      "status": null,
+      "ok": false,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/blog/trust-encar-carhistory-proverka-do-depozita/"
     },
     {
       "url": "[REDACTED]/",

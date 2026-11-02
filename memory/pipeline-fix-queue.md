@@ -655,3 +655,42 @@ category: qa
 
 ### Fixer resolution
 - pending
+
+## INC-20261102-1804-publish-ssh-tcp22-timeout
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: env
+
+### What went wrong
+- Publish preflight: ALLOW=yes, env-check PASS, dry-run PASS (~6.8MB).
+- SSH_HOST DNS now resolves, but TCP port 22 times out (Errno 110 / paramiko SSHException). `SSH_HOST_IP` secret is unset.
+- PUBLIC_SITE_URL HTTPS also SSL-handshake timed out from Cloud (REST/HEAD and internal link-verify for AS09 path).
+- Per contract: do not invent host/IP outside secrets; return explicit PUBLISH BLOCKER. No LIVE write. Denylist IDs and foreign Encar slug untouched.
+
+### How the agent recovered this run
+- Did not guess IP or alternate SSH host.
+- Wrote `wp-publish-result.json` verdict=fail with blocker reason; ledger status `publish_blocked`; handoff PUBLISH BLOCKER; no bootstrap upload.
+
+### Durable fix needed before next run
+- Human: restore Beget SSH reachability on TCP/22 from Cloud egress, or set Cloud Secret `SSH_HOST_IP` to a reachable IP (script/skill must honor it without inventing values).
+- Fixer: document `SSH_HOST_IP` fallback in publish skill/contract + optional script support if missing; soft-pass internal `site_base` TLS timeouts in link-verify the same way catalog/site soft hosts work (internal_relative currently has empty netloc so soft_pass never applies).
+- Related open: `INC-20261102-1708-director-ssh-dns`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard Cloud Secrets (`SSH_HOST_IP` / network allowlist — no values recorded here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

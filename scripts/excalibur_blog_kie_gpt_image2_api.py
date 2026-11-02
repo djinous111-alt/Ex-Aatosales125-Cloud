@@ -10,6 +10,7 @@ batch, creates a Kie job, polls for completion, and writes the same
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import os
 import sys
@@ -23,10 +24,12 @@ from typing import Any
 
 DEFAULT_CREATE_URL = "https://api.kie.ai/api/v1/jobs/createTask"
 DEFAULT_RECORD_URL = "https://api.kie.ai/api/v1/jobs/recordInfo"
+DEFAULT_FILE_UPLOAD_URL = "https://kieai.redpandaai.co/api/file-base64-upload"
 DEFAULT_MODEL = "gpt-image-2-image-to-image"
 DEFAULT_API_KEY_ENV = "KIE_API_KEY"
 DEFAULT_POLL_INTERVAL_SECONDS = 15
 DEFAULT_MAX_WAIT_SECONDS = 900
+DEFAULT_LOCAL_HERO = "memory/cover/assets/blog-hero-reference.png"
 
 
 class KieApiError(RuntimeError):
@@ -119,6 +122,91 @@ def batch_mcp_args(batch_path: Path) -> dict[str, Any]:
         "aspect_ratio": args.get("aspect_ratio") or "auto",
         "resolution": args.get("resolution") or "1K",
     }
+
+
+def upload_local_hero_base64(
+    *,
+    api_key: str,
+    image_path: Path,
+    upload_url: str = DEFAULT_FILE_UPLOAD_URL,
+    upload_path: str = "images/excalibur-blog-hero.png",
+    file_name: str = "blog-hero-reference.png",
+) -> str:
+    """Upload local hero PNG via Kie file-base64 API; return HTTPS downloadUrl."""
+    if not image_path.is_file():
+        raise KieApiError(f"Local hero reference missing: {image_path}")
+    raw = image_path.read_bytes()
+    payload = {
+        "base64Data": "data:image/png;base64," + base64.b64encode(raw).decode("ascii"),
+        "uploadPath": upload_path,
+        "fileName": file_name,
+    }
+    response = http_json("POST", upload_url, api_key, payload)
+    require_success(response, "file-base64-upload")
+    data = response.get("data") or {}
+    if not isinstance(data, dict):
+        raise KieApiError(f"Kie file upload missing data object: {response}")
+    url = (
+        str(data.get("downloadUrl") or data.get("fileUrl") or data.get("url") or "")
+        .strip()
+    )
+    if not url.startswith(("http://", "https://")):
+        raise KieApiError(f"Kie file upload missing downloadUrl: {response}")
+    return url
+
+
+def ensure_reachable_input_urls(
+    *,
+    root: Path,
+    article_dir: Path,
+    image_input: dict[str, Any],
+    api_key: str,
+    force_local_hero: bool = False,
+    local_hero: Path | None = None,
+) -> tuple[dict[str, Any], dict[str, Any] | None]:
+    """If WP/catbox hero URLs are unreachable from Kie, rehost local reference via file-base64.
+
+    Keeps blog-hero.json canonical WP URL untouched; writes cover/kie-hero-upload.json evidence.
+    """
+    hero_path = local_hero or (root / DEFAULT_LOCAL_HERO)
+    if not hero_path.is_absolute():
+        hero_path = root / hero_path
+    urls = list(image_input.get("input_urls") or [])
+    if not urls:
+        raise KieApiError("input_urls empty before hero reachability check")
+
+    need_upload = force_local_hero
+    if not need_upload:
+        # Heuristic: site/WP media hosts often fail from Kie (DNS / allowlist).
+        first = str(urls[0]).lower()
+        if any(
+            token in first
+            for token in (
+                "avtosales125.ru",
+                "avto-sales125.ru",
+                "/wp-content/uploads/",
+            )
+        ):
+            need_upload = True
+
+    if not need_upload:
+        return image_input, None
+
+    download_url = upload_local_hero_base64(api_key=api_key, image_path=hero_path)
+    patched = dict(image_input)
+    patched["input_urls"] = [download_url]
+    evidence = {
+        "source": "kie-file-base64-upload",
+        "local_hero": str(hero_path.relative_to(root) if hero_path.is_relative_to(root) else hero_path),
+        "download_url_host": urllib.parse.urlparse(download_url).netloc,
+        "replaced_input_url_hosts": [
+            urllib.parse.urlparse(str(u)).netloc for u in urls if str(u).strip()
+        ],
+    }
+    evidence_path = article_dir / "cover" / "kie-hero-upload.json"
+    save_json(evidence_path, evidence)
+    print(f"OK kie hero rehosted via file-base64 → {evidence_path}")
+    return patched, evidence
 
 
 def create_task(
@@ -239,12 +327,25 @@ def main() -> int:
     ap.add_argument("--task-id", default="", help="Poll an existing Kie task instead of creating a new one")
     ap.add_argument("--create-only", action="store_true", help="Create task, write task record, and exit")
     ap.add_argument("--dry-run", action="store_true", help="Validate batch and print sanitized create payload")
+    ap.add_argument(
+        "--force-local-hero",
+        action="store_true",
+        help="Always rehost memory/cover/assets/blog-hero-reference.png via Kie file-base64 before createTask",
+    )
+    ap.add_argument(
+        "--skip-hero-rehost",
+        action="store_true",
+        help="Do not auto-rehost WP/site hero URLs via Kie file-base64",
+    )
     args = ap.parse_args()
 
     root = project_root()
     batch_path = resolve_path(root, args.article_dir, args.batch)
     result_path = resolve_path(root, args.article_dir, args.result)
     task_record_path = resolve_path(root, args.article_dir, args.task_record)
+    article_dir = Path(args.article_dir)
+    if not article_dir.is_absolute():
+        article_dir = root / article_dir
 
     try:
         image_input = batch_mcp_args(batch_path)
@@ -256,7 +357,22 @@ def main() -> int:
             create_payload["callBackUrl"] = args.callback_url
 
         if args.dry_run:
-            print(json.dumps({"create_url": args.create_url, "payload": create_payload}, ensure_ascii=False, indent=2))
+            # Sanitize: do not print full URLs with query tokens in automation logs if avoidable.
+            sanitized = {
+                "create_url": args.create_url,
+                "payload": {
+                    "model": create_payload["model"],
+                    "input": {
+                        **image_input,
+                        "input_urls": [
+                            urllib.parse.urlparse(str(u))._replace(query="", fragment="").geturl()
+                            for u in (image_input.get("input_urls") or [])
+                        ],
+                    },
+                },
+                "hero_rehost": "skipped_in_dry_run" if args.skip_hero_rehost else "would_auto_on_wp_hosts",
+            }
+            print(json.dumps(sanitized, ensure_ascii=False, indent=2))
             return 0
 
         api_key = os.environ.get(args.api_key_env, "").strip()
@@ -267,16 +383,46 @@ def main() -> int:
             )
             return 1
 
+        if not args.skip_hero_rehost:
+            image_input, _hero_evidence = ensure_reachable_input_urls(
+                root=root,
+                article_dir=article_dir,
+                image_input=image_input,
+                api_key=api_key,
+                force_local_hero=args.force_local_hero,
+            )
+
         task_id = args.task_id.strip()
         create_response: dict[str, Any] | None = None
         if not task_id:
-            task_id, create_response = create_task(
-                create_url=args.create_url,
-                api_key=api_key,
-                model=args.model,
-                image_input=image_input,
-                callback_url=args.callback_url,
-            )
+            try:
+                task_id, create_response = create_task(
+                    create_url=args.create_url,
+                    api_key=api_key,
+                    model=args.model,
+                    image_input=image_input,
+                    callback_url=args.callback_url,
+                )
+            except KieApiError as exc:
+                # Retry once with forced local hero upload when Kie cannot fetch WP media.
+                msg = str(exc).lower()
+                if args.skip_hero_rehost or "fetch" not in msg:
+                    raise
+                print("WARN Kie create failed on remote hero fetch; retrying with local file-base64 upload")
+                image_input, _hero_evidence = ensure_reachable_input_urls(
+                    root=root,
+                    article_dir=article_dir,
+                    image_input=image_input,
+                    api_key=api_key,
+                    force_local_hero=True,
+                )
+                task_id, create_response = create_task(
+                    create_url=args.create_url,
+                    api_key=api_key,
+                    model=args.model,
+                    image_input=image_input,
+                    callback_url=args.callback_url,
+                )
             save_json(
                 task_record_path,
                 {

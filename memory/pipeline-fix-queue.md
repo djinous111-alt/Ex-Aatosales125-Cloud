@@ -6,6 +6,105 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-1340-cover-mcp-kv-unavailable-kie-fallback
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: api
+
+### What went wrong
+- Namespace `MCP-KV` failed live tool discovery (`namespaceStatus: error`); `gpt-image-2` unavailable for cover i2i.
+- Blind MCP retry forbidden while tools list empty.
+
+### How the agent recovered this run
+- Used documented primary Cloud path `scripts/excalibur_blog_kie_gpt_image2_api.py` (ONE task) after preparing `cover/quad-mcp-batch.json`.
+- Marked fragment `mcp_used: Kie API async` + COVER MCP RECOVERY via Kie (not sync MCP).
+
+### Durable fix needed before next run
+- Restore MCP-KV connectivity for Cloud automation OR pin cover agent/skill to Kie-first when MCP-KV error.
+- Doctor/preflight: surface MCP-KV discovery status before cover step.
+
+### Suggested files to inspect/change
+- `shared/kie-gpt-image-api-contract.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard MCP / Cloud Secrets for MCP-KV
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1341-cover-hero-wp-fetch-fail-kie-upload
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: api
+
+### What went wrong
+- First Kie task failed: `failCode=400 image fetch failed` on WP media `reference_url_hosted` (site DNS/reachability from Kie).
+- `excalibur_blog_hero_reference_url.py --force` could not rehost: catbox HTTP 412, 0x0 HTTP 503.
+
+### How the agent recovered this run
+- Uploaded local `memory/cover/assets/blog-hero-reference.png` via Kie File Upload API (`https://kieai.redpandaai.co/api/file-base64-upload`).
+- Patched batch `input_urls` to tempfile downloadUrl; second Kie create succeeded (`task_id=b730b7ed78e392d797513bb9f783c20c`).
+- Wrote `cover/kie-hero-upload.json` (non-secret).
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_kie_gpt_image2_api.py` (or hero helper) to auto-upload local reference via Kie file-base64 when WP/catbox/0x0 fail.
+- Prefer HTTPS-reachable hero host; keep WP URL as canonical in `blog-hero.json` but allow runtime override in batch.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-1343-cover-corner-brand-overlay-regression
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: script
+
+### What went wrong
+- Generated cover omitted corner catalog brand `avto-sales125.ru`.
+- `ensure_corner_brand` previously added in `excalibur_blog_cover_quad_split.py` (commit f9ca3d26) is missing from current script → split no longer stamps brand after crop.
+
+### How the agent recovered this run
+- Manual PIL overlay of `avto-sales125.ru` on `cover/cover.png` (no second image job); registry flagged `corner_brand_overlay=true`.
+
+### Durable fix needed before next run
+- Restore `CORNER_BRAND_TEXT` + `ensure_corner_brand()` call for cover slot in `excalibur_blog_cover_quad_split.py` and add a small regression test/doctor check.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261102-1330-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-11-02

@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый перевод — и кот в мешке?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar, ирония «кот в мешке», плашка читать карточку до депозита",
+      "scene_hint": "reference face + glasses lock; OUTFIT agent choice: navy softshell over charcoal turtleneck, neat casual for Encar phone-check indoors (no cap/hood, do NOT copy reference t-shirt); selfie pose holding smartphone with fake Encar lot card UI (Korean labels + browser translate overlay «без аварий»); torn-paper sticker with cat-in-bag irony (NOT toxic words); highlighter on «кот в мешке»; sticky note «до депозита»; corner brand avto-sales125.ru; no Wordstat/Metrika",
+      "meme_caption_ru": "Перевод ≠ проверка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте официальный Encar, а не чужой сайт из выдачи",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake browser UI: left tab encar.com official card, right tab RU mirror/mediator site crossed out with red marker; sticky «официал»; tape corner; NO hero face",
+      "alt": "Сравнение официального encar.com и зеркала-посредника из выдачи"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Переведите цену и год сами: манвоны и дата регистрации",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean UI table: 만원 → ×10 000 → KRW; 연식 month/year example 21/05 → май 2021; sticky note «манвон»; NO hero face",
+      "alt": "Таблица перевода манвонов и даты регистрации на Encar"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Прочитайте схему кузова: \"без аварий\" не значит \"не чинили\"",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Car body diagram with X/W marks on wing/door; caption path 무사고 → схема → вердикт; red arrow «не чинили?»; NO hero face",
+      "alt": "Схема кузова Encar: метки X/W и ловушка «без аварий»"
+    }
+  }
+}

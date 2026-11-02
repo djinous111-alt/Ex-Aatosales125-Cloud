@@ -59,7 +59,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `--env-check` shows ssh.dns.error=gaierror:-3 and SSH_HOST_DNS on this VM
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0951-schema-git-commit-secret-env
 status: fixed
@@ -104,7 +104,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter unit test; doctor errors=0
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0942-geo-qa-catalog-dns-soft
 status: fixed
@@ -147,7 +147,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - py_compile link_verify
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0930-geo-qa-typed-task-fallback
 status: fixed
@@ -190,7 +190,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg geo-qa generalPurpose
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0930-geo-qa-utility-pain-outcome-policy
 status: fixed
@@ -232,7 +232,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - doctor editorial-policy checks PASS
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0930-geo-qa-writer-literal-redacted-href
 status: fixed
@@ -273,7 +273,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg REDACTED CTA guidance
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0924-writer-git-commit-secret-env
 status: fixed
@@ -313,7 +313,7 @@ files_changed:
 - `skills/writer-excalibur-blog/SKILL.md`
 checks_run:
 - filter unit test; doctor PASS
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0918-research-wordstat-mcp-kv-unavailable
 status: fixed
@@ -355,7 +355,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg MCP-KV unavailable
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0918-research-notes-gate-false-technical
 status: fixed
@@ -396,7 +396,7 @@ files_changed:
 - `scripts/excalibur_repo_paths.py`
 checks_run:
 - AS10 Sienta technical_topic False; doctor PASS
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0911-scout-git-commit-secret-env
 status: fixed
@@ -436,7 +436,7 @@ files_changed:
 - `skills/scout-excalibur-blog/SKILL.md`
 checks_run:
 - filter unit test
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0910-scout-wordstat-mcp-kv-unavailable
 status: fixed
@@ -478,7 +478,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg Wordstat unavailable in scout skill
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0906-director-as-b-regex
 status: fixed
@@ -520,7 +520,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - today ready AS01; scout suggest-next AS11; doctor PASS
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0906-director-llms-blog-path
 status: fixed
@@ -557,7 +557,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - help shows aliases; doctor errors=0
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -842,7 +842,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg MCP-KV Kie fallback
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0955-cover-hero-wp-fetch-fail-kie-upload
 status: fixed
@@ -883,7 +883,7 @@ files_changed:
 - `shared/kie-gpt-image-api-contract.md`
 checks_run:
 - py_compile hero_reference_url; --provider kie
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-0951-cover-outfit-lock-white-hoodie-as10
 status: fixed
@@ -919,7 +919,7 @@ files_changed:
 - `scripts/excalibur_blog_cover_quad_prompt.py`
 checks_run:
 - no thick heavyweight white hoodie string; outfit_lock_line present
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-1001-cover-missing-corner-brand-pil
 status: fixed
@@ -955,7 +955,7 @@ files_changed:
 - `scripts/excalibur_blog_cover_quad_split.py`
 checks_run:
 - rg ensure_corner_brand; py_compile
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## INC-20261102-1007-indexer-llms-blog-path-docs
 status: fixed
@@ -1001,7 +1001,7 @@ files_changed:
 - `scripts/excalibur_blog_llms_generator.py`
 checks_run:
 - doctor llms aliases PASS
-commit: pending-fixer-commit
+commit: a5b3e4bd (docs/queue); scripts b2b07cf1; skills 25a43939
 
 ## Fixed incidents
 

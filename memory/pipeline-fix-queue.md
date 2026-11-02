@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-1035-publish-ssh-host-dns-empty-as10
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`; env-check PASS; link-verify PASS; dry-run OK (~6.3MB PHP) for NEW slug `kak-vybrat-toyota-sienta-iz-yaponii-2026` (no `wp_post_id`; denylist-safe vs historical WP 4711 Haval M6).
+- Live SSH publish failed: `socket.gaierror` — `SSH_HOST` (`*.beget.tech`) has empty/SERVFAIL A records globally (Google DoH Status 2; check-host report empty A worldwide; nslookup.io NOERROR with empty answer).
+- Site host A resolves intermittently to `45.130.41.165` (BEGET-AS) with :80/:443 open but :22/:21/:222 closed — cannot safely map SSH to web IP.
+- SSL/REST from this Cloud VM to the site often handshake-timeout / WebFetch 504; no FTP_/WP app-password alternate secrets; skill transport is SSH-only.
+- `paramiko` was missing from the image again (same as AS12–AS14) — installed via `pip --break-system-packages` before the attempt.
+
+### How the agent recovered this run
+- Recreated gitignored `memory/site.env.local` from Cloud Secrets; set `SSH_ROOT=.`.
+- Completed preflight only; did **not** invent non-SSH transport; did **not** overwrite denylist posts (4711/4758/4746/4740/3430/3394/4717/…).
+- Wrote `wp-publish-result.json` verdict=fail + PUBLISH BLOCKER in handoff; ledger left `in_progress`.
+
+### Durable fix needed before next run
+- Restore Beget DNS A record for the account `*.beget.tech` SSH hostname (or put stable SSH IP into Cloud Secrets / hosts-safe config) and confirm TCP/22 reachable from Cloud egress.
+- Optional: bake `paramiko` into Dockerfile/install; extend env-check to import-probe paramiko (prior INC-20261102-2134).
+- Optional: document emergency publish recovery when SSH DNS is empty (without weakening denylist).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (env-check paramiko probe)
+- `.cursor/cloud-agent-install.sh` / `Dockerfile` / `requirements.txt`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026/wp-publish-result.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261102-0951-schema-git-commit-secret-env
 status: open
 run_date: 2026-11-02

@@ -1,7 +1,7 @@
 # Promotion checklist — AS10 kak-vybrat-toyota-sienta-iz-yaponii-2026
 
-Дата публикации: 2026-11-02 (план; publish ещё не выполнен)  
-Live URL: /blog/kak-vybrat-toyota-sienta-iz-yaponii-2026/
+Дата публикации: 2026-11-02 (план; ❌ PUBLISH BLOCKER — SSH DNS)  
+Live URL: (pending — not published; target slug `kak-vybrat-toyota-sienta-iz-yaponii-2026` only; do not use historical AS10/Haval M6 4711)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

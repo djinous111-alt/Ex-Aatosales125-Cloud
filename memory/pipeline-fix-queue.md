@@ -70,7 +70,7 @@ files_changed:
 checks_run:
 - python3 scripts/excalibur_blog_wp_publish.py --env-check → missing includes ssh_dns; hint present
 - python3 scripts/excalibur_blog_doctor.py → errors=0
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1340-cover-mcp-kv-unavailable-kie-fallback
 status: fixed
@@ -118,7 +118,7 @@ files_changed:
 checks_run:
 - rg Kie-first skills/cover-excalibur-blog/SKILL.md
 - doctor OK
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1341-cover-hero-wp-fetch-fail-kie-upload
 status: fixed
@@ -164,7 +164,7 @@ checks_run:
 - py_compile kie api
 - smoke: kie hero file-base64 rehost present
 - doctor: kie api auto-rehosts…
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1343-cover-corner-brand-overlay-regression
 status: fixed
@@ -204,7 +204,7 @@ files_changed:
 checks_run:
 - smoke corner brand
 - doctor cover quad split stamps corner brand
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1330-geo-qa-typed-task-unavailable
 status: fixed
@@ -248,7 +248,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg geo-qa enum skills/director-excalibur-blog/SKILL.md
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1330-geo-qa-utility-markers-missing
 status: fixed
@@ -297,7 +297,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy markers
 - JSON parse policy
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1330-geo-qa-catalog-dns-softpass-regression
 status: fixed
@@ -339,7 +339,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor link-verify soft-pass catalog_dns pinned
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1313-research-precommit-secret-hook
 status: fixed
@@ -380,7 +380,7 @@ files_changed:
 checks_run:
 - doctor excalibur_git.sh present
 - smoke git filter
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1312-research-mcp-kv-wordstat-down
 status: fixed
@@ -423,7 +423,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - rg WORDSTAT UNAVAILABLE skills/excalibur-research/SKILL.md
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1312-research-notes-gate-pain-keywords
 status: fixed
@@ -465,7 +465,7 @@ files_changed:
 checks_run:
 - py_compile research_notes_gate
 - doctor research-notes gate counts…
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1606-director-today-as-prefix
 status: fixed
@@ -507,7 +507,7 @@ checks_run:
 - scout --suggest-next → pool>0 Next AS10
 - today without override → ready (not needs_scout)
 - smoke AS|B
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20261102-1606-director-llms-blog-path
 status: fixed
@@ -551,7 +551,7 @@ files_changed:
 checks_run:
 - llms --help shows --blog-path
 - doctor llms alias OK
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -603,7 +603,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -654,7 +654,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -695,7 +695,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -742,7 +742,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -796,7 +796,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 924690a9 / 6b587db0
 
 ## Fixed incidents
 

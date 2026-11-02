@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+none
+
+## Fixed / needs-human (2026-11-02 AS02 fixer)
+
 ## INC-20261102-1658-publish-ssh-dns-beget
-status: open
+status: needs-human
 run_date: 2026-11-02
 role: excalibur-blog-publish
 topic_id: AS02
@@ -47,10 +51,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-11-02  # durable probe/docs only
+reason:
+- Beget SSH_HOST still fails Cloud getaddrinfo (Temporary failure in name resolution); no SSH_HOST_IP secret with TCP/22.
+- Durable probe/docs/paramiko pin landed; LIVE publish still blocked until human restores DNS/egress or adds SSH_HOST_IP.
+needed_decision_or_secret:
+- Restore Beget SSH DNS from Cloud egress/resolver OR add Cloud Secret SSH_HOST_IP (TCP/22 reachable; NOT PUBLIC_SITE_URL HTTP IP).
+- Then republish ONLY slug encar-na-russkom-kak-chitat; do not touch denylist LIVE ids 4758/4746/4740/3430/3394/4717/4711.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/cloud-agent-install.sh`
+- `memory/site.env.local.example`
+checks_run:
+- python3 scripts/excalibur_blog_wp_publish.py --env-check → missing includes ssh_dns; hint present
+- python3 scripts/excalibur_blog_doctor.py → errors=0
+commit: pending-parent-commit
 
 ## INC-20261102-1340-cover-mcp-kv-unavailable-kie-fallback
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-cover
 topic_id: AS02
@@ -81,10 +104,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Cover agent/skill + kie contract pin MCP-KV discovery error → Kie-first ONE task (no blind MCP retry).
+files_changed:
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg Kie-first skills/cover-excalibur-blog/SKILL.md
+- doctor OK
+commit: pending-parent-commit
 
 ## INC-20261102-1341-cover-hero-wp-fetch-fail-kie-upload
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-cover
 topic_id: AS02
@@ -115,10 +152,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- excalibur_blog_kie_gpt_image2_api.py auto-rehosts local hero via Kie file-base64-upload when WP/site URL is used or fetch fails; writes cover/kie-hero-upload.json.
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- py_compile kie api
+- smoke: kie hero file-base64 rehost present
+- doctor: kie api auto-rehosts…
+commit: pending-parent-commit
 
 ## INC-20261102-1343-cover-corner-brand-overlay-regression
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-cover
 topic_id: AS02
@@ -145,11 +194,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Restored stamp_corner_brand / load_corner_brand in excalibur_blog_cover_quad_split.py; doctor asserts corner stamp.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- smoke corner brand
+- doctor cover quad split stamps corner brand
+commit: pending-parent-commit
 
 ## INC-20261102-1330-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -178,10 +236,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Pinned Cloud Task enum fallback for geo-qa in agent + director skill + pitfalls (generalPurpose per role).
+files_changed:
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg geo-qa enum skills/director-excalibur-blog/SKILL.md
+commit: pending-parent-commit
 
 ## INC-20261102-1330-geo-qa-utility-markers-missing
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -214,10 +284,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Pinned _markers_pinned + pain/outcome lists in editorial-policy; utility empty-list skip already present; recommendation synonyms делать:/не делать:; writing contract prefers Сделайте/Не делайте; doctor asserts markers.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor editorial-policy markers
+- JSON parse policy
+commit: pending-parent-commit
 
 ## INC-20261102-1330-geo-qa-catalog-dns-softpass-regression
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -246,10 +329,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- catalog_dns/CATALOG_HOST_SUFFIXES + redact already present; pinned via doctor assertion + pitfalls (do not wipe on rebrand). Soft-pass ≠ LIVE SSH proof.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor link-verify soft-pass catalog_dns pinned
+commit: pending-parent-commit
 
 ## INC-20261102-1313-research-precommit-secret-hook
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-research
 topic_id: AS02
@@ -276,10 +369,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Restored scripts/excalibur_git.sh + filter_commit_secret_env.sh; pitfalls document safe bypass for invalid secret names crashing pre-commit.cursor.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor excalibur_git.sh present
+- smoke git filter
+commit: pending-parent-commit
 
 ## INC-20261102-1312-research-mcp-kv-wordstat-down
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-research
 topic_id: AS02
@@ -308,10 +412,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Research skill documents MCP-KV discovery error → WORDSTAT UNAVAILABLE without invented impressions; doctor notes offline MCP skip.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- rg WORDSTAT UNAVAILABLE skills/excalibur-research/SKILL.md
+commit: pending-parent-commit
 
 ## INC-20261102-1312-research-notes-gate-pain-keywords
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-research
 topic_id: AS02
@@ -338,10 +453,22 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- research_notes_gate counts markdown table data-rows under ## pain_solution_map and accepts accessed_at: or ISO dates in URL rows; skill documents gate quirks.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile research_notes_gate
+- doctor research-notes gate counts…
+commit: pending-parent-commit
 
 ## INC-20261102-1606-director-today-as-prefix
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-director
 topic_id: AS02
@@ -368,10 +495,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- today.py + scout_helper accept AS\d+|B\d+; scout --suggest-next continues AS series.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- scout --suggest-next → pool>0 Next AS10
+- today without override → ready (not needs_scout)
+- smoke AS|B
+commit: pending-parent-commit
 
 ## INC-20261102-1606-director-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-director
 topic_id: AS02
@@ -400,7 +539,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- llms_generator --blog-path alias of --blog-dir; indexer skills drop erroneous --blog-path /; doctor asserts both flags.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- llms --help shows --blog-path
+- doctor llms alias OK
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

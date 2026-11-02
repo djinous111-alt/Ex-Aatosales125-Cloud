@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-0924-writer-git-commit-secret-env
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of AS10 `article.html` / `article.meta.json` failed in Cloud pre-commit: `invalid variable name` when `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` are set.
+- Same root cause as scout INC-20261102-0911; `scripts/excalibur_git.sh` still missing on this branch.
+
+### How the agent recovered this run
+- Recommitted with both `CLOUD_AGENT_*_SECRET_NAMES` unset in the commit shell (`env -u ...`), then pushed.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` (filter invalid secret-name env) and document writer/scout/research to use it for commits.
+- Close together with INC-20261102-0911 after durable script lands.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing — recreate)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md` (optional commit note)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261102-0918-research-wordstat-mcp-kv-unavailable
 status: open
 run_date: 2026-11-02

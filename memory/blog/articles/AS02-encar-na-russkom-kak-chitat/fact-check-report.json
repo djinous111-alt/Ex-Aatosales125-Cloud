@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "(RU/EN), гайдом по inspection-кодам (AuctionsAPI, 2026-10-01) и практикой сопровождения заказов на 2026-",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "просто не работает. На пальцах манвон (만원) – это 10 000 вон: в карточке часто пишут \"2,450\", а не полную с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 200",
+      "kind": "large_number",
+      "context": "омент проверки отчёт на сайте сервиса стоит около 2 200 вон; есть бесплатный flood-check по страховым запи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

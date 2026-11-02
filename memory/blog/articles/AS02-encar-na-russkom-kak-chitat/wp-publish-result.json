@@ -1,0 +1,24 @@
+{
+  "slug": "encar-na-russkom-kak-chitat",
+  "topic_id": "AS02",
+  "permalink": "",
+  "post_id": null,
+  "publish_method": "ssh",
+  "verdict": "fail",
+  "blocker": "PUBLISH BLOCKER",
+  "blocker_reason": "SSH TCP port 22 connection timed out to configured SSH_HOST after DNS resolve; SSH_HOST_IP unset (no invented IP). Site HTTPS SSL handshake also timed out from Cloud. Denylist untouched (4758/4746/4740/3430/3394/4717/4711; foreign slug encar-na-russkom-kak-chitat-obyavleniya-i-bezopasno-kupit-avto).",
+  "preflight": {
+    "allow_publish": true,
+    "env_check": "pass",
+    "dry_run": "pass",
+    "dry_run_php_bytes": 6831024,
+    "link_verify": "fail",
+    "link_verify_note": "internal AS09 path SSL handshake timeout via PUBLIC_SITE_URL; catalog soft_pass; external encar/carhistory/telegram OK",
+    "ssh_dns": "ok",
+    "ssh_tcp22": "timeout",
+    "ssh_host_ip_secret": false,
+    "paramiko": "SSHException Errno 110 Connection timed out"
+  },
+  "raw_output": "BLOCKER: SSH TCP/22 unreachable; publish not attempted (would hang). No LIVE write. Denylist preserved.",
+  "updated_at": "2026-11-02T18:05:17Z"
+}

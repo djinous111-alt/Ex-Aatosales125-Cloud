@@ -31,3 +31,19 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-11-02 — AS02 encar-na-russkom-kak-chitat
+
+- **verdict:** FAIL / ❌ PUBLISH BLOCKER
+- **post_id:** none (no WP write)
+- **permalink:** none
+- **featured_image:** none
+- **inline_images:** none
+- **schema_meta:** n/a
+- **method:** not attempted (SSH unreachable)
+- **env:** EXCALIBUR_BLOG_ALLOW_PUBLISH=yes; env-check PASS; dry-run PASS (~6.8MB PHP); SSH_ROOT=.
+- **blocker:** SSH_HOST DNS resolves, but TCP/22 Connection timed out (Errno 110); `SSH_HOST_IP` unset — IP not invented. PUBLIC_SITE_URL HTTPS SSL handshake also timed out from Cloud.
+- **link-verify:** fail (internal `/blog/trust-encar-carhistory-proverka-do-depozita/` SSL timeout; catalog soft_pass; encar/carhistory/telegram OK)
+- **denylist:** untouched — WP IDs 4758/4746/4740/3430/3394/4717/4711; foreign slug `encar-na-russkom-kak-chitat-obyavleniya-i-bezopasno-kupit-avto` not targeted. Target slug only: `encar-na-russkom-kak-chitat`.
+- **result:** `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20261102-1804-publish-ssh-tcp22-timeout`

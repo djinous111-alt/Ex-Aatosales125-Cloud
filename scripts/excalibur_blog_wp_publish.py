@@ -7,6 +7,7 @@ import base64
 import io
 import json
 import os
+import socket
 import sys
 import urllib.request
 from pathlib import Path
@@ -26,11 +27,13 @@ PUBLISH_ENV_KEYS = {
     "WP_HOME",
     "WP_SITE_URL",
     "SSH_HOST",
+    "SSH_HOST_IP",
     "SSH_PORT",
     "SSH_USER",
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",  # Cloud Secrets alias → mapped to SSH_ROOT when ROOT empty
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
@@ -55,6 +58,9 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Cloud Secrets often expose SSH_PATH but not SSH_ROOT — map alias so ENOENT→`.` fallback works.
+    if not (env.get("SSH_ROOT") or "").strip() and (env.get("SSH_PATH") or "").strip():
+        env["SSH_ROOT"] = env["SSH_PATH"].strip()
     return env
 
 
@@ -71,19 +77,153 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def probe_ssh_dns(env: dict[str, str]) -> dict[str, object]:
+    """Resolve SSH_HOST (or SSH_HOST_IP override) before paramiko connect.
+
+    Does not print secrets. PUBLIC_SITE_URL IP must NOT be used as SSH fallback —
+    HTTP and SSH endpoints often differ on shared hosting (Beget).
+    """
+    host = (env.get("SSH_HOST") or "").strip()
+    host_ip = (env.get("SSH_HOST_IP") or "").strip()
+    port = int((env.get("SSH_PORT") or "22").strip() or "22")
+    report: dict[str, object] = {
+        "host_configured": bool(host),
+        "host_ip_override": bool(host_ip),
+        "port": port,
+        "resolved": False,
+        "resolver": None,
+        "addrs": [],
+        "error": None,
+        "blocker": None,
+    }
+    if host_ip:
+        report["resolved"] = True
+        report["resolver"] = "SSH_HOST_IP"
+        report["addrs"] = [host_ip]
+        return report
+    if not host:
+        report["error"] = "SSH_HOST empty"
+        report["blocker"] = "missing_ssh_host"
+        return report
+    try:
+        infos = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+        addrs = sorted({item[4][0] for item in infos if item and item[4]})
+        report["resolved"] = bool(addrs)
+        report["resolver"] = "getaddrinfo"
+        report["addrs"] = addrs
+        if not addrs:
+            report["error"] = "getaddrinfo returned no addresses"
+            report["blocker"] = "ssh_dns_empty"
+    except socket.gaierror as exc:
+        report["error"] = f"gaierror: {exc}"
+        report["blocker"] = "ssh_dns_resolution_failed"
+        # Hint only — never invent PUBLIC host as SSH IP.
+        report["hint"] = (
+            "Cloud DNS cannot resolve SSH_HOST. Restore Beget DNS/egress OR set "
+            "SSH_HOST_IP Cloud Secret to a TCP/22-reachable address (not PUBLIC_SITE_URL IP)."
+        )
+    except OSError as exc:
+        report["error"] = f"{type(exc).__name__}: {exc}"
+        report["blocker"] = "ssh_dns_os_error"
+    return report
+
+
+def probe_ssh_tcp22(env: dict[str, str], dns: dict[str, object] | None = None) -> dict[str, object]:
+    """Non-auth TCP connect probe to SSH port (default 22).
+
+    Detects DNS-OK but firewall/egress timeout before LIVE paramiko upload.
+    Never invents IPs; uses only SSH_HOST_IP or addresses from probe_ssh_dns.
+    """
+    dns = dns or probe_ssh_dns(env)
+    port = int(dns.get("port") or int((env.get("SSH_PORT") or "22").strip() or "22"))
+    report: dict[str, object] = {
+        "probed": False,
+        "reachable": False,
+        "port": port,
+        "error": None,
+        "blocker": None,
+        "hint": None,
+    }
+    if dns.get("blocker") or not dns.get("resolved"):
+        report["blocker"] = "ssh_dns_unresolved"
+        report["hint"] = dns.get("hint") or (
+            "Resolve SSH_HOST or set SSH_HOST_IP before TCP/22 probe."
+        )
+        return report
+    addrs = list(dns.get("addrs") or [])
+    if not addrs:
+        report["blocker"] = "ssh_no_addrs"
+        return report
+    # Probe first resolved address only (keep env-check fast).
+    target = str(addrs[0])
+    report["probed"] = True
+    try:
+        with socket.create_connection((target, port), timeout=8.0):
+            report["reachable"] = True
+    except TimeoutError as exc:
+        report["error"] = f"TimeoutError: {exc}"
+        report["blocker"] = "ssh_tcp22_timeout"
+        report["hint"] = (
+            "DNS resolved but TCP/%s timed out from Cloud egress. "
+            "Restore Beget SSH allowlist/firewall OR set SSH_HOST_IP to a "
+            "TCP/22-reachable address (not PUBLIC_SITE_URL HTTP IP). Do not invent IP."
+            % port
+        )
+    except OSError as exc:
+        report["error"] = f"{type(exc).__name__}: {exc}"
+        report["blocker"] = "ssh_tcp22_unreachable"
+        report["hint"] = (
+            "TCP/%s not reachable from Cloud. Human must fix network/SSH_HOST_IP; "
+            "agents must not invent alternate hosts." % port
+        )
+    return report
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    dns = probe_ssh_dns(env)
+    tcp = probe_ssh_tcp22(env, dns)
+    paramiko_ok = True
+    try:
+        import paramiko  # noqa: F401
+    except ImportError:
+        paramiko_ok = False
+    missing = validate_publish_env(env)
+    if not paramiko_ok and "paramiko" not in missing:
+        missing = list(missing) + ["paramiko"]
+    if dns.get("blocker") and "ssh_dns" not in missing:
+        missing = list(missing) + ["ssh_dns"]
+    if tcp.get("blocker") in {"ssh_tcp22_timeout", "ssh_tcp22_unreachable"} and "ssh_tcp22" not in missing:
+        missing = list(missing) + ["ssh_tcp22"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": paramiko_ok,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
+            "host_ip_configured": bool(env.get("SSH_HOST_IP")),
             "user_configured": bool(env.get("SSH_USER")),
             "password_configured": bool(env.get("SSH_PASS") or env.get("SSH_PASSWORD")),
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
+            "dns": {
+                "resolved": dns.get("resolved"),
+                "resolver": dns.get("resolver"),
+                "addr_count": len(dns.get("addrs") or []),
+                "error": dns.get("error"),
+                "blocker": dns.get("blocker"),
+                "hint": dns.get("hint"),
+            },
+            "tcp22": {
+                "probed": tcp.get("probed"),
+                "reachable": tcp.get("reachable"),
+                "port": tcp.get("port"),
+                "error": tcp.get("error"),
+                "blocker": tcp.get("blocker"),
+                "hint": tcp.get("hint"),
+            },
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -372,7 +512,8 @@ echo 'permalink=' . $permalink . PHP_EOL;
 
 
 def _ssh_creds(env: dict[str, str]) -> tuple[str, int, str, str]:
-    host = env["SSH_HOST"]
+    # Prefer explicit IP when Cloud DNS cannot resolve Beget SSH_HOST.
+    host = (env.get("SSH_HOST_IP") or env.get("SSH_HOST") or "").strip()
     port = int(env.get("SSH_PORT") or "22")
     user = env["SSH_USER"]
     password = env.get("SSH_PASS") or env["SSH_PASSWORD"]

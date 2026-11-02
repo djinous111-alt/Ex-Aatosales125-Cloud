@@ -233,6 +233,14 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
         for quote in blockquotes
         if "материал проверен" in quote.lower() and "достоверность данных" in quote.lower()
     ]
+    # Insight opener must not use banned template labels (GEO QA / writing contract).
+    insight_banned = []
+    for quote in blockquotes:
+        plain_q = strip_html(quote).strip().lower()
+        if plain_q.startswith("tl;dr") or plain_q.startswith("быстрый инсайт"):
+            insight_banned.append(plain_q[:48])
+        elif re.match(r"^(tl;dr|быстрый инсайт)\b", plain_q):
+            insight_banned.append(plain_q[:48])
     exactly_five_lists = len(re.findall(r"<ol[\s\S]*?(?:<li[\s\S]*?){5}</ol>", html, flags=re.I))
 
     reader_story = extract_field(notes, "reader_story")
@@ -252,6 +260,11 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
 
     if ai_opening_hits:
         errors.append(f"AI-style opening phrases near lead: {ai_opening_hits}")
+    if insight_banned:
+        errors.append(
+            "insight block starts with banned label TL;DR / Быстрый инсайт; "
+            "use a natural opener (e.g. «Короткий разбор:»)"
+        )
     if len(concrete_hits) < 2:
         errors.append("too few concrete human markers: need examples/practice/error/scenario language")
     if len(pain_hits) < 2:

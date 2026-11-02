@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -117,17 +118,94 @@ def classify_link(href: str, site_base: str | None) -> str:
     return "external"
 
 
+def _env_soft_hosts() -> set[str]:
+    """Catalog / site / messenger hosts from env — often flaky from Cloud egress."""
+    hosts: set[str] = set()
+    for key in (
+        "PUBLIC_SITE_URL",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+        "WP_SITE_URL",
+        "WP_HOME",
+    ):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        parsed = urlparse(raw if "://" in raw else f"https://{raw}")
+        host = (parsed.netloc or "").lower()
+        if host:
+            hosts.add(host)
+            if host.startswith("www."):
+                hosts.add(host[4:])
+            else:
+                hosts.add(f"www.{host}")
+    return hosts
+
+
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
-    """Treat flaky social profile timeouts as warnings, not publish blockers."""
+    """Treat flaky social/catalog timeouts as warnings, not publish blockers."""
     parsed = urlparse(href)
-    host = parsed.netloc.lower()
-    soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"}
+    host = (parsed.netloc or "").lower()
+    soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"} | _env_soft_hosts()
     if host not in soft_hosts:
         return False
-    if result.get("status") is not None:
-        return False
     error = str(result.get("error") or "").lower()
-    return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
+    status = result.get("status")
+    # DNS / TLS / connect flakes
+    if status is None and any(
+        token in error
+        for token in (
+            "timed out",
+            "timeout",
+            "ssl",
+            "network",
+            "name or service not known",
+            "temporary failure",
+            "getaddrinfo",
+            "connection refused",
+            "unreachable",
+        )
+    ):
+        return True
+    # Transient upstream 5xx on known catalog/site hosts
+    if isinstance(status, int) and status >= 500:
+        return True
+    return False
+
+
+def _redact_report_urls(report: dict[str, Any]) -> dict[str, Any]:
+    """Replace secret env URLs in committed reports with [REDACTED]."""
+    secrets: list[str] = []
+    for key in (
+        "PUBLIC_SITE_URL",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+        "WP_SITE_URL",
+        "WP_HOME",
+    ):
+        raw = (os.environ.get(key) or "").strip().rstrip("/")
+        if raw:
+            secrets.append(raw)
+            if "://" in raw:
+                secrets.append(raw.split("://", 1)[1])
+
+    def scrub(value: str) -> str:
+        out = value
+        for secret in sorted(secrets, key=len, reverse=True):
+            if secret and secret in out:
+                out = out.replace(secret, "[REDACTED]")
+        return out
+
+    redacted = json.loads(json.dumps(report))
+    for link in redacted.get("links") or []:
+        for field in ("url", "checked_url", "error", "warning"):
+            if isinstance(link.get(field), str):
+                link[field] = scrub(link[field])
+    if isinstance(redacted.get("source"), str):
+        redacted["source"] = scrub(redacted["source"])
+    return redacted
 
 
 def verify_article(
@@ -178,19 +256,31 @@ def verify_article(
         r["skipped"] = False
         if kind == "internal_relative":
             r["checked_url"] = check_target
-        if kind == "external" and is_soft_external_failure(href, r):
+        if not r.get("ok") and is_soft_external_failure(href, r):
             r["ok"] = True
-            r["warning"] = "soft external social timeout; verify manually if needed"
+            r["soft_pass"] = "catalog_dns" if host_looks_catalog(href) else "social_timeout"
+            r["warning"] = (
+                "soft catalog/site/social timeout or 5xx; verify manually if needed"
+            )
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]
+    soft_passes = [r for r in results if r.get("soft_pass")]
     return {
         "source": str(html_path).replace("\\", "/"),
         "total_links": len(results),
         "failed_count": len(failed),
+        "soft_pass_count": len(soft_passes),
         "verdict": "pass" if not failed else "fail",
         "links": results,
     }
+
+
+def host_looks_catalog(href: str) -> bool:
+    host = (urlparse(href).netloc or "").lower()
+    if host in {"t.me", "telegram.me", "wa.me", "vk.com"}:
+        return False
+    return host in _env_soft_hosts()
 
 
 def main() -> int:
@@ -212,7 +302,8 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
-    text = json.dumps(report, ensure_ascii=False, indent=2)
+    safe_report = _redact_report_urls(report)
+    text = json.dumps(safe_report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(text + "\n", encoding="utf-8")

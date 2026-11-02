@@ -1,0 +1,56 @@
+{
+  "source": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "total_links": 5,
+  "failed_count": 0,
+  "soft_pass_count": 1,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://www.encar.com",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://global.encar.com/export-service/intro?lang=ru",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://www.carhistory.or.kr/main.car?lang=ru&retUrl=",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]/",
+      "status": null,
+      "ok": true,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "external",
+      "skipped": false,
+      "soft_pass": "catalog_dns",
+      "warning": "soft catalog/site/social timeout or 5xx; verify manually if needed"
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

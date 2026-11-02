@@ -6,6 +6,70 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-2136-cover-mcp-kv-unavailable-kie-fallback
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV namespaceStatus=error during cover step; sync gpt-image-2 tools unavailable.
+
+### How the agent recovered this run
+- Used Kie-first path: `scripts/excalibur_blog_kie_gpt_image2_api.py` one task `90b0bfc3c15380e2801b8fec42b83adf`, then quad_apply + inject.
+
+### Durable fix needed before next run
+- Keep cover skill/agent docs Kie-first when MCP-KV is down; doctor smoke for MCP-KV health optional.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `shared/kie-gpt-image-api-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261102-2136-cover-hero-wp-unreachable-kie-upload
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- Canonical WP hero media URL timed out from Cloud egress.
+- `excalibur_blog_cover_quad_prompt.py` hard-requires host `avtosales125.ru`, blocking direct use of Kie `file-base64-upload` tempfile URL in `blog-hero.json`.
+
+### How the agent recovered this run
+- Uploaded `memory/cover/assets/blog-hero-reference.png` via `https://kieai.redpandaai.co/api/file-base64-upload`.
+- Temporarily set WP host string for prompt validation, wrote batch, then patched `jobs[0].mcp_args.input_urls` to Kie tempfile downloadUrl.
+- Restored canonical WP URL in `blog-hero.json` after batch write; working URL kept in `cover/hero-reference-upload.json`.
+
+### Durable fix needed before next run
+- Allow `tempfile.redpandaai.co` / Kie file-base64 downloadUrl as valid `reference_url_hosted` when WP media unreachable.
+- Add helper `scripts/excalibur_blog_kie_file_base64_upload.py` and wire into hero_reference_url / cover prompt flow.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261103-2123-geo-qa-catalog-softpass-regression
 status: open
 run_date: 2026-11-03

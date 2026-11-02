@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1283,
+      715
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 715,
+        "end": 738
+      },
+      "v_gutter_px": {
+        "start": 1283,
+        "end": 1325
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 6,
+          "top": 0,
+          "right": 1277,
+          "bottom": 715
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 715
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в очках со смартфоном Encar и плашкой «кот в мешке»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1325,
+          "top": 10,
+          "right": 2560,
+          "bottom": 705
+        },
+        "raw_box_px": {
+          "left": 1325,
+          "top": 0,
+          "right": 2560,
+          "bottom": 715
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин: официальный encar.com против клона из выдачи",
+        "h2_anchor": "Откройте encar.com, а не чужой сайт из выдачи"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 17,
+          "top": 738,
+          "right": 1265,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 738,
+          "right": 1283,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: сначала цена, год и VIN, потом фото",
+        "h2_anchor": "Выпишите цену, год и VIN до восторга от фото"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1325,
+          "top": 741,
+          "right": 2560,
+          "bottom": 1436
+        },
+        "raw_box_px": {
+          "left": 1325,
+          "top": 738,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: «без аварий» не равно идеальный кузов, коды X/W",
+        "h2_anchor": "Прочитайте схему кузова: \"без аварий\" – не идеал"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Откройте encar.com, а не чужой сайт из выдачи",
+    "injected inline_2 after H2 — Выпишите цену, год и VIN до восторга от фото",
+    "injected inline_3 after H2 — Прочитайте схему кузова: \"без аварий\" – не идеал"
+  ]
+}

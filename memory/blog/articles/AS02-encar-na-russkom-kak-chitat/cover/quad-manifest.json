@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый перевод — и кот в мешке?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split; MCP-KV down → Kie-first",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar и плашкой «кот в мешке»",
+      "scene_hint": "WEATHER: evening indoor desk lamp cool grey; OUTFIT: navy puffer vest over charcoal turtleneck (NOT reference tank/t-shirt), NO cap NO hood, glasses on; EXACT face from reference; action selfie holding smartphone with fake Encar.com listing UI (Korean labels + RU browser translate overlay «без аварий»); torn-paper Cyrillic hook «Красивый перевод — и кот в мешке?» with yellow highlighter on «кот в мешке»; sticky note «схема кузова»; shocked cat meme cutout + facepalm sticker (different formats); DIY zine collage scotch tape; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic insults (no лох/лохов)",
+      "meme_caption_ru": "Перевод ≠ проверка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте encar.com, а не чужой сайт из выдачи",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Split fake browser screenshot: left tab encar.com (green check) vs right .ru clone «Encar на русском» (red X); sticky «только оригинал»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Скрин: официальный encar.com против клона из выдачи"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выпишите цену, год и VIN до восторга от фото",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns «фото-восторг» | «сначала цифры»; rows цена 만원×10000 / год / VIN; yellow highlight VIN row; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: сначала цена, год и VIN, потом фото"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Прочитайте схему кузова: \"без аварий\" – не идеал",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram: badge 무사고/«без аварий» → body map with X/W marks → red stamp «не идеал кузова»; sticky «читай схему»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: «без аварий» не равно идеальный кузов, коды X/W"
+    }
+  }
+}

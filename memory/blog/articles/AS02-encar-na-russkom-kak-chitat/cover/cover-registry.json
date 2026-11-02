@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс в очках со смартфоном Encar и плашкой «кот в мешке»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-02T21:35:42+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar и плашкой «кот в мешке»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Скрин: официальный encar.com против клона из выдачи",
+      "h2_anchor": "Откройте encar.com, а не чужой сайт из выдачи",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица: сначала цена, год и VIN, потом фото",
+      "h2_anchor": "Выпишите цену, год и VIN до восторга от фото",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема: «без аварий» не равно идеальный кузов, коды X/W",
+      "h2_anchor": "Прочитайте схему кузова: \"без аварий\" – не идеал",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -6,6 +6,49 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261102-1658-publish-ssh-dns-beget
+status: open
+run_date: 2026-11-02
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: env
+
+### What went wrong
+- Live publish failed at SSH bootstrap: `paramiko.Transport((SSH_HOST, 22))` → `socket.gaierror: [Errno -3] Temporary failure in name resolution` for Beget `SSH_HOST`.
+- Cloud resolver cannot resolve SSH host; UDP DNS to public resolvers (8.8.8.8 / 1.1.1.1 / 9.9.9.9) timed out; no `SSH_HOST_IP` (or equivalent) Cloud Secret.
+- PUBLIC site hostname sometimes resolves to an HTTP IP, but TCP/22 on that IP times out — not a valid SSH IP fallback.
+- link-verify also flapped on the same Cloud DNS class for site/catalog hosts (Telegram HEAD 200; catalog soft_pass).
+- Image lacked `paramiko` until pip workaround (known recurring gap).
+
+### How the agent recovered this run
+- Recreated gitignored `memory/site.env.local` from Cloud Secrets; mapped `SSH_PATH`→`SSH_ROOT`; ran `--env-check` (pass) and `--dry-run` (pass, ~6.7MB, slug `encar-na-russkom-kak-chitat`).
+- Attempted documented recovery: alternate DNS + PUBLIC IP as SSH candidate — rejected (no secret IP; `:22` closed/timeout).
+- Did **not** invent SSH IPs/passwords; did **not** overwrite denylist LIVE posts (4758/4746/4740/3430/3394/4717/4711).
+- Returned explicit `❌ PUBLISH BLOCKER`; ledger → `publish_blocked`; wrote `wp-publish-result.json` fail.
+
+### Durable fix needed before next run
+- Restore Beget SSH DNS from Cloud egress/resolver **or** add stable `SSH_HOST_IP` (or documented IP fallback) Cloud Secret with TCP/22 reachability.
+- Extend `--env-check` to probe SSH DNS/`getaddrinfo` and fail fast with blocker reason before dry-run payload build.
+- Pin `paramiko` in environment build / install script so publish images do not need mid-run pip.
+- Optional: soft-pass or retry policy for site-internal link-verify under Temporary failure (separate from SSH blocker).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check` DNS probe)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/environment.json` / install scripts (paramiko)
+- Cursor Dashboard Cloud Secrets (`SSH_HOST_IP` only if intentionally added; no values here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261102-1340-cover-mcp-kv-unavailable-kie-fallback
 status: open
 run_date: 2026-11-02

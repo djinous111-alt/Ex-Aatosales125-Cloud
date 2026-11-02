@@ -1,0 +1,34 @@
+{
+  "verdict": "fail",
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "article_dir": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat",
+  "publish_date": "2026-11-02",
+  "publish_method": "ssh",
+  "post_id": null,
+  "permalink": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": false,
+  "dry_run": {
+    "ok": true,
+    "php_bytes": 6726844,
+    "title": "Encar на русском: как читать объявления и не купить кота в мешке"
+  },
+  "env_check": {
+    "allow_publish": true,
+    "missing": [],
+    "ssh_root": "configured-non-dot",
+    "dot_fallback_enabled": true
+  },
+  "link_verify": "fail",
+  "blockers": [
+    "SSH_HOST DNS Temporary failure in name resolution (Beget) during paramiko.Transport",
+    "No SSH_HOST_IP / documented IP fallback secret in Cloud Secrets",
+    "PUBLIC site IP TCP/22 timeout — cannot use as SSH fallback",
+    "link-verify site/catalog DNS flaky in same Cloud resolver class"
+  ],
+  "denylist_untouched": [4758, 4746, 4740, 3430, 3394, 4717, 4711],
+  "raw_error": "socket.gaierror: [Errno -3] Temporary failure in name resolution",
+  "incident_report": "memory/pipeline-fix-queue.md#INC-20261102-1658-publish-ssh-dns-beget"
+}

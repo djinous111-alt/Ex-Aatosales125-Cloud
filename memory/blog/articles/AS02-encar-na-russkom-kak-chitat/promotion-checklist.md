@@ -1,7 +1,7 @@
 # Promotion checklist — AS02 encar-na-russkom-kak-chitat
 
-Дата публикации: YYYY-MM-DD  
-Live URL: /blog/encar-na-russkom-kak-chitat/
+Дата публикации: 2026-11-02 (publish BLOCKED — SSH DNS)  
+Live URL: none (❌ PUBLISH BLOCKER; target slug `encar-na-russkom-kak-chitat` only; denylist untouched)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

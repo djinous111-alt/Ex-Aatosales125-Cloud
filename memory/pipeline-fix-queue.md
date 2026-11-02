@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — see needs-human / Fixed below)_
+
 ## INC-20261102-2147-publish-ssh-tcp22-timeout
-status: open
+status: needs-human
 run_date: 2026-11-03
 role: excalibur-blog-publish
 topic_id: AS02
@@ -43,10 +45,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-11-02
+fix_summary:
+- Durable: `--env-check` now probes DNS + TCP/22; JSON documents `config PASS ≠ DNS/TCP PASS`; `missing` includes `ssh_tcp22` on timeout.
+- Publish skill/pitfalls: do not invent `SSH_HOST_IP`; ledger `publish_blocked` on TCP timeout.
+- Remaining: Beget SSH TCP/22 still unreachable from Cloud egress — human must restore firewall/allowlist or set verified `SSH_HOST_IP`, then publish ONLY slug `encar-na-russkom-kak-chitat`.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → dns resolved, tcp22 timeout / missing=ssh_tcp22
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+commit: pending
+reason:
+- Cloud egress cannot open Beget TCP/22; code cannot invent host IP or open firewall.
+needed_decision_or_secret:
+- Restore Beget SSH TCP/22 from Cursor Cloud egress OR set verified `SSH_HOST_IP` (not HTTP/public IP) after reachability check; then re-run publish for AS02 only.
 
 ## INC-20261102-2136-cover-mcp-kv-unavailable-kie-fallback
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-cover
 topic_id: AS02
@@ -72,10 +92,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- Cover agent/skill + Kie contract document Kie-first when MCP-KV namespaceStatus=error / tools empty; MCP only if discovery ready.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Kie-first / MCP-KV fallback in cover skill
+- doctor cover tempfile pin OK
+commit: pending
 
 ## INC-20261102-2136-cover-hero-wp-unreachable-kie-upload
-status: open
+status: fixed
 run_date: 2026-11-02
 role: excalibur-blog-cover
 topic_id: AS02
@@ -106,11 +140,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-02
+fix_summary:
+- `cover_quad_prompt` accepts tempfile.redpandaai.co / redpandaai.co reference URLs.
+- `hero_reference_url.py --provider kie` + new CLI `excalibur_blog_kie_file_base64_upload.py`.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_kie_file_base64_upload.py`
+- `shared/kie-gpt-image-api-contract.md`
+- cover skill/agent docs
+checks_run:
+- validate_reference_url unit: WP + tempfile OK, foreign host FAIL
+- doctor pins Kie file-base64 + tempfile hosts
+commit: pending
 
 ## INC-20261103-2123-geo-qa-catalog-softpass-regression
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -143,10 +190,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- Kept/extended `catalog_ssl` + added `site_ssl`; soft-pass uses `checked_url` for relative internals.
+- Doctor pins classify_soft_pass / catalog_* / site_ssl / redact_report_urls.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor link_verify pins OK
+- fixer regression smoke link_verify soft-pass pin OK
+commit: pending
 
 ## INC-20261103-2123-geo-qa-insight-tldr-label
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -175,10 +234,23 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- Writing contract + writer skill ban `TL;DR` / `Быстрый инсайт`; example → `Короткий разбор:`.
+- human_voice_gate BLOCKs banned insight labels.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+checks_run:
+- doctor human_voice TL;DR ban pin
+- smoke human_voice TL;DR ban
+commit: pending
 
 ## INC-20261103-2123-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -205,11 +277,21 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- pipeline-task-map + director skill + pitfalls document typed geo-qa may be missing → generalPurpose per role.
+files_changed:
+- `shared/pipeline-task-map.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose / geo-qa typed caveat in director + task-map
+commit: pending
 
 ## INC-20261103-2116-writer-pre-commit-hook-invalid-var
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-writer
 topic_id: AS02
@@ -238,10 +320,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- Restored `scripts/excalibur_blog_filter_commit_secret_env.sh` + `scripts/excalibur_git.sh` to filter non-identifier secret names before pre-commit.cursor `${!SECRET_NAME}`.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke drops URL-like tokens from CLOUD_AGENT_INJECTED_SECRET_NAMES
+- doctor pins git.sh + filter script
+commit: pending
 
 ## INC-20261103-2115-writer-editorial-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-writer
 topic_id: AS02
@@ -273,10 +366,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- editorial-policy `_markers_pinned` + min_pain/outcome; utility gate fail-soft on empty lists; doctor fails if pin wiped.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor markers pins OK
+- smoke editorial markers pinned
+commit: pending
 
 ## INC-20261103-0003-director-as-topic-selection
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-director
 topic_id: AS02
@@ -306,10 +411,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- today.py + scout_helper accept AS##|B##; scout pool no longer 0 with AS cards; doctor pins regex.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- today.py TOPIC_SELECTION=ready with AS*
+- scout_helper pool>0
+- smoke AS|B OK
+commit: pending
 
 ## INC-20261103-0003-director-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-director
 topic_id: AS02
@@ -336,10 +454,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- llms generator `--blog-path` alias for `--blog-dir` (+ `--relative-urls`); doctor checks both.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `--help` shows --blog-path
+- doctor llms --blog-path OK
+commit: pending
 
 ## INC-20261103-2108-research-mcp-kv-wordstat-down
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-research
 topic_id: AS02
@@ -371,10 +499,20 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- Research skill: MCP-KV discovery error/empty tools treated like 401/UNAVAILABLE — warning + `н/д`, no invented impressions.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` WORDSTAT UNAVAILABLE / discovery in research skill
+commit: pending
 
 ## INC-20261103-2108-research-notes-gate-tech-markers
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-research
 topic_id: AS02
@@ -401,7 +539,18 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-03
+fix_summary:
+- TECH_MARKERS short tokens use word boundaries; github_evidence section ignored for technical heuristic.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: reader_pain «боль» → technical=False; MCP/AI topic → True
+- doctor _tech_marker_hit pin
+commit: pending
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

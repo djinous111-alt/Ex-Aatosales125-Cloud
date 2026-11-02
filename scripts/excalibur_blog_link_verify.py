@@ -189,6 +189,23 @@ def classify_soft_pass(href: str, result: dict[str, Any]) -> str | None:
     ):
         return "catalog_ssl"
 
+    # Public blog host internals (indexer relative links resolved via --site-base):
+    # Cloud egress SSL/timeout must not hard-FAIL publish preflight when catalog soft-pass already applies.
+    site_hosts: set[str] = set()
+    for key in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw or raw.startswith("["):
+            continue
+        parsed_site = urlparse(raw if "://" in raw else f"https://{raw}")
+        if parsed_site.netloc:
+            site_hosts.add(parsed_site.netloc.lower().removeprefix("www."))
+    is_site = host in site_hosts or _host_matches(host, CATALOG_HOST_SUFFIXES)
+    if is_site and not is_catalog and status is None and any(
+        token in error
+        for token in ("ssl", "certificate", "handshake", "timed out", "timeout", "network")
+    ):
+        return "site_ssl"
+
     if _host_matches(host, EGRUL_HOST_SUFFIXES):
         if status is not None and 500 <= int(status) < 600:
             return "egrul_5xx"
@@ -276,7 +293,8 @@ def verify_article(
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
-        soft = classify_soft_pass(href, r)
+        soft_target = str(r.get("checked_url") or href)
+        soft = classify_soft_pass(soft_target, r)
         if soft:
             r["ok"] = True
             r["soft_pass"] = soft
@@ -290,6 +308,11 @@ def verify_article(
             elif soft == "catalog_ssl":
                 r["warning"] = (
                     "catalog host SSL/timeout soft-pass (Cloud egress flaky); "
+                    "verify manually / publish probe"
+                )
+            elif soft == "site_ssl":
+                r["warning"] = (
+                    "public site SSL/timeout soft-pass (Cloud egress flaky on internal links); "
                     "verify manually / publish probe"
                 )
             elif soft.startswith("egrul"):

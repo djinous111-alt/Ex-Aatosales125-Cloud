@@ -6,6 +6,106 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-0930-geo-qa-catalog-softpass-regression
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_link_verify.py` again lost durable catalog soft-pass (`catalog_ssl` / DNS / 5xx) and URL redact-to-`${ENV}`.
+- Catalog CTA failed GEO QA with SSL handshake timeout from Cloud egress while DNS resolved; Telegram HEAD 200.
+- Same class already fixed in commit `37ecc540` and then wiped by sanitizer/rebrand.
+
+### How the agent recovered this run
+- Restored link-verify from `37ecc540` (classify_soft_pass + redact_report_urls).
+- Re-ran verify: verdict pass, soft_pass=`catalog_ssl`×1.
+
+### Durable fix needed before next run
+- Pin catalog soft-pass + redact helpers so sanitizer/rebrand cannot drop them.
+- Add doctor/preflight assert that `classify_soft_pass` / `catalog_ssl` exist in link_verify.py.
+- Keep pitfalls note about Cloud catalog SSL timeout.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261103-0930-geo-qa-insight-tldr-label
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- Writer shipped insight block labeled `TL;DR / Быстрый инсайт` again.
+- geo-qa skill and pitfalls forbid those template labels; human-voice script does not block them.
+- Root cause: `shared/excalibur-article-writing-contract.md` still shows the banned phrase as the example.
+
+### How the agent recovered this run
+- GEO QA renamed label to `Короткий разбор` (content unchanged) and re-ran gates.
+
+### Durable fix needed before next run
+- Replace writing-contract example with `Короткий разбор` (or equivalent non-banned label).
+- Optionally add human-voice or html-linter check for banned insight labels.
+- Align writer skill self-check with geo-qa skill wording.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261103-0930-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: handoff
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` may be unavailable in Cloud; role executed as generalPurpose/subagent with agent+skill contract.
+
+### How the agent recovered this run
+- Followed `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md` strictly; did not run cover/schema/indexer/publish.
+
+### Durable fix needed before next run
+- Confirm Cloud Task type map for `excalibur-blog-*` or keep documented generalPurpose fallback in director skill.
+
+### Suggested files to inspect/change
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261103-0921-writer-pre-commit-hook-invalid-var
 status: open
 run_date: 2026-11-03

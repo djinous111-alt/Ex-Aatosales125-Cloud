@@ -21,6 +21,7 @@ category: env
 
 ### How the agent recovered this run
 - Filtered secret-name lists to `[A-Za-z_][A-Za-z0-9_]*` identifiers for the commit shell session, then committed QA artifacts.
+- schema(AS10) 2026-11-04 also hit the same hook: first export used **space**-join and failed; retry with **comma**-joined identifiers (`IFS=','`) allowed `schema.jsonld` commit e0ca959d.
 
 ### Durable fix needed before next run
 - Ensure Cloud Secrets name injection never appends secret *values*/URLs into `*_SECRET_NAMES`.

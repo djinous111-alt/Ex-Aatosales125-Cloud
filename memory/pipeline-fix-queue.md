@@ -337,32 +337,35 @@ category: script
 
 
 ## INC-20261104-0005-director-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-director
-topic_id: n/a
-article_dir: n/a
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
 severity: medium
 category: script
 
 ### What went wrong
 - `python3 scripts/excalibur_blog_doctor.py` reports FAIL: `llms generator supports --blog-path` (errors=1).
+- Flag wiped again by sanitizer after prior fixer restore (recurring).
 
 ### How the agent recovered this run
-- Continued pipeline; Indexer/Fixer must restore `--blog-path` support before relying on doctor green.
+- Indexer restored `--blog-path` on `scripts/excalibur_blog_llms_generator.py` (URL prefix from site-brief; `/` → `/blog`).
+- Skill CLI with `--blog-path /` runs; doctor check `llms generator supports --blog-path` → OK; doctor SUMMARY errors=0.
 
 ### Durable fix needed before next run
-- Restore `scripts/excalibur_blog_llms_txt_generator.py` CLI `--blog-path` (or update doctor check if flag renamed) and pin against sanitizer wipe.
+- Keep `--blog-path` in generator argparse; pin against sanitizer wipe (fixer may add regression test / pitfalls note if wipe recurs).
 
 ### Suggested files to inspect/change
-- `scripts/excalibur_blog_llms_txt_generator.py`
+- `scripts/excalibur_blog_llms_generator.py`
 - `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
 - none recorded
 
 ### Fixer resolution
-- pending
+- fixed by excalibur-blog-indexer during AS10 step ⑤ (2026-11-04): restored CLI `--blog-path`, relative URL hygiene for `memory/blog/llms*.txt`, doctor PASS on blog-path check.
 
 
 ## INC-20261104-0005-director-wp-ssl-timeout

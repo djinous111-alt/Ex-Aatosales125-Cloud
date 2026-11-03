@@ -46,3 +46,5 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- `excalibur_blog_llms_generator.py` обязан принимать `--blog-path` (site-brief `/` → URL prefix `/blog`); sanitizer иногда вытирает флаг — перед Indexer проверь `python3 scripts/..._llms_generator.py --help` и doctor check `llms generator supports --blog-path`.
+- Для committed `memory/blog/llms*.txt` используй relative URLs (`--relative-urls` или пустой site_base при out-dir под `memory/`).

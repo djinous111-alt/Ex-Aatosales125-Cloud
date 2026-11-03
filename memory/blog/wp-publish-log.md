@@ -1,7 +1,7 @@
 # WP publish log — Авто-Сейлс
 
 Сайт: https://avtosales125.ru/
-FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`)
+FTP/SFTP: [REDACTED_SSH_HOST] → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`)
 Метрика Дзен: 109566711
 
 Лог публикаций начинается с нуля после перенастройки под AVTO SALES (2026-07-17).

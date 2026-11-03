@@ -6,6 +6,137 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-0005-director-as-b-regex
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` and `scripts/excalibur_blog_scout_helper.py` match only `## B\d+`, while the live topic pool uses `AS##`.
+- Result: `EXCALIBUR_TOPIC_SELECTION=needs_scout`, fake Next ID `B01`, `Total topics in pool: 0` despite AS01–AS09 cards.
+
+### How the agent recovered this run
+- Forced Scout for a new AS## card; did not trust helper Next ID B01; will set `EXCALIBUR_TOPIC_ID` manually after Scout.
+
+### Durable fix needed before next run
+- Update topic-id regex in today.py + scout_helper.py (and any shared parser) to accept `AS\d+|B\d+` (or generic `[A-Z]+\d+`).
+- Align scout agent/skill niche text with site-brief (Авто-Сейлс), not Cursor/Make AI drift.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261104-0005-director-llms-blog-path
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` reports FAIL: `llms generator supports --blog-path` (errors=1).
+
+### How the agent recovered this run
+- Continued pipeline; Indexer/Fixer must restore `--blog-path` support before relying on doctor green.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_blog_llms_txt_generator.py` CLI `--blog-path` (or update doctor check if flag renamed) and pin against sanitizer wipe.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_txt_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261104-0005-director-wp-ssl-timeout
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `PUBLIC_SITE_URL` WP REST and today.py recent posts fail with SSL handshake timeout.
+- Ledger only lists AS08/AS09 while many LIVE posts exist; risk of slug collision if Scout/Director trust ledger alone.
+
+### How the agent recovered this run
+- Used automation memory denylist + do-not-reuse AS01–AS09 LIVE slugs; will publish only a NEW slug after Scout.
+
+### Durable fix needed before next run
+- Document WP REST timeout fallback + require denylist/memory check when REST unavailable.
+- Prefer verified `SSH_HOST_IP` when DNS/TCP to host name fails (prior publish TCP/22).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261104-2108-scout-wordstat-mcp-kv-unavailable
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` / `user-mcp-kv` unavailable during Scout (`namespaceStatus: error`, then "MCP server does not exist").
+- `wordstat_get_top_requests` could not run for parent/narrow clusters; no Wordstat show counts available.
+- Confirmed again: `excalibur_blog_scout_helper.py --suggest-next` returns fake `B01` / pool=0 (see INC-20261104-0005-director-as-b-regex); Scout ignored it and used Director AS10.
+
+### How the agent recovered this run
+- Demand validated via WebSearch (Sienta Japan 2026 / hybrid vs petrol / Vladivostok under-key listings).
+- Recorded `wordstat_status: unavailable_mcp_kv` + WebSearch demand_signal on topic card; no invented Wordstat shows.
+- Forced topic_id AS10; `--check-query` clean; manual Jaccard vs AS01–AS09 primaries max 0.25.
+
+### Durable fix needed before next run
+- Restore MCP-KV Wordstat auth/connection for Cloud automations (`wordstat_*` tools).
+- Document Scout fallback: WebSearch-only + explicit low-result signal when MCP-KV is down (already partly in memory; pin in scout skill for Авто-Сейлс).
+- Fix AS/B topic-id regex so Scout helper does not force B01 workaround.
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- MCP Cloud config for MCP-KV / Wordstat
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

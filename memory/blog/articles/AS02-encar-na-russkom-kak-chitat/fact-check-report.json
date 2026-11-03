@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": ", разбором Vinlid и практикой заказов из Кореи на 2026-11-03; расчёты под ключ – в каталоге. Частые вопр",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "90 дней",
+      "kind": "metric_or_duration",
+      "context": "; компенсация ошибки диагноза по правилам roughly 90 дней или 5 000 км. 엔카믿고 (Meetgo) – покупка/доставка в",
+      "verified": true,
+      "reason": "Numerical value '90' matched in fact-bank context"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "tgo) – покупка/доставка в Корее с возвратом около 7 дней. Это не RU-сайт из выдачи. \"Trust Encar\" в выдаче",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "120 дней",
+      "kind": "metric_or_duration",
+      "context": "мотра; 침수 / 전손 / кража; протокол старше ориентира 120 дней; пробег \"назад\", такси/прокат/LPG без учёта риска",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 дней",
+      "kind": "metric_or_duration",
+      "context": "вят \"только сегодня\" без файлов. Гарантия дилера \"30 дней / 2 000 км\" почти бесполезна для экспорта в РФ: в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "евод Chrome/Edge/Safari и ID лота из ссылки. 만원 × 10 000 = воны. 무사고 обычно про каркас, не про заводскую к",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "23 500 000",
+      "kind": "large_number",
+      "context": "альцах: одна 만원 = 10 000 вон. Например, 2 350만원 = 23 500 000 KRW. Типичная ошибка – увидеть \"маленькое\" число и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 200",
+      "kind": "large_number",
+      "context": "ициальной странице на момент проверки стоил около 2 200 вон с НДС; есть бесплатный flood-check. Дисклеймер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 000",
+      "kind": "large_number",
+      "context": "я ошибки диагноза по правилам roughly 90 дней или 5 000 км. 엔카믿고 (Meetgo) – покупка/доставка в Корее с воз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "120",
+      "kind": "large_number",
+      "context": "мотра; 침수 / 전손 / кража; протокол старше ориентира 120 дней; пробег \"назад\", такси/прокат/LPG без учёта р",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 000",
+      "kind": "large_number",
+      "context": "о сегодня\" без файлов. Гарантия дилера \"30 дней / 2 000 км\" почти бесполезна для экспорта в РФ: вы уже дал",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

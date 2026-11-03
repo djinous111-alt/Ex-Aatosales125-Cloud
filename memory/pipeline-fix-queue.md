@@ -392,3 +392,73 @@ category: docs
 ### Fixer resolution
 - pending
 
+
+## INC-20261103-1334-geo-qa-catalog-softpass-regression
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_link_verify.py` снова без `classify_soft_pass` / `catalog_ssl` / `site_ssl` / `redact_report_urls` (sanitizer wipe после fixer).
+- С Cloud egress SSL handshake timeout на каталог и `PUBLIC_SITE_URL` → link-verify fail при живых CTA.
+- Telegram HEAD 200; блокер был только site/catalog SSL.
+
+### How the agent recovered this run
+- Восстановил `scripts/excalibur_blog_link_verify.py` из известного good commit (soft_target=`checked_url`, catalog_ssl/site_ssl, redact).
+- Re-run link-verify: PASS, soft_pass=`catalog_ssl`×2.
+
+### Durable fix needed before next run
+- Запинить needles в doctor/smoke и запретить wipe soft-pass блока sanitizerом.
+- Документировать в pitfalls: Cloud SSL timeout на avto-sales125.ru = soft-pass, не content FAIL.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-1334-geo-qa-insight-tldr-label
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- Writer снова поставил insight label `TL;DR / Быстрый инсайт` по примеру writing-contract.
+- Ban в `excalibur_blog_human_voice_gate.py` был стёрт sanitizerом → gate PASS мимо запрета.
+- Повтор того же инцидента утреннего AS02 GEO QA.
+
+### How the agent recovered this run
+- Минимальный FIX article.html: ярлык → `Короткий разбор:`.
+- Восстановил TL;DR ban в `scripts/excalibur_blog_human_voice_gate.py`.
+- Обновил `shared/excalibur-article-writing-contract.md`: запрет шаблонных ярлыков + пример «Короткий разбор».
+
+### Durable fix needed before next run
+- Запинить insight-ban в doctor/smoke.
+- Синхронизировать `.cursor/skills/writer-excalibur-blog/SKILL.md` с запретом TL;DR.
+- Не допускать wipe human-voice insight check.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

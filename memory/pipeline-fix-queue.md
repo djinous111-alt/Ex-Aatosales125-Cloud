@@ -6,6 +6,98 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-2150-cover-hero-host-fallback
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: high
+category: env
+
+### What went wrong
+- Canonical WP `reference_url_hosted` (`avtosales125.ru/...png`) timed out from Cloud egress (HTTP 000).
+- `excalibur_blog_hero_reference_url.py --force`: catbox HTTP 412; 0x0 SSL handshake timeout.
+- `excalibur_blog_cover_quad_prompt.py` rejects non-WP hosts (`REQUIRED_REFERENCE_HOST=avtosales125.ru`), blocking batch even when a working Kie tempfile exists.
+
+### How the agent recovered this run
+- Uploaded local `memory/cover/assets/blog-hero-reference.png` via Kie `file-base64-upload` → `tempfile.redpandaai.co` URL.
+- Kept WP URL in `blog-hero.json` for validator; overrode `jobs[0].mcp_args.input_urls` to Kie tempfile before `excalibur_blog_kie_gpt_image2_api.py`.
+
+### Durable fix needed before next run
+- Allow verified Kie tempfile / alternate host when WP media is unreachable (env flag or HEAD probe fallback in hero_reference_url + cover_quad_prompt).
+- Document Kie `https://kieai.redpandaai.co/api/file-base64-upload` as Cloud fallback in `shared/kie-gpt-image-api-contract.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-2150-cover-prompt-hoodie-lock
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `build_prompt` in `excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie`, contradicting `blog-hero.json` outfit_rule and prior AS10/Corolla Cross incidents.
+
+### How the agent recovered this run
+- Post-edited `cover/quad-mcp-prompt.txt` + batch mcp_args to charcoal softshell + navy henley for foggy Vladivostok port before Kie createTask.
+
+### Durable fix needed before next run
+- Remove white-hoodie lock from prompt builder; wire outfit from `blog-hero.outfit_rule` / cover `scene_hint` weather.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-2151-cover-corner-brand-pil
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: low
+category: script
+
+### What went wrong
+- Generated cover panel lacked reliable corner catalog brand `avto-sales125.ru` (model omitted / illegible).
+
+### How the agent recovered this run
+- PIL stamp of `avto-sales125.ru` on bottom-right of `cover/cover.png` after split.
+
+### Durable fix needed before next run
+- Optional post-split corner brand stamp in `excalibur_blog_quad_apply.py` / split script when design_code requires catalog footer.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `memory/cover/cover-design-code.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261104-2136-geo-qa-secret-names-url
 status: open
 run_date: 2026-11-04

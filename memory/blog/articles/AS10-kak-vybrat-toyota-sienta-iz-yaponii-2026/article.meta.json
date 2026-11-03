@@ -1,0 +1,39 @@
+{
+  "topic_id": "AS10",
+  "slug": "kak-vybrat-toyota-sienta-iz-yaponii-2026",
+  "title": "Как выбрать Toyota Sienta из Японии в 2026",
+  "h1": "Как выбрать Toyota Sienta из Японии: бензин, гибрид и цена под ключ в 2026",
+  "description": "Как выбрать Toyota Sienta из Японии: бензин или гибрид, возраст 3–5 лет, аукционный лист и смета под ключ во Владивосток. Чек-лист до депозита.",
+  "cover_alt": "Toyota Sienta у причала Владивостока, герой Авто-Сейлс, плашка как выбрать, угол каталога",
+  "primary_query": "как выбрать toyota sienta из японии",
+  "secondary_queries": [
+    "toyota sienta из японии под ключ",
+    "toyota sienta гибрид или бензин",
+    "сиента из японии владивосток"
+  ],
+  "char_count": 8933,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать Toyota Sienta из Японии",
+    "Sienta бензин или гибрид под ключ",
+    "чеклист Toyota Sienta с аукциона во Владивосток"
+  ],
+  "meta_ab": {
+    "title_seo": "Как выбрать Toyota Sienta из Японии: бензин и гибрид",
+    "title_ctr": "🚗 Как выбрать Toyota Sienta из Японии и не переплатить за гибрид?",
+    "title_aeo": "Как выбрать Toyota Sienta из Японии: бензин или гибрид в 2026?",
+    "description_seo": "Как выбрать Toyota Sienta из Японии: бензин или гибрид, возраст 3–5 лет, аукционный лист и смета под ключ во Владивосток. Чек-лист до депозита.",
+    "description_ctr": "⚡ Депозит без листа и сметы – лотерея. Бензин vs гибрид, окно 3–5 лет и маршрут во Владивосток – чек-лист внутри.",
+    "description_aeo": "Toyota Sienta из Японии выбирают по топливу, коду кузова, оценке аукциона ≥4 и возрасту 3–5 лет; итоговая смета – в каталоге, не в статье."
+  },
+  "geo_qa": {
+    "score": 0,
+    "verdict": "PENDING",
+    "date": "2026-11-04",
+    "html_linter": "PENDING",
+    "slop_score": "PENDING",
+    "cannibalization": "PENDING"
+  },
+  "cover_family": "brand_collage"
+}

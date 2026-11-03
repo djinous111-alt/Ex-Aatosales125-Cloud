@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-2124-writer-pain-outcome-markers-missing
+status: fixed
+run_date: 2026-11-04
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` after rebrand drift.
+- `excalibur_blog_utility_gate.py` treated empty lists as zero hits and blocked article utility with `pain_markers=0` / `outcome_markers=0` even when the HTML had human pain/outcome language.
+- Same class of failure as prior Corolla Cross writer note (INC-20261027-2120 pattern).
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` and `outcome_markers_ru` in `editorial-policy.json`.
+- Added empty-list fallback defaults in `scripts/excalibur_blog_utility_gate.py`.
+- AS10 article selfcheck: html_linter PASS, utility PASS, char_count 8933.
+
+### Durable fix needed before next run
+- Keep policy lists in editorial-policy.json; keep empty-list fallback in utility gate so a wiped policy cannot soft-lock Writer.
+- Optionally add a doctor check that policy contains non-empty pain/outcome marker arrays.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed in-writer: policy lists restored + utility-gate empty-list fallback; utility PASS on AS10 article
+
 ## INC-20261104-2115-research-wordstat-mcp-kv-unavailable
 status: open
 run_date: 2026-11-04

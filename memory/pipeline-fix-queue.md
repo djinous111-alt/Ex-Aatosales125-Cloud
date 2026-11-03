@@ -6,6 +6,105 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-0941-cover-mcp-kv-unavailable-kie-first
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: api
+
+### What went wrong
+- MCP-KV namespaceStatus=error during cover step; gpt-image-2 unavailable.
+- Sync MCP path cannot be used for ONE quad i2i.
+
+### How the agent recovered this run
+- Kie-first via `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → recordInfo poll).
+- task_id=`fa896d8f051081592502f2ce35f68db4`; split PASS; inject_html skipped per director.
+
+### Durable fix needed before next run
+- Keep cover skill/agent default = Kie API; MCP only as optional fallback when namespace healthy.
+- Document MCP-KV error → do not wait/retry MCP for cover.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261103-0941-cover-hero-wp-timeout-kie-file-base64
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: env
+
+### What went wrong
+- `blog-hero.json` `reference_url_hosted` on WordPress media timed out from Cloud egress (0 bytes / 8s).
+- Without reachable input_urls Kie/MCP i2i would fail likeness lock.
+
+### How the agent recovered this run
+- Uploaded local `memory/cover/assets/blog-hero-reference.png` via Kie `https://kieai.redpandaai.co/api/file-base64-upload`.
+- Patched `cover/quad-mcp-batch.json` input_urls to tempfile downloadUrl; kept WP URL only as validation seed for prompt builder.
+
+### Durable fix needed before next run
+- Add helper script `excalibur_blog_kie_hero_upload.py` (file-base64 → downloadUrl) and wire into cover runbook before Kie createTask.
+- Allow prompt/batch builder to accept tempfile hero URL without requiring avtosales125.ru host when upload meta exists.
+- Cache/upload once per run; record `cover/hero-kie-upload.json`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261103-0941-cover-missing-corner-brand-pil
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: prompt
+
+### What went wrong
+- Generated cover panel lacked corner catalog stamp `avto-sales125.ru` despite prompt/design-code requirement (recurring class).
+
+### How the agent recovered this run
+- PIL overlay stamp bottom-right on `cover/cover.png` (+ top-left quadrant of canvas); meta in `cover/corner-brand-stamp.json`.
+- No second image generation.
+
+### Durable fix needed before next run
+- Post-split step in `excalibur_blog_quad_apply.py` / split script: ensure corner brand present (detect or always stamp).
+- Strengthen prompt corner instruction without eating prompt budget.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261103-0930-geo-qa-catalog-softpass-regression
 status: open
 run_date: 2026-11-03

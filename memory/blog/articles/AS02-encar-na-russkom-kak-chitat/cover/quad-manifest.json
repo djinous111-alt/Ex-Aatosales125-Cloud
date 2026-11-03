@@ -1,0 +1,43 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_image_api",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый перевод — и кот в мешке?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[hero tempfile from Kie file-base64], then split; no article.html inject this run",
+  "cover_corner_brand": "avto-sales125.ru",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar и плашкой «кот в мешке», угол avto-sales125.ru",
+      "scene_hint": "WEATHER indoor grey Vladivostok office window; OUTFIT navy winter puffer over charcoal turtleneck (NOT white hoodie, NOT reference tank), glasses on, NO cap NO hood; EXACT reference face; action selfie holding smartphone with fake Encar listing screen showing Korean price 만원 and green badge «без аварий» with ironic translate overlay; torn-paper Cyrillic hook «Красивый перевод — и кот в мешке?» yellow highlight on «кот в мешке»; pink sticky «сначала схема»; shocked cat meme cutout + facepalm sticker (different formats); DIY zine collage; corner stamp MUST show avto-sales125.ru; NEVER Wordstat/Metrika; NO toxic stickers (no лох/лохов)",
+      "meme_caption_ru": "Перевод ≠ проверка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте encar.com, а не посредника из поиска",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake browser screenshot: address bar encar.com vs search-ad clone site; red X on intermediary; green check on encar.com; sticky «не посредник»; scotch tape; NO hero face",
+      "alt": "Скрин: настоящий encar.com против клона-посредника из поиска"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Переведите цену из 만원 и зафиксируйте поля карточки",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "RU comparison table UI: колонки «на экране» | «в рублях»; row 2450 만원 → ×10000; поля цена/год/пробег/옵션; yellow highlight; tape corner; NO hero face",
+      "alt": "Таблица перевода цены Encar из 만원 в рубли и поля карточки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Прочитайте схему кузова: \"без аварий\" – не идеал",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram of Encar body map: X/W marks → 단순수리 vs frame damage → badge «무사고/без аварий» ≠ ideal; arrow to stop before deposit; sticky «читай схему»; NO hero face",
+      "alt": "Схема чтения кузова Encar: метки X/W и почему «без аварий» не идеал"
+    }
+  }
+}

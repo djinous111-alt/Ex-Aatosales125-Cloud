@@ -19,8 +19,8 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 - **priority:** P0
 - **slug:** rastamozhka-avto-iz-korei-2026
-- **h1:** Растаможка авто из Кореи: реальные сроки и этапы через Владивосток в 2026
-- **primary_query:** растаможка авто из кореи
+- **h1:** Как пройти растаможку авто из Кореи: сроки и этапы через Владивосток в 2026
+- **primary_query:** как растаможить авто из кореи
 - **secondary_queries:** растаможка корея владивосток, авто из кореи под заказ
 - **search_intent:** how_to
 - **article_mode:** B
@@ -62,8 +62,8 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 - **priority:** P0
 - **slug:** avto-iz-korei-ili-yaponii-2026
-- **h1:** Авто из Кореи или Японии: что выгоднее под полную пошлину в 2026
-- **primary_query:** авто из кореи или японии
+- **h1:** Авто из Кореи или Японии: как сравнить выгоду под полную пошлину в 2026
+- **primary_query:** как выбрать авто из кореи или японии
 - **secondary_queries:** что выгоднее корея япония, сравнение авто азия
 - **search_intent:** comparison
 - **article_mode:** B
@@ -102,8 +102,8 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 - **priority:** P0
 - **slug:** svh-vladivostok-2026
-- **h1:** СВХ Владивосток в 2026: транзит авто из трёх стран без переплат
-- **primary_query:** свх владивосток
+- **h1:** СВХ Владивосток 2026: как пройти транзит авто без лишних переплат
+- **primary_query:** как работает свх владивосток
 - **secondary_queries:** свх авто владивосток стоимость транзита, склад временного хранения авто
 - **search_intent:** how_to
 - **article_mode:** B

@@ -6,6 +6,106 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-2135-geo-qa-catalog-softpass-wiped
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_link_verify.py` again lacked catalog/site soft-pass (sanitizer/template wipe). Catalog CTA failed with SSL handshake timeout from Cloud egress → hard FAIL, blocking GEO QA PASS.
+- Same class previously restored in AS02 fixer (`catalog_ssl` / `site_ssl`).
+
+### How the agent recovered this run
+- Restored soft-pass + URL redact from known-good commit `cb2ae65b` into `scripts/excalibur_blog_link_verify.py`.
+- Re-ran link-verify: Telegram 200; catalog soft_pass=`catalog_ssl`; verdict pass.
+
+### Durable fix needed before next run
+- Pin catalog/site soft-pass + redact in link-verify against sanitizer resets (test or doctor check).
+- Optionally document soft-pass hosts in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261104-2135-geo-qa-tldr-ban-wiped
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Writer shipped insight label `TL;DR / Быстрый инсайт` (matches stale example in writing contract).
+- `excalibur_blog_human_voice_gate.py` again missing TL;DR ban (sanitizer wipe), so gate did not BLOCK until restored.
+- GEO QA skill forbids template TL;DR / «Быстрый инсайт» labels.
+
+### How the agent recovered this run
+- Point FIX: label → `Инсайт до депозита:`; varied ol sizes 6/4/5.
+- Restored TL;DR ban + exact-5 list counter in `scripts/excalibur_blog_human_voice_gate.py`.
+- human-voice PASS after FIX.
+
+### Durable fix needed before next run
+- Replace banned TL;DR example in `shared/excalibur-article-writing-contract.md` with topical label example.
+- Keep human-voice TL;DR ban pinned; sync writer skill/example.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261104-2130-director-geo-qa-task-missing
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-director
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: high
+category: env
+
+### What went wrong
+- Cloud Task enum rejected `excalibur-blog-geo-qa` (not in available subagent_types). Cover/schema/research/writer/scout present; geo-qa missing.
+
+### How the agent recovered this run
+- Fallback `Task(generalPurpose)` with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud agent Task types / plugin agent list so Director can call typed Task.
+- Document fallback in AGENTS.md already exists — verify `.cursor-plugin` / agents manifest includes geo-qa.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor-plugin/plugin.json`
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261104-2124-writer-pain-outcome-markers-missing
 status: fixed
 run_date: 2026-11-04

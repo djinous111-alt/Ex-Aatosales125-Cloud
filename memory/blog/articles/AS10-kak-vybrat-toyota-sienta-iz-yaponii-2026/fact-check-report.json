@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2015",
+      "kind": "date_or_year",
+      "context": "арковка у дома или садика. Сверьте поколение: II (2015–2022) или III (с 2022), длина около 4,26 м. Отмет",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "ка у дома или садика. Сверьте поколение: II (2015–2022) или III (с 2022), длина около 4,26 м. Отметьте,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "Hybrid дешевле\" и не спросить про срок. С августа 2023 прямой экспорт многих гибридов Toyota ограничен; б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "раны и ориентир 2–3 месяца. Это ориентир рынка на 2026, не обещание в договоре. Параметр Бензин 1.5 Гибр",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "чек-лист Авто-Сейлс: бензин или гибрид, возраст 3–5 лет, чтение аукционного листа до денег и маршрут Япон",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

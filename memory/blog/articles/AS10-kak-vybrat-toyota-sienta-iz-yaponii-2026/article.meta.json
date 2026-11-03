@@ -11,7 +11,7 @@
     "toyota sienta гибрид или бензин",
     "сиента из японии владивосток"
   ],
-  "char_count": 8933,
+  "char_count": 8917,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,12 +28,17 @@
     "description_aeo": "Toyota Sienta из Японии выбирают по топливу, коду кузова, оценке аукциона ≥4 и возрасту 3–5 лет; итоговая смета – в каталоге, не в статье."
   },
   "geo_qa": {
-    "score": 0,
-    "verdict": "PENDING",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-11-04",
-    "html_linter": "PENDING",
-    "slop_score": "PENDING",
-    "cannibalization": "PENDING"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "18/20",
+    "beginner_fit": "PASS"
   },
   "cover_family": "brand_collage"
 }

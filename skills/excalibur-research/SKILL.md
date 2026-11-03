@@ -38,11 +38,13 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 ## Обязательное использование Yandex Wordstat MCP и WebSearch Курсора
 
 1. **Анализ спроса через Wordstat API:**
-  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
+  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` / `MCP-KV` для анализа спроса:
+  - Сначала `GetDynamicTools` / list tools для namespace. Если `namespaceStatus=error`, tools empty, или discovery fail — это **то же, что UNAVAILABLE/401**: не выдумывай показы.
   - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
-  - Если вызов вернул `401 Unauthorized` (токен устарел):
-    - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
-    - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
+  - Если вызов вернул `401 Unauthorized` (токен устарел) **или** MCP-KV discovery/auth down:
+    - Запиши в `research-notes.md`: `⚠️ WORDSTAT AUTH WARNING` **или** `⚠️ WORDSTAT UNAVAILABLE: MCP-KV discovery failed / tools empty` (без выдуманных impressions; пиши `н/д`).
+    - Для 401: обновите токен через OAuth Yandex Wordstat (Cloud Secrets / MCP auth), не печатай токены в notes.
+    - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.

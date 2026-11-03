@@ -31,6 +31,7 @@ WHITE_THRESHOLD = 235
 MIN_GUTTER_RUN = 2
 GUTTER_SEARCH_RADIUS = 80
 GUTTER_WHITE_FRACTION = 0.92
+DEFAULT_CORNER_BRAND = "avto-sales125.ru"
 
 
 from excalibur_repo_paths import repo_relative
@@ -402,6 +403,104 @@ def create_demo_canvas(path: Path, style_label: str) -> None:
     img.save(path, format="PNG")
 
 
+def _load_stamp_font(size: int):
+    from PIL import ImageFont
+
+    for candidate in (
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "C:/Windows/Fonts/arial.ttf",
+    ):
+        try:
+            return ImageFont.truetype(candidate, size=size)
+        except OSError:
+            continue
+    return ImageFont.load_default()
+
+
+def _stamp_bottom_right(img, text: str, *, margin_ratio: float = 0.03) -> None:
+    """Draw catalog corner brand at bottom-right (in-place RGBA/RGB image)."""
+    from PIL import Image, ImageDraw
+
+    if img.mode not in {"RGB", "RGBA"}:
+        working = img.convert("RGBA")
+    else:
+        working = img
+
+    draw = ImageDraw.Draw(working)
+    width, height = working.size
+    font_size = max(14, int(min(width, height) * 0.035))
+    font = _load_stamp_font(font_size)
+    bbox = draw.textbbox((0, 0), text, font=font)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    pad_x = max(6, int(width * margin_ratio * 0.45))
+    pad_y = max(4, int(height * margin_ratio * 0.35))
+    margin_x = max(8, int(width * margin_ratio))
+    margin_y = max(8, int(height * margin_ratio))
+    x1 = width - margin_x
+    y1 = height - margin_y
+    x0 = x1 - tw - 2 * pad_x
+    y0 = y1 - th - 2 * pad_y
+    # Soft navy chip for contrast on busy meme covers.
+    chip = Image.new("RGBA", working.size, (0, 0, 0, 0))
+    chip_draw = ImageDraw.Draw(chip)
+    chip_draw.rounded_rectangle(
+        [x0, y0, x1, y1],
+        radius=max(4, font_size // 4),
+        fill=(11, 31, 58, 200),
+    )
+    chip_draw.text((x0 + pad_x, y0 + pad_y - bbox[1]), text, font=font, fill=(255, 255, 255, 255))
+    if working.mode == "RGB":
+        composed = Image.alpha_composite(working.convert("RGBA"), chip).convert("RGB")
+        img.paste(composed)
+    else:
+        composed = Image.alpha_composite(working, chip)
+        img.paste(composed)
+
+
+def apply_corner_brand_stamp(
+    cover_path: Path,
+    *,
+    canvas_path: Path | None = None,
+    text: str = DEFAULT_CORNER_BRAND,
+    meta_out: Path | None = None,
+) -> dict[str, Any]:
+    """Always stamp catalog brand after split — model often drops prompt corner text."""
+    from PIL import Image
+
+    brand = (text or DEFAULT_CORNER_BRAND).strip() or DEFAULT_CORNER_BRAND
+    stamped: list[str] = []
+
+    with Image.open(cover_path) as cover_img:
+        cover = cover_img.convert("RGBA")
+        _stamp_bottom_right(cover, brand)
+        cover.save(cover_path, format="PNG", optimize=True)
+        stamped.append("cover.png")
+
+    if canvas_path is not None and canvas_path.is_file():
+        with Image.open(canvas_path) as canvas_img:
+            canvas = canvas_img.convert("RGBA")
+            cw, ch = canvas.size
+            # Top-left quadrant only (cover panel on 2×2 canvas).
+            panel = canvas.crop((0, 0, cw // 2, ch // 2)).convert("RGBA")
+            _stamp_bottom_right(panel, brand)
+            canvas.paste(panel, (0, 0))
+            canvas.save(canvas_path, format="PNG", optimize=True)
+            stamped.append(canvas_path.name)
+
+    meta = {
+        "method": "pil_overlay_after_split",
+        "text": brand,
+        "placement": "cover_bottom_right",
+        "stamped_files": stamped,
+        "reason": "ensure corner catalog brand even when model omits prompt stamp",
+    }
+    if meta_out is not None:
+        save_json(meta_out, meta)
+    return meta
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Split 2x2 cover canvas into cover + 3 inline PNGs")
     ap.add_argument("--article-dir", required=True, help="memory/blog/articles/<id>-<slug>")
@@ -422,6 +521,16 @@ def main() -> int:
         "--demo-canvas",
         action="store_true",
         help=f"Create placeholder {RECOMMENDED_CANVAS[0]}x{RECOMMENDED_CANVAS[1]} quad canvas (4×16:9)",
+    )
+    ap.add_argument(
+        "--no-corner-brand",
+        action="store_true",
+        help="Skip post-split catalog corner stamp (default: stamp avto-sales125.ru)",
+    )
+    ap.add_argument(
+        "--corner-brand-text",
+        default=DEFAULT_CORNER_BRAND,
+        help=f"Corner brand text (default {DEFAULT_CORNER_BRAND})",
     )
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -491,6 +600,17 @@ def main() -> int:
     except ValueError as exc:
         print(f"❌ QUAD SPLIT BLOCKER: {exc}", file=sys.stderr)
         return 1
+
+    corner_meta: dict[str, Any] | None = None
+    if not args.no_corner_brand:
+        corner_meta = apply_corner_brand_stamp(
+            cover_dir / "cover.png",
+            canvas_path=canvas_path,
+            text=args.corner_brand_text,
+            meta_out=cover_dir / "corner-brand-stamp.json",
+        )
+        print(f"OK corner_brand={corner_meta.get('text')} files={corner_meta.get('stamped_files')}")
+
     registry = build_registry(article_dir, manifest, split_info)
     save_json(cover_dir / "cover-registry.json", registry)
 
@@ -500,6 +620,8 @@ def main() -> int:
         "manifest": str(manifest_path.relative_to(article_dir)).replace("\\", "/"),
         "split": split_info,
     }
+    if corner_meta is not None:
+        report["corner_brand_stamp"] = corner_meta
     if args.inject_html:
         report["html_inject"] = inject_figures(article_dir / "article.html", split_info, dry_run=False)
     save_json(cover_dir / "quad-split-report.json", report)

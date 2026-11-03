@@ -1,7 +1,7 @@
 # WP publish log — Авто-Сейлс
 
 Сайт: https://avtosales125.ru/
-FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`)
+FTP/SFTP: [REDACTED_SSH_HOST] → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`)
 Метрика Дзен: 109566711
 
 Лог публикаций начинается с нуля после перенастройки под AVTO SALES (2026-07-17).
@@ -31,3 +31,19 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-11-03 — AS02 encar-na-russkom-kak-chitat
+
+- **verdict:** FAIL / ❌ PUBLISH BLOCKER
+- **post_id:** none (no WP write)
+- **permalink:** none
+- **featured_image:** none
+- **inline_images:** none (local inject done; upload not reached)
+- **schema_meta:** not applied
+- **method:** SSH-only; `env-check` PASS (ALLOW=yes, SSH_ROOT=.); dry-run PASS (~7.09MB); live SSH TCP/22 **TimeoutError** (~20s) after DNS OK; `SSH_HOST_IP` unset
+- **link-verify:** FAIL — internal AS09 SSL handshake timeout from Cloud egress; catalog soft_pass; Telegram HEAD 200
+- **denylist:** untouched (4758 / 4746 / 4740 / 3430 / 3394 / 4717 / 4711)
+- **note:** no invented IP/password; no bootstrap upload; no HTTP trigger
+- **result:** `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20261103-0950-publish-ssh-tcp22-timeout`
+

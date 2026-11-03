@@ -1,0 +1,41 @@
+{
+  "source": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "total_links": 3,
+  "failed_count": 1,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "${PUBLIC_SITE_URL}/blog/trust-encar-carhistory-proverka-do-depozita/",
+      "status": null,
+      "ok": false,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "${PUBLIC_SITE_URL}/blog/trust-encar-carhistory-proverka-do-depozita/"
+    },
+    {
+      "url": "${CATALOG_URL}/",
+      "status": null,
+      "ok": true,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "external",
+      "skipped": false,
+      "soft_pass": "catalog_ssl",
+      "warning": "catalog host SSL/timeout soft-pass (Cloud egress flaky); verify manually / publish probe"
+    },
+    {
+      "url": "${TELEGRAM_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ],
+  "soft_pass": [
+    "catalog_ssl"
+  ]
+}

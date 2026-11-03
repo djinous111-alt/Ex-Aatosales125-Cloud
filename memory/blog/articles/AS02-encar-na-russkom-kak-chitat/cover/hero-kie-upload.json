@@ -1,0 +1,9 @@
+{
+  "source": "kie-file-base64-upload",
+  "endpoint": "https://kieai.redpandaai.co/api/file-base64-upload",
+  "fileName": "blog-hero-reference-as02.png",
+  "filePath": "kieai/178802/images/blog-hero/blog-hero-reference-as02.png",
+  "downloadUrl": "https://tempfile.redpandaai.co/kieai/178802/images/blog-hero/blog-hero-reference-as02.png",
+  "local_source": "memory/cover/assets/blog-hero-reference.png",
+  "note": "WP hero URL timed out; use tempfile for Kie input_urls"
+}

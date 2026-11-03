@@ -1,0 +1,23 @@
+{
+  "site_base": "[REDACTED]",
+  "total_articles": 3,
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "AS02-encar-na-russkom-kak-chitat",
+      "target": "AS09-trust-encar-carhistory-proverka-do-depozita",
+      "keyword": "trust encar",
+      "context": "е оригинала. Это не штаб-квартира площадки. Глубокую связку Trust Encar и CarHistory до депозита разбираем в отдельном материале; з",
+      "link_replacement": "<a href=\"/blog/trust-encar-carhistory-proverka-do-depozita/\">Trust Encar</a>"
+    }
+  ],
+  "applied": 1,
+  "applied_links": [
+    {
+      "source": "AS02",
+      "target": "AS09",
+      "anchor": "Trust Encar",
+      "href": "/blog/trust-encar-carhistory-proverka-do-depozita/"
+    }
+  ]
+}

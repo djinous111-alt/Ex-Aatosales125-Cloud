@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      720
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 720,
+        "end": 760
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1309
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс со смартфоном Encar, ирония кот в мешке, схема кузова, Владивосток",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1309,
+          "top": 8,
+          "right": 2560,
+          "bottom": 712
+        },
+        "raw_box_px": {
+          "left": 1309,
+          "top": 0,
+          "right": 2560,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин карточки Encar с переводчиком браузера и выделенным ID лота",
+        "h2_anchor": "Откройте карточку Encar через переводчик и сохраните ID"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 36,
+          "top": 760,
+          "right": 1245,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 760,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица пересчёта цены Encar из 만원 в воны",
+        "h2_anchor": "Пересчитайте цену в 만원 и зафиксируйте поля лота"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1330,
+          "top": 760,
+          "right": 2539,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1309,
+          "top": 760,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема кузова Encar с кодами X/W и предупреждением про 무사고",
+        "h2_anchor": "Как читать схему кузова: X, W и ловушка 무사고"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Откройте карточку Encar через переводчик и сохраните ID",
+    "injected inline_2 after H2 — Пересчитайте цену в 만원 и зафиксируйте поля лота",
+    "injected inline_3 after H2 — Как читать схему кузова: X, W и ловушка 무사고"
+  ]
+}

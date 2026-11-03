@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый перевод — и кот в мешке?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс со смартфоном Encar, ирония кот в мешке, схема кузова, Владивосток",
+      "scene_hint": "Hyper-realistic action selfie: EXACT face+glasses from reference; OUTFIT = navy winter puffer jacket over charcoal turtleneck (Vladivostok cool evening, Encar/auction topic — NOT reference t-shirt); NO cap NO hood; holds smartphone with fake Encar lot screen showing Korean 무사고 and translator bubble «без аварий»; torn-paper plaque hook «Красивый перевод — и кот в мешке?»; pink sticky «Перевод ≠ проверка»; scotch tape; mini body-diagram scrap with X/W marks; cat-in-bag meme sticker (ironic, NON-toxic — no лох/для лохов); corner brand avto-sales125.ru; DIY zine collage 16:9",
+      "meme_caption_ru": "Перевод ≠ проверка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте карточку Encar через переводчик и сохраните ID",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake browser UI of fem.encar.com/cars/detail with Cyrillic translator overlay; URL bar + numeric lot ID circled in marker; sticky note «скопируй ID»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Скрин карточки Encar с переводчиком браузера и выделенным ID лота"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Пересчитайте цену в 만원 и зафиксируйте поля лота",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI: column A «цена 万円» vs column B «×10000 = воны»; example 2350 → 23 500 000 KRW; pink sticky «не путать с под ключ»; tape; NO hero face",
+      "alt": "Таблица пересчёта цены Encar из 만원 в воны"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как читать схему кузова: X, W и ловушка 무사고",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram of car body map: codes X=замена, W=рихтовка, sticky warning «무사고 ≠ заводская краска»; arrow steps ID→만원→VIN→X/W→вердикт; NO hero face; DIY paper scraps",
+      "alt": "Схема кузова Encar с кодами X/W и предупреждением про 무사고"
+    }
+  }
+}

@@ -6,6 +6,87 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-1345-cover-mcp-kv-unavailable-kie-first
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: tool
+
+### What went wrong
+- MCP-KV namespaceStatus=error (live tool discovery failed); sync gpt-image-2 unavailable.
+- Cover continued via Kie-first `scripts/excalibur_blog_kie_gpt_image2_api.py` (ONE i2i job).
+
+### How the agent recovered this run
+- Used Kie async createTask/recordInfo; task_id=677ae434269edb08adcae06f8216a300; split PASS; inject ok.
+
+### Durable fix needed before next run
+- Re-auth / restore MCP-KV for Cloud automations OR keep Kie-first documented as primary in cover skill/agent.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- MCP-KV Cloud auth
+
+### Secrets
+- none recorded
+
+## INC-20261103-1345-cover-hero-wp-timeout-kie-file-base64
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: tool
+
+### What went wrong
+- WP media hero URL timed out from Cloud egress; catbox 412; 0x0 SSL timeout.
+- Durable `kie` provider in `excalibur_blog_hero_reference_url.py` was wiped from tree (fixer commit 028c0812 had it).
+
+### How the agent recovered this run
+- Manual Kie `file-base64-upload` → `https://tempfile.redpandaai.co/kieai/178802/images/blog-hero-reference.png`.
+- Patched `excalibur_blog_cover_quad_prompt.py` allowlist to accept tempfile.redpandaai.co hosts (was WP-only after wipe).
+
+### Durable fix needed before next run
+- Restore kie file-base64 provider in `excalibur_blog_hero_reference_url.py` (auto: catbox→0x0→kie).
+- Keep tempfile host allowlist in prompt validator.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+
+### Secrets
+- none recorded
+
+## INC-20261103-1345-cover-missing-corner-brand-pil
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: prompt
+
+### What went wrong
+- Durable post-split `stamp_corner_brand` helpers were wiped from `excalibur_blog_cover_quad_split.py` (present in 028c0812 / f9ca3d26).
+
+### How the agent recovered this run
+- Visual QA: cover already contained `avto-sales125.ru` scrap; skipped force-stamp on cover.png; stamped canvas top-left for consistency.
+
+### Durable fix needed before next run
+- Restore `stamp_corner_brand` + `stamp_cover_and_canvas` into split script and doctor/smoke checks.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+
+### Secrets
+- none recorded
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

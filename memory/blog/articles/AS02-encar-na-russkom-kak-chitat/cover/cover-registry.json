@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс со смартфоном Encar, ирония кот в мешке, схема кузова, Владивосток",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-03T13:46:32+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс со смартфоном Encar, ирония кот в мешке, схема кузова, Владивосток",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Скрин карточки Encar с переводчиком браузера и выделенным ID лота",
+      "h2_anchor": "Откройте карточку Encar через переводчик и сохраните ID",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица пересчёта цены Encar из 만원 в воны",
+      "h2_anchor": "Пересчитайте цену в 만원 и зафиксируйте поля лота",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема кузова Encar с кодами X/W и предупреждением про 무사고",
+      "h2_anchor": "Как читать схему кузова: X, W и ловушка 무사고",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

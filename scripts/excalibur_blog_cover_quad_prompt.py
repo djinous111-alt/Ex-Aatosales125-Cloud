@@ -12,6 +12,14 @@ from pathlib import Path
 
 MAX_MCP_PROMPT_CHARS = 3500
 REQUIRED_REFERENCE_HOST = "avtosales125.ru"
+# Allowed when WP media is unreachable from Cloud and hero was rehosted via Kie file-base64.
+ALLOWED_REFERENCE_HOST_SUFFIXES = (
+    "avtosales125.ru",
+    "avto-sales125.ru",
+    "tempfile.redpandaai.co",
+    "redpandaai.co",
+    "tempfile.aiquickdraw.com",
+)
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
@@ -48,10 +56,12 @@ def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
 
 
 def validate_reference_url(ref_url: str) -> bool:
-    if REQUIRED_REFERENCE_HOST in ref_url:
+    lowered = (ref_url or "").strip().lower()
+    if any(host in lowered for host in ALLOWED_REFERENCE_HOST_SUFFIXES):
         return True
     print(
-        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} WordPress media URL, got: {ref_url}",
+        f"❌ COVER HERO BLOCKER: reference_url_hosted must use {REQUIRED_REFERENCE_HOST} "
+        f"WP media OR Kie tempfile host ({', '.join(ALLOWED_REFERENCE_HOST_SUFFIXES)}), got: {ref_url}",
         file=sys.stderr,
     )
     return False

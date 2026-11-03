@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-2136-geo-qa-secret-names-url
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` included a raw `https://…` URL after `CATALOG_URL`, so comma-split made an invalid bash identifier.
+- Cursor pre-commit secret scan failed with `invalid variable name` on `${!SECRET_NAME}` before any file scan.
+
+### How the agent recovered this run
+- Filtered secret-name lists to `[A-Za-z_][A-Za-z0-9_]*` identifiers for the commit shell session, then committed QA artifacts.
+
+### Durable fix needed before next run
+- Ensure Cloud Secrets name injection never appends secret *values*/URLs into `*_SECRET_NAMES`.
+- Optionally harden `scripts/excalibur_git.sh` (or docs) to filter invalid names before commit hooks.
+
+### Suggested files to inspect/change
+- Cloud Dashboard secret configuration
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh` (if restored)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261104-2135-geo-qa-catalog-softpass-wiped
 status: open
 run_date: 2026-11-04

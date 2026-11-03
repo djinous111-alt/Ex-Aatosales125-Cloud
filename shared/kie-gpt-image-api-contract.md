@@ -76,3 +76,20 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+
+## MCP-KV vs Kie
+
+- **Kie-first** on Cloud when MCP-KV `namespaceStatus=error` / tools empty.
+- MCP-KV `gpt-image-2` is optional fallback only when discovery shows ready tools.
+
+## Hero reference when WP media times out
+
+```bash
+python3 scripts/excalibur_blog_hero_reference_url.py --provider kie
+# or
+python3 scripts/excalibur_blog_kie_file_base64_upload.py memory/cover/assets/blog-hero-reference.png \
+  -o <article_dir>/cover/hero-reference-upload.json
+```
+
+`excalibur_blog_cover_quad_prompt.py` accepts `tempfile.redpandaai.co` / `*.redpandaai.co`
+downloadUrl as `reference_url_hosted` fallback next to the canonical WP host.

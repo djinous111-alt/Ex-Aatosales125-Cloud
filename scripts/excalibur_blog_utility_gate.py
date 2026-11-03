@@ -28,7 +28,7 @@ def save_json(path: Path, data: dict[str, Any]) -> None:
 
 def parse_topic_card(topics_path: Path, topic_id: str) -> dict[str, str]:
     text = topics_path.read_text(encoding="utf-8")
-    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]\d+|\Z)"
+    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
     match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
     if not match:
         raise ValueError(f"topic card not found: {topic_id}")
@@ -92,6 +92,53 @@ def is_actionable_h2(title: str) -> bool:
 def count_markers(text: str, markers: list[str]) -> int:
     hay = text.lower()
     return sum(hay.count(marker.lower()) for marker in markers)
+
+
+def policy_min_int(req: dict[str, Any], key: str, default: int) -> int:
+    """Read min_* from policy; honor explicit 0 (``or default`` would skip it)."""
+    if key not in req or req.get(key) is None:
+        return default
+    return int(req[key])
+
+
+# Mode-B RU aliases accepted alongside policy recommendation_markers_ru.
+RECOMMENDATION_ALIASES_RU = (
+    "делать",
+    "не делать",
+    "делайте",
+    "не делайте",
+    "чек-лист",
+    "чеклист",
+)
+
+# Fail-soft defaults when sanitizer wipes editorial-policy pain/outcome lists.
+# Prefer policy lists when present; never BLOCK solely because wiped policy had [].
+BUILTIN_PAIN_MARKERS_RU = (
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно",
+)
+BUILTIN_OUTCOME_MARKERS_RU = (
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите",
+)
 
 
 def gate_topic(topic: dict[str, str], policy: dict[str, Any]) -> dict[str, Any]:
@@ -158,7 +205,10 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     blockquotes = len(re.findall(r"<blockquote[\s\S]*?</blockquote>", html, flags=re.I))
     faq_h3 = len(re.findall(r"<h3[^>]*>", html, flags=re.I))
 
-    markers = policy.get("recommendation_markers_ru") or []
+    markers = list(policy.get("recommendation_markers_ru") or [])
+    for alias in RECOMMENDATION_ALIASES_RU:
+        if alias not in markers:
+            markers.append(alias)
     marker_count = count_markers(plain, markers)
 
     min_steps = int(req.get("min_numbered_steps") or 5)
@@ -181,22 +231,32 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if faq_h3 < min_faq:
         warnings.append(f"FAQ h3={faq_h3}, ожидалось ≥{min_faq}")
 
-    min_rec = int(req.get("min_recommendation_markers") or 8)
+    min_rec = policy_min_int(req, "min_recommendation_markers", 8)
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    policy_pain = list(policy.get("pain_markers_ru") or [])
+    policy_outcome = list(policy.get("outcome_markers_ru") or [])
+    # Empty policy lists (sanitizer wipe) → built-in defaults; never treat [] as hard min against 0.
+    pain_markers = policy_pain or list(BUILTIN_PAIN_MARKERS_RU)
+    outcome_markers = policy_outcome or list(BUILTIN_OUTCOME_MARKERS_RU)
+    used_builtin_markers = not policy_pain or not policy_outcome
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
-    min_pain = int(req.get("min_pain_markers") or 2)
+    min_pain = policy_min_int(req, "min_pain_markers", 2)
     if pain_count < min_pain:
         errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
+    min_outcome = policy_min_int(req, "min_outcome_markers", 3)
     if outcome_count < min_outcome:
         errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+
+    if used_builtin_markers:
+        warnings.append(
+            "editorial-policy pain/outcome markers empty — used BUILTIN_* defaults (fail-soft); "
+            "restore _markers_pinned lists before next run"
+        )
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

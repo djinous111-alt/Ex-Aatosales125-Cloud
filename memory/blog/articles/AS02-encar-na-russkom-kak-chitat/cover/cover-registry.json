@@ -1,0 +1,55 @@
+{
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс в очках со смартфоном Encar, ирония кот в мешке, плашка читать карточку",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-03T17:57:15+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar, ирония кот в мешке, плашка читать карточку",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Скрин браузера: encar.com с включённым переводом страницы",
+      "h2_anchor": "Откройте официальный Encar и включите перевод браузера",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица: манвоны ×10000 и пять полей карточки Encar до цены под ключ",
+      "h2_anchor": "Выпишите пять полей карточки до любой \"цены под ключ\"",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема чтения кузова Encar: X/W и ловушка без ДТП",
+      "h2_anchor": "Как читать схему кузова: буквы X/W и ловушка \"без ДТП\"",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "corner_brand": {
+    "brand": "avto-sales125.ru",
+    "cover_stamped": false,
+    "canvas_stamped": true
+  }
+}

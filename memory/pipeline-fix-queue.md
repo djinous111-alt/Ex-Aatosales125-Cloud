@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-1750-cover-mcp-kv-unavailable-kie-first
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned `namespaceStatus: error` during live tool discovery; `gpt-image-2` unavailable.
+- Cover must still run ONE i2i quad canvas after GEO QA PASS.
+
+### How the agent recovered this run
+- Used durable Kie-first path: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir ...`.
+- ONE createTask + poll success; task_id `7baa26f81823a2fc2a06afd031a7c95a`; split PASS; inject 3 figures.
+
+### Durable fix needed before next run
+- Restore/re-auth MCP-KV so `gpt-image-2` discovery works again.
+- Keep Kie-first documented as Cloud default when MCP sync times out / namespace error.
+
+### Suggested files to inspect/change
+- Cursor MCP config for MCP-KV
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-1750-cover-sanitizer-wiped-kie-hero-scripts
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- Workspace again had wiped durable cover helpers: hero Kie file-base64 upload, tempfile/redpanda allowlist in `excalibur_blog_cover_quad_prompt.py`, and post-split corner stamp in `excalibur_blog_cover_quad_split.py`.
+- WP media `reference_url_hosted` timed out from Cloud; catbox returned HTTP 412.
+
+### How the agent recovered this run
+- Restored scripts from known-good git history (`cb2ae65b` / `e6da2f86`).
+- `excalibur_blog_hero_reference_url.py --force --provider kie` → tempfile.redpandaai.co input_urls.
+- Corner brand already present on cover PNG; canvas stamped `avto-sales125.ru`.
+
+### Durable fix needed before next run
+- Pin restored scripts against sanitizer wipe (doctor smoke / fixer regression).
+- Ensure allowlist includes `tempfile.redpandaai.co` / `redpandaai.co` permanently.
+- Keep Kie file-base64 upload as auto fallback after catbox/0x0.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261103-1748-schema-precommit-secret-name
 status: open
 run_date: 2026-11-03

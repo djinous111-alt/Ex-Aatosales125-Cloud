@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/"
+      },
+      "headline": "Как выбрать Toyota Sienta из Японии: бензин, гибрид и цена под ключ в 2026",
+      "description": "Как выбрать Toyota Sienta из Японии: бензин или гибрид, возраст 3–5 лет, аукционный лист и смета под ключ во Владивосток. Чек-лист до депозита.",
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${CATALOG_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${CATALOG_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "как выбрать toyota sienta из японии",
+        "toyota sienta из японии под ключ",
+        "toyota sienta гибрид или бензин",
+        "сиента из японии владивосток",
+        "toyota sienta аукционный лист"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем бензин Sienta отличается от гибрида при ввозе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Бензин чаще едет прямым маршрутом и проще по сроку. Гибрид обычно идёт через третьи страны дольше; до ставки сверьте код кузова, батарею и VIN-кампании. Выберите топливо до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли брать 7 мест с правым рулем под семью?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, если третий ряд реально нужен и вас устраивает правый руль. Зафиксируйте число мест в заявке и проверьте двери на осмотре. Если ездите впятером – не переплачивайте за 7 мест \"на всякий случай\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какая оценка аукциона нормальна для новичка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентир – оценка 4 и выше без R/RA. Оценку 3.5 берите только с доп.осмотром. Нет читаемого листа – нет ставки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько этапов до выдачи во Владивостоке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ставка → оплата и документы в Японии → море → СВХ → растаможка / СБКТС / ЭПТС → выдача или автовоз. Уточните в смете состав \"под ключ\" до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему нельзя ориентироваться на цену лота в иенах?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В лоте нет фрахта, единой ставки, утиля, брокера, СБКТС, ЭПТС и комиссии. Запросите построчную смету в каталоге Авто-Сейлс до любых денег."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где получить расчёт по Toyota Sienta из Японии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В каталоге Авто-Сейлс и в Telegram avtosales125: пришлите год, топливо и число мест. Статичных калькуляторов в статье нет – меньше риска устаревших цифр."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/#howto",
+      "name": "Как выбрать Toyota Sienta из Японии под ключ в 2026",
+      "description": "Пошаговый выбор Toyota Sienta с японского аукциона: сценарий семьи, бензин или гибрид, возраст 3–5 лет, аукционный лист, маршрут во Владивосток и смета до депозита.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист: оценка, схема повреждений, пробег, салон"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Построчная смета под ключ до Владивостока"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чек-лист красных флагов до депозита"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Бриф семьи: число мест, правый руль, город/дача, готовность ждать гибрид"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Код кузова и топливо (NSP170 / NCP175 / NHP170; MXPC / MXPL)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Определите, кому реально подходит Sienta",
+          "text": "Зафиксируйте еженедельный сценарий: сколько человек ездит, ок ли правый руль, нужны ли 5–6 или 7 мест и электросдвижные двери. Сверьте поколение II или III и не путайте витрину с аукционным лотом.",
+          "url": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сравнение: бензин или гибрид до ставки",
+          "text": "Выберите топливо до депозита: бензин 1.5 чаще едет прямым маршрутом короче по сроку; гибрид обычно через третьи страны дольше. Зафиксируйте код кузова и не путайте ременный CVT с надписью CVT у Hybrid.",
+          "url": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверьте возраст 3–5 лет и льготный утиль",
+          "text": "Выпишите год и месяц из листа, назначьте дату растаможки с запасом и проверьте попадание в окно 3–5 лет. Возраст считают на дату декларации; готовые суммы утиля в статье не публикуем.",
+          "url": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Прочитайте аукционный лист: пять меток до депозита",
+          "text": "До денег сверьте код кузова и топливо, год/месяц, пробег, оценку ≥4 без R/RA и схему повреждений. При 3.5 нужен доп.осмотр; без читаемого листа ставки нет.",
+          "url": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройдите маршрут: Япония → Владивосток → выдача",
+          "text": "Соберите «под ключ» по этапам: лот, расходы в Японии, фрахт, единая ставка, утиль, брокер, СБКТС, ЭПТС, комиссия и СВХ. Требуйте построчную смету до депозита, не сравнивайте только иены лота.",
+          "url": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Соберите чек-лист красных флагов до депозита",
+          "text": "Пройдите стоп-лист: код и топливо, возраст 3–5 лет, оценка ≥4 без R, батарея и VIN для гибрида, двери/влага, договор и построчная смета на руках до перевода.",
+          "url": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Запросите смету в каталоге без статичных цен",
+          "text": "Пришлите лот и получите актуальный расчёт в каталоге Авто-Сейлс или Telegram avtosales125. Не решайте по скрину «под ключ от …» без расшифровки строк.",
+          "url": "${PUBLIC_SITE_URL}/kak-vybrat-toyota-sienta-iz-yaponii-2026/"
+        }
+      ]
+    }
+  ]
+}

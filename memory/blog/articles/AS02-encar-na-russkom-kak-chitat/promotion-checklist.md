@@ -1,7 +1,7 @@
 # Promotion checklist — AS02 encar-na-russkom-kak-chitat
 
-Дата публикации: 2026-11-03 (ожидается publish)  
-Live URL: /blog/encar-na-russkom-kak-chitat/
+Дата публикации: 2026-11-03 — ❌ PUBLISH BLOCKER (SSH TCP/22 timeout)  
+Live URL: none this run (historical same-slug may exist; not refreshed)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/AS02-encar-na-russkom-kak-chitat` — opportunities=0, applied=0; existing spoke AS02→AS09.
 - llms.txt / llms-full.txt: `memory/blog/` via `--blog-dir` (alias `--blog-path` отсутствует; doctor FAIL известен); relative `/blog/...` для commit hygiene.
-- Cover+Schema PASS; publish=yes next (не из indexer).
+- Publish 2026-11-03: SSH DNS OK, TCP/22 timeout; ledger `publish_blocked`; no WP write; denylist untouched.

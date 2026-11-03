@@ -578,3 +578,43 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261103-1400-publish-ssh-tcp22-timeout
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: publish
+
+### What went wrong
+- Preflight OK: `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`, env-check PASS (`SSH_ROOT=.`), link-verify PASS (catalog SSL soft_pass), dry-run PASS (~7.37MB PHP).
+- SSH DNS resolves; TCP port 22 Connection timed out (~20s probe; paramiko Errno 110 ~134s).
+- `SSH_HOST_IP` unset; no alternate publish transport authorized.
+- No WP post create/update; denylist IDs untouched (incl. historical same-slug 3394).
+
+### How the agent recovered this run
+- Rebuilt gitignored `memory/site.env.local` from Cloud Secrets (`SSH_PASSWORD`→`SSH_PASS`, `SSH_ROOT=.`).
+- pip-installed `paramiko` workaround; formal publish attempt captured in `wp-publish-result.json`.
+- Ledger → `publish_blocked`; explicit `❌ PUBLISH BLOCKER` in handoff (step completed, not skipped).
+- Did not invent IP/password; did not overwrite foreign LIVE posts.
+
+### Durable fix needed before next run
+- Restore Beget/host SSH TCP:22 reachability from Cloud egress, or provide verified `SSH_HOST_IP` secret that accepts SSH.
+- Optionally document publish_blocked path + TCP probe before long paramiko hang in skill/contract.
+- After SSH restored: republish **only** slug `encar-na-russkom-kak-chitat` (intentional refresh of 3394 OK; never rewrite denylist foreign IDs).
+
+### Suggested files to inspect/change
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `scripts/excalibur_blog_wp_publish.py` (faster TCP fail / clearer blocker exit)
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud Secrets: `SSH_HOST` / optional `SSH_HOST_IP`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

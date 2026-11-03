@@ -31,3 +31,21 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-11-03 — AS02 encar-na-russkom-kak-chitat
+
+- **verdict:** FAIL / ❌ PUBLISH BLOCKER
+- **post_id:** none (no WP write)
+- **permalink:** none
+- **featured_image:** none
+- **inline_images:** none
+- **schema_meta:** n/a
+- **method:** SSH bootstrap attempted; DNS OK; TCP:22 TimeoutError / Errno 110 (~20s probe, ~134s paramiko)
+- **env-check:** PASS (`ALLOW=yes`, `SSH_ROOT=.`)
+- **dry-run:** PASS (slug `encar-na-russkom-kak-chitat`, PHP ~7.37MB)
+- **link-verify:** PASS (soft_pass catalog_ssl ×2; Telegram 200)
+- **denylist untouched:** 4758, 4746, 4740, 3430, 3394, 4717, 4711
+- **note:** `SSH_HOST_IP` unset; credentials not invented; intentional same-slug refresh of historical 3394 deferred until SSH restored
+- **result:** `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20261103-1400-publish-ssh-tcp22-timeout`
+

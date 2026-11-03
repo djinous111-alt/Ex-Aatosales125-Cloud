@@ -1,0 +1,23 @@
+{
+  "slug": "encar-na-russkom-kak-chitat",
+  "topic_id": "AS02",
+  "post_id": null,
+  "permalink": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": 0,
+  "verdict": "fail",
+  "status": "publish_blocked",
+  "blocker": "SSH TCP/22 Connection timed out (DNS OK; SSH_HOST_IP unset; no credentials invented)",
+  "publish_method": "ssh_bootstrap_attempted",
+  "denylist_untouched": [4758, 4746, 4740, 3430, 3394, 4717, 4711],
+  "preflight": {
+    "env_check": "pass",
+    "link_verify": "pass",
+    "link_verify_soft_pass": ["catalog_ssl"],
+    "dry_run": "pass",
+    "php_bytes": 7373272,
+    "allow_publish": "yes"
+  },
+  "raw_output": "paramiko.ssh_exception.SSHException: Unable to connect to SSH_HOST: [Errno 110] Connection timed out\n"
+}

@@ -1,0 +1,18 @@
+{
+  "topic_id": "AS02",
+  "article_dir": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat",
+  "run_date": "2026-11-03",
+  "opportunities_found": 0,
+  "links_applied_this_run": 0,
+  "links_already_present": 1,
+  "existing_spokes": [
+    {
+      "target_topic_id": "AS09",
+      "anchor": "Trust Encar и Carhistory до депозита",
+      "href": "/blog/trust-encar-carhistory-proverka-do-depozita/"
+    }
+  ],
+  "corpus_articles": 3,
+  "suggestions_path": "memory/blog/interlink-suggestions.json",
+  "status": "PASS"
+}

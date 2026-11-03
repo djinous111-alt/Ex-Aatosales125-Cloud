@@ -1,0 +1,14 @@
+{
+  "site_base": "",
+  "total_articles": 3,
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "AS02-encar-na-russkom-kak-chitat",
+      "target": "AS09-trust-encar-carhistory-proverka-do-depozita",
+      "keyword": "trust encar",
+      "context": "ми посредников, у которых в названии \"Encar на русском\" или Trust Encar: это каталоги под заказ, а не кнопка \"официальный русский E",
+      "link_replacement": "<a href=\"/blog/trust-encar-carhistory-proverka-do-depozita/\">Trust Encar</a>"
+    }
+  ]
+}

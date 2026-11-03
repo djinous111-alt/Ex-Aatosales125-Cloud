@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+> AS10 Sienta fixer 2026-11-04: former open incidents closed as fixed/needs-human below. True open remaining should be 0.
+
+
 ## INC-20261103-2150-cover-hero-host-fallback
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-cover
 topic_id: AS10
@@ -38,10 +41,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- cover_quad_prompt accepts Kie tempfile/redpanda hosts as WP media fallback.
+- hero_reference_url supports Kie file-base64-upload when WP/catbox/0x0 fail.
+- Documented in kie contract + pitfalls; doctor/smoke pins.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_kie_file_base64_upload.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor errors=0; fixer_regression_smoke PASS
+commit: pending-parent-commit
 ## INC-20261103-2150-cover-prompt-hoodie-lock
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-cover
 topic_id: AS10
@@ -66,10 +82,17 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Removed hardcoded white-hoodie lock; outfit_lock_line() uses blog-hero.outfit_rule / scene weather.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+checks_run:
+- smoke: no fixed white-hoodie outfit lock
+commit: pending-parent-commit
 ## INC-20261103-2151-cover-corner-brand-pil
-status: open
+status: fixed
 run_date: 2026-11-03
 role: excalibur-blog-cover
 topic_id: AS10
@@ -95,11 +118,18 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Post-split ensure_corner_brand() stamps avto-sales125.ru on cover when omitted by generation.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile cover_quad_split; doctor/smoke PASS
+commit: pending-parent-commit
 ## INC-20261104-2136-geo-qa-secret-names-url
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -128,11 +158,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Restored excalibur_git.sh + filter_commit_secret_env.sh (comma-joined bash identifiers only).
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke strips https URL tokens from SECRET_NAMES
+commit: pending-parent-commit
 ## INC-20261104-2135-geo-qa-catalog-softpass-wiped
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -161,11 +199,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Re-pinned catalog/site soft-pass + URL redact; doctor/smoke assert against sanitizer wipe.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor soft-pass pins; smoke link_verify soft-pass PASS
+commit: pending-parent-commit
 ## INC-20261104-2135-geo-qa-tldr-ban-wiped
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -196,11 +243,20 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Writing contract uses topical insight label; TL;DR/Быстрый инсайт banned; human_voice gate pinned.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- doctor human_voice TL;DR ban; rg no banned example
+commit: pending-parent-commit
 ## INC-20261104-2130-director-geo-qa-task-missing
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-director
 topic_id: AS10
@@ -228,9 +284,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- geo-qa agent present in agents/ + .cursor/agents/ + plugin agents glob.
+- Documented Cloud enum gap → Task(generalPurpose) fallback (AGENTS/director/task-map/pitfalls).
+files_changed:
+- `AGENTS.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg generalPurpose geo-qa docs; plugin agents includes geo-qa
+commit: pending-parent-commit
 ## INC-20261104-2124-writer-pain-outcome-markers-missing
 status: fixed
 run_date: 2026-11-04
@@ -266,7 +335,7 @@ category: docs
 - fixed in-writer: policy lists restored + utility-gate empty-list fallback; utility PASS on AS10 article
 
 ## INC-20261104-2115-research-wordstat-mcp-kv-unavailable
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-research
 topic_id: AS10
@@ -300,11 +369,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Research skill WORDSTAT UNAVAILABLE path; tech-marker token boundaries in research_notes_gate.
+- MCP-KV OAuth restore remains Cloud/human; agent no longer invents impressions.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor research_notes_gate token-boundary pins
+commit: pending-parent-commit
 ## INC-20261104-0005-director-as-b-regex
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-director
 topic_id: n/a
@@ -333,9 +412,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- today.py + scout_helper accept AS|B; suggest-next prefers AS##; scout niche pinned to Авто-Сейлс.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+checks_run:
+- scout_helper --suggest-next → AS11 pool=10; doctor AS|B OK
+commit: pending-parent-commit
 ## INC-20261104-0005-director-llms-blog-path
 status: fixed
 run_date: 2026-11-04
@@ -369,7 +460,7 @@ category: script
 
 
 ## INC-20261104-0005-director-wp-ssl-timeout
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-director
 topic_id: n/a
@@ -397,11 +488,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Documented WP REST SSL timeout fallback (denylist + memory + recent posts); SSH_HOST_IP preference when hostname TCP fails.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- today.py surfaces RECENT_WP_POSTS_ERROR on SSL timeout
+commit: pending-parent-commit
 ## INC-20261104-2108-scout-wordstat-mcp-kv-unavailable
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-scout
 topic_id: AS10
@@ -438,9 +537,20 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Scout UNAVAILABLE Wordstat path + AS|B helper + secret-name filter + Авто-Сейлс niche pin.
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- scout_helper AS11; secret filter strips URL tokens
+commit: pending-parent-commit
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -687,7 +797,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261103-2208-publish-ssh-tcp22-timeout-as10-sienta
-status: open
+status: needs-human
 run_date: 2026-11-04
 role: excalibur-blog-publish
 topic_id: AS10
@@ -724,9 +834,19 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
-## Fixed incidents
-
-Handled above; commit is pending Director review.
+status: needs-human
+fixed_at: 2026-11-04
+reason:
+- Beget SSH TCP/22 unreachable from Cloud egress; SSH_HOST_IP unset/unusable. Repo docs/scripts already probe DNS+TCP/22.
+needed_decision_or_secret:
+- Restore Beget SSH listener/firewall for Cloud egress OR set verified Cloud Secret SSH_HOST_IP with open TCP/22.
+- Then publish ONLY slug kak-vybrat-toyota-sienta-iz-yaponii-2026 (denylist LIVE posts untouched).
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-wp-publish-contract.md`
+checks_run:
+- doctor TCP/22 probe pin; no LIVE publish this run
+commit: pending-parent-commit

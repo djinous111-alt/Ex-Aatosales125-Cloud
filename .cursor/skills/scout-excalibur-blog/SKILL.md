@@ -66,6 +66,11 @@ python3 scripts/excalibur_blog_scout_helper.py --suggest-next
 1. Широкий parent (модель/кластер)
 2. Узкий how-to
 3. `totalCount`-only на узком = low-result signal → опирайся на parent semantic tail
+4. **MCP-KV unavailable** (`namespaceStatus: error` / server missing / `wordstat_*` not callable):
+   - не выдумывай monthly impressions;
+   - продолжай через WebSearch 2026 evidence + LSI;
+   - в карточке явно `wordstat_status: unavailable_mcp_kv` (или `WORDSTAT UNAVAILABLE`);
+   - запиши incident в `memory/pipeline-fix-queue.md`.
 
 ### 4) Cannibalization
 
@@ -107,4 +112,5 @@ Append в конец `memory/topics/blog-topics.md`.
 - Тема вне AVTO SALES (AI/Make/Cursor drift)
 - Нет `shared/wp-slug-denylist.json`
 - Игнор denylist / recent WP republish
-- Выдуманный Wordstat без MCP
+- Выдуманный Wordstat без MCP / при UNAVAILABLE
+- Игнор AS## helper Next ID (regex только `B*` → fake `B01`) — helper обязан AS|B; если pool AS* → next `AS##`

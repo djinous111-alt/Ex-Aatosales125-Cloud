@@ -62,6 +62,15 @@
 
 Нельзя параллелить: ①→②→③, ⑤ после ④, ⑥ после ⑤.
 
+## Cloud Task enum fallback
+
+Если typed `Task(excalibur-blog-*)` недоступны (часто **нет** `excalibur-blog-geo-qa` в enum):
+
+1. Отдельный `Task(generalPurpose)` на **каждую** роль.
+2. В промпт: `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` + короткий контракт входа/маркера.
+3. Один Task = одна роль; cover||schema = **два** Task в одном сообщении.
+4. Agent files уже в `agents/` и `.cursor/agents/` (включая geo-qa) — registration в plugin `agents/` есть; Cloud enum всё равно может отставать → generalPurpose остаётся каноном fallback.
+
 ## Промпты для Директора (копировать в Task)
 
 Добавляй к каждому Task-промпту:
@@ -74,12 +83,13 @@
 
 ```text
 Ты excalibur-blog-scout.
-Прочитай agents/excalibur-blog-scout.md + skills/scout-excalibur-blog/SKILL.md + shared/editorial-utility-only.md.
-1) python scripts/excalibur_blog_scout_helper.py --suggest-next
-2) WebSearch Курсора — найди горячие тренды 2026 (ИИ, автоматизация, n8n, Cursor, Make)
-3) Вызови wordstat_get_top_requests в user-mcp-kv для проверки показов в месяц и LSI-ключей
-4) python scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" (защита от каннибализации)
-5) Сделай карточку темы и допиши (append) её в конец memory/topics/blog-topics.md.
+Прочитай agents/excalibur-blog-scout.md + skills/scout-excalibur-blog/SKILL.md + shared/editorial-utility-only.md + memory/brief/site-brief.md.
+Ниша только Авто-Сейлс (JP/KR/CN import, таможня, Владивосток). Запрещён drift в Cursor/Make/n8n/AI.
+1) python3 scripts/excalibur_blog_today.py && python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+2) WebSearch — тренды 2026 в авто-нише (не AI-инструменты)
+3) wordstat_get_top_requests (cluster-first). Если MCP-KV UNAVAILABLE — WebSearch-only + wordstat_status на карточке, без выдуманных shows
+4) python3 scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" (+ denylist)
+5) Append utility-only Mode B карточку AS## в конец memory/topics/blog-topics.md.
 ```
 
 ### ① Research

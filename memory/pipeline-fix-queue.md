@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-0950-publish-ssh-tcp22-timeout
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: env
+
+### What went wrong
+- Live publish blocked: SSH host DNS resolves, but TCP port 22 times out (~20s, TimeoutError).
+- `SSH_HOST_IP` unset; Cloud egress cannot open Beget SSH for bootstrap upload.
+- Secondary: `link-verify` FAIL on internal AS09 URL — SSL handshake timeout to PUBLIC_SITE_URL from Cloud (catalog soft_pass; Telegram 200).
+
+### How the agent recovered this run
+- Rebuilt gitignored `memory/site.env.local` from Cloud Secrets (SSH_ROOT=.); installed paramiko; inject-html for 3 inline imgs; env-check PASS; dry-run PASS (~7.09MB).
+- Explicit ❌ PUBLISH BLOCKER; no invented IP/password; no bootstrap; denylist LIVE posts untouched.
+- Ledger → `publish_blocked`; `wp-publish-result.json` verdict fail.
+
+### Durable fix needed before next run
+- Human restore Beget SSH TCP/22 reachability from Cursor Cloud egress, or provide verified reachable `SSH_HOST_IP` (not guessed).
+- Optionally soft-pass PUBLIC_SITE_URL SSL/timeout for internal_relative checks (same class as catalog_ssl).
+- Keep paramiko in environment image so publish does not pip-install each run.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard Secrets (`SSH_HOST` / optional `SSH_HOST_IP` only; no secret values here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261103-0941-cover-mcp-kv-unavailable-kie-first
 status: open
 run_date: 2026-11-03

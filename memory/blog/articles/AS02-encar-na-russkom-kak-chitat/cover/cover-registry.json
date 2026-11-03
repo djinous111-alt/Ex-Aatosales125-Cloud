@@ -8,7 +8,7 @@
   "alt": "Герой Авто-Сейлс в очках со смартфоном Encar и плашкой «кот в мешке», угол avto-sales125.ru",
   "aspect_ratio": "16:9",
   "canvas_source": "cover/canvas-quad.png",
-  "generated_at": "2026-11-03T09:40:20+00:00",
+  "generated_at": "2026-11-03T09:50:51+00:00",
   "assets": [
     {
       "role": "cover",
@@ -46,14 +46,5 @@
       "visual_type": "workflow_diagram",
       "aspect_ratio": "16:9"
     }
-  ],
-  "generation_method": "kie-api",
-  "kie_task_id": "fa896d8f051081592502f2ce35f68db4",
-  "hero_upload": "kie-file-base64-upload",
-  "corner_brand": {
-    "text": "avto-sales125.ru",
-    "method": "pil_overlay_after_gen"
-  },
-  "inject_html": "skip",
-  "mcp_status": "MCP-KV error; skipped"
+  ]
 }

@@ -1,0 +1,36 @@
+{
+  "verdict": "fail",
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "article_dir": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat",
+  "publish_date": "2026-11-03",
+  "post_id": null,
+  "permalink": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": false,
+  "blockers": [
+    "SSH TCP/22 Connection timed out (DNS OK; TimeoutError ~20s); SSH_HOST_IP unset",
+    "No WP write performed; denylist posts untouched",
+    "link-verify fail: internal AS09 site SSL handshake timeout from Cloud egress (catalog soft_pass; Telegram 200)"
+  ],
+  "env_check": {
+    "allow_publish": true,
+    "public_site_url_configured": true,
+    "ssh": {
+      "host_configured": true,
+      "user_configured": true,
+      "password_configured": true,
+      "root": "dot"
+    },
+    "missing": []
+  },
+  "dry_run": {
+    "ok": true,
+    "slug": "encar-na-russkom-kak-chitat",
+    "php_bytes": 7093952
+  },
+  "transport": "ssh_only",
+  "bootstrap_uploaded": false,
+  "raw_output": "tcp22_ok False TimeoutError timed out (~20260ms); dns_ok True; no SSH auth attempted beyond TCP; no bootstrap"
+}

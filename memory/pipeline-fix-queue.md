@@ -71,6 +71,40 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261103-0913-research-precommit-secret-name
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Agent `pre-commit.cursor` aborts with `invalid variable name` when iterating `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- One injected "secret name" is a URL-like string (`htt…` with dashes), invalid for bash `${!SECRET_NAME}` indirect expansion.
+- Blocks normal `git commit` even when staged files contain no secrets.
+
+### How the agent recovered this run
+- Verified staged paths are research notes / gate / ledger / incident queue only.
+- Committed with `CLOUD_AGENT_INJECTED_SECRET_NAMES=` empty for the hook early-exit path (no secret values printed).
+
+### Durable fix needed before next run
+- Ensure Cursor Cloud injects only valid bash identifiers as secret *names* (not URL values as names).
+- Or harden `pre-commit.cursor` to skip non-identifier names instead of aborting.
+- Restore `scripts/excalibur_git.sh` on this branch if missing.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets naming
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform)
+- `scripts/excalibur_git.sh` (missing on current branch)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261103-0912-research-mcp-kv-wordstat-down
 status: open
 run_date: 2026-11-03

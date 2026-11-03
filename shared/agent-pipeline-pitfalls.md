@@ -32,6 +32,7 @@
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
 - `memory/brief/editorial-policy.json` обязан иметь `_markers_pinned` + непустые `pain_markers_ru` / `outcome_markers_ru` (+ `min_*`). Utility gate fail-soft, если списки пусты; doctor падает, если pin снят.
+- Recommendation markers: заголовки «Делать/Не делать» **не** считаются — нужны императивы из списка (`сделайте` / `не делайте` / …).
 - Коммиты агентов: `bash scripts/excalibur_git.sh commit …` (фильтрует `CLOUD_AGENT_*_SECRET_NAMES` → valid bash identifiers; чинит `invalid variable name` в pre-commit.cursor).
 
 ## QA
@@ -48,6 +49,8 @@
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
 - **Kie-first** когда MCP-KV down; WP hero timeout → `hero_reference_url.py --provider kie` / `excalibur_blog_kie_file_base64_upload.py`; `tempfile.redpandaai.co` allowed в `cover_quad_prompt`.
+- Corner brand `avto-sales125.ru`: post-split PIL stamp в `cover_quad_split.py` (meta `cover/corner-brand-stamp.json`). Не запускай второй image job только из‑за отсутствующего угла.
+- Sanitizer/rebrand часто **стирает** fixer scripts (`excalibur_git.sh`, kie upload, doctor pins, AS|B regex). После wipe — снова `Task(excalibur-blog-fixer)`, не silent retry.
 
 ## Scout
 

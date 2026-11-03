@@ -140,7 +140,7 @@ python3 scripts/excalibur_blog_kie_file_base64_upload.py memory/cover/assets/blo
 
 `cover_quad_prompt.py` принимает `tempfile.redpandaai.co` / `redpandaai.co` как `reference_url_hosted` fallback рядом с `avtosales125.ru`.
 
-### Шаг 5 — apply
+### Шаг 5 — apply (+ corner brand stamp)
 
 ```bash
 python3 scripts/excalibur_blog_quad_apply.py \
@@ -150,6 +150,8 @@ python3 scripts/excalibur_blog_quad_apply.py \
 ```
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+
+После split `excalibur_blog_cover_quad_split.py` **всегда** ставит PIL corner stamp `avto-sales125.ru` на `cover.png` (+ top-left quadrant `canvas-quad.png`) и пишет `cover/corner-brand-stamp.json`. Не запускай второй image job из‑за отсутствующего угла — stamp закрывает recurring miss. Opt-out только через `--no-corner-brand`.
 
 ### Шаг 6 — fragment
 
@@ -180,6 +182,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
 - [ ] cover: hook + meme caption видны на PNG
+- [ ] corner brand `avto-sales125.ru` на cover (post-split stamp OK)
 - [ ] inline: без лица героя
 - [ ] fragment cover.md записан
 

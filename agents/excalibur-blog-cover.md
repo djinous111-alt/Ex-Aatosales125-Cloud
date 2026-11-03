@@ -80,6 +80,8 @@ python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --wr
 #    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
 
 # 6. Скачать + split + inject
+#    split автоматически PIL-штампует corner brand avto-sales125.ru
+#    → cover/corner-brand-stamp.json (не делай 2-й image job из-за угла)
 python scripts/excalibur_blog_quad_apply.py \
   --article-dir "$ARTICLE" \
   --url "<url из MCP>" \

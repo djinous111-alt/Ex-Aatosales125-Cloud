@@ -125,5 +125,7 @@
     "выберите",
     "выпишите",
     "откройте"
-  ]
+  ],
+  "_markers_pinned": true,
+  "_markers_pin_note": "Do not wipe pain_markers_ru / outcome_markers_ru / min_* during rebrand sync. Doctor fails if missing/empty. Utility gate skips pain/outcome only when lists are empty. Recommendation stems need imperative forms (сделайте/не делайте), not only Делать/Не делать headings."
 }

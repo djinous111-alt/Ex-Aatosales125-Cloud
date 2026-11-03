@@ -52,7 +52,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py` (PASS)
-commit: pending-parent-commit
+commit: e1766e68
 
 
 
@@ -99,7 +99,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
 - doctor + smoke PASS
-commit: pending-parent-commit
+commit: e1766e68
 
 
 
@@ -144,7 +144,7 @@ files_changed:
 checks_run:
 - doctor pin `cover_quad_split post-split corner brand stamp`
 - smoke PASS
-commit: pending-parent-commit
+commit: e1766e68
 
 
 
@@ -446,7 +446,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_today.py` → `EXCALIBUR_TOPIC_SELECTION=ready` + AS##
 - doctor AS|B pins PASS
-commit: pending-parent-commit
+commit: e1766e68
 
 
 ## INC-20261103-1306-director-llms-blog-path
@@ -486,7 +486,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-path`
 - doctor `llms generator supports --blog-path` OK
-commit: pending-parent-commit
+commit: e1766e68
 
 
 ## INC-20261103-1309-research-mcp-kv-wordstat-down
@@ -533,7 +533,7 @@ files_changed:
 checks_run:
 - `rg` Wordstat UNAVAILABLE / namespaceStatus in research skill
 - doctor research_notes_gate pins PASS
-commit: pending-parent-commit
+commit: e1766e68
 
 
 ## INC-20261103-1320-writer-editorial-pain-markers-missing
@@ -589,7 +589,7 @@ files_changed:
 checks_run:
 - FAQ unit asserts for «чеклист до FAQ»
 - doctor editorial pins PASS
-commit: pending-parent-commit
+commit: e1766e68
 
 
 
@@ -638,7 +638,7 @@ files_changed:
 checks_run:
 - doctor link_verify pins PASS
 - smoke soft-pass PASS
-commit: pending-parent-commit
+commit: e1766e68
 
 
 ## INC-20261103-1334-geo-qa-insight-tldr-label
@@ -688,7 +688,7 @@ files_changed:
 checks_run:
 - doctor human_voice TL;DR ban OK
 - smoke PASS
-commit: pending-parent-commit
+commit: e1766e68
 
 
 
@@ -738,7 +738,7 @@ files_changed:
 checks_run:
 - `bash -n scripts/excalibur_git.sh`
 - doctor `scripts/excalibur_git.sh present` OK
-commit: pending-parent-commit
+commit: e1766e68
 
 
 ## INC-20261103-1400-publish-ssh-tcp22-timeout
@@ -795,6 +795,6 @@ files_changed:
 checks_run:
 - doctor publish TCP/22 probe pins PASS
 - smoke publish helpers PASS
-commit: pending-parent-commit
+commit: e1766e68
 
 

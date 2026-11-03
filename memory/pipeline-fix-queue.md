@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-1720-writer-utility-markers-wiped
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: script
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` (sanitizer/wipe). Utility gate defaults `min_pain_markers=2` / `min_outcome_markers=3` against empty lists → false BLOCK on article.
+
+### How the agent recovered this run
+- Restored marker lists matching human-voice gate constants, set `_markers_pinned: true`, and wrote AS02 article with explicit pain/outcome language.
+- Self-check: html_linter PASS, utility_gate PASS, human_voice PASS; char_count 9205.
+
+### Durable fix needed before next run
+- Pin markers in editorial-policy and fail-soft in `excalibur_blog_utility_gate.py` when marker lists empty (skip or use built-in defaults).
+- Keep `_markers_pinned` in doctor/fixer regression smoke.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261103-1712-research-precommit-secret-name
 status: open
 run_date: 2026-11-03

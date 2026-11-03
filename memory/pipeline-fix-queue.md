@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-2115-research-wordstat-mcp-kv-unavailable
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` still unavailable at Research (`namespaceStatus: error`); `wordstat_get_top_requests` not callable.
+- Exact Wordstat impressions unavailable for AS10 primary/secondary queries.
+- Related: INC-20261104-2108-scout-wordstat-mcp-kv-unavailable (same root cause).
+
+### How the agent recovered this run
+- Marked `wordstat` section as UNAVAILABLE + Wordstat auth warning link; no invented show counts.
+- Deep WebSearch + research-serp.json + official Toyota JP specs + customs/util guides for facts.
+- research-notes-gate PASS (warn only: false-positive technical_topic from substrings in `pain` / `II`).
+
+### Durable fix needed before next run
+- Restore MCP-KV Wordstat tools for Cloud automations.
+- Optionally tighten `TECH_MARKERS` matching in `excalibur_blog_research_notes_gate.py` to word boundaries so auto niche notes are not flagged technical.
+
+### Suggested files to inspect/change
+- MCP Cloud config for MCP-KV / Wordstat
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261104-0005-director-as-b-regex
 status: open
 run_date: 2026-11-04

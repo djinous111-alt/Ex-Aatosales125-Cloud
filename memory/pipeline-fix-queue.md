@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-1710-research-mcp-kv-wordstat-down
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned `namespaceStatus: error` during live tool discovery; `wordstat_get_top_requests` unavailable.
+- Exact monthly impressions for `encar на русском` / secondary queries could not be collected.
+
+### How the agent recovered this run
+- Soft-fail in `research-notes.md`: status UNAVAILABLE + `⚠️ WORDSTAT AUTH WARNING` + OAuth refresh link; no invented impression numbers.
+- Expert LSI listed without volumes; research-notes-gate PASS (Wordstat warning path accepted).
+
+### Durable fix needed before next run
+- Restore MCP-KV / Wordstat OAuth token and verify discovery before research step.
+- Optionally document soft-fail contract in research skill when namespaceStatus=error (not only HTTP 401).
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- MCP config for Wordstat / MCP-KV
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-1707-director-as-b-regex-wipe
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` and `scripts/excalibur_blog_scout_helper.py` only match topic IDs `B\\d+`, so with an `AS*` pool `EXCALIBUR_TOPIC_SELECTION=needs_scout` and scout helper reports 0 topics.
+- Prior fixer restores (AS|B support) were wiped again by sanitizer/pipeline.
+- `excalibur_blog_doctor.py` expects llms generator `--blog-path`, but `excalibur_blog_llms_generator.py` only exposes `--blog-dir`.
+
+### How the agent recovered this run
+- Manually selected next unpublished P0 utility-PASS topic AS02 (`encar-na-russkom-kak-chitat`).
+- Ran utility gate + `research_start.py --topic-id AS02` successfully.
+- Deferred durable AS|B + `--blog-path` alias restore to fixer after PIPELINE DONE.
+
+### Durable fix needed before next run
+- Restore AS|B topic-id regex in `today.py`, `scout_helper.py`, and related active-dir matchers.
+- Add `--blog-path` alias (or update doctor) so doctor errors=0.
+- Re-pin regression smoke so sanitizer wipe is detectable.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

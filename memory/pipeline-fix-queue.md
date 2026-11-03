@@ -65,7 +65,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0 warnings=0)
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py` PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0941-cover-mcp-kv-unavailable-kie-first
@@ -112,7 +112,7 @@ files_changed:
 checks_run:
 - `rg` Kie-first / MCP-KV fallback in cover skill
 - doctor + regression smoke PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0941-cover-hero-wp-timeout-kie-file-base64
@@ -160,7 +160,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile` hero/kie/cover_quad_prompt
 - doctor asserts tempfile host + file-base64
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0941-cover-missing-corner-brand-pil
@@ -209,7 +209,7 @@ files_changed:
 checks_run:
 - corner-stamp smoke on demo canvas → corner-brand-stamp.json
 - doctor + regression smoke PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0930-geo-qa-catalog-softpass-regression
@@ -255,7 +255,7 @@ files_changed:
 checks_run:
 - doctor link_verify pins PASS
 - regression smoke link_verify PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0930-geo-qa-insight-tldr-label
@@ -303,7 +303,7 @@ files_changed:
 checks_run:
 - `rg` confirms banned example removed
 - doctor human_voice TL;DR ban PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0930-geo-qa-typed-task-unavailable
@@ -344,7 +344,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose geo-qa fallback in director skill
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0921-writer-pre-commit-hook-invalid-var
@@ -386,7 +386,7 @@ files_changed:
 checks_run:
 - filter smoke: URL-like names stripped, valid identifiers kept
 - doctor asserts git wrapper present
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0920-writer-editorial-pain-outcome-markers
@@ -435,7 +435,7 @@ files_changed:
 checks_run:
 - doctor editorial pins PASS
 - regression smoke markers PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20261103-0906-director-as-topic-select
@@ -483,7 +483,7 @@ files_changed:
 checks_run:
 - today suggests AS01; scout pool=9, next AS10
 - doctor AS|B regex PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 ## INC-20261103-0906-director-llms-blog-path
 status: fixed
@@ -523,7 +523,7 @@ files_changed:
 checks_run:
 - `--help` shows --blog-path
 - doctor llms --blog-path PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 ## INC-20261103-0913-research-precommit-secret-name
 status: fixed
@@ -567,7 +567,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter smoke + doctor git wrapper PASS
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 ## INC-20261103-0912-research-mcp-kv-wordstat-down
 status: needs-human
@@ -616,7 +616,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Wordstat UNAVAILABLE / namespaceStatus=error in research skill
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -669,7 +669,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -720,7 +720,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -761,7 +761,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -808,7 +808,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -862,7 +862,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 77154ddd / f6f2587c
 
 ## Fixed incidents
 

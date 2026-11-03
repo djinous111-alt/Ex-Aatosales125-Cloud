@@ -1,0 +1,46 @@
+{
+  "slug": "encar-na-russkom-kak-chitat",
+  "topic_id": "AS02",
+  "permalink": "",
+  "post_id": null,
+  "publish_method": "ssh",
+  "verdict": "fail",
+  "blocker": "SSH TCP/22 Connection timed out",
+  "ssh_probe": {
+    "host_dns_ok": true,
+    "port": 22,
+    "SSH_HOST_IP": "unset",
+    "probes": [
+      {
+        "ip": "5.101.152.193",
+        "ok": false,
+        "error": "TimeoutError",
+        "seconds": 20.02
+      }
+    ]
+  },
+  "denylist_untouched": [
+    4758,
+    4746,
+    4740,
+    3430,
+    3394,
+    4717,
+    4711
+  ],
+  "target_slug_only": "encar-na-russkom-kak-chitat",
+  "dry_run": {
+    "slug": "encar-na-russkom-kak-chitat",
+    "php_bytes": 7005684,
+    "ok": true
+  },
+  "link_verify": {
+    "verdict": "pass",
+    "soft_passes": [
+      "site_ssl",
+      "catalog_ssl"
+    ]
+  },
+  "raw_output": "BLOCKER: SSH TCP/22 Connection timed out (DNS OK; Errno/TimeoutError; SSH_HOST_IP unset). No bootstrap upload. No WP write. Denylist posts untouched.",
+  "checked_at": "2026-11-03T18:13:52Z"
+}

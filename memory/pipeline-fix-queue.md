@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-1805-publish-ssh-tcp22-timeout
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish transport SSH TCP/22 to Beget host timed out after DNS OK (`TimeoutError` ~20s).
+- `SSH_HOST_IP` unset; no alternate verified endpoint.
+- Target slug only: `encar-na-russkom-kak-chitat` (AS02). No WP write performed.
+
+### How the agent recovered this run
+- env-check PASS (`EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`, SSH user/password/host present).
+- link-verify soft_pass `site_ssl` + `catalog_ssl` (Cloud egress SSL handshake timeout; TCP/443 OK).
+- dry-run PASS (slug correct; PHP ~7.0MB).
+- Explicit ❌ PUBLISH BLOCKER; ledger → `publish_blocked`; denylist posts untouched (4758/4746/4740/3430/3394/4717/4711).
+- Did not invent IP/password; did not upload bootstrap.
+
+### Durable fix needed before next run
+- Human restore Beget SSH TCP/22 allowlist/firewall or provide verified `SSH_HOST_IP` reachable from Cloud egress.
+- Optional: document publish preflight TCP/22 probe before paramiko hang.
+- Keep denylist + slug-only publish guard for AS02 refresh.
+
+### Suggested files to inspect/change
+- Cursor Cloud Secrets (`SSH_HOST` / optional `SSH_HOST_IP`)
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261103-1750-cover-mcp-kv-unavailable-kie-first
 status: open
 run_date: 2026-11-03

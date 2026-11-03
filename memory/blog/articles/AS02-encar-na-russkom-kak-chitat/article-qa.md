@@ -1,13 +1,13 @@
-# Article QA — AS02
+# Article QA — AS02 (recheck after FIX cycle 1)
 
 **topic_id:** AS02  
 **slug:** encar-na-russkom-kak-chitat  
 **article_dir:** memory/blog/articles/AS02-encar-na-russkom-kak-chitat  
 **date:** 2026-11-03  
-**verdict:** FAIL  
-**score:** 84  
+**verdict:** PASS  
+**score:** 91  
 **author_id:** avtosales-editorial  
-**FIX cycle:** 1 → вернуть Writer (max 2)
+**recheck:** after Writer FIX cycle 1 (insight label → «Короткий разбор»)
 
 ## Scripts
 
@@ -15,25 +15,25 @@
 |--------|---------|-------|
 | research-notes-gate | PASS | research_date/today OK; source table + pain/outcome map |
 | fact-check | PASS | 6 stats; 1 verified (2026); 5 unverified (манвон×10000, 30 дней/2000 км, примеры 1890/2450) — есть в research-notes |
-| link-verify | PASS (soft) | encar.com HEAD 200; Telegram HEAD 200; catalog unique URL → `catalog_ssl` soft-pass после retry 15/30/45s (Cloud egress SSL handshake timeout) |
+| link-verify | PASS (soft) | encar.com HEAD 200; Telegram HEAD 200; brand-twin catalog → `catalog_ssl` soft-pass после retry 15/30/45s (Cloud egress SSL handshake timeout) |
 | html-linter | PASS | 0 errors; TOC в теле нет; whitelist OK |
-| slop-detector | WARNING | 0 клише; 6 over-long (склейка таблиц/схем парсером); Flesch RU 69.7 |
+| slop-detector | WARNING | 0 клише; 6 over-long (склейка таблиц/схем парсером); Flesch RU 69.5 |
 | cannibalization | PASS | 0 issues (AS09 = Carhistory/депозит; AS02 = чтение карточки) |
 | utility gate | PASS | action 24 / pain 5 / outcome 13; FAQ×6; tables×2 |
 | human-voice gate (CLI) | PASS | concrete/pain/outcome markers OK; reader_story overlap OK |
-| **insight label (skill manual)** | **FAIL** | blockquote начинается с `TL;DR / Быстрый инсайт` — запрещено skill GEO QA |
+| **insight label (skill manual)** | **PASS** | blockquote: `Короткий разбор` — без `TL;DR` / `Быстрый инсайт` |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
 | SEO structure | 17/20 | Primary «encar на русском» в title/H1; H2 how-to; CTA catalog×2 + Telegram×1; мало blog-internal |
-| GEO / citability | 22/25 | Инсайт+таблицы+FAQ×6+чеклист; −3 за шаблонный ярлык TL;DR |
+| GEO / citability | 24/25 | Инсайт+таблицы+FAQ×6+чеклист; ярлык инсайта OK |
 | CORE-EEAT lite | 18/20 | 18/20 (см. таблицу) |
-| Human voice | 12/15 | CLI PASS, но шаблонный ярлык инсайта |
+| Human voice | 14/15 | CLI PASS + нейтральный ярлык инсайта |
 | Fact safety | 13/15 | Цифры в research-notes; не все в fact-bank |
-| Contract HTML | 8/10 | Whitelist PASS; insight label нарушает geo-qa skill |
-| **Итого** | **84/100** | score ≥80, но gate insight = FAIL |
+| Contract HTML | 10/10 | Whitelist PASS; insight label соответствует skill |
+| **Итого** | **91/100** | score ≥80 ✓ · все hard gates PASS |
 
 ## CORE-EEAT lite: 18/20
 
@@ -59,9 +59,8 @@
 | Exp03 | ✓ | Slop hits = 0 |
 | Ept01 | ✓ | Лимиты страховки, навесные vs силовые, перевод |
 | Ept02 | ✗ | Нет 2–3 внутренних ссылок на другие посты блога |
-| — | ✗ | Insight label `TL;DR / Быстрый инсайт` (skill veto → Writer FIX) |
 
-**Target:** ≥16/20 ✓ · veto insight-label: **да** → overall FAIL
+**Target:** ≥16/20 ✓ · insight-label veto: **нет** → overall PASS
 
 ## Beginner-fit: PASS
 
@@ -82,26 +81,20 @@
 ## Link verify
 
 - total unique: 3; failed hard: 0 after soft-pass
-- soft_pass: `catalog_ssl` ×1 unique catalog URL (2 CTA в тексте)
+- soft_pass: `catalog_ssl` ×1 unique brand-twin catalog URL (2 CTA в тексте)
 - see link-verify.json
 
 ## AI-slop scan
 
 - cliches: 0
 - over-long: 6 (артефакт таблиц/схем)
-- Flesch RU: 69.7
+- Flesch RU: 69.5
 
-## Schema ready (после Writer FIX)
+## Schema ready
 
-BlogPosting: yes | FAQPage: yes (6) | HowTo: yes (чеклисты) | Review: no | cover/schema: **не стартовать** до PASS
+BlogPosting: yes | FAQPage: yes (6) | HowTo: yes (чеклисты) | Review: no | cover/schema: **можно** после Director handoff
 
-## Blockers (FAIL → Writer)
-
-1. **Insight label:** в `article.html` blockquote начинается с `<b>TL;DR / Быстрый инсайт:</b>`. По `.cursor/skills/excalibur-geo-qa/SKILL.md` инсайт-блок **не должен** начинаться с `TL;DR` или `Быстрый инсайт`.
-   - **FIX Writer:** заменить ярлык на нейтральный, напр. `<b>Короткий разбор:</b>` (содержание блока оставить). Не трогать lead/H2/FAQ без нужды.
-   - После правки: перезапуск GEO QA (human-voice + html-linter + utility smoke).
-
-## FIX (non-blocking / optional, не блокируют после insight-fix)
+## Optional (non-blocking)
 
 1. **Ept02:** после publish соседних AS* — 2–3 internal blog links с `anchor_variants`.
 2. **fact-check soft:** манвон×10 000, 30 дней/2000 км — дописать в fact-bank.
@@ -109,13 +102,13 @@ BlogPosting: yes | FAQPage: yes (6) | HowTo: yes (чеклисты) | Review: no
 
 ## Gate checklist
 
-- score ≥ 80 → **84** ✓  
+- score ≥ 80 → **91** ✓  
 - CORE-EEAT ≥ 16/20 → **18/20** ✓  
 - link-verify pass (incl. soft) ✓  
 - research-notes-gate PASS ✓  
 - utility gate PASS ✓  
 - human-voice CLI PASS ✓  
 - beginner-fit PASS ✓  
-- insight label skill → **FAIL** ✗  
+- insight label skill → **PASS** ✓  
 
-**Итог:** FAIL — cover \|\| schema **не** запускать. Вернуть `excalibur-blog-writer` на FIX цикла 1 (только ярлык инсайта).
+**Итог:** PASS — Director может запускать cover \|\| schema.

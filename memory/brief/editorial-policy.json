@@ -39,6 +39,7 @@
     "min_outcome_markers": 3,
     "requires_workflow_or_table_or_checklist": true
   },
+  "_markers_pinned": true,
   "pain_markers_ru": [
     "боль",
     "проблем",

@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from excalibur_repo_paths import repo_relative
+from excalibur_repo_paths import repo_relative, resolve_gate_output
 
 
 LEGACY_BANNED_FACT_CHECK_NAMES = (
@@ -233,7 +233,10 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
         for quote in blockquotes
         if "материал проверен" in quote.lower() and "достоверность данных" in quote.lower()
     ]
-    exactly_five_lists = len(re.findall(r"<ol[\s\S]*?(?:<li[\s\S]*?){5}</ol>", html, flags=re.I))
+    exactly_five_lists = 0
+    for ol_body in re.findall(r"<ol\b[^>]*>([\s\S]*?)</ol>", html, flags=re.I):
+        if len(re.findall(r"<li\b", ol_body, flags=re.I)) == 5:
+            exactly_five_lists += 1
 
     reader_story = extract_field(notes, "reader_story")
     reader_pain = extract_field(notes, "reader_pain")
@@ -339,7 +342,7 @@ def main() -> int:
     report = analyze_human_voice(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        output = resolve_gate_output(args.output, article_dir, root)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

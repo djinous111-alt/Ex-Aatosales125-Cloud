@@ -65,6 +65,18 @@ if ($schema) {
 }
 ```
 
+## SSH / env-check (config ≠ TCP)
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+- `allow_publish` / missing secrets = **config PASS only**.
+- Обязательно читай `ssh.dns` и `ssh.tcp22` в JSON.
+- При `ssh_tcp22_timeout` / TCP :22 unreachable → ledger `publish_blocked`, **не** LIVE WP write.
+- `SSH_HOST_IP` задавай только после ручной проверки reachability (не invent IP).
+- Transport: только SSH; legacy FTP/upload aliases не использовать.
+
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет credentials

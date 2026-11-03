@@ -54,6 +54,11 @@ Task(generalPurpose):
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+
+## Typed Task caveat (GEO QA)
+
+Cloud часто отклоняет typed `excalibur-blog-geo-qa`. Fallback: отдельный `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`. Не запускай cover||schema до `human-voice-report.json` PASS.
+
 ## Preflight (shell, директор)
 
 ```bash

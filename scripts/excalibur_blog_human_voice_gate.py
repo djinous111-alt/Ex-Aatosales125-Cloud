@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from excalibur_repo_paths import repo_relative
+from excalibur_repo_paths import repo_relative, resolve_gate_output
 
 
 LEGACY_BANNED_FACT_CHECK_NAMES = (
@@ -233,7 +233,10 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
         for quote in blockquotes
         if "материал проверен" in quote.lower() and "достоверность данных" in quote.lower()
     ]
-    exactly_five_lists = len(re.findall(r"<ol[\s\S]*?(?:<li[\s\S]*?){5}</ol>", html, flags=re.I))
+    exactly_five_lists = 0
+    for ol_body in re.findall(r"<ol\b[^>]*>([\s\S]*?)</ol>", html, flags=re.I):
+        if len(re.findall(r"<li\b", ol_body, flags=re.I)) == 5:
+            exactly_five_lists += 1
 
     reader_story = extract_field(notes, "reader_story")
     reader_pain = extract_field(notes, "reader_pain")
@@ -266,6 +269,20 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
         warnings.append(f"paragraph rhythm too uniform: variance/avg={uniform_ratio}")
     if fact_check_templates:
         warnings.append("Fact Check block uses a repeated template; vary wording while preserving facts")
+    # First insight blockquote (not Fact Check): ban template TL;DR labels.
+    insight_quotes = [
+        quote
+        for quote in blockquotes
+        if "материал проверен" not in quote.lower()
+    ]
+    if insight_quotes:
+        first_insight = re.sub(r"<[^>]+>", " ", insight_quotes[0])
+        first_insight = re.sub(r"\s+", " ", first_insight).strip().lower()
+        if first_insight.startswith("tl;dr") or "быстрый инсайт" in first_insight[:80]:
+            errors.append(
+                "insight block uses banned template label TL;DR / Быстрый инсайт; "
+                "use a topical label e.g. «Инсайт до депозита:»"
+            )
     validate_fact_check_author(html, article_dir, root, errors, warnings)
     if exactly_five_lists >= 2:
         warnings.append("multiple exactly-5-step lists detected; vary list size when editorially possible")
@@ -325,7 +342,7 @@ def main() -> int:
     report = analyze_human_voice(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        output = resolve_gate_output(args.output, article_dir, root)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

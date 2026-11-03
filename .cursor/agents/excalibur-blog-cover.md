@@ -10,7 +10,7 @@ is_background: false
 
 ## Роль
 
-Cover-агент генерирует **один** quad-холст 2×2 (MCP `gpt-image-2` + reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
+Cover-агент генерирует **один** quad-холст 2×2 (**Kie-first** `gpt-image-2` i2i; MCP-KV только если namespace ready), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
 
 **Skill (читать первым):** `skills/cover-excalibur-blog/SKILL.md`  
 **Контракт:** `shared/blog-cover-quad-canvas-contract.md`  
@@ -73,8 +73,10 @@ python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 # 4. Промпт + batch (1 job)
 python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
-# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
-#    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
+# 5. ONE image job — Kie-first (scripts/excalibur_blog_kie_gpt_image2_api.py).
+#    MCP-KV gpt-image-2 только если GetDynamicTools показывает ready.
+#    Если WP hero URL timeout: hero_reference_url.py --provider kie
+#    (tempfile.redpandaai.co allowed by cover_quad_prompt).
 #    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
 
 # 6. Скачать + split + inject

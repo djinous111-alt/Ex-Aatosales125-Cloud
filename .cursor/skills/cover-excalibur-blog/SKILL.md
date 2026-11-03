@@ -122,23 +122,36 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Kie-first)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Порядок (Cloud 2026):**
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+1. **Kie-first (предпочтительный):** `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` с args из `cover/quad-mcp-batch.json` → `jobs[0].mcp_args` / Kie payload. Один task, aspect 16:9, 2K, `input_urls` обязателен.
+2. **MCP-KV fallback:** только если Kie недоступен **и** `GetDynamicTools(MCP-KV)` показывает `namespaceStatus=ready` с `gpt-image-2`. Если `namespaceStatus=error` / tools empty — **не** крутить MCP retry; оставайся на Kie.
+
+Если WP media URL для hero недоступен (timeout):
+
+```bash
+python3 scripts/excalibur_blog_hero_reference_url.py --provider kie
+# или
+python3 scripts/excalibur_blog_kie_file_base64_upload.py memory/cover/assets/blog-hero-reference.png \
+  -o memory/blog/articles/<topic_id>-<slug>/cover/hero-reference-upload.json
+```
+
+`cover_quad_prompt.py` принимает `tempfile.redpandaai.co` / `redpandaai.co` как `reference_url_hosted` fallback рядом с `avtosales125.ru`.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<Kie or MCP result url>" \
   --inject-html
 ```
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+
+После split/apply скрипт обязан проставить corner brand (`apply_corner_brand_stamp` / `stamp_cover_and_canvas`) с текстом `avto-sales125.ru` на cover и canvas, если бренд ещё не читается в углу.
 
 ### Шаг 6 — fragment
 
@@ -163,12 +176,13 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
-- [ ] input_urls в MCP
+- [ ] 1 image job (Kie или MCP), не 4
+- [ ] input_urls / reference URL задан (WP или Kie tempfile)
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
 - [ ] cover: hook + meme caption видны на PNG
+- [ ] corner brand `avto-sales125.ru` на cover/canvas (post-split stamp)
 - [ ] inline: без лица героя
 - [ ] fragment cover.md записан
 
@@ -177,10 +191,11 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Blockers → verdict ❌
 
 - нет reference_url_hosted
-- MCP text-only (без input_urls)
+- text-only generation (без input_urls)
 - 4 отдельные генерации
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
+- MCP-KV down без попытки Kie-first
 
 ---
 

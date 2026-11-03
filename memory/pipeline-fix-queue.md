@@ -24,15 +24,18 @@ category: api
 - Marked `wordstat` section as UNAVAILABLE + Wordstat auth warning link; no invented show counts.
 - Deep WebSearch + research-serp.json + official Toyota JP specs + customs/util guides for facts.
 - research-notes-gate PASS (warn only: false-positive technical_topic from substrings in `pain` / `II`).
+- Pre-commit: sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` must stay **comma**-separated (space-join breaks `IFS=','` split and `${!SECRET_NAME}`).
 
 ### Durable fix needed before next run
 - Restore MCP-KV Wordstat tools for Cloud automations.
 - Optionally tighten `TECH_MARKERS` matching in `excalibur_blog_research_notes_gate.py` to word boundaries so auto niche notes are not flagged technical.
+- Document secret-name sanitize as comma-joined valid identifiers in research/scout skills.
 
 ### Suggested files to inspect/change
 - MCP Cloud config for MCP-KV / Wordstat
 - `scripts/excalibur_blog_research_notes_gate.py`
 - `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
 - none recorded

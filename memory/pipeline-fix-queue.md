@@ -23,6 +23,7 @@ category: qa
 ### How the agent recovered this run
 - GEO QA не правил `article.html` (контракт FIX → writer).
 - `article-qa.md` verdict FAIL; Writer FIX: заменить ярлык на `Короткий разбор` (или эквивалент без TL;DR / Быстрый инсайт).
+- Writer FIX cycle 1 (2026-11-03): в `article.html` ярлык `<b>TL;DR / Быстрый инсайт:</b>` → `<b>Короткий разбор:</b>`; других TL;DR / «Быстрый инсайт» в статье нет; `char_count` 9196.
 
 ### Durable fix needed before next run
 - В writing-contract пример инсайта: `Короткий разбор` / без TL;DR.

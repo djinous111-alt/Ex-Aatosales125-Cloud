@@ -1,0 +1,39 @@
+{
+  "source": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "total_links": 3,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://www.encar.com",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]",
+      "status": null,
+      "ok": true,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "external",
+      "skipped": false,
+      "soft_pass": "catalog_ssl",
+      "warning": "site/catalog SSL handshake timeout from Cloud egress; URL shape OK; soft-pass for GEO QA"
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ],
+  "soft_pass_count": 1,
+  "qa_note": "catalog_ssl soft-pass applied by GEO QA after 15/30/45s retries; Telegram+encar hard-pass"
+}

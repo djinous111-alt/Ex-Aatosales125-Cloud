@@ -16,9 +16,9 @@ python3 scripts/excalibur_blog_interlinker.py --apply \
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base "" \
   --out-dir memory/blog
+# `--blog-path` is an accepted alias of `--blog-dir` (doctor/indexer copy-paste).
 ```
 
 ## Выход

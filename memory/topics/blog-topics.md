@@ -18,6 +18,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS01 — Растаможка авто из Кореи
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** rastamozhka-avto-iz-korei-2026
 - **h1:** Растаможка авто из Кореи: реальные сроки и этапы через Владивосток в 2026
 - **primary_query:** растаможка авто из кореи
@@ -41,6 +42,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS02 — Encar на русском
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** encar-na-russkom-kak-chitat
 - **h1:** Encar на русском: как читать объявления и не купить «кота в мешке»
 - **primary_query:** encar на русском
@@ -61,6 +63,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS03 — Корея или Япония
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** avto-iz-korei-ili-yaponii-2026
 - **h1:** Авто из Кореи или Японии: что выгоднее под полную пошлину в 2026
 - **primary_query:** авто из кореи или японии
@@ -81,6 +84,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS04 — Утильсбор 2026
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** utilsbor-na-avto-2026
 - **h1:** Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии
 - **primary_query:** утильсбор на авто 2026
@@ -101,6 +105,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS05 — СВХ Владивосток
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** svh-vladivostok-2026
 - **h1:** СВХ Владивосток в 2026: транзит авто из трёх стран без переплат
 - **primary_query:** свх владивосток
@@ -122,6 +127,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS06 — Растаможка из Японии
 
 - **priority:** P1
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** rastamozhka-avto-iz-yaponii-2026
 - **h1:** Растаможка авто из Японии: обновлённый чек-лист на 2026
 - **primary_query:** растаможка авто из японии
@@ -137,6 +143,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS07 — Документы авто из Китая
 
 - **priority:** P1
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** dokumenty-na-avto-iz-kitaya
 - **h1:** Документы на авто из Китая: как отличить подделку до оплаты
 - **primary_query:** документы на авто из китая
@@ -184,3 +191,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS10 — Toyota Sienta из Японии
+
+- **priority:** P0
+- **slug:** kak-vybrat-toyota-sienta-iz-yaponii-2026
+- **h1:** Как выбрать Toyota Sienta из Японии: бензин, гибрид и цена под ключ в 2026
+- **primary_query:** как выбрать toyota sienta из японии
+- **secondary_queries:** toyota sienta из японии под ключ, toyota sienta гибрид или бензин, сиента из японии владивосток
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Sienta: семья, город, два сдвижных двери
+  2. Бензин или гибрид: что проверить до ставки на аукционе
+  3. Возраст 3–5 лет и льготный утиль: на что смотреть в листах
+  4. Маршрут под ключ: Япония → Владивосток → выдача / автовоз
+  5. Чек-лист документов и красных флагов до депозита
+  6. Где считать итоговую смету без статичных цен (каталог + Telegram)
+- **faq_hints:** чем бензин Sienta отличается от гибрида при ввозе; сколько roughly этапов до выдачи во Владивостоке; можно ли брать 7 мест с правым рулем под семью
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** компактвэн Toyota Sienta у причала Владивостока, герой Авто-Сейлс в smart casual и очках, плашка «как выбрать», угол avto-sales125.ru
+- **demand_signal:** WebSearch 2026-11-04 – живые лоты/объявления Drom и аукционная статистика по Sienta бензин/гибрид во Владивосток; конкурентные гайды «под ключ» и растаможка; Wordstat MCP недоступен (low-result / no invented shows)
+- **denylist_note:** NEW slug only; не перезаписывать WP 4711 Haval M6 и LIVE AS01–AS09; Freed/Serena/Noah/Alphard – только как контекст, не primary

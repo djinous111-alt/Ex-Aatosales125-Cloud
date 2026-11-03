@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS10",
+  "slug": "kak-vybrat-toyota-sienta-iz-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у компактвэна Toyota Sienta на причале Владивостока, плашка про выбор гибрида и бензина",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-03T21:49:30+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у компактвэна Toyota Sienta на причале Владивостока, плашка про выбор гибрида и бензина",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сценариев: кому подходит Toyota Sienta в городе и семье",
+      "h2_anchor": "Определите, кому реально подходит Sienta",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Сравнение бензин и гибрид Toyota Sienta до ставки на аукционе",
+      "h2_anchor": "Сравнение: бензин или гибрид до ставки",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист возраста 3–5 лет и льготного утиля для Sienta",
+      "h2_anchor": "Проверьте возраст 3–5 лет и льготный утиль",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

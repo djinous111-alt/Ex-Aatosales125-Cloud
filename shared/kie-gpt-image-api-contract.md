@@ -71,6 +71,29 @@ Terminal states:
 - `fail`: stop with `KIE API BLOCKER`
 - timeout without URL: stop with `KIE API BLOCKER`
 
+## Hero reference reachability
+
+If Kie cannot fetch the WP/media `reference_url_hosted` (`failCode=400 image fetch failed`)
+or catbox/0x0 rehost fails, the script auto-uploads
+`memory/cover/assets/blog-hero-reference.png` via Kie File Upload:
+
+```text
+POST https://kieai.redpandaai.co/api/file-base64-upload
+```
+
+Evidence (non-secret): `cover/kie-hero-upload.json`.  
+Canonical `memory/cover/blog-hero.json` may keep the WP URL; batch `input_urls` uses the tempfile downloadUrl at runtime.
+
+Flags:
+
+- `--force-local-hero` — always rehost local PNG before createTask
+- `--skip-hero-rehost` — disable auto-rehost (debug only)
+
+## MCP-KV vs Kie
+
+When Cloud `MCP-KV` discovery is `error` / tools empty, Cover must use this Kie path
+as primary (ONE task). Do not blind-retry sync MCP.
+
 ## Guardrails
 
 - One API task per article cover run, not four separate images.

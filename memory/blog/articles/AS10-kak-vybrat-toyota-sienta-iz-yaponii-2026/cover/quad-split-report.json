@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1285,
+      728
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 728,
+        "end": 752
+      },
+      "v_gutter_px": {
+        "start": 1285,
+        "end": 1344
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 2,
+          "right": 1285,
+          "bottom": 725
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1285,
+          "bottom": 728
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у компактвэна Toyota Sienta на причале Владивостока, плашка про выбор гибрида и бензина",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1344,
+          "top": 22,
+          "right": 2560,
+          "bottom": 706
+        },
+        "raw_box_px": {
+          "left": 1344,
+          "top": 0,
+          "right": 2560,
+          "bottom": 728
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сценариев: кому подходит Toyota Sienta в городе и семье",
+        "h2_anchor": "Определите, кому реально подходит Sienta"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 31,
+          "top": 752,
+          "right": 1254,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 752,
+          "right": 1285,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнение бензин и гибрид Toyota Sienta до ставки на аукционе",
+        "h2_anchor": "Сравнение: бензин или гибрид до ставки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1344,
+          "top": 754,
+          "right": 2560,
+          "bottom": 1438
+        },
+        "raw_box_px": {
+          "left": 1344,
+          "top": 752,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист возраста 3–5 лет и льготного утиля для Sienta",
+        "h2_anchor": "Проверьте возраст 3–5 лет и льготный утиль"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Определите, кому реально подходит Sienta",
+    "injected inline_2 after H2 — Сравнение: бензин или гибрид до ставки",
+    "injected inline_3 after H2 — Проверьте возраст 3–5 лет и льготный утиль"
+  ]
+}

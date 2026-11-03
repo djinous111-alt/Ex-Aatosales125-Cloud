@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Hybrid на табличке — ещё не выгода",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у компактвэна Toyota Sienta на причале Владивостока, плашка про выбор гибрида и бензина",
+      "scene_hint": "Vladivostok port pier, modern Toyota Sienta compact MPV on ro-ro dock, cool foggy Pacific weather; blog host EXACT face+glasses from reference, outfit charcoal softshell jacket over navy henley (NOT white hoodie, NO cap/hood), holding phone with fake auction/catalog card of Sienta; torn paper Cyrillic hook with yellow highlighter on «выгода»; sticky note «сначала лист»; meme facepalm cutout; corner brand avto-sales125.ru; DIY collage tape/stickers; no toxic slang, no Wordstat/Metrika",
+      "meme_caption_ru": "Сначала маршрут"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Определите, кому реально подходит Sienta",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean UI comparison card: сценарий семьи/города vs 7 мест «как Noah» — колонки «каждой неделе» / «два раза в год», иконки сдвижных дверей и длины 4,26 м; sticky note «не как Noah»; NO hero face",
+      "alt": "Таблица сценариев: кому подходит Toyota Sienta в городе и семье"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравнение: бензин или гибрид до ставки",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Fake catalog comparison table: Бензин 1.5 vs Гибрид — коды NSP170/NHP170, срок ~25–35 дней vs 2–3 месяца через третьи страны, «CVT» vs e-CVT; tape corner + mini sticker «до ставки»; NO hero face, no prices",
+      "alt": "Сравнение бензин и гибрид Toyota Sienta до ставки на аукционе"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте возраст 3–5 лет и льготный утиль",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board: год/месяц выпуска → дата декларации → окно 3–5 лет → льготный утиль физлица; red flag sticky «на грани месяца»; handwritten arrow; NO hero face, no ruble amounts",
+      "alt": "Чеклист возраста 3–5 лет и льготного утиля для Sienta"
+    }
+  }
+}

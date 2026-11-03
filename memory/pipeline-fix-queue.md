@@ -254,3 +254,102 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261103-1306-director-today-as-prefix
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` и `excalibur_blog_scout_helper.py` парсят только `## B\d+` в `blog-topics.md`, хотя пул Авто-Сейлс использует `AS01`–`AS09`.
+- `active_article_topic_ids` тоже матчит только `B\d+-` в именах папок.
+- Итог preflight: `EXCALIBUR_TOPIC_SELECTION=needs_scout` при наличии незакрытых P0 AS-тем; helper сообщает `Total topics in pool: 0`.
+- Ранее durable fix «AS|B support» уже был в памяти автоматизации, но снова отсутствует в scripts (wipe/regression).
+
+### How the agent recovered this run
+- Вручную выбрал первый P0 с `utility_gate` PASS (`AS02`), запустил `research_start.py --topic-id AS02` (парсер topic card уже принимает AS##).
+- Scout не запускался: ниша сайта — автоимпорт, не AI/automation из устаревшего scout skill.
+
+### Durable fix needed before next run
+- В `excalibur_blog_today.py` и `excalibur_blog_scout_helper.py` расширить regex topic headers и article dirs до `(?:AS|B)\d+` (или общий `[A-Z]+\d+` по канону).
+- Вернуть doctor/smoke на AS+B selection.
+- Не запускать Scout для Авто-Сейлс, пока в пуле есть unpublished AS P0.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md` (ниша vs Авто-Сейлс)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-1306-director-llms-blog-path
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` FAIL: `llms generator supports --blog-path` — в help есть только `--blog-dir`.
+- Память автоматизации уже фиксировала alias `--blog-path` → `--blog-dir`; регрессия снова.
+
+### How the agent recovered this run
+- Продолжили пайплайн: ошибка doctor не блокирует research_start; indexer может использовать `--blog-dir`.
+
+### Durable fix needed before next run
+- Добавить argparse alias `--blog-path` для `--blog-dir` в `excalibur_blog_llms_generator.py` и подтвердить doctor PASS.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-1309-research-mcp-kv-wordstat-down
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` имел `namespaceStatus: error` (live tool discovery failed).
+- Вызов `wordstat_get_top_requests` невозможен: "MCP server does not exist: MCP-KV".
+- Точные показы Wordstat для `encar на русском` / смежных запросов в этом run недоступны.
+
+### How the agent recovered this run
+- Зафиксировал `⚠️ WORDSTAT AUTH WARNING` + oauth URL в `research-notes.md`.
+- Не выдумывал impressions; таблица wordstat помечена `unavailable`.
+- Продолжил deep research через WebSearch/WebFetch; research-notes-gate PASS.
+
+### Durable fix needed before next run
+- Восстановить MCP-KV / Yandex Wordstat OAuth в Cloud secrets и проверить discovery до research.
+- В skill/runbook явно: при `namespaceStatus: error` писать WORDSTAT AUTH WARNING (как при 401), не блокировать utility how_to.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud MCP / secrets config for MCP-KV
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

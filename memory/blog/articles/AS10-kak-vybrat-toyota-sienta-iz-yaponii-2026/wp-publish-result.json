@@ -1,0 +1,35 @@
+{
+  "verdict": "fail",
+  "topic_id": "AS10",
+  "slug": "kak-vybrat-toyota-sienta-iz-yaponii-2026",
+  "article_dir": "memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026",
+  "publish_date": "2026-11-04",
+  "post_id": null,
+  "permalink": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": null,
+  "dry_run": {
+    "ok": true,
+    "slug": "kak-vybrat-toyota-sienta-iz-yaponii-2026",
+    "php_bytes": 8180004
+  },
+  "preflight": {
+    "allow_publish": true,
+    "link_verify": "pass",
+    "env_check_missing": [],
+    "ssh_root": "dot"
+  },
+  "blocker": "PUBLISH BLOCKER: SSH TCP/22 timeout (DNS name + resolved A + documented site IP); SSH_HOST_IP unset; no LIVE write; denylist untouched",
+  "transport_probes": {
+    "ssh_host_dns": "ok_a_record",
+    "ssh_host_ip_secret": "unset",
+    "tcp22_dns_name": "timeout",
+    "tcp22_resolved_a": "timeout",
+    "tcp22_documented_site_ip": "timeout",
+    "alt_ports_22_family": "timeout",
+    "wp_rest_ssl": "handshake_timeout",
+    "paramiko": "SSHException connection timed out"
+  },
+  "denylist_untouched": [4758, 4746, 4740, 3430, 3394, 4717, 4711]
+}

@@ -686,6 +686,47 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261103-2208-publish-ssh-tcp22-timeout-as10-sienta
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish allow flag yes; env-check PASS; link-verify PASS; dry-run PASS (~8.18MB PHP).
+- SSH hostname resolves (A record present) but TCP/22 times out on DNS name and resolved A.
+- Documented public-site IP also has TCP/22 timeout; alternate SSH-ish ports timeout.
+- `SSH_HOST_IP` Cloud Secret unset — no verified IP fallback available.
+- WP REST / HTTPS from Cloud egress hits SSL handshake timeout (site TCP/443 may open briefly, handshake fails).
+- Cannot upload bootstrap PHP without SSH/SFTP; no LIVE write performed.
+
+### How the agent recovered this run
+- Did not guess credentials or overwrite denylist LIVE posts (4758/4746/4740/3430/3394/4717/4711).
+- Recorded explicit `❌ PUBLISH BLOCKER`; ledger → `publish_blocked`; wp-publish-result.json verdict fail.
+- Left article artifacts intact for retry after SSH path restored.
+
+### Durable fix needed before next run
+- Restore Beget SSH listener / firewall allowlist for Cloud egress OR provide verified `SSH_HOST_IP` secret that accepts TCP/22.
+- Teach publish script/skill optional `SSH_HOST_IP` override when hostname TCP fails (only with verified secret).
+- Document Cloud egress SSL handshake flakiness vs publish transport dependency on SSH.
+
+### Suggested files to inspect/change
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard Cloud Secrets (`SSH_HOST_IP` if available)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

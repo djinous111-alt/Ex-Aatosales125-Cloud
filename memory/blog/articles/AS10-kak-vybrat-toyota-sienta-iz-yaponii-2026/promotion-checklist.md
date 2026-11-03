@@ -1,7 +1,7 @@
 # Promotion checklist — AS10 kak-vybrat-toyota-sienta-iz-yaponii-2026
 
-Дата публикации: pending (pre-publish indexer)  
-Live URL: /blog/kak-vybrat-toyota-sienta-iz-yaponii-2026/
+Дата публикации: blocked 2026-11-04 (SSH TCP/22)  
+Live URL: pending — publish blocker (no permalink)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -48,4 +48,5 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer: interlinker `--apply` для `memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (AS10 Sienta в индексе; relative `/blog/<slug>/`).
 - `--blog-path` восстановлен в `scripts/excalibur_blog_llms_generator.py`; doctor check PASS.
-- Publish: не выполнялся indexer-ом.
+- Publish: ❌ PUBLISH BLOCKER — SSH TCP/22 timeout; `SSH_HOST_IP` unset; no LIVE URL.
+- Denylist untouched (no overwrite of 4758/4746/4740/3430/3394/4717/4711).

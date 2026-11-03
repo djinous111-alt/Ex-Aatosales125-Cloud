@@ -6,6 +6,105 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261103-0906-director-as-topic-select
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` match only `## B\d+` topic cards, so AS01–AS09 in `memory/topics/blog-topics.md` are invisible.
+- Result: `EXCALIBUR_TOPIC_SELECTION=needs_scout` / empty `EXCALIBUR_SUGGESTED_TOPIC_ID` even with unpublished P0 AS topics present.
+- Scout helper reports `Total topics in pool: 0` and next ID `B01` for an Авто-Сейлс niche that uses AS##.
+
+### How the agent recovered this run
+- Forced `EXCALIBUR_TOPIC_ID=AS02` after utility gate PASS on AS02/AS04/AS06/AS07.
+- Skipped AS01/AS03/AS05 (utility marker BLOCK on h1/primary_query).
+
+### Durable fix needed before next run
+- Teach today/scout/active-dir parsers to accept both `AS##` and `B##` topic ids and article dir prefixes.
+- Make `--suggest-next` propose next AS id when the pool is AS-prefixed.
+- Align topic cards AS01/AS03/AS05 h1 with utility markers or soften marker check for valid how_to/comparison intents.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/blog-topics.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-0906-director-llms-blog-path
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` requires `--blog-path` in `excalibur_blog_llms_generator.py --help`.
+- Generator currently exposes only `--blog-dir`, so doctor SUMMARY errors=1.
+
+### How the agent recovered this run
+- Continued pipeline; indexer/llms will use `--blog-dir` (and fixer should add `--blog-path` alias).
+
+### Durable fix needed before next run
+- Add `--blog-path` as alias of `--blog-dir` in `scripts/excalibur_blog_llms_generator.py` (or relax doctor check to accept `--blog-dir`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261103-0912-research-mcp-kv-wordstat-down
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- MCP server `MCP-KV` returned `namespaceStatus: error` during live tool discovery; `wordstat_get_top_requests` was unavailable.
+- Research could not collect exact Wordstat impression counts for `encar на русском` and adjacent queries.
+
+### How the agent recovered this run
+- Recorded `⚠️ WORDSTAT AUTH WARNING` in `research-notes.md` with OAuth refresh link from skill.
+- Did not invent impression numbers; filled wordstat table with `UNAVAILABLE (MCP-KV error)`.
+- Completed deep WebSearch + GitHub evidence; research-notes-gate PASS.
+
+### Durable fix needed before next run
+- Restore MCP-KV / Yandex Wordstat token connectivity for Cloud automations.
+- Document fallback when namespaceStatus is `error` (not only HTTP 401) in research skill/pitfalls.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard MCP / Wordstat secrets (no secret values recorded here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

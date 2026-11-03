@@ -1,6 +1,6 @@
 # Excalibur BLOG — карта задач и субагентов
 
-Директор **не** Task. Все роли ниже — `Task(<name>)`.
+Директор **не** Task. Роли ниже — typed `Task(<name>)` **или**, если Cloud отклоняет typed types, отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` (см. `AGENTS.md`). Особенно часто отсутствует typed `excalibur-blog-geo-qa`.
 
 ## Схема
 
@@ -12,11 +12,11 @@
   ├─ shell: excalibur_blog_today.py
   ├─ shell: excalibur_blog_research_start.py
   │
-  ├─ ① Task(excalibur-blog-research)
-  ├─ ② Task(excalibur-blog-writer)
-  ├─ ③ Task(excalibur-blog-geo-qa)
+  ├─ ① Task(excalibur-blog-research)     │ typed OR generalPurpose fallback
+  ├─ ② Task(excalibur-blog-writer)       │ per role — never merge roles
+  ├─ ③ Task(excalibur-blog-geo-qa)       │
   │
-  ├─ ④a Task(excalibur-blog-cover)  ─┐ параллель
+  ├─ ④a Task(excalibur-blog-cover)  ─┐ параллель (два Task)
   ├─ ④b Task(excalibur-blog-schema) ─┘
   │
   ├─ ⑤ Task(excalibur-blog-indexer)

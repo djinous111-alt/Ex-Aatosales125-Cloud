@@ -1,0 +1,53 @@
+{
+  "source": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "total_links": 4,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://www.encar.com",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/",
+      "status": null,
+      "ok": true,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/",
+      "soft_pass": "site_ssl",
+      "warning": "Cloud egress SSL handshake timeout; TCP/443 OK; soft_pass for publish preflight (matches GEO QA)"
+    },
+    {
+      "url": "https://avto-sales125.ru/",
+      "status": null,
+      "ok": true,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "external",
+      "skipped": false,
+      "soft_pass": "catalog_ssl",
+      "warning": "Cloud egress SSL handshake timeout; TCP/443 OK; soft_pass for publish preflight (matches GEO QA)"
+    },
+    {
+      "url": "https://t.me/avtosales125",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ],
+  "soft_passes": [
+    "site_ssl",
+    "catalog_ssl"
+  ]
+}

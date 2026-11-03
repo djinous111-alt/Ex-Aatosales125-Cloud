@@ -1,0 +1,135 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1277,
+      717
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 717,
+        "end": 754
+      },
+      "v_gutter_px": {
+        "start": 1277,
+        "end": 1307
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1277,
+          "bottom": 717
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1277,
+          "bottom": 717
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в очках со смартфоном Encar, ирония кот в мешке, плашка читать карточку",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1307,
+          "top": 6,
+          "right": 2560,
+          "bottom": 711
+        },
+        "raw_box_px": {
+          "left": 1307,
+          "top": 0,
+          "right": 2560,
+          "bottom": 717
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин браузера: encar.com с включённым переводом страницы",
+        "h2_anchor": "Откройте официальный Encar и включите перевод браузера"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 28,
+          "top": 754,
+          "right": 1248,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 754,
+          "right": 1277,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: манвоны ×10000 и пять полей карточки Encar до цены под ключ",
+        "h2_anchor": "Выпишите пять полей карточки до любой \"цены под ключ\""
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1323,
+          "top": 754,
+          "right": 2543,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1307,
+          "top": 754,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема чтения кузова Encar: X/W и ловушка без ДТП",
+        "h2_anchor": "Как читать схему кузова: буквы X/W и ловушка \"без ДТП\""
+      }
+    }
+  },
+  "corner_brand": {
+    "brand": "avto-sales125.ru",
+    "cover_stamped": false,
+    "canvas_stamped": true
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Откройте официальный Encar и включите перевод браузера",
+    "injected inline_2 after H2 — Выпишите пять полей карточки до любой \"цены под ключ\"",
+    "injected inline_3 after H2 — Как читать схему кузова: буквы X/W и ловушка \"без ДТП\""
+  ]
+}

@@ -1,0 +1,10 @@
+/agent/repos/Ex-Aatosales125-Cloud/scripts/excalibur_blog_cover_quad_split.py:406: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  pixels = list(region.getdata())
+OK cover=/agent/repos/Ex-Aatosales125-Cloud/memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/cover.png
+OK inline_1=/agent/repos/Ex-Aatosales125-Cloud/memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/inline-01.png
+OK inline_2=/agent/repos/Ex-Aatosales125-Cloud/memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/inline-02.png
+OK inline_3=/agent/repos/Ex-Aatosales125-Cloud/memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/inline-03.png
+OK corner_brand={'brand': 'avto-sales125.ru', 'cover_stamped': False, 'canvas_stamped': True}
+OK registry=/agent/repos/Ex-Aatosales125-Cloud/memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/cover-registry.json
+OK report=/agent/repos/Ex-Aatosales125-Cloud/memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/quad-split-report.json
+OK canvas=/agent/repos/Ex-Aatosales125-Cloud/memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/canvas-quad.png

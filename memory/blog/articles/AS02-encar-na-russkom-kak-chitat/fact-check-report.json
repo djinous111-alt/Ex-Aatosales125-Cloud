@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "заказ из Японии, Кореи и Китая. Источники сверки (2026-11-03): encar.com (критерии 무사고 / accident diagno",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "30 дней",
+      "kind": "metric_or_duration",
+      "context": "есь Гарантия инспектора в Корее (ориентир порядка 30 дней / 2 000 км) почти не помогает машине, которая уже",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "Chrome или Яндекс.Браузере. Цена в 만원 (манвон) × 10 000 = воны, это корейская цена лота, не \"под ключ\" во",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1890",
+      "kind": "large_number",
+      "context": "\"цены под ключ\" Проблема новичка простая: видит \"1890\" или \"2450\" и сравнивает с объявлением на Avito о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2450",
+      "kind": "large_number",
+      "context": "ключ\" Проблема новичка простая: видит \"1890\" или \"2450\" и сравнивает с объявлением на Avito один к одном",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 000",
+      "kind": "large_number",
+      "context": "ия инспектора в Корее (ориентир порядка 30 дней / 2 000 км) почти не помогает машине, которая уже уехала.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

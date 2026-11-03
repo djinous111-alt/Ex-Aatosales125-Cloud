@@ -74,7 +74,7 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     used = {
         r["topic_id"].upper()
         for r in published
-        if r["status"] in {"published", "in_progress", "draft_ready"}
+        if r["status"] in {"published", "in_progress", "draft_ready", "publish_blocked"}
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
@@ -85,6 +85,9 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     ):
         topic_id = match.group(1).upper()
         block = match.group(2)
+        note = re.search(r"-\s*\*\*status_note:\*\*\s*(.+)", block)
+        if note and re.search(r"published|live|do not republish", note.group(1), re.I):
+            continue
         if "priority:** P0" not in block and "**priority:** P0" not in block:
             pri = re.search(r"-\s*\*\*priority:\*\*\s*(\S+)", block)
             if not pri or pri.group(1).upper() != "P0":

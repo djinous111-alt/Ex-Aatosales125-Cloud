@@ -72,3 +72,9 @@
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
 - `excalibur_blog_llms_generator.py` обязан принимать `--blog-path` (URL prefix; site-brief `/` → `/blog`). Sanitizer иногда вытирает флаг — doctor check `llms generator supports --blog-path` + smoke.
+
+## Topic selection
+
+- `excalibur_blog_today.py` treats ledger statuses `published|in_progress|draft_ready|publish_blocked` as used.
+- Topic cards with `status_note` containing `published` / `live` / `do not republish` are skipped even if missing from a stale ledger.
+- After publish TCP/22 blocker, keep `publish_blocked` in ledger so the next run does not re-pick the same slug blindly.

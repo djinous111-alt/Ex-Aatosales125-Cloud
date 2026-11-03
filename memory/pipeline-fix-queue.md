@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-0119-director-publish-blocked-topic-select
+status: fixed
+run_date: 2026-11-04
+role: excalibur-blog-director
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026
+severity: high
+category: script
+
+### What went wrong
+- After AS10 `publish_blocked`, `excalibur_blog_today.py` still suggested AS01 because used statuses omitted `publish_blocked` and LIVE AS01–AS07 lacked `status_note`.
+
+### How the agent recovered this run
+- Added `publish_blocked` to used statuses; skip cards whose `status_note` matches published/live/do not republish; stamped AS01–AS07 status_note; documented in pitfalls.
+
+### Durable fix needed before next run
+- done in this commit
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `memory/topics/blog-topics.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed by director post-fixer verification 2026-11-04
+
+
 > AS10 Sienta fixer 2026-11-04: former open incidents closed as fixed/needs-human below. True open remaining should be 0.
 
 

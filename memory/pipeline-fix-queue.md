@@ -113,22 +113,26 @@ category: api
 - MCP namespace `MCP-KV` / `user-mcp-kv` unavailable during Scout (`namespaceStatus: error`, then "MCP server does not exist").
 - `wordstat_get_top_requests` could not run for parent/narrow clusters; no Wordstat show counts available.
 - Confirmed again: `excalibur_blog_scout_helper.py --suggest-next` returns fake `B01` / pool=0 (see INC-20261104-0005-director-as-b-regex); Scout ignored it and used Director AS10.
+- First `git commit` failed: Cloud pre-commit secrets scanner choked on `CLOUD_AGENT_INJECTED_SECRET_NAMES` ending with invalid bash name `https:/` (`${!SECRET_NAME}` → invalid variable name).
 
 ### How the agent recovered this run
 - Demand validated via WebSearch (Sienta Japan 2026 / hybrid vs petrol / Vladivostok under-key listings).
 - Recorded `wordstat_status: unavailable_mcp_kv` + WebSearch demand_signal on topic card; no invented Wordstat shows.
 - Forced topic_id AS10; `--check-query` clean; manual Jaccard vs AS01–AS09 primaries max 0.25.
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` filtered to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers, then commit+push succeeded (hook still ran).
 
 ### Durable fix needed before next run
 - Restore MCP-KV Wordstat auth/connection for Cloud automations (`wordstat_*` tools).
 - Document Scout fallback: WebSearch-only + explicit low-result signal when MCP-KV is down (already partly in memory; pin in scout skill for Авто-Сейлс).
 - Fix AS/B topic-id regex so Scout helper does not force B01 workaround.
+- Sanitize Cloud secret-name injection so URLs/values never appear in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 - `.cursor/agents/excalibur-blog-scout.md`
 - `scripts/excalibur_blog_scout_helper.py`
 - MCP Cloud config for MCP-KV / Wordstat
+- Cursor Cloud secret injection / pre-commit.cursor SECRET_NAMES source
 
 ### Secrets
 - none recorded

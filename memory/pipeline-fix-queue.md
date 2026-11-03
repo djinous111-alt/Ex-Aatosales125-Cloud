@@ -353,3 +353,41 @@ category: api
 
 ### Fixer resolution
 - pending
+
+## INC-20261103-1320-writer-editorial-pain-markers-missing
+status: open
+run_date: 2026-11-03
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` снова без `pain_markers_ru` / `outcome_markers_ru` и без `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- `excalibur_blog_utility_gate.py --article-dir` давал BLOCK (pain_markers=0, outcome_markers=0) даже при живом тексте про боль/результат.
+- H2 с буквами "FAQ" в названии ("чеклист до FAQ") ложно считался вторым FAQ-блоком в `excalibur_blog_html_linter.py`.
+
+### How the agent recovered this run
+- Восстановил списки `pain_markers_ru` / `outcome_markers_ru` и пороги в `editorial-policy.json`.
+- Переименовал H2 на "Соберите рабочий чеклист результата" (без слова FAQ).
+- Selfcheck: html_linter / utility_gate / human_voice / slop → PASS; char_count 8786.
+
+### Durable fix needed before next run
+- Запинить `pain_markers_ru` / `outcome_markers_ru` в doctor/fixer и запретить wipe `editorial-policy.json` sanitizerом.
+- В writer skill явно: не ставить "FAQ" в H2 вне блока "Частые вопросы".
+- Опционально: html_linter матчить FAQ только по целому заголовку, не по подстроке `faq` в любом H2.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_html_linter.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -55,7 +55,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor errors=0; fixer_regression_smoke PASS
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261103-2150-cover-prompt-hoodie-lock
 status: fixed
 run_date: 2026-11-03
@@ -90,7 +90,7 @@ files_changed:
 - `scripts/excalibur_blog_cover_quad_prompt.py`
 checks_run:
 - smoke: no fixed white-hoodie outfit lock
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261103-2151-cover-corner-brand-pil
 status: fixed
 run_date: 2026-11-03
@@ -127,7 +127,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - py_compile cover_quad_split; doctor/smoke PASS
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261104-2136-geo-qa-secret-names-url
 status: fixed
 run_date: 2026-11-04
@@ -168,7 +168,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter smoke strips https URL tokens from SECRET_NAMES
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261104-2135-geo-qa-catalog-softpass-wiped
 status: fixed
 run_date: 2026-11-04
@@ -210,7 +210,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor soft-pass pins; smoke link_verify soft-pass PASS
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261104-2135-geo-qa-tldr-ban-wiped
 status: fixed
 run_date: 2026-11-04
@@ -254,7 +254,7 @@ files_changed:
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 checks_run:
 - doctor human_voice TL;DR ban; rg no banned example
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261104-2130-director-geo-qa-task-missing
 status: fixed
 run_date: 2026-11-04
@@ -299,7 +299,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg generalPurpose geo-qa docs; plugin agents includes geo-qa
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261104-2124-writer-pain-outcome-markers-missing
 status: fixed
 run_date: 2026-11-04
@@ -381,7 +381,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor research_notes_gate token-boundary pins
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261104-0005-director-as-b-regex
 status: fixed
 run_date: 2026-11-04
@@ -426,7 +426,7 @@ files_changed:
 - `shared/pipeline-task-map.md`
 checks_run:
 - scout_helper --suggest-next → AS11 pool=10; doctor AS|B OK
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261104-0005-director-llms-blog-path
 status: fixed
 run_date: 2026-11-04
@@ -498,7 +498,7 @@ files_changed:
 - `.cursor/skills/publish-excalibur-blog/SKILL.md`
 checks_run:
 - today.py surfaces RECENT_WP_POSTS_ERROR on SSL timeout
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20261104-2108-scout-wordstat-mcp-kv-unavailable
 status: fixed
 run_date: 2026-11-04
@@ -550,7 +550,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - scout_helper AS11; secret filter strips URL tokens
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -601,7 +601,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -652,7 +652,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -693,7 +693,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -740,7 +740,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -794,7 +794,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6
 
 ## INC-20261103-2208-publish-ssh-tcp22-timeout-as10-sienta
 status: needs-human
@@ -849,4 +849,4 @@ files_changed:
 - `shared/excalibur-wp-publish-contract.md`
 checks_run:
 - doctor TCP/22 probe pin; no LIVE publish this run
-commit: pending-parent-commit
+commit: a9db2e63/7cf4acf6

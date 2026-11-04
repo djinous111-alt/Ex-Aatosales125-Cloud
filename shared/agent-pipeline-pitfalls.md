@@ -25,6 +25,7 @@
 
 ## Writer / Fact Check Box
 
+- Catalog CTA host must match `PUBLIC_SITE_URL` (`avtosales125.ru`). Do not copy a hyphenated `avto-sales125.ru` from a stale conversion-map; Telegram stays `t.me/avtosales125`.
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
 

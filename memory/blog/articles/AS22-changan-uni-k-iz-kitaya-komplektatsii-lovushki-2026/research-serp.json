@@ -1,0 +1,676 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-05",
+    "today_ru": "05.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-07",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-05 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS22",
+    "priority": "P0",
+    "slug": "changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Changan UNI-K из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать changan uni-k из китая",
+    "secondary_queries": [
+      "changan uni-k комплектации",
+      "changan uni-k idd",
+      "чанган юни к из китая",
+      "uni-k 2.0t awd"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать changan uni-k из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan UNI-K 2026: обзор, цены, плюсы и минусы китайского кроссовера",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/ki/kitajskij-avtomobil-changan-uni-k.html",
+          "snippet": ""
+        },
+        {
+          "title": "Changan UNI-K: обзор 2026 — характеристики, цена, плюсы и минусы ...",
+          "url": "https://carsimportlab.com/ru/models/changan-uni-k",
+          "snippet": "Подробный разбор Changan UNI-K: технические характеристики, комплектации, отзывы владельцев и сравнение с конкурентами. Узнайте, стоит ли покупать этот китайский SUV."
+        },
+        {
+          "title": "Тест Changan UNI-K 2026: подробный обзор, характеристики и опыт вождения",
+          "url": "https://journal.carso.ru/test-drives/test-changan-uni-k-2026-podrobnyy-obzor-harakteristiki-i-opyt-vozhdeniya",
+          "snippet": "CarsImportLab — независимый гид по импорту авто из Китая. Среднеразмерный кроссовер Changan UNI-K стартует в Китае от ¥154 900. Честные плюсы и минусы, экспортные цены (Россия, Мексика), стоит ли ввозить."
+        },
+        {
+          "title": "Changan Uni-K 2026: комплектации, цены и сравнение версий",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-uni-k-komplektatsiya.html",
+          "snippet": "Исчерпывающий анализ кроссовера Changan UNI-K 2026 года. Технические характеристики, поведение на дороге, комфорт в салоне и оценка надежности. Всё, что нужно знать перед покупкой флагмана."
+        },
+        {
+          "title": "Changan UNI-K из Китая: цены, обзор и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/changan-uni-k-iz-kitaya/",
+          "snippet": "В этой статье разберём все доступные модификации Uni-K, их ключевые отличия, скрытые \"фишки\" и поможем определиться, какая комплектация подойдёт именно вам — будь то бюджетный вариант для города или топовая версия для дальних поездок."
+        },
+        {
+          "title": "Changan из Китая 2026: что за бренд, какие модели привозим и сколько стоит",
+          "url": "https://autoprofiasia.ru/blog/changan-iz-kitaya-2026-modeli-tsena-pod-klyuch",
+          "snippet": "Узнайте, как выгодно привезти Changan UNI-K из Китая. Обзор характеристик, цен и комплектаций. Закажите авто под ключ с экономией."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать changan uni-k из китая ноябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan из Китая 2026: что за бренд, какие модели привозим и сколько стоит",
+          "url": "https://autoprofiasia.ru/blog/changan-iz-kitaya-2026-modeli-tsena-pod-klyuch",
+          "snippet": ""
+        },
+        {
+          "title": "Changan UNI-K: обзор 2026 — характеристики, цена, плюсы и минусы ...",
+          "url": "https://carsimportlab.com/ru/models/changan-uni-k",
+          "snippet": "Changan CS75 Plus и Uni-K из Китая 2026 — лучший выбор до 4 млн ₽. Рассказываем про модели, реальную стоимость под ключ во Владивосток и сравниваем с Haval и Chery."
+        },
+        {
+          "title": "Changan UNI-K из Китая: цены, обзор и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/changan-uni-k-iz-kitaya/",
+          "snippet": "CarsImportLab — независимый гид по импорту авто из Китая. Среднеразмерный кроссовер Changan UNI-K стартует в Китае от ¥154 900. Честные плюсы и минусы, экспортные цены (Россия, Мексика), стоит ли ввозить."
+        },
+        {
+          "title": "Changan UNI-K из Китая — купить с доставкой в Россию 2026 | Azway ...",
+          "url": "https://azway.ru/import/kitay/changan-uni-k",
+          "snippet": "Узнайте, как выгодно привезти Changan UNI-K из Китая. Обзор характеристик, цен и комплектаций. Закажите авто под ключ с экономией."
+        },
+        {
+          "title": "Changan UNI-K: обзор, характеристики и сравнение с конкурентами в 2026 году",
+          "url": "https://pricepclub.ru/avtomobili/changan-uni-k",
+          "snippet": "Купить Changan UNI-K из Китая под ключ. 2.0L турбо 4-цилиндровый, 228-233 л.с.. Цена от 2.8 до 3.8 млн ₽ под ключ. Доставка по всей России, растаможка, СБКТС, ЭПТС."
+        },
+        {
+          "title": "Changan UNI-K 2026: обзор, цены, плюсы и минусы китайского кроссовера",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/ki/kitajskij-avtomobil-changan-uni-k.html",
+          "snippet": "Changan UNI-K — полноразмерный кроссовер с мотором 2,0 л / 226 л.с., AT8 Aisin и полным приводом BorgWarner. Разбираем дизайн, салон, реальный расход и сравниваем с Geely Monjaro и Chery Tiggo 8 Pro Max."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать changan uni-k из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan UNI-K: обзор 2026 — характеристики, цена, плюсы и минусы ...",
+          "url": "https://carsimportlab.com/ru/models/changan-uni-k",
+          "snippet": ""
+        },
+        {
+          "title": "Changan UNI-K 2026: обзор, цены, плюсы и минусы китайского кроссовера",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/ki/kitajskij-avtomobil-changan-uni-k.html",
+          "snippet": "CarsImportLab — независимый гид по импорту авто из Китая. Среднеразмерный кроссовер Changan UNI-K стартует в Китае от ¥154 900. Честные плюсы и минусы, экспортные цены (Россия, Мексика), стоит ли ввозить."
+        },
+        {
+          "title": "Changan Uni-K 2026: обзор, цены, плюсы и минусы кроссовера",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/ob/obzor-avtomobilya-changan-yunikej.html",
+          "snippet": "Подробный разбор Changan UNI-K: технические характеристики, комплектации, отзывы владельцев и сравнение с конкурентами. Узнайте, стоит ли покупать этот китайский SUV."
+        },
+        {
+          "title": "Changan UNI-K из Китая: цены, обзор и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/changan-uni-k-iz-kitaya/",
+          "snippet": "Этот среднеразмерный кроссовер сочетает в себе futuristic-дизайн, передовые технологии и конкурентоспособную цену, что делает его одним из самых обсуждаемых новинок 2023-2026 годов."
+        },
+        {
+          "title": "Тест Changan UNI-K 2026: подробный обзор, характеристики и опыт вождения",
+          "url": "https://journal.carso.ru/test-drives/test-changan-uni-k-2026-podrobnyy-obzor-harakteristiki-i-opyt-vozhdeniya",
+          "snippet": "Узнайте, как выгодно привезти Changan UNI-K из Китая. Обзор характеристик, цен и комплектаций. Закажите авто под ключ с экономией."
+        },
+        {
+          "title": "Changan из Китая 2026: что за бренд, какие модели привозим и сколько стоит",
+          "url": "https://autoprofiasia.ru/blog/changan-iz-kitaya-2026-modeli-tsena-pod-klyuch",
+          "snippet": "Исчерпывающий анализ кроссовера Changan UNI-K 2026 года. Технические характеристики, поведение на дороге, комфорт в салоне и оценка надежности. Всё, что нужно знать перед покупкой флагмана."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать changan uni-k из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan UNI - K Android FUN - GitHub",
+          "url": "https://github.com/ksergey/changan_uni_k_android_fun",
+          "snippet": ""
+        },
+        {
+          "title": "BibleQuizzing/57880cf4310c6212d63945510f93cc7f.svg at main ... - GitHub",
+          "url": "https://github.com/SmashcardsService/BibleQuizzing/blob/main/57880cf4310c6212d63945510f93cc7f.svg",
+          "snippet": "Запускаем приложение телефон. Вводим номер *#*#888 и нажимаем вызов. Должен появится экран с вводом пароля. Набираем 369875. Появится инженерное меню головного устройства. Все надписи будут на китайском. В инжеренром меню необходимо включить доступ к устройству с помощью adb."
+        },
+        {
+          "title": "List. Работа со списками. Задачки · GitHub",
+          "url": "https://gist.github.com/bambula4000/7d315830436e0b11aefb25c7766dedb9",
+          "snippet": "Coach your team to victory in this Bible Quizzing game! - BibleQuizzing/57880cf4310c6212d63945510f93cc7f.svg at main · SmashcardsService/BibleQuizzing."
+        },
+        {
+          "title": "ha-mcp/docs/img/ha-mcp-logo.png at master · homeassistant-ai/ha-mcp",
+          "url": "https://github.com/homeassistant-ai/ha-mcp/blob/master/docs/img/ha-mcp-logo.png",
+          "snippet": "индексом k. Программа получает на вход список, затем число k. Программа сдвигает все элементы, а после этого удаляет последний элемент списка при помощи метода pop () без параметров."
+        },
+        {
+          "title": "GitHub - Pirozechnik/scavgame-locale-RU-r: Перевод и адаптация ...",
+          "url": "https://github.com/Pirozechnik/scavgame-locale-RU-r",
+          "snippet": "The Unofficial and Awesome Home Assistant MCP Server - homeassistant-ai/ha-mcp"
+        },
+        {
+          "title": "k-dense-ai-claude-scientific-skills - GitHub",
+          "url": "https://github.com/kellsaro/k-dense-ai-claude-scientific-skills",
+          "snippet": "Для игры с руссификатором на старых версиях есть возможность получить файл локализации со страницы релизов. На данный момент руссификатор по прежнему поддерживается. Скачать можно: Скачать файл с репозитория кнопкой \"Download raw file\" при выборе файла, выше."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать changan uni-k из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan UNI-K в 2026 году: цены, технологии и обоснованность покупки ...",
+          "url": "https://avto-zhurnal.ru/article/changan-uni-k-kupit/",
+          "snippet": ""
+        },
+        {
+          "title": "Changan Uni-K 2026: комплектации, цены и сравнение версий",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-yuni-s-komplektatsii.html",
+          "snippet": "На апрель 2026 года цены на новый UNI-K у официальных дилеров — от 3 290 000 ₽ до 4 090 000 ₽. Этот материал — навигатор по комплектациям, технологиям и обоснованности выбора."
+        },
+        {
+          "title": "Changan UNI-K из Китая: плюсы, минусы и выбор версии | ZMA-Авто",
+          "url": "https://zmaimport.ru/blog/changan-uni-k-iz-kitaya-plyusy-i-minusy",
+          "snippet": "В этом гайде мы детально разберём все доступные версии Uni-K 2026 модельного года, сравним их технические характеристики и поможем определиться с оптимальным выбором."
+        },
+        {
+          "title": "Характеристики Changan UNI-K: габариты, двигатель, расход 2026 | Chinaspare",
+          "url": "https://chinaspare.ru/journal/changan-uni-k-harakteristiki",
+          "snippet": "Changan UNI-K легко оценить по списку эффектных деталей, но для заказа автомобиля из Китая этого недостаточно. Главная задача покупателя — понять, соответствует ли конкретная версия его маршрутам, парковке и требованиям к оснащению."
+        },
+        {
+          "title": "Changan Uni-K 2026: комплектации, цены и сравнение версий",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-uni-k-komplektatsiya.html",
+          "snippet": "Узнайте точные габариты, размеры кузова, мощность двигателя и расход топлива Changan UNI-K. Обзор комплектаций и советы по обслуживанию от Chinaspare."
+        },
+        {
+          "title": "Uni-k 2026 — Купить Юни-к, Цены От Дилеров В России | Официальный Сайт",
+          "url": "https://uni-motors.ru/model/uni-k",
+          "snippet": "В этой статье разберём все доступные модификации Uni-K, их ключевые отличия, скрытые \"фишки\" и поможем определиться, какая комплектация подойдёт именно вам — будь то бюджетный вариант для города или топовая версия для дальних поездок."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать changan uni-k из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan Uni-K 2026: честные отзывы владельцев + плюсы и минусы",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-yunikej-otzyvy-realnykh-vladeltsev.html",
+          "snippet": ""
+        },
+        {
+          "title": "Чанган Уни К: реальные отзывы владельцев 2026 года",
+          "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-pro-changan-uni-k.html",
+          "snippet": "Реальные отзывы о Changan Uni-K: опыт эксплуатации, проблемы, расход топлива, комфорт и сравнение с конкурентами. Честные мнения владельцев 2023-2026 года."
+        },
+        {
+          "title": "Changan UNI-K из Китая: плюсы, минусы и выбор версии | ZMA-Авто",
+          "url": "https://zmaimport.ru/blog/changan-uni-k-iz-kitaya-plyusy-i-minusy",
+          "snippet": "В этой статье мы проанализируем реальный опыт владельцев, разберём типичные проблемы, сравним с конкурентами и дадим практические рекомендации тем, кто рассматривает Uni-K к покупке."
+        },
+        {
+          "title": "Тест Changan UNI-K 2026: подробный обзор, характеристики и опыт вождения",
+          "url": "https://journal.carso.ru/test-drives/test-changan-uni-k-2026-podrobnyy-obzor-harakteristiki-i-opyt-vozhdeniya",
+          "snippet": "Changan UNI-K легко оценить по списку эффектных деталей, но для заказа автомобиля из Китая этого недостаточно. Главная задача покупателя — понять, соответствует ли конкретная версия его маршрутам, парковке и требованиям к оснащению."
+        },
+        {
+          "title": "Changan UNI-K - CarsFan Автоклуб КарсФан Отзывы китайские автомобили",
+          "url": "https://carsfan.ru/forums/forum/1630-changan-uni-k/",
+          "snippet": "Исчерпывающий анализ кроссовера Changan UNI-K 2026 года. Технические характеристики, поведение на дороге, комфорт в салоне и оценка надежности. Всё, что нужно знать перед покупкой флагмана."
+        },
+        {
+          "title": "Бортжурнал Changan UNI-K 2020 - 2026 - клуб, форум на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/changan/uni_k/22843540/",
+          "snippet": "Changan UNI-K Форумы Всё про Changan UNI K Разные темы Changan UNI-K клуб Выбор, комплектации и цены Changan UNI K Тех. характеристики и опции UNI K Обзоры и отзывы владельцев Changan UNI K ПРОБЛЕМЫ / косяки Changan UNI K 282 ..."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "changan uni-k комплектации 2026",
+      "purpose": "вторичный запрос: changan uni-k комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чанган Юни-К 2026 технические характеристики. Changan UNI-K 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/uni-k/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "UNI-K 2026 — купить Юни-К, цены от ... - Changan Auto",
+          "url": "https://uni-motors.ru/model/uni-k",
+          "snippet": "Подробно расписан модельный ряд Changan UNI-K 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Комплектации и цены Changan Uni-K 2026 в Москве | Чанган Москва",
+          "url": "https://changan.ru/models/uni-k/price/",
+          "snippet": "Новый кроссовер Changan UNI-K 2026 года: цены, комплектации, характеристики, фото и наличие. Купить Чанган Юни-К у официального дилера в России."
+        },
+        {
+          "title": "Changan UNI-K 2026: обзор Чанган UNI-K, цены, характеристики",
+          "url": "https://avtospart.ru/blog/articles/detail/changan-uni-k-2026-uni-k",
+          "snippet": "Изучайте комплектации и цены Чанган Юни-К 2026 года в Москве в этом разделе сайта."
+        },
+        {
+          "title": "Changan UNI-K 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/changan/uni-k/",
+          "snippet": "Детальный обзор Changan UNI-K 2026: комплектации, цены в России, характеристики, плюсы и минусы, особенности эксплуатации, сравнение с конкурентами."
+        },
+        {
+          "title": "Changan Uni-K 2026: комплектации, цены и сравнение версий",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-uni-k-komplektatsiya.html",
+          "snippet": "Новые комплектации и цены на 26.10.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей Changan. Также обратите внимание на технические характеристики."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "changan uni-k idd 2026",
+      "purpose": "вторичный запрос: changan uni-k idd",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan UNI-K iDD 2026 комплектации, цены, купить новые Чанган ЮНИ ...",
+          "url": "https://www.changan-major.ru/models/uni-k-idd/",
+          "snippet": ""
+        },
+        {
+          "title": "UNI-K iDD 2026 - Changan Auto",
+          "url": "https://uni-motors.ru/model/uni-k-idd",
+          "snippet": "Модель UNI-K iDD в России представлена в единственной комплектации. Узнайте больше о возможностях и особенностях комплектации на сайте, по телефону или лично в дилерском центре Major."
+        },
+        {
+          "title": "Changan Uni-K iDD в Москве",
+          "url": "https://changan.ru/models/uni-k-idd/",
+          "snippet": "Гибридный Changan UNI-K iDD 2026 года: цена, комплектации, характеристики, запас хода, фото и наличие. Купить Чанган Юни-К АйДД у официального дилера в России."
+        },
+        {
+          "title": "Чанган Юни-К 2026 технические характеристики. Changan UNI-K 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/uni-k/2026/",
+          "snippet": "Интерьер Changan Uni-K iDD 2026 — это эргономичные сиденья класса « нулевая гравитация», высочайший уровень шумоизоляции и премиальные материалы отделки салона. А уникальное сочетание синего и серо-белого цвета в интерьере создаёт атмосферу уюта и роскоши."
+        },
+        {
+          "title": "Купить авто ChanGan UNI-K iDD в Москве - комплектации и цены 2026 г.",
+          "url": "https://auto-plan.ru/cars/changan/uni-k-idd/",
+          "snippet": "Подробно расписан модельный ряд Changan UNI-K 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чанган Юни-К 2026 между собой."
+        },
+        {
+          "title": "Комплектации и цены Changan Uni-K iDD в Москве",
+          "url": "https://changan.ru/models/uni-k-idd/price/",
+          "snippet": "Сравните тех. характеристики моделей перед покупкой."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "чанган юни к из китая 2026",
+      "purpose": "вторичный запрос: чанган юни к из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чанган Юни-К 2026 технические характеристики. Changan UNI-K 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/uni-k/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Чанган Юни-К 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/changan-uni-k-2026/",
+          "snippet": "Подробно расписан модельный ряд Changan UNI-K 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Чанган Юни-К тест-драйв: полный обзор кроссовера 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-yuni-k-test-drajv.html",
+          "snippet": "Чанган Юни-К 2026 — это один из самых необычных среднеразмерных кроссоверов марки Changan, сделавший ставку не только на яркий футуристичный дизайн, но и на богатое оснащение."
+        },
+        {
+          "title": "2026'Changan UNI-K: плюсы и минусы, фото, цены и характеристики",
+          "url": "https://ironhorse.ru/changan/uni-k/",
+          "snippet": "Современный автомобильный рынок перенасыщен предложениями, однако появление модели Changan Uni-K вызвало настоящий резонанс среди ценителей китайского автопрома. Этот кроссовер D-класса позиционируется как флагманское решение, призванное конкурировать не только с бюджетными аналогами, но и с именитыми европейскими брендами."
+        },
+        {
+          "title": "Технические характеристики Changan Uni-K 2026 / Чанган Юни-К",
+          "url": "https://roadres.com/changan/uni-k/tech/",
+          "snippet": "Передне- или полноприводный среднеразмерный кроссовер « премиум »-класса и, по совместительству, флагман модельного ряда китайского автопроизводителя, название которого созвучно с английским словом «unique» (в переводе означает «уникальный»)."
+        },
+        {
+          "title": "Чанган Юни-К 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/changan/changan-uni-k-2026.html",
+          "snippet": "Ниже представлены основные технические характеристики Чанган Юни-К 2026 / Changan Uni-K для российского рынка."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "uni-k 2.0t awd 2026",
+      "purpose": "вторичный запрос: uni-k 2.0t awd",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan UNI-K 2.0T 2023-2026: Спецификации двигателя, параметры AWD ...",
+          "url": "https://inycar.ru/blog/changan-uni-k-20t-20232026-spetsifikatsii-dvigatelya-parametry-awd-nastrojki-8at-i-reglament-to",
+          "snippet": ""
+        },
+        {
+          "title": "Uni-k 2026 — Купить Юни-к, Цены От Дилеров В России | Официальный Сайт",
+          "url": "https://uni-motors.ru/model/uni-k",
+          "snippet": "Changan UNI-K 2023-2026: детальные спецификации двигателя 2.0T, параметры полного привода AWD, особенности настройки 8AT и актуальный регламент ТО с интервалами."
+        },
+        {
+          "title": "Чанган Юни-К 2026 технические характеристики. Changan UNI-K 2026 ...",
+          "url": "https://www.drom.ru/catalog/changan/uni-k/2026/",
+          "snippet": "Модель сочетает турбированный двигатель 2.0, восьмиступенчатую автоматическую коробку передач AISIN и интеллектуальный полный привод. Для российского рынка доступны несколько комплектаций, различающихся набором систем комфорта, мультимедиа и электронных ассистентов."
+        },
+        {
+          "title": "Changan Uni-K 2026: комплектации, цены и сравнение версий",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-yuni-s-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд Changan UNI-K 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чанган Юни-К 2026 между собой."
+        },
+        {
+          "title": "ChangAn UNI-K 2.0T (233 лс) 4WD Aisin - auto-data.net",
+          "url": "https://www.auto-data.net/ru/changan-uni-k-2.0t-233hp-4wd-aisin-47014",
+          "snippet": "В этом гайде мы детально разберём все доступные версии Uni-K 2026 модельного года, сравним их технические характеристики и поможем определиться с оптимальным выбором."
+        },
+        {
+          "title": "Changan Uni-K AWD: полный обзор, цены и отзывы 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-uni-k-awd.html",
+          "snippet": "Технические характеристики: ChangAn UNI-K 2.0T (233 лс) 4WD Aisin SUV (Спортивно-утилитарный автомобиль), Кроссовер /2021, 2022, 2023, 2024, 2025, 2026/ | Расход топлива, Габариты, 233 лс, 200 км/ч, 124 mph, 8.9 л/100 км, 26.4 US mpg, 31.7 UK mpg, 11. ..."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Changan UNI-K из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Changan UNI-K: обзор 2026 — характеристики, цена, плюсы и минусы ...",
+          "url": "https://carsimportlab.com/ru/models/changan-uni-k",
+          "snippet": ""
+        },
+        {
+          "title": "Changan UNI-K из Китая: цены, обзор и доставка",
+          "url": "https://ezzhev.ru/how-buy-car/changan-uni-k-iz-kitaya/",
+          "snippet": "CarsImportLab — независимый гид по импорту авто из Китая. Среднеразмерный кроссовер Changan UNI-K стартует в Китае от ¥154 900. Честные плюсы и минусы, экспортные цены (Россия, Мексика), стоит ли ввозить."
+        },
+        {
+          "title": "Changan UNI-K в 2026 году: цены, технологии и обоснованность покупки ...",
+          "url": "https://avto-zhurnal.ru/article/changan-uni-k-kupit/",
+          "snippet": "Узнайте, как выгодно привезти Changan UNI-K из Китая. Обзор характеристик, цен и комплектаций. Закажите авто под ключ с экономией."
+        },
+        {
+          "title": "Changan Uni-K 2026: комплектации, цены и сравнение версий",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-yuni-s-komplektatsii.html",
+          "snippet": "Цены на флагманский кроссовер Changan UNI-K у официальных дилеров. Разбор комплектаций, технических характеристик и сравнение с конкурентами."
+        },
+        {
+          "title": "Changan UNI-K: Характеристики, комплектации и честный обзор кроссовера",
+          "url": "https://journal.carso.ru/articles/changan-uni-k-harakteristiki-komplektatsii-i-chestnyy-obzor-krossovera",
+          "snippet": "В этом гайде мы детально разберём все доступные версии Uni-K 2026 модельного года, сравним их технические характеристики и поможем определиться с оптимальным выбором."
+        },
+        {
+          "title": "2026'Changan UNI-K: плюсы и минусы, фото, цены и характеристики",
+          "url": "https://ironhorse.ru/changan/uni-k/",
+          "snippet": "Подробный обзор Changan UNI-K: технические характеристики, особенности экстерьера и интерьера, динамика и цены. Узнайте всё о флагманском кроссовере из Китая в нашем материале."
+        }
+      ],
+      "searched_at": "2026-11-05"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/ki/kitajskij-avtomobil-changan-uni-k.html",
+      "title": "Changan UNI-K 2026: обзор, цены, плюсы и минусы китайского кроссовера",
+      "from_query": "как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://carsimportlab.com/ru/models/changan-uni-k",
+      "title": "Changan UNI-K: обзор 2026 — характеристики, цена, плюсы и минусы ...",
+      "from_query": "как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://journal.carso.ru/test-drives/test-changan-uni-k-2026-podrobnyy-obzor-harakteristiki-i-opyt-vozhdeniya",
+      "title": "Тест Changan UNI-K 2026: подробный обзор, характеристики и опыт вождения",
+      "from_query": "как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-uni-k-komplektatsiya.html",
+      "title": "Changan Uni-K 2026: комплектации, цены и сравнение версий",
+      "from_query": "как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/changan-uni-k-iz-kitaya/",
+      "title": "Changan UNI-K из Китая: цены, обзор и доставка",
+      "from_query": "как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/changan-iz-kitaya-2026-modeli-tsena-pod-klyuch",
+      "title": "Changan из Китая 2026: что за бренд, какие модели привозим и сколько стоит",
+      "from_query": "как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://azway.ru/import/kitay/changan-uni-k",
+      "title": "Changan UNI-K из Китая — купить с доставкой в Россию 2026 | Azway ...",
+      "from_query": "как выбрать changan uni-k из китая ноябрь 2026"
+    },
+    {
+      "url": "https://pricepclub.ru/avtomobili/changan-uni-k",
+      "title": "Changan UNI-K: обзор, характеристики и сравнение с конкурентами в 2026 году",
+      "from_query": "как выбрать changan uni-k из китая ноябрь 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/ob/obzor-avtomobilya-changan-yunikej.html",
+      "title": "Changan Uni-K 2026: обзор, цены, плюсы и минусы кроссовера",
+      "from_query": "как выбрать changan uni-k из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/ksergey/changan_uni_k_android_fun",
+      "title": "Changan UNI - K Android FUN - GitHub",
+      "from_query": "site:github.com как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://github.com/SmashcardsService/BibleQuizzing/blob/main/57880cf4310c6212d63945510f93cc7f.svg",
+      "title": "BibleQuizzing/57880cf4310c6212d63945510f93cc7f.svg at main ... - GitHub",
+      "from_query": "site:github.com как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/bambula4000/7d315830436e0b11aefb25c7766dedb9",
+      "title": "List. Работа со списками. Задачки · GitHub",
+      "from_query": "site:github.com как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://github.com/homeassistant-ai/ha-mcp/blob/master/docs/img/ha-mcp-logo.png",
+      "title": "ha-mcp/docs/img/ha-mcp-logo.png at master · homeassistant-ai/ha-mcp",
+      "from_query": "site:github.com как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://github.com/Pirozechnik/scavgame-locale-RU-r",
+      "title": "GitHub - Pirozechnik/scavgame-locale-RU-r: Перевод и адаптация ...",
+      "from_query": "site:github.com как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://github.com/kellsaro/k-dense-ai-claude-scientific-skills",
+      "title": "k-dense-ai-claude-scientific-skills - GitHub",
+      "from_query": "site:github.com как выбрать changan uni-k из китая 2026"
+    },
+    {
+      "url": "https://avto-zhurnal.ru/article/changan-uni-k-kupit/",
+      "title": "Changan UNI-K в 2026 году: цены, технологии и обоснованность покупки ...",
+      "from_query": "как выбрать changan uni-k из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-yuni-s-komplektatsii.html",
+      "title": "Changan Uni-K 2026: комплектации, цены и сравнение версий",
+      "from_query": "как выбрать changan uni-k из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://zmaimport.ru/blog/changan-uni-k-iz-kitaya-plyusy-i-minusy",
+      "title": "Changan UNI-K из Китая: плюсы, минусы и выбор версии | ZMA-Авто",
+      "from_query": "как выбрать changan uni-k из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://chinaspare.ru/journal/changan-uni-k-harakteristiki",
+      "title": "Характеристики Changan UNI-K: габариты, двигатель, расход 2026 | Chinaspare",
+      "from_query": "как выбрать changan uni-k из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://uni-motors.ru/model/uni-k",
+      "title": "Uni-k 2026 — Купить Юни-к, Цены От Дилеров В России | Официальный Сайт",
+      "from_query": "как выбрать changan uni-k из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-yunikej-otzyvy-realnykh-vladeltsev.html",
+      "title": "Changan Uni-K 2026: честные отзывы владельцев + плюсы и минусы",
+      "from_query": "как выбрать changan uni-k из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/o/ot/otzyvy-pro-changan-uni-k.html",
+      "title": "Чанган Уни К: реальные отзывы владельцев 2026 года",
+      "from_query": "как выбрать changan uni-k из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://carsfan.ru/forums/forum/1630-changan-uni-k/",
+      "title": "Changan UNI-K - CarsFan Автоклуб КарсФан Отзывы китайские автомобили",
+      "from_query": "как выбрать changan uni-k из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/changan/uni_k/22843540/",
+      "title": "Бортжурнал Changan UNI-K 2020 - 2026 - клуб, форум на Авто.ру",
+      "from_query": "как выбрать changan uni-k из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/changan/uni-k/2026/",
+      "title": "Чанган Юни-К 2026 технические характеристики. Changan UNI-K 2026 ...",
+      "from_query": "changan uni-k комплектации 2026"
+    },
+    {
+      "url": "https://changan.ru/models/uni-k/price/",
+      "title": "Комплектации и цены Changan Uni-K 2026 в Москве | Чанган Москва",
+      "from_query": "changan uni-k комплектации 2026"
+    },
+    {
+      "url": "https://avtospart.ru/blog/articles/detail/changan-uni-k-2026-uni-k",
+      "title": "Changan UNI-K 2026: обзор Чанган UNI-K, цены, характеристики",
+      "from_query": "changan uni-k комплектации 2026"
+    },
+    {
+      "url": "https://carsdb.ru/changan/uni-k/",
+      "title": "Changan UNI-K 2026 - цены и комплектации в России | carsdb.ru",
+      "from_query": "changan uni-k комплектации 2026"
+    },
+    {
+      "url": "https://www.changan-major.ru/models/uni-k-idd/",
+      "title": "Changan UNI-K iDD 2026 комплектации, цены, купить новые Чанган ЮНИ ...",
+      "from_query": "changan uni-k idd 2026"
+    },
+    {
+      "url": "https://uni-motors.ru/model/uni-k-idd",
+      "title": "UNI-K iDD 2026 - Changan Auto",
+      "from_query": "changan uni-k idd 2026"
+    },
+    {
+      "url": "https://changan.ru/models/uni-k-idd/",
+      "title": "Changan Uni-K iDD в Москве",
+      "from_query": "changan uni-k idd 2026"
+    },
+    {
+      "url": "https://auto-plan.ru/cars/changan/uni-k-idd/",
+      "title": "Купить авто ChanGan UNI-K iDD в Москве - комплектации и цены 2026 г.",
+      "from_query": "changan uni-k idd 2026"
+    },
+    {
+      "url": "https://changan.ru/models/uni-k-idd/price/",
+      "title": "Комплектации и цены Changan Uni-K iDD в Москве",
+      "from_query": "changan uni-k idd 2026"
+    },
+    {
+      "url": "https://cenyavto.com/changan-uni-k-2026/",
+      "title": "Чанган Юни-К 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "чанган юни к из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-yuni-k-test-drajv.html",
+      "title": "Чанган Юни-К тест-драйв: полный обзор кроссовера 2026",
+      "from_query": "чанган юни к из китая 2026"
+    },
+    {
+      "url": "https://ironhorse.ru/changan/uni-k/",
+      "title": "2026'Changan UNI-K: плюсы и минусы, фото, цены и характеристики",
+      "from_query": "чанган юни к из китая 2026"
+    },
+    {
+      "url": "https://roadres.com/changan/uni-k/tech/",
+      "title": "Технические характеристики Changan Uni-K 2026 / Чанган Юни-К",
+      "from_query": "чанган юни к из китая 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/changan/changan-uni-k-2026.html",
+      "title": "Чанган Юни-К 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "чанган юни к из китая 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/changan-uni-k-20t-20232026-spetsifikatsii-dvigatelya-parametry-awd-nastrojki-8at-i-reglament-to",
+      "title": "Changan UNI-K 2.0T 2023-2026: Спецификации двигателя, параметры AWD ...",
+      "from_query": "uni-k 2.0t awd 2026"
+    },
+    {
+      "url": "https://www.auto-data.net/ru/changan-uni-k-2.0t-233hp-4wd-aisin-47014",
+      "title": "ChangAn UNI-K 2.0T (233 лс) 4WD Aisin - auto-data.net",
+      "from_query": "uni-k 2.0t awd 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-uni-k-awd.html",
+      "title": "Changan Uni-K AWD: полный обзор, цены и отзывы 2026",
+      "from_query": "uni-k 2.0t awd 2026"
+    },
+    {
+      "url": "https://journal.carso.ru/articles/changan-uni-k-harakteristiki-komplektatsii-i-chestnyy-obzor-krossovera",
+      "title": "Changan UNI-K: Характеристики, комплектации и честный обзор кроссовера",
+      "from_query": "Как выбрать Changan UNI-K из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

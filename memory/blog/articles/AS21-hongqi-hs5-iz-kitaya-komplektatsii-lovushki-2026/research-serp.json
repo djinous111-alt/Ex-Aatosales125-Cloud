@@ -1,0 +1,565 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-04",
+    "today_ru": "04.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-06",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-04 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS21",
+    "priority": "P0",
+    "slug": "hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Hongqi HS5 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "hongqi hs5 комплектации",
+    "secondary_queries": [
+      "hongqi hs5 из китая под заказ",
+      "хончи hs5 2wd или 4wd",
+      "hongqi hs5 проверка до депозита"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "hongqi hs5 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хончи ХС5 2026 технические характеристики. Hongqi HS5 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/hongqi/hs5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hongqi HS5 2026: цены, комплектации и характеристики",
+          "url": "https://motorved.ru/obzor-hongqi-hs5-2026-stoit-li-ego-pokupat/",
+          "snippet": "Подробно расписан модельный ряд Hongqi HS5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Hongqi HS5 (Хончи ХС5) технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/hongqi/hs5/",
+          "snippet": "Тест-драйв обновленного Hongqi HS5 2026: ироничный взгляд на китайский премиум. Цены, комплектации, реальные плюсы и минусы от владельцев."
+        },
+        {
+          "title": "Hongqi HS5, купить Хончи HS5, комплектации и цена 2026 | Major Auto ...",
+          "url": "https://www.major-hongqi.ru/models/hs5-new/",
+          "snippet": "Подробно расписан модельный ряд Hongqi HS5: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хончи ХС5 между собой."
+        },
+        {
+          "title": "Комплектации Hongqi HS5 2026 года — сравнение характеристик всех версий",
+          "url": "https://chinaautozone.ru/specs.php?series=5048",
+          "snippet": "Новый Hongqi HS5 предлагает две комплектации — Комфорт (Comfort) и Делюкс (Deluxe), каждая из которых разработана для того, чтобы удовлетворить различные запросы и предпочтения водителей."
+        },
+        {
+          "title": "Комплектации Hongqi HS5 — сравнение характеристик всех ...",
+          "url": "https://chinaautozone.ru/specs.php?series=5048&year=2026",
+          "snippet": "Все комплектации Hongqi HS5 2026 модельного года: сравнительная таблица характеристик по версиям. Цены из Китая, перевод параметров на русский."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "hongqi hs5 комплектации ноябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Комплектации Hongqi HS5 2026 года — сравнение характеристик всех версий",
+          "url": "https://chinaautozone.ru/specs.php?series=5048",
+          "snippet": ""
+        },
+        {
+          "title": "Hongqi HS5 2026: цены, комплектации и характеристики",
+          "url": "https://motorved.ru/obzor-hongqi-hs5-2026-stoit-li-ego-pokupat/",
+          "snippet": "Все комплектации Hongqi HS5 2026 модельного года: сравнительная таблица характеристик по версиям. Цены из Китая, перевод параметров на русский."
+        },
+        {
+          "title": "Хончи ХС5 2026 технические характеристики. Hongqi HS5 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/hongqi/hs5/2026/",
+          "snippet": "Тест-драйв обновленного Hongqi HS5 2026: ироничный взгляд на китайский премиум. Цены, комплектации, реальные плюсы и минусы от владельцев."
+        },
+        {
+          "title": "Комплектации Hongqi HS5 — сравнение характеристик всех ...",
+          "url": "https://chinaautozone.ru/specs.php?series=5048&year=2026",
+          "snippet": "Подробно расписан модельный ряд Hongqi HS5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хончи ХС5 2026 между собой."
+        },
+        {
+          "title": "Hongqi HS5, купить Хончи HS5, комплектации и цена 2026 | Major Auto ...",
+          "url": "https://www.major-hongqi.ru/models/hs5-new/",
+          "snippet": "Все комплектации Hongqi HS5: сравнительная таблица характеристик по версиям и годам. Цены из Китая, перевод параметров на русский."
+        },
+        {
+          "title": "Hongqi HS5 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/hongqi/hs5/",
+          "snippet": "Новый Hongqi HS5 предлагает две комплектации — Комфорт (Comfort) и Делюкс (Deluxe), каждая из которых разработана для того, чтобы удовлетворить различные запросы и предпочтения водителей."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "hongqi hs5 комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hongqi HS5 2026: цены, комплектации и характеристики",
+          "url": "https://motorved.ru/obzor-hongqi-hs5-2026-stoit-li-ego-pokupat/",
+          "snippet": ""
+        },
+        {
+          "title": "Комплектации Hongqi HS5 2026 года — сравнение характеристик всех версий",
+          "url": "https://chinaautozone.ru/specs.php?series=5048",
+          "snippet": "Тест-драйв обновленного Hongqi HS5 2026: ироничный взгляд на китайский премиум. Цены, комплектации, реальные плюсы и минусы от владельцев."
+        },
+        {
+          "title": "Hongqi HS5 › Цена и комплектации 2026",
+          "url": "https://carsdo.ru/hongqi/hs5/",
+          "snippet": "Все комплектации Hongqi HS5 2026 модельного года: сравнительная таблица характеристик по версиям. Цены из Китая, перевод параметров на русский."
+        },
+        {
+          "title": "Hongqi HS5 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/hongqi/hs5/",
+          "snippet": "Hongqi HS5: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Hongqi HS5 2-й рестайлинг 2026, джип/suv 5 ... - Дром",
+          "url": "https://www.drom.ru/catalog/hongqi/hs5/g_2026_25032/",
+          "snippet": "Новые комплектации и цены на 28.10.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей Hongqi (Хунцы). Классификация: внедорожники. Период выпуска: с января 2023 г.."
+        },
+        {
+          "title": "Hongqi HS5, купить Хончи HS5, комплектации и цена 2026 | Major Auto ...",
+          "url": "https://www.major-hongqi.ru/models/hs5-new/",
+          "snippet": "Подробно расписаны модификации автомобилей Hongqi HS5 2-й рестайлинг 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com hongqi hs5 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "openpilot-cabana/data/opendbc/hongqi_hs5.dbc at main - GitHub",
+          "url": "https://github.com/deanlee/openpilot-cabana/blob/main/data/opendbc/hongqi_hs5.dbc",
+          "snippet": ""
+        },
+        {
+          "title": "opendbc/opendbc/dbc/hongqi_hs5.dbc at master - GitHub",
+          "url": "https://github.com/commaai/opendbc/blob/master/opendbc/dbc/hongqi_hs5.dbc",
+          "snippet": "CAN / CAN FD bus analyzer for reverse-engineering and diagnostics. Live bit-level heatmaps, pattern detection, signal discovery, and synchronized video. Supports SocketCAN, Panda, ASC, candump, TRC, and openpilot routes. Built-in DBC editor with 50+ vehicle definitions. - openpilot-cabana/data/opendbc/hongqi_hs5.dbc at main · deanlee/openpilot-cabana"
+        },
+        {
+          "title": "hongqi · GitHub",
+          "url": "https://github.com/hongqi",
+          "snippet": "opendbc / opendbc / dbc / hongqi_hs5.dbc jyoung8607 Hongqi: Add DBC for Hongqi HS5 (#580) 86be858 · 2 years ago History 160 lines (135 loc) · 5.05 KB"
+        },
+        {
+          "title": "GitHub - uroni/hs5: High-performance scale-up self-hosted s3-compatible ...",
+          "url": "https://github.com/uroni/hs5",
+          "snippet": "hongqi has no activity yet for this period. GitHub is where hongqi builds software."
+        },
+        {
+          "title": "GitHub - openrobokit/roboskills: A minimal set of agent workflows and ...",
+          "url": "https://github.com/openrobokit/roboskills",
+          "snippet": "In general, HS5 is suited for storing S3 objects on a single node only. Therefore, it is limited to cases where you can store the expected amount of data on a single node and you are okay with the limited availability and the data-loss probabilities of a single-node system."
+        },
+        {
+          "title": "Snitch/icon.png at main · aixisstudio/Snitch · GitHub",
+          "url": "https://github.com/aixisstudio/Snitch/blob/main/icon.png",
+          "snippet": "RoboSkills is a low-cost, minimal set of agent workflows and tools for robotics. Sharpa hands playing cat's cradle, reconstructed from a human video."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "hongqi hs5 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Комплектации Hongqi HS5 2026 года — сравнение характеристик всех версий",
+          "url": "https://chinaautozone.ru/specs.php?series=5048",
+          "snippet": ""
+        },
+        {
+          "title": "Хончи ХС5 2026 технические характеристики. Hongqi HS5 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/hongqi/hs5/2026/",
+          "snippet": "Все комплектации Hongqi HS5 2026 модельного года: сравнительная таблица характеристик по версиям. Цены из Китая, перевод параметров на русский."
+        },
+        {
+          "title": "Спецификация Hongqi HS5 - технические характеристики и параметры",
+          "url": "https://hongqi.ru/models/novyi-hs5/specification",
+          "snippet": "Подробно расписан модельный ряд Hongqi HS5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хончи ХС5 2026 между собой."
+        },
+        {
+          "title": "Новый Hongqi HS5 - Купить Хончи HS5 на официальном сайте Hongqi в России",
+          "url": "https://hongqi.ru/models/novyi-hs5",
+          "snippet": "Подробная спецификация Hongqi HS5: технические характеристики, двигатель, размеры, динамика и оснащение. Узнайте всё о кроссовере Хончи HS5 на официальном сайте Hongqi в России."
+        },
+        {
+          "title": "Комплектации Hongqi HS5 — сравнение характеристик всех ...",
+          "url": "https://chinaautozone.ru/specs.php?series=5048&year=2026",
+          "snippet": "⚡ Новый Hongqi HS5 - обновлённый кроссовер бизнес-класса. 🛠️ Узнайте характеристики, комплектации и цены в России."
+        },
+        {
+          "title": "Hongqi HS5 2-й рестайлинг 2026, джип/suv 5 ... - Дром",
+          "url": "https://www.drom.ru/catalog/hongqi/hs5/g_2026_25032/",
+          "snippet": "Все комплектации Hongqi HS5: сравнительная таблица характеристик по версиям и годам. Цены из Китая, перевод параметров на русский."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "hongqi hs5 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hongqi HS5 2026: цены, комплектации и характеристики",
+          "url": "https://motorved.ru/obzor-hongqi-hs5-2026-stoit-li-ego-pokupat/",
+          "snippet": ""
+        },
+        {
+          "title": "Комплектации hongqi hs5 и практический выбор версии",
+          "url": "https://unit-car.com/8728-hongqi-hs5.html",
+          "snippet": "Мы изучили отзывы владельцев, почитали тест-драйвы, заглянули на официальный сайт и готовы рассказать, каков он в реальной жизни — обновленный Hongqi HS5 2026."
+        },
+        {
+          "title": "2026'Hongqi HS5: все минусы и плюсы ... - IronHorse",
+          "url": "https://ironhorse.ru/hongqi/hs5/",
+          "snippet": "Разбор комплектаций Hongqi HS5: какие опции влияют на комфорт, безопасность и повседневную езду, а за что доплачивать необязательно."
+        },
+        {
+          "title": "Отзывы владельцев Hongqi HS5 с ФОТО - Дром",
+          "url": "https://www.drom.ru/reviews/hongqi/hs5/",
+          "snippet": "Подробно об особенностях, достоинствах и недостатках кроссовера Hongqi HS5, его технические характеристики, оснащение и стоимость в России."
+        },
+        {
+          "title": "Комплектации Hongqi HS5 2026 года — сравнение характеристик всех версий",
+          "url": "https://chinaautozone.ru/specs.php?series=5048",
+          "snippet": "HONGQI HS5 NEW. Есть с чем сравнить! В марте 2026 года приобрёл HONGQI HS5 NEW в сером матовом цвете. Сейчас, спустя несколько месяцев эксплуатации, уже могу поделиться впечатлениями."
+        },
+        {
+          "title": "Бортжурнал Hongqi HS5 - клуб, форум о Хончи ХС5 на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/hongqi/hs5/",
+          "snippet": "Все комплектации Hongqi HS5 2026 модельного года: сравнительная таблица характеристик по версиям. Цены из Китая, перевод параметров на русский."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "hongqi hs5 из китая под заказ 2026",
+      "purpose": "вторичный запрос: hongqi hs5 из китая под заказ",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "№2546284: Купить Hongqi HS5 2026 года в Китае - авто под заказ без ...",
+          "url": "https://www.drom.ru/world/china/hongqi/hs5/2546284/",
+          "snippet": ""
+        },
+        {
+          "title": "Hongqi HS5 2026: цена под ключ с НДС и доставка из Китая",
+          "url": "https://grandtheauto.ru/hongqi-hs5-2026-%D1%86%D0%B5%D0%BD%D0%B0-%D0%BF%D0%BE%D0%B4-%D0%BA%D0%BB%D1%8E%D1%87-%D1%81-%D0%BD%D0%B4%D1%81-%D0%B8-%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0-%D0%B8%D0%B7-%D0%BA%D0%B8%D1%82/",
+          "snippet": "Актуальные предложения Hongqi HS5 под заказ из Китая с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости Hongqi HS5 с доставкой в Россию."
+        },
+        {
+          "title": "№2632616: Купить Hongqi HS5 2026 года в Китае - авто под заказ без ...",
+          "url": "https://www.drom.ru/world/china/hongqi/hs5/2632616/",
+          "snippet": "Обновлённый кроссовер Hongqi HS5 2026: что изменилось снаружи и внутри, из чего складывается цена под ключ с НДС, сроки поставки и растаможка. Расчёт без предоплаты."
+        },
+        {
+          "title": "Hongqi HS5 из Китая под заказ — 705 авто - EncarRus",
+          "url": "https://encarrus-china.ru/hongqi/hongqi-hs5/",
+          "snippet": "Актуальные предложения Hongqi HS5 под заказ из Китая с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости Hongqi HS5 с доставкой в Россию."
+        },
+        {
+          "title": "Купить Hongqi HS5 из Китая в Россию, Москву под ключ",
+          "url": "https://westmotors.ru/catalog-avto-china/hongqi/hs5/2025-2026",
+          "snippet": "Hongqi HS5 из Китая: что сейчас продаётся На 17.10.2026 в каталоге EncarRus 705 автомобилей Hongqi HS5 2019-2026 годов, цена под ключ от 3 278 000 до 4 808 000 ₽."
+        },
+        {
+          "title": "Купить Hongqi HS5 2026 — параллельный импорт из Китая, 4.1 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/hongqi-hs5-china-2026-3/",
+          "snippet": "Подбираем новые и б/у Hongqi HS5 из Китая в Россию, Москву под ключ. Проверка истории Растаможка Официальный договор Без скрытых комиссий."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "хончи hs5 2wd или 4wd 2026",
+      "purpose": "вторичный запрос: хончи hs5 2wd или 4wd",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хончи ХС5 2026 технические характеристики. Hongqi HS5 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/hongqi/hs5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hongqi HS5 (Хончи ХС5) технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/hongqi/hs5/",
+          "snippet": "Подробно расписан модельный ряд Hongqi HS5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хончи ХС5 2026 между собой."
+        },
+        {
+          "title": "Обзор Hongqi HS5 2026: Габариты, Технические характеристики и Цены на ...",
+          "url": "https://adom.ru/hongqi/hs5/tth",
+          "snippet": "Подробно расписан модельный ряд Hongqi HS5: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хончи ХС5 между собой."
+        },
+        {
+          "title": "Спецификация Hongqi HS5 - технические характеристики и параметры",
+          "url": "https://hongqi.ru/models/novyi-hs5/specification",
+          "snippet": "ТТХ Hongqi HS5 2026 габаритные размеры, клиренс, объём двигателя, коробка передач, тип привода, расход топлива и другие технические характеристики"
+        },
+        {
+          "title": "2026'Hongqi HS5: все минусы и плюсы ... - IronHorse",
+          "url": "https://ironhorse.ru/hongqi/hs5/",
+          "snippet": "Подробная спецификация Hongqi HS5: технические характеристики, двигатель, размеры, динамика и оснащение. Узнайте всё о кроссовере Хончи HS5 на официальном сайте Hongqi в России."
+        },
+        {
+          "title": "Хончи Hs5 2026 Цены Модели, Комплектации, Фото, Новый Кузов, Видео",
+          "url": "https://cenyavto.com/hongqi-hs5-2026/",
+          "snippet": "Подробно об особенностях, достоинствах и недостатках кроссовера Hongqi HS5, его технические характеристики, оснащение и стоимость в России."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "hongqi hs5 проверка до депозита 2026",
+      "purpose": "вторичный запрос: hongqi hs5 проверка до депозита",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Экспертная проверка подтвердила надежность автомобилей Hongqi H5 и HS5 ...",
+          "url": "https://warspot.ru/ekspertnaya-proverka-podtverdila-nadezhnost-avtomobiley-hongqi-h5-i-hs5-s-probegom-do-270-000-km",
+          "snippet": ""
+        },
+        {
+          "title": "Технический Аудит Hongqi: Результаты Проверки Автомобилей С Пробегом",
+          "url": "https://hongqi.ru/brand/cars-quality",
+          "snippet": "Эксперты провели детальный анализ кузова и состояния агрегатов, в ходе которого не было найдено следов ржавчины, что указывает на удачное сочетание материалов и защитных покрытий для российских условий."
+        },
+        {
+          "title": "Что стало с Hongqi H5 и HS5 после 270 и 150 тыс. км пробега ...",
+          "url": "https://www.rbcautonews.ru/news/6a6365bc9a79474b8ede4936",
+          "snippet": "Запишитесь на тест-драйв и оцените надёжность автомобилей HONGQI. Независимая проверка автомобилей HONGQI с пробегом более 130 000 км. Результаты аудита, экономические показатели, отзывы экспертов."
+        },
+        {
+          "title": "Что стало с Hongqi H5 и HS5 после 270 и 150 тыс. км пробега ...",
+          "url": "https://www.autonews.ru/news/6a6365bc9a79474b8ede4936",
+          "snippet": "С июля 2023-го, когда в России стартовали официальные продажи Hongqi H5 и HS5, многие экземпляры этих моделей успели проездить сотни тысяч километров и на деле доказать свою надежность."
+        },
+        {
+          "title": "2026'Hongqi HS5: все минусы и плюсы ... - IronHorse",
+          "url": "https://ironhorse.ru/hongqi/hs5/",
+          "snippet": "С июля 2023-го, когда в России стартовали официальные продажи Hongqi H5 и HS5, многие экземпляры этих моделей успели проездить сотни тысяч километров и на деле доказать свою надежность."
+        },
+        {
+          "title": "Hongqi H5 и HS5: машины с пробегом 270 000 и 150 000 км прошли ...",
+          "url": "https://svobodanews.ru/avto/hongqi-h5-i-hs5-mashiny-s-probegom-270-000-i-150-000-km-proshli-ekspertnuyu-proverku.html",
+          "snippet": "Подробно об особенностях, достоинствах и недостатках кроссовера Hongqi HS5, его технические характеристики, оснащение и стоимость в России."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Hongqi HS5 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-11-04"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/hongqi/hs5/2026/",
+      "title": "Хончи ХС5 2026 технические характеристики. Hongqi HS5 2026 комплектации ...",
+      "from_query": "hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://motorved.ru/obzor-hongqi-hs5-2026-stoit-li-ego-pokupat/",
+      "title": "Hongqi HS5 2026: цены, комплектации и характеристики",
+      "from_query": "hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hongqi/hs5/",
+      "title": "Hongqi HS5 (Хончи ХС5) технические характеристики, комплектации и цены",
+      "from_query": "hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://www.major-hongqi.ru/models/hs5-new/",
+      "title": "Hongqi HS5, купить Хончи HS5, комплектации и цена 2026 | Major Auto ...",
+      "from_query": "hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/specs.php?series=5048",
+      "title": "Комплектации Hongqi HS5 2026 года — сравнение характеристик всех версий",
+      "from_query": "hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/specs.php?series=5048&year=2026",
+      "title": "Комплектации Hongqi HS5 — сравнение характеристик всех ...",
+      "from_query": "hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://carsdb.ru/hongqi/hs5/",
+      "title": "Hongqi HS5 2026 - цены и комплектации в России | carsdb.ru",
+      "from_query": "hongqi hs5 комплектации ноябрь 2026"
+    },
+    {
+      "url": "https://carsdo.ru/hongqi/hs5/",
+      "title": "Hongqi HS5 › Цена и комплектации 2026",
+      "from_query": "hongqi hs5 комплектации новости 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hongqi/hs5/g_2026_25032/",
+      "title": "Hongqi HS5 2-й рестайлинг 2026, джип/suv 5 ... - Дром",
+      "from_query": "hongqi hs5 комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/deanlee/openpilot-cabana/blob/main/data/opendbc/hongqi_hs5.dbc",
+      "title": "openpilot-cabana/data/opendbc/hongqi_hs5.dbc at main - GitHub",
+      "from_query": "site:github.com hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/commaai/opendbc/blob/master/opendbc/dbc/hongqi_hs5.dbc",
+      "title": "opendbc/opendbc/dbc/hongqi_hs5.dbc at master - GitHub",
+      "from_query": "site:github.com hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/hongqi",
+      "title": "hongqi · GitHub",
+      "from_query": "site:github.com hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/uroni/hs5",
+      "title": "GitHub - uroni/hs5: High-performance scale-up self-hosted s3-compatible ...",
+      "from_query": "site:github.com hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/openrobokit/roboskills",
+      "title": "GitHub - openrobokit/roboskills: A minimal set of agent workflows and ...",
+      "from_query": "site:github.com hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/aixisstudio/Snitch/blob/main/icon.png",
+      "title": "Snitch/icon.png at main · aixisstudio/Snitch · GitHub",
+      "from_query": "site:github.com hongqi hs5 комплектации 2026"
+    },
+    {
+      "url": "https://hongqi.ru/models/novyi-hs5/specification",
+      "title": "Спецификация Hongqi HS5 - технические характеристики и параметры",
+      "from_query": "hongqi hs5 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://hongqi.ru/models/novyi-hs5",
+      "title": "Новый Hongqi HS5 - Купить Хончи HS5 на официальном сайте Hongqi в России",
+      "from_query": "hongqi hs5 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://unit-car.com/8728-hongqi-hs5.html",
+      "title": "Комплектации hongqi hs5 и практический выбор версии",
+      "from_query": "hongqi hs5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://ironhorse.ru/hongqi/hs5/",
+      "title": "2026'Hongqi HS5: все минусы и плюсы ... - IronHorse",
+      "from_query": "hongqi hs5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/hongqi/hs5/",
+      "title": "Отзывы владельцев Hongqi HS5 с ФОТО - Дром",
+      "from_query": "hongqi hs5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/hongqi/hs5/",
+      "title": "Бортжурнал Hongqi HS5 - клуб, форум о Хончи ХС5 на Авто.ру",
+      "from_query": "hongqi hs5 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/hongqi/hs5/2546284/",
+      "title": "№2546284: Купить Hongqi HS5 2026 года в Китае - авто под заказ без ...",
+      "from_query": "hongqi hs5 из китая под заказ 2026"
+    },
+    {
+      "url": "https://grandtheauto.ru/hongqi-hs5-2026-%D1%86%D0%B5%D0%BD%D0%B0-%D0%BF%D0%BE%D0%B4-%D0%BA%D0%BB%D1%8E%D1%87-%D1%81-%D0%BD%D0%B4%D1%81-%D0%B8-%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0-%D0%B8%D0%B7-%D0%BA%D0%B8%D1%82/",
+      "title": "Hongqi HS5 2026: цена под ключ с НДС и доставка из Китая",
+      "from_query": "hongqi hs5 из китая под заказ 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/hongqi/hs5/2632616/",
+      "title": "№2632616: Купить Hongqi HS5 2026 года в Китае - авто под заказ без ...",
+      "from_query": "hongqi hs5 из китая под заказ 2026"
+    },
+    {
+      "url": "https://encarrus-china.ru/hongqi/hongqi-hs5/",
+      "title": "Hongqi HS5 из Китая под заказ — 705 авто - EncarRus",
+      "from_query": "hongqi hs5 из китая под заказ 2026"
+    },
+    {
+      "url": "https://westmotors.ru/catalog-avto-china/hongqi/hs5/2025-2026",
+      "title": "Купить Hongqi HS5 из Китая в Россию, Москву под ключ",
+      "from_query": "hongqi hs5 из китая под заказ 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/catalog/hongqi-hs5-china-2026-3/",
+      "title": "Купить Hongqi HS5 2026 — параллельный импорт из Китая, 4.1 млн ₽ | CARTO",
+      "from_query": "hongqi hs5 из китая под заказ 2026"
+    },
+    {
+      "url": "https://adom.ru/hongqi/hs5/tth",
+      "title": "Обзор Hongqi HS5 2026: Габариты, Технические характеристики и Цены на ...",
+      "from_query": "хончи hs5 2wd или 4wd 2026"
+    },
+    {
+      "url": "https://cenyavto.com/hongqi-hs5-2026/",
+      "title": "Хончи Hs5 2026 Цены Модели, Комплектации, Фото, Новый Кузов, Видео",
+      "from_query": "хончи hs5 2wd или 4wd 2026"
+    },
+    {
+      "url": "https://warspot.ru/ekspertnaya-proverka-podtverdila-nadezhnost-avtomobiley-hongqi-h5-i-hs5-s-probegom-do-270-000-km",
+      "title": "Экспертная проверка подтвердила надежность автомобилей Hongqi H5 и HS5 ...",
+      "from_query": "hongqi hs5 проверка до депозита 2026"
+    },
+    {
+      "url": "https://hongqi.ru/brand/cars-quality",
+      "title": "Технический Аудит Hongqi: Результаты Проверки Автомобилей С Пробегом",
+      "from_query": "hongqi hs5 проверка до депозита 2026"
+    },
+    {
+      "url": "https://www.rbcautonews.ru/news/6a6365bc9a79474b8ede4936",
+      "title": "Что стало с Hongqi H5 и HS5 после 270 и 150 тыс. км пробега ...",
+      "from_query": "hongqi hs5 проверка до депозита 2026"
+    },
+    {
+      "url": "https://www.autonews.ru/news/6a6365bc9a79474b8ede4936",
+      "title": "Что стало с Hongqi H5 и HS5 после 270 и 150 тыс. км пробега ...",
+      "from_query": "hongqi hs5 проверка до депозита 2026"
+    },
+    {
+      "url": "https://svobodanews.ru/avto/hongqi-h5-i-hs5-mashiny-s-probegom-270-000-i-150-000-km-proshli-ekspertnuyu-proverku.html",
+      "title": "Hongqi H5 и HS5: машины с пробегом 270 000 и 150 000 км прошли ...",
+      "from_query": "hongqi hs5 проверка до депозита 2026"
+    }
+  ]
+}

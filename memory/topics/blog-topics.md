@@ -317,7 +317,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS15 — Chery Arrizo 8 из Китая
 
 - **priority:** P0
-- **status_note:** scout_ready 2026-11-04 — NEW slug; do not overwrite LIVE AS01–AS14 / denylist China models
+- **status_note:** publish_blocked 2026-11-04 — SSH TCP/22 timeout from Cloud; NEW slug reserved for SSH retry only; do not overwrite LIVE denylist (4758/4746/4740/3430/3394/4717/4711) or foreign China/Sienta/encar/utilsbor slugs
 - **slug:** chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026
 - **h1:** Как выбрать Chery Arrizo 8 из Китая: комплектации и ловушки до депозита
 - **primary_query:** арризо 8 комплектации

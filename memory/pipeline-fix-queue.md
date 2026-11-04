@@ -391,3 +391,43 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261104-1013-publish-ssh-tcp22-timeout-as15
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-publish
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026
+severity: blocker
+category: env
+
+### What went wrong
+- `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`; link-verify PASS; dry-run PASS for NEW slug `chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026`.
+- `--env-check`: ssh.dns.resolved=true, paramiko_available=true after pip workaround, but `ssh.tcp22` → `ssh_tcp22_timeout` via `SSH_HOST`.
+- `SSH_HOST_IP` unset. DNS A for SSH_HOST probed (~8s TimeoutError). PUBLIC_SITE_URL IP differs from SSH A and was NOT used as SSH fallback (contract).
+- Same Cloud egress class as AS10 Sienta publish_blocked.
+- Dry-run initially crashed: local `import re` inside `load_article` shadowed module `re` and broke earlier `re.sub` on schema (UnboundLocalError).
+
+### How the agent recovered this run
+- Installed paramiko via pip workaround; re-ran env-check (paramiko true; tcp22 still missing).
+- Removed shadowing local `import re` in `scripts/excalibur_blog_wp_publish.py`; dry-run then PASS (PHP ~6.87MB, correct slug).
+- Did **not** attempt LIVE SSH publish; no denylist/LIVE posts rewritten.
+- Ledger AS15 → `publish_blocked`; wp-publish-result.json + log + handoff blocker recorded.
+
+### Durable fix needed before next run
+- Human: restore Beget SSH listener/firewall TCP/22 for Cloud egress, **or** add verified Cloud Secret `SSH_HOST_IP` with open TCP/22 (never invent / never use PUBLIC_SITE_URL IP).
+- After connectivity restored: republish ONLY slug `chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026` (never 4758/4746/4740/3430/3394/4717/4711 or foreign slugs).
+- Keep local-`import re` removed (already patched this run); pin paramiko in image so Cloud agents do not need pip workaround.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (tcp22 gate; re-import shadow — fixed)
+- `shared/excalibur-wp-publish-contract.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- Cursor Dashboard Cloud Secrets (`SSH_HOST_IP` only; no values recorded)
+- Beget panel SSH/firewall for hostname behind `SSH_HOST`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

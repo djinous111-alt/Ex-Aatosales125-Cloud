@@ -1,7 +1,7 @@
 # Promotion checklist — AS15 chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-11-04 (pending publish)  
-Live URL: /blog/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-11-04 (publish_blocked — SSH TCP/22)  
+Live URL: none (no LIVE write; reserved slug `chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026`)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: `excalibur_blog_interlinker.py --apply` — 0 internal links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (relative `/blog/<slug>/`; AS15 listed).
-- Publish: pending (indexer не публикует).
+- Publish: ❌ PUBLISH BLOCKER (`ssh_tcp22_timeout`); ledger=`publish_blocked`; no LIVE URL.

@@ -64,7 +64,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → dns.resolved=true, tcp22.error=ssh_tcp22_timeout, missing=[ssh_tcp22]
 - `python3 scripts/excalibur_blog_doctor.py` SUMMARY errors=0
-commit: pending-parent-commit
+commit: 1ff0de20
 
 ## INC-20261104-1802-indexer-llms-blog-path-wiped
 status: fixed
@@ -117,7 +117,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-path/--blog_path/--relative-urls
 - doctor + fixer_regression_smoke PASS
-commit: pending-parent-commit
+commit: 1ff0de20
 
 ## INC-20261104-1757-cover-mcp-kv-down-kie-fallback
 status: fixed
@@ -175,7 +175,7 @@ files_changed:
 checks_run:
 - doctor cover tempfile + hero kie upload pins OK
 - smoke cover tempfile + outfit lock OK
-commit: pending-parent-commit
+commit: 1ff0de20
 
 
 ## INC-20261104-1706-scout-wordstat-mcp-unavailable
@@ -219,7 +219,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg UNAVAILABLE / WebSearch-only guidance in scout skill + pitfalls
-commit: pending-parent-commit
+commit: 1ff0de20
 
 ## INC-20261104-1706-scout-helper-b-only-as-series
 status: fixed
@@ -270,7 +270,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Next AS22, pool 10
 - doctor AS|B pins OK; smoke AS|B OK
-commit: pending-parent-commit
+commit: 1ff0de20
 
 ## INC-20261104-1707-scout-precommit-secret-names
 status: fixed
@@ -312,7 +312,7 @@ files_changed:
 checks_run:
 - doctor pins git.sh + filter present
 - smoke excalibur_git.sh + filter OK
-commit: pending-parent-commit
+commit: 1ff0de20
 
 ## INC-20261104-1706-scout-denylist-missing
 status: fixed
@@ -355,7 +355,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor denylist ≥100 slugs OK
-commit: pending-parent-commit
+commit: 1ff0de20
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -647,7 +647,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg pragma/excalibur_git in writer skill + pitfalls
-commit: pending-parent-commit
+commit: 1ff0de20
 
 
 ## INC-20261104-1730-geo-qa-sanitizer-wipe-restores
@@ -701,7 +701,7 @@ files_changed:
 checks_run:
 - doctor markers/soft-pass/TL;DR pins OK
 - smoke editorial + link_verify + human_voice OK
-commit: pending-parent-commit
+commit: 1ff0de20
 
 ## INC-20261104-1730-geo-qa-typed-task-fallback
 status: fixed
@@ -740,7 +740,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg geo-qa generalPurpose in AGENTS.md / pitfalls
-commit: pending-parent-commit
+commit: 1ff0de20
 
 ## INC-20261104-1731-geo-qa-human-voice-writer-fix
 status: fixed
@@ -786,4 +786,4 @@ files_changed:
 checks_run:
 - rg TL;DR ban + human-voice preflight in writer skill/contract
 - doctor human_voice TL;DR ban OK
-commit: pending-parent-commit
+commit: 1ff0de20

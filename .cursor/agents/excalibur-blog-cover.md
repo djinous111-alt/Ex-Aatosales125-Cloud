@@ -46,12 +46,15 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 
 ## Жёсткие правила
 
-1. **ONE MCP** — один холст 2×2. **Запрещено** 4 отдельных вызова.
-2. MCP **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
-3. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
-4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
-5. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
-6. Не трогать `schema.jsonld`, не переписывать текст статьи.
+1. **ONE image job** — один холст 2×2. **Запрещено** 4 отдельных вызова.
+2. Image job **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
+3. Если `MCP-KV` discovery = error / tools empty → **Kie-first** (`scripts/excalibur_blog_kie_gpt_image2_api.py`), без blind MCP retry.
+4. Kie auto-rehost local hero via `file-base64-upload` when WP/catbox URL fails (do not invent second canvas job).
+5. После split `cover.png` обязан содержать corner brand `avto-sales125.ru` (stamp в `excalibur_blog_cover_quad_split.py`).
+6. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
+7. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
+8. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
+9. Не трогать `schema.jsonld`, не переписывать текст статьи.
 
 ---
 

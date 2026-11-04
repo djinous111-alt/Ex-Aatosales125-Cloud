@@ -150,12 +150,21 @@ def main() -> int:
     ap.add_argument("--hero-json", default="memory/cover/blog-hero.json")
     ap.add_argument("--force", action="store_true", help="Re-upload even if URL exists")
     ap.add_argument(
+        "--force-local-hero",
+        action="store_true",
+        help="Alias: always rehost local PNG via Kie file-base64-upload (sets --force --provider kie)",
+    )
+    ap.add_argument(
         "--provider",
         choices=("catbox", "0x0", "kie", "auto"),
         default="auto",
         help="auto = catbox → 0x0 → kie file-base64-upload",
     )
     args = ap.parse_args()
+
+    if args.force_local_hero:
+        args.force = True
+        args.provider = "kie"
 
     root = project_root()
     hero_path = Path(args.hero_json)
@@ -185,7 +194,7 @@ def main() -> int:
         return 0
 
     env_url = normalize_https_url(os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip())
-    if env_url:
+    if env_url and not args.force_local_hero:
         if not env_url.startswith("https://"):
             print(f"❌ HERO BLOCKER: BLOG_HERO_REFERENCE_URL must be HTTPS, got: {env_url}", file=sys.stderr)
             return 1

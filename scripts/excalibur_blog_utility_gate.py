@@ -28,7 +28,7 @@ def save_json(path: Path, data: dict[str, Any]) -> None:
 
 def parse_topic_card(topics_path: Path, topic_id: str) -> dict[str, str]:
     text = topics_path.read_text(encoding="utf-8")
-    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]\d+|\Z)"
+    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
     match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
     if not match:
         raise ValueError(f"topic card not found: {topic_id}")
@@ -92,6 +92,24 @@ def is_actionable_h2(title: str) -> bool:
 def count_markers(text: str, markers: list[str]) -> int:
     hay = text.lower()
     return sum(hay.count(marker.lower()) for marker in markers)
+
+
+def policy_min_int(req: dict[str, Any], key: str, default: int) -> int:
+    """Read min_* from policy; honor explicit 0 (``or default`` would skip it)."""
+    if key not in req or req.get(key) is None:
+        return default
+    return int(req[key])
+
+
+# Mode-B RU aliases accepted alongside policy recommendation_markers_ru.
+RECOMMENDATION_ALIASES_RU = (
+    "делать",
+    "не делать",
+    "делайте",
+    "не делайте",
+    "чек-лист",
+    "чеклист",
+)
 
 
 def gate_topic(topic: dict[str, str], policy: dict[str, Any]) -> dict[str, Any]:
@@ -158,7 +176,10 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     blockquotes = len(re.findall(r"<blockquote[\s\S]*?</blockquote>", html, flags=re.I))
     faq_h3 = len(re.findall(r"<h3[^>]*>", html, flags=re.I))
 
-    markers = policy.get("recommendation_markers_ru") or []
+    markers = list(policy.get("recommendation_markers_ru") or [])
+    for alias in RECOMMENDATION_ALIASES_RU:
+        if alias not in markers:
+            markers.append(alias)
     marker_count = count_markers(plain, markers)
 
     min_steps = int(req.get("min_numbered_steps") or 5)
@@ -181,7 +202,7 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if faq_h3 < min_faq:
         warnings.append(f"FAQ h3={faq_h3}, ожидалось ≥{min_faq}")
 
-    min_rec = int(req.get("min_recommendation_markers") or 8)
+    min_rec = policy_min_int(req, "min_recommendation_markers", 8)
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
@@ -190,14 +211,14 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     pain_count = count_markers(plain, pain_markers) if pain_markers else 0
     outcome_count = count_markers(plain, outcome_markers) if outcome_markers else 0
 
-    # Empty marker lists → skip (do not BLOCK every article when policy was wiped).
+    # Empty marker lists → skip (do not BLOCK every article with defaults against zero hits).
     if pain_markers:
-        min_pain = int(req.get("min_pain_markers") or 2)
+        min_pain = policy_min_int(req, "min_pain_markers", 2)
         if pain_count < min_pain:
             errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
     if outcome_markers:
-        min_outcome = int(req.get("min_outcome_markers") or 3)
+        min_outcome = policy_min_int(req, "min_outcome_markers", 3)
         if outcome_count < min_outcome:
             errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 

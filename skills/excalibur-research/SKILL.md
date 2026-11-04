@@ -40,6 +40,10 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 1. **Анализ спроса через Wordstat API:**
   Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
   - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
+  - Если MCP-KV discovery/auth FAIL или tool unavailable:
+    - В `## wordstat` запиши `UNAVAILABLE` + `⚠️ WORDSTAT AUTH WARNING` (не выдумывай показы).
+    - Продолжай deep WebSearch/WebFetch; research-notes gate может PASS без impression counts.
+    - Допиши incident в `memory/pipeline-fix-queue.md`.
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
@@ -61,6 +65,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. Auto-import / non-dev how-to (AS## комплектации/ловушки) не обязан тянуть `github_urls >= 3`: research-notes-gate tech heuristic использует word-boundary markers и игнорирует `## github_evidence` при классификации.
 
 ## Blockers
 

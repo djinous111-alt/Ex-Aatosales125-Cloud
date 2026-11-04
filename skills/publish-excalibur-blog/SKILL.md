@@ -30,30 +30,34 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "${PUBLIC_SITE_URL}"
 ```
 
-Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
+Gate: `link-verify.json` → pass (catalog/site SSL soft-pass допустим). Иначе FIX (writer/QA) или BLOCKER.
+
+Если `--env-check` → `ssh.tcp22.reachable=false` / `ssh_tcp22_timeout`: **не** угадывать DNS/IP/credentials, **не** LIVE write. Ledger `publish_blocked`; human restores TCP/22 or verified `SSH_HOST_IP`.
 
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
 
-Проверь: slug, title, размер PHP payload без ошибок.
+Проверь: slug, title, размер PHP payload без ошибок. Не добавляй локальный `import re` внутри `load_article` (module-level `re` only).
 
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
+
 
 Скрипт:
 - создаёт/обновляет WP post;

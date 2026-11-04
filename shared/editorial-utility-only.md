@@ -6,7 +6,7 @@
 
 **Публикуем только то, что даёт действие.** После прочтения читатель знает *что сделать* — не «вообще про тему».
 
-Дополнительный фильтр канала: **новичок-first**. Статья должна быть полезна обычному человеку без технического бэкграунда, который только начинает путь в автоматизации, AI-агентах и нейросетях. Если тема требует опыта разработчика/админа/архитектора и не даёт простого первого результата — тему не берём.
+Дополнительный фильтр канала: **новичок-first**. Для Autosalas (AS##) — покупатель авто без брокерского опыта; для legacy B## Cursor/AI — человек без dev-бэкграунда. Если тема требует опыта профи и не даёт простого первого результата — тему не берём.
 
 | ✅ Берём | ❌ Не берём |
 |---------|------------|
@@ -22,7 +22,7 @@
 Перед research:
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py --topic-id B01
+python3 scripts/excalibur_blog_utility_gate.py --topic-id AS22
 ```
 
 **Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем в пайплайн.
@@ -52,7 +52,7 @@ Research-агент **отклоняет** угол без практики. В 
 Машинный gate:
 
 ```bash
-python scripts/excalibur_blog_research_notes_gate.py \
+python3 scripts/excalibur_blog_research_notes_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   -o research-notes-gate.json
 ```
@@ -61,19 +61,19 @@ python scripts/excalibur_blog_research_notes_gate.py \
 
 Контракт: `shared/excalibur-article-writing-contract.md`
 
-- Каждый H2 = подзадача + **рекомендация** (делать / не делать)
+- Каждый H2 = подзадача + **рекомендация** (токены `recommendation_markers_ru`; алиасы `не делайте`/`не делать`, `чеклист`/`чек-лист`)
 - Минимум **5** нумерованных шагов ИЛИ чеклист 10+ пунктов
 - Workflow-схема (`→`) или таблица (comparison)
 - FAQ — короткие **ответы-действия**, не пересказ
 - Lead/H2 используют `reader_story`, `voice_angle`, `surprising_fact`
-- Lead называет боль, H2 закрывают боли из `pain_solution_map`, до FAQ есть понятный критерий результата.
+- Lead называет боль (`pain_markers_ru`), H2 закрывают `pain_solution_map`, до FAQ — результат (`outcome_markers_ru`). Списки маркеров pinned (`_markers_pinned`); utility skip mins только если список пуст.
 - Beginner-fit: сложный термин объяснён сразу, нет тона «для профи», есть первый безопасный шаг без команды разработчиков.
 - Human voice gate PASS: нет шаблонных H2, есть живые примеры, разный ритм абзацев
 
 ## Gate 4 — GEO QA
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 

@@ -6,625 +6,424 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none_
+
+## Needs-human
+
 ## INC-20261105-2215-publish-ssh-tcp22-timeout-as22
-status: open
+status: needs-human
 run_date: 2026-11-05
 role: excalibur-blog-publish
 topic_id: AS22
 article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: blocker
 category: publish
+fixed_at: 2026-11-05
 
 ### What went wrong
-- `--env-check` reported `ssh.dns.resolved=true` but `ssh.tcp22.reachable=false` with `ssh_tcp22_timeout` via `SSH_HOST`.
-- `SSH_HOST_IP` unset; guessing DNS/IP/credentials refused.
-- Same class as AS21 Hongqi HS5 / AS15 Arrizo 8 / AS10 GAC GS3 (2026-11-04).
+- `--env-check` reported `ssh.dns.resolved=true` but `ssh.tcp22.reachable=false` (`ssh_tcp22_timeout`).
+- Same class as AS21 / AS15 / AS10 (2026-11-04).
 
 ### How the agent recovered this run
-- Completed preflight: allow=yes; link-verify pass; dry-run PASS (PHP ~6.39MB); slug not in denylist.
-- Did **not** attempt LIVE SSH/WP write.
-- Ledger → `publish_blocked`; wrote `wp-publish-result.json`, wp-publish-log, promotion note, handoff PUBLISH + PIPELINE DONE.
-- Denylist LIVE posts 4758/4746/4740/3430/3394/4717/4711 untouched.
-
-### Durable fix needed before next run
-- Restore Cloud→WP SSH TCP/22 reachability, or set a human-verified `SSH_HOST_IP` Cloud Secret.
-- Re-run publish **only** for this NEW free slug after TCP/22 works; do not overwrite foreign LIVE posts.
-
-### Suggested files to inspect/change
-- Cursor Dashboard Cloud Secrets (`SSH_HOST` / optional `SSH_HOST_IP` / `SSH_PORT`)
-- `scripts/excalibur_blog_wp_publish.py` (`--env-check` tcp22 gate)
-- `skills/publish-excalibur-blog/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
+- No LIVE SSH/WP write; ledger `publish_blocked`; denylist LIVE posts untouched.
 
 ### Fixer resolution
-- pending (needs-human for network/SSH path unless fixer can only document the gate)
+status: needs-human
+reason:
+- Cloud→WP SSH TCP/22 not reachable from this environment; cannot verify real TCP in fixer.
+needed_decision_or_secret:
+- Restore Beget/SSH egress TCP/22 **or** inject human-verified `SSH_HOST_IP` Cloud Secret (plus working `SSH_HOST`/`SSH_PORT`).
+- Re-run publish **only** for NEW free slug `changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026` after TCP/22 works; do not overwrite foreign LIVE posts (4758/4746/4740/3430/3394/4717/4711).
+files_changed:
+- `skills/publish-excalibur-blog/SKILL.md` (+ `.cursor` sync) — env-check TCP/22 blocker path documented
+- `shared/agent-pipeline-pitfalls.md` — DNS≠TCP; needs-human rule
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → PASS
+commit: 738b2d80 (scripts/pins); docs commit follows
+
+## Fixed this run (AS22 / 2026-11-05)
 
 ## INC-20261105-2215-publish-load-article-re-shadow
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-publish
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: script
-
-### What went wrong
-- First `--dry-run` crashed with `UnboundLocalError: cannot access local variable 're'` inside `load_article`.
-- Local `import re` after `re.sub(...)` for schema pragma strip shadowed the module-level `re` import.
-
-### How the agent recovered this run
-- Removed the local `import re` in `scripts/excalibur_blog_wp_publish.py`; dry-run then PASS.
-
-### Durable fix needed before next run
-- Keep module-level `re` only (already applied this run); add a tiny regression check or note in pitfalls so the local import is not reintroduced.
-- Fixer should confirm both `skills/` and `.cursor/skills` publish docs do not instruct a local re-import pattern.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_wp_publish.py`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Confirmed module-level `re` only in `load_article` (no local import); stripped UTF-8 BOM from publish script.
+- Smoke asserts no nested `import re` and no BOM.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- py_compile + fixer regression smoke PASS
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2211-indexer-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-indexer
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: env
-
-### What went wrong
-- First `git commit` of indexer artifacts failed in Cursor pre-commit secret scanner: `CLOUD_AGENT_*_SECRET_NAMES` contained a non-identifier token that breaks bash `${!SECRET_NAME}` (`invalid variable name`).
-- Same class as INC-20261105-0013 / INC-20261105-2125 / INC-20261105-2205-schema-precommit-invalid-secret-name.
-
-### How the agent recovered this run
-- Filtered both `CLOUD_AGENT_INJECTED_SECRET_NAMES` and `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` comma-separated ids, then commit `8017dac5` succeeded.
-
-### Durable fix needed before next run
-- Sanitize injected secret-name lists before the pre-commit hook (drop non-identifiers), or make the hook skip invalid names instead of aborting.
-- Same durable fix as prior secret-name incidents this run.
-
-### Suggested files to inspect/change
-- Cursor Cloud pre-commit secret scanner / env injection for `CLOUD_AGENT_*_SECRET_NAMES`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Verified `scripts/excalibur_git.sh` + `excalibur_blog_filter_commit_secret_env.sh` present; doctor/smoke pin them.
+- Indexer/schema/writer/scout skills instruct commits via `excalibur_git.sh`.
+files_changed:
+- `agents/excalibur-blog-indexer.md`, `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`, `.cursor/skills/...`
+- `skills/schema-excalibur-blog/SKILL.md`, writer/scout skills
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK git.sh + filter; smoke OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2210-indexer-llms-skill-absolute-vs-relative
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-indexer
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: low
 category: docs
-
-### What went wrong
-- Skill CLI for llms generator uses `--site-base ${PUBLIC_SITE_URL}` without `--relative-urls`.
-- Script help marks `--relative-urls` / empty site-base as required for committed `memory/blog/llms*.txt`.
-- Following skill literally produced absolute host URLs; repo HEAD and prior AS21 commit style use `/blog/<slug>/`.
-
-### How the agent recovered this run
-- First run: skill CLI with `--blog-path /` + PUBLIC_SITE_URL (flag restored; doctor complaint obsolete for this path).
-- Second run: `--site-base "" --blog-path / --relative-urls` → commit-safe relative index.
-- Cleared `site_base` in `memory/blog/interlink-suggestions.json` before commit (AS21 pattern).
-
-### Durable fix needed before next run
-- Update indexer skill (both `.cursor/skills` and `skills/`) to document commit-safe command: `--blog-path / --relative-urls` (or empty `--site-base`) for `memory/blog/llms*.txt`.
-- Keep optional absolute/`PUBLIC_SITE_URL` mode only for live/runtime upload notes, not for git commit.
-- Mirror note in `shared/agent-pipeline-pitfalls.md`.
-
-### Suggested files to inspect/change
-- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
-- `skills/indexer-excalibur-blog/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Indexer skill/agent: commit-safe `--site-base "" --blog-path / --relative-urls`; absolute PUBLIC_SITE_URL only for live/runtime.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `agents/excalibur-blog-indexer.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor relative-urls check OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2205-cover-mcp-kv-down-kie-fallback
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-cover
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: api
-
-### What went wrong
-- MCP namespace `MCP-KV` returned discovery `error` ("failed during live tool discovery"); `gpt-image-2` unavailable for ONE quad i2i call.
-- Existing WP media `reference_url_hosted` unreachable (HTTP 000 / timeout); cannot rely on wordpress-media for Kie `input_urls`.
-
-### How the agent recovered this run
-- `excalibur_blog_hero_reference_url.py --force --provider kie` → tempfile.redpandaai.co hero PNG.
-- Built `quad-manifest.json` + `quad-mcp-batch.json` (1 job, input_urls set).
-- ONE Kie async job via `excalibur_blog_kie_gpt_image2_api.py` model `gpt-image-2-image-to-image` (task_id `8772dc50e01c78b1bc70008d9e7d8dc1`) → canvas → split PASS → inject 3 figures.
-- Non-toxic sticker text only; cover corner `avto-sales125.ru`.
-
-### Durable fix needed before next run
-- Restore MCP-KV connection/auth for Cloud automations so cover can use native `gpt-image-2` when healthy.
-- Keep documented Kie fallback path as first-class (hero kie upload + kie gpt-image2 api) when MCP-KV discovery fails.
-- WP media hero URL frequently dead — prefer Kie tempfile upload when HEAD probe fails.
-
-### Suggested files to inspect/change
-- `.cursor/skills/cover-excalibur-blog/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
-- `scripts/excalibur_blog_hero_reference_url.py`
-- MCP-KV Cursor Dashboard connection
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fix_summary:
+- Cover skill: MCP-KV primary + first-class Kie fallback (`hero --force --provider kie`, kie gpt-image2 api); python3; WP hero HEAD fail → Kie tempfile.
+- MCP Dashboard restore remains optional human follow-up for native gpt-image-2; agent path no longer blocked.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor Kie tempfile + hero upload pins OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2205-schema-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-schema
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: env
-
-### What went wrong
-- First `git commit` of `schema.jsonld` failed in Cursor pre-commit secret scanner: `CLOUD_AGENT_*_SECRET_NAMES` contained a non-identifier token (raw `http…` value, len 25) that breaks bash `${!SECRET_NAME}` (`invalid variable name`). Same class as INC-20261105-0013 / INC-20261105-2125.
-
-### How the agent recovered this run
-- Filtered both `CLOUD_AGENT_INJECTED_SECRET_NAMES` and `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` **comma-separated** ids (hook uses `IFS=','`), then commit `af2c2ecf` succeeded and pushed.
-
-### Durable fix needed before next run
-- Sanitize injected secret-name lists before the pre-commit hook (drop non-identifiers; normalize to comma-separated), or make the hook skip invalid names.
-- Restore `scripts/excalibur_git.sh` wrapper that applies the filter automatically for all roles including schema.
-
-### Suggested files to inspect/change
-- `shared/agent-pipeline-pitfalls.md`
-- `scripts/excalibur_git.sh`
-- `.cursor/skills/schema-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Same durable git secret-name filter as indexer/writer; schema skill documents `excalibur_git.sh`.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `scripts/excalibur_git.sh` (verified present)
+checks_run:
+- doctor/smoke git filter OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2148-writer-catalog-host-hyphen-vs-public-site
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-writer
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: docs
-
-### What went wrong
-- Initial Writer CTA used catalog host with hyphen (`avto-sales125.ru`) from `conversion-map.md`, while `PUBLIC_SITE_URL` host is `avtosales125.ru` (no hyphen).
-- GEO QA link-verify classified catalog as `external` and hit SSL handshake timeout on the hyphen host; html-linter also FAIL on H2 substring "FAQ".
-
-### How the agent recovered this run
-- FIX cycle 1: renamed H2 without "FAQ"; injected exact `recommendation_markers_ru` (≥8); rewrote catalog href host to `PUBLIC_SITE_URL` host + path `/`; kept Telegram `t.me/avtosales125`; ol lengths 7+6; re-ran html-linter/utility/human-voice → PASS.
-
-### Durable fix needed before next run
-- Align `memory/brief/conversion-map.md` catalog URL host with `PUBLIC_SITE_URL` (canonical `avtosales125.ru`).
-- Writer skill/pitfalls: CTA catalog host must follow `PUBLIC_SITE_URL`, not a stale hyphen host from conversion-map.
-- Keep link-verify catalog soft-pass for flaky SSL (see INC-2141).
-
-### Suggested files to inspect/change
-- `memory/brief/conversion-map.md`
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
-- `scripts/excalibur_blog_link_verify.py`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- conversion-map note: catalog host = PUBLIC_SITE_URL (`avtosales125.ru`), not hyphen host; Writer skill/agent CTA rule.
+files_changed:
+- `memory/brief/conversion-map.md`
+- `skills/writer-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `agents/excalibur-blog-writer.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg/docs review; doctor errors=0
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2145-director-sanitizer-wiped-durable-pins
-status: open
-run_date:  2026-11-05
+status: fixed
+run_date: 2026-11-05
 role: excalibur-blog-director
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: high
 category: script
+fixed_at: 2026-11-05
 
-### What went wrong
-- Boot sanitizer wiped durable pins from tip a9db2e63: editorial-policy pain/outcome markers, utility_gate empty-list skip, link_verify catalog soft-pass, llms `--blog-path`, doctor marker checks.
-- GEO QA AS22 FAIL: utility BLOCK (pain/outcome 0), link-verify FAIL on catalog SSL without soft-pass, doctor errors=1 on llms --blog-path.
-
-### How the agent recovered this run
-- Director restored pinned files from git tip a9db2e63 for: memory/brief/editorial-policy.json, scripts/excalibur_blog_utility_gate.py, scripts/excalibur_blog_link_verify.py, scripts/excalibur_blog_llms_generator.py, scripts/excalibur_blog_doctor.py.
-- Then Writer FIX cycle for article H2/action markers; re-run GEO QA.
-
-### Durable fix needed before next run
-- Protect pinned files from sanitizer wipe; Fixer verify doctor/smoke after restore; keep `_markers_pinned` and catalog soft-pass.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fix_summary:
+- Restored/pinned editorial markers, utility empty-list skip, link_verify soft-pass, llms CLI, doctor marker/denylist/git checks; pitfalls warn about sanitizer wipe + doctor preflight.
+files_changed:
 - `memory/brief/editorial-policy.json`
 - `scripts/excalibur_blog_utility_gate.py`
 - `scripts/excalibur_blog_link_verify.py`
 - `scripts/excalibur_blog_llms_generator.py`
 - `scripts/excalibur_blog_doctor.py`
 - `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
+checks_run:
+- doctor errors=0; smoke PASS
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2140-geo-qa-utility-empty-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-geo-qa
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: high
 category: script
-
-### What went wrong
-- `excalibur_blog_utility_gate.py` always enforces `min_pain_markers` (default 2) and `min_outcome_markers` (default 3).
-- `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru`, so counts are always 0 → every article BLOCK on utility, including previously PASS AS08 when re-run.
-- AS22 human-voice gate already PASS with pain/outcome vocabulary; utility false-blocks independently of content quality.
-
-### How the agent recovered this run
-- Recorded utility BLOCK in article-qa FAIL; did not invent policy markers ad hoc in GEO QA.
-- Returned Writer FIX for real action_marker gaps; deferred empty pain/outcome lists to Fixer.
-
-### Durable fix needed before next run
-- Add `pain_markers_ru` / `outcome_markers_ru` aligned with human-voice gate (or skip mins when lists empty).
-- Sync writer skill + editorial-utility docs with exact utility tokens (`не делайте` vs `не делать`, `чеклист` vs `чек-лист`).
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_utility_gate.py`
-- `memory/brief/editorial-policy.json`
-- `shared/editorial-utility-only.md`
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Restored `pain_markers_ru`/`outcome_markers_ru` + `_markers_pinned`; utility skips mins when lists empty; recommendation aliases; editorial-utility + writer tokens synced.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- writer skills
+checks_run:
+- smoke utility empty-list skip OK; doctor markers OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2141-geo-qa-catalog-ssl-timeout-no-softpass
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-geo-qa
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: high
 category: qa
-
-### What went wrong
-- link-verify FAIL: catalog URL on `avto-sales125.ru` — TCP:443 OK, SSL handshake timeout (retries + 60s).
-- Telegram `t.me` → 200 OK.
-- Catalog classified as `external` because article host `avto-sales125.ru` ≠ `PUBLIC_SITE_URL` host `avtosales125.ru`.
-- Prior runs relied on catalog/site soft-pass that is absent from current `is_soft_external_failure` (only social hosts).
-
-### How the agent recovered this run
-- Retried link-verify 3×; longer python SSL probe; openssl/curl also hung on handshake.
-- Did not fake pass; documented FAIL + domain mismatch for Writer/Fixer.
-
-### Durable fix needed before next run
-- Restore durable soft-pass for flaky site/catalog SSL timeouts (same class as wiped AS10 softpass), and/or normalize canonical catalog host vs `PUBLIC_SITE_URL`.
-- Document preferred catalog hostname for Writer CTA links.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_link_verify.py`
-- `shared/agent-pipeline-pitfalls.md`
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-- `.cursor/skills/excalibur-geo-qa/SKILL.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Restored `classify_soft_pass` catalog/site SSL/DNS/5xx soft-pass; GEO QA + publish skills document soft-pass OK.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor/smoke soft-pass pins OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2142-geo-qa-html-linter-faq-substring-false-positive
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-geo-qa
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: script
-
-### What went wrong
-- html-linter FAIL: H2 `Что сделать сегодня: ваш результат до FAQ` matched regex `faq` and counted as second FAQ section alongside `Частые вопросы`.
-- Outcome-before-FAQ H2 is required by writer contract; substring `FAQ` in that title triggers false duplicate.
-
-### How the agent recovered this run
-- Did not rewrite longread in GEO QA; FIX for Writer: rename H2 without substring `FAQ`.
-
-### Durable fix needed before next run
-- Match FAQ headings more strictly (exact `частые вопросы` / leading `faq`), not any H2 containing `faq`.
-- Document in writer skill: do not put `FAQ` in non-FAQ H2 titles until linter is fixed.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_html_linter.py`
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-- `shared/excalibur-article-writing-contract.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- FAQ linter uses `_is_faq_section_heading` (exact FAQ titles); smoke asserts outcome-before-FAQ H2 OK.
+files_changed:
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/excalibur-article-writing-contract.md`
+- writer skills
+checks_run:
+- smoke FAQ strict match PASS
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2143-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-geo-qa
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: low
 category: other
-
-### What went wrong
-- Typed Task `excalibur-blog-geo-qa` unavailable; Director used generalPurpose fallback with agent/skill paths.
-
-### How the agent recovered this run
-- Executed full GEO QA script suite as generalPurpose role with contracts from `.cursor/agents` + `.cursor/skills`.
-
-### Durable fix needed before next run
-- Restore typed Task mapping for `excalibur-blog-geo-qa` in Cloud, or keep documented generalPurpose fallback in director skill.
-
-### Suggested files to inspect/change
-- `.cursor/skills/director-excalibur-blog/SKILL.md`
-- `AGENTS.md`
-- `shared/pipeline-task-map.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Confirmed Director/AGENTS already document generalPurpose fallback; GEO QA skill notes typed-task unavailability.
+files_changed:
+- `skills/excalibur-geo-qa/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg director generalPurpose fallback present
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2125-writer-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-writer
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: env
-
-### What went wrong
-- First `git commit` of article.html/meta failed in Cursor pre-commit secret scanner: `CLOUD_AGENT_*_SECRET_NAMES` again contained a non-identifier token (`invalid variable name`), same class as INC-20261105-0013.
-
-### How the agent recovered this run
-- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` and `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` comma-separated ids, then commit `4f3b753b` succeeded and pushed.
-
-### Durable fix needed before next run
-- Sanitize injected secret-name lists before the pre-commit hook, or make the hook skip invalid names.
-- Restore `scripts/excalibur_git.sh` wrapper that applies the filter automatically for all roles.
-
-### Suggested files to inspect/change
-- `shared/agent-pipeline-pitfalls.md`
-- `scripts/excalibur_git.sh`
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Writer skill/agent require `excalibur_git.sh`; filter wrapper verified.
+files_changed:
+- writer skills/agents; pitfalls
+checks_run:
+- doctor/smoke git filter OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2115-research-wordstat-mcp-unavailable
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-research
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: api
-
-### What went wrong
-- MCP namespace `MCP-KV` again returned discovery `error`; `wordstat_get_top_requests` unavailable during Research (same root cause as INC-20261105-0011).
-- Exact Wordstat impression counts could not be collected for AS22 queries.
-
-### How the agent recovered this run
-- Recorded `## wordstat` with UNAVAILABLE + WORDSTAT AUTH WARNING link; zero invented shows.
-- Continued deep WebSearch/WebFetch for UNI-K trim/iDD/AWD/deposit traps; research-notes gate PASS.
-
-### Durable fix needed before next run
-- Restore MCP-KV Wordstat discovery/auth for Cloud automations (shared with Scout incident 0011).
-- Keep Research contract: UNAVAILABLE = warning table, never fabricate impressions.
-
-### Suggested files to inspect/change
-- MCP config / Cursor Dashboard MCP-KV connection
-- `.cursor/skills/excalibur-research/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Research skill: MCP-KV UNAVAILABLE → warning table, no fabricated shows, incident + continue WebSearch.
+- Restoring MCP auth is optional human follow-up; agent contract durable.
+files_changed:
+- `skills/excalibur-research/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- docs rg UNAVAILABLE
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-2116-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-research
 topic_id: AS22
-article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 severity: medium
 category: script
-
-### What went wrong
-- `excalibur_blog_research_notes_gate.py` marked auto-import topic AS22 as `technical_topic=true` because TECH_MARKERS use naive substring match: Latin `ai` inside required field `reader_pain`, and Cyrillic `ии` inside ordinary words like `опции` / `объявлении`.
-- Gate then required `github_urls >= 3` and warned about missing `/docs` developer URLs for a non-dev automotive how-to.
-
-### How the agent recovered this run
-- Added three relevant GitHub URLs (UNI-K owner repo + VIN helpers) so gate could PASS without inventing demand/pricing.
-- Kept beginner-first Mode B angle; GitHub used only as secondary VIN signal.
-
-### Durable fix needed before next run
-- Tighten TECH_MARKERS matching (word-boundary / tokenized), exclude known research field names (`reader_pain`, etc.), and do not treat RU morphology (`опции`) as AI/tech markers.
-- Optionally skip GitHub minimum for niches flagged as auto-import / non-dev in topic card.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_research_notes_gate.py`
-- `shared/agent-pipeline-pitfalls.md`
-- `.cursor/skills/excalibur-research/SKILL.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Verified `_tech_marker_hit` word-boundaries + `notes_without_github_evidence`; doctor/smoke pin helpers.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py` (verified)
+- research skill note for AS## auto-import
+checks_run:
+- doctor/smoke tech-marker helpers OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-0013-scout-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-scout
 topic_id: AS22
-article_dir: n/a
 severity: medium
 category: env
-
-### What went wrong
-- First `git commit` failed in Cursor pre-commit secret scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier token that breaks bash `${!SECRET_NAME}` expansion (`invalid variable name`).
-- Token was a bracketed placeholder left in the injected names list, not a real env id.
-
-### How the agent recovered this run
-- Filtered both `CLOUD_AGENT_INJECTED_SECRET_NAMES` and `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` comma-separated ids only, then re-ran commit successfully.
-
-### Durable fix needed before next run
-- Sanitize injected secret-name lists before the pre-commit hook (drop non-identifiers), or make the hook skip invalid names instead of aborting.
-- Document the filter step in Scout/publish pitfalls and restore `scripts/excalibur_git.sh` wrapper if missing on branch.
-
-### Suggested files to inspect/change
-- `shared/agent-pipeline-pitfalls.md`
-- `scripts/excalibur_git.sh` (missing on this checkout)
-- `.cursor/skills/scout-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fix_summary:
+- Scout agent/skill: commits via `excalibur_git.sh`; filter present.
+files_changed:
+- scout skills/agents; pitfalls
+checks_run:
+- doctor/smoke OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-0010-scout-helper-b-only-suggest-next
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-scout
 topic_id: AS22
-article_dir: n/a
 severity: medium
 category: script
-
-### What went wrong
-- `scripts/excalibur_blog_scout_helper.py --suggest-next` returned `B01` and reported 0 topics in pool because topic parsers use B-only regex (`B\d+`), ignoring Autosalas `AS##` IDs that already exist in `memory/topics/blog-topics.md`.
-- Director/Scout must manually force next free AS ID (AS22+) from git/run history; helper alone is unsafe for this niche.
-
-### How the agent recovered this run
-- Ignored helper suggestion B01.
-- Chose **AS22** (AS10–AS21 occupied in git/runs; AS21 Hongqi HS5 previous scout).
-- Appended Mode B card for Changan UNI-K and passed utility gate.
-
-### Durable fix needed before next run
-- Update `excalibur_blog_scout_helper.py` topic/article ID regex to accept `AS\d+|B\d+` (and active article dirs `AS##-*`).
-- Align Scout skill/agent docs with Autosalas AS-series, not Cursor/AI niche drift.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_scout_helper.py`
-- `.cursor/skills/scout-excalibur-blog/SKILL.md`
-- `.cursor/agents/excalibur-blog-scout.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Scout helper already AS|B; `--suggest-next` → AS23 with pool>0; Scout docs Autosalas AS##.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py` (verified)
+- scout skills/agents
+checks_run:
+- smoke scout AS* pool OK
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-0011-scout-wordstat-mcp-unavailable
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-scout
 topic_id: AS22
-article_dir: n/a
 severity: medium
 category: api
-
-### What went wrong
-- MCP namespace `MCP-KV` returned discovery `error` ("failed during live tool discovery"); `wordstat_get_top_requests` unavailable.
-- No Wordstat shows could be validated for the chosen query.
-
-### How the agent recovered this run
-- Continued WebSearch-only demand validation for Changan UNI-K 2026 (2.0T / iDD / AWD, комплектации до депозита).
-- Did **not** invent impression counts; recorded `wordstat_status: UNAVAILABLE` in handoff and topic `demand_signal`.
-
-### Durable fix needed before next run
-- Restore/fix MCP-KV Wordstat auth/discovery for Cloud automations.
-- Keep Scout contract: UNAVAILABLE = WebSearch-only + incident, never fabricate shows.
-
-### Suggested files to inspect/change
-- MCP config / Cursor Dashboard MCP-KV connection
-- `.cursor/agents/excalibur-blog-scout.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Scout skill: UNAVAILABLE = WebSearch-only + incident, never fabricate shows; Autosalas niche queries.
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- docs review
+commit: 738b2d80 (scripts/pins); docs commit follows
 
 ## INC-20261105-0012-scout-denylist-missing
-status: open
+status: fixed
 run_date: 2026-11-05
 role: excalibur-blog-scout
 topic_id: AS22
-article_dir: n/a
 severity: high
 category: docs
-
-### What went wrong
-- `shared/wp-slug-denylist.json` was absent on the working tree (sanitizer/checkout wipe), risking reuse of LIVE WP slugs after ledger reset.
-
-### How the agent recovered this run
-- Restored file from git history REST dump and merged known LIVE/model slugs (Sienta, GAC GS3, Arrizo 8, Hongqi HS5, Jaecoo J7, Tiggo 7 Pro, Jetour T2, Omoda C5, Haval M6, CS75 Plus, Tharu, TXL, Atlas, Dargo, etc.) plus ledger/topic pool slugs.
-- Confirmed candidate slug `changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026` free before append.
-
-### Durable fix needed before next run
-- Pin denylist in doctor/preflight: fail if missing or empty.
-- Document Scout rebuild recipe (git + ledger + known LIVE) in pitfalls; stop sanitizer from dropping the file.
-
-### Suggested files to inspect/change
-- `shared/wp-slug-denylist.json`
-- `scripts/excalibur_blog_doctor.py`
-- `shared/agent-pipeline-pitfalls.md`
-- `.cursor/skills/scout-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
+fixed_at: 2026-11-05
 
 ### Fixer resolution
-- pending
+status: fixed
+fix_summary:
+- Doctor fail-closed if denylist missing/empty (<50 slugs); file present (1254); Scout skill rebuild recipe; smoke asserts denylist.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/wp-slug-denylist.json` (verified)
+- scout skill/pitfalls
+checks_run:
+- doctor denylist OK; smoke 1254 slugs
+commit: 738b2d80 (scripts/pins); docs commit follows
 
+## Historical fixed incidents
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

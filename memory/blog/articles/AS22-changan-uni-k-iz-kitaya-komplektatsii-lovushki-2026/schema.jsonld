@@ -1,0 +1,187 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Changan UNI-K из Китая: комплектации и ловушки до депозита",
+      "description": "Чек-лист выбора Changan UNI-K из Китая до депозита: 2.0T vs iDD, 2WD/AWD, VIN-опции, смета через Владивосток и красные флаги договора.",
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${CATALOG_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${CATALOG_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "как выбрать changan uni-k из китая",
+        "changan uni-k комплектации",
+        "changan uni-k idd",
+        "чанган юни к из китая",
+        "uni-k 2.0t awd"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем UNI-K iDD отличается от бензина 2.0T?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зафиксируйте в чеклисте: 2.0T – бензин и 8AT без зарядки; iDD – 1.5T + электромотор, 6DCT, батарея ~30,7 кВт⋅ч и зарядка. Выберите одно до депозита и требуйте эту строку в договоре."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли полный привод AWD для зимы в РФ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если зима и снег важны – берите AWD BorgWarner и пропишите его явно. Для города на юге часто хватает 2WD. Не полагайтесь на \"похоже на полный\" по фото."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в комплектации до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полный VIN, фото must-have опций (360°, подогревы, панорама, акустика, зимний пакет), явную строку 2WD/AWD и силовую установку. Ярлык Tech/Flagship без VIN не принимайте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько ждать доставку через Владивосток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентир, не обещание: морское плечо часто ~7–14 дней, полный цикл заказа считают неделями (вилки у логистов разные). Точный график – только под конкретный лот в смете."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли платить по цене \"только в Китае\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. До перевода нужна смета под ключ со строками логистика, таможня, СБКТС и ЭПТС. Иначе \"вкусная\" цена почти всегда неполная."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как выбрать Changan UNI-K из Китая новичку без команды?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Пройдите чеклист выше: сценарий → мотор → привод → VIN-опции → смета → договор. Если пакет готов – откройте каталог Авто-Сейлс или напишите в Telegram avtosales125; если нет – депозит не вносите."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Changan UNI-K из Китая: комплектации и ловушки до депозита",
+      "description": "Пошаговый чек-лист выбора Changan UNI-K из Китая до депозита: сценарий, 2.0T или iDD, 2WD/AWD, VIN-опции, смета через Владивосток и стоп-условия договора.",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка лота: 2.0T или iDD, 2WD/AWD, полный VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото must-have опций и короткое видео осмотра"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Договор с юрлицом и письменная смета под ключ через Владивосток"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Сценарий использования: город / трасса / зима / розетка для iDD"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Must-have список до 7 пунктов и стоп-условия оплаты"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Определите, когда UNI-K из Китая уместен",
+          "text": "UNI-K – большой кроссовер (~4865 мм, база 2890 мм). Он уместен, если нужен просторный салон и вы готовы ждать логистику через Владивосток. Сначала запишите сценарий (город / трасса / зима / розетка для гибрида), потом деньги. Не выбирайте только по фото «полного фарша» и скидке «только сегодня».",
+          "url": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#определите-когда-uni-k-из-китая-уместен"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сравните бензин 2.0T и гибрид iDD до депозита",
+          "text": "2.0T ~226 л.с. с 8AT Aisin – без зарядки, удобен для трассы и региона. iDD – 1.5T + электромотор, 6DCT, батарея ~30,7 кВт⋅ч; нужна розетка. В договоре зафиксируйте одно: либо 2.0T + 8AT, либо iDD с батареей. Формулировку «разберёмся после оплаты» не оставляйте.",
+          "url": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#сравните-бензин-2-0t-и-гибрид-idd-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Зафиксируйте привод и опции по VIN, а не по ярлыку",
+          "text": "В договоре явно 2WD или AWD BorgWarner. Ярлыки Tech/Flagship/Luxe без VIN не принимайте. Выпишите must-have до 7 пунктов, запросите полный VIN, фото каждой опции и видео осмотра. Только после галочек по VIN идите к смете.",
+          "url": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-привод-и-опции-по-vin-а-не-по-ярлыку"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Соберите смету и документы через Владивосток до оплаты",
+          "text": "Цена «в Китае» без растаможки – не цена владения. До депозита нужна письменная смета под ключ: автомобиль, логистика, таможня, СБКТС, ЭПТС. Точные суммы считают под лот в каталоге; ориентир моря Китай → Владивосток часто ~7–14 дней, полный цикл – неделями.",
+          "url": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#соберите-смету-и-документы-через-владивосток-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Отсейте красные флаги договора и оплаты",
+          "text": "Стоп при давлении «только сегодня», оплате на физлицо или крипту, договоре без мотора/привода/опций и депозите до VIN и сметы. Юрлицо в договоре должно совпадать с реквизитами оплаты. Нужны курс и дата фиксации, сроки, возврат депозита и ответственность за срыв.",
+          "url": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#отсейте-красные-флаги-договора-и-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Что сделать сегодня: ваш результат",
+          "text": "В блокноте зафиксируйте четыре решения: силовая установка (2.0T или iDD), привод (2WD или AWD), must-have опции, стоп-условия оплаты. Ни одной оплаты, пока нет VIN/фото опций, договора с юрлицом и полной сметы. Фраза отказа: «пришлите VIN, фото опций и смету – потом депозит».",
+          "url": "${PUBLIC_SITE_URL}/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/#что-сделать-сегодня-ваш-результат"
+        }
+      ]
+    }
+  ]
+}

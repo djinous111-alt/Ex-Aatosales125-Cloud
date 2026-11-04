@@ -383,3 +383,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261104-1725-writer-cta-secret-scan
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-writer
+topic_id: AS21
+article_dir: memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- After filtering `CLOUD_AGENT_INJECTED_SECRET_NAMES` to comma-separated valid ids (hook uses `IFS=','`), pre-commit still blocked `article.html` because public CTA hrefs equal `CATALOG_URL` / `TELEGRAM_URL` secret values.
+- Space-separated filtered names fail the hook (`${!SECRET_NAME}` treats the whole string as one name).
+
+### How the agent recovered this run
+- Re-exported comma-separated valid secret names; added `<!-- pragma: allowlist secret -->` on the CTA line with catalog+Telegram hrefs; commit succeeded with hook enabled.
+
+### Durable fix needed before next run
+- Document writer CTA commit path: comma-separated `CLOUD_AGENT_INJECTED_SECRET_NAMES` + pragma allowlist on intentional public catalog/Telegram URLs (or stop injecting CATALOG_URL/TELEGRAM_URL as commit-scan secrets).
+- Restore `scripts/excalibur_git.sh` wrapper if wiped by sanitizer.
+
+### Suggested files to inspect/change
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

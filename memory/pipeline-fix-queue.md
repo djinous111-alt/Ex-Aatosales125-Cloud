@@ -60,7 +60,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → missing `ssh_tcp22`
 - doctor errors=0; fixer_regression_smoke PASS
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20261104-1358-indexer-secret-names-url-value
@@ -106,7 +106,7 @@ files_changed:
 checks_run:
 - filter unit: URL token dropped from FOO,https://…,BAR → FOO,BAR
 - doctor + smoke assert git/filter scripts present
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20261104-1350-cover-mcp-kv-down-kie-fallback
@@ -155,7 +155,7 @@ files_changed:
 checks_run:
 - `--help` shows `--force-local-hero` on both CLIs
 - doctor + smoke PASS
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20261104-1345-schema-secret-names-url-value
@@ -198,7 +198,7 @@ files_changed:
 - `scripts/excalibur_git.sh`
 checks_run:
 - filter unit PASS; doctor/smoke PASS
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20261104-1340-geo-qa-typed-task-fallback
@@ -240,7 +240,7 @@ files_changed:
 - `AGENTS.md` (already had fallback; verified)
 checks_run:
 - rg generalPurpose pin in director skill + pitfalls
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20261104-1341-geo-qa-catalog-softpass-wiped
@@ -282,7 +282,7 @@ files_changed:
 checks_run:
 - doctor pins classify_soft_pass/catalog_ssl/site_ssl/TL;DR
 - smoke PASS
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20261104-1325-writer-utility-markers-wiped
@@ -324,7 +324,7 @@ files_changed:
 - `scripts/excalibur_blog_fixer_regression_smoke.py`
 checks_run:
 - doctor editorial-policy pins OK; smoke OK
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20261104-1608-scout-wordstat-mcp-unavailable
@@ -365,7 +365,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg UNAVAILABLE in scout skill/agent
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20261104-1604-director-sanitizer-wipe-as-b-llms
@@ -409,7 +409,7 @@ files_changed:
 checks_run:
 - doctor SUMMARY errors=0 warnings=0
 - smoke PASS (AS pool visible)
-commit: pending-parent-commit
+commit: fa1e5a76
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

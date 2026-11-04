@@ -7,10 +7,11 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
-from typing import Any
+from typing import Any, Match
 
 from asset_download import download_url_bytes
 from excalibur_repo_paths import repo_relative
@@ -26,6 +27,7 @@ PUBLISH_ENV_KEYS = {
     "WP_HOME",
     "WP_SITE_URL",
     "SSH_HOST",
+    "SSH_HOST_IP",
     "SSH_PORT",
     "SSH_USER",
     "SSH_PASS",
@@ -58,6 +60,68 @@ def load_env(root: Path) -> dict[str, str]:
     return env
 
 
+def paramiko_available() -> bool:
+    try:
+        import importlib.util
+
+        return importlib.util.find_spec("paramiko") is not None
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def expand_env_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand git-safe placeholders like env:PUBLIC_SITE_URL or ${PUBLIC_SITE_URL}.
+
+    Schema/HTML in git must not embed secret host URLs; publish expands before WP upload.
+    Also supports ${A|B} first-hit alternates used in schema CTA fields.
+    """
+
+    def env_value(key: str) -> str:
+        return (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+
+    def repl_env_colon(match: Match[str]) -> str:
+        key = match.group(1)
+        suffix = match.group(2) or ""
+        value = env_value(key)
+        if not value:
+            return match.group(0)
+        return value + suffix
+
+    def repl_dollar(match: Match[str]) -> str:
+        for key in match.group(1).split("|"):
+            value = env_value(key.strip())
+            if value:
+                return value
+        return match.group(0)
+
+    text = re.sub(r"\benv:([A-Z][A-Z0-9_]*)(/[^\s\"'<>]*)?", repl_env_colon, text)
+    text = re.sub(r"\$\{([A-Z0-9_]+(?:\|[A-Z0-9_]+)*)\}", repl_dollar, text)
+    return text
+
+
+def commit_safe_public_url(url: str, env: dict[str, str] | None = None) -> str:
+    """Replace absolute public site origin with ${PUBLIC_SITE_URL} for git artifacts."""
+    env = env or {}
+    bases = [
+        (env.get("PUBLIC_SITE_URL") or os.environ.get("PUBLIC_SITE_URL") or "").strip().rstrip("/"),
+        (env.get("WP_HOME") or os.environ.get("WP_HOME") or "").strip().rstrip("/"),
+        (env.get("WP_SITE_URL") or os.environ.get("WP_SITE_URL") or "").strip().rstrip("/"),
+    ]
+    out = url or ""
+    for base in bases:
+        if base and base in out:
+            out = out.replace(base, "${PUBLIC_SITE_URL}")
+    return out
+
+
+def hydrate_env_placeholders(text: str, env: dict[str, str]) -> str:
+    return expand_env_placeholders(text, env)
+
+
+def redact_public_site_url(url: str, public_base: str) -> str:
+    return commit_safe_public_url(url, {"PUBLIC_SITE_URL": public_base})
+
+
 def validate_publish_env(env: dict[str, str]) -> list[str]:
     missing: list[str] = []
     if not env.get("SSH_HOST"):
@@ -71,19 +135,121 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def ssh_host_dns_probe(env: dict[str, str]) -> dict[str, object]:
+    """Resolve SSH_HOST without printing hostname/IP (secret-safe preflight)."""
+    import socket
+
+    host = (env.get("SSH_HOST") or "").strip()
+    if not host:
+        return {"configured": False, "resolved": False, "error": "SSH_HOST_missing"}
+    try:
+        port_raw = (env.get("SSH_PORT") or "22").strip() or "22"
+        port = int(port_raw)
+    except ValueError:
+        port = 22
+    try:
+        infos = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+        return {
+            "configured": True,
+            "resolved": bool(infos),
+            "error": None if infos else "empty_addrinfo",
+        }
+    except socket.gaierror as exc:
+        return {
+            "configured": True,
+            "resolved": False,
+            "error": f"gaierror:{getattr(exc, 'errno', '')}",
+        }
+    except OSError as exc:  # noqa: BLE001
+        return {
+            "configured": True,
+            "resolved": False,
+            "error": type(exc).__name__,
+        }
+
+
+def ssh_host_tcp22_probe(env: dict[str, str], *, timeout: float = 8.0) -> dict[str, object]:
+    """Probe TCP reachability to SSH port without printing host/IP.
+
+    Config/DNS PASS ≠ connectivity PASS. Cloud egress often times out on Beget :22.
+    Prefer SSH_HOST_IP when set (after human verification); never invent an IP.
+    """
+    import socket
+
+    host = (env.get("SSH_HOST_IP") or env.get("SSH_HOST") or "").strip()
+    if not host:
+        return {"configured": False, "reachable": False, "error": "SSH_HOST_missing", "via": None}
+    via = "SSH_HOST_IP" if (env.get("SSH_HOST_IP") or "").strip() else "SSH_HOST"
+    try:
+        port_raw = (env.get("SSH_PORT") or "22").strip() or "22"
+        port = int(port_raw)
+    except ValueError:
+        port = 22
+    try:
+        with socket.create_connection((host, port), timeout=timeout):
+            return {"configured": True, "reachable": True, "error": None, "via": via}
+    except TimeoutError:
+        return {"configured": True, "reachable": False, "error": "ssh_tcp22_timeout", "via": via}
+    except socket.timeout:
+        return {"configured": True, "reachable": False, "error": "ssh_tcp22_timeout", "via": via}
+    except socket.gaierror as exc:
+        return {
+            "configured": True,
+            "reachable": False,
+            "error": f"gaierror:{getattr(exc, 'errno', '')}",
+            "via": via,
+        }
+    except OSError as exc:  # noqa: BLE001
+        return {
+            "configured": True,
+            "reachable": False,
+            "error": type(exc).__name__,
+            "via": via,
+        }
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
+    """Secret-safe publish preflight.
+
+    NOTE: allow_publish + SSH fields configured = config PASS only.
+    Always inspect ssh.dns + ssh.tcp22; TCP timeout → publish_blocked (needs-human).
+    """
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    has_paramiko = paramiko_available()
+    if not has_paramiko:
+        missing = list(missing) + ["paramiko"]
+    dns = ssh_host_dns_probe(env)
+    if dns.get("configured") and not dns.get("resolved"):
+        missing = list(missing) + ["SSH_HOST_DNS"]
+    tcp: dict[str, object] = {
+        "configured": False,
+        "reachable": False,
+        "error": "skipped_dns_fail",
+        "via": None,
+    }
+    if dns.get("resolved") or (env.get("SSH_HOST_IP") or "").strip():
+        tcp = ssh_host_tcp22_probe(env)
+        if tcp.get("configured") and not tcp.get("reachable"):
+            missing = list(missing) + ["ssh_tcp22"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
-        "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "public_site_url_configured": bool(
+            env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")
+        ),
+        "paramiko_available": has_paramiko,
+        "config_pass_note": "config PASS ≠ DNS/TCP PASS; check ssh.dns and ssh.tcp22 before live publish",
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
+            "host_ip_configured": bool((env.get("SSH_HOST_IP") or "").strip()),
             "user_configured": bool(env.get("SSH_USER")),
             "password_configured": bool(env.get("SSH_PASS") or env.get("SSH_PASSWORD")),
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
+            "dns": dns,
+            "tcp22": tcp,
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -581,6 +747,13 @@ def main() -> int:
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
     missing = validate_publish_env(env)
+    if not paramiko_available():
+        missing = [*missing, "paramiko"]
+    # Live publish still requires reachable TCP/22 (or verified SSH_HOST_IP).
+    preflight = publish_env_check_report(env)
+    for item in preflight.get("missing") or []:
+        if item not in missing:
+            missing.append(str(item))
     if missing:
         print(f"BLOCKER: missing publish env: {', '.join(missing)}", file=sys.stderr)
         return 2

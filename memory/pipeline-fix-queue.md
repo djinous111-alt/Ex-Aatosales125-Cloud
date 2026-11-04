@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None after AS21 fixer pass (2026-11-04). Resolved blocks kept below for audit; see status fields._
+
+
 ## INC-20261104-1810-publish-ssh-tcp22-timeout-as21
-status: open
+status: needs-human
 run_date: 2026-11-04
 role: excalibur-blog-publish
 topic_id: AS21
@@ -41,10 +44,30 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-11-04
+reason:
+- Cloud→Beget SSH TCP/22 timeout persists after DNS A resolve; no verified SSH_HOST_IP in secrets.
+- Durable repo side done: --env-check DNS+TCP/22 probe, paramiko import probe, pitfalls/publish skill document needs-human path. Cannot invent IP/credentials from code.
+needed_decision_or_secret:
+- Restore Cloud egress TCP/22 to SSH_HOST, OR inject verified reachable SSH_HOST_IP in Cloud Secrets.
+- Re-run publish ONLY for NEW slug `hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026` after SSH restored.
+fix_summary:
+- Added ssh_host_dns_probe + ssh_host_tcp22_probe + paramiko_available to publish --env-check; live publish merges preflight missing (incl. ssh_tcp22).
+- Documented TCP timeout ≠ guess IP; config PASS ≠ TCP PASS.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-wp-publish-contract.md`
+checks_run:
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → dns.resolved=true, tcp22.error=ssh_tcp22_timeout, missing=[ssh_tcp22]
+- `python3 scripts/excalibur_blog_doctor.py` SUMMARY errors=0
+commit: pending-parent-commit
 
 ## INC-20261104-1802-indexer-llms-blog-path-wiped
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-indexer
 topic_id: AS21
@@ -81,10 +104,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Restored llms generator `--blog-path`/`--blog_path` URL-prefix CLI + `--relative-urls`; doctor pin PASS.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-path/--blog_path/--relative-urls
+- doctor + fixer_regression_smoke PASS
+commit: pending-parent-commit
 
 ## INC-20261104-1757-cover-mcp-kv-down-kie-fallback
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-cover
 topic_id: AS21
@@ -121,11 +157,29 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Kept Kie tempfile allowlist + outfit_lock + kie file-base64 upload helpers; doctor/smoke pin tempfile host and no white-hoodie hardcode.
+- Documented MCP-KV down → Kie-first ONE task fallback in pitfalls/cover skill. MCP-KV credentials remain human/Cloud.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py` (verified present)
+- `scripts/excalibur_blog_hero_reference_url.py` (verified present)
+- `scripts/excalibur_blog_kie_file_base64_upload.py` (verified present)
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/kie-gpt-image-api-contract.md`
+checks_run:
+- doctor cover tempfile + hero kie upload pins OK
+- smoke cover tempfile + outfit lock OK
+commit: pending-parent-commit
 
 
 ## INC-20261104-1706-scout-wordstat-mcp-unavailable
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-scout
 topic_id: AS21
@@ -155,10 +209,20 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Scout skill + pitfalls: MCP-KV/Wordstat UNAVAILABLE → WebSearch-only + explicit status; never fabricate shows. Not fatal.
+files_changed:
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg UNAVAILABLE / WebSearch-only guidance in scout skill + pitfalls
+commit: pending-parent-commit
 
 ## INC-20261104-1706-scout-helper-b-only-as-series
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-scout
 topic_id: AS21
@@ -190,10 +254,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Restored AS|B topic-id parsing in today.py + scout_helper; --suggest-next returns AS22 with pool>0.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Next AS22, pool 10
+- doctor AS|B pins OK; smoke AS|B OK
+commit: pending-parent-commit
 
 ## INC-20261104-1707-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-scout
 topic_id: AS21
@@ -220,10 +300,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Restored `scripts/excalibur_git.sh` + `excalibur_blog_filter_commit_secret_env.sh` to filter CLOUD_AGENT_*_SECRET_NAMES to valid bash identifiers before hooks.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor pins git.sh + filter present
+- smoke excalibur_git.sh + filter OK
+commit: pending-parent-commit
 
 ## INC-20261104-1706-scout-denylist-missing
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-scout
 topic_id: AS21
@@ -251,7 +343,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Denylist present (1272 slugs); doctor now fail-closed if missing/empty; scout skill blocker if absent.
+files_changed:
+- `shared/wp-slug-denylist.json` (already restored this run)
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor denylist ≥100 slugs OK
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -500,10 +604,10 @@ commit: pending-parent-commit
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+AS21 fixer pass 2026-11-04: 10 fixed, 1 needs-human (publish SSH TCP/22). Commit pending.
 
 ## INC-20261104-1725-writer-cta-secret-scan
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-writer
 topic_id: AS21
@@ -532,11 +636,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Writer skill documents comma-separated secret-name filter via excalibur_git.sh + pragma allowlist on intentional public CTA hrefs.
+files_changed:
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg pragma/excalibur_git in writer skill + pitfalls
+commit: pending-parent-commit
 
 
 ## INC-20261104-1730-geo-qa-sanitizer-wipe-restores
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-geo-qa
 topic_id: AS21
@@ -569,10 +684,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Pinned editorial markers (_markers_pinned + min_pain/outcome), link-verify soft-pass, human-voice TL;DR ban via doctor/smoke; research_notes_gate tech-boundary helpers restored.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_link_verify.py` (verified pins)
+- `scripts/excalibur_blog_human_voice_gate.py` (verified pins)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- doctor markers/soft-pass/TL;DR pins OK
+- smoke editorial + link_verify + human_voice OK
+commit: pending-parent-commit
 
 ## INC-20261104-1730-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-geo-qa
 topic_id: AS21
@@ -597,10 +729,21 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- AGENTS.md + director skill + pitfalls already document geo-qa → Task(generalPurpose) fallback with agent/skill paths.
+files_changed:
+- `AGENTS.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg geo-qa generalPurpose in AGENTS.md / pitfalls
+commit: pending-parent-commit
 
 ## INC-20261104-1731-geo-qa-human-voice-writer-fix
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-geo-qa
 topic_id: AS21
@@ -629,4 +772,18 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Writer + writing contract ban TL;DR insight labels; require ≥3 human OUTCOME_MARKERS; writer self-runs human_voice_gate before handoff.
+files_changed:
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg TL;DR ban + human-voice preflight in writer skill/contract
+- doctor human_voice TL;DR ban OK
+commit: pending-parent-commit

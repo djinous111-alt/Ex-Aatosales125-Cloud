@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1340-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` unavailable in Cloud API for this run.
+- Director pinned generalPurpose fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Executed GEO QA as generalPurpose role with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Ran all required QA scripts; article-qa PASS without rewriting article.html.
+
+### Durable fix needed before next run
+- Restore/register typed Task types for Excalibur BLOG roles in Cloud, or keep documented generalPurpose pin in director skill as first-class fallback.
+- Pin in director skill: one Task = one role; never collapse into single-agent pipeline.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261104-1341-geo-qa-catalog-softpass-wiped
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_link_verify.py` again lost catalog/site soft-pass (`catalog_ssl` / `site_ssl`) and report URL redaction after sanitizer/rebrand wipe (same class as prior restore `e7ccf8b9`).
+- `scripts/excalibur_blog_human_voice_gate.py` again lost TL;DR / «Быстрый инсайт» ban and accurate `<ol>` five-item counter.
+- Without soft-pass, brand catalog SSL handshake timeout hard-FAIL blocked GEO QA despite valid CTA URLs.
+
+### How the agent recovered this run
+- Restored link-verify soft-pass + redaction from commit `e7ccf8b9`.
+- Restored human-voice insight label ban + ol-body five-item counter.
+- Re-ran link-verify → PASS with `catalog_ssl`; human-voice → PASS (exactly_five_lists=0).
+
+### Durable fix needed before next run
+- Add doctor/regression smoke asserting `classify_soft_pass` / `CATALOG_HOST_SUFFIXES` and TL;DR ban strings exist in scripts.
+- Put these symbols on sanitizer denylist / sync allowlist so rebrand does not wipe them again.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261104-1325-writer-utility-markers-wiped
 status: open
 run_date: 2026-11-04

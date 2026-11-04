@@ -1,7 +1,7 @@
 # Promotion checklist — AS22 changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-11-05 (pending publish)  
-Live URL: /blog/changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-11-05 (publish_blocked)  
+Live URL: none (SSH TCP/22 timeout; NO LIVE write)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -48,3 +48,5 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer: `excalibur_blog_interlinker.py --apply` выполнен; `interlink_count=0`.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (AS22 в индексе; relative `/blog/<slug>/`).
 - Publish: next (Indexer не публикует).
+
+- Publish: ❌ PUBLISH BLOCKER — SSH TCP/22 timeout; ledger `publish_blocked`; no permalink.

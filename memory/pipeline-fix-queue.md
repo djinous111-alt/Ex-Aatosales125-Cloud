@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-2215-publish-ssh-tcp22-timeout-as22
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-publish
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- `--env-check` reported `ssh.dns.resolved=true` but `ssh.tcp22.reachable=false` with `ssh_tcp22_timeout` via `SSH_HOST`.
+- `SSH_HOST_IP` unset; guessing DNS/IP/credentials refused.
+- Same class as AS21 Hongqi HS5 / AS15 Arrizo 8 / AS10 GAC GS3 (2026-11-04).
+
+### How the agent recovered this run
+- Completed preflight: allow=yes; link-verify pass; dry-run PASS (PHP ~6.39MB); slug not in denylist.
+- Did **not** attempt LIVE SSH/WP write.
+- Ledger → `publish_blocked`; wrote `wp-publish-result.json`, wp-publish-log, promotion note, handoff PUBLISH + PIPELINE DONE.
+- Denylist LIVE posts 4758/4746/4740/3430/3394/4717/4711 untouched.
+
+### Durable fix needed before next run
+- Restore Cloud→WP SSH TCP/22 reachability, or set a human-verified `SSH_HOST_IP` Cloud Secret.
+- Re-run publish **only** for this NEW free slug after TCP/22 works; do not overwrite foreign LIVE posts.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets (`SSH_HOST` / optional `SSH_HOST_IP` / `SSH_PORT`)
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check` tcp22 gate)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (needs-human for network/SSH path unless fixer can only document the gate)
+
+## INC-20261105-2215-publish-load-article-re-shadow
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-publish
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- First `--dry-run` crashed with `UnboundLocalError: cannot access local variable 're'` inside `load_article`.
+- Local `import re` after `re.sub(...)` for schema pragma strip shadowed the module-level `re` import.
+
+### How the agent recovered this run
+- Removed the local `import re` in `scripts/excalibur_blog_wp_publish.py`; dry-run then PASS.
+
+### Durable fix needed before next run
+- Keep module-level `re` only (already applied this run); add a tiny regression check or note in pitfalls so the local import is not reintroduced.
+- Fixer should confirm both `skills/` and `.cursor/skills` publish docs do not instruct a local re-import pattern.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261105-2211-indexer-precommit-invalid-secret-name
 status: open
 run_date: 2026-11-05

@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Chery Arrizo 8 из Китая: комплектации и ловушки до депозита",
+      "description": "Чек-лист Arrizo 8 из Китая: Conquer vs PRO, мотор 1.6T или 2.0T, trim по VIN и красные флаги до депозита. Без магических цен – только шаги сверки.",
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${CATALOG_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${CATALOG_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "арризо 8 комплектации",
+        "как выбрать арризо 8 из китая",
+        "чери арризо 8 из китая",
+        "арризо 8 1.6 или 2.0",
+        "arrizo 8 комплектации"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Arrizo 8 отличается от Arrizo 8 PRO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Разные линейки на официальном сайте Chery в Китае: отдельные страницы, моторы и опции. Сверьте имя в инвойсе: если PRO – не подставляйте мощность и список \"как у обычного 8\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой мотор брать: 1.6 или 2.0?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Выберите по сценарию и КПП. 1.6T-7DCT – спокойный базовый путь; 2.0T даёт больше тяги, но уточните 7DCT или 8AT. Зафиксируйте кВт и спросите про утиль до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить на лоте из Китая до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VIN, trim, мощность в кВт, язык ПО, зимние опции, совпадение инвойса с объявлением, договор и способ оплаты. Нет пакета – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить списку опций без VIN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нельзя. Без VIN и паспорта лота список опций – маркетинг. Запросите табличку, скрин комплектации и видео осмотра, затем сверяйте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему нельзя ориентироваться на дилерские 150 л.с.?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "У РФ-дилера дефорс 110 кВт. Китайский Conquer – 147 или 187 кВт по CN-странице. Путать цифры до оплаты – путь к сюрпризу по документам и платежам."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда идти за сметой под ключ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В каталог Авто-Сейлс за расчётом лота и в Telegram avtosales125 с чек-листом и VIN. Чужую \"магическую\" сумму из объявления не берите как свой бюджет."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Chery Arrizo 8 из Китая: комплектации и ловушки до депозита",
+      "description": "Чек-лист до депозита: линейка Conquer vs PRO vs дилер РФ, мотор 1.6T/2.0T и КПП, trim по VIN, красные флаги и смета через Владивосток.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Паспорт лота: VIN, кВт, КПП, trim 智/睿/劲/御"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Скрин комплектации и видео осмотра с табличкой VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Смета под ключ с разбивкой через Владивосток"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Бриф задачи: город/трасса/зима, приоритет комфорт или динамика"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Одно имя линейки: Arrizo 8 Conquer или явно PRO"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксируйте задачу: зачем вам седан до разговора о деньгах",
+          "text": "Запишите сценарий (город/трасса/зима, пассажиры) и приоритет: комфорт, динамика или зимний пакет. Вычеркните чужую «цену под ключ» из объявления и оставьте место под мощность в кВт.",
+          "url": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#зафиксируйте-задачу-зачем-вам-седан-до-разговора-о-деньгах"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверьте линейку: Arrizo 8, PRO и дилерский РФ – не одно и то же",
+          "text": "Зафиксируйте рынок CN и имя: Arrizo 8 Conquer (не PRO) либо явно PRO. Не подставляйте дилерский РФ Active/Prime/Ultra и 150 л.с. как ту же машину дешевле; Tenet A8 – уточнение имени, не отдельный гайд.",
+          "url": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#сверьте-линейку-arrizo-8-pro-и-дилерский-рф-не-одно-и-то-же"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выберите мотор и коробку: 1.6T или 2.0T, DCT или 8AT",
+          "text": "Выпишите связку 1.6T-7DCT / 2.0T-7DCT / 2.0T-8AT и сверьте л.с. баннера с кВт паспорта лота. Нужен 8AT – не соглашайтесь на «почти то же на роботе»; для утиля смотрите документы, не рекламные л.с.",
+          "url": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#выберите-мотор-и-коробку-1-6t-или-2-0t-dct-или-8at"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Как читать китайские trim и опции по VIN",
+          "text": "Сверяйте trim только по паспорту лота, VIN и черновику инвойса. Положите в папку «до депозита» VIN, фото таблички и скрин комплектации; опции с рендера PRO без бумаг вычеркните.",
+          "url": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#как-читать-китайские-trim-и-опции-по-vin"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверьте красные флаги до оплаты",
+          "text": "Отказ при trim «с фото» без паспорта, мощности только в рекламных л.с., несовпадении VIN с инвойсом, обещании «оформим как 150 л.с. дилера» при CN 147/187 кВт, переводе на личную карту или отсутствии видео осмотра.",
+          "url": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#проверьте-красные-флаги-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Соберите смету под ключ через Владивосток",
+          "text": "Когда линейка, мотор и trim совпали на бумаге, запросите смету с разбивкой: авто, логистика, таможенные платежи, услуги. Готовые суммы пошлин в статье не публикуем – цифры считают под ваш лот в каталоге Авто-Сейлс.",
+          "url": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#соберите-смету-под-ключ-через-владивосток"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Чек-лист перед депозитом: результат на сегодня",
+          "text": "Депозит не переводите, пока нет совпадения VIN + trim + кВт + понятного договора. Соберите 8+ пунктов чек-листа (задача, линейка, мотор, trim, VIN, язык ПО, красные флаги, смета) – иначе новый лот, не аванс за обещание.",
+          "url": "${PUBLIC_SITE_URL}/chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/#чек-лист-перед-депозитом-результат-на-сегодня"
+        }
+      ]
+    }
+  ]
+}

@@ -1,11 +1,8 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026",
-  "errors": [
-    "reader outcome is weak or invisible: article must promise and deliver a usable result",
-    "insight block uses banned template label TL;DR / Быстрый инсайт; use a topical label e.g. «Инсайт до депозита:»"
-  ],
+  "errors": [],
   "warnings": [],
   "metrics": {
     "h2_count": 8,
@@ -24,6 +21,7 @@
       "ошиб"
     ],
     "outcome_markers": [
+      "результат",
       "проверьте",
       "выберите"
     ],

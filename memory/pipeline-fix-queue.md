@@ -496,9 +496,11 @@ category: qa
 
 ### How the agent recovered this run
 - Did not rewrite longread; wrote FIX cycle 1 in `article-qa.md` for Writer (topical insight label + ≥1 outcome marker).
+- Writer FIX cycle 1 applied min diff: insight → `Инсайт до депозита:`; checklist success line → `Результат:`; local `human_voice_gate` PASS (`результат`/`проверьте`/`выберите`); char_count 9449.
 
 ### Durable fix needed before next run
 - Writer skill / writing contract: explicit ban on TL;DR insight label + checklist that human-voice outcome markers (≥3) differ from utility `чеклист` counting.
+- Writer preflight: self-run `excalibur_blog_human_voice_gate.py -o human-voice-report.json` before handoff (relative `-o` path resolves under article_dir).
 
 ### Suggested files to inspect/change
 - `skills/writer-excalibur-blog/SKILL.md`

@@ -11,7 +11,7 @@
     "хончи hs5 2wd или 4wd",
     "hongqi hs5 проверка до депозита"
   ],
-  "char_count": 9459,
+  "char_count": 9449,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -31,7 +31,7 @@
     "score": 74,
     "verdict": "FAIL",
     "date": "2026-11-04",
-    "blocker": "human-voice BLOCK (TL;DR label + outcome_markers<3); Writer FIX cycle 1"
+    "blocker": "human-voice BLOCK cleared in Writer FIX cycle 1 (self-check PASS); await GEO QA re-score"
   },
   "cover_family": "brand_collage"
 }

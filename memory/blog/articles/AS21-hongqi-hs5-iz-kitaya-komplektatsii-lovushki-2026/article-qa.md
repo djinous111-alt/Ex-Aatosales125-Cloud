@@ -1,12 +1,13 @@
-# Article QA — AS21
+# Article QA — AS21 (GEO QA re-run after Writer FIX cycle 1)
 
 **topic_id:** AS21  
 **slug:** hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026  
 **article_dir:** memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026  
 **date:** 2026-11-04  
-**verdict:** FAIL  
-**score:** 74  
-**beginner_fit:** PASS (content) — gates blocked by human-voice  
+**verdict:** PASS  
+**score:** 85  
+**beginner_fit:** PASS  
+**fix_cycle:** 1 (Writer) → GEO QA re-run  
 
 ## Scripts
 
@@ -16,22 +17,22 @@
 | fact-check | PASS | 17 stats; 1 verified / 16 unverified soft (в research-notes: MY2026 MSRP, 252 vs 245, WLTC) |
 | link-verify | PASS | Telegram 200; catalog `catalog_ssl` soft-pass (Cloud egress handshake timeout) |
 | html-linter | PASS | whitelist OK; TOC нет; без `<pre>`/`<code>` |
-| slop-detector | PASS | 0 клише; over-long 4; Flesch RU 74.4 |
+| slop-detector | PASS | 0 клише; over-long 4; Flesch RU 74.2 |
 | cannibalization | PASS | 0 issues (`--blog-dir`) |
-| utility gate | PASS | action 10 / pain 5 / outcome 7 (после restore `pain_markers_ru`/`outcome_markers_ru`) |
-| human-voice | **BLOCK** | TL;DR / Быстрый инсайт; outcome_markers human=2 &lt; 3 |
+| utility gate | PASS | action 10 / pain 5 / outcome 8 |
+| human-voice | PASS | insight `Инсайт до депозита:`; outcome_markers: результат, проверьте, выберите |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
 | SEO structure | 16/20 | Primary в H1/title; H2 action; CTA×2; нет 2–3 blog internal |
-| GEO / citability | 22/25 | инсайт+таблицы+FAQ×6+чеклист; ломает шаблонный ярлык TL;DR |
+| GEO / citability | 24/25 | инсайт+таблицы+FAQ×6+чеклист; ярлык без TL;DR |
 | CORE-EEAT lite | 14/15 | 18/20 |
-| Human voice | 5/15 | BLOCK: outcome weak + banned insight label |
+| Human voice | 14/15 | PASS: topical insight + ≥3 outcome markers |
 | Fact safety | 12/15 | цифры в research-notes; fact-bank почти пуст по теме |
 | Contract HTML | 10/10 | whitelist PASS, FAQ, CTA, Fact Check author OK |
-| **Итого** | **74/100** | &lt;80 → FAIL |
+| **Итого** | **85/100** | ≥80 → PASS |
 
 ## CORE-EEAT lite: 18/20
 
@@ -59,13 +60,13 @@
 | Ept02 | ✗ | Нет 2–3 внутренних ссылок на другие посты блога |
 
 **Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет  
-**Gate veto:** human-voice BLOCK → overall FAIL
+**Gate veto:** нет (human-voice PASS)
 
 ## Beginner-fit
 
 - **Боль новичка:** депозит уходит до сверки китайского имени trim / привода / мотора (Comfort≈Deluxe ловушка).
 - **Где решение:** H2 словарь QiYun/QiXiang/Shadow, 2WD vs 4WD, ловушки официал vs CN, чеклист 10 пунктов.
-- **Первый результат до FAQ:** заполненный чеклист + строка MY2026 + trim + 2WD/4WD + VIN-milestone в договоре → депозит / пауза / отказ.
+- **Первый результат до FAQ:** заполненный чеклист + строка MY2026 + trim + 2WD/4WD + VIN-milestone в договоре → депозит / пауза / отказ (`Результат:` перед FAQ).
 - **Термины «на пальцах»:** Shadow = чёрный пакет не другой мотор; 2WD/4WD по массе/WLTC; 252 vs 245 = разные каналы.
 
 ## Link verify
@@ -78,44 +79,14 @@
 
 - cliches: 0
 - over-long: 4
-- Flesch RU: 74.4
+- Flesch RU: 74.2
 
-## Schema ready
+## Writer FIX verification (cycle 1)
 
-BlogPosting: pending (после PASS) | FAQPage: yes (6) | HowTo: yes | Review: no  
-**cover||schema не стартовать** до human-voice PASS.
+1. Insight label: `Инсайт до депозита:` (нет `TL;DR` / `Быстрый инсайт`) ✓  
+2. OUTCOME_MARKER human: `результат` (+ `проверьте`, `выберите`) ≥3 ✓  
+3. human-voice-report.json → PASS ✓  
 
-## Blockers
+## Next
 
-1. `human-voice-report.json` status **BLOCK**
-2. score 74 &lt; 80
-
-## FIX → Writer (cycle 1) — не править longread в GEO QA
-
-Минимальные правки в `article.html` (без полного рерайта):
-
-1. **Insight label:** заменить `TL;DR / Быстрый инсайт:` на топический ярлык, напр. `<b>Инсайт до депозита:</b>` (запрет skill/human-voice).
-2. **Human-voice outcome:** добавить ≥1 маркер из `OUTCOME_MARKERS` в тело до FAQ (`результат` / `получите` / `сможете` / `сэконом` / `соберите` / `настройте` / `исправьте`) — сейчас только `проверьте` + `выберите` (=2 &lt; 3). Пример: в блоке «Критерий успеха» явно «результат: заполненный чеклист…» или «получите строку trim+привод до депозита».
-3. **Опционально:** развести длину ol (сейчас несколько ровно по 5 `<li>`) — warning после PASS, не blocker.
-
-После FIX Writer: повторно `excalibur_blog_human_voice_gate.py` → PASS, затем обновить score/verdict.
-
-## Durable restores this run (не статья)
-
-Sanitizer снова снял QA-контракты; GEO QA восстановил:
-
-- `memory/brief/editorial-policy.json` — `pain_markers_ru` / `outcome_markers_ru`
-- `scripts/excalibur_blog_utility_gate.py` — skip empty marker lists
-- `scripts/excalibur_blog_link_verify.py` — catalog/site soft-pass + report redaction
-- `scripts/excalibur_blog_human_voice_gate.py` — TL;DR ban + ol==5 counter
-
-## Gate
-
-- score ≥ 80 → **74** ✗  
-- CORE-EEAT ≥ 16/20 → **18/20** ✓  
-- link-verify pass ✓  
-- research notes gate PASS ✓  
-- utility gate PASS ✓  
-- human voice gate PASS ✗  
-
-**Итог:** FAIL — вернуть Writer FIX; cover||schema **не** запускать.
+cover || schema (parallel) — GEO QA PASS unlocked.

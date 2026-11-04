@@ -35,6 +35,24 @@ def detect_anchor_toc(html: str) -> list[str]:
     return errors
 
 
+def _is_faq_section_heading(text: str) -> bool:
+    """True only for actual FAQ section titles — not H2 that merely mention FAQ."""
+    t = re.sub(r"\s+", " ", text.strip().lower())
+    if not t:
+        return False
+    # Whole-title FAQ labels (avoid false positive: «ваш результат до FAQ»).
+    if re.fullmatch(r"faq(?:\s*/\s*частые вопросы)?", t):
+        return True
+    if re.match(
+        r"^(?:часто\s+)?(?:задаваемые\s+вопросы|частые\s+вопросы)(?:\s+по\s+теме)?\b",
+        t,
+    ):
+        return True
+    if re.fullmatch(r"faq(?:\s+по\s+теме)?", t):
+        return True
+    return False
+
+
 def detect_duplicate_faq_sections(html: str) -> list[str]:
     """Fail if article has more than one FAQ heading block."""
     errors: list[str] = []
@@ -45,9 +63,9 @@ def detect_duplicate_faq_sections(html: str) -> list[str]:
     )
     faq_like = []
     for raw in faq_headings:
-        text = re.sub(r"<[^>]+>", "", raw).strip().lower()
-        if re.search(r"faq|частые вопрос|задаваемые вопрос", text):
-            faq_like.append(text)
+        text = re.sub(r"<[^>]+>", "", raw).strip()
+        if _is_faq_section_heading(text):
+            faq_like.append(text.lower())
     if len(faq_like) > 1:
         errors.append(
             "Forbidden duplicate FAQ sections in article.html: "
@@ -55,7 +73,8 @@ def detect_duplicate_faq_sections(html: str) -> list[str]:
             + ". Keep exactly one <h2>Частые вопросы</h2> block."
         )
     banned_second = re.search(
-        r"<h2[^>]*>\s*[^<]*(?:задаваемые вопросы по теме|faq по теме)",
+        r"<h2[^>]*>\s*(?:часто\s+)?задаваемые\s+вопросы\s+по\s+теме|"
+        r"<h2[^>]*>\s*faq\s+по\s+теме",
         html,
         flags=re.IGNORECASE,
     )

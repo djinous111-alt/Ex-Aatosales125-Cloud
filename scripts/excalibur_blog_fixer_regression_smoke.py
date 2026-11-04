@@ -140,6 +140,51 @@ def main() -> int:
         fail(f"redact failed: {redacted}")
     ok("publish hydrate+redact unit checks")
 
+    # 7) FAQ linter: outcome-before-FAQ H2 must not count as second FAQ
+    sys.path.insert(0, str(r / "scripts"))
+    import excalibur_blog_html_linter as html_linter  # noqa: E402
+
+    sample = (
+        "<h2>Что сделать сегодня: ваш результат до FAQ</h2>"
+        "<h2>Частые вопросы</h2>"
+    )
+    faq_errs = html_linter.detect_duplicate_faq_sections(sample)
+    if faq_errs:
+        fail(f"FAQ false-positive on outcome H2: {faq_errs}")
+    ok("html_linter FAQ heading match is strict")
+
+    # 8) denylist fail-closed + utility empty-list skip + no local re in load_article
+    denylist_path = r / "shared/wp-slug-denylist.json"
+    if not denylist_path.is_file():
+        fail("shared/wp-slug-denylist.json missing")
+    denylist = json.loads(denylist_path.read_text(encoding="utf-8"))
+    slugs = denylist.get("slugs") if isinstance(denylist, dict) else denylist
+    if not isinstance(slugs, list) or len(slugs) < 50:
+        fail("wp-slug-denylist.json slugs too short/missing")
+    ok(f"wp-slug-denylist.json present ({len(slugs)} slugs)")
+
+    util_src = (r / "scripts/excalibur_blog_utility_gate.py").read_text(encoding="utf-8")
+    if "if pain_markers:" not in util_src or "if outcome_markers:" not in util_src:
+        fail("utility_gate must skip pain/outcome mins when marker lists empty")
+    ok("utility_gate empty pain/outcome lists skip mins")
+
+    # load_article must use module-level re (no nested `import re`)
+    import ast
+
+    tree = ast.parse(pub.encode("utf-8").decode("utf-8"))
+    for node in ast.walk(tree):
+        if isinstance(node, ast.FunctionDef) and node.name == "load_article":
+            for child in ast.walk(node):
+                if isinstance(child, ast.Import):
+                    for alias in child.names:
+                        if alias.name == "re":
+                            fail("load_article has local `import re` (UnboundLocalError risk)")
+                if isinstance(child, ast.ImportFrom) and (child.module or "") == "re":
+                    fail("load_article has local `from re import ...`")
+    if pub.startswith("\ufeff"):
+        fail("excalibur_blog_wp_publish.py still has UTF-8 BOM")
+    ok("publish load_article uses module-level re (no BOM)")
+
     print("SUMMARY smoke PASS")
     return 0
 

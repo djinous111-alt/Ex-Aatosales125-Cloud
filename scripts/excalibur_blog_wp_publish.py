@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Publish one Excalibur blog article to WordPress (SSH bootstrap)."""
 from __future__ import annotations
 

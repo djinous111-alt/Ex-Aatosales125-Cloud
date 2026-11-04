@@ -14,3 +14,4 @@
 
 > Ledger: LIVE WP denylist posts (4758 AS14 NEW, 4746 AS13, 4740 AS12, 3430 AS04, 3394 AS02, 4717 AS11, 4711 AS10, …) — do not republish. URLs use `${PUBLIC_SITE_URL}` placeholders only.
 | 2026-11-04 | AS10 | kak-vybrat-toyota-sienta-iz-yaponii-2026 | memory/blog/articles/AS10-kak-vybrat-toyota-sienta-iz-yaponii-2026 | publish_blocked |
+| 2026-11-04 | AS15 | chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026 | memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026 | in_progress |

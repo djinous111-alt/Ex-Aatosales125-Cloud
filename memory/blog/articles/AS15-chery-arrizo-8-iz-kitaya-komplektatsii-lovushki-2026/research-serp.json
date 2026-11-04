@@ -1,0 +1,600 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-04",
+    "today_ru": "04.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-06",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-04 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS15",
+    "priority": "P0",
+    "slug": "chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Chery Arrizo 8 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "арризо 8 комплектации",
+    "secondary_queries": [
+      "как выбрать арризо 8 из китая",
+      "чери арризо 8 из китая",
+      "арризо 8 1.6 или 2.0",
+      "arrizo 8 комплектации"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "арризо 8 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Арризо 8 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Чери Арризо 8 Про 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/2026/",
+          "snippet": "Чери Арризо 8 2026 комплектации и цены, фото. Подробно расписан модельный ряд Chery Arrizo 8 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "Chery Arrizo 8 2026, купить Чери Арризо 8 в Москве: цены, комплектации ...",
+          "url": "https://www.major-chery.ru/models/arrizo8/",
+          "snippet": "Подробно расписан модельный ряд Chery Arrizo 8 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Чери Аризо 8 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/chery-arrizo-8-2026/",
+          "snippet": "Купить Чери Арризо 8 в салоне официального дилера Chery в Москве. Комплектации и цены нового Chery Arrizo 8, технические характеристики, кредит, Трейд-ин и лизинг в Major Auto."
+        },
+        {
+          "title": "Chery Arrizo 8 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/chery/arrizo-8/",
+          "snippet": "2026 модельный год включает 7 версий с тремя силовыми агрегатами: 1.6T + 7DCT, 2.0T + 7DCT и 2.0T + 8AT, что позволяет выбрать седан под экономичную или более динамичную манеру езды."
+        },
+        {
+          "title": "Chery Arrizo 8 цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/chery/arrizo-8/",
+          "snippet": "Chery Arrizo 8: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "арризо 8 комплектации ноябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Arrizo 8 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/chery/arrizo-8/",
+          "snippet": ""
+        },
+        {
+          "title": "Чери Арризо 8 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8/2026/",
+          "snippet": "Chery Arrizo 8: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Чери Арризо 8 Про 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/2026/",
+          "snippet": "Чери Арризо 8 2026 комплектации и цены, фото. Подробно расписан модельный ряд Chery Arrizo 8 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "Чери Аризо 8 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/chery-arrizo-8-2026/",
+          "snippet": "Подробно расписан модельный ряд Chery Arrizo 8 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чери Арризо 8 Про 2026 между собой."
+        },
+        {
+          "title": "Chery Arrizo 8 в 2026: точные характеристики, комплектации, оснащение и ...",
+          "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-tochnye-harakteristiki-komplektatsii-osnaschenie-i-tseny-dlya-rf",
+          "snippet": "Чери Аризо 8 2026 — один из самых заметных седанов класса A+, который делает ставку сразу на дизайн, богатое оснащение и современные турбомоторы."
+        },
+        {
+          "title": "Обзор комплектаций Arrizo 8 2026: версии двигателей и опций",
+          "url": "https://real-auto-city.ru/obzor-komplektaczij-arrizo-8-2026-versii-dvigatelej-i-opczij/",
+          "snippet": "Chery Arrizo 8 2026: детальные технические характеристики, полные комплектации, оснащение и актуальные цены на российском рынке. Полный гид по автомобилю."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "арризо 8 комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Арризо 8 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Arrizo 8 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/chery/arrizo-8/",
+          "snippet": "Чери Арризо 8 2026 комплектации и цены, фото. Подробно расписан модельный ряд Chery Arrizo 8 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "Чери Аризо 8 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/chery-arrizo-8-2026/",
+          "snippet": "Chery Arrizo 8: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Чери Арризо 8 Про 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/2026/",
+          "snippet": "2026 модельный год включает 7 версий с тремя силовыми агрегатами: 1.6T + 7DCT, 2.0T + 7DCT и 2.0T + 8AT, что позволяет выбрать седан под экономичную или более динамичную манеру езды."
+        },
+        {
+          "title": "Chery Arrizo 8 2026, купить Чери Арризо 8 в Москве: цены, комплектации ...",
+          "url": "https://www.major-chery.ru/models/arrizo8/",
+          "snippet": "Подробно расписан модельный ряд Chery Arrizo 8 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Chery Arrizo 8 цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/chery/arrizo-8/",
+          "snippet": "Купить Чери Арризо 8 в салоне официального дилера Chery в Москве. Комплектации и цены нового Chery Arrizo 8, технические характеристики, кредит, Трейд-ин и лизинг в Major Auto."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com арризо 8 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - openrobokit/roboskills: A minimal set of agent workflows and ...",
+          "url": "https://github.com/openrobokit/roboskills",
+          "snippet": ""
+        },
+        {
+          "title": "ciligougou (磁力狗) · GitHub",
+          "url": "https://github.com/ciligougou",
+          "snippet": "RoboSkills is a low-cost, minimal set of agent workflows and tools for robotics. Sharpa hands playing cat's cradle, reconstructed from a human video. Improve policies and reusable skills through repeated simulation experiments. Setting: Auto-research; no direct privileged simulator state in the policy API."
+        },
+        {
+          "title": "GitHub - joeblau/subvox · GitHub",
+          "url": "https://github.com/joeblau/subvox",
+          "snippet": "Contribution activity October 2026 ciligougou has no activity yet for this period."
+        },
+        {
+          "title": "GitHub - looplj/reveric: Agent Native 一站式 AI 小说，短剧桌面创作工作台",
+          "url": "https://github.com/looplj/reveric",
+          "snippet": "Live plots of user acceleration, rotation rate and attitude, the measured sample rate, a mic input picker and level meter, and a recorder for experiment sessions. Pick a word, hold Space, mouth it, release. Each take is stored as a template."
+        },
+        {
+          "title": "GitHub - jsogn/Glint: 面向中文母语者的 macOS 英文学习工具：读取中文拼音输入法的当前高亮候选，在候选栏旁显示对应的 ...",
+          "url": "https://github.com/jsogn/Glint",
+          "snippet": "秘塔科技提供高性价比的 MiniMax H3 视频生成服务： 768P 仅 0.09 元/秒，2K 仅 0.15 元/秒。 支持 30 秒、支持原生 2K、音画同步，API 兼容 OpenAI 协议，同时支持 ComfyUI，无需自行部署 GPU。 🎁 通过 Reveric 专属链接注册，即可领取赠送额度及专属优惠。 Reveric（幻界）是一个本地优先、以智能体为核心的桌面创作工作台，覆盖长篇小说、剧本改编与短剧/漫剧制片。 整部作品保存在你的设备上，同时也是智能体的工作区：写章节、改剧本、铺分镜、调机位、剪成片，说一句话，它就在作品里动手完成。 按需读取整部作品：智能体自己检索需要的章节和设定，不用把人物小传复制进对话框。"
+        },
+        {
+          "title": "Energy_ADE/logos/infosolutions_logo.png at main · tudelft3d/Energy_ADE",
+          "url": "https://github.com/tudelft3d/Energy_ADE/blob/main/logos/infosolutions_logo.png",
+          "snippet": "Glint 是一款为 macOS 打造的英文学习工具。 输入中文拼音时，对应的英文翻译会出现在 候选栏旁，不打断输入。 它不替换输入法，也不会改变你的输入习惯。 从 GitHub Releases 下载并 安装 Glint。 首次启动时，按提示授予辅助功能权限。 输入中文拼音，对应英文翻译会出现在候选栏旁。 Glint 支持单词、短语和短句。 单词会尽量给出简洁、常用的英文对应词，短句则显示 自然翻译。 安静地融入输入：只在候选旁显示对应英文翻译，不抢焦点、不替换输入法。 专为中文表达设计：从常见词语到短句，都能获得对应的英文翻译。 离线可用：内置词典和翻译模型，安装后日常翻译无需联网。 按需增强：可以在应用内安装更大的本地翻译模型，获得更自然的句子表达。"
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "арризо 8 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Арризо 8 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Чери Арризо 8 Про 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/2026/",
+          "snippet": "Подробно расписан модельный ряд Chery Arrizo 8 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Чери Арризо 8 2026 между собой."
+        },
+        {
+          "title": "Chery Arrizo 8 2026: комплектации, цены, сравнение и отзывы",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-arrizo-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд Chery Arrizo 8 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Chery Arrizo 8 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/chery/arrizo-8/",
+          "snippet": "Подробный разбор всех комплектаций Chery Arrizo 8 2026: технические характеристики, отличия версий, цены в России и советы по выбору. Актуальные данные от дилеров."
+        },
+        {
+          "title": "Chery Arrizo 8 в 2026: точные характеристики, комплектации, оснащение и ...",
+          "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-tochnye-harakteristiki-komplektatsii-osnaschenie-i-tseny-dlya-rf",
+          "snippet": "Chery Arrizo 8: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Chery Arrizo 8: сравнение комплектаций и версий 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-arrizo-8-sravnenie-komplektatsij.html",
+          "snippet": "Chery Arrizo 8 2026: детальные технические характеристики, полные комплектации, оснащение и актуальные цены на российском рынке. Полный гид по автомобилю."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "арризо 8 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Arrizo 8 2026: комплектации, цены, сравнение и отзывы",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-arrizo-komplektatsii.html",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Arrizo 8 в 2026: как изменились комплектации, отклик мотора и ...",
+          "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-kak-izmenilis-komplektatsii-otklik-motora-i-realnye-rashody",
+          "snippet": "В этой статье мы детально разберём все доступные версии Arrizo 8, их технические особенности, реальные отличия и скрытые \"подводные камни\", о которых умалчивают даже официальные дилеры."
+        },
+        {
+          "title": "Chery Arrizo 8 в 2026: честный обзор, актуальные цены и реальные отзывы ...",
+          "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-chestnyj-obzor-aktualnye-tseny-i-realnye-otzyvy-vladeltsev",
+          "snippet": "Chery Arrizo 8 в 2026 году: разбор обновлённых комплектаций, отзывчивый турбомотор, реальный расход и полная стоимость владения. Узнайте все детали и отзывы владельцев!"
+        },
+        {
+          "title": "Chery Arrizo 8: сравнение комплектаций и версий 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-arrizo-8-sravnenie-komplektatsij.html",
+          "snippet": "Chery Arrizo 8 в 2026 году: детальный разбор комплектаций, реальные цены в дилерах, плюсы и минусы по отзывам. Узнайте, стоит ли брать этот седан для покупки!"
+        },
+        {
+          "title": "Chery Arrizo 8: проблемы, неисправности и ремонт | Chinaspare",
+          "url": "https://chinaspare.ru/journal/chery-arrizo-8-realnye-problemy-neispravnosti-i-stoimost-remonta",
+          "snippet": "Сравнение комплектаций Chery Arrizo 8 показывает, что разница между ними может быть существенной, влияя как на динамику, так и на комфорт при ежедневной эксплуатации."
+        },
+        {
+          "title": "Chery Arrizo 8 в России: неожиданные нюансы комплектаций и владения",
+          "url": "https://forumchery.ru/topic/8442-chery-arrizo-8-v-rossii-neozhidannye-nyuansy-komplektatsiy-i-vladeniya/",
+          "snippet": "Разбираем реальные проблемы Chery Arrizo 8: коробка передач, камеры кругового обзора, мультимедиа, коррозия и стоимость обслуживания по отзывам владельцев."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "как выбрать арризо 8 из китая 2026",
+      "purpose": "вторичный запрос: как выбрать арризо 8 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chery Arrizo 8 из Китая: цены, комплектации и отзывы 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-arrizo-8-iz-kitaya.html",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Arrizo 8 из Китая: стоит ли брать — Блог Кармэн",
+          "url": "https://blog.carmancars.ru/blog/chery-arrizo-8-iz-kitaya",
+          "snippet": "Полный обзор Chery Arrizo 8 из Китая: технические характеристики, стоимость, плюсы и минусы, как заказать и растаможить. Актуальные цены и советы покупателям."
+        },
+        {
+          "title": "Чери Аризо 8 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/chery-arrizo-8-2026/",
+          "snippet": "Chery Arrizo 8 из Китая: комплектации 1.6T и 2.0T, реальная стоимость с доставкой и растаможкой, на что смотреть при выборе б/у экземпляра."
+        },
+        {
+          "title": "Chery Arrizo 8 из Китая под заказ: седан с 1,6T на 195 л.с. и 2,0T на ...",
+          "url": "https://mycarjp.ru/blog/chery-arrizo-8-iz-kitaya-gid-pokupatelya/",
+          "snippet": "Чери Аризо 8 2026 — один из самых заметных седанов класса A+, который делает ставку сразу на дизайн, богатое оснащение и современные турбомоторы."
+        },
+        {
+          "title": "Chery Arrizo 8 Pro из Китая под заказ: седан с 1,6T на 195-198 л.с. и 2 ...",
+          "url": "https://mycarjp.ru/blog/chery-arrizo-8-pro-iz-kitaya-gid-pokupatelya/",
+          "snippet": "Гид по Chery Arrizo 8 из Китая: 355 лотов 2022-2026 годов, 1,6T на 195-197 л.с. с 7-ступенчатым роботом (251 лот), 2,0T High Energy Edition на 251-254 л.с. с роботом или автоматом (104 лота), полный утильсбор у всех версий, медианы по годам от 54 до 92 тысяч ..."
+        },
+        {
+          "title": "Chery Arrizo 8 из Китая: флагманский седан под ключ в 2026 году",
+          "url": "https://onlyjpcars.ru/blog/chery-arrizo8-iz-kitaya",
+          "snippet": "Пошлина для машин до 3 лет считается от стоимости — все лоты 2025-2026 годов попадают именно сюда. Из Китая Arrizo 8 Pro идёт напрямую за 1-1,5 месяца, санкционных ограничений нет."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "чери арризо 8 из китая 2026",
+      "purpose": "вторичный запрос: чери арризо 8 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Арризо 8 2026 технические характеристики. Chery Arrizo 8 2026 ...",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Chery Arrizo 8 2026 Года Из Китая С Доставкой, Цена На Чери ...",
+          "url": "https://japautobuy.ru/auto/china/11985539",
+          "snippet": "Подробно расписан модельный ряд Chery Arrizo 8 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Чери Аризо 8 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/chery-arrizo-8-2026/",
+          "snippet": "CHERY ARRIZO 8 2026 года из Китая под ключ с доставкой по России. Чери Арризо 8 : объем двигателя 1600 см3, пробег 8700 км - продажа из Китая под заказ. Полное описание и комплектация авто, фотографии."
+        },
+        {
+          "title": "Chery Arrizo 8 Pro рестайлинг 2026, седан, 1 ... - Дром",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/g_2026_24956/",
+          "snippet": "Чери Аризо 8 2026 — один из самых заметных седанов класса A+, который делает ставку сразу на дизайн, богатое оснащение и современные турбомоторы."
+        },
+        {
+          "title": "Chery Arrizo 8 (2026) - фото, характеристики, цена Чери Аризо 8 ...",
+          "url": "https://www.allcarz.ru/chery-arrizo-8-upd/",
+          "snippet": "Продажи обновленного седана Chery Arrizo 8 Pro на китайском рынке стартовали в августе 2026-го."
+        },
+        {
+          "title": "Chery Arrizo 8 (2026) - фото, характеристики, цена Чери Аризо 8 ...",
+          "url": "https://drivedrom.ru/news/chery-arrizo-8-2026-foto-harakteristiki-cena-cheri-arizo-8-restailing.html",
+          "snippet": "В Китае продажи обновленных Чери Аризо 8 начнутся в апреле двадцать четвертого. Сколько они будут стоить — пока неизвестно, но за дореформенную модель просят от 100 до 149 тысяч юаней (1,2 — 1,75 млн рублей по нынешнему курсу). Со временем седан появится и в России, но окажется куда дороже."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "арризо 8 1.6 или 2.0 2026",
+      "purpose": "вторичный запрос: арризо 8 1.6 или 2.0",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Арризо 8 2026 технические характеристики. Chery Arrizo 8 2026 ...",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Чери Арризо 8 Про 2026 технические ... - Дром",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/2026/",
+          "snippet": "Chery Arrizo 8 в 2026 относился к 1 поколению, выпускался в кузове: седан. Автомобиль комплектовался моторами объёмом: 1.6, 2.0 л. В 2026 году Chery Arrizo 8 остался без рестайлинга."
+        },
+        {
+          "title": "Аризо 8 - выбрать 2.0 или 1.6? | BitAuto",
+          "url": "https://www.bitauto.com/wiki/100553844534/",
+          "snippet": "Подробно расписан модельный ряд Chery Arrizo 8 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Chery Arrizo 8: сравнение 1.6T и 2.0T - Arrizo 8 - ForumChery",
+          "url": "https://forumchery.ru/topic/4578-chery-arrizo-8-sravnenie-16t-i-20t%C2%A0/",
+          "snippet": "Всё зависит от ваших водительских привычек и потребностей. Если вы часто должны проехать по автостраде или перевозить груз, то двигатель 2,0 л. будет более подходящим для вас."
+        },
+        {
+          "title": "§78. Кратко об ощущениях после тест-драйва Тенет А8 2.0.",
+          "url": "https://www.drive2.ru/l/746963395885937127/",
+          "snippet": "Chery Arrizo 8 — один из самых популярных седанов в линейке китайского бренда. Однако выбор между версиями 1.6T и 2.0T может стать настоящей дилеммой для покупателя. Что лучше: экономичность и достаточная мощность или максимальная динамика и премиальные фишки? Давайте разберёмся."
+        },
+        {
+          "title": "Chery Arrizo 8 в 2026: выбор версии, отличия, гарантия, запчасти и ...",
+          "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-vybor-versii-otlichiya-garantiya-zapchasti-i-realnye-tseny-dilerov-v-rf",
+          "snippet": "Сегодня всё-таки загнал себя на тест-драйв Тенет А8. Комплектация максимальная, мотор 2.0 литра, вместо коробки — АКПП на 8 ступеней."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "arrizo 8 комплектации 2026",
+      "purpose": "вторичный запрос: arrizo 8 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чери Арризо 8 2026 технические характеристики. Chery Arrizo 8 2026 ...",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Chery Arrizo 8 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/chery/arrizo-8/",
+          "snippet": "Чери Арризо 8 2026 комплектации и цены, фото. Подробно расписан модельный ряд Chery Arrizo 8 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "Чери Арризо 8 Про 2026 технические характеристики. Chery Arrizo 8 Pro ...",
+          "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/2026/",
+          "snippet": "Chery Arrizo 8: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Chery Arrizo 8 цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/chery/arrizo-8/",
+          "snippet": "Подробно расписан модельный ряд Chery Arrizo 8 Pro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Chery Arrizo 8 в 2026: как изменились комплектации, отклик мотора и ...",
+          "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-kak-izmenilis-komplektatsii-otklik-motora-i-realnye-rashody",
+          "snippet": "Chery Arrizo 8: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        },
+        {
+          "title": "Chery Arrizo 8 2026, купить Чери Арризо 8 в Москве: цены, комплектации ...",
+          "url": "https://www.major-chery.ru/models/arrizo8/",
+          "snippet": "Chery Arrizo 8 в 2026 году: разбор обновлённых комплектаций, отзывчивый турбомотор, реальный расход и полная стоимость владения. Узнайте все детали и отзывы владельцев!"
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Chery Arrizo 8 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-11-04"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/chery/arrizo_8/2026/",
+      "title": "Чери Арризо 8 2026 технические характеристики, комплектации и цены",
+      "from_query": "арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/2026/",
+      "title": "Чери Арризо 8 Про 2026 технические характеристики, комплектации и цены",
+      "from_query": "арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://www.major-chery.ru/models/arrizo8/",
+      "title": "Chery Arrizo 8 2026, купить Чери Арризо 8 в Москве: цены, комплектации ...",
+      "from_query": "арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://cenyavto.com/chery-arrizo-8-2026/",
+      "title": "Чери Аризо 8 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://carsdo.ru/chery/arrizo-8/",
+      "title": "Chery Arrizo 8 › Цена и комплектации 2026 - CarsDo.ru",
+      "from_query": "арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/chery/arrizo-8/",
+      "title": "Chery Arrizo 8 цены и комплектации 2026 - carmaps.ru",
+      "from_query": "арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-tochnye-harakteristiki-komplektatsii-osnaschenie-i-tseny-dlya-rf",
+      "title": "Chery Arrizo 8 в 2026: точные характеристики, комплектации, оснащение и ...",
+      "from_query": "арризо 8 комплектации ноябрь 2026"
+    },
+    {
+      "url": "https://real-auto-city.ru/obzor-komplektaczij-arrizo-8-2026-versii-dvigatelej-i-opczij/",
+      "title": "Обзор комплектаций Arrizo 8 2026: версии двигателей и опций",
+      "from_query": "арризо 8 комплектации ноябрь 2026"
+    },
+    {
+      "url": "https://github.com/openrobokit/roboskills",
+      "title": "GitHub - openrobokit/roboskills: A minimal set of agent workflows and ...",
+      "from_query": "site:github.com арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/ciligougou",
+      "title": "ciligougou (磁力狗) · GitHub",
+      "from_query": "site:github.com арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/joeblau/subvox",
+      "title": "GitHub - joeblau/subvox · GitHub",
+      "from_query": "site:github.com арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/looplj/reveric",
+      "title": "GitHub - looplj/reveric: Agent Native 一站式 AI 小说，短剧桌面创作工作台",
+      "from_query": "site:github.com арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/jsogn/Glint",
+      "title": "GitHub - jsogn/Glint: 面向中文母语者的 macOS 英文学习工具：读取中文拼音输入法的当前高亮候选，在候选栏旁显示对应的 ...",
+      "from_query": "site:github.com арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/tudelft3d/Energy_ADE/blob/main/logos/infosolutions_logo.png",
+      "title": "Energy_ADE/logos/infosolutions_logo.png at main · tudelft3d/Energy_ADE",
+      "from_query": "site:github.com арризо 8 комплектации 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-arrizo-komplektatsii.html",
+      "title": "Chery Arrizo 8 2026: комплектации, цены, сравнение и отзывы",
+      "from_query": "арризо 8 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-arrizo-8-sravnenie-komplektatsij.html",
+      "title": "Chery Arrizo 8: сравнение комплектаций и версий 2026",
+      "from_query": "арризо 8 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-kak-izmenilis-komplektatsii-otklik-motora-i-realnye-rashody",
+      "title": "Chery Arrizo 8 в 2026: как изменились комплектации, отклик мотора и ...",
+      "from_query": "арризо 8 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-chestnyj-obzor-aktualnye-tseny-i-realnye-otzyvy-vladeltsev",
+      "title": "Chery Arrizo 8 в 2026: честный обзор, актуальные цены и реальные отзывы ...",
+      "from_query": "арризо 8 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://chinaspare.ru/journal/chery-arrizo-8-realnye-problemy-neispravnosti-i-stoimost-remonta",
+      "title": "Chery Arrizo 8: проблемы, неисправности и ремонт | Chinaspare",
+      "from_query": "арризо 8 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://forumchery.ru/topic/8442-chery-arrizo-8-v-rossii-neozhidannye-nyuansy-komplektatsiy-i-vladeniya/",
+      "title": "Chery Arrizo 8 в России: неожиданные нюансы комплектаций и владения",
+      "from_query": "арризо 8 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/chery-arrizo-8-iz-kitaya.html",
+      "title": "Chery Arrizo 8 из Китая: цены, комплектации и отзывы 2026",
+      "from_query": "как выбрать арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://blog.carmancars.ru/blog/chery-arrizo-8-iz-kitaya",
+      "title": "Chery Arrizo 8 из Китая: стоит ли брать — Блог Кармэн",
+      "from_query": "как выбрать арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://mycarjp.ru/blog/chery-arrizo-8-iz-kitaya-gid-pokupatelya/",
+      "title": "Chery Arrizo 8 из Китая под заказ: седан с 1,6T на 195 л.с. и 2,0T на ...",
+      "from_query": "как выбрать арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://mycarjp.ru/blog/chery-arrizo-8-pro-iz-kitaya-gid-pokupatelya/",
+      "title": "Chery Arrizo 8 Pro из Китая под заказ: седан с 1,6T на 195-198 л.с. и 2 ...",
+      "from_query": "как выбрать арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/chery-arrizo8-iz-kitaya",
+      "title": "Chery Arrizo 8 из Китая: флагманский седан под ключ в 2026 году",
+      "from_query": "как выбрать арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://japautobuy.ru/auto/china/11985539",
+      "title": "Купить Chery Arrizo 8 2026 Года Из Китая С Доставкой, Цена На Чери ...",
+      "from_query": "чери арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/chery/arrizo_8_pro/g_2026_24956/",
+      "title": "Chery Arrizo 8 Pro рестайлинг 2026, седан, 1 ... - Дром",
+      "from_query": "чери арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/chery-arrizo-8-upd/",
+      "title": "Chery Arrizo 8 (2026) - фото, характеристики, цена Чери Аризо 8 ...",
+      "from_query": "чери арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://drivedrom.ru/news/chery-arrizo-8-2026-foto-harakteristiki-cena-cheri-arizo-8-restailing.html",
+      "title": "Chery Arrizo 8 (2026) - фото, характеристики, цена Чери Аризо 8 ...",
+      "from_query": "чери арризо 8 из китая 2026"
+    },
+    {
+      "url": "https://www.bitauto.com/wiki/100553844534/",
+      "title": "Аризо 8 - выбрать 2.0 или 1.6? | BitAuto",
+      "from_query": "арризо 8 1.6 или 2.0 2026"
+    },
+    {
+      "url": "https://forumchery.ru/topic/4578-chery-arrizo-8-sravnenie-16t-i-20t%C2%A0/",
+      "title": "Chery Arrizo 8: сравнение 1.6T и 2.0T - Arrizo 8 - ForumChery",
+      "from_query": "арризо 8 1.6 или 2.0 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/746963395885937127/",
+      "title": "§78. Кратко об ощущениях после тест-драйва Тенет А8 2.0.",
+      "from_query": "арризо 8 1.6 или 2.0 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/chery-arrizo-8-v-2026-vybor-versii-otlichiya-garantiya-zapchasti-i-realnye-tseny-dilerov-v-rf",
+      "title": "Chery Arrizo 8 в 2026: выбор версии, отличия, гарантия, запчасти и ...",
+      "from_query": "арризо 8 1.6 или 2.0 2026"
+    }
+  ]
+}

@@ -74,6 +74,36 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261104-1707-scout-precommit-secret-names
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-scout
+topic_id: AS21
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` failed: Cloud pre-commit secrets scanner choked on `CLOUD_AGENT_INJECTED_SECRET_NAMES` containing an invalid bash identifier (`${!SECRET_NAME}` → invalid variable name).
+
+### How the agent recovered this run
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` filtered to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers, then commit succeeded with hook still enabled.
+
+### Durable fix needed before next run
+- Sanitize Cloud secret-name injection so URLs/values never appear in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Optionally restore `scripts/excalibur_git.sh` wrapper that filters names before commit.
+
+### Suggested files to inspect/change
+- Cursor Cloud secret injection / pre-commit.cursor SECRET_NAMES source
+- `scripts/excalibur_git.sh` (missing after sanitizer wipe)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261104-1706-scout-denylist-missing
 status: open
 run_date: 2026-11-04

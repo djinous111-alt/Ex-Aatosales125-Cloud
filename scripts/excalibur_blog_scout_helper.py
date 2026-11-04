@@ -10,6 +10,17 @@ import sys
 from pathlib import Path
 from typing import Any
 
+# AVTO SALES uses AS##; Cursor/Make niche uses B##. Both must parse.
+TOPIC_ID_PREFIX_RE = r"(?:AS|B)"
+TOPIC_ID_RE = rf"{TOPIC_ID_PREFIX_RE}\d+"
+TOPIC_DIR_RE = re.compile(rf"^({TOPIC_ID_RE})-", re.IGNORECASE)
+TOPIC_CARD_RE = re.compile(
+    rf"##\s+({TOPIC_ID_RE})\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+{TOPIC_ID_PREFIX_RE}|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+TOPIC_NUM_RE = re.compile(rf"^({TOPIC_ID_PREFIX_RE})(\d+)$", re.IGNORECASE)
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -34,7 +45,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = TOPIC_DIR_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +57,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_CARD_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -110,10 +121,71 @@ def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserve
             })
     return warnings
 
+
+def load_denylist_slugs(root: Path) -> tuple[set[str], str | None]:
+    """Load LIVE slug denylist. Returns (slugs, error) where error is missing|empty|invalid."""
+    path = root / "shared/wp-slug-denylist.json"
+    if not path.is_file():
+        return set(), "missing"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set(), "invalid"
+    raw = data.get("slugs") if isinstance(data, dict) else data
+    if not isinstance(raw, list):
+        return set(), "invalid"
+    slugs = {str(s).strip().lower() for s in raw if str(s).strip()}
+    if not slugs:
+        return set(), "empty"
+    return slugs, None
+
+
+def slugify_candidate(text: str) -> str:
+    text = text.strip().lower()
+    text = re.sub(r"[^\w\s-]", "", text, flags=re.UNICODE)
+    text = re.sub(r"[\s_]+", "-", text).strip("-")
+    return text
+
+
+def check_denylist_slug(slug: str, denylist: set[str]) -> list[dict[str, Any]]:
+    needle = slug.strip().lower()
+    if not needle:
+        return []
+    if needle in denylist:
+        return [
+            {
+                "severity": "CRITICAL",
+                "topic_id": "denylist",
+                "similarity": 1.0,
+                "status": "wp_live",
+                "message": f"EXACT denylist slug collision: '{needle}'",
+            }
+        ]
+    return []
+
+
+def check_denylist_query(query: str, denylist: set[str]) -> list[dict[str, Any]]:
+    """Exact match when query is already a kebab slug; also slugified form."""
+    q = query.strip().lower()
+    hits = check_denylist_slug(q, denylist)
+    if hits:
+        return hits
+    slugified = slugify_candidate(q)
+    if slugified and slugified != q:
+        return check_denylist_slug(slugified, denylist)
+    return []
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument(
+        "--check-slug",
+        type=str,
+        default="",
+        help="Check proposed article slug against shared/wp-slug-denylist.json",
+    )
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -130,13 +202,19 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        max_by_prefix: dict[str, int] = {}
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
+            m = TOPIC_NUM_RE.match(t["topic_id"])
             if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+                prefix = m.group(1).upper()
+                max_by_prefix[prefix] = max(max_by_prefix.get(prefix, 0), int(m.group(2)))
+        # Prefer AS when the pool has AVTO SALES cards; otherwise B (legacy niche).
+        if "AS" in max_by_prefix:
+            next_id = f"AS{max_by_prefix['AS'] + 1:02d}"
+        elif "B" in max_by_prefix:
+            next_id = f"B{max_by_prefix['B'] + 1:02d}"
+        else:
+            next_id = "AS01"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
@@ -144,17 +222,50 @@ def main() -> int:
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
+        denylist, denylist_err = load_denylist_slugs(root)
+        if denylist_err:
+            print(f"Denylist: {denylist_err} (restore shared/wp-slug-denylist.json before append)")
+        else:
+            print(f"Denylist slugs loaded: {len(denylist)}")
         return 0
         
-    if args.check_query:
-        warnings = check_overlap(args.check_query, existing, reserved)
+    if args.check_query or args.check_slug:
+        denylist, denylist_err = load_denylist_slugs(root)
+        if denylist_err:
+            print(
+                f"❌ DENYLIST BLOCKER: shared/wp-slug-denylist.json is {denylist_err}. "
+                "Restore/rebuild from published-live + ledger before scout append "
+                "(WP REST SSL timeout is expected; do not invent slugs)."
+            )
+            return 2
+
+        warnings: list[dict[str, Any]] = []
+        if args.check_query:
+            warnings.extend(check_overlap(args.check_query, existing, reserved))
+            warnings.extend(check_denylist_query(args.check_query, denylist))
+        if args.check_slug:
+            warnings.extend(check_denylist_slug(args.check_slug, denylist))
+            # Also flag pool slug collisions.
+            needle = args.check_slug.strip().lower()
+            for t in existing:
+                if (t.get("slug") or "").strip().lower() == needle:
+                    warnings.append(
+                        {
+                            "severity": "CRITICAL",
+                            "topic_id": t["topic_id"],
+                            "similarity": 1.0,
+                            "status": "in_pool",
+                            "message": f"EXACT pool slug collision with {t['topic_id']}: '{needle}'",
+                        }
+                    )
+
         if warnings:
             print("❌ OVERLAP DETECTED:")
             for w in warnings:
                 print(f"  [{w['severity']}] Similarity: {w['similarity']} | Topic: {w['topic_id']} ({w['status']})")
                 print(f"  Message: {w['message']}")
             return 1
-        print("✅ NO CANNIBALIZATION RISK: Query is clean and unique.")
+        print("✅ NO CANNIBALIZATION RISK: Query/slug is clean vs pool + denylist.")
         return 0
 
     ap.print_help()

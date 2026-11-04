@@ -60,7 +60,7 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"((?:AS|B)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -74,13 +74,20 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     used = {
         r["topic_id"].upper()
         for r in published
-        if r["status"] in {"published", "in_progress", "draft_ready"}
+        if r["status"] in {"published", "in_progress", "draft_ready", "publish_blocked"}
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in re.finditer(
+        r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+        text,
+        re.DOTALL,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
+        note = re.search(r"-\s*\*\*status_note:\*\*\s*(.+)", block)
+        if note and re.search(r"published|live|do not republish", note.group(1), re.I):
+            continue
         if "priority:** P0" not in block and "**priority:** P0" not in block:
             pri = re.search(r"-\s*\*\*priority:\*\*\s*(\S+)", block)
             if not pri or pri.group(1).upper() != "P0":

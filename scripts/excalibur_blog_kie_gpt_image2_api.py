@@ -27,6 +27,12 @@ DEFAULT_MODEL = "gpt-image-2-image-to-image"
 DEFAULT_API_KEY_ENV = "KIE_API_KEY"
 DEFAULT_POLL_INTERVAL_SECONDS = 15
 DEFAULT_MAX_WAIT_SECONDS = 900
+DEFAULT_LOCAL_HERO = Path("memory/cover/assets/blog-hero-reference.png")
+KIE_TEMPFILE_HOST_SUFFIXES = (
+    "tempfile.redpandaai.co",
+    "redpandaai.co",
+    "kieai.redpandaai.co",
+)
 
 
 class KieApiError(RuntimeError):
@@ -38,6 +44,100 @@ def project_root() -> Path:
     if env_root:
         return Path(env_root)
     return Path(__file__).resolve().parents[1]
+
+
+def _ensure_scripts_on_path(root: Path) -> None:
+    scripts = str(root / "scripts")
+    if scripts not in sys.path:
+        sys.path.insert(0, scripts)
+
+
+def url_host_is_kie_tempfile(url: str) -> bool:
+    try:
+        host = (urllib.parse.urlparse(url).hostname or "").lower()
+    except Exception:  # noqa: BLE001
+        return False
+    return any(host == suffix or host.endswith("." + suffix) for suffix in KIE_TEMPFILE_HOST_SUFFIXES)
+
+
+def resolve_local_hero_path(root: Path) -> Path:
+    hero_meta = root / "memory/cover/blog-hero.json"
+    if hero_meta.is_file():
+        try:
+            data = json.loads(hero_meta.read_text(encoding="utf-8"))
+            rel = str(data.get("reference_image") or "").strip()
+            if rel:
+                path = Path(rel)
+                if not path.is_absolute():
+                    path = root / path
+                if path.is_file():
+                    return path
+        except json.JSONDecodeError:
+            pass
+    path = root / DEFAULT_LOCAL_HERO
+    if not path.is_file():
+        raise KieApiError(f"Local hero PNG missing: {DEFAULT_LOCAL_HERO}")
+    return path
+
+
+def maybe_rehost_local_hero(
+    *,
+    root: Path,
+    article_dir: Path,
+    image_input: dict[str, Any],
+    force: bool,
+    skip: bool,
+) -> dict[str, Any]:
+    """Rehost local hero via Kie file-base64-upload when needed.
+
+    - ``--force-local-hero``: always upload and rewrite input_urls[0]
+    - default auto: rehost when first input URL is not already a Kie tempfile host
+    - ``--skip-hero-rehost``: never rehost (debug)
+    """
+    if skip:
+        return image_input
+
+    urls = list(image_input.get("input_urls") or [])
+    if not urls:
+        raise KieApiError("Missing non-empty input_urls before hero rehost")
+
+    first = str(urls[0] or "").strip()
+    needs = force or not url_host_is_kie_tempfile(first)
+    if not needs:
+        return image_input
+
+    _ensure_scripts_on_path(root)
+    try:
+        from excalibur_blog_hero_reference_url import upload_kie_base64  # noqa: WPS433
+    except ImportError as exc:
+        raise KieApiError(
+            "Cannot import upload_kie_base64; keep scripts/excalibur_blog_hero_reference_url.py"
+        ) from exc
+
+    hero_path = resolve_local_hero_path(root)
+    try:
+        download_url = upload_kie_base64(hero_path)
+    except Exception as exc:  # noqa: BLE001
+        raise KieApiError(f"Local hero rehost failed: {type(exc).__name__}: {exc}") from exc
+
+    evidence = {
+        "ok": True,
+        "provider": "kie-file-base64-upload",
+        "downloadUrl": download_url,
+        "source": str(hero_path.relative_to(root) if hero_path.is_relative_to(root) else hero_path).replace("\\", "/"),
+        "forced": bool(force),
+        "replaced_input_url": first,
+    }
+    evidence_path = article_dir / "cover" / "kie-hero-upload.json"
+    save_json(evidence_path, evidence)
+
+    patched = dict(image_input)
+    patched_urls = list(urls)
+    patched_urls[0] = download_url
+    patched["input_urls"] = patched_urls
+    print(f"Kie hero rehost: {download_url}")
+    print(f"OK hero_upload={evidence_path}")
+    return patched
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -239,12 +339,25 @@ def main() -> int:
     ap.add_argument("--task-id", default="", help="Poll an existing Kie task instead of creating a new one")
     ap.add_argument("--create-only", action="store_true", help="Create task, write task record, and exit")
     ap.add_argument("--dry-run", action="store_true", help="Validate batch and print sanitized create payload")
+    ap.add_argument(
+        "--force-local-hero",
+        action="store_true",
+        help="Always rehost memory/cover/assets/blog-hero-reference.png via Kie file-base64-upload before createTask",
+    )
+    ap.add_argument(
+        "--skip-hero-rehost",
+        action="store_true",
+        help="Disable auto/forced local-hero rehost (debug only)",
+    )
     args = ap.parse_args()
 
     root = project_root()
     batch_path = resolve_path(root, args.article_dir, args.batch)
     result_path = resolve_path(root, args.article_dir, args.result)
     task_record_path = resolve_path(root, args.article_dir, args.task_record)
+    article_dir = Path(args.article_dir)
+    if not article_dir.is_absolute():
+        article_dir = root / article_dir
 
     try:
         image_input = batch_mcp_args(batch_path)
@@ -256,7 +369,24 @@ def main() -> int:
             create_payload["callBackUrl"] = args.callback_url
 
         if args.dry_run:
-            print(json.dumps({"create_url": args.create_url, "payload": create_payload}, ensure_ascii=False, indent=2))
+            # No network rehost on dry-run; report whether create would rehost.
+            first = str((image_input.get("input_urls") or [""])[0] or "")
+            would = (not args.skip_hero_rehost) and (
+                args.force_local_hero or not url_host_is_kie_tempfile(first)
+            )
+            print(
+                json.dumps(
+                    {
+                        "create_url": args.create_url,
+                        "payload": create_payload,
+                        "hero_rehost_planned": would,
+                        "force_local_hero": bool(args.force_local_hero),
+                        "skip_hero_rehost": bool(args.skip_hero_rehost),
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                )
+            )
             return 0
 
         api_key = os.environ.get(args.api_key_env, "").strip()
@@ -270,6 +400,25 @@ def main() -> int:
         task_id = args.task_id.strip()
         create_response: dict[str, Any] | None = None
         if not task_id:
+            image_input = maybe_rehost_local_hero(
+                root=root,
+                article_dir=article_dir,
+                image_input=image_input,
+                force=bool(args.force_local_hero),
+                skip=bool(args.skip_hero_rehost),
+            )
+            # Persist patched URLs back into batch for apply/debug continuity.
+            try:
+                batch_obj = load_json(batch_path)
+                jobs = batch_obj.get("jobs")
+                if isinstance(jobs, list) and jobs and isinstance(jobs[0], dict):
+                    mcp_args = jobs[0].get("mcp_args")
+                    if isinstance(mcp_args, dict):
+                        mcp_args["input_urls"] = list(image_input.get("input_urls") or [])
+                        save_json(batch_path, batch_obj)
+            except (OSError, json.JSONDecodeError, TypeError, KeyError):
+                pass
+
             task_id, create_response = create_task(
                 create_url=args.create_url,
                 api_key=api_key,

@@ -8,6 +8,13 @@ is_background: false
 
 **Язык:** русский. **Шаг пайплайна:** ③
 
+## Cloud Task fallback (pin)
+
+Typed Task `excalibur-blog-geo-qa` может отсутствовать в Cloud Task enum.
+Директор запускает эту роль через `Task(generalPurpose)` + этот файл +
+`.cursor/skills/excalibur-geo-qa/SKILL.md`. Один Task = одна роль; parent
+не выполняет GEO QA сам.
+
 ## Incident memory (обязательно)
 
 Если во время задачи был blocker, retry, tool/API error, ручной workaround, переписывание артефакта из-за неясного контракта или любое исправление, которое нужно не повторять в следующем run, допиши incident в `memory/pipeline-fix-queue.md` по `shared/pipeline-incident-fix-contract.md`.

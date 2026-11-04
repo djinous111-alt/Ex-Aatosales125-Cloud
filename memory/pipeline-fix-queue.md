@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261104-1206-director-sanitizer-wipe-as-b
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-director
 topic_id: n/a
@@ -287,10 +287,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Re-pinned AS|B regex in today/scout_helper; doctor + `fixer_regression_smoke` FAIL if wipe recurs.
+- Smoke/doctor also pin llms `--blog-path`, `excalibur_git.sh`, Kie upload CLI, denylist non-empty, editorial markers.
+- Pitfalls: sanitizer wipe → restore from durable commits before pipeline.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py`
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
+commit: pending-parent-commit
 
 ## INC-20261104-0908-scout-wordstat-denylist-fallback
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-scout
 topic_id: AS15
@@ -324,10 +339,28 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- `scout_helper` loads denylist; `--check-slug` exact CRITICAL; missing/empty denylist → exit 2 blocker.
+- Doctor/smoke pin non-empty `shared/wp-slug-denylist.json` (≥50).
+- Scout skill/agent: UNAVAILABLE Wordstat path + `--check-query`/`--check-slug` (MCP OAuth remains env/human outside repo).
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --check-slug <denylist-sample>` (expect CRITICAL)
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
+commit: pending-parent-commit
 
 ## INC-20261104-0935-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-geo-qa
 topic_id: AS15
@@ -356,10 +389,24 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Pinned Cloud Task fallback: typed `excalibur-blog-geo-qa` may be missing → `Task(generalPurpose)` + agent/skill paths in AGENTS.md, geo-qa agent, director skill, pitfalls.
+- Platform typed-enum registration remains outside repo; docs prevent parent-agent GEO QA.
+files_changed:
+- `AGENTS.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose geo-qa pin in AGENTS.md + agents/excalibur-blog-geo-qa.md
+commit: pending-parent-commit
 
 ## INC-20261104-0951-cover-kie-force-local-hero-flag-missing
-status: open
+status: fixed
 run_date: 2026-11-04
 role: excalibur-blog-cover
 topic_id: AS15
@@ -389,10 +436,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Wired `--force-local-hero` / `--skip-hero-rehost` + auto-rehost when `input_urls[0]` is not a Kie tempfile host; evidence `cover/kie-hero-upload.json`.
+- Cover skill documents flags; separate `kie_file_base64_upload.py` remains manual fallback.
+- Doctor/smoke pin flags + upload CLI presence.
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --help`
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
+commit: pending-parent-commit
 
 ## INC-20261104-1013-publish-ssh-tcp22-timeout-as15
-status: open
+status: needs-human
 run_date: 2026-11-04
 role: excalibur-blog-publish
 topic_id: AS15
@@ -429,5 +493,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-11-04
+reason:
+- Cloud egress cannot open TCP/22 to Beget `SSH_HOST` DNS A; inventing/using PUBLIC_SITE_URL IP is forbidden.
+- Repo-side mitigations applied (docs + paramiko pin + `import re` shadow already removed) but LIVE publish remains blocked until network/secret change.
+needed_decision_or_secret:
+- Human: open Beget SSH listener/firewall TCP/22 for Cursor Cloud egress **or** set verified Cloud Secret `SSH_HOST_IP` that accepts TCP/22.
+- Then republish ONLY slug `chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026` (ledger `publish_blocked`); never touch denylist LIVE 4758/4746/4740/3430/3394/4717/4711.
+files_changed:
+- `shared/excalibur-wp-publish-contract.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/cloud-agent-install.sh` (paramiko pin)
+- `scripts/excalibur_blog_wp_publish.py` (re-import shadow removed earlier this run)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg ssh_tcp22_timeout` in publish contract/skill
+commit: pending-parent-commit
 

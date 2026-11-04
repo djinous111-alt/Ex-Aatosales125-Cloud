@@ -1,0 +1,611 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-04",
+    "today_ru": "04.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-06",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-04 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "gac-gs3-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "gac gs3 комплектации",
+    "secondary_queries": [
+      "гак гс3 комплектации",
+      "gac gs3 из китая",
+      "gac trumpchi gs3 2026"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "gac gs3 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GAC GS3 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/gac/gs3/",
+          "snippet": ""
+        },
+        {
+          "title": "Гак Гс3 2026 Технические Характеристики. Gac Gs3 2026 Комплектации И ...",
+          "url": "https://www.drom.ru/catalog/gac/trumpchi_gs3/2026/",
+          "snippet": "В России цена GAC GS3 в новом кузове начинается от 2 449 000 рублей. Максимальная комплектация стоит 2 849 000 рублей. внедорожник продается в 5 комплектациях."
+        },
+        {
+          "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Комплектации И Заводские ...",
+          "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-komplektatsii-i-zavodskie-dopuski",
+          "snippet": "Подробно расписан модельный ряд GAC GS3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации ГАК ГС3 2026 между собой."
+        },
+        {
+          "title": "Gac Gs3 2026 - Купить Гак Гс3 В Москве: Цены, Комплектации ...",
+          "url": "https://www.gac-major.ru/models/gs3/",
+          "snippet": "Полные технические характеристики GAC GS3 2026: двигатели, расход топлива, объём багажника. Подробные заводские комплектации и допуски для точного и осознанного выбора версии."
+        },
+        {
+          "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Размеры, Комплектации И ...",
+          "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-razmery-komplektatsii-i-tseny-v-rossii",
+          "snippet": "На российском рынке GS3 доступен в нескольких комплектациях, начиная от базовой, которая включает электрорегулируемые и обогреваемые наружные зеркала, мультифункциональный руль, стильные легкосплавные диски, светодиодную оптику, в том числе задние фонари, кондиционер, бортовой компьютер и аудиосистему с 4 динамиками."
+        },
+        {
+          "title": "GAC GS3 Emzoom — цена 2026, комплектации | ГАК ГС3 под заказ",
+          "url": "https://weilin.ru/catalog/gac/gs3/",
+          "snippet": "Узнайте точные характеристики, габариты, объём багажника, комплектации и цены GAC GS3 2026 для российского рынка. Полный гид по новому кроссоверу с деталями и советами по выбору."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "gac gs3 комплектации ноябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GAC GS3 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/gac/gs3/",
+          "snippet": ""
+        },
+        {
+          "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Комплектации И Заводские ...",
+          "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-komplektatsii-i-zavodskie-dopuski",
+          "snippet": "Новые комплектации и цены на 03.11.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей GAC. Классификация: внедорожники. Период выпуска: с января 2023 г.."
+        },
+        {
+          "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Размеры, Комплектации И ...",
+          "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-razmery-komplektatsii-i-tseny-v-rossii",
+          "snippet": "Полные технические характеристики GAC GS3 2026: двигатели, расход топлива, объём багажника. Подробные заводские комплектации и допуски для точного и осознанного выбора версии."
+        },
+        {
+          "title": "Гак Гс3 2026 Технические Характеристики. Gac Gs3 2026 Комплектации И ...",
+          "url": "https://www.drom.ru/catalog/gac/trumpchi_gs3/2026/",
+          "snippet": "Узнайте точные характеристики, габариты, объём багажника, комплектации и цены GAC GS3 2026 для российского рынка. Полный гид по новому кроссоверу с деталями и советами по выбору."
+        },
+        {
+          "title": "GAC GS3 Emzoom — цена 2026, комплектации | ГАК ГС3 под заказ",
+          "url": "https://weilin.ru/catalog/gac/gs3/",
+          "snippet": "Подробно расписан модельный ряд GAC GS3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации ГАК ГС3 2026 между собой."
+        },
+        {
+          "title": "ГАК ГС3 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/gac-gs3-2026/",
+          "snippet": "GAC GS3 (Emzoom, ГАК ГС3): цены комплектаций в рублях от 1 990 000 ₽ — дешевле дилерского прайса, мотор 177 л.с. вместо 170. Поставка 30 дней, салоны в НН и СПб, бронь 50 000 ₽."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "gac gs3 комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Комплектации И Заводские ...",
+          "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-komplektatsii-i-zavodskie-dopuski",
+          "snippet": ""
+        },
+        {
+          "title": "GAC GS3 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/gac/gs3/",
+          "snippet": "Полные технические характеристики GAC GS3 2026: двигатели, расход топлива, объём багажника. Подробные заводские комплектации и допуски для точного и осознанного выбора версии."
+        },
+        {
+          "title": "Gac Gs3 В 2026 Году: Честный Обзор, Цены, Комплектации, Реальные Отзывы ...",
+          "url": "https://inycar.ru/blog/gac-gs3-v-2026-godu-chestnyj-obzor-tseny-komplektatsii-realnye-otzyvy-i-chto-lomaetsya",
+          "snippet": "Новые комплектации и цены на 03.11.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей GAC. Классификация: внедорожники. Период выпуска: с января 2023 г.."
+        },
+        {
+          "title": "Гак Гс3 2026 Технические Характеристики. Gac Gs3 2026 Комплектации И ...",
+          "url": "https://www.drom.ru/catalog/gac/trumpchi_gs3/2026/",
+          "snippet": "GAC GS3 2026: подробный обзор, актуальные цены и комплектации. Читаем реальные отзывы, узнаём о типичных поломках и нюансах. Всё для осознанной покупки китайского кроссовера."
+        },
+        {
+          "title": "ГАК ГС3 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/gac/gac-gs3-2026.html",
+          "snippet": "Подробно расписан модельный ряд GAC GS3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации ГАК ГС3 2026 между собой."
+        },
+        {
+          "title": "GAC GS3 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/gac/gs3/",
+          "snippet": "ГАК ГС3 2026 по сути городской автомобиль. Он сочетает экономичные двигатели, да и в целом достойные технические характеристики за свои деньги. На фото в этой статье можно оценить новый кузов актуальной версии."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com gac gs3 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - YuFanZhou142/GS3-ICL: [ICMR 2026] Official implementation of ...",
+          "url": "https://github.com/YuFanZhou142/GS3-ICL",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - irisfreesiri/SSD-GS: Official code release of \"SSD-GS ...",
+          "url": "https://github.com/irisfreesiri/SSD-GS",
+          "snippet": "This repository provides a official implementation of GS3-ICL, a multimodal emotion recognition framework for robust speech emotion recognition."
+        },
+        {
+          "title": "GitHub - alegarra/gs3: GS3, software for genomic prediction and whole ...",
+          "url": "https://github.com/alegarra/gs3",
+          "snippet": "We have intensively borrow codes from gaussian splatting, gs^3, and gsplat. We also use tiny-cuda-nn for it's efficient MLP implementation. Many thanks to the authors for sharing their codes."
+        },
+        {
+          "title": "FinLog/finlog.svg at main · kepinserius/FinLog · GitHub",
+          "url": "https://github.com/kepinserius/FinLog/blob/main/finlog.svg",
+          "snippet": "Before using it on Windows, you should append .exe, that is rename it as gs3.exe. Otherwise, some binaries are directly available here, and older binaries can also be downloaded from there."
+        },
+        {
+          "title": "ciligougou (磁力狗) · GitHub",
+          "url": "https://github.com/ciligougou",
+          "snippet": "Aplikasi ini memungkinkan pengguna untuk mencatat transaksi keuangan, melihat laporan, menganalisis pengeluaran, dan mengekspor data ke format Excel dan PDF. - FinLog/finlog.svg at main · kepinserius/FinLog."
+        },
+        {
+          "title": "Releases · chthollyphile/folia-major - GitHub",
+          "url": "https://github.com/chthollyphile/folia-major/releases",
+          "snippet": "Contribution activity October 2026 ciligougou has no activity yet for this period."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "gac gs3 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Комплектации И Заводские ...",
+          "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-komplektatsii-i-zavodskie-dopuski",
+          "snippet": ""
+        },
+        {
+          "title": "PDF Gac Gs3 Регион: Россия",
+          "url": "https://gs3-gac.ru/assets/docs/gac-gs3-brochure.pdf",
+          "snippet": "Полные технические характеристики GAC GS3 2026: двигатели, расход топлива, объём багажника. Подробные заводские комплектации и допуски для точного и осознанного выбора версии."
+        },
+        {
+          "title": "GAC GS3 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/gac/gs3/",
+          "snippet": "Характеристика Значение Статус Двигатель 1.5TGI — 110 кВт Коробка передач 7WDCT Норма выбросов Euro 5 Старт-стоп двигателя Без старт-стоп"
+        },
+        {
+          "title": "PDF Новый GAC Trumpchi GS3 (2026 г.) цена и комплектации",
+          "url": "https://aurum-motors.ru/wp-content/uploads/2026/03/GAC-Trumpchi-GS3-2026-%D0%B3..pdf",
+          "snippet": "Новые комплектации и цены на 03.11.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей GAC. Классификация: внедорожники. Период выпуска: с января 2023 г.."
+        },
+        {
+          "title": "Гак Гс3 2026 Технические Характеристики. Gac Gs3 2026 Комплектации И ...",
+          "url": "https://www.drom.ru/catalog/gac/trumpchi_gs3/2026/",
+          "snippet": "Новый GAC Trumpchi GS3 (2026 г.) цена и комплектации Описание комплектаций (от 11 марта 2026 г.):"
+        },
+        {
+          "title": "PDF ros-auto.pro",
+          "url": "https://ros-auto.pro/models/gac-gs3/pdf/GS3_Jan%202026.pdf",
+          "snippet": "Подробно расписан модельный ряд GAC GS3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации ГАК ГС3 2026 между собой."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "gac gs3 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Gac Gs3 В 2026 Году: Честный Обзор, Цены, Комплектации, Реальные Отзывы ...",
+          "url": "https://inycar.ru/blog/gac-gs3-v-2026-godu-chestnyj-obzor-tseny-komplektatsii-realnye-otzyvy-i-chto-lomaetsya",
+          "snippet": ""
+        },
+        {
+          "title": "Эксплуатация Gac Gs3 2024-2026: Опыт Владельцев, Цены На Запчасти И ...",
+          "url": "https://inycar.ru/blog/ekspluatatsiya-gac-gs3-20242026-opyt-vladeltsev-tseny-na-zapchasti-i-sezonnye-sovety",
+          "snippet": "GAC GS3 2026: подробный обзор, актуальные цены и комплектации. Читаем реальные отзывы, узнаём о типичных поломках и нюансах. Всё для осознанной покупки китайского кроссовера."
+        },
+        {
+          "title": "Отзывы Об Gac Gs3 Gs3 (2024-2026) | Мнения Владельцев И Опыт ...",
+          "url": "https://bips.ru/reviews/gac/gs3/2024-2026",
+          "snippet": "Всё, что нужно знать владельцу GAC GS3 2024-2026: статистика отказов, расценки на оригинальные и аналоги запчастей, чек-листы сезонного ТО и советы от реальных владельцев."
+        },
+        {
+          "title": "Gac Gs3 2026: Комплектации, Цены, Характеристики",
+          "url": "https://motorved.ru/obzor-gac-gs3-2026-horoshij-malyj-ili-prosto-pizhon-s-dushoj-podrostka/",
+          "snippet": "Узнайте честные отзывы владельцев GAC GS3 GS3 (2024-2026) на «BIPS». Реальные мнения и опыт эксплуатации, которые помогут вам сделать правильный выбор. Читайте отзывы и делитесь своим мнением!"
+        },
+        {
+          "title": "Недостатки Gac Gs3 2025-2026: Все Минусы И Плюсы По Отзывам Владельцев",
+          "url": "https://www.allcarz.ru/gac-gs3-nedostatki/",
+          "snippet": "Объективный и ироничный обзор GAC GS3 2026. Разбираем характеристики, динамику, комплектации и реальные цены китайского кроссовера."
+        },
+        {
+          "title": "Отзывы Об Gac Gs3 | Мнения Владельцев И Опыт Эксплуатации «Bips»",
+          "url": "https://bips.ru/reviews/gac/gs3",
+          "snippet": "Прежде чем покупать новый ГАК ГС 3 2025-2026, предварительно стоит изучить отзывы владельцев, которые поделились опытом владения данного кроссовера, озвучили все его минусы и плюсы."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "гак гс3 комплектации 2026",
+      "purpose": "вторичный запрос: гак гс3 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ГАК ГС3 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/gac/trumpchi_gs3/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Gac Gs3 2026 - Купить Гак Гс3 В Москве: Цены, Комплектации ...",
+          "url": "https://www.gac-major.ru/models/gs3/",
+          "snippet": "Подробно расписан модельный ряд GAC GS3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации ГАК ГС3 2026 между собой."
+        },
+        {
+          "title": "ГАК ГС3 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/gac-gs3-2026/",
+          "snippet": "На российском рынке GS3 доступен в нескольких комплектациях, начиная от базовой, которая включает электрорегулируемые и обогреваемые наружные зеркала, мультифункциональный руль, стильные легкосплавные диски, светодиодную оптику, в том числе задние фонари, кондиционер, бортовой компьютер и аудиосистему с 4 динамиками."
+        },
+        {
+          "title": "ГАК ГС3 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/gac/gac-gs3-2026.html",
+          "snippet": "GS3 Yingsu 2026 27 октября 2025 года стартовали продажи модели 2026 года. В этой линейке осталось три комплектации: Jinqu, Jingxiang и Jingzhi."
+        },
+        {
+          "title": "Купить Новый Gac Gs3 (Гак Гс3) Комплектации И Цены 2026",
+          "url": "https://legend-auto.ru/gac/gs3/",
+          "snippet": "Модель построена на платформе GPMA, получила переработанные комплектации и крупный центральный дисплей, а отличия по оснащению сильнее всего заметны именно по версиям и их цене."
+        },
+        {
+          "title": "GAC GS3 Emzoom — цена 2026, комплектации | ГАК ГС3 под заказ",
+          "url": "https://weilin.ru/catalog/gac/gs3/",
+          "snippet": "Сколько стоит новый авто ГАК ГС3 2026 года выпуска в Москве у официального дилера. Продажа автомобиля GAC GS3 2026 модельного года в новом кузове: фото, комплектации и цены."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "gac gs3 из китая 2026",
+      "purpose": "вторичный запрос: gac gs3 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GAC GS3 2026 270T, 2026 г. под заказ из Китая | Carscom",
+          "url": "https://carscom.ru/catalog/china/gac/gs3/301313-gac-gs3-2026-270t/",
+          "snippet": ""
+        },
+        {
+          "title": "№1663097: Купить Gac Gs3 2026 Года В Китае - Дром",
+          "url": "https://www.drom.ru/world/china/gac/trumpchi_gs3/1663097/",
+          "snippet": "GAC GS3 2026 270T, 2026 г., КПП робот. Привезём под заказ из Китая с доставкой и растаможкой, проверим по аукционному листу до покупки"
+        },
+        {
+          "title": "Gac Gs3 2026 Цена: Китайская Версия После Ухода Модели Из России",
+          "url": "https://kitayavtos.com/product/novyye-trumpchi-gs3-2026/",
+          "snippet": "Актуальные предложения GAC GS3 под заказ из Китая с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости GAC GS3 с доставкой в Россию."
+        },
+        {
+          "title": "GAC GS3 2026 — Китай - goodcar.ru",
+          "url": "https://www.goodcar.ru/catalog/car/car-gs3-2026-d6b4cb19",
+          "snippet": "В феврале 2026 года GAC прекратил официальные продажи GS3 в России. Почти одновременно китайская модельная линия продолжила развитие: версия 2026 года получила измененную структуру оснащения, более крупный экран в старшей комплектации и расширенные функции парковки. Это создает необычную ситуацию."
+        },
+        {
+          "title": "№2072452: Купить Gac Gs3 2026 Года В Китае - Дром",
+          "url": "https://www.drom.ru/world/china/gac/trumpchi_gs3/2072452/",
+          "snippet": "Логистика Доставка из Китая: автовоз/жд ≈ 18-30 дней после выкупа, далее по России — по согласованию. Растаможка и ЭПТС оформляются нами."
+        },
+        {
+          "title": "GAC GS3 из Китая под заказ | SATAuto",
+          "url": "https://satauto.ru/catalog/china/gac/gs3/",
+          "snippet": "Актуальные предложения GAC GS3 под заказ из Китая с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости GAC GS3 с доставкой в Россию."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "gac trumpchi gs3 2026 2026",
+      "purpose": "вторичный запрос: gac trumpchi gs3 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Гак Гс3 2026 Технические Характеристики. Gac Gs3 2026 Комплектации И ...",
+          "url": "https://www.drom.ru/catalog/gac/trumpchi_gs3/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Новый GAC Trumpchi GS3 (2026 г.) цена и комплектации",
+          "url": "https://aurum-motors.ru/gac-trumpchi-gs3-2026/",
+          "snippet": "Подробно расписан модельный ряд GAC GS3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "2026'Gac Gs3: Фото, Все Минусы И Плюсы, Цены И Характеристики",
+          "url": "https://ironhorse.ru/gac/gs3/2g-rstyle/",
+          "snippet": "Купить новый автомобиль под ключ с документами, доставкой до Вашего города, работаем со всеми регионами. Получение ЭПТС, постановка на учёт."
+        },
+        {
+          "title": "Gac Gs3 2026 Цена: Китайская Версия После Ухода Модели Из России",
+          "url": "https://kitayavtos.com/product/novyye-trumpchi-gs3-2026/",
+          "snippet": "Подробно обо всех особенностях, достоинствах и недостатках 2-го поколения кроссовера Trumpchi GS3 от GAC, его фотографии, технические характеристики, стоимость и оснащение."
+        },
+        {
+          "title": "PDF Новый GAC Trumpchi GS3 (2026 г.) цена и комплектации",
+          "url": "https://aurum-motors.ru/wp-content/uploads/2026/03/GAC-Trumpchi-GS3-2026-%D0%B3..pdf",
+          "snippet": "В феврале 2026 года GAC прекратил официальные продажи GS3 в России. Почти одновременно китайская модельная линия продолжила развитие: версия 2026 года получила измененную структуру оснащения, более крупный экран в старшей комплектации и расширенные функции парковки. Это создает необычную ситуацию."
+        },
+        {
+          "title": "GAC Trumpchi GS3 из Китая под заказ — цена под ключ, характеристики 2026",
+          "url": "https://chinaautozone.ru/catalog/gac/gac_trumpchi_gs3/",
+          "snippet": "Новый GAC Trumpchi GS3 (2026 г.) цена и комплектации Описание комплектаций (от 11 марта 2026 г.):"
+        }
+      ],
+      "searched_at": "2026-11-04"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Gac Gs3 2026: Сравнение Комплектаций, Истории Владельцев И Как Выбрать ...",
+          "url": "https://inycar.ru/blog/gac-gs3-2026-sravnenie-komplektatsij-istorii-vladeltsev-i-kak-vybrat-vashu-versiyu",
+          "snippet": ""
+        },
+        {
+          "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Комплектации И Заводские ...",
+          "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-komplektatsii-i-zavodskie-dopuski",
+          "snippet": "Узнайте, какая комплектация GAC GS3 2026 подойдет именно вам. Полное сравнение версий, реальные отзывы владельцев и экспертные советы по выбору лучшего китайского кроссовера."
+        },
+        {
+          "title": "GAC GS3 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/gac/gs3/",
+          "snippet": "Полные технические характеристики GAC GS3 2026: двигатели, расход топлива, объём багажника. Подробные заводские комплектации и допуски для точного и осознанного выбора версии."
+        },
+        {
+          "title": "Gac Gs3 2026: Комплектации, Цены, Характеристики",
+          "url": "https://motorved.ru/obzor-gac-gs3-2026-horoshij-malyj-ili-prosto-pizhon-s-dushoj-podrostka/",
+          "snippet": "В таблице указаны следующие данные: название комплектации, двигатель (топливо, объём, мощность). Коробка передач (МТ - механическая, АТ - автоматическая, АМТ - роботизированная, CVT - вариатор)."
+        },
+        {
+          "title": "Представлен Кроссовер Gac Gs3 2026 Модельного Года",
+          "url": "https://chinacardrive.ru/crossovers/krossover-gac-gs3-2026-modelnogo-goda-poluchil-novuyu-versiyu-jinzhi-edition-s-uvelichennym-ekranom-multimedia-na-14-3",
+          "snippet": "Разбираем характеристики, динамику, комплектации и реальные цены китайского кроссовера. Узнайте все плюсы и минусы, драйверские качества и скрытые недостатки машины до покупки."
+        },
+        {
+          "title": "Gac Gs3 (2025-2026) - Фото, Характеристики, Цена Гак Гс3 В России",
+          "url": "https://www.allcarz.ru/gac-gs3/",
+          "snippet": "GAC GS3 - это компактный кроссовер, который был представлен в 2023 году. Автомобиль известен в Китае как Trumpchi GS3 Ying Su или GS3 Shadow Speed."
+        }
+      ],
+      "searched_at": "2026-11-04"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://carsdb.ru/gac/gs3/",
+      "title": "GAC GS3 2026 - цены и комплектации в России | carsdb.ru",
+      "from_query": "gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/gac/trumpchi_gs3/2026/",
+      "title": "Гак Гс3 2026 Технические Характеристики. Gac Gs3 2026 Комплектации И ...",
+      "from_query": "gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-komplektatsii-i-zavodskie-dopuski",
+      "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Комплектации И Заводские ...",
+      "from_query": "gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://www.gac-major.ru/models/gs3/",
+      "title": "Gac Gs3 2026 - Купить Гак Гс3 В Москве: Цены, Комплектации ...",
+      "from_query": "gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/gac-gs3-2026-tochnye-harakteristiki-obyomy-razmery-komplektatsii-i-tseny-v-rossii",
+      "title": "Gac Gs3 2026: Точные Характеристики, Объёмы, Размеры, Комплектации И ...",
+      "from_query": "gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://weilin.ru/catalog/gac/gs3/",
+      "title": "GAC GS3 Emzoom — цена 2026, комплектации | ГАК ГС3 под заказ",
+      "from_query": "gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://cenyavto.com/gac-gs3-2026/",
+      "title": "ГАК ГС3 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "gac gs3 комплектации ноябрь 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/gac-gs3-v-2026-godu-chestnyj-obzor-tseny-komplektatsii-realnye-otzyvy-i-chto-lomaetsya",
+      "title": "Gac Gs3 В 2026 Году: Честный Обзор, Цены, Комплектации, Реальные Отзывы ...",
+      "from_query": "gac gs3 комплектации новости 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/gac/gac-gs3-2026.html",
+      "title": "ГАК ГС3 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "gac gs3 комплектации новости 2026"
+    },
+    {
+      "url": "https://carsdo.ru/gac/gs3/",
+      "title": "GAC GS3 › Цена и комплектации 2026 - CarsDo.ru",
+      "from_query": "gac gs3 комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/YuFanZhou142/GS3-ICL",
+      "title": "GitHub - YuFanZhou142/GS3-ICL: [ICMR 2026] Official implementation of ...",
+      "from_query": "site:github.com gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/irisfreesiri/SSD-GS",
+      "title": "GitHub - irisfreesiri/SSD-GS: Official code release of \"SSD-GS ...",
+      "from_query": "site:github.com gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/alegarra/gs3",
+      "title": "GitHub - alegarra/gs3: GS3, software for genomic prediction and whole ...",
+      "from_query": "site:github.com gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/kepinserius/FinLog/blob/main/finlog.svg",
+      "title": "FinLog/finlog.svg at main · kepinserius/FinLog · GitHub",
+      "from_query": "site:github.com gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/ciligougou",
+      "title": "ciligougou (磁力狗) · GitHub",
+      "from_query": "site:github.com gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://github.com/chthollyphile/folia-major/releases",
+      "title": "Releases · chthollyphile/folia-major - GitHub",
+      "from_query": "site:github.com gac gs3 комплектации 2026"
+    },
+    {
+      "url": "https://gs3-gac.ru/assets/docs/gac-gs3-brochure.pdf",
+      "title": "PDF Gac Gs3 Регион: Россия",
+      "from_query": "gac gs3 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://aurum-motors.ru/wp-content/uploads/2026/03/GAC-Trumpchi-GS3-2026-%D0%B3..pdf",
+      "title": "PDF Новый GAC Trumpchi GS3 (2026 г.) цена и комплектации",
+      "from_query": "gac gs3 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://ros-auto.pro/models/gac-gs3/pdf/GS3_Jan%202026.pdf",
+      "title": "PDF ros-auto.pro",
+      "from_query": "gac gs3 комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/ekspluatatsiya-gac-gs3-20242026-opyt-vladeltsev-tseny-na-zapchasti-i-sezonnye-sovety",
+      "title": "Эксплуатация Gac Gs3 2024-2026: Опыт Владельцев, Цены На Запчасти И ...",
+      "from_query": "gac gs3 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://bips.ru/reviews/gac/gs3/2024-2026",
+      "title": "Отзывы Об Gac Gs3 Gs3 (2024-2026) | Мнения Владельцев И Опыт ...",
+      "from_query": "gac gs3 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://motorved.ru/obzor-gac-gs3-2026-horoshij-malyj-ili-prosto-pizhon-s-dushoj-podrostka/",
+      "title": "Gac Gs3 2026: Комплектации, Цены, Характеристики",
+      "from_query": "gac gs3 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/gac-gs3-nedostatki/",
+      "title": "Недостатки Gac Gs3 2025-2026: Все Минусы И Плюсы По Отзывам Владельцев",
+      "from_query": "gac gs3 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://bips.ru/reviews/gac/gs3",
+      "title": "Отзывы Об Gac Gs3 | Мнения Владельцев И Опыт Эксплуатации «Bips»",
+      "from_query": "gac gs3 комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://legend-auto.ru/gac/gs3/",
+      "title": "Купить Новый Gac Gs3 (Гак Гс3) Комплектации И Цены 2026",
+      "from_query": "гак гс3 комплектации 2026"
+    },
+    {
+      "url": "https://carscom.ru/catalog/china/gac/gs3/301313-gac-gs3-2026-270t/",
+      "title": "GAC GS3 2026 270T, 2026 г. под заказ из Китая | Carscom",
+      "from_query": "gac gs3 из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/gac/trumpchi_gs3/1663097/",
+      "title": "№1663097: Купить Gac Gs3 2026 Года В Китае - Дром",
+      "from_query": "gac gs3 из китая 2026"
+    },
+    {
+      "url": "https://kitayavtos.com/product/novyye-trumpchi-gs3-2026/",
+      "title": "Gac Gs3 2026 Цена: Китайская Версия После Ухода Модели Из России",
+      "from_query": "gac gs3 из китая 2026"
+    },
+    {
+      "url": "https://www.goodcar.ru/catalog/car/car-gs3-2026-d6b4cb19",
+      "title": "GAC GS3 2026 — Китай - goodcar.ru",
+      "from_query": "gac gs3 из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/gac/trumpchi_gs3/2072452/",
+      "title": "№2072452: Купить Gac Gs3 2026 Года В Китае - Дром",
+      "from_query": "gac gs3 из китая 2026"
+    },
+    {
+      "url": "https://satauto.ru/catalog/china/gac/gs3/",
+      "title": "GAC GS3 из Китая под заказ | SATAuto",
+      "from_query": "gac gs3 из китая 2026"
+    },
+    {
+      "url": "https://aurum-motors.ru/gac-trumpchi-gs3-2026/",
+      "title": "Новый GAC Trumpchi GS3 (2026 г.) цена и комплектации",
+      "from_query": "gac trumpchi gs3 2026 2026"
+    },
+    {
+      "url": "https://ironhorse.ru/gac/gs3/2g-rstyle/",
+      "title": "2026'Gac Gs3: Фото, Все Минусы И Плюсы, Цены И Характеристики",
+      "from_query": "gac trumpchi gs3 2026 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/catalog/gac/gac_trumpchi_gs3/",
+      "title": "GAC Trumpchi GS3 из Китая под заказ — цена под ключ, характеристики 2026",
+      "from_query": "gac trumpchi gs3 2026 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/gac-gs3-2026-sravnenie-komplektatsij-istorii-vladeltsev-i-kak-vybrat-vashu-versiyu",
+      "title": "Gac Gs3 2026: Сравнение Комплектаций, Истории Владельцев И Как Выбрать ...",
+      "from_query": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://chinacardrive.ru/crossovers/krossover-gac-gs3-2026-modelnogo-goda-poluchil-novuyu-versiyu-jinzhi-edition-s-uvelichennym-ekranom-multimedia-na-14-3",
+      "title": "Представлен Кроссовер Gac Gs3 2026 Модельного Года",
+      "from_query": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/gac-gs3/",
+      "title": "Gac Gs3 (2025-2026) - Фото, Характеристики, Цена Гак Гс3 В России",
+      "from_query": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

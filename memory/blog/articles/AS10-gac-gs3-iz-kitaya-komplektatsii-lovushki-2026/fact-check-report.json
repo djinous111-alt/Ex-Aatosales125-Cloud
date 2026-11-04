@@ -1,0 +1,101 @@
+{
+  "article": "memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 13,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 12,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "о Владивостоке такое видим не раз. Свежий риск на 2026-11-04: официальные листы GAC и часть RU-каталогов",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "177",
+      "kind": "large_number",
+      "context": "(Emzoom) MY2026 силовая одна на все версии: 1.5T, 177 л.с., мокрый 7DCT и передний привод. R-Style – не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "360",
+      "kind": "large_number",
+      "context": "й CCS, без ACC-пакета Smart 劲智 12,3″, автоклимат, 360 Подогрев переда, электробагажник, 50W ACC / AEB /",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4446",
+      "kind": "large_number",
+      "context": "ние ассистенты R-Style R-STYLE Спорт-обвес, длина 4446 мм Подогрев и электробагажник в листе – нет ADAS б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1497",
+      "kind": "large_number",
+      "context": "я силовая строка на листах gs301–gs304: 1.5T GDI, 1497 см³, 130 кВт / 177 л.с., 270 Н·м; коробка 7WDCT (м",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "130",
+      "kind": "large_number",
+      "context": "строка на листах gs301–gs304: 1.5T GDI, 1497 см³, 130 кВт / 177 л.с., 270 Н·м; коробка 7WDCT (мокрый 7DC",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "270",
+      "kind": "large_number",
+      "context": "01–gs304: 1.5T GDI, 1497 см³, 130 кВт / 177 л.с., 270 Н·м; коробка 7WDCT (мокрый 7DCT); передний привод;",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "крый 7DCT); передний привод; ориентир WLTC 6.18 л/100 км; габариты обычных версий 4410×1850×1600, база 2",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4410",
+      "kind": "large_number",
+      "context": "ентир WLTC 6.18 л/100 км; габариты обычных версий 4410×1850×1600, база 2650 мм; у R-Style длина 4446 мм.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1850",
+      "kind": "large_number",
+      "context": "WLTC 6.18 л/100 км; габариты обычных версий 4410×1850×1600, база 2650 мм; у R-Style длина 4446 мм. Типи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1600",
+      "kind": "large_number",
+      "context": "6.18 л/100 км; габариты обычных версий 4410×1850×1600, база 2650 мм; у R-Style длина 4446 мм. Типичная",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2650",
+      "kind": "large_number",
+      "context": "км; габариты обычных версий 4410×1850×1600, база 2650 мм; у R-Style длина 4446 мм. Типичная ошибка – спо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "170",
+      "kind": "large_number",
+      "context": "u – другая номенклатура и иногда другая мощность (170 л.с. против 177 у китайских Enjoy/Smart). На практ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

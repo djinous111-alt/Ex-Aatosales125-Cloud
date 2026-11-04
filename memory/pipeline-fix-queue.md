@@ -6,6 +6,105 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-0010-scout-helper-b-only-suggest-next
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-scout
+topic_id: AS22
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` returned `B01` and reported 0 topics in pool because topic parsers use B-only regex (`B\d+`), ignoring Autosalas `AS##` IDs that already exist in `memory/topics/blog-topics.md`.
+- Director/Scout must manually force next free AS ID (AS22+) from git/run history; helper alone is unsafe for this niche.
+
+### How the agent recovered this run
+- Ignored helper suggestion B01.
+- Chose **AS22** (AS10–AS21 occupied in git/runs; AS21 Hongqi HS5 previous scout).
+- Appended Mode B card for Changan UNI-K and passed utility gate.
+
+### Durable fix needed before next run
+- Update `excalibur_blog_scout_helper.py` topic/article ID regex to accept `AS\d+|B\d+` (and active article dirs `AS##-*`).
+- Align Scout skill/agent docs with Autosalas AS-series, not Cursor/AI niche drift.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261105-0011-scout-wordstat-mcp-unavailable
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-scout
+topic_id: AS22
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned discovery `error` ("failed during live tool discovery"); `wordstat_get_top_requests` unavailable.
+- No Wordstat shows could be validated for the chosen query.
+
+### How the agent recovered this run
+- Continued WebSearch-only demand validation for Changan UNI-K 2026 (2.0T / iDD / AWD, комплектации до депозита).
+- Did **not** invent impression counts; recorded `wordstat_status: UNAVAILABLE` in handoff and topic `demand_signal`.
+
+### Durable fix needed before next run
+- Restore/fix MCP-KV Wordstat auth/discovery for Cloud automations.
+- Keep Scout contract: UNAVAILABLE = WebSearch-only + incident, never fabricate shows.
+
+### Suggested files to inspect/change
+- MCP config / Cursor Dashboard MCP-KV connection
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261105-0012-scout-denylist-missing
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-scout
+topic_id: AS22
+article_dir: n/a
+severity: high
+category: docs
+
+### What went wrong
+- `shared/wp-slug-denylist.json` was absent on the working tree (sanitizer/checkout wipe), risking reuse of LIVE WP slugs after ledger reset.
+
+### How the agent recovered this run
+- Restored file from git history REST dump and merged known LIVE/model slugs (Sienta, GAC GS3, Arrizo 8, Hongqi HS5, Jaecoo J7, Tiggo 7 Pro, Jetour T2, Omoda C5, Haval M6, CS75 Plus, Tharu, TXL, Atlas, Dargo, etc.) plus ledger/topic pool slugs.
+- Confirmed candidate slug `changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026` free before append.
+
+### Durable fix needed before next run
+- Pin denylist in doctor/preflight: fail if missing or empty.
+- Document Scout rebuild recipe (git + ledger + known LIVE) in pitfalls; stop sanitizer from dropping the file.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

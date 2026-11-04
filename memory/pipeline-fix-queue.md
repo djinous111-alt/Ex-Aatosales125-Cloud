@@ -6,6 +6,105 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1706-scout-wordstat-mcp-unavailable
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-scout
+topic_id: AS21
+article_dir: n/a
+severity: high
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned `namespaceStatus=error` during live tool discovery; `wordstat_get_top_requests` unavailable.
+- Cannot validate Yandex Wordstat shows for Autо-Sales topic selection this run.
+
+### How the agent recovered this run
+- Set `wordstat_status=UNAVAILABLE`; did not invent impression counts.
+- Validated demand via WebSearch only (Hongqi HS5 MY2026 комплектации / под заказ / ловушки до депозита).
+- Appended utility-only topic AS21 with demand_signal note.
+
+### Durable fix needed before next run
+- Restore MCP-KV / Wordstat credentials and discovery for Cloud automations.
+- Document scout fallback: when MCP-KV error, WebSearch-only + explicit UNAVAILABLE is acceptable; never fabricate shows.
+
+### Suggested files to inspect/change
+- `.cursor/mcp.json` / Cloud MCP secrets for MCP-KV
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261104-1706-scout-helper-b-only-as-series
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-scout
+topic_id: AS21
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` still parses only `B\\d+` after sanitizer wipe of AS|B support.
+- Returned `Next available topic ID: B01` and `Total topics in pool: 0` despite AS01–AS09 cards in `memory/topics/blog-topics.md`.
+- Manual AS-series ID selection required (chose free AS21; AS10–AS20 present in git/run history).
+
+### How the agent recovered this run
+- Ignored helper B01 suggestion per Director brief.
+- Selected AS21 manually after checking pool (AS01–AS09) + git history max AS20 + denylist slug uniqueness.
+- Ran `--check-query` anyway (clean) and hand-checked slug vs restored denylist.
+
+### Durable fix needed before next run
+- Restore AS|B topic-id parsing in `excalibur_blog_scout_helper.py`, `excalibur_blog_today.py`, and related sanitizer-resistant pins.
+- Keep Autо-Sales scout niche (not Cursor/Make) in agent/skill contracts.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261104-1706-scout-denylist-missing
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-scout
+topic_id: AS21
+article_dir: n/a
+severity: high
+category: env
+
+### What went wrong
+- `shared/wp-slug-denylist.json` was missing at scout start (sanitizer/wipe), risking LIVE slug reuse.
+
+### How the agent recovered this run
+- Restored denylist from git history (`30a770a6`) + mined slugs from topics/ledger history + known LIVE model/customs slugs (AS08/AS09, Jaecoo/Tiggo/Jetour/Omoda/M6, Sienta, Arrizo 8, GAC GS3, etc.).
+- Wrote `shared/wp-slug-denylist.json` with `restored: true`, count 1272; confirmed Hongqi HS5 slug free before append.
+
+### Durable fix needed before next run
+- Pin denylist against sanitizer wipe; scout/preflight should fail closed if denylist absent.
+- Prefer LIVE WP REST refresh when SSH/public site reachable; keep git+ledger merge as offline fallback.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_doctor.py` / scout preflight
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

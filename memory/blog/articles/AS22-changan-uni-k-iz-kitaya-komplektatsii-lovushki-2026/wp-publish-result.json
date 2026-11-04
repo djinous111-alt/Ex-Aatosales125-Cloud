@@ -1,0 +1,28 @@
+{
+  "slug": "changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "AS22",
+  "permalink": "",
+  "post_id": null,
+  "publish_method": "ssh",
+  "verdict": "fail",
+  "status": "publish_blocked",
+  "blocker": "ssh_tcp22_timeout",
+  "raw_output": "❌ PUBLISH BLOCKER: SSH TCP/22 timeout on SSH_HOST (DNS resolved; SSH_HOST_IP unset). NO LIVE write. Denylist LIVE posts untouched (4758/4746/4740/3430/3394/4717/4711). dry-run PASS (PHP bytes 6386884). link-verify pass. allow_publish=yes.",
+  "preflight": {
+    "allow_publish": true,
+    "link_verify": "pass",
+    "dry_run": true,
+    "php_bytes": 6386884,
+    "slug_in_denylist": false,
+    "paramiko": "5.1.0",
+    "ssh_dns_resolved": true,
+    "ssh_host_ip_configured": false,
+    "ssh_tcp22": {
+      "reachable": false,
+      "error": "ssh_tcp22_timeout",
+      "via": "SSH_HOST"
+    }
+  },
+  "cover_evidence": {},
+  "incident_report": "memory/pipeline-fix-queue.md#INC-20261105-2215-publish-ssh-tcp22-timeout-as22"
+}

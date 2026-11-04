@@ -6,6 +6,425 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none_
+
+## Needs-human
+
+## INC-20261105-2215-publish-ssh-tcp22-timeout-as22
+status: needs-human
+run_date: 2026-11-05
+role: excalibur-blog-publish
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: blocker
+category: publish
+fixed_at: 2026-11-05
+
+### What went wrong
+- `--env-check` reported `ssh.dns.resolved=true` but `ssh.tcp22.reachable=false` (`ssh_tcp22_timeout`).
+- Same class as AS21 / AS15 / AS10 (2026-11-04).
+
+### How the agent recovered this run
+- No LIVE SSH/WP write; ledger `publish_blocked`; denylist LIVE posts untouched.
+
+### Fixer resolution
+status: needs-human
+reason:
+- Cloud→WP SSH TCP/22 not reachable from this environment; cannot verify real TCP in fixer.
+needed_decision_or_secret:
+- Restore Beget/SSH egress TCP/22 **or** inject human-verified `SSH_HOST_IP` Cloud Secret (plus working `SSH_HOST`/`SSH_PORT`).
+- Re-run publish **only** for NEW free slug `changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026` after TCP/22 works; do not overwrite foreign LIVE posts (4758/4746/4740/3430/3394/4717/4711).
+files_changed:
+- `skills/publish-excalibur-blog/SKILL.md` (+ `.cursor` sync) — env-check TCP/22 blocker path documented
+- `shared/agent-pipeline-pitfalls.md` — DNS≠TCP; needs-human rule
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → PASS
+commit: 738b2d80 + e6c12287
+
+## Fixed this run (AS22 / 2026-11-05)
+
+## INC-20261105-2215-publish-load-article-re-shadow
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-publish
+topic_id: AS22
+severity: medium
+category: script
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Confirmed module-level `re` only in `load_article` (no local import); stripped UTF-8 BOM from publish script.
+- Smoke asserts no nested `import re` and no BOM.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- py_compile + fixer regression smoke PASS
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2211-indexer-precommit-invalid-secret-name
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-indexer
+topic_id: AS22
+severity: medium
+category: env
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Verified `scripts/excalibur_git.sh` + `excalibur_blog_filter_commit_secret_env.sh` present; doctor/smoke pin them.
+- Indexer/schema/writer/scout skills instruct commits via `excalibur_git.sh`.
+files_changed:
+- `agents/excalibur-blog-indexer.md`, `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`, `.cursor/skills/...`
+- `skills/schema-excalibur-blog/SKILL.md`, writer/scout skills
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK git.sh + filter; smoke OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2210-indexer-llms-skill-absolute-vs-relative
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-indexer
+topic_id: AS22
+severity: low
+category: docs
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Indexer skill/agent: commit-safe `--site-base "" --blog-path / --relative-urls`; absolute PUBLIC_SITE_URL only for live/runtime.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `agents/excalibur-blog-indexer.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor relative-urls check OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2205-cover-mcp-kv-down-kie-fallback
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-cover
+topic_id: AS22
+severity: medium
+category: api
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Cover skill: MCP-KV primary + first-class Kie fallback (`hero --force --provider kie`, kie gpt-image2 api); python3; WP hero HEAD fail → Kie tempfile.
+- MCP Dashboard restore remains optional human follow-up for native gpt-image-2; agent path no longer blocked.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor Kie tempfile + hero upload pins OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2205-schema-precommit-invalid-secret-name
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-schema
+topic_id: AS22
+severity: medium
+category: env
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Same durable git secret-name filter as indexer/writer; schema skill documents `excalibur_git.sh`.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `scripts/excalibur_git.sh` (verified present)
+checks_run:
+- doctor/smoke git filter OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2148-writer-catalog-host-hyphen-vs-public-site
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-writer
+topic_id: AS22
+severity: medium
+category: docs
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- conversion-map note: catalog host = PUBLIC_SITE_URL (`avtosales125.ru`), not hyphen host; Writer skill/agent CTA rule.
+files_changed:
+- `memory/brief/conversion-map.md`
+- `skills/writer-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `agents/excalibur-blog-writer.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg/docs review; doctor errors=0
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2145-director-sanitizer-wiped-durable-pins
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-director
+topic_id: AS22
+severity: high
+category: script
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Restored/pinned editorial markers, utility empty-list skip, link_verify soft-pass, llms CLI, doctor marker/denylist/git checks; pitfalls warn about sanitizer wipe + doctor preflight.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor errors=0; smoke PASS
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2140-geo-qa-utility-empty-pain-outcome-markers
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-geo-qa
+topic_id: AS22
+severity: high
+category: script
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Restored `pain_markers_ru`/`outcome_markers_ru` + `_markers_pinned`; utility skips mins when lists empty; recommendation aliases; editorial-utility + writer tokens synced.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- writer skills
+checks_run:
+- smoke utility empty-list skip OK; doctor markers OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2141-geo-qa-catalog-ssl-timeout-no-softpass
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-geo-qa
+topic_id: AS22
+severity: high
+category: qa
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Restored `classify_soft_pass` catalog/site SSL/DNS/5xx soft-pass; GEO QA + publish skills document soft-pass OK.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor/smoke soft-pass pins OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2142-geo-qa-html-linter-faq-substring-false-positive
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-geo-qa
+topic_id: AS22
+severity: medium
+category: script
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- FAQ linter uses `_is_faq_section_heading` (exact FAQ titles); smoke asserts outcome-before-FAQ H2 OK.
+files_changed:
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/excalibur-article-writing-contract.md`
+- writer skills
+checks_run:
+- smoke FAQ strict match PASS
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2143-geo-qa-typed-task-fallback
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-geo-qa
+topic_id: AS22
+severity: low
+category: other
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Confirmed Director/AGENTS already document generalPurpose fallback; GEO QA skill notes typed-task unavailability.
+files_changed:
+- `skills/excalibur-geo-qa/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg director generalPurpose fallback present
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2125-writer-precommit-invalid-secret-name
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-writer
+topic_id: AS22
+severity: medium
+category: env
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Writer skill/agent require `excalibur_git.sh`; filter wrapper verified.
+files_changed:
+- writer skills/agents; pitfalls
+checks_run:
+- doctor/smoke git filter OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2115-research-wordstat-mcp-unavailable
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-research
+topic_id: AS22
+severity: medium
+category: api
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Research skill: MCP-KV UNAVAILABLE → warning table, no fabricated shows, incident + continue WebSearch.
+- Restoring MCP auth is optional human follow-up; agent contract durable.
+files_changed:
+- `skills/excalibur-research/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- docs rg UNAVAILABLE
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-2116-research-notes-gate-false-technical
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-research
+topic_id: AS22
+severity: medium
+category: script
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Verified `_tech_marker_hit` word-boundaries + `notes_without_github_evidence`; doctor/smoke pin helpers.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py` (verified)
+- research skill note for AS## auto-import
+checks_run:
+- doctor/smoke tech-marker helpers OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-0013-scout-precommit-invalid-secret-name
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-scout
+topic_id: AS22
+severity: medium
+category: env
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Scout agent/skill: commits via `excalibur_git.sh`; filter present.
+files_changed:
+- scout skills/agents; pitfalls
+checks_run:
+- doctor/smoke OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-0010-scout-helper-b-only-suggest-next
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-scout
+topic_id: AS22
+severity: medium
+category: script
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Scout helper already AS|B; `--suggest-next` → AS23 with pool>0; Scout docs Autosalas AS##.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py` (verified)
+- scout skills/agents
+checks_run:
+- smoke scout AS* pool OK
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-0011-scout-wordstat-mcp-unavailable
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-scout
+topic_id: AS22
+severity: medium
+category: api
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Scout skill: UNAVAILABLE = WebSearch-only + incident, never fabricate shows; Autosalas niche queries.
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md` (+ `.cursor`)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- docs review
+commit: 738b2d80 + e6c12287
+
+## INC-20261105-0012-scout-denylist-missing
+status: fixed
+run_date: 2026-11-05
+role: excalibur-blog-scout
+topic_id: AS22
+severity: high
+category: docs
+fixed_at: 2026-11-05
+
+### Fixer resolution
+status: fixed
+fix_summary:
+- Doctor fail-closed if denylist missing/empty (<50 slugs); file present (1254); Scout skill rebuild recipe; smoke asserts denylist.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/wp-slug-denylist.json` (verified)
+- scout skill/pitfalls
+checks_run:
+- doctor denylist OK; smoke 1254 slugs
+commit: 738b2d80 + e6c12287
+
+## Historical fixed incidents
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

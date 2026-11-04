@@ -23,9 +23,13 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ## Твои задачи
 
 1. `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir <dir> --site-base ${PUBLIC_SITE_URL}`
-2. `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base ${PUBLIC_SITE_URL} --blog-path / --out-dir memory/blog`
-3. `promotion-checklist.md` из template.
-4. Handoff `=== EXCALIBUR BLOG INDEXER ===`.
+2. Commit-safe llms index (relative paths for git):
+   `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "" --blog-path / --relative-urls --out-dir memory/blog`
+   Absolute/`PUBLIC_SITE_URL` mode — только для live/runtime upload notes, не для commit `memory/blog/llms*.txt`.
+3. Перед commit очисти `site_base` в `memory/blog/interlink-suggestions.json` если там попал host.
+4. Commit через `bash scripts/excalibur_git.sh commit …` (фильтр `CLOUD_AGENT_*_SECRET_NAMES`).
+5. `promotion-checklist.md` из template.
+6. Handoff `=== EXCALIBUR BLOG INDEXER ===`.
 
 ## Не твоя зона
 

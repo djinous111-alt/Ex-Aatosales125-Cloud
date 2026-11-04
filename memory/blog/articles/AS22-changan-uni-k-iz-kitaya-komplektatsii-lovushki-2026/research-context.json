@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-05",
+    "today_ru": "05.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-07",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-05 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS22",
+    "priority": "P0",
+    "slug": "changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Changan UNI-K из Китая: комплектации и ловушки до депозита",
+    "primary_query": "как выбрать changan uni-k из китая",
+    "secondary_queries": [
+      "changan uni-k комплектации",
+      "changan uni-k idd",
+      "чанган юни к из китая",
+      "uni-k 2.0t awd"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS22",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать changan uni-k из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать changan uni-k из китая ноябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать changan uni-k из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать changan uni-k из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать changan uni-k из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать changan uni-k из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "changan uni-k комплектации 2026",
+      "purpose": "вторичный запрос: changan uni-k комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "changan uni-k idd 2026",
+      "purpose": "вторичный запрос: changan uni-k idd"
+    },
+    {
+      "id": "secondary_3",
+      "query": "чанган юни к из китая 2026",
+      "purpose": "вторичный запрос: чанган юни к из китая"
+    },
+    {
+      "id": "secondary_4",
+      "query": "uni-k 2.0t awd 2026",
+      "purpose": "вторичный запрос: uni-k 2.0t awd"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Changan UNI-K из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

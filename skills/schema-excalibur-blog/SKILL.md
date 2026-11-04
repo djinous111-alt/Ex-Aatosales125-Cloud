@@ -21,4 +21,6 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
+Commits: `bash scripts/excalibur_git.sh commit …` (фильтр невалидных `CLOUD_AGENT_*_SECRET_NAMES` перед pre-commit).
+
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).

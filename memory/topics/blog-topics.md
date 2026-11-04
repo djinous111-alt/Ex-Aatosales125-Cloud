@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS22 — Changan UNI-K из Китая
+
+- **priority:** P0
+- **slug:** changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Changan UNI-K из Китая: комплектации и ловушки до депозита
+- **primary_query:** как выбрать changan uni-k из китая
+- **secondary_queries:** changan uni-k комплектации, changan uni-k idd, чанган юни к из китая, uni-k 2.0t awd
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого UNI-K из Китая, а когда лучше смотреть салон РФ или другую модель
+  2. Бензин 2.0T vs гибрид iDD: что зафиксировать до депозита
+  3. Привод 2WD/AWD и комплектации: какие опции реально в VIN, а какие только на фото
+  4. Чек-лист документов, осмотра и сметы через Владивосток до оплаты
+  5. Красные флаги: давление "только сегодня", размытая версия, оплата не на юрлицо
+- **faq_hints:** чем UNI-K iDD отличается от 2.0T; нужен ли полный привод для зимы РФ; что проверить до депозита; сколько roughly ждать доставку через Владивосток
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного китайского кроссовера Changan UNI-K, порт/терминал Владивостока, плашка "до депозита", угол avto-sales125.ru
+- **demand_signal:** WebSearch 2026 (UNI-K 2.0T / iDD / AWD; комплектации до депозита). Wordstat UNAVAILABLE (MCP-KV error) – показы не выдумывать.
+- **cannibalization:** check-query clean vs pool/ledger; slug отсутствует в denylist (в отличие от CS75 Plus)

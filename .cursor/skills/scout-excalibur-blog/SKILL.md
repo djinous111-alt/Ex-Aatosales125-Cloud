@@ -30,26 +30,29 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Autosalas niche uses **`AS##`** IDs (helper accepts `AS|B`). Example next id: `AS23`, not Cursor/AI `B01` drift.
+* Перед append сверь slug с `shared/wp-slug-denylist.json` (doctor fail-closed если файл пуст/отсутствует). Rebuild recipe: git history + ledger + known LIVE model slugs.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
+Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по нише авто-импорта (Китай/Япония/Корея, комплектации, ловушки депозита, СВХ):
+* Примеры: *«Changan UNI-K комплектации 2026»*, *«привоз авто из Китая чек-лист»*, *«Hongqi HS5 iDD ловушки»*.
+* Найди свежие практические боли покупателя, по которым не хватает качественных гайдов.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
-* **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
-* **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+Для 2-3 отобранных вариантов тем вызови `wordstat_get_top_requests` (`MCP-KV` / `user-mcp-kv`).
+* **Цель:** primary query + 3–5 FAQ/secondary.
+* **MCP-KV discovery/auth FAIL:** запиши `wordstat_status: UNAVAILABLE`, продолжай WebSearch-only demand validation, **не выдумывай** impression counts, допиши incident в `memory/pipeline-fix-queue.md`.
+* **Фильтр:** микро-спрос без смежных тем — отложи.
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Commits: `bash scripts/excalibur_git.sh commit …`.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:
@@ -80,4 +83,5 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
-* Выдумывание цифр спроса без вызова Wordstat API.
+* Выдумывание цифр спроса без Wordstat / при `wordstat_status: UNAVAILABLE`.
+* Выбор `B##` в Autosalas-ветке, когда пул уже на `AS##`.

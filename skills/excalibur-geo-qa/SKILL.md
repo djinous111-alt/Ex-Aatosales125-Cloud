@@ -50,7 +50,12 @@ python scripts/excalibur_blog_human_voice_gate.py \
   -o human-voice-report.json
 ```
 
-**Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass, **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
+**Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass (catalog/site SSL soft-pass OK), **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
+
+Notes:
+- `pain_markers_ru` / `outcome_markers_ru` pinned in `editorial-policy.json`; utility skips mins only when lists empty.
+- FAQ linter matches exact FAQ titles (`Частые вопросы` / leading `FAQ`), not H2 that merely mention «до FAQ».
+- Typed Task `excalibur-blog-geo-qa` may be unavailable → Director `Task(generalPurpose)` + `.cursor/agents` + skill (see `AGENTS.md`).
 
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 

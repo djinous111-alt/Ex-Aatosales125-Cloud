@@ -90,16 +90,24 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
 Fallback env: `BLOG_HERO_REFERENCE_URL`.
 
+Если WP `reference_url_hosted` даёт HTTP 000/timeout — сразу Kie tempfile upload:
+
+```bash
+python3 scripts/excalibur_blog_hero_reference_url.py --force --provider kie
+```
+
+`input_urls` для i2i должны указывать на reachable host (`tempfile.redpandaai.co` allowed).
+
 ### Шаг 2 — manifest
 
 ```bash
-python scripts/excalibur_blog_quad_manifest.py \
+python3 scripts/excalibur_blog_quad_manifest.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --merge
 ```
@@ -115,26 +123,32 @@ python scripts/excalibur_blog_quad_manifest.py \
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (MCP primary, Kie fallback)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Primary: `CallMcpTool` → `MCP-KV` / `gpt-image-2` с `jobs[0].mcp_args` (i2i, 16:9, 2K).
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+Если MCP-KV discovery/auth `error` или tool unavailable — **first-class Kie fallback** (не крутить MCP retry loop):
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+(или эквивалентный one-shot async `gpt-image-2-image-to-image` из skill/runbook). Один job → canvas → split. Sticker text non-toxic. Cover corner brand: `avto-sales125.ru` (visual label).
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<MCP or Kie result url>" \
   --inject-html
 ```
 

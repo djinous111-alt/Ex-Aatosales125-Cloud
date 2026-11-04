@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1405-publish-ssh-tcp-timeout
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
+severity: blocker
+category: env
+
+### What went wrong
+- Preflight link-verify PASS and dry-run PASS for new slug `gac-gs3-iz-kitaya-komplektatsii-lovushki-2026`.
+- Live publish blocked: TCP connect to `SSH_HOST:22` timed out (15s and 30s).
+- `SSH_HOST_IP` is not present in Cloud Secrets / env, so skill alternate probe path was unavailable.
+- Agent refused to guess host/IP/credentials or rewrite foreign denylist LIVE posts.
+
+### How the agent recovered this run
+- Stopped before SSH upload / bootstrap trigger.
+- Wrote `wp-publish-result.json` with verdict fail / status publish_blocked.
+- Updated ledger row AS10 → `publish_blocked`, wp-publish-log, handoff PUBLISH BLOCKER, promotion checklist note.
+- Installed missing `paramiko` for this run (precondition for future SSH attempts) but did not use it against an unreachable host.
+
+### Durable fix needed before next run
+- Restore SSH egress to the WordPress host on TCP/22 from Cloud Agent, or inject `SSH_HOST_IP` (reachable alternate) into Cloud Secrets and document probe order in publish skill.
+- Keep denylist untouched; only publish free new slugs after SSH connectivity is confirmed.
+- Consider doctor/env-check TCP probe so publish fails fast before dry-run payload build when SSH is down.
+
+### Suggested files to inspect/change
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py` (optional preflight TCP probe + SSH_HOST_IP fallback)
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud Secrets (`SSH_HOST` / `SSH_HOST_IP` / network allowlist)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261104-1358-indexer-secret-names-url-value
 status: open
 run_date: 2026-11-04

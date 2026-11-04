@@ -1,0 +1,29 @@
+{
+  "verdict": "fail",
+  "status": "publish_blocked",
+  "topic_id": "AS10",
+  "slug": "gac-gs3-iz-kitaya-komplektatsii-lovushki-2026",
+  "article_dir": "memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026",
+  "blocker": "SSH TCP/22 timeout to SSH_HOST; SSH_HOST_IP not configured — no alternate probe; refused to guess access",
+  "preflight": {
+    "allow_publish": "yes",
+    "link_verify": "pass",
+    "dry_run": "pass",
+    "php_bytes": 6641460,
+    "denylist_slug": false,
+    "ssh_tcp_22": "timeout",
+    "ssh_host_ip": "missing"
+  },
+  "permalink": null,
+  "post_id": null,
+  "foreign_denylist_posts_untouched": [
+    4758,
+    4746,
+    4740,
+    3430,
+    3394,
+    4717,
+    4711
+  ],
+  "timestamp": "2026-11-04T14:06:16Z"
+}

@@ -1,6 +1,6 @@
 # Promotion checklist — AS10 gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: YYYY-MM-DD (ожидает Publish)  
+Дата публикации: blocked 2026-11-04 (SSH TCP/22 timeout; Live URL отсутствует)  
 Live URL: /blog/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
@@ -48,3 +48,8 @@ R-Style «с обогревом» — а в листе его нет?
 - Indexer: interlinker `--apply --article-dir …/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026` — interlink_count=0.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-path /` → `/blog`; relative URLs).
 - Publish: не запускался Indexer'ом.
+
+
+## Publish status
+
+- ❌ PUBLISH BLOCKER: SSH TCP/22 timeout; SSH_HOST_IP missing; ledger=`publish_blocked`

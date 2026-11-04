@@ -61,8 +61,26 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
-def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def article_url(site_base: str, slug: str, blog_path: str = "/blog") -> str:
+    """Build article URL; commit-safe relative when site_base empty/redacted."""
+    prefix = (blog_path or "/blog").strip() or "/blog"
+    if not prefix.startswith("/"):
+        prefix = "/" + prefix
+    prefix = prefix.rstrip("/") or "/blog"
+    path = f"{prefix}/{slug}/"
+    base = (site_base or "").rstrip("/")
+    if not base or base in {"[REDACTED]", "REDACTED"}:
+        return path
+    return f"{base}{path}"
+
+
+def build_llms_txt(
+    site_name: str,
+    site_desc: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    blog_path: str = "/blog",
+) -> str:
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -71,14 +89,18 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
         ""
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(site_base, a["slug"], blog_path=blog_path)
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
-def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def build_llms_full_txt(
+    site_name: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    blog_path: str = "/blog",
+) -> str:
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -88,7 +110,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(site_base, a["slug"], blog_path=blog_path)
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -103,12 +125,61 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     return "\n".join(lines)
 
 
+def resolve_site_base(args: argparse.Namespace, root: Path, out_dir: Path) -> str:
+    """Runtime may pass PUBLIC_SITE_URL; committed memory/blog outputs use relative paths."""
+    if getattr(args, "relative_urls", False):
+        return ""
+    if args.site_base is not None:
+        value = str(args.site_base).strip()
+        if value in {"", "[REDACTED]", "REDACTED"}:
+            return ""
+        return value
+    # Default: relative URLs when writing under memory/ (commit hygiene).
+    try:
+        out_dir.resolve().relative_to((root / "memory").resolve())
+        return ""
+    except ValueError:
+        return ""
+
+
+def resolve_blog_path(raw: str | None) -> str:
+    """Map site-brief blog_path to WP article URL prefix.
+
+    Skill/docs pass `--blog-path /` (site-brief). On this theme article permalinks
+    are `/blog/<slug>/`, so bare `/` normalizes to `/blog`. Explicit `/blog` kept.
+    """
+    if raw is None or str(raw).strip() == "":
+        return "/blog"
+    value = str(raw).strip()
+    if value in {"/", "."}:
+        return "/blog"
+    if not value.startswith("/"):
+        value = "/" + value
+    return value.rstrip("/") or "/blog"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
+    ap.add_argument(
+        "--blog-path",
+        type=str,
+        default="/",
+        help="URL path prefix from site-brief (e.g. / or /blog). Accepted for doctor + skill CLI.",
+    )
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default=None,
+        help="Absolute site origin for live/runtime index. Omit/empty/--relative-urls for commit-safe /blog/<slug>/ paths.",
+    )
+    ap.add_argument(
+        "--relative-urls",
+        action="store_true",
+        help="Force relative /blog/<slug>/ URLs (required for committed memory/blog/llms*.txt).",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -124,8 +195,10 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    site_base = resolve_site_base(args, root, out_dir)
+    blog_path = resolve_blog_path(args.blog_path)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base, blog_path=blog_path)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base, blog_path=blog_path)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"
@@ -135,6 +208,7 @@ def main() -> int:
 
     print(f"llms.txt generated at {llms_path.relative_to(root) if root in llms_path.parents else llms_path}")
     print(f"llms-full.txt generated at {llms_full_path.relative_to(root) if root in llms_full_path.parents else llms_full_path}")
+    print(f"site_base_mode={'relative' if not site_base else 'absolute'} blog_path={blog_path}")
 
     return 0
 

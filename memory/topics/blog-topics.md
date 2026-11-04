@@ -18,6 +18,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS01 — Растаможка авто из Кореи
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** rastamozhka-avto-iz-korei-2026
 - **h1:** Растаможка авто из Кореи: реальные сроки и этапы через Владивосток в 2026
 - **primary_query:** растаможка авто из кореи
@@ -41,6 +42,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS02 — Encar на русском
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** encar-na-russkom-kak-chitat
 - **h1:** Encar на русском: как читать объявления и не купить «кота в мешке»
 - **primary_query:** encar на русском
@@ -61,6 +63,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS03 — Корея или Япония
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** avto-iz-korei-ili-yaponii-2026
 - **h1:** Авто из Кореи или Японии: что выгоднее под полную пошлину в 2026
 - **primary_query:** авто из кореи или японии
@@ -81,6 +84,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS04 — Утильсбор 2026
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** utilsbor-na-avto-2026
 - **h1:** Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии
 - **primary_query:** утильсбор на авто 2026
@@ -101,6 +105,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 ## AS05 — СВХ Владивосток
 
 - **priority:** P0
+- **status_note:** published LIVE — do not republish same slug
 - **slug:** svh-vladivostok-2026
 - **h1:** СВХ Владивосток в 2026: транзит авто из трёх стран без переплат
 - **primary_query:** свх владивосток
@@ -184,3 +189,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS10 — GAC GS3 из Китая
+
+- **priority:** P0
+- **slug:** gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита
+- **primary_query:** gac gs3 комплектации
+- **secondary_queries:** гак гс3 комплектации, gac gs3 из китая, gac trumpchi gs3 2026
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Разберите линейку GS3 2026: Enjoy / Smart и что убрали из R-Style
+  2. Сверьте мотор 1.5T, 7DCT и передний привод с договором до оплаты
+  3. Отделите заводские опции от «красивого» перевода объявления
+  4. Красные флаги: экран, 360, обогрев, ассистенты только в топе
+  5. Чек-лист из 10 пунктов перед переводом депозита
+- **faq_hints:** чем отличаются Enjoy и Smart у GS3 2026; нужно ли брать топ ради обогрева сидений; что зафиксировать в договоре до депозита
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** компактный кроссовер GAC GS3 у порта Владивостока, герой Авто-Сейлс с плашкой «до депозита», угол avto-sales125.ru
+- **wordstat_status:** UNAVAILABLE
+- **demand_evidence:** WebSearch 2026-11-04 — обновление GS3 MY2026 (3 комплектации, 1.5T/7DCT), каталоги под заказ и таблицы опций; Hongqi HS5 отложен как alt
+- **metrika_signal:** China crossover gap после Arrizo 8 / Jolion / Omoda; deferred alt GAC GS3

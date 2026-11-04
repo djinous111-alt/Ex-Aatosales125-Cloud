@@ -1,0 +1,132 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1273,
+      713
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 713,
+        "end": 765
+      },
+      "v_gutter_px": {
+        "start": 1273,
+        "end": 1330
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1273,
+          "bottom": 713
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1273,
+          "bottom": 713
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у кроссовера Changan UNI-K у порта Владивостока, плашка до депозита, угол avto-sales125.ru",
+        "h2_anchor": null,
+        "corner_brand_overlay": true,
+        "corner_brand": "avto-sales125.ru"
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1330,
+          "top": 10,
+          "right": 2560,
+          "bottom": 702
+        },
+        "raw_box_px": {
+          "left": 1330,
+          "top": 0,
+          "right": 2560,
+          "bottom": 713
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: когда Changan UNI-K из Китая уместен против младших кроссоверов",
+        "h2_anchor": "Определите, когда UNI-K из Китая уместен"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 36,
+          "top": 765,
+          "right": 1236,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 765,
+          "right": 1273,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора до депозита: бензин 2.0T или гибрид iDD для UNI-K",
+        "h2_anchor": "Сравните бензин 2.0T и гибрид iDD до депозита"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1345,
+          "top": 765,
+          "right": 2545,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1330,
+          "top": 765,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин сверки опций UNI-K по VIN: привод и зимний пакет, не ярлык комплектации",
+        "h2_anchor": "Зафиксируйте привод и опции по VIN, а не по ярлыку"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Определите, когда UNI-K из Китая уместен",
+    "injected inline_2 after H2 — Сравните бензин 2.0T и гибрид iDD до депозита",
+    "injected inline_3 after H2 — Зафиксируйте привод и опции по VIN, а не по ярлыку"
+  ]
+}

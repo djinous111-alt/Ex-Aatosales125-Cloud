@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-2205-cover-mcp-kv-down-kie-fallback
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-cover
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned discovery `error` ("failed during live tool discovery"); `gpt-image-2` unavailable for ONE quad i2i call.
+- Existing WP media `reference_url_hosted` unreachable (HTTP 000 / timeout); cannot rely on wordpress-media for Kie `input_urls`.
+
+### How the agent recovered this run
+- `excalibur_blog_hero_reference_url.py --force --provider kie` → tempfile.redpandaai.co hero PNG.
+- Built `quad-manifest.json` + `quad-mcp-batch.json` (1 job, input_urls set).
+- ONE Kie async job via `excalibur_blog_kie_gpt_image2_api.py` model `gpt-image-2-image-to-image` (task_id `8772dc50e01c78b1bc70008d9e7d8dc1`) → canvas → split PASS → inject 3 figures.
+- Non-toxic sticker text only; cover corner `avto-sales125.ru`.
+
+### Durable fix needed before next run
+- Restore MCP-KV connection/auth for Cloud automations so cover can use native `gpt-image-2` when healthy.
+- Keep documented Kie fallback path as first-class (hero kie upload + kie gpt-image2 api) when MCP-KV discovery fails.
+- WP media hero URL frequently dead — prefer Kie tempfile upload when HEAD probe fails.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- MCP-KV Cursor Dashboard connection
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261105-2205-schema-precommit-invalid-secret-name
 status: open
 run_date: 2026-11-05

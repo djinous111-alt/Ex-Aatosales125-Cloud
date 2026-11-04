@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS22",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит за ярлык Tech — лотерея?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split; MCP-KV down → Kie API fallback",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у кроссовера Changan UNI-K у порта Владивостока, плашка до депозита, угол avto-sales125.ru",
+      "scene_hint": "reference face + glasses only; outfit: dark olive softshell rain jacket + charcoal scarf (foggy Vladivostok port weather), NO hoodie NO cap NO headphones; modern Changan UNI-K crossover behind; fake catalog card + VIN checklist sticky note + 2GIS stars scrap; yellow highlight on «депозит»; shocked meme cutout; corner brand avto-sales125.ru; stickers only «сверь VIN» «до оплаты» «жиза» — non-toxic",
+      "meme_caption_ru": "Сначала VIN, потом депозит"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Определите, когда UNI-K из Китая уместен",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: столбцы «UNI-K уместен» vs «лучше CS75/младший UNI» — семья/трасса/город, багаж, бюджет под ключ Владивосток; pink sticky «сценарий»; tape corner; NO hero face",
+      "alt": "Таблица: когда Changan UNI-K из Китая уместен против младших кроссоверов"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните бензин 2.0T и гибрид iDD до депозита",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram 4 steps Cyrillic: сценарий → 2.0T+8AT vs iDD 1.5T+батарея → зарядка/трасса → одна силовая в чек-листе; marker arrow; mini sticky «одно из двух»; NO hero face",
+      "alt": "Схема выбора до депозита: бензин 2.0T или гибрид iDD для UNI-K"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Зафиксируйте привод и опции по VIN, а не по ярлыку",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake phone/tool screenshot: VIN decode + checklist AWD BorgWarner, зимний пакет, панорама, акустика; crossed-out label «Tech/Flagship»; sticky «не ярлык»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Скрин сверки опций UNI-K по VIN: привод и зимний пакет, не ярлык комплектации"
+    }
+  }
+}

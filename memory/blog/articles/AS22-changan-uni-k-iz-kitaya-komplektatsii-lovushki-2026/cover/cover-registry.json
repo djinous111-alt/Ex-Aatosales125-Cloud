@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS22",
+  "slug": "changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у кроссовера Changan UNI-K у порта Владивостока, плашка до депозита, угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-04T22:05:40+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у кроссовера Changan UNI-K у порта Владивостока, плашка до депозита, угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: когда Changan UNI-K из Китая уместен против младших кроссоверов",
+      "h2_anchor": "Определите, когда UNI-K из Китая уместен",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема выбора до депозита: бензин 2.0T или гибрид iDD для UNI-K",
+      "h2_anchor": "Сравните бензин 2.0T и гибрид iDD до депозита",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Скрин сверки опций UNI-K по VIN: привод и зимний пакет, не ярлык комплектации",
+      "h2_anchor": "Зафиксируйте привод и опции по VIN, а не по ярлыку",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

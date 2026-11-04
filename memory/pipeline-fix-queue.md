@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1757-cover-mcp-kv-down-kie-fallback
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-cover
+topic_id: AS21
+article_dir: memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned `namespaceStatus=error`; `gpt-image-2` unavailable.
+- Stable WP hero media URL returned HTTP 502 from Cloud egress.
+- Sanitizer had wiped durable cover helpers: `scripts/excalibur_blog_kie_file_base64_upload.py`, Kie provider in `excalibur_blog_hero_reference_url.py`, and tempfile allowlist / outfit_lock in `excalibur_blog_cover_quad_prompt.py` (hardcoded white hoodie again).
+
+### How the agent recovered this run
+- Restored wiped scripts from commit `a9db2e63`.
+- Rehosted local `blog-hero-reference.png` via Kie file-base64 upload (`--force --provider kie`).
+- Generated ONE quad canvas via `excalibur_blog_kie_gpt_image2_api.py` (task_id `b6b5f480db69fe0f494b2a50c833fcbb`), then split+inject PASS.
+- Non-toxic sticker wording kept; no second image job.
+
+### Durable fix needed before next run
+- Restore MCP-KV credentials/discovery for Cloud automations.
+- Pin doctor/smoke so sanitizer cannot drop Kie tempfile allowlist, outfit_lock, or `excalibur_blog_kie_file_base64_upload.py`.
+- Prefer HTTPS WP media when reachable; keep Kie tempfile as documented egress fallback only.
+
+### Suggested files to inspect/change
+- `.cursor/mcp.json` / Cloud MCP secrets for MCP-KV
+- `scripts/excalibur_blog_kie_file_base64_upload.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261104-1706-scout-wordstat-mcp-unavailable
 status: open
 run_date: 2026-11-04

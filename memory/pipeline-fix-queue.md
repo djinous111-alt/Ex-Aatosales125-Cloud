@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-2125-writer-precommit-invalid-secret-name
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-writer
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of article.html/meta failed in Cursor pre-commit secret scanner: `CLOUD_AGENT_*_SECRET_NAMES` again contained a non-identifier token (`invalid variable name`), same class as INC-20261105-0013.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` and `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` comma-separated ids, then commit `4f3b753b` succeeded and pushed.
+
+### Durable fix needed before next run
+- Sanitize injected secret-name lists before the pre-commit hook, or make the hook skip invalid names.
+- Restore `scripts/excalibur_git.sh` wrapper that applies the filter automatically for all roles.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261105-2115-research-wordstat-mcp-unavailable
 status: open
 run_date: 2026-11-05

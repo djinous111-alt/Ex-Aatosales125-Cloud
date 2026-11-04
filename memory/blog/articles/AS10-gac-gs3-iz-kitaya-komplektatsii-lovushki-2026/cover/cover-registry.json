@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS10",
+  "slug": "gac-gs3-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой: R-Style без обогрева — сверьте Enjoy/Smart до депозита",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-11-04T13:52:17+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой: R-Style без обогрева — сверьте Enjoy/Smart до депозита",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения Enjoy, Smart и R-Style: экран, подогрев, электробагажник, ADAS",
+      "h2_anchor": "Разберите линейку GS3 2026: Enjoy, Smart и что убрали из R-Style",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема сверки силовой 1.5T + 7DCT + передний привод с договором",
+      "h2_anchor": "Сверьте мотор 1.5T, 7DCT и передний привод с договором",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Скрин: маркетинг «флагман» против заводских имён Enjoy Smart R-Style",
+      "h2_anchor": "Отделите заводские опции от \"красивого\" перевода объявления",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

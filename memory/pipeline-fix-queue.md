@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1350-cover-mcp-kv-down-kie-fallback
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: api
+
+### What went wrong
+- MCP-KV `namespaceStatus=error` — live tool discovery failed; `gpt-image-2` unavailable (0 tools).
+- Sanitizer had wiped durable cover helpers: `scripts/excalibur_blog_kie_file_base64_upload.py` missing; `excalibur_blog_hero_reference_url.py` without Kie file-base64 provider; `excalibur_blog_cover_quad_prompt.py` without tempfile.redpandaai.co allowlist (blocked Kie hero URL).
+- Stable WP hero media URL returned HTTP 000 from Cloud egress; catbox 412; 0x0 SSL handshake timeout.
+- CLI flag `--force-local-hero` still absent (prior AS15 incident); used `--force --provider kie` instead.
+
+### How the agent recovered this run
+- Restored wiped scripts from commit `a9db2e63` (hero URL + kie file-base64 upload + prompt tempfile allowlist/outfit lock).
+- Hosted local `blog-hero-reference.png` via Kie file-base64-upload → tempfile HTTPS for `input_urls`.
+- ONE image job via `excalibur_blog_kie_gpt_image2_api.py` (createTask → poll → URL); split+inject PASS.
+- Did not call 4 separate image jobs; no apply without URL.
+
+### Durable fix needed before next run
+- Pin/restore Kie-first cover path + tempfile hero allowlist against sanitizer wipe (doctor/smoke pins).
+- Keep `upload_kie_base64` + `--provider kie` in hero_reference_url; document as `--force-local-hero` alias or add the flag.
+- Prefer Kie async when MCP-KV error/timeout; do not treat MCP absence alone as COVER HERO BLOCKER if Kie path works.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_kie_file_base64_upload.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/kie-gpt-image-api-contract.md`
+- doctor/smoke pin lists
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261104-1345-schema-secret-names-url-value
 status: open
 run_date: 2026-11-04

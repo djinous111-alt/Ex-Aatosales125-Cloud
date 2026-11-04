@@ -122,23 +122,34 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (MCP-KV **или** Kie-first)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
-
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
-
-### Шаг 5 — apply
+1. Сначала `GetDynamicTools` для namespace `MCP-KV` / `user-mcp-kv`.
+2. Если `namespaceStatus: error` / tools list empty → **не** blind-retry MCP.
+   Используй documented primary Cloud path (Kie async, ONE task):
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --force-local-hero
+```
+
+Контракт: `shared/kie-gpt-image-api-contract.md`.  
+Скрипт сам rehost'ит local hero через Kie `file-base64-upload`, если `input_urls[0]` ещё не на Kie tempfile host, либо всегда при `--force-local-hero` (пишет `cover/kie-hero-upload.json`).  
+`--skip-hero-rehost` — только debug. Отдельный CLI `scripts/excalibur_blog_kie_file_base64_upload.py` — fallback, если нужно вручную подставить URL до createTask.
+
+3. Если MCP-KV готов → `CallMcpTool` `gpt-image-2` с `jobs[0].mcp_args` (ONE job, 16:9, 2K, `input_urls` обязателен).
+
+### Шаг 5 — apply + corner brand
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --url "<result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+`excalibur_blog_cover_quad_split.py` обязан проставить corner brand `avto-sales125.ru` на `cover.png` (без второго image job). Требует Pillow.
 
 ### Шаг 6 — fragment
 

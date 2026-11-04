@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026",
+  "notes": "memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/research-notes.md",
+  "context": "memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-11-04",
+    "prefer_sources_after": "2026-08-06",
+    "source_urls": 27,
+    "source_domains": 13,
+    "source_table_rows": 22,
+    "accessed_at": 14,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 8,
+    "pain_solution_rows": 6,
+    "technical_topic": false
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "verdict": "fail",
+  "blocker": "PUBLISH BLOCKER",
+  "reason": "ssh_tcp22_timeout",
+  "topic_id": "AS15",
+  "slug": "chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026",
+  "article_dir": "memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026",
+  "publish_date": "2026-11-04",
+  "allow_publish": true,
+  "preflight": {
+    "link_verify": "pass",
+    "link_verify_soft_pass": ["catalog_ssl"],
+    "qa": "PASS",
+    "cover": true,
+    "schema": true,
+    "denylist_slug_hit": false,
+    "dry_run": "pass",
+    "dry_run_slug": "chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026",
+    "dry_run_php_bytes": 6870016,
+    "paramiko_available": true,
+    "ssh_dns_resolved": true,
+    "ssh_host_ip_configured": false,
+    "ssh_tcp22": {
+      "reachable": false,
+      "error": "ssh_tcp22_timeout",
+      "via": "SSH_HOST"
+    }
+  },
+  "live_write": false,
+  "post_id": null,
+  "permalink": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": null,
+  "notes": [
+    "Same class of Cloud egress failure as AS10 Sienta (TCP/22 timeout on SSH_HOST DNS A).",
+    "SSH_HOST_IP unset; PUBLIC_SITE_URL IP deliberately not used as SSH fallback.",
+    "Denylist LIVE posts untouched: 4758/4746/4740/3430/3394/4717/4711.",
+    "Needs-human: restore Beget SSH TCP/22 or verified Cloud Secret SSH_HOST_IP with open TCP/22, then republish ONLY this NEW slug."
+  ]
+}

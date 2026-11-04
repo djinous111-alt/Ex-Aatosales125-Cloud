@@ -254,3 +254,262 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261104-1206-director-sanitizer-wipe-as-b
+status: fixed
+run_date: 2026-11-04
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- Cron boot found wiped durable pins: `today.py`/`scout_helper` only matched `B\d+`, doctor FAIL on llms `--blog-path`, missing `excalibur_git.sh` / smoke / Kie upload helpers, scout niche docs drifted.
+- `EXCALIBUR_TOPIC_SELECTION=needs_scout` despite AS01–AS14 pool; LIVE WP REST SSL handshake timeout again.
+
+### How the agent recovered this run
+- Restored durable pack from `a9db2e63` + `today.py`/topics/pitfalls from `c0b1a833`.
+- Restored ledger from `b9e96bf5` and appended Sienta `publish_blocked`; appended AS11–AS14 topic cards with LIVE status_note.
+- Doctor SUMMARY errors=0; next scout id AS15.
+
+### Durable fix needed before next run
+- Prevent sanitizer from wiping AS|B / llms aliases / git filter / cover Kie helpers (CI pin or smoke on boot).
+- Keep WP SSL timeout denylist fallback documented when REST handshake times out.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Re-pinned AS|B regex in today/scout_helper; doctor + `fixer_regression_smoke` FAIL if wipe recurs.
+- Smoke/doctor also pin llms `--blog-path`, `excalibur_git.sh`, Kie upload CLI, denylist non-empty, editorial markers.
+- Pitfalls: sanitizer wipe → restore from durable commits before pipeline.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py`
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
+commit: 771c405a
+
+## INC-20261104-0908-scout-wordstat-denylist-fallback
+status: fixed
+run_date: 2026-11-04
+role: excalibur-blog-scout
+topic_id: AS15
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV Wordstat unavailable (`namespaceStatus: error`); cannot call `wordstat_get_top_requests`.
+- `shared/wp-slug-denylist.json` missing at scout start (sanitizer wipe / incomplete restore).
+- WP REST for `EXCALIBUR_RECENT_WP_POSTS` failed with SSL handshake timeout — LIVE slug list not refreshable from Cloud egress.
+
+### How the agent recovered this run
+- Set `wordstat_status: UNAVAILABLE` on AS15; used WebSearch (Arrizo 8 lots/trim tables) + Metrika/Дзен China-cluster semantic tail; no invented impression counts.
+- Rebuilt `shared/wp-slug-denylist.json` from git snapshot `30a770a6` + `published-live` + ledger + topic slugs (1235 entries); deduped against denylist models (Haval M6, Omoda C5, Jetour T2, Tiggo 7 Pro, Jaecoo J7, Sienta, Encar, utilsbor, AS01–AS09).
+- Chose free model Chery Arrizo 8; `--check-query "арризо 8 комплектации"` clean before append; utility gate AS15 PASS.
+
+### Durable fix needed before next run
+- Restore or pin Wordstat MCP-KV auth/discovery for Cloud scout runs.
+- Ensure denylist file is regenerated or restored on boot when WP REST SSL times out (doctor/smoke check for non-empty `shared/wp-slug-denylist.json`).
+- Optionally teach `scout_helper --check-query` to load denylist slug collisions explicitly (skill claims it; current script only checks topic pool).
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- `scout_helper` loads denylist; `--check-slug` exact CRITICAL; missing/empty denylist → exit 2 blocker.
+- Doctor/smoke pin non-empty `shared/wp-slug-denylist.json` (≥50).
+- Scout skill/agent: UNAVAILABLE Wordstat path + `--check-query`/`--check-slug` (MCP OAuth remains env/human outside repo).
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --check-slug <denylist-sample>` (expect CRITICAL)
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
+commit: 771c405a
+
+## INC-20261104-0935-geo-qa-typed-task-fallback
+status: fixed
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: handoff
+
+### What went wrong
+- Typed Cloud Task `excalibur-blog-geo-qa` unavailable in Cloud Task enum; Director launched role via `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Executed full GEO QA script set with `python3`; all gates PASS (research-notes, utility, human-voice, html-linter, slop, fact-check, cannibalization, link-verify with catalog_ssl soft-pass).
+- Wrote `article-qa.md` verdict PASS score 88; no HTML/meta FIX needed.
+- Noted generalPurpose fallback in handoff GEO QA block.
+
+### Durable fix needed before next run
+- Register typed Task `excalibur-blog-geo-qa` in Cloud Task enum when platform allows, or keep documented generalPurpose pin in AGENTS.md / agent file (already partially documented).
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Pinned Cloud Task fallback: typed `excalibur-blog-geo-qa` may be missing → `Task(generalPurpose)` + agent/skill paths in AGENTS.md, geo-qa agent, director skill, pitfalls.
+- Platform typed-enum registration remains outside repo; docs prevent parent-agent GEO QA.
+files_changed:
+- `AGENTS.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose geo-qa pin in AGENTS.md + agents/excalibur-blog-geo-qa.md
+commit: 771c405a
+
+## INC-20261104-0951-cover-kie-force-local-hero-flag-missing
+status: fixed
+run_date: 2026-11-04
+role: excalibur-blog-cover
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `shared/kie-gpt-image-api-contract.md` and cover skill document `--force-local-hero` / auto-rehost inside `excalibur_blog_kie_gpt_image2_api.py`, but the script argparse has no such flags and no file-base64-upload rehost path.
+- MCP-KV namespaceStatus=error; Cover used Kie-first as required.
+
+### How the agent recovered this run
+- Uploaded local `memory/cover/assets/blog-hero-reference.png` via `scripts/excalibur_blog_kie_file_base64_upload.py` → `cover/kie-hero-upload.json`.
+- Patched `cover/quad-mcp-batch.json` `input_urls` to Kie tempfile host before ONE `createTask`.
+- Split PASS + corner brand stamp + inject 3 figures.
+
+### Durable fix needed before next run
+- Wire `--force-local-hero` / auto-rehost into `excalibur_blog_kie_gpt_image2_api.py` per contract, or update skill/contract to document the separate CLI upload step as the canonical path.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_kie_file_base64_upload.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-11-04
+fix_summary:
+- Wired `--force-local-hero` / `--skip-hero-rehost` + auto-rehost when `input_urls[0]` is not a Kie tempfile host; evidence `cover/kie-hero-upload.json`.
+- Cover skill documents flags; separate `kie_file_base64_upload.py` remains manual fallback.
+- Doctor/smoke pin flags + upload CLI presence.
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --help`
+- `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
+commit: 771c405a
+
+## INC-20261104-1013-publish-ssh-tcp22-timeout-as15
+status: needs-human
+run_date: 2026-11-04
+role: excalibur-blog-publish
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026
+severity: blocker
+category: env
+
+### What went wrong
+- `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`; link-verify PASS; dry-run PASS for NEW slug `chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026`.
+- `--env-check`: ssh.dns.resolved=true, paramiko_available=true after pip workaround, but `ssh.tcp22` → `ssh_tcp22_timeout` via `SSH_HOST`.
+- `SSH_HOST_IP` unset. DNS A for SSH_HOST probed (~8s TimeoutError). PUBLIC_SITE_URL IP differs from SSH A and was NOT used as SSH fallback (contract).
+- Same Cloud egress class as AS10 Sienta publish_blocked.
+- Dry-run initially crashed: local `import re` inside `load_article` shadowed module `re` and broke earlier `re.sub` on schema (UnboundLocalError).
+
+### How the agent recovered this run
+- Installed paramiko via pip workaround; re-ran env-check (paramiko true; tcp22 still missing).
+- Removed shadowing local `import re` in `scripts/excalibur_blog_wp_publish.py`; dry-run then PASS (PHP ~6.87MB, correct slug).
+- Did **not** attempt LIVE SSH publish; no denylist/LIVE posts rewritten.
+- Ledger AS15 → `publish_blocked`; wp-publish-result.json + log + handoff blocker recorded.
+
+### Durable fix needed before next run
+- Human: restore Beget SSH listener/firewall TCP/22 for Cloud egress, **or** add verified Cloud Secret `SSH_HOST_IP` with open TCP/22 (never invent / never use PUBLIC_SITE_URL IP).
+- After connectivity restored: republish ONLY slug `chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026` (never 4758/4746/4740/3430/3394/4717/4711 or foreign slugs).
+- Keep local-`import re` removed (already patched this run); pin paramiko in image so Cloud agents do not need pip workaround.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (tcp22 gate; re-import shadow — fixed)
+- `shared/excalibur-wp-publish-contract.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- Cursor Dashboard Cloud Secrets (`SSH_HOST_IP` only; no values recorded)
+- Beget panel SSH/firewall for hostname behind `SSH_HOST`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: needs-human
+fixed_at: 2026-11-04
+reason:
+- Cloud egress cannot open TCP/22 to Beget `SSH_HOST` DNS A; inventing/using PUBLIC_SITE_URL IP is forbidden.
+- Repo-side mitigations applied (docs + paramiko pin + `import re` shadow already removed) but LIVE publish remains blocked until network/secret change.
+needed_decision_or_secret:
+- Human: open Beget SSH listener/firewall TCP/22 for Cursor Cloud egress **or** set verified Cloud Secret `SSH_HOST_IP` that accepts TCP/22.
+- Then republish ONLY slug `chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026` (ledger `publish_blocked`); never touch denylist LIVE 4758/4746/4740/3430/3394/4717/4711.
+files_changed:
+- `shared/excalibur-wp-publish-contract.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/cloud-agent-install.sh` (paramiko pin)
+- `scripts/excalibur_blog_wp_publish.py` (re-import shadow removed earlier this run)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg ssh_tcp22_timeout` in publish contract/skill
+commit: 771c405a
+

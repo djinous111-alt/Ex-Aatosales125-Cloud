@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS15",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Arrizo 8 «полная» на фото — а trim другой?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у серебристого Chery Arrizo 8 у порта Владивостока со смартфоном и чек-листом комплектаций, плашка до депозита",
+      "scene_hint": "Vladivostok cool autumn port, silver modern Chery Arrizo 8 sedan behind; hero EXACT face+glasses from reference; olive field jacket over grey shirt (NOT reference tee, NO white hoodie, NO cap/hood); phone with fake catalog lot card Arrizo 8; torn paper checklist «VIN / кВт / trim»; sticky note «до депозита»; shocked meme cutout; yellow highlight on «trim»; corner brand avto-sales125.ru; DIY collage 16:9",
+      "meme_caption_ru": "Сначала VIN"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу: зачем вам седан до разговора о деньгах",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "UI workflow board: сценарий семья/трасса/зима → приоритет комфорт/динамика → Владивосток → вычеркнуть чужую цену → кВт в документах; sticky note «мне нужно…»; tape corner; no hero face; readable Cyrillic labels only",
+      "alt": "Схема workflow: задача на бумаге до разговора о деньгах за Arrizo 8"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте линейку: Arrizo 8, PRO и дилерский РФ – не одно и то же",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Fake comparison table UI: columns CN Conquer / РФ дилер / Arrizo 8 PRO; rows мотор кВт, КПП, trim; red marker X on «та же машина дешевле»; mini catalog card inset; no hero face",
+      "alt": "Таблица сравнения линейок Arrizo 8 Conquer, РФ-дилер и PRO"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите мотор и коробку: 1.6T или 2.0T, DCT или 8AT",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board with three engine/gear packs: 1.6T-7DCT, 2.0T-7DCT, 2.0T-8AT; check кВт vs л.с. баннера; note «не почти то же на роботе»; torn paper + tape; no hero face",
+      "alt": "Чеклист выбора мотора и КПП Arrizo 8: 1.6T или 2.0T, DCT или 8AT"
+    }
+  }
+}

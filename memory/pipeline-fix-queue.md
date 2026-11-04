@@ -357,3 +357,37 @@ category: handoff
 
 ### Fixer resolution
 - pending
+
+## INC-20261104-0951-cover-kie-force-local-hero-flag-missing
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-cover
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `shared/kie-gpt-image-api-contract.md` and cover skill document `--force-local-hero` / auto-rehost inside `excalibur_blog_kie_gpt_image2_api.py`, but the script argparse has no such flags and no file-base64-upload rehost path.
+- MCP-KV namespaceStatus=error; Cover used Kie-first as required.
+
+### How the agent recovered this run
+- Uploaded local `memory/cover/assets/blog-hero-reference.png` via `scripts/excalibur_blog_kie_file_base64_upload.py` → `cover/kie-hero-upload.json`.
+- Patched `cover/quad-mcp-batch.json` `input_urls` to Kie tempfile host before ONE `createTask`.
+- Split PASS + corner brand stamp + inject 3 figures.
+
+### Durable fix needed before next run
+- Wire `--force-local-hero` / auto-rehost into `excalibur_blog_kie_gpt_image2_api.py` per contract, or update skill/contract to document the separate CLI upload step as the canonical path.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_kie_file_base64_upload.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

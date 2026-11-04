@@ -1,0 +1,132 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1283,
+      728
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 728,
+        "end": 734
+      },
+      "v_gutter_px": {
+        "start": 1283,
+        "end": 1302
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 3,
+          "right": 1283,
+          "bottom": 725
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 728
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у серебристого Chery Arrizo 8 у порта Владивостока со смартфоном и чек-листом комплектаций, плашка до депозита",
+        "h2_anchor": null,
+        "corner_brand_overlay": true,
+        "corner_brand": "avto-sales125.ru"
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1302,
+          "top": 10,
+          "right": 2560,
+          "bottom": 718
+        },
+        "raw_box_px": {
+          "left": 1302,
+          "top": 0,
+          "right": 2560,
+          "bottom": 728
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема workflow: задача на бумаге до разговора о деньгах за Arrizo 8",
+        "h2_anchor": "Зафиксируйте задачу: зачем вам седан до разговора о деньгах"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 14,
+          "top": 734,
+          "right": 1269,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 734,
+          "right": 1283,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения линейок Arrizo 8 Conquer, РФ-дилер и PRO",
+        "h2_anchor": "Сверьте линейку: Arrizo 8, PRO и дилерский РФ – не одно и то же"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1302,
+          "top": 734,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1302,
+          "top": 734,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист выбора мотора и КПП Arrizo 8: 1.6T или 2.0T, DCT или 8AT",
+        "h2_anchor": "Выберите мотор и коробку: 1.6T или 2.0T, DCT или 8AT"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу: зачем вам седан до разговора о деньгах",
+    "injected inline_2 after H2 — Сверьте линейку: Arrizo 8, PRO и дилерский РФ – не одно и то же",
+    "injected inline_3 after H2 — Выберите мотор и коробку: 1.6T или 2.0T, DCT или 8AT"
+  ]
+}

@@ -416,3 +416,97 @@ category: env
 ### Fixer resolution
 - pending
 
+
+## INC-20261104-1730-geo-qa-sanitizer-wipe-restores
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS21
+article_dir: memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- First GEO QA run: utility BLOCK (`pain_markers=0`, `outcome_markers=0`) because `pain_markers_ru`/`outcome_markers_ru` missing from `memory/brief/editorial-policy.json`.
+- `excalibur_blog_link_verify.py` hard-FAIL on brand catalog SSL handshake timeout (Cloud egress); soft-pass/catalog_ssl wiped again.
+- `excalibur_blog_human_voice_gate.py` missing TL;DR / «Быстрый инсайт» ban and exact-5 `<ol>` counter (same sanitizer class as prior restores).
+
+### How the agent recovered this run
+- Restored marker lists in editorial-policy; utility empty-list skip in utility gate; link-verify catalog/site soft-pass + report redaction; human-voice TL;DR ban from known-good commit `e7ccf8b9`.
+- Re-ran gates: utility PASS, link-verify PASS (`catalog_ssl`), human-voice still BLOCK on article text (Writer FIX, not rewritten by GEO QA).
+
+### Durable fix needed before next run
+- Pin restores in fixer loop / preflight doctor so sanitizer wipe cannot strip markers + soft-pass + TL;DR ban again.
+- Optional: doctor check that policy contains non-empty `pain_markers_ru`/`outcome_markers_ru` and link-verify defines `classify_soft_pass`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261104-1730-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS21
+article_dir: memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: handoff
+
+### What went wrong
+- Cloud typed Task `excalibur-blog-geo-qa` unavailable; Director used `Task(generalPurpose)` fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Executed GEO QA via generalPurpose contract (`.cursor/agents/excalibur-blog-geo-qa.md` + skill).
+
+### Durable fix needed before next run
+- Keep documenting generalPurpose fallback in AGENTS.md / director skill; no code change required if Cloud still rejects typed roles.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261104-1731-geo-qa-human-voice-writer-fix
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS21
+article_dir: memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: qa
+
+### What went wrong
+- After durable restores, `human-voice-report.json` BLOCK: insight uses `TL;DR / Быстрый инсайт`; human `OUTCOME_MARKERS` hits = 2 (`проверьте`,`выберите`) &lt; 3.
+- Overall article-qa FAIL score 74; cover||schema must wait.
+
+### How the agent recovered this run
+- Did not rewrite longread; wrote FIX cycle 1 in `article-qa.md` for Writer (topical insight label + ≥1 outcome marker).
+
+### Durable fix needed before next run
+- Writer skill / writing contract: explicit ban on TL;DR insight label + checklist that human-voice outcome markers (≥3) differ from utility `чеклист` counting.
+
+### Suggested files to inspect/change
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -28,9 +28,10 @@
     "description_aeo": "Hongqi HS5 из Китая выбирают по китайскому имени trim MY2026, приводу 2WD/4WD и мотору 2.0T 252 л.с., не по Comfort/Deluxe с сайта РФ."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": "2026-11-04"
+    "score": 74,
+    "verdict": "FAIL",
+    "date": "2026-11-04",
+    "blocker": "human-voice BLOCK (TL;DR label + outcome_markers<3); Writer FIX cycle 1"
   },
   "cover_family": "brand_collage"
 }

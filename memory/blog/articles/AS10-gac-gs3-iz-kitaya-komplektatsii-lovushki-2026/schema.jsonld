@@ -1,0 +1,187 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита",
+      "description": "GAC GS3 комплектации Enjoy / Smart / R-Style: чеклист до депозита, силовая 1.5T + 7DCT и красные флаги опций. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${CATALOG_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${CATALOG_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "gac gs3 комплектации",
+        "гак гс3 комплектации",
+        "gac gs3 из китая",
+        "gac trumpchi gs3 2026",
+        "gac gs3 комплектации enjoy smart r-style"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем отличаются Enjoy и Smart у GS3 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enjoy даёт панораму, 360 и автоклимат, но экран 10,25″ без подогрева и без ACC-пакета. Smart добавляет экран 12,3″, подогрев переда, электробагажник, зарядку 50W и пакет ассистентов. Выбирайте по чеклисту, а не по слову \"топ\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли брать топ ради обогрева сидений?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если подогрев обязателен, целитесь в Smart и фиксируйте его в договоре. R-Style звучит \"топом\", но по официальному листу подогрева и электробагажника там нет."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что зафиксировать в договоре до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Заводское имя версии, строку 1.5T / 7DCT / передний привод, цвет, критичные опции списком, порядок осмотра до выкупа и условия возврата депозита. Нет пунктов – статус \"жду\", не \"плачу\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли опираться на комплектации GB/GL российского дилера?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет как на замену китайским Enjoy/Smart/R-Style. Для заказа из Китая просите китайский лист или экспортный код с спецификацией именно этой сборки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если менеджер торопит \"депозит сегодня\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ответьте списком недостающих документов и поставьте \"жду\". Если снова давление и карта физлица – отказ. Срочность не заменяет спецификацию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где посчитать заказ под конкретную версию GS3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "После PASS по комплектации откройте каталог Авто-Сейлс и уточните маршрут через Владивосток. В статье нет калькулятора пошлин – цифры живут в актуальном расчёте."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию GAC GS3 из Китая до депозита",
+      "description": "Пошаговый выбор Enjoy / Smart / R-Style для GAC GS3 (Emzoom) MY2026: заводской ярлык, силовая 1.5T + 7DCT, чеклист опций и решение плачу / жду / отказ до перевода.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Официальные листы GAC MY2026: Enjoy / Smart / R-Style"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чеклист опций до депозита: экран, 360, обогрев, ACC/ADAS, электробагажник"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Проект договора / КП с силовой строкой и юрлицом"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Бриф: нужен ли обогрев, 360, ACC, электробагажник, спорт-обвес"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Китайское заводское имя версии и скрин/скан заводского листа"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Разберите линейку GS3 2026: Enjoy, Smart и что убрали из R-Style",
+          "text": "Выберите один заводской ярлык до чата с менеджером. Enjoy – баланс; Smart – подогрев, экран 12,3″ и электробагажник; R-Style – спорт-обвес без подогрева и электрокрышки в официальном листе. Не считайте R-Style максимумом Smart.",
+          "url": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверьте мотор 1.5T, 7DCT и передний привод с договором",
+          "text": "Потребуйте в КП ту же силовую строку, что на листах gs301–gs304: 1.5T 177 л.с., мокрый 7DCT и передний привод. Другой объём, КПП или внезапный полный привод без листа сборки – стоп до депозита.",
+          "url": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Отделите заводские опции от «красивого» перевода объявления",
+          "text": "Не копируйте в договор RU-ярлыки вроде «Комфорт» или «Флагман». Запросите китайское заводское имя версии и скрин листа; HT2A и дилерские GB/GL сверяйте как отдельный рынок, не как замену Enjoy/Smart/R-Style.",
+          "url": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверьте красные флаги: экран, 360, обогрев и ассистенты",
+          "text": "Сверьте галочками экран, 360, подогрев, ACC/ADAS и электробагажник по заводскому листу. Обещание «всё как у флагмана» без скрина спецификации не основание для перевода.",
+          "url": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройдите чек-лист перед депозитом",
+          "text": "До первого перевода отметьте договор с юрлицом, счёт не на карту физлица, заводское имя версии, силовую строку, чеклист опций, цвет, осмотр до выкупа, смету и маршрут через Владивосток. Давление «только сегодня» без бумаг – отказ.",
+          "url": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Зафиксируйте результат до оплаты",
+          "text": "Запишите решение одним словом: плачу / жду / отказ. Критерий PASS: в договоре стоят заводское имя, мощность/коробка/привод и чеклист опций; нет оплаты на карту физлица. После PASS уточните расчёт в каталоге под выбранную версию.",
+          "url": "${PUBLIC_SITE_URL}/gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/"
+        }
+      ]
+    }
+  ]
+}

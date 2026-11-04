@@ -44,3 +44,7 @@ verdict: PASS | BLOCKER
 ## Выход
 
 `schema.jsonld`
+
+## Commit
+
+`bash scripts/excalibur_git.sh commit …` (filters CLOUD_AGENT_*_SECRET_NAMES). Placeholders in JSON-LD, not live URLs.

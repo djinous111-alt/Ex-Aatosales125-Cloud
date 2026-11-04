@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "R-Style «с обогревом» — а в листе его нет?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой: R-Style без обогрева — сверьте Enjoy/Smart до депозита",
+      "scene_hint": "reference face + glasses ONLY; CHANGE outfit: olive field jacket over grey henley (NOT white hoodie, NOT reference tank); Vladivostok port fog drizzle behind compact China crossover GAC GS3; fake phone screenshot of trim card Enjoy/Smart/R-Style with red X on «обогрев у R-Style»; torn paper plaque Cyrillic hook; sticky note «до депозита»; shocked meme cutout; highlighter on «обогревом»; corner brand avto-sales125.ru; no cap no hood; no Wordstat/Metrika",
+      "meme_caption_ru": "Сначала заводской лист"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите линейку GS3 2026: Enjoy, Smart и что убрали из R-Style",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI 3 columns Enjoy / Smart / R-Style: rows экран, подогрев сидений, электробагажник, ADAS; checkmarks and red crosses; sticky tape corner; NO human face; Cyrillic labels only",
+      "alt": "Таблица сравнения Enjoy, Smart и R-Style: экран, подогрев, электробагажник, ADAS"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте мотор 1.5T, 7DCT и передний привод с договором",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram 4 boxes: заводской лист 1.5T → 7DCT мокрый → передний привод → строка в КП/договоре; red stop if другой мотор/КПП/AWD; mini sticky «стоп»; NO hero face",
+      "alt": "Схема сверки силовой 1.5T + 7DCT + передний привод с договором"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Отделите заводские опции от \"красивого\" перевода объявления",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake tool screenshot: left chat bubble «флагман / топ / комфорт», right factory sheet with Chinese names 劲享 Enjoy / 劲智 Smart / R-STYLE and option checklist; red marker strike through marketing words; NO hero face",
+      "alt": "Скрин: маркетинг «флагман» против заводских имён Enjoy Smart R-Style"
+    }
+  }
+}

@@ -46,12 +46,15 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 
 ## Жёсткие правила
 
-1. **ONE MCP** — один холст 2×2. **Запрещено** 4 отдельных вызова.
-2. MCP **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
-3. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
-4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
-5. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
-6. Не трогать `schema.jsonld`, не переписывать текст статьи.
+1. **ONE image job** — один холст 2×2. **Запрещено** 4 отдельных вызова.
+2. Image job **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
+3. Если `MCP-KV` discovery = error / tools empty → **Kie-first** (`scripts/excalibur_blog_kie_gpt_image2_api.py --force-local-hero`), без blind MCP retry. MCP absence alone ≠ COVER HERO BLOCKER if Kie works.
+4. Local hero rehost: `python3 scripts/excalibur_blog_hero_reference_url.py --force-local-hero` (alias `--force --provider kie` / file-base64-upload). Do not invent second canvas job.
+5. После split `cover.png` обязан содержать corner brand `avto-sales125.ru` (stamp в `excalibur_blog_cover_quad_split.py`).
+6. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
+7. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
+8. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
+9. Не трогать `schema.jsonld`, не переписывать текст статьи.
 
 ---
 
@@ -61,17 +64,17 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 # из корня EXCALIBUR, article_dir из handoff
 ARTICLE="memory/blog/articles/<topic_id>-<slug>"
 
-# 1. Публичный URL эталона лица
-python scripts/excalibur_blog_hero_reference_url.py
+# 1. Публичный URL эталона лица (Cloud egress fail → --force-local-hero)
+python3 scripts/excalibur_blog_hero_reference_url.py
 
 # 2. Manifest (H2 → visual_type; cover_hook — вручную/merge)
-python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
+python3 scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 
 # 3. Отредактировать cover/quad-manifest.json при необходимости:
 #    cover_hook, meme_caption_ru, cover.scene_hint, inline scene_hint
 
 # 4. Промпт + batch (1 job)
-python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
+python3 scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
 # 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
 #    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args

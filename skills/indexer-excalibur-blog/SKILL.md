@@ -16,9 +16,9 @@ python3 scripts/excalibur_blog_interlinker.py --apply \
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base "" \
   --out-dir memory/blog
+# `--blog-path` is an accepted alias of `--blog-dir` (doctor/indexer copy-paste).
 ```
 
 ## Выход
@@ -26,3 +26,11 @@ python3 scripts/excalibur_blog_llms_generator.py \
 - обновлённый `article.html` (контекстные ссылки)
 - `memory/blog/llms.txt`, `memory/blog/llms-full.txt`
 - `promotion-checklist.md` из `skills/excalibur/references/promotion-checklist-template.md`
+
+## Commit hygiene (Cloud)
+
+```bash
+bash scripts/excalibur_git.sh commit -m "indexer(...): ..."
+```
+
+Фильтрует `CLOUD_AGENT_*_SECRET_NAMES` (URL-токен среди names → pre-commit crash). Subshell filter без `export` в commit shell — no-op.

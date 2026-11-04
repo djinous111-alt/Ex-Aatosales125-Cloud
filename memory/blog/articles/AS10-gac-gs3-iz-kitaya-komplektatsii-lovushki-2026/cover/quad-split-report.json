@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1315,
+      751
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 751,
+        "end": 782
+      },
+      "v_gutter_px": {
+        "start": 1315,
+        "end": 1342
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 5,
+          "right": 1315,
+          "bottom": 745
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1315,
+          "bottom": 751
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой: R-Style без обогрева — сверьте Enjoy/Smart до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1342,
+          "top": 33,
+          "right": 2560,
+          "bottom": 718
+        },
+        "raw_box_px": {
+          "left": 1342,
+          "top": 0,
+          "right": 2560,
+          "bottom": 751
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения Enjoy, Smart и R-Style: экран, подогрев, электробагажник, ADAS",
+        "h2_anchor": "Разберите линейку GS3 2026: Enjoy, Smart и что убрали из R-Style"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 72,
+          "top": 782,
+          "right": 1242,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 782,
+          "right": 1315,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема сверки силовой 1.5T + 7DCT + передний привод с договором",
+        "h2_anchor": "Сверьте мотор 1.5T, 7DCT и передний привод с договором"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1366,
+          "top": 782,
+          "right": 2536,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1342,
+          "top": 782,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин: маркетинг «флагман» против заводских имён Enjoy Smart R-Style",
+        "h2_anchor": "Отделите заводские опции от \"красивого\" перевода объявления"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите линейку GS3 2026: Enjoy, Smart и что убрали из R-Style",
+    "injected inline_2 after H2 — Сверьте мотор 1.5T, 7DCT и передний привод с договором",
+    "injected inline_3 after H2 — Отделите заводские опции от \"красивого\" перевода объявления"
+  ]
+}

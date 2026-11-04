@@ -115,30 +115,43 @@ python scripts/excalibur_blog_quad_manifest.py \
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (MCP-KV **или** Kie-first)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
-
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
-
-### Шаг 5 — apply
+1. Сначала `GetDynamicTools` для namespace `MCP-KV` / `user-mcp-kv`.
+2. Если `namespaceStatus: error` / tools list empty → **не** blind-retry MCP.
+   Используй documented primary Cloud path (Kie async, ONE task):
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+# If WP/catbox/0x0 hero URL unreachable from Cloud egress:
+python3 scripts/excalibur_blog_hero_reference_url.py --force-local-hero
+
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --force-local-hero
+```
+
+Контракт: `shared/kie-gpt-image-api-contract.md`.  
+`--force-local-hero` = alias rehost local PNG via Kie `file-base64-upload` (tempfile.redpandaai.co). MCP absence alone ≠ COVER HERO BLOCKER if this path works.
+
+3. Если MCP-KV готов → `CallMcpTool` `gpt-image-2` с `jobs[0].mcp_args` (ONE job, 16:9, 2K, `input_urls` обязателен).
+
+### Шаг 5 — apply + corner brand
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --url "<result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+`excalibur_blog_cover_quad_split.py` обязан проставить corner brand `avto-sales125.ru` на `cover.png` (без второго image job). Требует Pillow.
 
 ### Шаг 6 — fragment
 

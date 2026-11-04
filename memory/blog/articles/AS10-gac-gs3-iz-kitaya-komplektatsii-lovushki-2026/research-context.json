@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-11-04",
+    "today_ru": "04.11.2026",
+    "year": 2026,
+    "month": 11,
+    "month_name_ru": "ноябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-08-06",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-11-04 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "gac-gs3-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "gac gs3 комплектации",
+    "secondary_queries": [
+      "гак гс3 комплектации",
+      "gac gs3 из китая",
+      "gac trumpchi gs3 2026"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS10",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "gac gs3 комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "gac gs3 комплектации ноябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "gac gs3 комплектации новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com gac gs3 комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "gac gs3 комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "gac gs3 комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "гак гс3 комплектации 2026",
+      "purpose": "вторичный запрос: гак гс3 комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "gac gs3 из китая 2026",
+      "purpose": "вторичный запрос: gac gs3 из китая"
+    },
+    {
+      "id": "secondary_3",
+      "query": "gac trumpchi gs3 2026 2026",
+      "purpose": "вторичный запрос: gac trumpchi gs3 2026"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

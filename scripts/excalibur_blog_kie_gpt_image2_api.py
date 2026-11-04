@@ -239,12 +239,42 @@ def main() -> int:
     ap.add_argument("--task-id", default="", help="Poll an existing Kie task instead of creating a new one")
     ap.add_argument("--create-only", action="store_true", help="Create task, write task record, and exit")
     ap.add_argument("--dry-run", action="store_true", help="Validate batch and print sanitized create payload")
+    ap.add_argument(
+        "--force-local-hero",
+        action="store_true",
+        help="Rehost local blog-hero PNG via Kie file-base64-upload before createTask",
+    )
+    ap.add_argument(
+        "--skip-hero-rehost",
+        action="store_true",
+        help="Disable optional auto-rehost helper (debug only)",
+    )
     args = ap.parse_args()
 
     root = project_root()
     batch_path = resolve_path(root, args.article_dir, args.batch)
     result_path = resolve_path(root, args.article_dir, args.result)
     task_record_path = resolve_path(root, args.article_dir, args.task_record)
+
+    if args.force_local_hero and not args.skip_hero_rehost:
+        # Prefer dedicated helper so Cover can pin --force-local-hero in one place.
+        hero_helper = root / "scripts/excalibur_blog_hero_reference_url.py"
+        if hero_helper.is_file():
+            import subprocess
+
+            proc = subprocess.run(
+                [sys.executable, str(hero_helper), "--force-local-hero"],
+                cwd=root,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if proc.returncode != 0:
+                print(proc.stdout, end="")
+                print(proc.stderr, file=sys.stderr, end="")
+                print("❌ KIE API BLOCKER: --force-local-hero rehost failed", file=sys.stderr)
+                return 1
+            print(proc.stdout.strip() or "OK force-local-hero rehost")
 
     try:
         image_input = batch_mcp_args(batch_path)

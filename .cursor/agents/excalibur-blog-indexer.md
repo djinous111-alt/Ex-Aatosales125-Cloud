@@ -34,3 +34,6 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ## Skill
 
 `skills/indexer-excalibur-blog/SKILL.md`
+## Commit
+
+`bash scripts/excalibur_git.sh commit …` (filters CLOUD_AGENT_*_SECRET_NAMES URL tokens).

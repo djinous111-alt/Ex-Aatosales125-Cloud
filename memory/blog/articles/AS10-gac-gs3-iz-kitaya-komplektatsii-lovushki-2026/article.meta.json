@@ -1,0 +1,44 @@
+{
+  "topic_id": "AS10",
+  "slug": "gac-gs3-iz-kitaya-komplektatsii-lovushki-2026",
+  "title": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита",
+  "h1": "Как выбрать GAC GS3 из Китая: комплектации и ловушки до депозита",
+  "description": "GAC GS3 комплектации Enjoy / Smart / R-Style: чеклист до депозита, силовая 1.5T + 7DCT и красные флаги опций. Подбор – в каталоге Авто-Сейлс.",
+  "cover_alt": "Компактный кроссовер GAC GS3 у порта Владивостока, герой Авто-Сейлс с плашкой до депозита",
+  "primary_query": "gac gs3 комплектации",
+  "secondary_queries": [
+    "гак гс3 комплектации",
+    "gac gs3 из китая",
+    "gac trumpchi gs3 2026"
+  ],
+  "char_count": 9098,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать комплектацию GAC GS3 из Китая",
+    "чеклист Enjoy Smart R-Style до депозита",
+    "ловушки комплектаций GS3 Emzoom 2026"
+  ],
+  "meta_ab": {
+    "title_seo": "GAC GS3 комплектации: Enjoy / Smart / R-Style до депозита",
+    "title_ctr": "🚗 GAC GS3 комплектации: почему R-Style – не максимум и как не сжечь депозит?",
+    "title_aeo": "Как выбрать комплектацию GAC GS3 из Китая до депозита: Enjoy, Smart или R-Style?",
+    "description_seo": "GAC GS3 комплектации Enjoy / Smart / R-Style: чеклист до депозита, силовая 1.5T + 7DCT и красные флаги опций. Подбор – в каталоге Авто-Сейлс.",
+    "description_ctr": "⚡ Обещали R-Style с обогревом, а в листе его нет? Сверьте Enjoy/Smart до депозита: таблица опций, стоп-правила и решение плачу/жду/отказ.",
+    "description_aeo": "До депозита за GAC GS3 из Китая фиксируют заводское имя версии, 1.5T + 7DCT + передний привод и чеклист опций. R-Style не равен Smart по подогреву."
+  },
+  "geo_qa": {
+    "score": 88,
+    "verdict": "PASS",
+    "date": "2026-11-04",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "18/20",
+    "beginner_fit": "PASS"
+  },
+  "cover_family": "brand_collage"
+}

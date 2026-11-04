@@ -6,6 +6,135 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-2140-geo-qa-utility-empty-pain-outcome-markers
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-geo-qa
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always enforces `min_pain_markers` (default 2) and `min_outcome_markers` (default 3).
+- `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru`, so counts are always 0 → every article BLOCK on utility, including previously PASS AS08 when re-run.
+- AS22 human-voice gate already PASS with pain/outcome vocabulary; utility false-blocks independently of content quality.
+
+### How the agent recovered this run
+- Recorded utility BLOCK in article-qa FAIL; did not invent policy markers ad hoc in GEO QA.
+- Returned Writer FIX for real action_marker gaps; deferred empty pain/outcome lists to Fixer.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` / `outcome_markers_ru` aligned with human-voice gate (or skip mins when lists empty).
+- Sync writer skill + editorial-utility docs with exact utility tokens (`не делайте` vs `не делать`, `чеклист` vs `чек-лист`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261105-2141-geo-qa-catalog-ssl-timeout-no-softpass
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-geo-qa
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- link-verify FAIL: catalog URL on `avto-sales125.ru` — TCP:443 OK, SSL handshake timeout (retries + 60s).
+- Telegram `t.me` → 200 OK.
+- Catalog classified as `external` because article host `avto-sales125.ru` ≠ `PUBLIC_SITE_URL` host `avtosales125.ru`.
+- Prior runs relied on catalog/site soft-pass that is absent from current `is_soft_external_failure` (only social hosts).
+
+### How the agent recovered this run
+- Retried link-verify 3×; longer python SSL probe; openssl/curl also hung on handshake.
+- Did not fake pass; documented FAIL + domain mismatch for Writer/Fixer.
+
+### Durable fix needed before next run
+- Restore durable soft-pass for flaky site/catalog SSL timeouts (same class as wiped AS10 softpass), and/or normalize canonical catalog host vs `PUBLIC_SITE_URL`.
+- Document preferred catalog hostname for Writer CTA links.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261105-2142-geo-qa-html-linter-faq-substring-false-positive
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-geo-qa
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- html-linter FAIL: H2 `Что сделать сегодня: ваш результат до FAQ` matched regex `faq` and counted as second FAQ section alongside `Частые вопросы`.
+- Outcome-before-FAQ H2 is required by writer contract; substring `FAQ` in that title triggers false duplicate.
+
+### How the agent recovered this run
+- Did not rewrite longread in GEO QA; FIX for Writer: rename H2 without substring `FAQ`.
+
+### Durable fix needed before next run
+- Match FAQ headings more strictly (exact `частые вопросы` / leading `faq`), not any H2 containing `faq`.
+- Document in writer skill: do not put `FAQ` in non-FAQ H2 titles until linter is fixed.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_html_linter.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261105-2143-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-geo-qa
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: other
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` unavailable; Director used generalPurpose fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Executed full GEO QA script suite as generalPurpose role with contracts from `.cursor/agents` + `.cursor/skills`.
+
+### Durable fix needed before next run
+- Restore typed Task mapping for `excalibur-blog-geo-qa` in Cloud, or keep documented generalPurpose fallback in director skill.
+
+### Suggested files to inspect/change
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261105-2125-writer-precommit-invalid-secret-name
 status: open
 run_date: 2026-11-05

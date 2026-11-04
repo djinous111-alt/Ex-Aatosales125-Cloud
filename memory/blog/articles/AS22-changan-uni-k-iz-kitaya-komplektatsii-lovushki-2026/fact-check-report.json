@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "тая и логистике через Владивосток на дату прогона 2026-11-05; актуальные расчёты под лот – только в ката",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "30 мин",
+      "kind": "metric_or_duration",
+      "context": "ь в лоте) Зарядка Не нужна Нужна; быстрая 20–80% ~30 мин Кому подходит Трасса, регион без розетки Город +",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "ы: море Китай → Владивосток часто считают около 7–14 дней, полный цикл заказа до выдачи – вилка в недели (у",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    },
+    {
+      "fact": "5 недель",
+      "kind": "metric_or_duration",
+      "context": "илка в недели (у логистов встречаются ориентиры 2–5 недель и шире). СВХ во Владивостоке – склад временного х",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4865",
+      "kind": "large_number",
+      "context": "NI-K из Китая уместен UNI-K – большой кроссовер (~4865 мм в длину, база 2890 мм). Он имеет смысл, если ну",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2890",
+      "kind": "large_number",
+      "context": "UNI-K – большой кроссовер (~4865 мм в длину, база 2890 мм). Он имеет смысл, если нужен просторный салон и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "226",
+      "kind": "large_number",
+      "context": "ита На пальцах: бензиновый UNI-K – это 2.0T около 226 л.с., автомат 8AT Aisin, привычная заправка. Гибри",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "135",
+      "kind": "large_number",
+      "context": "30,7 кВт⋅ч, заявльный запас на электротяге около 135 км и суммарно до ~1000 км по данным официального а",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "запас на электротяге около 135 км и суммарно до ~1000 км по данным официального анонса в РФ. iDD нужно з",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "380",
+      "kind": "large_number",
+      "context": "метр Бензин 2.0T Гибрид iDD Мотор 2.0T ~226 л.с., 380 Н·м 1.5T 166 л.с. + ЭМ 150 л.с. Коробка 8AT Aisin",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "166",
+      "kind": "large_number",
+      "context": ".0T Гибрид iDD Мотор 2.0T ~226 л.с., 380 Н·м 1.5T 166 л.с. + ЭМ 150 л.с. Коробка 8AT Aisin 6DCT Привод (",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "Мотор 2.0T ~226 л.с., 380 Н·м 1.5T 166 л.с. + ЭМ 150 л.с. Коробка 8AT Aisin 6DCT Привод (типично) FWD и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

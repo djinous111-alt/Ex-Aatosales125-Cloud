@@ -1,0 +1,31 @@
+{
+  "source": "memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "total_links": 2,
+  "failed_count": 1,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "https://example-catalog.invalid/[redacted]",
+      "status": null,
+      "ok": false,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "external",
+      "skipped": false,
+      "host_note": "catalog CTA host; URL redacted for secret scanner",
+      "url_redacted": true
+    },
+    {
+      "url": "https://t.me/[redacted]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "host_note": "telegram CTA; URL redacted for secret scanner",
+      "url_redacted": true
+    }
+  ],
+  "notes": "Original CTA URLs match article.html (catalog + Telegram). Redacted before commit due to CATALOG_URL/TELEGRAM_URL secret scan."
+}

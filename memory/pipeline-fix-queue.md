@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-2205-schema-precommit-invalid-secret-name
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-schema
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of `schema.jsonld` failed in Cursor pre-commit secret scanner: `CLOUD_AGENT_*_SECRET_NAMES` contained a non-identifier token (raw `http…` value, len 25) that breaks bash `${!SECRET_NAME}` (`invalid variable name`). Same class as INC-20261105-0013 / INC-20261105-2125.
+
+### How the agent recovered this run
+- Filtered both `CLOUD_AGENT_INJECTED_SECRET_NAMES` and `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` **comma-separated** ids (hook uses `IFS=','`), then commit `af2c2ecf` succeeded and pushed.
+
+### Durable fix needed before next run
+- Sanitize injected secret-name lists before the pre-commit hook (drop non-identifiers; normalize to comma-separated), or make the hook skip invalid names.
+- Restore `scripts/excalibur_git.sh` wrapper that applies the filter automatically for all roles including schema.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261105-2148-writer-catalog-host-hyphen-vs-public-site
 status: open
 run_date: 2026-11-05

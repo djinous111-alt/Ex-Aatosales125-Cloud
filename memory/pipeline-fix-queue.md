@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-2211-indexer-precommit-invalid-secret-name
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-indexer
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of indexer artifacts failed in Cursor pre-commit secret scanner: `CLOUD_AGENT_*_SECRET_NAMES` contained a non-identifier token that breaks bash `${!SECRET_NAME}` (`invalid variable name`).
+- Same class as INC-20261105-0013 / INC-20261105-2125 / INC-20261105-2205-schema-precommit-invalid-secret-name.
+
+### How the agent recovered this run
+- Filtered both `CLOUD_AGENT_INJECTED_SECRET_NAMES` and `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` comma-separated ids, then commit `8017dac5` succeeded.
+
+### Durable fix needed before next run
+- Sanitize injected secret-name lists before the pre-commit hook (drop non-identifiers), or make the hook skip invalid names instead of aborting.
+- Same durable fix as prior secret-name incidents this run.
+
+### Suggested files to inspect/change
+- Cursor Cloud pre-commit secret scanner / env injection for `CLOUD_AGENT_*_SECRET_NAMES`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261105-2210-indexer-llms-skill-absolute-vs-relative
 status: open
 run_date: 2026-11-05

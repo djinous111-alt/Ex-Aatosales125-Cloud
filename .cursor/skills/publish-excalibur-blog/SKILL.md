@@ -30,18 +30,24 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "${PUBLIC_SITE_URL}"
+
+python3 scripts/excalibur_blog_wp_publish.py --env-check
 ```
 
-Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
+Gate: `link-verify.json` → pass (catalog DNS soft-pass допустим).
+`--env-check` обязан показать `ssh.dns.resolved=true` (или `SSH_HOST_IP`), `ssh.tcp22.reachable`, и `paramiko_available=true`.
+Config PASS ≠ DNS/TCP PASS.
+Если `ssh.dns` fail / missing `SSH_HOST_DNS` → `❌ PUBLISH BLOCKER` (needs-human: Beget DNS или Cloud Secret `SSH_HOST_IP`).
+Если DNS OK, но `ssh.tcp22.error=ssh_tcp22_timeout` → тот же blocker (needs-human: Cloud egress TCP/22 **или** verified `SSH_HOST_IP`). **Не** угадывай IP; **не** подставляй IP `PUBLIC_SITE_URL` как SSH.
 
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```

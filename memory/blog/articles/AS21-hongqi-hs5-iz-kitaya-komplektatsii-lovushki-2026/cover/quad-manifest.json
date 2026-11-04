@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS21",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит до сверки trim — лотерея",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split. Prefer Kie API fallback if MCP-KV unavailable.",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у премиум-кроссовера Hongqi HS5, плашка «до депозита», Владивосток",
+      "scene_hint": "WEATHER: bright cool Vladivostok daylight, light port breeze near premium Chinese crossover Hongqi HS5; OUTFIT: smart charcoal softshell jacket over light shirt (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie in front of modern Hongqi HS5 SUV (silver/dark premium look), phone showing fake catalog card trim QiXiang Pro / Shadow; torn paper Cyrillic hook plaque «Депозит до сверки trim — лотерея» with yellow highlighter on «лотерея»; sticky note «до депозита»; shocked meme cutout + facepalm sticker (different formats, NO toxic insults, NO «лох»); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; brand Avto-Sales vibe",
+      "meme_caption_ru": "Сначала trim"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сверьте комплектацию до депозита, а не после инвойса",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns CN trim | РФ Comfort/Deluxe | что сверять до депозита; rows QiYun Pro / QiXiang Pro / Shadow / 2-Million; yellow highlight row «имя trim в договоре»; pink sticky «до инвойса»; scotch tape; NO hero face; NO toxic labels; NO Wordstat/Metrika",
+      "alt": "Таблица: китайские trim HS5 vs Comfort/Deluxe — что сверить до депозита"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите китайские trim MY2026: QiYun, QiXiang, Shadow",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 5 steps: MY2026 → QiYun → QiXiang → Shadow → 2WD/4WD check; arrows with tape; mini sticker «Shadow = пакет, не мотор»; NO hero face; NO toxic labels; NO Wordstat/Metrika",
+      "alt": "Схема MY2026: QiYun, QiXiang, Shadow и проверка привода"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите привод: 2WD или 4WD без сюрприза по фото",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board: 1) 2WD vs 4WD в карточке 2) масса ~1755/~1820 3) WLTC 4) фото ≠ привод 5) VIN-milestone; red stamp «не по фото»; sticky «привод в договоре»; NO hero face; NO toxic labels; NO Wordstat/Metrika",
+      "alt": "Чеклист привода HS5: 2WD или 4WD до депозита, не по фото"
+    }
+  }
+}

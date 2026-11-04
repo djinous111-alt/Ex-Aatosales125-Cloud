@@ -1,0 +1,129 @@
+{
+  "article": "memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 17,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 16,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "dow В китайском прайсе Hongqi HS5 модельного года 2026 обычно шесть версий. Имена звучат чужо – сразу пер",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1905",
+      "kind": "date_or_year",
+      "context": "с., 380 Н·м и коробка 8AT. Габариты примерно 4785×1905×1700 мм, база 2870 мм. Разница версий – в приводе",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "смотрите по карточке лота. Не опирайтесь на прайс 2025: часть старых trim убрали. Делать: выписать строк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 недель",
+      "kind": "metric_or_duration",
+      "context": "чужого объявления. Сроки у рынка часто называют 2–5 недель – это ориентир, не обещание Авто-Сейлс. Форм на с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "252",
+      "kind": "large_number",
+      "context": "ang Pro, Shadow и памятная 4WD) с мотором 2.0T на 252 л.с. На сайте Hongqi в РФ – только Comfort и Delux",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "245",
+      "kind": "large_number",
+      "context": "mfort и Deluxe, оба полный привод и с заявленными 245 л.с. Shadow – чёрный пакет, не другой двигатель. Д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "185",
+      "kind": "large_number",
+      "context": "ота Весь ряд MY2026 идёт с бензиновым 2.0T: около 185 кВт / 252 л.с., 380 Н·м и коробка 8AT. Габариты пр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "380",
+      "kind": "large_number",
+      "context": "идёт с бензиновым 2.0T: около 185 кВт / 252 л.с., 380 Н·м и коробка 8AT. Габариты примерно 4785×1905×170",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4785",
+      "kind": "large_number",
+      "context": "52 л.с., 380 Н·м и коробка 8AT. Габариты примерно 4785×1905×1700 мм, база 2870 мм. Разница версий – в пр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1700",
+      "kind": "large_number",
+      "context": "80 Н·м и коробка 8AT. Габариты примерно 4785×1905×1700 мм, база 2870 мм. Разница версий – в приводе и осн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2870",
+      "kind": "large_number",
+      "context": "ка 8AT. Габариты примерно 4785×1905×1700 мм, база 2870 мм. Разница версий – в приводе и оснащении, а не в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1755",
+      "kind": "large_number",
+      "context": "орливее по паспорту. 2WD: снаряжённая масса около 1755 кг, WLTC около 7.34 л/100 км, 0–100 около 7.6 с. 4",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "наряжённая масса около 1755 кг, WLTC около 7.34 л/100 км, 0–100 около 7.6 с. 4WD: около 1820 кг, WLTC ок",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1820",
+      "kind": "large_number",
+      "context": "коло 7.34 л/100 км, 0–100 около 7.6 с. 4WD: около 1820 кг, WLTC около 7.92 л/100 км, 0–100 около 7.7 с. С",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "AWD Есть 2WD и 4WD Мощность в карточке 245 л.с. / 180 кВт 252 л.с. / 185 кВт Цены (ориентир) от 3 999 00",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 999 000",
+      "kind": "large_number",
+      "context": ". / 180 кВт 252 л.с. / 185 кВт Цены (ориентир) от 3 999 000 и 4 699 000 ₽ MSRP в юанях; \"под ключ\" – только жи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4 699 000",
+      "kind": "large_number",
+      "context": "252 л.с. / 185 кВт Цены (ориентир) от 3 999 000 и 4 699 000 ₽ MSRP в юанях; \"под ключ\" – только живой расчёт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

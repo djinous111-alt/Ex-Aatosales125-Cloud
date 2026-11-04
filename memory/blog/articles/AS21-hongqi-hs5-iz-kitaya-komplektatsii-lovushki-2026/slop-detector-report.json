@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Схема до оплаты: Карточка лота → китайское имя trim + 2WD/4WD → договор и счёт юрлица → milestone VIN/осмотр → решение \"депозит / пауза / отказ\" Разберите китайские trim MY2026: QiYun, QiXiang, Shadow В китайском прайсе Hongqi HS5 модельного года 2026 обычно шесть версий",
+      "word_count": 34
+    },
+    {
+      "sentence": "Китайское имя Привод Что это для покупателя QiYun Pro (旗韵Pro / Flag Charm) 2WD Базовая \"про\" в линейке 2026 QiXiang Pro (旗享Pro / Flag Enjoy) 2WD или 4WD Частый выбор под заказ; не путать с РФ Deluxe Shadow / XuanYing (玄影) 2WD или 4WD Чёрный пакет и акцент на салоне, не отдельный мотор 2-Million / памятная 4WD 4WD Верх линейки CN; оснащение сверять по карточке лота Весь ряд MY2026 идёт с бензиновым 2",
+      "word_count": 56
+    },
+    {
+      "sentence": "Параметр Официал Hongqi РФ Под заказ из Китая (MY2026) Имена версий Comfort и Deluxe QiYun / QiXiang / Shadow / памятная 4WD Привод Оба AWD Есть 2WD и 4WD Мощность в карточке 245 л",
+      "word_count": 26
+    },
+    {
+      "sentence": "/ 185 кВт Цены (ориентир) от 3 999 000 и 4 699 000 ₽ MSRP в юанях; \"под ключ\" – только живой расчёт В РФ Comfort уже богатый; Deluxe добавляет память сидений, адаптивные амортизаторы, умный круиз, удержание полосы, акустические стёкла",
+      "word_count": 30
+    }
+  ],
+  "readability": {
+    "score": 74.2,
+    "level": "Easy (Standard modern readable web content)",
+    "avg_sentence_len": 9.2,
+    "avg_syllables_per_word": 2.0
+  }
+}

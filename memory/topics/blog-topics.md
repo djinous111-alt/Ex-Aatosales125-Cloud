@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS21 — Hongqi HS5 из Китая
+
+- **priority:** P0
+- **slug:** hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Hongqi HS5 из Китая: комплектации и ловушки до депозита
+- **primary_query:** hongqi hs5 комплектации
+- **secondary_queries:** hongqi hs5 из китая под заказ, хончи hs5 2wd или 4wd, hongqi hs5 проверка до депозита
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем смотреть комплектацию HS5 до депозита, а не после инвойса
+  2. Как отличить китайские trim 2026: 2WD/4WD, QiXiang Pro, Shadow и соседние версии
+  3. Что сверить в карточке лота: мотор 2.0T 252 л.с., привод, экраны, ADAS, аудио
+  4. Ловушки до оплаты: «официальная РФ vs под заказ», мощность/утиль без готовых сумм, письмо на экспорт
+  5. Чек-лист из 10 пунктов перед переводом депозита
+  6. Куда идти за актуальным расчётом под ключ (каталог + Telegram)
+- **faq_hints:** чем 2WD HS5 отличается от 4WD по оснащению; можно ли везти базовую версию без доплат сюрпризом; что проверить по VIN Hongqi до депозита
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у премиум-кроссовера Hongqi HS5, порт/Владивосток или светлый двор, плашка «до депозита», угол avto-sales125.ru
+- **demand_signal:** WebSearch 2026-11-04 – живые карточки HS5 MY2026 (комплектации 2WD/4WD, под заказ через Владивосток); wordstat_status=UNAVAILABLE
+- **status_note:** scout 2026-11-04; slug свободен vs denylist/pool; ID AS21 (AS10–AS20 заняты в истории runs)

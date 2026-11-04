@@ -254,3 +254,74 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261104-1206-director-sanitizer-wipe-as-b
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- Cron boot found wiped durable pins: `today.py`/`scout_helper` only matched `B\d+`, doctor FAIL on llms `--blog-path`, missing `excalibur_git.sh` / smoke / Kie upload helpers, scout niche docs drifted.
+- `EXCALIBUR_TOPIC_SELECTION=needs_scout` despite AS01–AS14 pool; LIVE WP REST SSL handshake timeout again.
+
+### How the agent recovered this run
+- Restored durable pack from `a9db2e63` + `today.py`/topics/pitfalls from `c0b1a833`.
+- Restored ledger from `b9e96bf5` and appended Sienta `publish_blocked`; appended AS11–AS14 topic cards with LIVE status_note.
+- Doctor SUMMARY errors=0; next scout id AS15.
+
+### Durable fix needed before next run
+- Prevent sanitizer from wiping AS|B / llms aliases / git filter / cover Kie helpers (CI pin or smoke on boot).
+- Keep WP SSL timeout denylist fallback documented when REST handshake times out.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_fixer_regression_smoke.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261104-0908-scout-wordstat-denylist-fallback
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-scout
+topic_id: AS15
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV Wordstat unavailable (`namespaceStatus: error`); cannot call `wordstat_get_top_requests`.
+- `shared/wp-slug-denylist.json` missing at scout start (sanitizer wipe / incomplete restore).
+- WP REST for `EXCALIBUR_RECENT_WP_POSTS` failed with SSL handshake timeout — LIVE slug list not refreshable from Cloud egress.
+
+### How the agent recovered this run
+- Set `wordstat_status: UNAVAILABLE` on AS15; used WebSearch (Arrizo 8 lots/trim tables) + Metrika/Дзен China-cluster semantic tail; no invented impression counts.
+- Rebuilt `shared/wp-slug-denylist.json` from git snapshot `30a770a6` + `published-live` + ledger + topic slugs (1235 entries); deduped against denylist models (Haval M6, Omoda C5, Jetour T2, Tiggo 7 Pro, Jaecoo J7, Sienta, Encar, utilsbor, AS01–AS09).
+- Chose free model Chery Arrizo 8; `--check-query "арризо 8 комплектации"` clean before append; utility gate AS15 PASS.
+
+### Durable fix needed before next run
+- Restore or pin Wordstat MCP-KV auth/discovery for Cloud scout runs.
+- Ensure denylist file is regenerated or restored on boot when WP REST SSL times out (doctor/smoke check for non-empty `shared/wp-slug-denylist.json`).
+- Optionally teach `scout_helper --check-query` to load denylist slug collisions explicitly (skill claims it; current script only checks topic pool).
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

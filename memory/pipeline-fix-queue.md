@@ -40,7 +40,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py` → PASS
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## Fixed this run (AS22 / 2026-11-05)
 
@@ -64,7 +64,7 @@ files_changed:
 - `skills/publish-excalibur-blog/SKILL.md`
 checks_run:
 - py_compile + fixer regression smoke PASS
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2211-indexer-precommit-invalid-secret-name
 status: fixed
@@ -87,7 +87,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor OK git.sh + filter; smoke OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2210-indexer-llms-skill-absolute-vs-relative
 status: fixed
@@ -108,7 +108,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor relative-urls check OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2205-cover-mcp-kv-down-kie-fallback
 status: fixed
@@ -129,7 +129,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor Kie tempfile + hero upload pins OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2205-schema-precommit-invalid-secret-name
 status: fixed
@@ -149,7 +149,7 @@ files_changed:
 - `scripts/excalibur_git.sh` (verified present)
 checks_run:
 - doctor/smoke git filter OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2148-writer-catalog-host-hyphen-vs-public-site
 status: fixed
@@ -171,7 +171,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg/docs review; doctor errors=0
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2145-director-sanitizer-wiped-durable-pins
 status: fixed
@@ -195,7 +195,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor errors=0; smoke PASS
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2140-geo-qa-utility-empty-pain-outcome-markers
 status: fixed
@@ -217,7 +217,7 @@ files_changed:
 - writer skills
 checks_run:
 - smoke utility empty-list skip OK; doctor markers OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2141-geo-qa-catalog-ssl-timeout-no-softpass
 status: fixed
@@ -238,7 +238,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor/smoke soft-pass pins OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2142-geo-qa-html-linter-faq-substring-false-positive
 status: fixed
@@ -260,7 +260,7 @@ files_changed:
 - writer skills
 checks_run:
 - smoke FAQ strict match PASS
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2143-geo-qa-typed-task-fallback
 status: fixed
@@ -280,7 +280,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg director generalPurpose fallback present
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2125-writer-precommit-invalid-secret-name
 status: fixed
@@ -299,7 +299,7 @@ files_changed:
 - writer skills/agents; pitfalls
 checks_run:
 - doctor/smoke git filter OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2115-research-wordstat-mcp-unavailable
 status: fixed
@@ -320,7 +320,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs rg UNAVAILABLE
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-2116-research-notes-gate-false-technical
 status: fixed
@@ -340,7 +340,7 @@ files_changed:
 - research skill note for AS## auto-import
 checks_run:
 - doctor/smoke tech-marker helpers OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-0013-scout-precommit-invalid-secret-name
 status: fixed
@@ -359,7 +359,7 @@ files_changed:
 - scout skills/agents; pitfalls
 checks_run:
 - doctor/smoke OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-0010-scout-helper-b-only-suggest-next
 status: fixed
@@ -379,7 +379,7 @@ files_changed:
 - scout skills/agents
 checks_run:
 - smoke scout AS* pool OK
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-0011-scout-wordstat-mcp-unavailable
 status: fixed
@@ -399,7 +399,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs review
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## INC-20261105-0012-scout-denylist-missing
 status: fixed
@@ -421,7 +421,7 @@ files_changed:
 - scout skill/pitfalls
 checks_run:
 - doctor denylist OK; smoke 1254 slugs
-commit: 738b2d80 (scripts/pins); docs commit follows
+commit: 738b2d80 + e6c12287
 
 ## Historical fixed incidents
 

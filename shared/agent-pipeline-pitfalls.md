@@ -34,6 +34,9 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- Cloud sanitizer периодически стирает `pain_markers_ru`/`outcome_markers_ru` в `memory/brief/editorial-policy.json`, catalog/site soft-pass в `excalibur_blog_link_verify.py` и бан ярлыка `TL;DR`/`Быстрый инсайт` в `excalibur_blog_human_voice_gate.py` — перед GEO QA сверяй эти контракты; пустые marker lists без skip-fallback дают ложный utility BLOCK.
+- Insight-блок: не `TL;DR` / `Быстрый инсайт`, а топический ярлык («Инсайт до депозита:»). Human-voice outcome ≥3 из `OUTCOME_MARKERS` (`результат`/`получите`/`сможете`/…); «чеклист» считает utility, но не human-voice.
+- Link-verify: flaky SSL/timeout на бренд-каталоге = `catalog_ssl` soft-pass, не hard-FAIL.
 
 ## Cover
 

@@ -46,7 +46,7 @@ Scout ищет utility-only темы для блога **Авто-Сейлс (AV
 1. Прочитать `shared/published-articles.md`, `shared/wp-slug-denylist.json`, `memory/blog/published-live-avtosales125.json`, `memory/topics/blog-topics.md`, активные `memory/blog/articles/Bxx-*`.
 2. `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` (и `python3 scripts/excalibur_blog_today.py` для `EXCALIBUR_RECENT_WP_POSTS`).
 3. WebSearch по авто-нише 2026 (не AI-инструменты).
-4. Wordstat cluster-first: широкий parent → узкий how-to; `totalCount`-only = low-result, не fatal.
+4. Wordstat cluster-first: широкий parent → узкий how-to; `totalCount`-only = low-result, не fatal. MCP-KV error → `wordstat_status=UNAVAILABLE` + WebSearch; **не** invent shows.
 5. `python3 scripts/excalibur_blog_scout_helper.py --check-query "<query>"` — учитывает pool + **wp-slug-denylist**. Если denylist-файла нет — **blocker**, собери из today.py + published-live.
 6. Append utility-only Mode B карточку (how_to/checklist/comparison) в `blog-topics.md`.
 

@@ -63,9 +63,10 @@ python3 scripts/excalibur_blog_scout_helper.py --suggest-next
 
 ### 3) Wordstat cluster-first
 
-1. Широкий parent (модель/кластер)
-2. Узкий how-to
-3. `totalCount`-only на узком = low-result signal → опирайся на parent semantic tail
+1. Сначала `GetDynamicTools` для MCP-KV / Wordstat. Если `namespaceStatus=error` / tool missing → **не** invent counts.
+2. Широкий parent (модель/кластер) → узкий how-to.
+3. `totalCount`-only на узком = low-result signal → опирайся на parent semantic tail.
+4. При MCP down: `wordstat_status=UNAVAILABLE` на карточке + WebSearch/SERP evidence; запрещены выдуманные monthly impressions.
 
 ### 4) Cannibalization
 
@@ -107,4 +108,5 @@ Append в конец `memory/topics/blog-topics.md`.
 - Тема вне AVTO SALES (AI/Make/Cursor drift)
 - Нет `shared/wp-slug-denylist.json`
 - Игнор denylist / recent WP republish
-- Выдуманный Wordstat без MCP
+- Выдуманный Wordstat без MCP (при UNAVAILABLE — только WebSearch + явный статус)
+- Topic regex только `B\\d+` (должен быть `AS|B`)

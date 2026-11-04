@@ -39,8 +39,9 @@ python3 scripts/excalibur_blog_wp_publish.py --env-check
 ```
 
 Gate: `link-verify.json` → pass (catalog DNS soft-pass допустим).
-`--env-check` обязан показать `ssh.dns.resolved=true` (или `SSH_HOST_IP`) и `paramiko_available=true`.
-Если `ssh.dns.blocker` / missing `ssh_dns` → `❌ PUBLISH BLOCKER` (нужен human: Beget DNS или Cloud Secret `SSH_HOST_IP` с TCP/22). **Не** подставляй IP `PUBLIC_SITE_URL` как SSH.
+`--env-check` обязан показать `ssh.dns.resolved=true` (или `SSH_HOST_IP`), `ssh.tcp22.reachable=true` и `paramiko_available=true`.
+Probe order: optional `SSH_HOST_IP` → иначе `SSH_HOST`, порт `SSH_PORT` или 22.
+Если `ssh.dns.blocker` / `ssh.tcp22` timeout / missing `ssh_dns` → `❌ PUBLISH BLOCKER` (нужен human: Beget DNS/egress allowlist TCP/22 или Cloud Secret `SSH_HOST_IP`). **Не** подставляй IP `PUBLIC_SITE_URL` как SSH; denylist LIVE posts не трогать.
 
 ### 2. Dry-run
 
@@ -55,7 +56,7 @@ python3 scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -88,7 +89,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

@@ -115,7 +115,7 @@ python scripts/excalibur_blog_quad_manifest.py \
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
@@ -129,12 +129,16 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
    Используй documented primary Cloud path (Kie async, ONE task):
 
 ```bash
+# If WP/catbox/0x0 hero URL unreachable from Cloud egress:
+python3 scripts/excalibur_blog_hero_reference_url.py --force-local-hero
+
 python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
-  --article-dir memory/blog/articles/<topic_id>-<slug>
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --force-local-hero
 ```
 
 Контракт: `shared/kie-gpt-image-api-contract.md`.  
-Скрипт сам rehost'ит local hero через Kie `file-base64-upload`, если WP/catbox URL недоступен Kie (пишет `cover/kie-hero-upload.json`).
+`--force-local-hero` = alias rehost local PNG via Kie `file-base64-upload` (tempfile.redpandaai.co). MCP absence alone ≠ COVER HERO BLOCKER if this path works.
 
 3. Если MCP-KV готов → `CallMcpTool` `gpt-image-2` с `jobs[0].mcp_args` (ONE job, 16:9, 2K, `input_urls` обязателен).
 

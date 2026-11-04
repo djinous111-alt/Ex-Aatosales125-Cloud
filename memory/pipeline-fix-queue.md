@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-0013-scout-precommit-invalid-secret-name
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-scout
+topic_id: AS22
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` failed in Cursor pre-commit secret scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier token that breaks bash `${!SECRET_NAME}` expansion (`invalid variable name`).
+- Token was a bracketed placeholder left in the injected names list, not a real env id.
+
+### How the agent recovered this run
+- Filtered both `CLOUD_AGENT_INJECTED_SECRET_NAMES` and `CLOUD_AGENT_ALL_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` comma-separated ids only, then re-ran commit successfully.
+
+### Durable fix needed before next run
+- Sanitize injected secret-name lists before the pre-commit hook (drop non-identifiers), or make the hook skip invalid names instead of aborting.
+- Document the filter step in Scout/publish pitfalls and restore `scripts/excalibur_git.sh` wrapper if missing on branch.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh` (missing on this checkout)
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261105-0010-scout-helper-b-only-suggest-next
 status: open
 run_date: 2026-11-05

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1325-writer-utility-markers-wiped
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again missing `pain_markers_ru` / `outcome_markers_ru` / `min_pain_markers` / `min_outcome_markers` and `_markers_pinned`.
+- `scripts/excalibur_blog_utility_gate.py` lost empty-list skip, so empty policy lists made every article BLOCK (`pain_markers=0`, `outcome_markers=0`).
+- Same class of wipe as prior AS10 Sienta restore (sanitizer/rebrand sync).
+
+### How the agent recovered this run
+- Restored marker lists + mins + `_markers_pinned` in editorial-policy.json.
+- Restored empty-list skip in utility_gate.py.
+- Re-ran utility gate → PASS for AS10 GAC GS3 article.
+
+### Durable fix needed before next run
+- Pin markers in doctor smoke: fail if `pain_markers_ru`/`outcome_markers_ru` missing or empty when mins > 0.
+- Keep empty-list skip in utility_gate as safety net.
+- Add editorial-policy keys to sanitizer denylist / sync allowlist so rebrand does not wipe them.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261104-1608-scout-wordstat-mcp-unavailable
 status: open
 run_date: 2026-11-04

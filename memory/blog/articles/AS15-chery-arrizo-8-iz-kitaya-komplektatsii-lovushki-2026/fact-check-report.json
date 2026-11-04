@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 11,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "борами ловушек импорта (vc.ru); прогон источников 2026-11-04. Актуальные расчёты под ключ – в каталоге,",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "снения – переспрашивайте. Нет ответа про правило ~180 дней учёта для свежих машин – уточните актуальность на",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "ь: депозит на красивую фотку и путаница дилерских 150 л.с. с китайским Conquer или PRO. Ниже – чек-лист",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "110",
+      "kind": "large_number",
+      "context": "три мира: российский Chery Arrizo 8 на 150 л.с. (110 кВт), китайский Conquer с 1.6T около 200 л.с. и 2.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "50 л.с. (110 кВт), китайский Conquer с 1.6T около 200 л.с. и 2.0T около 254 л.с., плюс отдельную линейку",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "254",
+      "kind": "large_number",
+      "context": "айский Conquer с 1.6T около 200 л.с. и 2.0T около 254 л.с., плюс отдельную линейку Arrizo 8 PRO и разгов",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "147",
+      "kind": "large_number",
+      "context": "метр CN Conquer РФ дилер Arrizo 8 PRO Моторы 1.6T 147 кВт; 2.0T 187 кВт 1.6T 110 кВт (150 л.с.) Отдельна",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "187",
+      "kind": "large_number",
+      "context": "r РФ дилер Arrizo 8 PRO Моторы 1.6T 147 кВт; 2.0T 187 кВт 1.6T 110 кВт (150 л.с.) Отдельная линейка; в н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "310",
+      "kind": "large_number",
+      "context": "ается сценарием. На CN Conquer: 1.6TGDI 147 кВт / 310 Н·м и 2.0TGDI 187 кВт / 390 Н·м. Ориентиры связок:",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "390",
+      "kind": "large_number",
+      "context": "er: 1.6TGDI 147 кВт / 310 Н·м и 2.0TGDI 187 кВт / 390 Н·м. Ориентиры связок: 1.6T-7DCT (智/睿), 2.0T-7DCT",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "баннера\". Часто обсуждают порог 117,68 кВт (около 160 л.с.); ваш ЭПТС/СБКТС решит по факту. Не делайте д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "снения – переспрашивайте. Нет ответа про правило ~180 дней учёта для свежих машин – уточните актуальност",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

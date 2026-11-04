@@ -325,3 +325,35 @@ category: api
 
 ### Fixer resolution
 - pending
+
+## INC-20261104-0935-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-geo-qa
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-chery-arrizo-8-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: handoff
+
+### What went wrong
+- Typed Cloud Task `excalibur-blog-geo-qa` unavailable in Cloud Task enum; Director launched role via `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Executed full GEO QA script set with `python3`; all gates PASS (research-notes, utility, human-voice, html-linter, slop, fact-check, cannibalization, link-verify with catalog_ssl soft-pass).
+- Wrote `article-qa.md` verdict PASS score 88; no HTML/meta FIX needed.
+- Noted generalPurpose fallback in handoff GEO QA block.
+
+### Durable fix needed before next run
+- Register typed Task `excalibur-blog-geo-qa` in Cloud Task enum when platform allows, or keep documented generalPurpose pin in AGENTS.md / agent file (already partially documented).
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

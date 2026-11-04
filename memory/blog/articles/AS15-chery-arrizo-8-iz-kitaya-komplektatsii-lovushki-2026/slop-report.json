@@ -1,0 +1,26 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 3,
+  "over_long_sentences": [
+    {
+      "sentence": "0 полная\", ткнул \"забронировать\" без VIN – и в инвойсе другой trim, мощность в кВт выше комфортного порога, мультимедиа только на китайском, а \"зимний пакет как у дилера\" в лоте отсутствует",
+      "word_count": 29
+    },
+    {
+      "sentence": "Инсайт до депозита: Сначала рынок и модель (CN Conquer vs РФ-дилер vs Arrizo 8 PRO / Tenet), потом мотор в кВт и КПП, потом trim по VIN и паспорту лота – не по скрину салона",
+      "word_count": 32
+    },
+    {
+      "sentence": "КПП 7DCT и 8AT (по trim) 7DCT Свои связки – только по паспорту PRO Trim 智 / 睿 / 劲 / 御 (+ Falcon рядом) Active / Prime / Ultra Не копировать опции \"с фото PRO\" на обычный 8 Новичку База сверки лота Ориентир оснащения, не прайс CN PRO в инвойсе = другая модель Вердикт по линейке: для Китая зафиксируйте Conquer или явно PRO",
+      "word_count": 48
+    }
+  ],
+  "readability": {
+    "score": 87.8,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.2,
+    "avg_syllables_per_word": 1.8
+  }
+}

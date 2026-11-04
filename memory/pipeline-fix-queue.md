@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1810-publish-ssh-tcp22-timeout-as21
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-publish
+topic_id: AS21
+article_dir: memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- Preflight OK: link-verify PASS (catalog_ssl soft-pass), env-check allow_publish=true, dry-run PASS (PHP ~6.90MB), slug NEW and not in denylist.
+- SSH DNS A resolved (1 addr), but TCP/22 connect TimeoutError (~8s).
+- `SSH_HOST_IP` unset — no alternate probe allowed; refused to guess IP/credentials or use PUBLIC_SITE_URL IP as SSH fallback.
+- Same class as AS15 / AS10 GAC GS3 publish blockers (Cloud→Beget SSH egress).
+
+### How the agent recovered this run
+- Did not call live publish; no WP write; foreign LIVE posts untouched (4758/4746/4740/3430/3394/4717/4711).
+- Wrote `wp-publish-result.json` verdict=fail/status=publish_blocked; ledger → publish_blocked; handoff PUBLISH BLOCKER.
+- Installed missing `paramiko` for this run (env-check does not import-probe).
+
+### Durable fix needed before next run
+- Restore Cloud egress TCP/22 to SSH_HOST, or inject verified reachable `SSH_HOST_IP` in Cloud Secrets.
+- Optional: env-check should probe TCP/22 + report dns/SSH_HOST_IP presence before dry-run; import-probe paramiko.
+- Re-run publish ONLY for NEW slug `hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026` after SSH restored.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (env-check TCP probe + paramiko import)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- Cloud Secrets: `SSH_HOST_IP` (when verified)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261104-1802-indexer-llms-blog-path-wiped
 status: open
 run_date: 2026-11-04

@@ -1,0 +1,35 @@
+{
+  "verdict": "fail",
+  "status": "publish_blocked",
+  "blocker": "SSH TCP/22 TimeoutError; SSH_HOST_IP unset; refused to guess credentials/IP",
+  "topic_id": "AS21",
+  "slug": "hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026",
+  "article_dir": "memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026",
+  "permalink": null,
+  "post_id": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": null,
+  "allow_publish": true,
+  "preflight": {
+    "link_verify": "pass",
+    "dry_run": "pass",
+    "php_bytes": 6895804,
+    "env_check": "pass",
+    "paramiko": "5.1.0",
+    "ssh_dns_resolved": true,
+    "ssh_host_ip_set": false,
+    "tcp22": "TimeoutError (~8s)"
+  },
+  "denylist_untouched": true,
+  "foreign_live_ids_untouched": [
+    4758,
+    4746,
+    4740,
+    3430,
+    3394,
+    4717,
+    4711
+  ],
+  "generated_at": "2026-11-04T18:09:06Z"
+}

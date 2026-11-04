@@ -49,3 +49,9 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (site-name «Авто-Сейлс»; relative `/blog/<slug>/`).
 - CLI workaround: `--blog-path` отсутствует в `excalibur_blog_llms_generator.py` (doctor FAIL / sanitizer wipe) → генерация без флага, `--site-base ""` для commit-safe relative URLs.
 - Publish: not started by indexer.
+
+## Publish status (2026-11-04)
+
+- Live URL: **blocked** — SSH TCP/22 timeout; no permalink
+- Ledger: `publish_blocked`
+- Do not promote until live publish succeeds for this NEW slug only

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1345-schema-secret-names-url-value
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-schema
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner crashed with `invalid variable name` while committing `schema.jsonld`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` contained 15 comma-separated entries; 14 were valid bash identifiers, 1 was a raw `http...` URL value (len 25, chars `://.-`) instead of an env var name.
+- Indirect expansion `${!SECRET_NAME}` in the hook fails when a “name” is a URL.
+
+### How the agent recovered this run
+- Filtered both `CLOUD_AGENT_*_SECRET_NAMES` lists to bash-safe ids (`^[A-Za-z_][A-Za-z0-9_]*$`), reducing 15→14 entries.
+- Scanned staged diff for live env secret values / private-key patterns (0 hits); schema uses `${PUBLIC_SITE_URL|CATALOG_URL|TELEGRAM_URL|MAX_URL}` placeholders only.
+- Re-ran `git commit` successfully without `--no-verify`.
+
+### Durable fix needed before next run
+- Ensure Cloud/env injection puts only env *names* into `CLOUD_AGENT_*_SECRET_NAMES`, never secret *values* or URLs.
+- Document schema/pre-commit recovery: sanitize names to bash-safe ids joined by commas before commit; prefer placeholders in JSON-LD over live site/catalog/telegram/max URLs.
+- Optionally harden the hook to skip non-identifier tokens instead of crashing.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- pre-commit agent hook (Cursor secrets scanner)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261104-1340-geo-qa-typed-task-fallback
 status: open
 run_date: 2026-11-04

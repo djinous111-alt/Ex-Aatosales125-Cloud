@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Hongqi HS5 из Китая: комплектации и ловушки до депозита",
+      "description": "Hongqi HS5 комплектации MY2026: QiYun, QiXiang, Shadow, 2WD/4WD. Ловушки Comfort/Deluxe vs Китай и чеклист до депозита. Расчёт – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${CATALOG_URL}"
+        },
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}",
+          "${MAX_URL}",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${CATALOG_URL}",
+        "sameAs": [
+          "${CATALOG_URL}",
+          "${TELEGRAM_URL}"
+        ]
+      },
+      "keywords": [
+        "hongqi hs5 комплектации",
+        "hongqi hs5 из китая под заказ",
+        "хончи hs5 2wd или 4wd",
+        "hongqi hs5 проверка до депозита",
+        "QiXiang Pro Shadow Comfort Deluxe"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем 2WD HS5 отличается от 4WD – только проходимостью?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Полный привод тяжелее и чуть прожорливее по паспорту, передний – легче. До депозита сверьте привод в карточке и договоре: по фото \"на глаз\" 2WD и 4WD часто не отличить."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли везти базовую версию без сюрприза по доплатам?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Можно, если в договоре зафиксированы trim, привод и список оснащения. Без этого \"база\" легко становится спором после инвойса – не оплачивайте до совпадения приложения."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить по VIN Hongqi до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зафиксируйте, когда VIN появится (со склада или после аллокации на заводе), и как будет осмотр конкретной машины. Не принимайте \"VIN потом как-нибудь\" без этапа в договоре."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Shadow – это топовая комплектация по железу?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Shadow в первую очередь чёрный пакет и оформление салона. Мотор тот же 2.0T; железо и ассистенты смотрите по карточке лота, а не по слову Shadow в рекламе."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему у официалов 245 л.с., а в Китае пишут 252?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это разные каналы и разные карточки. Не смешивайте Comfort/Deluxe с QiXiang Pro/Shadow и не считайте утиль \"на глаз\" – берите индивидуальный расчёт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда идти за расчётом Hongqi HS5 под ключ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "К Авто-Сейлс: актуальный подбор и расчёт либо переписка в Telegram с желаемым trim и приводом. Форм на странице нет."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Hongqi HS5 из Китая: комплектации и ловушки до депозита",
+      "description": "Пошаговый выбор Hongqi HS5 MY2026 из Китая: словарь trim QiYun/QiXiang/Shadow, привод 2WD/4WD, сверка лота, ловушки Comfort/Deluxe и чеклист из 10 пунктов до депозита.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка лота: китайское имя trim, 2WD/4WD, мотор 2.0T"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чеклист из 10 пунктов до депозита"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Проект договора с VIN-milestone и списком оснащения"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Строка цели: trim + 2WD/4WD + MY2026"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Список оснащения (экраны, 360, Bose, ADAS, люк, багажник)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Сверьте комплектацию до депозита, а не после инвойса",
+          "text": "Зафиксируйте MY2026, китайское имя комплектации, привод и мотор в переписке и в проекте договора. Не платите по фразе \"почти как Deluxe\" или \"как у официалов, только дешевле\".",
+          "url": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Разберите китайские trim MY2026: QiYun, QiXiang, Shadow",
+          "text": "Выпишите строку целиком: QiYun Pro 2WD, QiXiang Pro 2WD/4WD, Shadow 2WD/4WD или памятная 4WD. Весь ряд MY2026 с мотором 2.0T 252 л.с.; Shadow – чёрный пакет, не другой двигатель.",
+          "url": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выберите привод: 2WD или 4WD без сюрприза по фото",
+          "text": "Сверьте привод в карточке и договоре: 2WD легче и экономичнее (~1755 кг, WLTC ~7.34), 4WD тяжелее (~1820 кг, WLTC ~7.92). Не верьте слову \"полный\" без 4WD/AWD в спецификации.",
+          "url": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверьте карточку лота: мотор, экраны, ADAS, аудио",
+          "text": "Сверьте MY2026, полное CN-имя trim, привод, мотор 2.0T, оснащение и статус склада/заказа. Запишите milestone VIN и осмотра; приложите список оснащения к договору.",
+          "url": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Обойдите ловушки: официал РФ vs под заказ из Китая",
+          "text": "Не смешивайте Comfort/Deluxe (оба AWD, 245 л.с.) с QiXiang Pro/Shadow. Для заказа из Китая говорите языком китайского прайса: trim + привод + MY2026. Оплата на карту физлица – стоп.",
+          "url": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройдите чеклист из 10 пунктов перед депозитом",
+          "text": "Отметьте год MY2026, CN-имя trim, привод, мотор, оснащение, статус склада/заказа, VIN-milestone, договор юрлица, смету и решение депозит/пауза/отказ. Пункт \"нет\" – депозит рано.",
+          "url": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Запросите расчёт под ключ до перевода денег",
+          "text": "Когда чеклист зелёный, запросите живой расчёт под ваш trim в каталоге Авто-Сейлс или Telegram avtosales125. Не решайте по скрину чужого объявления.",
+          "url": "${PUBLIC_SITE_URL}/hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026/"
+        }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1358-indexer-secret-names-url-value
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-gac-gs3-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of indexer artifacts failed in pre-commit secrets scanner: `invalid variable name`.
+- Same root cause as `INC-20261104-1345-schema-secret-names-url-value`: `CLOUD_AGENT_*_SECRET_NAMES` still contains one raw URL token among bash-safe env names.
+- Filtering in an isolated `python3 -c` subshell did not persist into the commit shell, so the first retry still failed until exports were set in the same shell session.
+
+### How the agent recovered this run
+- Exported filtered `CLOUD_AGENT_ALL_SECRET_NAMES` and `CLOUD_AGENT_INJECTED_SECRET_NAMES` (bash-safe ids only, 15→14) in the same shell as `git commit`.
+- Commit `748bb0f4` and push succeeded without `--no-verify`.
+- `--blog-path` on `excalibur_blog_llms_generator.py` was present this run (no wipe).
+
+### Durable fix needed before next run
+- Same as INC-1345: Cloud must inject only env *names* into `CLOUD_AGENT_*_SECRET_NAMES`.
+- Document Indexer/commit hygiene: filter + `export` in the commit shell (subshell filter is a no-op for subsequent git).
+- Pin pitfalls note for all roles that commit under Cloud Agent hooks.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- pre-commit agent hook (Cursor secrets scanner)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261104-1350-cover-mcp-kv-down-kie-fallback
 status: open
 run_date: 2026-11-04

@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261104-1802-indexer-llms-blog-path-wiped
+status: open
+run_date: 2026-11-04
+role: excalibur-blog-indexer
+topic_id: AS21
+article_dir: memory/blog/articles/AS21-hongqi-hs5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_doctor.py` expects `excalibur_blog_llms_generator.py --help` to include `--blog-path`.
+- Current generator CLI has only `--blog-dir`, `--site-name`, `--site-desc`, `--site-base`, `--out-dir` (no `--blog-path`, no `--relative-urls`).
+- Skill/agent shell examples still pass `--blog-path /`; command fails with `unrecognized arguments: --blog-path /`.
+- Same sanitizer-wipe class as other durable CLI pins this run.
+
+### How the agent recovered this run
+- Confirmed failure with skill flags, then regenerated with working flags: `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog`.
+- Empty `--site-base` yields commit-safe relative URLs `/blog/<slug>/` matching existing `memory/blog/llms.txt` style.
+- Did not invent `--blog-path` behavior; left durable restore to fixer.
+
+### Durable fix needed before next run
+- Restore `--blog-path` (and ideally `--relative-urls`) in `scripts/excalibur_blog_llms_generator.py` so doctor PASS and skill examples work.
+- Pin doctor/smoke against sanitizer wipe of llms generator CLI flags.
+- Align `.cursor/skills/indexer-excalibur-blog/SKILL.md` and `agents/excalibur-blog-indexer.md` with restored flags after restore.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261104-1757-cover-mcp-kv-down-kie-fallback
 status: open
 run_date: 2026-11-04

@@ -302,7 +302,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py`
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
-commit: pending-parent-commit
+commit: 771c405a
 
 ## INC-20261104-0908-scout-wordstat-denylist-fallback
 status: fixed
@@ -357,7 +357,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --check-slug <denylist-sample>` (expect CRITICAL)
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
-commit: pending-parent-commit
+commit: 771c405a
 
 ## INC-20261104-0935-geo-qa-typed-task-fallback
 status: fixed
@@ -403,7 +403,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose geo-qa pin in AGENTS.md + agents/excalibur-blog-geo-qa.md
-commit: pending-parent-commit
+commit: 771c405a
 
 ## INC-20261104-0951-cover-kie-force-local-hero-flag-missing
 status: fixed
@@ -453,7 +453,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
 - `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --help`
 - `python3 scripts/excalibur_blog_fixer_regression_smoke.py`
-commit: pending-parent-commit
+commit: 771c405a
 
 ## INC-20261104-1013-publish-ssh-tcp22-timeout-as15
 status: needs-human
@@ -511,5 +511,5 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg ssh_tcp22_timeout` in publish contract/skill
-commit: pending-parent-commit
+commit: 771c405a
 

@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261105-2210-indexer-llms-skill-absolute-vs-relative
+status: open
+run_date: 2026-11-05
+role: excalibur-blog-indexer
+topic_id: AS22
+article_dir: memory/blog/articles/AS22-changan-uni-k-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Skill CLI for llms generator uses `--site-base ${PUBLIC_SITE_URL}` without `--relative-urls`.
+- Script help marks `--relative-urls` / empty site-base as required for committed `memory/blog/llms*.txt`.
+- Following skill literally produced absolute host URLs; repo HEAD and prior AS21 commit style use `/blog/<slug>/`.
+
+### How the agent recovered this run
+- First run: skill CLI with `--blog-path /` + PUBLIC_SITE_URL (flag restored; doctor complaint obsolete for this path).
+- Second run: `--site-base "" --blog-path / --relative-urls` → commit-safe relative index.
+- Cleared `site_base` in `memory/blog/interlink-suggestions.json` before commit (AS21 pattern).
+
+### Durable fix needed before next run
+- Update indexer skill (both `.cursor/skills` and `skills/`) to document commit-safe command: `--blog-path / --relative-urls` (or empty `--site-base`) for `memory/blog/llms*.txt`.
+- Keep optional absolute/`PUBLIC_SITE_URL` mode only for live/runtime upload notes, not for git commit.
+- Mirror note in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261105-2205-cover-mcp-kv-down-kie-fallback
 status: open
 run_date: 2026-11-05
